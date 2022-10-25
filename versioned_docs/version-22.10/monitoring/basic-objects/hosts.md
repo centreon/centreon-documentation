@@ -4,24 +4,23 @@ title: Creating hosts manually
 ---
 
 To create a host manually:
+
 1. Go to **Configuration \> Hosts \> Hosts** and then click **Add**.
 2. Fill in the fields (see [below](#host-configuration-tab)), then click on **Save**.
 3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md).
 
 ## Host configuration tab
 
-![image](../../assets/configuration/02addhost.png)
-
 ### Host basic information
 
-* The **Host Name** field defines the host name that will be used by the Monitoring Engine.
+* The **Name** field defines the host name that will be used by the Monitoring Engine.
 * The **Alias** field shows the alias of the host.
-* The **IP address / DNS** field defines IP address or DNS name of the host. The **Resolve** button enables us to
+* The **Address** field defines IP address or DNS name of the host. The **Resolve** button enables us to
   resolve the domain name by questioning the DNS server configured on the central server.
 * The **SNMP Community & Version** fields contain the name of the community and the SNMP version.
-* The **Monitored from** field indicates which poller server is charged with monitoring this host.
-* The **Timezone / Location** field indicates the timezone location of the monitored hosts.
-* The **Host Templates** field enables us to associated one or more templates of hosts with this object.
+* The **Monitoring server** field indicates which poller server is charged with monitoring this host.
+* The **Timezone** field indicates the timezone location of the monitored hosts.
+* The **Templates** field enables us to associated one or more templates of hosts with this object.
 
 In case of conflicts of settings present on multiple templates, the host template above overwrites the identical properties
 defined in host templates below.
@@ -38,17 +37,18 @@ This button serves to delete the host template ![image](../../assets/configurati
 * The **Check Command** field indicates the command use to check the availability of the host.
 * The **Args** field defines the arguments given to the check command (each argument starts with a ”!”).
 
-The Macros part serves to add custom macros.
+* **Custom macros**:
 
-* The **Macro name** and **Macro value** field enable us to define the name and value of the macro.
-* The **Password** box enables the value of the macro to be hidden.
+   * The **Name** and **Value** field enable us to define the name and value of the macro.
+   * The **Password** box enables the value of the macro to be hidden.
 
-To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
-To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
+  To reinitialize to the default value (defined in template) click on ![image](../../assets/configuration/common/undo.png#thumbnail1)
+  
+  To view the description of the macro, click on ![image](../../assets/configuration/common/description.png#thumbnail1)
 
-To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
+  To delete the macro, click on ![image](../../assets/configuration/common/delete.png#thumbnail1)
 
-To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
+  To change the order of the macros, click on ![image](../../assets/configuration/common/move.png#thumbnail1)
 
 ### Scheduling options
 
@@ -62,23 +62,26 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 ## Notification tab
 
 * The **Notification Enabled** field enables us to enable or disable the notifications concerning the object.
+* The list of **Linked contacts** indicates the contacts which will receive the notifications.
+* The list of **Linked contacts Groups** indicates the groups of contacts which will receive the notifications.
+  
+  If, on page **Administration > Parameters > Centreon UI**, the **Vertical inheritance only** option is enabled, two extra checkboxes appear:
+
+    * If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent host template but adds the contacts in addition to the contacts defined in the parent template.
+    * If the **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent host template but adds the contact groups in addition to the contact groups defined in the parent template.
+
 * The **Notification Options** define the statuses for which a notification will be sent.
 * The **Notification Interval** is expressed in minutes. It indicates the time between sending each notifications when
   the status is Not-OK. If the value is defined as 0 the scheduler sends a single notification per status change.
 * The **Notification Period** field indicates the time period during which the notifications will be enabled.
 * The **First notification delay** is expressed in minutes. It refers to the time delay to be respected before sending
   the first notification when a Not-OK status is validated.
-* If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-  host template but adds the contacts in addition to the contacts defined in the parent template.
-* The list of **Linked contacts** indicates the contacts which will receive the notifications.
-* If the **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the
-  parent host template but adds the contact groups in addition to the contact groups defined in the parent template.
-* The list of **Linked contacts Groups** indicates the groups of contacts which will receive the notifications.
+* The **Recovery notification delay** is the time that must pass before a recovery notification is sent (when the host goes back to an UP state).
 
 ## Relations tab
 
-* The **Parent Host Groups** list defined the host groups to which the host belongs.
-* The **Parent Host Categories** list defined the categories to which the host belongs.
+* The **Host Groups** list defined the host groups to which the host belongs.
+* The **Host Categories** list defined the categories to which the host belongs.
 * The **Parent Hosts** list enables us to define the physical family relationships between objects.
 * The **Child Hosts** list enables us to define the physical family relationships between objects.
 
@@ -103,15 +106,16 @@ To change the order of the macros, click on ![image](../../assets/configuration/
 
 ### Monitoring engine
 
-* The **URL** field defined a URL that can be used to give more information on the host.
-* The **Notes** field permits us to add  optional notes concerning the host.
+* The **Note URL** field defined a URL that can be used to give more information on the host.
+* The **Note** field permits us to add optional notes concerning the host.
 * The **Action URL** field defined a URL normally use for giving information on actions on the host (maintenance, etc.).
 * The **Icon** field indicates the icon use for the host.
 * The **Alt Icon** field is the text use if the icon cannot be Display.
-* The **Severity level** field indicates the severity level of the host.
+* The **Host severity** field indicates the severity level of the host.
 * The **Status Map Image** field defined the logo for Centreon Map module.
-* The **Geo coordinates** field defined Geographical coordinates use by Centreon Map module to position element on map.
+* The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map.
   Define "Latitude,Longitude", for example for Paris coordinates set "48.51,2.20"
+* **Enable/disable resource**: This setting determines whether the host and its services must be monitored or not. If the host is disabled, it doesn't appear on the **Resources Status** page.
 
 The fields presented below are obsolete:
 

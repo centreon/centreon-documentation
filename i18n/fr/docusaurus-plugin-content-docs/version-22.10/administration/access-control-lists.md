@@ -4,6 +4,7 @@ title: Gérer les droits des utilisateurs Centreon (ACL)
 ---
 
 Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/contacts.md) de Centreon :
+
 - sur les ressources : quels hôtes, services, etc. l'utilisateur aura le droit de voir
 - sur les menus de l'interface Centreon (à quelles pages il pourra accéder)
 - sur les actions que l'utilisateur pourra réaliser sur les ressources ou sur un moteur de supervision (mettre une ressource en maintenance, exporter la configuration...).
@@ -151,11 +152,13 @@ Pour créer un filtre d'accès aux actions :
 | Afficher les statistiques des collecteurs dans le bandeau       | Affiche les statistiques des collecteurs en haut à gauche<br/>![image](../assets/administration/acl-bandeau-poller.png) |
 | Afficher la liste des collecteurs                               | Permet de filtrer selon le collecteur à la page **Supervision > Détail des statuts > Hôtes** ou  **Supervision > Détail des statuts > Services** (pages dépréciées)  |
 
-#### Configuration des actions
+#### Actions de configuration des collecteurs / Gestion des collecteurs
 
 | Champ                                   | Actions associées                                                                                                                             |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Générer les fichiers de configuration   | Permet de générer, tester et exporter la configuration des collecteurs et de redémarrer les moteurs de supervision                            |
+| Créer et modifier des collecteurs | L'utilisateur peut réaliser les actions **Ajouter**, **Ajouter (avancé)** et **Dupliquer** sur des serveurs distants et des collecteurs et les éditer.  |
+| Supprimer des collecteurs | Permet à l'utilisateur de supprimer des serveurs distants et des collecteurs de la configuration. Cette action est irréversible. Attention, avant de supprimer un serveur distant ou un collecteur, vérifiez qu'il ne supervise plus d'hôtes et que **centengine** est arrêté. |
+| Déployer la configuration | Permet à l'utilisateur de générer, tester et exporter la configuration vers les serveurs distants et les collecteurs, et de redémarrer leurs moteurs de supervision.  
 | Générer la configuration des traps SNMP | Permet de générer et exporter la configuration des traps SNMP pour le processus Centreontrapd sur les collecteurs et de redémarrer ce dernier |
 
 #### Actions globales du moteur de supervision (Commandes externes)

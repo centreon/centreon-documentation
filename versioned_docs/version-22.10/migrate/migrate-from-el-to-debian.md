@@ -1,6 +1,6 @@
 ---
 id: migrate-from-el-to-debian
-title: Migrate from an EL-type OS to Debian 11 (to a Centreon from version 22.04)
+title: Migrate from an EL-type OS to Debian 11
 ---
 
 ## Prerequisites
@@ -11,7 +11,7 @@ This procedure only applies if the following conditions are met:
 - Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
 
 > If your Centreon platform includes a Centreon redundancy system, please
-> contact [Centreon support](https://centreon.force.com).
+> contact [Centreon support](https://support.centreon.com).
 
 ## Migrating a central server
 
@@ -90,7 +90,7 @@ complete the installation process by connecting to the Centreon web interface.
    systemctl stop mariadb
    ```
 
-3. On the old server, export the dumps to the new Centreon 22.04 database server (make sure you
+3. On the old server, export the dumps to the new Centreon database server (make sure you
 have enough space for large database dumps):
 
    ```shell
@@ -152,7 +152,7 @@ If you only use Centreon plugins, reinstall them on the new server:
 
 ```shell
 apt update
-echo "deb https://apt.centreon.com/repository/22.04-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
+echo "deb https://apt.centreon.com/repository/22.10-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 apt install centreon-pack*
@@ -166,12 +166,12 @@ If you are using custom plugins, synchronize the directories that contain your c
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-22.04.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-22.10.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-22.04.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-22.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name between the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.
@@ -230,4 +230,6 @@ To migrate a remote server:
 To migrate a poller:
 
 1. Follow steps 1 and 4 of the procedure to migrate a central server (i.e. [install the new server](#step-1-install-the-new-server) and [synchronize the plugins](#step-4-synchronize-the-plugins)).
-2. [Attach the new poller](../monitoring/monitoring-servers/add-a-poller-to-configuration.md) to the remote server you want, or to the central server.
+2. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. If your poller doesn't work after migrating it (e.g. you cannot deploy the configuration, or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1055).

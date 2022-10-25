@@ -5,56 +5,61 @@ title: Anomaly detection
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-> Centreon Anomaly Detection is currently in **closed-beta phase** and require a
+> Centreon Anomaly Detection is currently in **closed-beta phase** and requires a
 > valid token provided by Centreon. We will soon open the beta phase to the
 > public under certain conditions.
 
 ## Description
 
-The **Centreon Anomaly Detection** module detects deviations from the regular
-service behavior.
+The **Centreon Anomaly Detection** module detects deviations from the regular behavior of a
+service: it uses dynamic thresholds to trigger alerts.
 
-Collected data is sent to the Centreon Cloud platform in order to be able to
-compute a regular behavior model thanks to the history of this data.
-
-Once the model has been calculated, predictions are then generated and retrieved
-on the on-premise Centreon platform.
-
-These predictions will serve as floating thresholds which will then be used by
-the monitoring engine to compare the collected value with the predicted
-thresholds to highlight deviations and generate alerts.
-
-![image](../assets/monitoring/anomaly/centreon_cloud.png)
-
-## Prerequisites
-
-The Centreon Anomaly Detection module requires the following prerequisites:
-
-  - Centreon in minimum version 20.04
-  - A token provided by Centreon to access the Centreon Cloud platform
-  - An Internet connection from the Centreon Central server
-  - The SHELL environment variable [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) must not be set, or be set to `C`. To check the value of this variable, enter:
-
-    ```
-    echo $LC_ALL
-    ```
-      
-  - Prediction best works with monitored services that present a seasonal
-    behaviour as shown below:
+With "classic" monitoring, alerts are triggered from static thresholds: for instance, users are alerted when the ping
+on a server exceeds 700 ms. However, for some services, "normal" values change over time, which means that static thresholds are
+not that relevant. You can use Anomaly Detection when the behavior of a service is repetitive and predictable:
 
 ![image](../assets/monitoring/anomaly/simple_scheme.png)
 
+Anomaly Detection determines how the normal values evolve in time: predictions calculate a lower threshold and an upper threshold.
+When the behavior of the service deviates from the expected model, these thresholds are passed (i.e. the metric goes below the lower threshold or goes over the upper threshold). The service goes into a CRITICAL state and a notification is sent. Exemple: a server usually has little traffic at night. One night, Centreon detects network flows higher than normal and triggers an alert. This makes the company aware that the server has been hacked.
+
+## How it works
+
+1. Collected data is sent to the Centreon SaaS platform.
+
+2. Centreon computes a regular behavior model thanks to the history of this data.
+
+3. Once the model has been calculated, predictions are then generated and retrieved
+by your Centreon platform.
+
+4. The predictions act as floating thresholds which will then be used by
+the monitoring engine to compare the collected value with the predicted
+thresholds to highlight deviations and generate alerts. Data received during downtimes are not taken into account when computing predictions so as not to distort the analysis.
+
+5. Models are recomputed regularly and improve over time.
+
+## Prerequisites
+
+To use Anomaly Detection, you will need:
+
+- A token provided by Centreon to access the Centreon SaaS platform,
+- An internet connection from the Centreon central server
+- The SHELL environment variable [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) must not be set, or be set to `C`. To check the value of this variable, enter:
+
+   ```
+   echo $LC_ALL
+   ```
+
 ## Installation
 
-### Installing packages
+### Step 1: Installing packages
 
-Add additional repository:
+1. Add an additional repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Nothing to do
+Nothing to do.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
@@ -66,145 +71,129 @@ yum install -y epel-release
 </TabItem>
 </Tabs>
 
-Then run the following command:
-```shell
-yum install centreon-anomaly-detection
-```
+2. Run the following command:
 
-### UI installation
+   ```shell
+   yum install centreon-anomaly-detection
+   ```
 
-Go to **Administration > Extensions > Manager** and search **anomaly**. Click
-on **Install selection**. Your module is now installed:
+### Step 2: UI installation
 
-![image](../assets/monitoring/anomaly/install_02.png)
+1. Go to **Administration > Extensions > Manager**. An **Anomaly Detection** tile appears in the **Modules** section.
 
-### Restart process
+2. Click on the installation button in the **Anomaly Detection** tile. The module is now installed (the version number appears on a green background with a white check mark next to it).
 
-Run the following command as a privileged user:
+3. Run the following command as a privileged user:
 
-```shell
-systemctl restart gorgoned
-```
+   ```shell
+   systemctl restart gorgoned
+   ```
 
-### Add your token
+### Step 3: Add your token
 
-Go to the **Configuration > Services > Anomaly Detection** menu and click on
-**Add Centreon Cloud Token** button:
+1. Go to **Configuration > Services > Anomaly Detection** and click on
+**Add Centreon Cloud Token**.
 
-![image](../assets/monitoring/anomaly/install_03.png)
+2. Enter your token and click on **Save**.
 
-Enter your token and click on **Save**:
-
-![image](../assets/monitoring/anomaly/install_04.png)
-
-> If your Centreon Central server needs a proxy configuration to access the
+> If your Centreon central server needs a proxy configuration to access the
 > Internet, check the **Use proxy** box.
 
 Your Centreon platform is now ready to use Centreon Anomaly Detection.
 
 ## Configuration
 
-> In its beta version, the Centreon Anomaly Detection module does not allow you
-> to configure services from classic services already supervised by your
-> Centreon platform.
+To have a fully functional Anomaly Detection service, you need to go through 4 steps:
 
-Configuration must be done in 3 steps:
+1. [Create an Anomaly Detection service](#step-1-create-an-anomaly-detection-service). This will activate the sending of the collected data to the Centreon SaaS platform, in order to start modeling regular behavior.
+2. Assess the relevance of the computed predictions.
+3. Once the model seems right, [activate status changes for the service](#activate-the-generation-of-alerts).
+4. When all changes in status seem relevant, [activate the notification process](#activate-the-notification-process).
 
-1.  [Activate the sending of the collected data to Centreon
-    Cloud](#activate-the-sending-of-the-collected-data-to-centreon-cloud) in
-    order to start modeling regular behavior then control via the menu
-    **Monitoring > Performances > Graphs** the first modeling calculations
-    carried out.
-2.  Once the model seems right, [activate the generation of
-    alerts](#activate-the-generation-of-alerts)
-3.  As soon as the alerts generated seem correct to you, [activate the
-    notification process](#activate-the-notification-process)
+### Step 1: Create an Anomaly Detection service
 
-### Activate the sending of the collected data to Centreon Cloud
+You can create an Anomaly Detection service manually, or [use the creation wizard](#use-the-creation-wizard). To create an Anomaly Detection service manually:
 
-Go to the **Configuration > Services > Anomaly Detection** menu and click on
-**Create manually** button:
+1. Go to **Configuration > Services > Anomaly Detection** and click on
+**Create manually**:
 
-![image](../assets/monitoring/anomaly/configure_01.png)
+2. Fill in the following fields:
 
-#### Configuration fields
+  - **Description**: the name of the service.
+  - **Status**: enable or disable the service. If you disable the service, after you deploy the configuration, the service will no longer be monitored (for instance it won't appear on page **Resources Status** anymore).
+  - **Select host - service**: choose the host/service couple on which the Anomaly Detection service will be based.
+  - **Select metric**: select the metric on which to apply anomaly detection.
+  - For the time being, leave the **Enable change of status** and **Enable notifications** fields set to **Disabled** (they will be enabled at step 3 and 4).
+  - In section **Categories and groups**, you can set a [severity level](../monitoring/categories.md#severities).
 
-  - The **Description** field defined the name of the service.
-  - The **Status** field allows us to enable or disable the service.
-  - The **Select host - service** field allows to choose the host / service
-    couple from which the data will be selected.
-  - The **Select metric** field allows to select the metric on which will we
-    apply anomaly detection.
-  - Select a default contact for the **Implied Contacts** field.
-  - Set **0** for the **Notification Interval** field.
-  - Select a default period for the **Notification Period** field.
-  - Select **None** for the **Notification Type** field.
-  - You can select a **Severity level**.
+3. Click on **Save**.
 
-Click on **Save**.
+4. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md).
 
-It is now time to [deploy the
-monitoring](monitoring-servers/deploying-a-configuration.md).
+   - The service appears on page **Monitoring > Resources Status**. To display only Anomaly Detection services, use the **Type** filter in the **Filter options** window.
 
-Then go to the **Monitoring > Status Details > Services** menu and select
-**All** value for the Service Status filter. After a few minutes, the first
-results of the monitoring appear.
+   - The behavior model calculation starts. However, before calculations have been made and predictions sent to your platform, the status of the service is UNKNOWN. For predictions to be computes, you need to have at least 4 hours' worth of data.
 
-> The behavior model calculation will start. However, to obtain a model
-> representing a regular behavior, it is necessary to wait several weeks (around
-> 6 weeks) in order to obtain a stable model.
+   - The first predictions will appear in up to 36 hours. The service will then be in an OK status, until status changes are enabled (step 3).
 
-> If the data on which you apply the anomaly detection has been supervised for a
-> certain time, it is possible to [transfer the data
-> history](#forward-history-of-data) to obtain a reliable model more quickly.
+   > If the data on which you apply the anomaly detection has been supervised for a
+   > certain time, it is possible to [transfer the data
+   > history](#forward-history-of-data) to obtain a reliable model more quickly.
 
-### Activate the generation of alerts
+## Step 2: Assess the relevance of the predictions
+
+At first, the predictions you receive will not be very relevant: Anomaly Detection needs to identify several repetitions of data patterns before it can compute a correct model. This means that the length of time needed to compute the model varies according to how often your data repeats (daily, weekly...). In general, you will need to wait for about 6 weeks to obtain a stable model.
+
+To assess the relevance of the predictions, look at the service's graph on page **Monitoring > Performances > Graphs**, or on the **Graphs** tab of the details panel for the service on page **Monitoring > Resources Status**.
+
+If you think this is necessary (e.g if you see too many false positives, or on the contrary if the predictions do not detect enough incidents), you can manually adjust the distance between the curve and the thresholds.
+
+1. On page **Monitoring > Resources Status**, click on the Anomaly Detection service you want, then click the **Graph** tab in the details panel.
+2. Click the **Edit anomaly detection data** icon (the wrench) at the top right of the tab. The graph opens in a pop-up window.
+3. Use the slider in section **Manage envelope size** to change the range of the predictions: in the preview, checks outside the envelope are shown by red dots.
+4. Click on **Save**. The new envelope size is applied from that moment on. The envelope that was already calculated stays the same (this means that the changes are not visible immediately on the graph).
+
+### Step 3: Activate status changes
 
 If, by regularly following the generated model and the data from the
-`Monitoring > Performances > Graphs` menu, you think that your model is
-stable, you can activate alert generation.
+**Monitoring > Performances > Graphs** menu, you think that your model is
+stable, you can activate status changes. Once you enable this option the status of the service will switch to CRITICAL [SOFT](../alerts-notifications/concepts.md#status-types) as soon as the metric goes below the lower threshold or goes above the upper threshold.
 
-Go to the **Configuration > Services > Anomaly Detection** menu and edit your
-anomaly detection service:
+1. Go to the **Configuration > Services > Anomaly Detection** menu and click the Anomaly Detection service you want.
 
-![image](../assets/monitoring/anomaly/configure_02.png)
+2. In the **Alerting options** section, enable the **Enable change of status** option.
 
-You can now enable **Enable change of status** and select the number of
-deviations you want before to validate the alert using the **Detect anomalies
-after** field.
+3. In the **Detect anomalies after** field, enter the number of deviations before the service switches to a CRITICAL [HARD](../alerts-notifications/concepts.md#status-types) state. (When enabled, notifications are only sent when the service switches from SOFT to HARD.)
 
-Click on **Save** and [deploy the monitoring
-configuration](monitoring-servers/deploying-a-configuration.md).
+4. Click on **Save**.
+
+5. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md).
 
 ### Activate the notification process
 
-If the generated alerts seem relevant to you, you can now activate the
-notification process.
+When you are satisfied that the status changes you see are relevant (they do happen when an incident starts or finishes), then your Anomaly Detection service is fully operational. You can then activate the notifications.
 
-Go to the **Configuration > Services > Anomaly Detection** menu and edit your
-anomaly detection service:
+1. Go to **Configuration > Services > Anomaly Detection** and click on the Anomaly Detection service you want.
 
-![image](../assets/monitoring/anomaly/configure_03.png)
+2. Fill in the following fields:
 
-  - Select **Enabled** for the **Enable notification** option.
-  - Select the **Implied Contacts** will receive notification.
-  - Select the **Implied Contact Groups** will receive notification.
-  - Select the **Notification Interval**, by default **0** to receive only one
-    notification by status.
-  - Select the **Notification Period** on which you will receive notification.
-  - Select the **Notification Type** that you want to receive.
+  - **Enable notification**: select **Enabled**.
+  - **Implied Contacts**: select who will receive notifications for this service.
+  - **Implied Contact Groups**: select the contact groups that will receive notifications for this service.
+  - **Notification Interval**: define how frequently notifications should be sent once the service has entered a CRITICAL HARD state and has not been acknowledged yet. The default value is **0**, which means only one notification will be sent per status change.
+  - **Notification Period**: select the [time period](../monitoring/basic-objects/timeperiods.md) during which these users may receive notifications.
+  - **Notification Type**: select the types of notifications you want to receive (when the service enters a CRITICAL state and/or when it goes back to normal).
 
-Click on **Save** and [deploy the monitoring
-configuration](./monitoring-servers/deploying-a-configuration.md).
+3. Click on **Save**.
+
+4. [Deploy the configuration](./monitoring-servers/deploying-a-configuration.md).
 
 ### Use the creation wizard
 
-Since version 20.10.1, it is possible to use the creation wizard. Indeed, this
-new functionality makes it possible to highlight the services presenting either a
-seasonality or a regular stability.
+The creation wizard makes it possible to highlight the services that follow patterns or have a regular stability (for which values are consistently included between two thresholds).
 
-Go to the**Configuration > Services > Anomaly Detection** menu and click on
-**Create from analysis** button.
+Go to **Configuration > Services > Anomaly Detection** and click on
+**Create from analysis**.
 
 The list of existing services on your Centreon platform is displayed as well as a
 score in number of stars: from 5 stars to 0, 5 stars representing high potential
@@ -219,14 +208,15 @@ of the row. You arrive on the pre-filled creation form:
 
 Modify the name of the service then click on the **Save** button.
 
-> If the list is empty, it means that the calculation to determine the services
-> of interest has not yet started.
-> 
-> This is done every 6 hours via a cron launched by the `gorgoned` process
+> If the list is empty, it means that the calculation to determine which services
+> are interesting has not yet started.
+>
+> This is done every 6 hours via a cron launched by the **gorgoned** process
 > (defined in the **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml** file).
-> 
-> It is possible to launch the first calculation manually via the following 
+>
+> It is possible to launch the first calculation manually via the following
 > command from the central Centreon server:
+>
 > ```shell
 > su - centreon
 > perl /usr/share/centreon/bin/anomaly_detection --seasonality
@@ -234,25 +224,24 @@ Modify the name of the service then click on the **Save** button.
 
 ## View the anomalies detected
 
-Anomaly services are regular services but have floating thresholds that adapt
-according to the calculated model. It is therefore possible to view its services
-and the alerts detected though:
+Once you have created an Anomaly Detection service, you can see it in the following places:
 
-  - The **Monitoring > Status Details > Services** menu.
-  - The **Monitoring > Performances > Graphs** menu.
-  - The **Monitoring > Event Logs > Event Logs** menu.
-  - The **service-monitoring** widget in the **Home > Custom Views** menu.
-  - And all menus where you can operate on services.
+- The **Monitoring > Resources Status** menu.
+- The **Monitoring > Status Details > Services** menu.
+- The **Monitoring > Performances > Graphs** menu.
+- The **Monitoring > Event Logs > Event Logs** menu.
+- The **service-monitoring** widget in the **Home > Custom Views** menu.
+- And all menus where you can operate on services.
 
 ## Forward history of data
 
 > Sending data history is a very CPU intensive process. Depending on the number
 > of services monitored, the extraction of data from the **centreon\_storage**
 > database can take several tens of minutes. This will strongly impact the
-> performance of the database and may slow down the overall monitoring platform.
+> performance of the database and may slow down the monitoring platform as a whole.
 
-To send the historic of data of an anomaly service, connect to your Centreon
-Central server and access to the **centreon** user:
+To send the history of data of an anomaly service to our SaaS platform, connect to your Centreon
+Central server and access the **centreon** user:
 
 ```shell
 su - centreon
@@ -276,7 +265,7 @@ List of available anomaly detection services:
 - id: 22, hostname: fw-brasilia, servicename: anomaly-traffic-in, metric name: traffic_in
 ```
 
-To send history of data for the anomaly service with ID 14 for the last 4 weeks
+To send the history of data for the anomaly service with ID 14 for the last 4 weeks,
 execute the following command:
 
 ```shell
@@ -315,16 +304,17 @@ Sending data from 2020-04-03T00:00:00 to 2020-04-04T00:00:00
 Sending data from 2020-04-04T00:00:00 to 2020-04-05T00:00:00
 Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 ```
+
 ## FAQ
 
 ### What services are offered and their associated SLA?
 
 The anomaly detection service is currently in closed beta test phase as described in the Centreon documentation. The
 purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
-During this phase, Centreon will improve the anomaly detection feature based on users feedback. No SLA will be available
+During this phase, Centreon will improve the anomaly detection feature based on users' feedback. No SLA will be available
 during this phase.
 
-### What are the selection criteria for the beta test program? for what duration and volume?
+### What are the selection criteria for the beta test program? For what duration and volume?
 
 A participation form is available to Centreon customers. Based on the answers to the form, Centreon will select the
 candidates to participate in the closed beta test phase.
@@ -336,18 +326,9 @@ will be scheduled to assess the effectiveness of the feature on the customers' p
 necessary.
 An update of the functionality may also be requested to validate the changes made following the feedback.
 
-### How long is the beta test program?
-
-The closed beta test period will last for about 4 months. This should validate the predictions generated from the calculation of
-the models, as well as the generation of alerts in the event console and the triggering of the notification process.
-
-#### When will the feature be available? And for what Centreon Edition?
-
-The Anomaly Detection functionality will be available for Centreon Business Edition in the 21.10 version.
-
 ### How long is the data stored?
 
-The data is kept for the entire validity of the license. It will allow to recalculate models if necessary. An
+The data is kept for the entire validity of the license. It will make it possible to recalculate models if necessary. An
 additional period of 3 months will be added at the end of the validity of the license before its deletion.
 
 ### What data is hosted by the service?
@@ -364,8 +345,8 @@ thresholds by the Centreon platform.
 
 ### Who has access to the data hosted by the service?
 
-The data is associated with the access token of the anomaly detection offer. They are hosted on the Centreon Cloud
-Platform and partitioned by users. Only the user with the token has access to the data.
+The data is associated with the access token of the anomaly detection offer. They are hosted on the Centreon SaaS
+Platform and partitioned by platform. Users with a token can only access their own data.
 
 ### How can I request the deletion of data?
 

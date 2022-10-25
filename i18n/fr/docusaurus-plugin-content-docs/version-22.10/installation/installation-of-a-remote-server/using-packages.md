@@ -576,6 +576,8 @@ commande suivante sur le serveur Central :
 
 ```shell
 systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable crond
+systemctl start crond
 ```
 
 </TabItem>

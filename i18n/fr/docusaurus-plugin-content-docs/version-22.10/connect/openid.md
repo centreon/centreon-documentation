@@ -12,21 +12,19 @@ tout autre IdP compatible avec le flux d'autorisation via un code (Authorization
 
 ## Configurer l'authentification OpenID Connect
 
-L'authentification se paramètre à la page **Administration > Authentification > OpenId Connect Configuration** :
-
-![image](../assets/administration/oidc-configuration.png)
+L'authentification se paramètre à la page **Administration > Authentification > Configuration OpenId Connect**.
 
 ### Étape 1 : Activer l'authentification
 
 Activez l'authentification OpenID Connect :
 
-- **Enable OpenId Connect authentication** : active/désactive l'authentification OpenId Connect.
+- **Activer l'authentification OpenID Connect** : active/désactive l'authentification OpenId Connect.
 - **Mode d'authentification** : indique si l'authentification doit se faire uniquement par OpenId Connect ou en
   utilisant également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans
   Centreon (et non identifiés par OpenID) pourront également se connecter.
 
 > Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte
-> local `admin` en cas de configuration érronée.
+> local `admin` en cas de configuration erronée.
 
 ### Étape 2 : Configurer les informations d'accès au fournisseur d'identité
 
@@ -35,13 +33,14 @@ Renseignez les informations du fournisseur d'identité :
 - **URL de base** : définit l'URL de base du fournisseur d'identité pour les points d'entrée OpenId Connect (obligatoire).
 - **Point d'entrée d'autorisation** : définit le point d'entrée d'autorisation, par exemple `/authorize` (obligatoire).
 - **Point d'entrée de jeton** : définit le point d'entrée du jeton, par exemple `/token` (obligatoire).
-- **ID de client** : définit l'ID client.
-- **Secret de client** : définit le secret client.
+- **Identifiant client** : définit l'ID client (obligatoire).
+- **Secret de client** : définit le secret client (obligatoire).
 - **Portées** : définit la portée du fournisseur d'identité, par exemple `openid`. Séparez différentes portées par des espaces.
   > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scopes) afin de récupérer la valeur
   > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
 - **Valeur de la déclaration de connexion** : définit quelle variable renvoyée par les points d'entrée
-**Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
+  **Point d'entrée de jeton d'introspection** ou **Point d'entrée d'information utilisateur** doit être utilisée pour
+  authentifier l'utilisateur. Par exemple `sub` ou `email`.
 - **Point d'entrée de fin de session** : définit le point d'entrée de déconnexion, par exemple `/logout`.
 
 Suivant votre fournisseur d'identité, définissez l'un ou l'autre des deux endpoints suivants :
@@ -51,30 +50,165 @@ Suivant votre fournisseur d'identité, définissez l'un ou l'autre des deux endp
 
 Vous pouvez également configurer :
 
-- **Utiliser l'authentification basique pour l'authentification du point d'entrée de jeton** : si cette option est activée, la méthode `Authorization: Basic` sera utilisée. Activez cette option si votre fournisseur d'identité le demande.
-- **Disable SSL verify peer** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne sera pas vérifié : cette option ne doit être utilisée qu'à des fins de test.
+- **Utiliser l'authentification basique pour l'authentification du point d'entrée de jeton** : si cette option est activée, la
+  méthode `Authorization: Basic` sera utilisée. Activez cette option si votre fournisseur d'identité le demande.
+- **Désactiver la vérification du pair** : permet de désactiver la validation des pairs SSL. Le certificat du fournisseur d'identité ne
+  sera pas vérifié : cette option ne doit être utilisée qu'à des fins de test.
 
 > Il est possible de définir une URL complète pour les points de entrée au cas où la base de l'URL est différente
 > des autres.
 
-> Vous pouvez activer **Authentification debug** via le menu **Administration > Parameters > Debug** pour comprendre les
+> Vous pouvez activer **Enregistrer les authentifications** via le menu **Administration > Paramètres > Débogage** pour comprendre les
 > échecs d'authentification et améliorer votre configuration.
 
-### Étape 3 : Configurer les adresses des clients
+### Étape 3 : Configurer les conditions d'authentification
 
-Si vous laissez ces deux champs vides, toutes les adresses IP seront autorisées à accéder à l'interface Centreon.
+* Vous pouvez ajouter des adresses IP en liste blanche ou liste noire. Si vous laissez ces deux champs vides, toutes les
+adresses IP seront autorisées à accéder à l'interface Centreon.
 
-- **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP par des virgules.
-- **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
+  - **Adresses de clients de confiance** : Si vous entrez des adresses IP dans ce champ, seules ces adresses IP seront
+    autorisées à accéder à l'interface Centreon. Toutes les autres adresses IP seront bloquées. Séparez les adressses IP
+	par des virgules.
+  - **Adresses de clients sur liste noire** : Ces adresses IP seront bloquées. Toutes les autres adresses IP seront autorisées.
 
-### Étape 4 : Créer les utilisateurs
+* Vous pouvez également définir des conditions selon lesquelles les utilisateurs seront autorisés à se connecter ou non, en
+  fonction des données reçues par un point d'entrée particulier.
+   - **Activer les conditions sur le fournisseur d'identité**.
+   - Définissez quel attribut et quel point d'entrée seront utilisés pour valider les conditions.
+   - Pour l'option **Définir les valeurs des conditions autorisées**, définissez quelles valeurs renvoyées par ce
+     point d'entrée seront autorisées. Si vous entrez plusieurs valeurs, toutes devront être remplies pour que la condition soit validée. Tous les
+	 utilisateurs qui tentent de se connecter avec une autre valeur ne pourront pas se connecter.
 
-À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md) qui se connecteront à Centreon avec OpenID et [donnez-leur des droits](../administration/access-control-lists.md) via des groupes d'accès.
+   Dans l'exemple ci-dessous, la valeur de **Chemin de l'attribut des conditions** est **status** et la valeur de
+   **Définir les valeurs des conditions autorisées** est **activated**. Si le point d'entrée **Point d'entrée d'introspection**
+   vous donne la réponse suivante, l'utilisateur est autorisé à se connecter :
 
-### Step 5: Configurer le fournisseur d'identité
+   ```json
+   {
+       ...
+       "name": "OpenId Connect OIDC",
+       "given_name": "OpenId Connect",
+       "family_name": "OIDC",
+       "preferred_username": "oidc",
+       "email": "oidc@localhost",
+       "email_verified": false,
+       ...
+       "status": "activated"
+   }
+   ```
 
-Configurer votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
-authentifier vos utilisateur, et pour autoriser `l'uri de redirection` suivante une fois vos utilisateurs authentifiés :
+   > Actuellement, seules les valeurs de type chaîne de caractères peuvent être utilisées.
+
+### Étape 4 : Gérer la création d'utilisateurs
+
+<Tabs groupId="sync">
+<TabItem value="Gestion automatique utilisateurs" label="Gestion automatique">
+
+Si vous activez l'import automatique des utilisateurs, les utilisateurs qui se connecteront à Centreon pour la première fois
+seront créés dans la configuration Centreon. (Activer l'option n'importe pas automatiquement tous les utilisateurs de votre infrastructure.)
+
+- **Activer l'importation automatique** : active/désactive l'import automatique des utilisateurs. Si l'import automatique des utilisateurs
+  est désactivé, vous devrez [créer chaque utilisateur manuellement](../monitoring/basic-objects/contacts-create.md) avant que celui-ci ne se connecte.
+- **Modèle de contact** : sélectionnez un [modèle de contact](../monitoring/basic-objects/contacts-templates.md) qui sera appliqué aux
+  nouveaux utilisateurs importés.
+  Cela permet notamment de gérer le paramétrage par défaut des [notifications](../alerts-notifications/notif-configuration.md).
+- **Attribut de l'email** : définit quelle variable renvoyée par les points d'entrée **Point d'entrée de jeton d'introspection** ou
+  **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer l'adresse email de l'utilisateur.
+- **Attribut du nom complet** : définit quelle variable renvoyée par les points d'entrée **Point d'entrée de jeton d'introspection**
+  ou **Point d'entrée d'information utilisateur** doit être utilisée pour récupérer le nom complet de l'utilisateur.
+
+</TabItem>
+<TabItem value="Gestion manuelle utilisateurs" label="Gestion manuelle">
+
+À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md)
+qui se connecteront à Centreon avec OpenID Connect.
+
+</TabItem>
+</Tabs>
+
+### Étape 5 : Gérer les autorisations
+
+<Tabs groupId="sync">
+<TabItem value="Role automatic management" label="Gestion automatique">
+
+Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon se verront
+automatiquement accorder des [droits](../administration/access-control-lists.md), car ils seront liés à des
+[groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès) selon les règles que vous avez définies.
+
+- Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin d'appliquer des relations
+  avec des groupes d'accès.
+- **Appliquer uniquement le premier rôle**: si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
+  d'identité, alors seul le premier rôle sera appliqué. Si l'option est désactivée, tous les rôles seront appliqués.
+- Faites correspondre un attribut extrait du fournisseur d'identité avec le groupe d'accès auquel vous souhaitez que l'utilisateur
+  appartienne.
+
+Par exemple, le **Point d'entrée d'introspection** vous donne la réponse suivante et l'option **Appliquer uniquement le premier rôle**
+est activée. Le **Chemin de l'attribut de rôles** sera **realm_access.roles** et l'option
+**Définir la relation entre les rôles et les groupes d'accès ACL** établira une relation entre la valeur **centreon-editor**
+et un groupe d'accès défini dans Centreon :
+
+```json
+{
+	...
+	"realm_access": {
+		"roles": ["centreon-editor", "centreon-admin", "user"]
+	},
+	...
+}
+```
+
+> À chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour prendre en compte toute nouvelle
+> information en provenance du fournisseur d'identité.
+
+</TabItem>
+<TabItem value="Role manual management" label="Gestion manuelle">
+
+Si vous désactivez l'option **Activer la gestion automatique**, vous devrez [attribuer des droits](../administration/access-control-lists.md)
+à vos utilisateurs manuellement en liant ceux-ci à des [groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
+
+</TabItem>
+</Tabs>
+
+### Étape 6 : Gérer les groupes de contacts
+
+<Tabs groupId="sync">
+<TabItem value="Groups automatic management" label="Gestion automatique">
+
+Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon seront rattachés
+aux [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts) que vous avez définis.
+
+- Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin de créer des relations avec
+  des groupes d'accès.
+- Faites correspondre les attributs extraits du fournisseur d'identité avec les groupes de contacts auxquels vous souhaitez
+  que l'utilisateur appartienne.
+
+Par exemple, le **Point d'entrée d'introspection** vous donne la réponse suivante. Le **Chemin de l'attribut de groupes**
+sera **groups** et l'option **Définir la relation entre les groupes et les groupes de contact** établira une relation entre
+la valeur **Linux** et un groupe de contacts défini dans Centreon :
+
+```json
+{
+	...
+	"groups": ["Windows", "Linux", "DBA"],
+	...
+}
+```
+
+> À chaque connexion de l'utilisateur, la gestion des groupes est réinitialisée pour prendre en compte toute nouvelle
+> information en provenance du fournisseur d'identité.
+
+</TabItem>
+<TabItem value="Groups manual management" label="Gestion manuelle">
+
+Si vous désactivez l'otion **Activer la gestion automatique**, vous devrez gérer manuellement les relations entre contacts et [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts).
+
+</TabItem>
+</Tabs>
+
+### Étape 7 : Configurer le fournisseur d'identité
+
+Configurez votre fournisseur d'identité pour ajouter l'application Centreon à utiliser le protocole OpenID Connect pour
+authentifier vos utilisateur, et pour autoriser l'uri de redirection suivante une fois vos utilisateurs authentifiés :
 
 ```shell
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
