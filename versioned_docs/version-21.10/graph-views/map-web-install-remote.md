@@ -1,6 +1,6 @@
 ---
 id: map-web-install-remote
-title: Installing MAP Web on a remote server
+title: Installing MAP on a remote server
 ---
 
 ## Architecture
