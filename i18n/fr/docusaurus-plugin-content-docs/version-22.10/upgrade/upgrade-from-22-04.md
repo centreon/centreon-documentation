@@ -392,6 +392,19 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 </TabItem>
 </Tabs>
 
+#### Configuration Apache personnalisée : activer la compression du texte
+
+Pour améliorer le temps de chargement des pages, vous pouvez activer la compression du texte sur le serveur Apache. Le paquet **brotli** est nécessaire. Cette configuration est optionnelle mais vous fournira une meilleure expérience utilisateur.
+
+Ajoutez le code suivant à votre fichier de configuration Apache, dans les éléments `<VirtualHost *:80>` et `<VirtualHost *:443>` :
+
+```shell
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+```
+
 ### Finalisation de la mise à jour
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache et redémarrez le processus PHP avec les commandes suivantes :
