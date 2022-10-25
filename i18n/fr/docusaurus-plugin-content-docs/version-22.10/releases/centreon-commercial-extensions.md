@@ -17,6 +17,8 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 #### Performances
 
 - Move to Java 17
@@ -25,11 +27,15 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
 
 ### 22.10.0
+
+Release date: `October 26, 2022`
 
 #### Performances
 
@@ -40,6 +46,8 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 #### Enhancements
 
 - Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the [22.04 release](../../22.04/releases/centreon-commercial-extensions/#centreon-auto-discovery), it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
@@ -49,16 +57,22 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 Compatibility with other 22.10 components.
 
 ## Centreon License Manager
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
 
 ### 22.10.0
+
+Release date: `October 26, 2022`
 
 - Compatibility with other 22.10 components.

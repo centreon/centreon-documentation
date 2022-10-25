@@ -18,10 +18,12 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 #### Enhancements
 
 - [ACL] ACLs on actions are now updated in real time for connected users
-- [ACL] "Read/Write" menu access ACL regarding Poller configuration have been split into two available actions:
+- [ACL] "Read/Write" menu access ACL regarding Poller configuration has been split into two available actions:
   "Create and edit" and "Delete"
 - [API] Added an endpoint to perform all web updates
 - [Authentication] Improved authentication via OpenID Connect by adding conditions
@@ -74,6 +76,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 #### Centreon Engine
 
 ##### Enhancements
@@ -111,11 +115,15 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 Compatibility with other 22.10 components.
 
 ## Centreon High-Availability
 
 ### 22.10.0
+
+Release date: `October 26, 2022`
 
 - Compatibility with other 22.10 components.
 
@@ -123,10 +131,14 @@ Compatibility with other 22.10 components.
 
 ### 22.10.0
 
+Release date: `October 26, 2022`
+
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
 
 ### 22.10.0
+
+Release date: `October 26, 2022`
 
 - Compatibility with other 22.10 components.
