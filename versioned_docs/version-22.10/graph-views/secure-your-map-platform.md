@@ -37,12 +37,12 @@ certificates):
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
 ```
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/",
+Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
 and set below parameters inside
-`/etc/centreon-studio/studio-config.properties`:
+`/etc/centreon-map/map-config.properties`:
 
 ```text
-centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore=/etc/centreon-map/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 
@@ -89,12 +89,12 @@ At the end of the screen form, when the "key password" is requested, use
 the same password as the one used for the keystore itself by pressing the
 ENTER key.
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/",
+Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
 and set below parameters inside
-`/etc/centreon-studio/studio-config.properties`:
+`/etc/centreon-map/map-config.properties`:
 
 ```text
-centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore=/etc/centreon-map/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 

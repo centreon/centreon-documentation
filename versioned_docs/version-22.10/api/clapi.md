@@ -2407,6 +2407,8 @@ Parameters that you can change are the following:
 | autologin\_key        | Used for auto login                                                                  |
 | template              | Name of the template to apply to the contact                                         |
 | timezone              | Timezone                                                                             |
+| reach_api             | **1** if the user has access to the API configuration, **0** otherwise                                                              |
+| reach_api_rt          | **1** if the user has access to the API realtime, **0** otherwise                                                                   |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 

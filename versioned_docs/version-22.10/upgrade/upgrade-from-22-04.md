@@ -395,6 +395,7 @@ If everything is ok, you must have:
 </TabItem>
 </Tabs>
 
+
 ### Finalizing the upgrade
 
 Before starting the web upgrade process, reload the Apache server with the

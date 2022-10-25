@@ -52,7 +52,7 @@ Le serveur central et Centreon MAP doivent être installés dans les mêmes vers
 #### Licence
 
 Le serveur nécessite que la licence soit disponible et valide sur le serveur central de Centreon.
-Pour ce faire, vous devez contacter le [support Centreon] (https://centreon.force.com/) pour obtenir et installer votre clé de licence.
+Pour ce faire, vous devez contacter le [support Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 #### Matériel
 
@@ -101,7 +101,7 @@ Un élément est tout objet graphique dans Centreon MAP. La plupart des élémen
 #### Licence
 
 L'interface web nécessite que la licence soit disponible et valide sur le serveur central de Centreon.
-Pour ce faire, vous devez contacter le [support Centreon](https://centreon.force.com/) pour obtenir et installer votre clé de licence.
+Pour ce faire, vous devez contacter le [support Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 **Compatibilité**
 
@@ -207,12 +207,31 @@ Si vous avez installé votre serveur Centreon MAP à partir d'une "installation 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+Vous devez d'abord installer le dépôt EPEL :
+
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+La commande doit retourner des résultats comme suit :
+
+```shell
+Installed:
+  epel-release-8-17.el8.noarch
+
+Complete!
+```
+
+Ensuite installez le paquet `centreon-release` :
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
+> Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
