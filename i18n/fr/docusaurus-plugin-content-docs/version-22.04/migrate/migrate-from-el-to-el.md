@@ -12,7 +12,7 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
-> [support Centreon](https://centreon.force.com).
+> [support Centreon](https://support.centreon.com).
 
 ## Migrer un serveur central
 
@@ -217,4 +217,6 @@ Pour migrer un serveur distant :
 Pour migrer un collecteur :
 
 1. Effectuez les étapes 1 et 4 de la procédure de migration d'un serveur central (c'est-à-dire [installer le nouveau serveur](#étape-1--installer-le-nouveau-serveur) et [synchronisez les plugins](#étape-4--synchroniser-les-plugins)).
-2. [Rattachez le nouveu collecteur](../monitoring/monitoring-servers/add-a-poller-to-configuration.md) à un serveur distant ou bien directement au serveur central.
+2. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1055).

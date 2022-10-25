@@ -68,7 +68,13 @@ reporting server for performance & isolation reasons.
 
 ### Central Centreon server
 
+
 #### Software requirements
+
+You should install the MariaDB database at the same time. We highly recommend
+installing the database on the same server for performance & isolation
+considerations.
+
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -136,12 +142,14 @@ Use [the following file](../assets/reporting/installation/Centreon-MBI-QuickGuid
 
 #### Partitionning
 
+
 | File system                    | Size                                                                                         |
 |--------------------------------|----------------------------------------------------------------------------------------------|
 | /                              | 5GB minimum                                                                                  |
 | /var (containing MariaDB data) | Use the result of the above disk space simulation file                                       |
 | MariaDB temporary folder       | Strongly recommended to place it in /var                                                     |
 | Volume group*                  | 5G minimum free space on the **Volume group** hosting the MariaDB **data**.                  |
+
 
 To check the free space, use the following command by replacing **vg_data** with the name of the group volume:
 
@@ -349,6 +357,7 @@ You must have the following information before proceeding with the installation 
 - IP/DNS of the monitoring database
 - IP/DNS of the Centreon web interface
 - IP/DNS of the reporting database (localhost strongly recommended)
+
 - Access (user/password) to the reporting database
 - Define and retrieve the ssh password of the centreonBI user, on the Central server (for the availability of the reports generated on the interface)
 

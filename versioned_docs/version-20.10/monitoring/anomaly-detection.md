@@ -334,15 +334,6 @@ will be scheduled to assess the effectiveness of the feature on the customers' p
 necessary.
 An update of the functionality may also be requested to validate the changes made following the feedback.
 
-### How long is the beta test program?
-
-The closed beta test period will last for about 4 months. This should validate the predictions generated from the calculation of
-the models, as well as the generation of alerts in the event console and the triggering of the notification process.
-
-#### When will the feature be available? And for what Centreon Edition?
-
-The Anomaly Detection functionality will be available for Centreon Business Edition in the 20.10 version.
-
 ### How long is the data stored?
 
 The data is kept for the entire validity of the license. It will allow to recalculate models if necessary. An

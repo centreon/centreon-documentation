@@ -257,7 +257,7 @@ categories:
 You associate services and service categories in the *Configuration > Services > Categories* menu in
 the Centreon Interface. You can also use the *Relation* tab in the add/modification form of a given service.
 
-> For managing service categories, we highly recommand that you only use the service templates.
+> For managing service categories, we highly recommend that you only use the service templates.
 
 ## Extract, Transform, Load (ETL)
 
