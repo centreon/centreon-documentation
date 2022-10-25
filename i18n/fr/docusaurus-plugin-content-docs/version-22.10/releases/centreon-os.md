@@ -21,7 +21,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 #### Enhancements
 
 - [ACL] ACLs on actions are now updated in real time for connected users
-- [ACL] "Read/Write" Menu access ACL regarding Poller configuration have been split into two available actions:
+- [ACL] "Read/Write" menu access ACL regarding Poller configuration have been split into two available actions:
   "Create and edit" and "Delete"
 - [API] Added an endpoint to perform all web updates
 - [Authentication] Improved authentication via OpenID Connect by adding conditions
