@@ -78,7 +78,6 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
-- Compatibility with other 22.10 components.
 - Added new type of resources in Resource Status (display and filter)
 - Added prediction envelope size management by user from Resources Status
-- Added downtimes on regular services now propagated to related Anomaly Detection service(s)
+- Downtimes on regular services are now propagated to related Anomaly Detection service(s)
