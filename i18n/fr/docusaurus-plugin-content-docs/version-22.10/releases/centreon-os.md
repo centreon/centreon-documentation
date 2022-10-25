@@ -117,7 +117,7 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
-Compatibility with other 22.10 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon High-Availability
 
