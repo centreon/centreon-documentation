@@ -57,8 +57,7 @@ Release date: `October 26, 2022`
 - [Resources Status] Introduced CSV export in Timeline and Graphs
 - [Resources Status] Added new Parent Alias column and filter in listing for services
 - [Resources Status] Added cosmetic enhancements to the Timeline UI in Resources Status
-- [Anomaly Detection] Added new type of resources in Resource Status (display and filter)
-- [Anomaly Detection] Added prediction envelope size management by user from Resources Status
+
 
 #### Performance
 
@@ -81,11 +80,6 @@ Release date: `October 26, 2022`
 #### Centreon Engine
 
 ##### Enhancements
-
-
-- [Anomaly Detection] Recheck has been implemented for Anomaly Detection services, retrieving the actual value of the metric to reevaluate the AD service's status
-- [Anomaly Detection] Downtimes on regular services are now propagated to related Anomaly Detection service(s)
-
 
 - [Settings] Changed the log level of some notification log messages
 - [Settings] Optimized the delay time by setting the default maximum number of queries per transaction to 2000 (following obervations on platforms in the field)
