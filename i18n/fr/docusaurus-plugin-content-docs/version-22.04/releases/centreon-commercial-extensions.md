@@ -61,7 +61,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.3
 
-Release date: `soon`
+Release date: `October 25, 2022`
 
 #### Bug fixes
 
