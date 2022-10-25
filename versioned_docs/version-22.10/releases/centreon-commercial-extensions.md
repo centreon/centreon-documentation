@@ -45,18 +45,21 @@ If you have feature requests or want to report a bug, please contact support.
 
 - Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the [22.04 release](../../22.04/releases/centreon-commercial-extensions/#centreon-auto-discovery), it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
 - When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
-- Fixed a typo in the French translation of the Host Discovery job creation wizard
 
 ## Centreon Plugin Packs Manager
 
 ### 22.10.0
 
-#### Enhancements
+Compatibility with other 22.10 components.
 
 ## Centreon License Manager
 
 ### 22.10.0
 
+Compatibility with other 22.10 components.
+
 ## Centreon Anomaly Detection
 
 ### 22.10.0
+
+Compatibility with other 22.10 components.

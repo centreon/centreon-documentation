@@ -22,7 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Enhancements
 
 - [ACL] ACLs on actions are now updated in real time for connected users
-- [ACL] "Read/Write" Menu access ACL regarding Poller configuration have been split into two available actions:
+- [ACL] "Read/Write" menu access ACL regarding Poller configuration have been split into two available actions:
   "Create and edit" and "Delete"
 - [API] Added an endpoint to perform all web updates
 - [Authentication] Improved authentication via OpenID Connect by adding conditions
@@ -50,14 +50,14 @@ If you have feature requests or want to report a bug, please go to our
 - [UX] Changing themes is now possible by clicking on the profile icon
 - [UX] The quick export button is now available by default for all users that have the admin privilege or the required
   ACL action access. Deploying a configuration is now simpler for all users.
-- [Resources Status] Manage hosts and services categories (Detail tiles, Listing filter)
-- [Resources Status] Manage hosts and services severities (Logos, level, Detail tiles, Listing filter)
-- [Event logs] Rework CSV exporter in event logs to manage high volumetry
-- [Resources Status] Introduce CSV export in Timeline and Graphs
-- [Resources Status] New Parent Alias column and filter in listing for services
+- [Resources Status] Added hosts and services categories management (Detail tiles, Listing filter)
+- [Resources Status] Added hosts and services severities management (Logos, level, Detail tiles, Listing filter)
+- [Event logs] Reworked CSV exporter in event logs to manage high volumetry
+- [Resources Status] Introduced CSV export in Timeline and Graphs
+- [Resources Status] Added new Parent Alias column and filter in listing for services
 - [Resources Status] Timeline UI in Resources Status cosmetic enhancements
-- [Anomaly Detection] New type of resources in Resource Status (display and filter)
-- [Anomaly Detection] Prediction enveloppe size management by user from Resources Status
+- [Anomaly Detection] Added new type of resources in Resource Status (display and filter)
+- [Anomaly Detection] Added prediction envelope size management by user from Resources Status
 
 #### Performances
 
@@ -81,46 +81,40 @@ If you have feature requests or want to report a bug, please go to our
 
 ##### Enhancements
 
-###### Anomaly Detection improvements
 
-- Recheck has been implemented for Anomaly Detection services, retrieving the actual value of the metric to reevaluate the AD service's status
-- Downtimes on regular services are now propagated to related Anomaly Detection service(s)
+- [Anomaly Detection] Recheck has been implemented for Anomaly Detection services, retrieving the actual value of the metric to reevaluate the AD service's status
+- [Anomaly Detection] Downtimes on regular services are now propagated to related Anomaly Detection service(s)
 
-###### Settings improvements
 
-- Change the log level of some notification log messages
-- Observations on platforms in the field showed us that the default maximum number of queries per transaction (10000) was too high and caused too much delay, so we set it to 2000 by default
+- [Settings] Changed the log level of some notification log messages
+- [Settings] Optimized the delay time by setting the default maximum number of queries per transaction to 2000 (following observations in the field)
 
-###### Code improvements
 
-- Improved the management of `timed_events` objects
-- Improved the memory management of downtimes
-- Calls to the `atoi()` C function have been replaced by more secure functions
+- [Code] Improved the management of `timed_events` objects
+- [Code] Improved the memory management of downtimes
+- [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 #### Centreon Broker
 
 ##### Enhancements
 
-###### Improved communication
 
-- Two new broker streams are available, meant to provide simpler configuration and support of the gRPC protocol.
-- It is now possible to limit the maximum total size of Broker retention files using the `event_queues_total_size` global parameter
-- The default `retry_interval` has been changed from 60 to 15, in the configuration WUI as well as in the source code for a shorter time to reconnect
+- [Communication] Added two new Broker streams to provide simpler configuration and support the gRPC protocol
+- [Communication] Added the ability to limit the maximum total size of Broker retention files using the event_queues_total_size global parameter
+- [Communication] Changed the default retry_interval from 60 to 15, in the configuration WUI as well as in the source code for a shorter time to reconnect
 
-###### gRPC API features
 
-- The log levels can be accessed and changed without reloading thanks to the `GetLogInfo {}` and `SetLogLevel {"logger": "<logger>", "level": "<log level>"}` gRPC commands
-- All traces of a deleted poller can be removed permanently thanks to the `RemovePoller {}` gRPC command
+- [gRPC API] The log levels can be accessed and changed without reloading thanks to the `GetLogInfo {}` and `SetLogLevel {"logger": "<logger>", "level": "<log level>"}` gRPC commands
+- [gRPC API] All traces of a deleted poller can be removed permanently thanks to the `RemovePoller {}` gRPC command
 
-###### Code improvements
 
-- Calls to the `atoi()` C function have been replaced by more secure functions
+- [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
 
 ### 22.10.0
 
-#### Enhancements
+Compatibility with other 22.10 components.
 
 ## Centreon High Availability
 
