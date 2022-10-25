@@ -50,7 +50,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [UX] The quick export button is now available by default for all users that have the admin privilege or the required
   ACL action access. Deploying a configuration is now simpler for all users.
 - [Resources Status] Added hosts and services categories management (Detail tiles, Listing filter)
-- [Resources Status] Manage hosts and services severities (Logos, level, Detail tiles, Listing filter)
+- [Resources Status] Added hosts and services severities management (Logos, level, Detail tiles, Listing filter)
 - [Event logs] Rework CSV exporter in event logs to manage high volumetry
 - [Resources Status] Introduce CSV export in Timeline and Graphs
 - [Resources Status] New Parent Alias column and filter in listing for services
