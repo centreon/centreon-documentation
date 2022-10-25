@@ -30,7 +30,10 @@ When you upgrade from one major version of Centreon to another, you must:
 
 To know which version of MariaDB is installed on your machine, enter the following command:
 
-```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
 rpm -qa |grep MariaDB
 ```
 
@@ -43,6 +46,46 @@ MariaDB-common-10.5.8-1.el7.centos.x86_64
 MariaDB-shared-10.5.8-1.el7.centos.x86_64
 MariaDB-compat-10.5.8-1.el7.centos.x86_64
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+rpm -qa |grep MariaDB
+```
+
+The results should look like this:
+```shell
+MariaDB-client-10.5.8-1.el7.centos.x86_64
+MariaDB-server-10.5.8-1.el7.centos.x86_64
+MariaDB-common-10.5.8-1.el7.centos.x86_64
+MariaDB-shared-10.5.8-1.el7.centos.x86_64
+MariaDB-compat-10.5.8-1.el7.centos.x86_64
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+dpkg -l |grep MariaDB
+```
+
+The results should look like this:
+
+```shell
+ii  libdbd-mysql-perl:amd64                4.050-3+b1                                                                 amd64        Perl5 database interface to the MariaDB/MySQL database
+ii  libmariadb3:amd64                      1:10.5.17+maria~deb11      amd64        MariaDB database client library
+ii  mariadb-client-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database client binaries
+ii  mariadb-client-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core client binaries
+ii  mariadb-common                         1:10.5.17+maria~deb11      all          MariaDB common configuration files
+ii  mariadb-server                         1:10.5.17+maria~deb11      all          MariaDB database server (metapackage depending on the latest version)
+ii  mariadb-server-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database server binaries
+ii  mariadb-server-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core server files
+ii  mysql-common                           1:10.5.17+maria~deb11      all          MariaDB database common files (e.g. /etc/mysql/my.cnf)
+```
+
+</TabItem>
+</Tabs>
 
 ## Upgrading between major MariaDB versions
 
