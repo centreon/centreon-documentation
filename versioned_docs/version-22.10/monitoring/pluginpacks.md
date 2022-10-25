@@ -39,7 +39,7 @@ yum update centreon-pp-manager
 ### License
 
 A [license](../administration/licenses.md) is required to access the full Plugin Packs catalog. Contact the
-[Centreon support team](https://centreon.force.com) to get your license.
+[Centreon support team](https://support.centreon.com) to get your license.
 
 ### Connectors
 
@@ -67,7 +67,7 @@ Installing a plugin pack is a 4-step process:
 * If you have an online [license](../administration/licenses.md), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
 
 * If you have an offline license:
-    - install the Plugin Packs repository (contact the [Centreon support team](https://centreon.force.com/) for its address)
+    - install the Plugin Packs repository (contact the [Centreon support team](https://support.centreon.com/) for its address)
     - install or update the Plugin Packs catalog from your Centreon Central server:
 
       ```shell

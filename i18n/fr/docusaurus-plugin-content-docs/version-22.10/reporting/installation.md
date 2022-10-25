@@ -5,7 +5,6 @@ title: Installation de Centreon MBI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Architecture
 
 Ce chapitre présente l'architecture logicielle de l'extension **Centreon MBI**. Il
@@ -363,14 +362,34 @@ Complete!
 Installer ensuite le serveur de reporting :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf config-manager --set-enabled 'powertools'
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
-cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Rien à faire.
+
+</TabItem>
+</Tabs>
+
+Installez le dépôt standard :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
@@ -379,14 +398,33 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
 
 ```shell
-yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
 ```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+</TabItem>
+</Tabs>
+
+Puis lancer la commande suivante:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
 </TabItem>
