@@ -235,7 +235,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt update centreon-poller
+  apt upgrade centreon-poller
   ```
 
 </TabItem>
