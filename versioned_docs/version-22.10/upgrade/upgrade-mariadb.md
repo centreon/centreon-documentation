@@ -2,13 +2,16 @@
 id: upgrade-mariadb
 title: Upgrading MariaDB
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-You may have several MariaDB databases in your architecture. The central server has a database, each remote server has a database, 
+You may have several MariaDB databases in your architecture. The central server has a database, each remote server has a database,
 and the MBI and MAP modules each have a dedicated database. Within your architecture, all databases must have the same version of MariaDB.
 
 ## Upgrading process
 
 When you upgrade from one major version of Centreon to another, you must:
+
 1. Upgrade Centreon (packages, web installation, deploying the configuration).
 2. Upgrade MariaDB.
 
@@ -31,7 +34,10 @@ When you upgrade from one major version of Centreon to another, you must:
 
 To know which version of MariaDB is installed on your machine, enter the following command:
 
-```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
 rpm -qa |grep MariaDB
 ```
 
@@ -45,6 +51,47 @@ MariaDB-shared-10.5.8-1.el7.centos.x86_64
 MariaDB-compat-10.5.8-1.el7.centos.x86_64
 ```
 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+rpm -qa |grep MariaDB
+```
+
+The results should look like this:
+
+```shell
+MariaDB-client-10.5.8-1.el7.centos.x86_64
+MariaDB-server-10.5.8-1.el7.centos.x86_64
+MariaDB-common-10.5.8-1.el7.centos.x86_64
+MariaDB-shared-10.5.8-1.el7.centos.x86_64
+MariaDB-compat-10.5.8-1.el7.centos.x86_64
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+dpkg -l |grep MariaDB
+```
+
+The results should look like this:
+
+```shell
+ii  libdbd-mysql-perl:amd64                4.050-3+b1                                                                 amd64        Perl5 database interface to the MariaDB/MySQL database
+ii  libmariadb3:amd64                      1:10.5.17+maria~deb11      amd64        MariaDB database client library
+ii  mariadb-client-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database client binaries
+ii  mariadb-client-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core client binaries
+ii  mariadb-common                         1:10.5.17+maria~deb11      all          MariaDB common configuration files
+ii  mariadb-server                         1:10.5.17+maria~deb11      all          MariaDB database server (metapackage depending on the latest version)
+ii  mariadb-server-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database server binaries
+ii  mariadb-server-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core server files
+ii  mysql-common                           1:10.5.17+maria~deb11      all          MariaDB database common files (e.g. /etc/mysql/my.cnf)
+```
+
+</TabItem>
+</Tabs>
+
 ## Upgrading between major MariaDB versions
 
 You have to uninstall then reinstall MariaDB to upgrade between major versions (for example to switch from version 10.4 to version 10.5).
@@ -57,9 +104,29 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
 2. Uninstall the current version:
 
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+```
+
+</TabItem>
+</Tabs>
 
     > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
 
@@ -79,9 +146,29 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
 3. Install the 10.5 version:
 
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+</Tabs>
 
 4. Start the mariadb service:
 
@@ -103,7 +190,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 
     Example: if your database_admin_user is `root`, enter:
 
-    ```
+    ```shell
     mysql_upgrade -u root -p
     ```
 
@@ -149,16 +236,16 @@ max_allowed_packet = 8M
 
 ## Upgrading between minor versions of MariaDB
 
-Follow these steps to upgrade between minor versions of MariaDBB (for example, to switch from version 10.3.2 to version 10.3.5) : 
+Follow these steps to upgrade between minor versions of MariaDBB (for example, to switch from version 10.3.2 to version 10.3.5) :
 
 1. Update MariaDB :
 
-    ```
+    ```shell
     yum update MariaDB-*
     ```
 
 2. Restart MariaDB :
 
-    ```
+    ```shell
     restart mariadb
     ```

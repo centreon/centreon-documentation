@@ -48,19 +48,44 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sed -i -E 's|[0-9]{2}\.[0-9]{2}|22.10|g' /etc/apt/sources.list.d/centreon.list
+apt update
+```
+
+</TabItem>
 </Tabs>
 
 > If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
 
 ### Install the MariaDB repository
 
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+</Tabs>
 
 ### Upgrade PHP
 
@@ -71,6 +96,7 @@ Centreon 22.10 uses PHP in version 8.1.
 
 You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.1
@@ -81,6 +107,7 @@ dnf module install php:remi-8.1
 
 You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
 dnf module install php:remi-8.1
@@ -95,6 +122,13 @@ yum-config-manager --enable remi-php81
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl stop php8.0-fpm
+```
+
+</TabItem>
 </Tabs>
 
 ### Upgrade the Centreon solution
@@ -104,6 +138,8 @@ yum-config-manager --enable remi-php81
 
 If you have installed Business extensions, update the Business repository to version 22.10.
 Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+
+If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
 Stop the Centreon Broker process:
 
@@ -119,9 +155,30 @@ rm /var/lib/centreon-broker/* -f
 
 Clean yum cache:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum clean all --enablerepo=*
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 Then upgrade all the components with the following command:
 
@@ -129,21 +186,21 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* ioncube-loader php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum update centreon\* ioncube-loader php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon\* php8.0-sourceguardian-loader php8.0-gnupg
+apt upgrade centreon
 ```
 
 </TabItem>
@@ -153,7 +210,75 @@ apt upgrade centreon\* php8.0-sourceguardian-loader php8.0-gnupg
 
 ### Update your customized Apache configuration
 
-This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+This section only applies if you customized your Apache configuration. 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+
+Run a diff between the old and the new Apache configuration files:
+
+```shell
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
+
+For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+apachectl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take in account the new configuration:
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 Run a diff between the old and the new Apache configuration files:
 
@@ -165,6 +290,110 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 * **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+/opt/rh/httpd24/root/usr/sbin/apachectl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take in account the new configuration:
+
+```shell
+systemctl restart php-fpm httpd24-httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd24-httpd
+```
+
+If everything is ok, you must have:
+
+```shell
+● httpd24-httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
+  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
+ Main PID: 31786 (httpd)
+   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
+   CGroup: /system.slice/httpd24-httpd.service
+           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Use the backup file you have created at the previous step to copy your customizations to file **/etc/apache2/sites-available/centreon.conf**.
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+apache2ctl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take in account the new configuration:
+
+```shell
+systemctl restart php8.0-fpm apache2
+```
+
+Then check its status:
+
+```shell
+systemctl status apache2
+```
+
+If everything is ok, you must have:
+
+```shell
+● apache2.service - The Apache HTTP Server
+    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 518 (apache2)
+      Tasks: 11 (limit: 2356)
+     Memory: 18.1M
+        CPU: 1.491s
+     CGroup: /system.slice/apache2.service
+             ├─ 518 /usr/sbin/apache2 -k start
+             ├─1252 /usr/sbin/apache2 -k start
+             ├─1254 /usr/sbin/apache2 -k start
+             ├─1472 /usr/sbin/apache2 -k start
+             ├─3857 /usr/sbin/apache2 -k start
+             ├─3858 /usr/sbin/apache2 -k start
+             ├─3859 /usr/sbin/apache2 -k start
+             ├─3860 /usr/sbin/apache2 -k start
+             ├─3876 /usr/sbin/apache2 -k start
+             ├─6261 /usr/sbin/apache2 -k start
+             └─6509 /usr/sbin/apache2 -k start
+```
+
+</TabItem>
+</Tabs>
 
 #### Customized Apache configuration: enable text compression
 
@@ -202,7 +431,12 @@ systemctl reload php-fpm httpd24-httpd
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-systemctl reload php8.0-fpm apache2
+apt autoremove
+systemctl daemon-reload
+systemctl stop php8.0-fpm.service
+systemctl enable php8.1-fpm
+systemctl start php8.1-fpm
+systemctl restart apache2
 ```
 
 </TabItem>
@@ -280,21 +514,71 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+sed -i -E 's|[0-9]{2}\.[0-9]{2}|22.10|g' /etc/apt/sources.list.d/centreon.list
+apt update
+```
+
+</TabItem>
 </Tabs>
 
 ### Upgrade the Centreon solution
 
 Clean yum cache:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Upgrade all the components with the following command:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+Then upgrade all the components with the following command:
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 yum update centreon\*
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt upgrade centreon-poller
+```
+
+</TabItem>
+</Tabs>
 
 > Accept new GPG keys from the repositories as needed.
 
