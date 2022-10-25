@@ -58,8 +58,12 @@ Compatibility with other 22.10 components.
 
 Compatibility with other 22.10 components.
 
+Compatibility with other 22.10 components.
+
 ## Centreon Anomaly Detection
 
 ### 22.10.0
+
+Compatibility with other 22.10 components.
 
 Compatibility with other 22.10 components.

@@ -54,7 +54,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Event logs] Reworked CSV exporter in event logs to manage high volumetry
 - [Resources Status] Introduced CSV export in Timeline and Graphs
 - [Resources Status] Added new Parent Alias column and filter in listing for services
-- [Resources Status] Timeline UI in Resources Status cosmetic enhancements
+- [Resources Status] Added cosmetic enhancements to the Timeline UI in Resources Status
 - [Anomaly Detection] Added new type of resources in Resource Status (display and filter)
 - [Anomaly Detection] Added prediction envelope size management by user from Resources Status
 
@@ -68,7 +68,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 > The configuration of authorizations via the OpenID Connect protocol has evolved. Automatic addition to a contact
 > group and role management have been improved. It is necessary to review your OpenID Connect configuration.
 
-> In /monitoring/resources API, ‘severity_level’ api return key has been replaced by a json object ‘severity’ containing id, level, name and icon
+> In /monitoring/resources API, ‘severity_level’ api return key has been replaced by a json object ‘severity’ containing id, level, name and icon.
 
 ## Centreon Collect
 
