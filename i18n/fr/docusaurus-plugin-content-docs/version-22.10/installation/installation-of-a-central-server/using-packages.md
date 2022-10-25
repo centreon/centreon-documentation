@@ -622,6 +622,8 @@ sur le serveur central :
 
 ```shell
 systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable crond
+systemctl start crond
 ```
 
 </TabItem>
