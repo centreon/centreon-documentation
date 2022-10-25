@@ -19,7 +19,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `October 26, 2022`
 
-#### Performances
+#### Performance
 
 - Move to Java 17
 
@@ -37,7 +37,7 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
-#### Performances
+#### Performance
 
 - ETL daily and rebuild optimizations
 - Move to Java 17
@@ -59,7 +59,7 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
-Compatibility with other 22.10 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon License Manager
 

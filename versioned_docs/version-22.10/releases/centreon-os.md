@@ -61,7 +61,7 @@ Release date: `October 26, 2022`
 - [Anomaly Detection] Added new type of resources in Resource Status (display and filter)
 - [Anomaly Detection] Added prediction envelope size management by user from Resources Status
 
-#### Performances
+#### Performance
 
 - Move to PHP 8.1
 - The "conf changed" flag in the Poller configuration menu now relies on a faster database query, improving the time to display the page
@@ -71,7 +71,7 @@ Release date: `October 26, 2022`
 > The configuration of authorizations via the OpenID Connect protocol has evolved. Automatic addition to a contact
 > group and role management have been improved. It is necessary to review your OpenID Connect configuration.
 
-> In /monitoring/resources API, ‘severity_level’ api return key has been replaced by a json object ‘severity’ containing id, level, name and icon.
+> In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
 
 ## Centreon Collect

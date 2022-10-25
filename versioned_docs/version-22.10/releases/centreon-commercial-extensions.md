@@ -20,7 +20,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `October 26, 2022`
 
-#### Performances
+#### Performance
 
 - Move to Java 17
 
@@ -38,7 +38,7 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
-#### Performances
+#### Performance
 
 - ETL daily and rebuild optimizations
 - Move to Java 17
@@ -60,7 +60,7 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
-Compatibility with other 22.10 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon License Manager
 
@@ -68,7 +68,7 @@ Compatibility with other 22.10 components.
 
 Release date: `October 26, 2022`
 
-Compatibility with other 22.10 components.
+- Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
 
@@ -76,4 +76,4 @@ Compatibility with other 22.10 components.
 
 Release date: `October 26, 2022`
 
-Compatibility with other 22.10 components.
+- Compatibility with other 22.10 components.
