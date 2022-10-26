@@ -10,6 +10,18 @@ issues for future releases.
 
 ## Centreon Web
 
+### Environment variable not found: "hostCentreon"
+
+During a central server (or remote server) installation, an error message appears for a short time in the snackbar when accessing the wizard to complete the installation. The error message is the following:
+
+```sql
+The controller for URI "/centreon/api/latest/platform/versions" is not callable: Environment variable not found: "hostCentreon".
+```
+
+#### Workaround
+
+There is no workaround and this message does not prevent from finalizing the installation.
+
 ### You have reached the maximum of id into centreon_storage.index_data
 
 #### Workaround

@@ -9,6 +9,18 @@ Nous appliquons des correctifs lorsque cela est nécessaire et améliorons conti
 
 ## Centreon Web
 
+### Environment variable not found: "hostCentreon"
+
+Lors de l'installation d'un serveur central (ou d'un serveur distant), un message d'erreur apparaît pendant un court instant dans la barre de notification lors de l'accès à l'assistant pour terminer l'installation. Le message d'erreur est le suivant :
+
+```sql
+The controller for URI "/centreon/api/latest/platform/versions" is not callable: Environment variable not found: "hostCentreon".
+```
+
+#### Contournement
+
+Il n'y a pas de solution de contournement et ce message n'empêche pas de finaliser l'installation.
+
 ### Vous avez atteint le nombre maximum d'id dans la table centreon_storage.index_data
 
 #### Contournement
