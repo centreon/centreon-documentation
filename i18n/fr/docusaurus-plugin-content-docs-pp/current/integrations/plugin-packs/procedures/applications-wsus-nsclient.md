@@ -1,129 +1,273 @@
 ---
 id: applications-wsus-nsclient
-title: Microsoft WSUS NSClient++
+title: Microsoft WSUS Server
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+## Contenu du Pack
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
-know and ping us on [slack](https://centreon.slack.com)
+### Modèles
 
-## Overview
+Le Plugin Pack Centreon **Microsoft WSUS** apporte 2 modèles d'hôte différents :
 
-This Pack monitors server statistics, computer updates and global synchronisation 
-of the Windows Server Update Services Server and the devices under its management. 
+* App-Wsus-NRPE-custom
+* App-Wsus-NSClient-05-Restapi-custom
 
-## Pack assets
+Ils apportent les modèles de service suivants: 
 
-### Monitored objects
+<Tabs groupId="sync">
+<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
 
-* Windows Server Update Services Server, including these specific items: 
-    * Computer Status
-    * Update Status
-    * Synchronisation status 
-    * Server statistics
+| Alias                  | Modèle de service                                  | Description                                                                    | Défaut |
+|:-----------------------|:---------------------------------------------------|:-------------------------------------------------------------------------------|:-------|
+| Computers-Status       | App-Wsus-Computers-Status-NRPE                     | Contrôle le nombre d'ordinateurs dans chacun des statuts via NRPE              | X      |
+| Server-Statistics      | App-Wsus-Server-Statistics-NRPE                    | Contrôle plusieurs statistiques du serveur WSUS via NRPE                       | X      |
+| Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE               | Contrôle la synchronisation des mises à jour avec le serveur WSUS via NRPE     | X      |
+| Update-Status          | App-Wsus-Update-Status-NRPE                        | Contrôle le statut des mises à jour via NRPE                                   | X      |
 
-### Collected metrics
+</TabItem>
+<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
 
-*Coming soon*
+| Alias                  | Modèle de service                                  | Description                                                                    | Défaut |
+|:-----------------------|:---------------------------------------------------|:-------------------------------------------------------------------------------|:-------|
+| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi       | Contrôle le nombre d'ordinateurs dans chacun des statuts via l'API             | X      |
+| Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi      | Contrôle plusieurs statistiques du serveur WSUS via l'API                      | X      |
+| Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi | Contrôle la synchronisation des mises à jour avec le serveur WSUS via l'API    | X      |
+| Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi          | Contrôle le statut des mises à jour via l'API                                  | X      |
 
-## Prerequisites
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Computers-Status" label="Computers-Status">
+
+| Métrique           | Unité |
+|:-------------------|:------|
+| needing-updates    |       |
+| not-contacted      |       |
+| unassigned         |       |
+| up-to-date         |       |
+| with-update-errors |       |
+
+</TabItem>
+<TabItem value="Server-Statistics" label="Server-Statistics">
+
+| Métrique             | Unité |
+|:---------------------|:------|
+| approved-updates     |       |
+| computer-groups      |       |
+| computers            |       |
+| declined-updates     |       |
+| expired-updates      |       |
+| not-approved-updates |       |
+| stale-updates        |       |
+| updates              |       |
+
+</TabItem>
+<TabItem value="Synchronisation-Status" label="Synchronisation-Status">
+
+| Métrique                      | Unité |
+|:------------------------------|:------|
+| synchronisation-progress      |       |
+| synchronisation-status        |       |
+| last-synchronisation-duration |       |
+| last-synchronisation-status   |       |
+
+</TabItem>
+<TabItem value="Update-Status" label="Update-Status">
+
+| Métrique            | Unité |
+|:--------------------|:------|
+| needed-by-computers |       |
+| needing-files       |       |
+| up-to-date          |       |
+| with-client-errors  |       |
+| with-server-errors  |       |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
 
 ### Centreon NSClient++
 
-The Windows WSUS Plugin is hosted by the *centreon-nsclient* agent which must be 
-installed, configured and running on the Windows server running the WSUS Admin console. 
-
-The Centreon Poller can connect to the agent using either the NRPE method or the 
-RestAPI method. More information on how to achieve the installation and the configuration 
-of the agent can be found [here](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
-
-### Powershell
-
-The Plugin uses Powershell to collect monitoring datas. It's important that the following
-module can be loaded: `Microsoft.UpdateServices.Administration`.
-
-## Installation 
-
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
 
-1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
-Poller expected to monitor WSUS through *centreon-nsclient*:
-
-* NRPE
-
-```bash
-yum install centreon-nrpe-plugin
-```
-
-* RestAPI
-
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-2. On the Centreon Web interface, install the *Microsoft WSUS* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
+Pour surveiller les ressources *WSUS Server* via NRPE, installez la version Centreon de l'agent NSClient++.
+Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que le **serveur NRPE**
+embarqué est correctement configuré.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
+<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
 
-1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
-Poller expected to monitor WSUS through *centreon-nsclient*:
+Pour surveiller les ressources *WSUS Server* via NSClient++ API, installez la version Centreon de l'agent NSClient++.
+Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur Web / RestAPI** est correcte.
 
-* NRPE
+</TabItem>
+</Tabs>
+
+## Installation
+
+### Pack de supervision
+
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+> Si vous souhaitez utiliser le modèle d'hôte **NRPE**, installez le paquet centreon-nrpe3. 
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-nrpe-plugin
+dnf install centreon-pack-applications-wsus-nsclient
 ```
 
-* RestAPI
-
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-2. On the Central Server, install the Centreon Pack RPM:
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-wsus-nsclient
 ```
 
-3. On the Centreon Web interface, install the *Microsoft WSUS* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-wsus-nsclient
+```
 
 </TabItem>
 </Tabs>
 
-## Host configuration
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Microsoft WSUS**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
 
-* On the Centreon Web Interface, go to **Configuration > Hosts** and add a new Host
-* Set the Host IP address and select the relevant Host template according to the monitoring method chosen:
-    * *App-Wsus-NRPE-custom* for NRPE
-    * *App-Wsus-NSClient-05-Restapi-custom* for RestAPI
-* Depending on the Host template, fill the Macro fields as follows:
+### Plugin
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-| Mandatory | Name             | Description                                                                         |
-|:----------|:-----------------|:------------------------------------------------------------------------------------|
-| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')                          |
-| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                                    |
-| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
-|           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |
+```bash
+dnf install centreon-nrpe3-plugin
+```
 
 </TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
+<TabItem value="CentOS 7" label="CentOS 7">
 
-| Mandatory | Name                      | Description                                                                |
-|:----------|:--------------------------|:-------------------------------------------------------------------------- |
-| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
-| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
-|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
-|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
+```bash
+yum install centreon-nrpe3-plugin
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-nrpe3-plugin
+```
 
 </TabItem>
 </Tabs>
+
+## Configuration
+
+### Hôte
+
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **WSUS Server**.
+* Appliquez le modèle d'hôte **App-Wsus-NRPE-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+
+| Obligatoire | Macro                     | Description                                                                            |
+|:------------|:--------------------------|:---------------------------------------------------------------------------------------|
+|             | NRPECLIENT                | (Défaut : 'check_centreon_nrpe')                                                       |
+|             | NRPEEXTRAOPTIONS          | -u -m 8192                                                                             |
+|             | NRPEPORT                  | (Défaut : '5666')                                                                      |
+|             | NRPETIMEOUT               | (Défaut : '55')                                                                        |
+|             | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
+|             | NSCPRESTAPILEGACYPASSWORD | Mot de passe pour l'authentification basique de l'API                                  |
+|             | NSCPRESTAPIPORT           | Port d'écoute de l'API                                                                 |
+|             | NSCPRESTAPIPROTO          | Protocole de l'API                                                                     |
+|             | WSUSPORT                  | Port d'écoute sur serveur WSUS                                                         |
+|             | WSUSSERVER                | Nom/FQDN du serveur WSUS                                                               |
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+
+```bash
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+    --plugin=apps::nsclient::restapi::plugin \
+    --mode=query \
+    --hostname=10.0.0.1 \
+    --port='' \
+    --proto='' \
+    --legacy-password='' \
+    --command=check_centreon_plugins \
+    --arg='apps::microsoft::wsus::local::plugin' \
+    --arg='server-statistics' \
+    --arg=' \
+    --wsus-server="my.wsus.server.domain" \
+    --wsus-port="443" \
+    --filter-counters="" \
+    --warning-computers="" \
+    --critical-computers="" \
+    --warning-computer-groups="" \
+    --critical-computer-groups="" \
+    --warning-updates="" \
+    --critical-updates="" \
+    --warning-approved-updates="" \
+    --critical-approved-updates="" \
+    --warning-declined-updates="" \
+    --critical-declined-updates=""\
+    --warning-not-approved-updates="" \
+    --critical-declined-updates="" \
+    --warning-stale-updates="" \
+    --critical-stale-updates="" \
+    --warning-expired-updates="" \
+    --critical-expired-updates="" \
+    --verbose'\
+    --use-new-perfdata
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: Computers: 120 Computer Groups: 6 Updates: 19 Approved Updates: 3 Declined Updates: 14 Not Approved Updates: 22 Stale Updates: 1 Expired Updates: 5 | 
+```
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+    --plugin=apps::nsclient::restapi::plugin \
+    --mode=query \
+    --help
+```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+    --plugin=apps::nsclient::restapi::plugin \
+    --list-mode
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
