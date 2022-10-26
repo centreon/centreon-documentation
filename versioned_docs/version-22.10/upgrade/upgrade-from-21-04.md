@@ -289,6 +289,8 @@ page:
 
 ![image](../assets/upgrade/web_update_5.png)
 
+> As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
+
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.md).
 
