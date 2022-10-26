@@ -102,7 +102,8 @@ performances & d'isolation.
 
 - Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/opt/rh/rh-php73/php.ini` (même que celui retourné par la commande
+  `/etc/php.ini` (même que celui retourné par la commande
+
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`: Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -259,7 +260,8 @@ MBI, menu *Rapports > Monitoring Business Intelligence > Options Générales* :
 Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
 <Tabs groupId="sync">
-<TabItem value="Base de surpervision locale au central" label="Base de surpervision locale au central">
+<TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
+
 
 La base de données de supervision MariaDB est hébergée sur le serveur de supervision central.
 
@@ -331,7 +333,8 @@ Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-object
 Pour tester la connexion entre le serveur de reporting MBI et l'API Centreon, utilisez la commande suivante pour télécharger un graphique. Remplacez les paramètres du graphique et les timestamps, et remplacez XXXXXXXXX par le jeton d'autologin de l'utilisateur **cbis**:
 
 ```bash
-curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>end=<date_fin>' --output /tmp/image.png
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>&end=<date_fin>' --output /tmp/image.png
+
 ```
 
 Exemple :
@@ -704,7 +707,8 @@ suivantes :
 **(1)** Les rapports nécessitant une granularité des données à l'heure sont listés ci-dessous.
 Si vous ne souhaitez pas utiliser ces rapports,désactivez le calcul des statistiques à l'heure:
 
-- Hotsgroup-Host-details-1
+- Hostgroup-Host-details-1
+
 - Host-detail-v2
 - Hostgroup-traffic-Average-Usage-By-Interface
 - Hostgroup-traffic-by-Interface-And-Bandwith-Ranges
