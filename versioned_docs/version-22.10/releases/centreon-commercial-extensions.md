@@ -57,7 +57,7 @@ Release date: `October 26, 2022`
 
 #### Enhancements
 
-- Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the [22.04 release](../../22.04/releases/centreon-commercial-extensions/#centreon-auto-discovery), it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
+- Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the 22.04 release, it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
 - When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
 
 ## Centreon Plugin Packs Manager
