@@ -13,7 +13,7 @@
   },
   "link.item.label.Getting Started": {
     "message": "Démarrer",
-    "description": "The label of footer link with label=Getting Started linking to /docs/getting-started/installation-first-steps"
+    "description": "The label of footer link with label=Getting Started linking to /docs/getting-started/welcome"
   },
   "link.item.label.API References": {
     "message": "API",
