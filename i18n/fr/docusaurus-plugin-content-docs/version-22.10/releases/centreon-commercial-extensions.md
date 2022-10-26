@@ -19,6 +19,8 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `October 26, 2022`
 
+- Compatibility with other 22.10 components.
+
 #### Performance
 
 - Move to Java 17

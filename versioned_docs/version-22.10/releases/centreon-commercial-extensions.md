@@ -20,6 +20,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `October 26, 2022`
 
+- Compatibility with other 22.10 components.
+
 #### Performance
 
 - Move to Java 17
