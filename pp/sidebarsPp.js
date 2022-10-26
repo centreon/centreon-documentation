@@ -2406,6 +2406,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-telephony-avaya-cm-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-telephony-avaya-mediagateway-snmp'
         },
         {
