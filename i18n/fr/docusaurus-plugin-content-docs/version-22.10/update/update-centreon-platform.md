@@ -18,7 +18,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Mise à jour du serveur Centreon Central
 
-### Prerequisites
+### Prérequis
 
 Si vous aviez installé des paquets **debuginfo** (ou **dbgsym** sous Debian), désinstallez-le avant de mettre à jour la plateforme. Vous pourrez les réinstaller après.
 
