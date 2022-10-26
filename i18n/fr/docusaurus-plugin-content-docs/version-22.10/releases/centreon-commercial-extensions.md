@@ -50,6 +50,8 @@ Release date: `October 26, 2022`
 
 Release date: `October 26, 2022`
 
+- Compatibility with other 22.10 components.
+
 #### Enhancements
 
 - Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the [22.04 release](../../22.04/releases/centreon-commercial-extensions/#centreon-auto-discovery), it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
@@ -76,6 +78,10 @@ Release date: `October 26, 2022`
 ### 22.10.0
 
 Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+#### Enhancements
 
 - Added new type of resources in Resource Status (display and filter)
 - Added prediction envelope size management by user from Resources Status
