@@ -135,6 +135,9 @@ Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /us
 Writing Makefile for DBD::Oracle
 ```
 
+If you get an error during the **Makefile.PL** step, you can try to specify explicitely force the Oracle version to a 
+working version (it will not impact the plugin operations): `perl Makefile.PL -V 12.1.0 -m /usr/share/oracle/21/client64/demo/demo.mk`
+
 Compile the library:
 
 ```bash
