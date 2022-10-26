@@ -1345,15 +1345,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/releases/centreon-core"
+              "id": "version-22.10/releases/centreon-os"
             },
             {
               "type": "doc",
               "id": "version-22.10/releases/centreon-commercial-extensions"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/releases/centreon-os-extensions"
             }
           ]
         }

@@ -1,12 +1,11 @@
 ---
 id: introduction
-title: Centreon Platform 22.04
+title: Centreon Platform 22.10
 ---
 
-You'll find in this chapter the global **Centreon Platform 22.04** release note.
+You'll find in this chapter the global **Centreon Platform 22.10** release note.
 
 To access detailed release note by component, use the following sections:
 
-- [Core](centreon-core.md)
+- [Centreon Open Source](centreon-os.md)
 - [Commercial extensions](centreon-commercial-extensions.md)
-- [Open Source extensions](centreon-os-extensions.md)

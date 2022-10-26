@@ -16,53 +16,76 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
-### 22.04.0
+### 22.10.0
 
-> If you have just installed Centreon 22.04 or upgraded your platform to this version, be aware that the platform now uses the new BBDO v3 protocol. [Configure MAP](../graph-views/install.md#configuration) to use it.
+Release date: `October 26, 2022`
 
-- Compatibility with other 22.04 components.
+- Compatibility with other 22.10 components.
+
+#### Performance
+
+- Move to Java 17
 
 ## Centreon BAM
 
-### 22.04.0
+### 22.10.0
 
-- Compatibility with other 22.04 components.
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
 
 ## Centreon MBI
 
-### 22.04.0
+### 22.10.0
 
-- Compatibility with other 22.04 components.
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+#### Performance
+
+- ETL daily and rebuild optimizations
+- Move to Java 17
 
 ## Centreon Auto Discovery
 
-### 22.04.0
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
 
 #### Enhancements
 
-- The Centreon Host Discovery engine can now perform changes on existing hosts when using the automatic policy. This means that existing hosts may now gain templates, groups, categories and macros, and get monitored by a different server.
-- Centreon Host Discovery can now deploy the new monitoring configuration as soon as the job is run in the background.
+- Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the 22.04 release, it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
+- When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
 
 ## Centreon Plugin Packs Manager
 
-### 22.04.0
+### 22.10.0
 
-#### Enhancements
+Release date: `October 26, 2022`
 
-- The Plugin Packs now provide the package name and version of the required plugins, and Gorgone will automatically install the required plugins on your pollers. This means you don't need to install the Centreon Plugins manually on each poller anymore.
+- Compatibility with other 22.10 components.
 
 ## Centreon License Manager
 
-### 22.04.0
+### 22.10.0
 
-- Compatibility with other 22.04 components.
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
 
-### 22.04.0
+### 22.10.0
 
-- Compatibility with other 22.04 components.
+Release date: `October 26, 2022`
 
-## Centreon Data Source For Grafana
+- Compatibility with other 22.10 components.
 
-- [Grafana] Centreon data source
+#### Enhancements
+
+- Added new type of resources in Resource Status (display and filter)
+- Added prediction envelope size management by user from Resources Status
+- Downtimes on regular services are now propagated to related Anomaly Detection service(s)
