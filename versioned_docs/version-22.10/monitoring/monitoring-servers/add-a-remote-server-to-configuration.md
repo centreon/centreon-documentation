@@ -260,5 +260,5 @@ configuration**.
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/welcome.md)
 chapter to configure your first monitoring.
