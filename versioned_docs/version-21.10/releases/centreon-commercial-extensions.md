@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.7
 
-Release date : `October 16, 2022`
+Release date : `October 26, 2022`
 
 #### Bug fixes
 
