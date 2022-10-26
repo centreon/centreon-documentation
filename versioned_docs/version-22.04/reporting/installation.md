@@ -46,8 +46,10 @@ between the dedicated BI server, the Centreon server and the databases:
 | **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
 |-----------------|--------------------------|--------------------------------------|----------|--------------|
 | ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
-| SSH             | Reporting server         | Serveur Centreon                     | 22       | TCP          |
-| CBIS            | Reporting server         | Serveur Centreon                     | 80       | HTTP*        |
+| SSH             | Reporting server         |  Centreon Server                    | 22       | TCP          |
+
+| CBIS            | Reporting server         | Centreon Server                     | 80       | HTTP*        |
+
 | CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
 | Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
@@ -102,7 +104,8 @@ considerations.
 <TabItem value="CentOS 7" label="CentOS 7">
 
 - Centreon Web 22.04
-- Check that `date.timezone` is correctly configured in the `/etc/opt/rh/rh-php73/php.ini`  file
+- Check that `date.timezone` is correctly configured in the `/etc/php.ini`  file
+
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
@@ -140,7 +143,8 @@ considerations.
 #### Storage space
 Use [the following file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
-#### Partitionning
+#### Partitioning
+
 
 
 | File system                    | Size                                                                                         |
@@ -242,7 +246,8 @@ Then, download the license sent by the Centreon team to start configuring the ge
 ### Configure the extension
 
 Enter the following values in the Centreon general options
-MBI, menu *Reports > Monitoring Business Intelligence > General Options* :
+MBI menu, *Reports > Monitoring Business Intelligence > General Options* :
+
 
 | Tabs                                                                                   | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
@@ -261,7 +266,8 @@ Download the license sent by the Centreon team to start configuring the general 
 
 The MariaDB monitoring database is hosted on the central monitoring server.
 
-Run the command below to allow the reporting server to connect to the databases on the to the databases on the monitoring server.
+Run the command below to allow the reporting server to connect to the databases on the monitoring server.
+
 Use the following option:
 
 ```shell
@@ -319,7 +325,8 @@ Set **bind-address** to **0.0.0.0** and restart **mariadb**.
 systemctl restart mariadb
 ```
 
-### Give rights to user cbis
+### Give rights to the cbis user
+
 
 When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) named **cbis** is automatically created.
 It allows the report generation engine to extract data from Centreon (using the APIs) in order to insert them in the report.
@@ -331,7 +338,8 @@ This user must [have access to all resources monitored by Centreon](../administr
 To test the connection between the MBI reporting server and the Centreon API, use the following command to download a graph. Replace the graph parameters and timestamps, and replace XXXXXXXXX with the user's autologin token **cbis**:
 
 ```bash
-curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>end=<date_fin>' --output /tmp/image.png
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<host_name>&service=<service_description>&start=<start_date>&end=<end_date>' --output /tmp/image.png
+
 ```
 
 Example :
@@ -384,7 +392,8 @@ In the case of an installation based on a blank distribution, install the GPG ke
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -406,7 +415,8 @@ In the case of an installation based on a blank distribution, install the GPG ke
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -428,7 +438,8 @@ In the case of an installation based on a blank distribution, install the GPG ke
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -508,7 +519,7 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-If the MariaDB service fails at the time of starting, remove the files *ib_logfile*
+If the MariaDB service fails to start, remove the files *ib_logfile*
 (MariaDB must absolutely be stopped)and then restart MariaDB again:
 
 ```shell
@@ -693,7 +704,8 @@ In the `Reporting > Monitoring Business Intelligence > General Options > ETL Opt
 **(1)** Reports requiring data granularity by the hour are listed below. 
 If you do not wish to use these reports, disable the calculation of hourly statistics:
 
-- Hotsgroup-Host-details-1
+- Hostgroup-Host-details-1
+
 - Host-detail-v2
 - Hostgroup-traffic-Average-Usage-By-Interface
 - Hostgroup-traffic-by-Interface-And-Bandwith-Ranges
@@ -752,7 +764,8 @@ systemctl restart cron
 **BEST PRACTICES** : Select different retention periods depending on the granularity of the statistical data:
 
 - Aggregated values per hour are used to analyze a metric over a short period of time, they take up a lot of disk space. You may not
-  need to keep these keep these statistics for more than two or three months.
+  need to keep these statistics for more than two or three months.
+
 - Beyond five or six months, you may only need to view the trend for availability or performance statistics.
   You could then retain daily aggregate data for up to six months, for example, and set up retention of monthly aggregate data for a period of several dozen months.
 
