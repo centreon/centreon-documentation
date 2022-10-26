@@ -1,11 +1,43 @@
 {
   "version.label": {
-    "message": "22.04",
-    "description": "The label for version 22.04"
+    "message": "⭐ 22.10",
+    "description": "The label for version 22.10"
   },
   "sidebar.docs.category.Getting Started": {
     "message": "Getting Started",
     "description": "The label for category Getting Started in sidebar docs"
+  },
+  "sidebar.docs.category.Before you start": {
+    "message": "Before you start",
+    "description": "The label for category Before you start in sidebar docs"
+  },
+  "sidebar.docs.category.Before you start.link.generated-index.description": {
+    "message": "This is what you need to know before you install your Centreon platform.",
+    "description": "The generated-index page description for category Before you start in sidebar docs"
+  },
+  "sidebar.docs.category.First steps with Centreon": {
+    "message": "First steps with Centreon",
+    "description": "The label for category First steps with Centreon in sidebar docs"
+  },
+  "sidebar.docs.category.First steps with Centreon.link.generated-index.description": {
+    "message": "Your Centreon platform is installed. What next?",
+    "description": "The generated-index page description for category First steps with Centreon in sidebar docs"
+  },
+  "sidebar.docs.category.Setting up the monitoring": {
+    "message": "Setting up the monitoring",
+    "description": "The label for category Setting up the monitoring in sidebar docs"
+  },
+  "sidebar.docs.category.Monitoring resources in real time": {
+    "message": "Monitoring resources in real time",
+    "description": "The label for category Monitoring resources in real time in sidebar docs"
+  },
+  "sidebar.docs.category.Monitoring resources in real time.link.generated-index.description": {
+    "message": "How do you monitor the resources you have created?",
+    "description": "The generated-index page description for category Monitoring resources in real time in sidebar docs"
+  },
+  "sidebar.docs.category.Tutorials for Business modules": {
+    "message": "Tutorials for Business modules",
+    "description": "The label for category Tutorials for Business modules in sidebar docs"
   },
   "sidebar.docs.category.Installation": {
     "message": "Installation",
@@ -31,6 +63,10 @@
     "message": "Installation of Centreon HA",
     "description": "The label for category Installation of Centreon HA in sidebar docs"
   },
+  "sidebar.docs.category.Installation of a manual Centreon HA": {
+    "message": "Installation of a manual Centreon HA",
+    "description": "The label for category Installation of a manual Centreon HA in sidebar docs"
+  },
   "sidebar.docs.category.Secure your platform": {
     "message": "Secure your platform",
     "description": "The label for category Secure your platform in sidebar docs"
@@ -55,13 +91,9 @@
     "message": "Discovering hosts and services automatically",
     "description": "The label for category Discovering hosts and services automatically in sidebar docs"
   },
-  "sidebar.docs.category.Managing users/contacts": {
-    "message": "Managing users/contacts",
-    "description": "The label for category Managing users/contacts in sidebar docs"
-  },
-  "sidebar.docs.category.Organizing hosts, services and contacts": {
-    "message": "Organizing hosts, services and contacts",
-    "description": "The label for category Organizing hosts, services and contacts in sidebar docs"
+  "sidebar.docs.category.Organizing hosts and services": {
+    "message": "Organizing hosts and services",
+    "description": "The label for category Organizing hosts and services in sidebar docs"
   },
   "sidebar.docs.category.Basic objects and actions": {
     "message": "Basic objects and actions",
@@ -94,6 +126,10 @@
   "sidebar.docs.category.Managing tickets": {
     "message": "Managing tickets",
     "description": "The label for category Managing tickets in sidebar docs"
+  },
+  "sidebar.docs.category.Managing Centreon users": {
+    "message": "Managing Centreon users",
+    "description": "The label for category Managing Centreon users in sidebar docs"
   },
   "sidebar.docs.category.Performance graphs": {
     "message": "Performance graphs",
