@@ -13,7 +13,7 @@ is the same as on a central server and needs additionnal action.
 The **Centreon BAM** module needs specific Broker outputs to be configured for the Centreon remote server.
 server.
 
-To do so, you need to modify the Centreon Broker Master configuration of the
+To do so, you need to log in to your central server and modify the Centreon Broker Master configuration of the
 Centreon remote poller. Go to the **Configuration > Pollers > Broker
 configuration** menu and edit the **remote server's** configuration.
 
