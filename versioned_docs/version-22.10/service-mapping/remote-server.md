@@ -1,35 +1,31 @@
 ---
 id: remote-server
-title: Install on a Remote Server
+title: Install on a remote server
 ---
 
-The procedure for installing the Centreon BAM module on a Centreon Remote Server
-is the same as on a Central server and needs additionnal action.
+The procedure for installing the Centreon BAM module on a Centreon remote server
+is the same as on a central server and needs additionnal action.
 
 1.  Install the extension using the standard install procedure
 2.  Follow the extra steps described below.
 
 ## Step 2: Configure Centreon Broker
 
-Configuring the Centreon BAM module on a Centreon Remote Server requires
-configuring the Centreon Broker *from* the Centreon Central Server. This allows
-the Centreon Remote Server to manage calculations on Centreon BAM. The
-configuration will be automatically sent to the Centreon Remote Server when you
-export your business activities to the Centreon Remote Server from the central
+The **Centreon BAM** module needs specific Broker outputs to be configured for the Centreon remote server.
 server.
 
-To do so, you need to modify the Centreon Broker Master configuration of the
-Centeon Remote poller. Go to the `Configuration > Pollers > Broker
-configuration` menu and edit the remote poller configuration.
+To do so, you need to log in to your central server and modify the Centreon Broker Master configuration of the
+Centreon remote poller. Go to the **Configuration > Pollers > Broker
+configuration** menu and edit the **remote server's** configuration.
 
 ### Monitoring output
 
-In the Output tab, select **BAM - Monitoring engine (BAM)** and click on
+In the **Output** tab, select **BAM - Monitoring engine (BAM)** and click on
 **Add**:
 
 ![image](../assets/service-mapping/remote-server/conf_poller_bam_monitoring.png)
 
-Please consult the following table for the appropriate field values:
+Please refer to the following table for the appropriate field values:
 
 | Fields                          | Values                                                                 |
 |---------------------------------|------------------------------------------------------------------------|
@@ -55,7 +51,7 @@ Select the **BAM - BI engine (BAM)** configuration type and click on **Add**:
 
 ![image](../assets/service-mapping/remote-server/conf_poller_bam_reporting.png)
 
-Please consult the following table for the appropriate field values:
+Please refer to the following table for the appropriate field values:
 
 | Fields                          | Values                                                                 |
 |---------------------------------|------------------------------------------------------------------------|
@@ -72,5 +68,5 @@ Please consult the following table for the appropriate field values:
 | Transaction commit timeout      | 5                                                                      |
 | Retry interval                  | 5                                                                      |
 
-To complete the installation process, generate and export the Centreon Remote
-Server configuration by selecting **Restart**.
+To complete the installation process, generate and deploy the Centreon remote
+server configuration by selecting **Restart**.
