@@ -33,8 +33,6 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 ## Centreon Broker configuration
 
 In order to display real time statuses, **Centreon MAP** needs to receive this data from the Centreon remote server's Broker.
-Broker output on the Centreon remote server, Centreon MAP can receive
-real time data directly from its Centreon remote server.
 
 To do so, you need to modify the Centreon Broker Master configuration of the
 Centreon remote poller. Go to the **Configuration > Pollers > Broker
