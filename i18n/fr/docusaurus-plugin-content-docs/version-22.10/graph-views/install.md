@@ -494,7 +494,7 @@ Allez dans **Administration > Extensions** et cliquez sur le bouton **Installer*
 Le client lourd est actuellement disponible uniquement pour les plateformes **64-bit** Windows, Mac et Linux (Debian et Ubuntu).
 
 Vous pouvez trouver les installateurs dans **Supervision > Map > Desktop Client** ou
-[ici](https://download.centreon.com/?action=product&product=centreon-map&version=22.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[ici](https://download.centreon.com/?action=product&product=centreon-map&version=22.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > Pour des raisons de performance, nous recommandons fortement d'avoir moins de 5 à 10 utilisateurs maximum connectés en même temps pour manipuler les vues.
 
