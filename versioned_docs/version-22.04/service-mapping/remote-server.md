@@ -10,11 +10,7 @@ is the same as on a central server and needs additionnal action.
 
 ## Configure Centreon Broker
 
-Configuring the Centreon BAM module on a Centreon remote server requires
-configuring the Centreon Broker from the Centreon central server. This allows
-the Centreon remote server to manage calculations on Centreon BAM. The
-configuration will be automatically sent to the Centreon remote server when you
-export your business activities to the Centreon remote server from the central
+The **Centreon BAM** module needs specific Broker outputs to be configured for the Centreon remote server.
 server.
 
 To do so, you need to modify the Centreon Broker Master configuration of the
