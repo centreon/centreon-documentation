@@ -70,5 +70,9 @@
   "sidebar.pp.category.Virtualization": {
     "message": "Virtualization",
     "description": "The label for category Virtualization in sidebar pp"
+  },
+  "sidebar.pp.category.Developers Center": {
+    "message": "Developers Center",
+    "description": "The label for category Developers Center in sidebar pp"
   }
 }
