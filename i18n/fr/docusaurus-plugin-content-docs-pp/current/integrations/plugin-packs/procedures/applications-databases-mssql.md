@@ -2,162 +2,302 @@
 id: applications-databases-mssql
 title: Microsoft SQL Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Contenu du Pack
 
-### Centreon Plugin
+### Modèles
 
-Install this plugin on each needed poller:
+Le Plugin Pack Centreon **Microsoft SQL Server** apporte un modèle d'hôte :
 
-``` shell
+* App-DB-MSSQL-custom
+
+Il apporte les modèles de service suivants :
+
+| Alias                | Modèle de service                 | Description                                                                                                                       | Défaut |
+|:---------------------|:----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:-------|
+| Backup-Age           | App-DB-MSSQL-Backup-Age           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                                                           |        |
+| Blocked-Processes    | App-DB-MSSQL-Blocked-Processes    | Contrôle permettant de vérifier les processus bloqués. Ce service utilise une requête non valide selon les versions MS SQL Server | X      |
+| Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucunes alertes par défaut                           |        |
+| Connected-Users      | App-DB-MSSQL-Connected-Users      | Contrôle permettant de vérifier le nombre d'utilisateurs connectés à la base de données                                           | X      |
+| Connection-Time      | App-DB-MSSQL-Connection-Time      | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                                  | X      |
+| Databases-Size       | App-DB-MSSQL-Databases-Size       | Contrôle permettant de vérifier l'espace utilisé des bases de données du serveur                                                  | X      |
+| Deadlocks            | App-DB-MSSQL-Deadlocks            | Contrôle permettant de vérifier le nombre de "deadlocks" par seconde du serveur                                                   | X      |
+| Failed-Jobs          | App-DB-MSSQL-Failed-Jobs          | Contrôle les jobs MSSQL en erreur                                                                                                 | X      |
+| Locks-Waits          | App-DB-MSSQL-Locks-Waits          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                                                 |        |
+| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy | Contrôle permettant de vérifier le "Page Life Expectancy du serveur. Aucunes alertes par défaut                                   |        |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                       |        |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                   |        |
+| Transactions         | App-DB-MSSQL-Transactions         | Contrôle permettant de vérifier le nombre de transactions par seconde du serveur. Aucune alerte par défaut                        | X      |
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Backup-Age" label="Backup-Age">
+
+| Métrique       | Unité |
+|:---------------|:------|
+| last-duration  |       |
+| last-execution |       |
+
+</TabItem>
+<TabItem value="Blocked-Processes" label="Blocked-Processes">
+
+| Métrique              | Unité |
+|:----------------------|:------|
+| blocked-processes     |       |
+| *processes*#wait-time |       |
+
+</TabItem>
+<TabItem value="Cache-Hitratio" label="Cache-Hitratio">
+
+| Métrique                        | Unité |
+|:--------------------------------|:------|
+| mssql.cache.hitratio.percentage | %     |
+
+</TabItem>
+<TabItem value="Connected-Users" label="Connected-Users">
+
+| Métrique                    | Unité |
+|:----------------------------|:------|
+| mssql.users.connected.count | count |
+
+</TabItem>
+<TabItem value="Connection-Time" label="Connection-Time">
+
+| Métrique                     | Unité |
+|:-----------------------------|:------|
+| connection.time.milliseconds | ms    |
+
+</TabItem>
+<TabItem value="Databases-Size" label="Databases-Size">
+
+| Métrique                         | Unité |
+|:---------------------------------|:------|
+| datafiles.space.usage.bytes      | bytes |
+| datafiles.space.free.bytes       | bytes |
+| datafiles.space.usage.percentage | %     |
+| logfiles.space.usage.bytes       | bytes |
+| logfiles.space.free.bytes        | bytes |
+| logfiles.space.usage.percentage  | %     |
+
+</TabItem>
+<TabItem value="Deadlocks" label="Deadlocks">
+
+| Métrique              | Unité |
+|:----------------------|:------|
+| mssql.deadlocks.count | count |
+
+</TabItem>
+<TabItem value="Failed-Jobs" label="Failed-Jobs">
+
+| Métrique             | Unité |
+|:---------------------|:------|
+| jobs.                |       |
+| jobs.total.count     | count |
+| job.duration.seconds | s     |
+
+</TabItem>
+<TabItem value="Locks-Waits" label="Locks-Waits">
+
+| Métrique               | Unité |
+|:-----------------------|:------|
+| mssql.lockswaits.count | count |
+
+</TabItem>
+<TabItem value="Page-Life-Expectancy" label="Page-Life-Expectancy">
+
+| Métrique                     | Unité |
+|:-----------------------------|:------|
+| page.life.expectancy.seconds | s     |
+
+</TabItem>
+<TabItem value="Sql-Statement" label="Sql-Statement">
+
+| Métrique                          | Unité |
+|:----------------------------------|:------|
+| sqlrequest.execution.time.seconds | s     |
+
+</TabItem>
+<TabItem value="Sql-Statement-String" label="Sql-Statement-String">
+
+| Métrique      | Unité |
+|:--------------|:------|
+| *rows*#string |       |
+
+</TabItem>
+<TabItem value="Transactions" label="Transactions">
+
+| Métrique                                   | Unité |
+|:-------------------------------------------|:------|
+| databases.transactions.persecond           | /s    |
+| *database*#database.transactions.persecond | /s    |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Utilisateur de supervision
+
+Afin d'utiliser cette sonde, il est nécessaire de configurer un utilisateur avec des droits suffisants. Le rôle serveradmin peut être
+utilisé pour du test mais ne doit pas être utilisé pour de la production en raison du risque de sécurité associé. 
+
+Un contributeur de la sonde _check_mssql_health_, Birk Bohne, a écrit un script permettant d'assigner un minimum de privilèges pour 
+que la majorité des contrôles fonctionnent. Ce script peut être trouvé dans la section **Preparation of the database** [ici](https://github.com/lausser/check_mssql_health/blob/master/doc/check_mssql_health.en.txt).
+
+Néanmoins, la solution la plus optimale est l'utilisation d'un compte du domaine.
+
+### Dépendances
+
+Il est nécessaire d'installer les paquets suivants: `freetds perl-DBD-Sybase unixODBC`
+
+### Configuration de freetds
+
+Par défaut, la version utilisé dans le fichier de configuration de freetds est la 4.2. Il est nécessaire d'utiliser au 
+moins la version 8.0 pour un fonctionnement et une sécurité optimale. Pour celà, éditer le fichier freetds.conf afin de 
+décommenter la ligne `version = 4.2` et remplacer `4.2` par `8.0`. 
+
+Chemin du fichier: 
+- RedHat-like: /etc/freetds.conf
+- Debian 11: /etc/freetds/freetds.conf
+
+## Installation
+
+### Pack de supervision
+
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-databases-mssql
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-databases-mssql
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-databases-mssql
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Microsoft SQL Server**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Databases-Mssql
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Applications-Databases-Mssql
 ```
 
-## Username
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-The username string should not be longer than 32 chararacters. Username must be
-in the following form: \[Servername|Domainname\] In order for the plugin to
-operate correctly, a database user with specific privileges is required. The
-most simple way is to assign the Nagios-user the role “serveradmin”. As an
-alternative you can use the sa-User for the database connection. Alas, this
-opens a serious security hole, as the (cleartext) administrator password can be
-found in the nagios configuration files Birk Bohne wrote the following script
-which allows the automated creation of a minimal, yet sufficient privileged
-monitoring-user.
+```bash
+apt install centreon-plugin-applications-databases-mssql
+```
 
-    declare @dbname varchar(255)
-    declare @check_mssql_health_USER varchar(255)
-    declare @check_mssql_health_PASS varchar(255)
-    declare @check_mssql_health_ROLE varchar(255)
-    declare @source varchar(255)
-    declare @options varchar(255)
-    declare @backslash int
-    
-    /*******************************************************************/
-    SET @check_mssql_health_USER = '"[Servername|Domainname]\Username"'
-    SET @check_mssql_health_PASS = 'Password'
-    SET @check_mssql_health_ROLE = 'Rolename'
-    /******************************************************************
-    
-    PLEASE CHANGE THE ABOVE VALUES ACCORDING TO YOUR REQUIREMENTS
-    
-    - Example for Windows authentication:
-      SET @check_mssql_health_USER = '"[Servername|Domainname]\Username"'
-      SET @check_mssql_health_ROLE = 'Rolename'
-    
-    - Example for SQL Server authentication:
-      SET @check_mssql_health_USER = 'Username'
-      SET @check_mssql_health_PASS = 'Password'
-      SET @check_mssql_health_ROLE = 'Rolename'
-    
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    It is strongly recommended to use Windows authentication. Otherwise
-    you will get no reliable results for database usage.
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-    *********** NO NEED TO CHANGE ANYTHING BELOW THIS LINE *************/
-    
-    SET @options = 'DEFAULT_DATABASE=MASTER, DEFAULT_LANGUAGE=English'
-    SET @backslash = (SELECT CHARINDEX('\', @check_mssql_health_USER))
-    IF @backslash > 0
-      BEGIN
-        SET @source = ' FROM WINDOWS'
-        SET @options = ' WITH ' + @options
-      END
-    ELSE
-      BEGIN
-        SET @source = ''
-        SET @options = ' WITH PASSWORD=''' + @check_mssql_health_PASS + ''',' + @options
-      END
-    
-    PRINT 'create Nagios plugin user ' + @check_mssql_health_USER
-    EXEC ('CREATE LOGIN ' + @check_mssql_health_USER + @source + @options)
-    EXEC ('USE MASTER GRANT VIEW SERVER STATE TO ' + @check_mssql_health_USER)
-    EXEC ('USE MASTER GRANT ALTER trace TO ' + @check_mssql_health_USER)
-    EXEC ('USE MSDB GRANT SELECT ON sysjobhistory TO ' + @check_mssql_health_USER)
-    EXEC ('USE MSDB GRANT SELECT ON sysjobschedules TO ' + @check_mssql_health_USER)
-    EXEC ('USE MSDB GRANT SELECT ON sysjobs TO ' + @check_mssql_health_USER)
-    PRINT 'User ' + @check_mssql_health_USER + ' created.'
-    PRINT ''
-    
-    declare dblist cursor for
-      select name from sysdatabases WHERE name NOT IN ('master', 'tempdb', 'msdb') open dblist
-        fetch next from dblist into @dbname
-        while @@fetch_status = 0 begin
-          EXEC ('USE [' + @dbname + '] print ''Grant permissions in the db '' + ''"'' + DB_NAME() + ''"''')
-          EXEC ('USE [' + @dbname + '] CREATE ROLE ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] GRANT EXECUTE TO ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] GRANT VIEW DATABASE STATE TO ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] GRANT VIEW DEFINITION TO ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] CREATE USER ' + @check_mssql_health_USER + ' FOR LOGIN ' + @check_mssql_health_USER)
-          EXEC ('USE [' + @dbname + '] EXEC sp_addrolemember ' + @check_mssql_health_ROLE + ' , ' + @check_mssql_health_USER)
-          EXEC ('USE [' + @dbname + '] print ''Permissions in the db '' + ''"'' + DB_NAME() + ''" granted.''')
-          fetch next from dblist into @dbname
-        end
-    close dblist
-    deallocate dblist
+</TabItem>
+</Tabs>
 
-Please keep in mind that check\_mssql\_health’s functionality is limited when
-using SQL Server authentication. This method is strongly discouraged . Normally
-there is already a Nagios-(Windows-)-user which can be used for the Windows
-authentication method.
+## Configuration
 
-### RPM
+### Hôte
 
-In order to use this template, the following RPM are needed:
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **SQL Server database**.
+* Appliquez le modèle d'hôte **App-DB-MSSQL-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-  - freetds-0.82-6.el6.$ARCH.rpm
-  - perl-DBD-Sybase-1.10-1.el6.rf.$ARCH.rpm
-  - unixODBC-2.2.14-14.el6.$ARCH.rpm
-  - unixODBC-libs-2.2.6-15.5.el6.$ARCH.rpm
+| Obligatoire | Macro         | Description                                                                            |
+|:------------|:--------------|:---------------------------------------------------------------------------------------|
+|             | EXTRAOPTIONS  | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
+|     X       | MSSQLPASSWORD | Mot de passe d'accès à la base de données (Défaut : 'PASSWORD')                        |
+|     X       | MSSQLPORT     | Port d'écoute de l'instance MSSQL (Défaut : '1433')                                    |
+|     X       | MSSQLUSERNAME | Utilisateur utilisé pour réaliser le contrôle (Défaut : 'USERNAME')                    |
 
-### Configuration of freetds.conf file
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-The /etc/freetds.conf file have to be modified in order to encrypt the password.
-To do that :
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
-    vi /etc/freetds.conf
+```bash
+/usr/lib/centreon/plugins//centreon_mssql.pl \
+    --plugin database::mssql::plugin \
+    --hostname 10.0.0.1 \
+    --port 1433 \
+    --username 'USERNAME@DOMAIN' \
+    --password 'PASSWORD'  \
+    --mode=connected-users \
+    --warning-connected-user='' \
+    --critical-connected-user='' \
+    --verbose \
+    --use-new-perfdata
+```
 
-Modify line tds 'version = 4.2' to 'tds version = 8.0'. Then remove comment
-symbol at the beginning of this line.
+La commande devrait retourner un message de sortie similaire à :
 
-## Centreon Configuration
+```bash
+OK: 20 connected user(s) | 'mssql.users.connected.count'=20;;;0; 
+```
 
-### Create a new MSSQL database server
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
-the following table :
+```bash
+/usr/lib/centreon/plugins//centreon_mssql.pl \
+    --plugin database::mssql::plugin \
+    --hostname 10.0.0.1 \
+    --help
+```
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-DB-MSSQL-custom        |
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
-Click "Save" button.
+```bash
+/usr/lib/centreon/plugins//centreon_mssql.pl \
+    --plugin database::mssql::plugin \
+    --list-mode
+```
 
-Those services were automatically created for this host:
+### Diagnostic des erreurs communes
 
-| Service           | Description                                                                                                                   |
-| :---------------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| Backup-Age        | Check database backups of the server. This time is given in minutes.                                                          |
-| Blocked-Processes | Check blocked processes on the server. Service cannot work because of a SQL request It depends of your MS SQL Server version. |
-| Cache-Hitratio    | Check the 'Data Buffer Cache Hit Ratio' of the server.                                                                        |
-| Connection-Time   | Check the connection time to the server.                                                                                      |
-| Database-Free     | Check free space of databases on the server.                                                                                  |
-| Deadlocks         | Check deadlocks per second of the server.                                                                                     |
-| Failed-Jobs       | Check failed jobs of the server.                                                                                              |
-| Ping              | Monitor host response time                                                                                                    |
-| Transactions      | Check transactions per second of the server.                                                                                  |
-
-### Host Macro Configuration
-
-The following macros must be configured on host:
-
-| Macro         | Description                 | Default value | Example  |
-| :------------ | :-------------------------- | :------------ | :------- |
-| MSSQLUSERNAME | the MSSQL user              | USERNAME      | root     |
-| MSSQLPASSWORD | the MSSQL password          | PASSWORD      | p@ssw0rd |
-| MSSQLPORT     | Port to connect to database | 1433          | 1433     |
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
