@@ -41,6 +41,7 @@ Release date: `October 26, 2022`
   - BBDO Server: configures a server input or output, displaying only relevant fields for this purpose
   - BBDO Client: configures a client input or output, displaying only relevant fields for this purpose
 - [Configuration] Some obsolete parameters have been removed from the Engine configuration menu
+- [Custom Views] Reworked the way custom views tabs are managed
 - [Install] Added dependency management between modules during installation, update and deletion
 - [Install] Improved error handling during installation
 - [Install] Removed "Centreon Web Directory" parameter and use Apache configuration instead
