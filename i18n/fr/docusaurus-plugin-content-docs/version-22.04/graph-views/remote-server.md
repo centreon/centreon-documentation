@@ -27,7 +27,7 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 ## Configuration de Centreon Broker
 
-La configuration de Centreon MAP pour un serveur distant Centreon consiste à créer la configuration pour le Broker du serveur distant Centreon à partir du serveur central afin que, avec une sortie dédiée au Broker sur le serveur distant Centreon, Centreon MAP puisse recevoir des données en temps réel directement de son serveur distant.
+Pour pouvoir afficher les statuts en temps réel, **Centreon MAP** nécessite de recevoir ces données en provenance du Broker du serveur distant Centreon.
 
 Pour ce faire, vous devez modifier la configuration de Centreon Broker Master du collecteur distant Centreon. Allez dans le menu **Configuration > Collecteurs > Configuration de Centreon Broker** et modifiez la configuration du **serveur distant**.
 
