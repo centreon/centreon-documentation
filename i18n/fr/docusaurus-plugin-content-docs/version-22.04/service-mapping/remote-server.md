@@ -9,7 +9,7 @@ L'installation de l'extension Centreon BAM sur un serveur distant Centreon doit 
 
 ## Configurer Centreon Broker
 
-La configuration de l'extension **Centreon BAM** sur un serveur
+L'extension **Centreon BAM** nécessite que des sorties Broker spécifiques soient configurées pour le serveur distant Centreon.
 distant consiste à créer la configuration de Centreon Broker à partir du
 serveur central pour la gestion des calculs de Centreon BAM par le
 serveur distant Centreon. Cette configuration sera automatiquement
