@@ -29,7 +29,7 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 Pour pouvoir afficher les statuts en temps réel, **Centreon MAP** nécessite de recevoir ces données en provenance du Broker du serveur distant Centreon.
 
-Pour ce faire, vous devez modifier la configuration de Centreon Broker Master du collecteur distant Centreon. Allez dans le menu **Configuration > Collecteurs > Configuration de Centreon Broker** et modifiez la configuration du **serveur distant**.
+Pour ce faire, vous devez vous connecter au serveur central et modifier la configuration de Centreon Broker Master du serveur distant Centreon. Allez dans le menu **Configuration > Collecteurs > Configuration de Centreon Broker** et modifiez la configuration du **serveur distant**.
 
 Dans l'onglet **Output**, créez une nouvelle sortie avec les paramètres suivants :
 
