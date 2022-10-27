@@ -32,8 +32,7 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 ## Centreon Broker configuration
 
-Configuring the Centreon MAP module on a Centreon remote server requires
-configuring the Centreon Broker from the Centreon central server so that, with a dedicated Centreon
+In order to display real time statuses, **Centreon MAP** needs to receive this data from the Centreon remote server's Broker.
 Broker output on the Centreon remote server, Centreon MAP can receive
 real time data directly from its Centreon remote server.
 
