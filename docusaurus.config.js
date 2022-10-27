@@ -45,10 +45,10 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['22.10'],
+          onlyIncludeVersions: ['23.04'],
           versions: {
-            '22.10': {
-              label: '⭐ 22.10',
+            '23.04': {
+              label: '⭐ 23.04',
             },
           },
         },

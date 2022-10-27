@@ -1,5 +1,5 @@
 {
-  "version-22.10/docs": [
+  "version-23.04/docs": [
     {
       "collapsed": true,
       "type": "category",
@@ -88,19 +88,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/installation/introduction"
+          "id": "version-23.04/installation/introduction"
         },
         {
           "type": "doc",
-          "id": "version-22.10/installation/prerequisites"
+          "id": "version-23.04/installation/prerequisites"
         },
         {
           "type": "doc",
-          "id": "version-22.10/installation/architectures"
+          "id": "version-23.04/installation/architectures"
         },
         {
           "type": "doc",
-          "id": "version-22.10/installation/download"
+          "id": "version-23.04/installation/download"
         },
         {
           "type": "category",
@@ -108,21 +108,21 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-a-central-server/using-packages"
+              "id": "version-23.04/installation/installation-of-a-central-server/using-packages"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-a-central-server/using-virtual-machines"
+              "id": "version-23.04/installation/installation-of-a-central-server/using-virtual-machines"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-a-central-server/using-sources"
+              "id": "version-23.04/installation/installation-of-a-central-server/using-sources"
             }
           ]
         },
         {
           "type": "doc",
-          "id": "version-22.10/installation/web-and-post-installation"
+          "id": "version-23.04/installation/web-and-post-installation"
         },
         {
           "type": "category",
@@ -130,7 +130,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-a-poller/using-packages"
+              "id": "version-23.04/installation/installation-of-a-poller/using-packages"
             }
           ]
         },
@@ -140,7 +140,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-a-remote-server/using-packages"
+              "id": "version-23.04/installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
@@ -150,23 +150,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/monitoring-servers/add-a-poller-to-configuration"
+              "id": "version-23.04/monitoring/monitoring-servers/add-a-poller-to-configuration"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
+              "id": "version-23.04/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/monitoring-servers/communications"
+              "id": "version-23.04/monitoring/monitoring-servers/communications"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/monitoring-servers/move-poller"
+              "id": "version-23.04/monitoring/monitoring-servers/move-poller"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/monitoring-servers/advanced-configuration"
+              "id": "version-23.04/monitoring/monitoring-servers/advanced-configuration"
             }
           ]
         },
@@ -176,19 +176,19 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha/overview"
+              "id": "version-23.04/installation/installation-of-centreon-ha/overview"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha/installation-2-nodes"
+              "id": "version-23.04/installation/installation-of-centreon-ha/installation-2-nodes"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha/installation-4-nodes"
+              "id": "version-23.04/installation/installation-of-centreon-ha/installation-4-nodes"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha/integrating-pollers"
+              "id": "version-23.04/installation/installation-of-centreon-ha/integrating-pollers"
             }
           ]
         },
@@ -198,15 +198,15 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
             },
             {
               "type": "doc",
-              "id": "version-22.10/installation/installation-of-centreon-ha-manual/integrating-pollers"
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
             }
           ]
         }
@@ -218,11 +218,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/administration/secure-platform"
+          "id": "version-23.04/administration/secure-platform"
         },
         {
           "type": "doc",
-          "id": "version-22.10/graph-views/secure-your-map-platform"
+          "id": "version-23.04/graph-views/secure-your-map-platform"
         }
       ]
     },
@@ -236,15 +236,15 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/about"
+              "id": "version-23.04/monitoring/about"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/pluginpacks"
+              "id": "version-23.04/monitoring/pluginpacks"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/monitoring-servers/deploying-a-configuration"
+              "id": "version-23.04/monitoring/monitoring-servers/deploying-a-configuration"
             }
           ]
         },
@@ -254,19 +254,19 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/hosts-create"
+              "id": "version-23.04/monitoring/basic-objects/hosts-create"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/hosts"
+              "id": "version-23.04/monitoring/basic-objects/hosts"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/hosts-create-disco"
+              "id": "version-23.04/monitoring/basic-objects/hosts-create-disco"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/hosts-templates"
+              "id": "version-23.04/monitoring/basic-objects/hosts-templates"
             }
           ]
         },
@@ -276,23 +276,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/services-create"
+              "id": "version-23.04/monitoring/basic-objects/services-create"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/services"
+              "id": "version-23.04/monitoring/basic-objects/services"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/services-create-disco"
+              "id": "version-23.04/monitoring/basic-objects/services-create-disco"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/services-templates"
+              "id": "version-23.04/monitoring/basic-objects/services-templates"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/meta-services"
+              "id": "version-23.04/monitoring/basic-objects/meta-services"
             }
           ]
         },
@@ -302,27 +302,27 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/discovery/introduction"
+              "id": "version-23.04/monitoring/discovery/introduction"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/discovery/installation"
+              "id": "version-23.04/monitoring/discovery/installation"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/discovery/hosts-discovery"
+              "id": "version-23.04/monitoring/discovery/hosts-discovery"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/discovery/services-discovery"
+              "id": "version-23.04/monitoring/discovery/services-discovery"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/discovery/administration"
+              "id": "version-23.04/monitoring/discovery/administration"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/discovery/troubleshooting-hosts-discovery"
+              "id": "version-23.04/monitoring/discovery/troubleshooting-hosts-discovery"
             }
           ]
         },
@@ -332,11 +332,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/groups"
+              "id": "version-23.04/monitoring/groups"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/categories"
+              "id": "version-23.04/monitoring/categories"
             }
           ]
         },
@@ -346,19 +346,19 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/timeperiods"
+              "id": "version-23.04/monitoring/basic-objects/timeperiods"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/macros"
+              "id": "version-23.04/monitoring/basic-objects/macros"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/basic-objects/commands"
+              "id": "version-23.04/monitoring/basic-objects/commands"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/generic-actions"
+              "id": "version-23.04/monitoring/generic-actions"
             }
           ]
         },
@@ -368,7 +368,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/anomaly-detection"
+              "id": "version-23.04/monitoring/anomaly-detection"
             }
           ]
         },
@@ -378,33 +378,33 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/passive-monitoring/enable-snmp-traps"
+              "id": "version-23.04/monitoring/passive-monitoring/enable-snmp-traps"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/passive-monitoring/create-snmp-traps-definitions"
+              "id": "version-23.04/monitoring/passive-monitoring/create-snmp-traps-definitions"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/passive-monitoring/monitoring-with-snmp-traps"
+              "id": "version-23.04/monitoring/passive-monitoring/monitoring-with-snmp-traps"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/passive-monitoring/debug-snmp-traps-management"
+              "id": "version-23.04/monitoring/passive-monitoring/debug-snmp-traps-management"
             },
             {
               "type": "doc",
-              "id": "version-22.10/monitoring/passive-monitoring/dsm"
+              "id": "version-23.04/monitoring/passive-monitoring/dsm"
             }
           ]
         },
         {
           "type": "doc",
-          "id": "version-22.10/monitoring/event-handler"
+          "id": "version-23.04/monitoring/event-handler"
         },
         {
           "type": "doc",
-          "id": "version-22.10/monitoring/web-import-export"
+          "id": "version-23.04/monitoring/web-import-export"
         }
       ]
     },
@@ -418,23 +418,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/concepts"
+              "id": "version-23.04/alerts-notifications/concepts"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/resources-status"
+              "id": "version-23.04/alerts-notifications/resources-status"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/event-console"
+              "id": "version-23.04/alerts-notifications/event-console"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/event-log"
+              "id": "version-23.04/alerts-notifications/event-log"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/custom-views"
+              "id": "version-23.04/alerts-notifications/custom-views"
             }
           ]
         },
@@ -444,19 +444,19 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/acknowledge"
+              "id": "version-23.04/alerts-notifications/acknowledge"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/downtimes"
+              "id": "version-23.04/alerts-notifications/downtimes"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/submit"
+              "id": "version-23.04/alerts-notifications/submit"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/other"
+              "id": "version-23.04/alerts-notifications/other"
             }
           ]
         },
@@ -466,27 +466,27 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/notif-concept"
+              "id": "version-23.04/alerts-notifications/notif-concept"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/notif-configuration"
+              "id": "version-23.04/alerts-notifications/notif-configuration"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/notif-dependencies"
+              "id": "version-23.04/alerts-notifications/notif-dependencies"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/notif-escalation"
+              "id": "version-23.04/alerts-notifications/notif-escalation"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/notif-flapping"
+              "id": "version-23.04/alerts-notifications/notif-flapping"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/notif-advanced"
+              "id": "version-23.04/alerts-notifications/notif-advanced"
             }
           ]
         },
@@ -496,11 +496,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/ticketing-install"
+              "id": "version-23.04/alerts-notifications/ticketing-install"
             },
             {
               "type": "doc",
-              "id": "version-22.10/alerts-notifications/ticketing"
+              "id": "version-23.04/alerts-notifications/ticketing"
             }
           ]
         }
@@ -512,23 +512,23 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/monitoring/basic-objects/contacts"
+          "id": "version-23.04/monitoring/basic-objects/contacts"
         },
         {
           "type": "doc",
-          "id": "version-22.10/monitoring/basic-objects/contacts-create"
+          "id": "version-23.04/monitoring/basic-objects/contacts-create"
         },
         {
           "type": "doc",
-          "id": "version-22.10/monitoring/basic-objects/contacts-templates"
+          "id": "version-23.04/monitoring/basic-objects/contacts-templates"
         },
         {
           "type": "doc",
-          "id": "version-22.10/monitoring/basic-objects/contacts-groups"
+          "id": "version-23.04/monitoring/basic-objects/contacts-groups"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/access-control-lists"
+          "id": "version-23.04/administration/access-control-lists"
         }
       ]
     },
@@ -538,23 +538,23 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/metrology/chart-management"
+          "id": "version-23.04/metrology/chart-management"
         },
         {
           "type": "doc",
-          "id": "version-22.10/metrology/chart-template"
+          "id": "version-23.04/metrology/chart-template"
         },
         {
           "type": "doc",
-          "id": "version-22.10/metrology/chart-curves"
+          "id": "version-23.04/metrology/chart-curves"
         },
         {
           "type": "doc",
-          "id": "version-22.10/metrology/chart-virtual-metrics"
+          "id": "version-23.04/metrology/chart-virtual-metrics"
         },
         {
           "type": "doc",
-          "id": "version-22.10/metrology/grafana"
+          "id": "version-23.04/metrology/grafana"
         }
       ]
     },
@@ -564,7 +564,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/service-mapping/introduction"
+          "id": "version-23.04/service-mapping/introduction"
         },
         {
           "type": "category",
@@ -572,23 +572,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/ba-management"
+              "id": "version-23.04/service-mapping/ba-management"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/ba-monitoring"
+              "id": "version-23.04/service-mapping/ba-monitoring"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/ba-reporting"
+              "id": "version-23.04/service-mapping/ba-reporting"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/ba-settings"
+              "id": "version-23.04/service-mapping/ba-settings"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/widgets"
+              "id": "version-23.04/service-mapping/widgets"
             }
           ]
         },
@@ -598,23 +598,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/install"
+              "id": "version-23.04/service-mapping/install"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/update"
+              "id": "version-23.04/service-mapping/update"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/upgrade"
+              "id": "version-23.04/service-mapping/upgrade"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/migrate"
+              "id": "version-23.04/service-mapping/migrate"
             },
             {
               "type": "doc",
-              "id": "version-22.10/service-mapping/remote-server"
+              "id": "version-23.04/service-mapping/remote-server"
             }
           ]
         }
@@ -626,7 +626,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/graph-views/introduction"
+          "id": "version-23.04/graph-views/introduction"
         },
         {
           "type": "category",
@@ -634,19 +634,19 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/create-standard-view"
+              "id": "version-23.04/graph-views/create-standard-view"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/create-geo-view"
+              "id": "version-23.04/graph-views/create-geo-view"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/display-view"
+              "id": "version-23.04/graph-views/display-view"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/share-view"
+              "id": "version-23.04/graph-views/share-view"
             }
           ]
         },
@@ -656,39 +656,39 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/install"
+              "id": "version-23.04/graph-views/install"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/update"
+              "id": "version-23.04/graph-views/update"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/upgrade"
+              "id": "version-23.04/graph-views/upgrade"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/migrate"
+              "id": "version-23.04/graph-views/migrate"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/configuration"
+              "id": "version-23.04/graph-views/configuration"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/remote-server"
+              "id": "version-23.04/graph-views/remote-server"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/advanced-configuration"
+              "id": "version-23.04/graph-views/advanced-configuration"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/known-issues"
+              "id": "version-23.04/graph-views/known-issues"
             },
             {
               "type": "doc",
-              "id": "version-22.10/graph-views/troubleshooter"
+              "id": "version-23.04/graph-views/troubleshooter"
             }
           ]
         }
@@ -700,7 +700,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/reporting/introduction"
+          "id": "version-23.04/reporting/introduction"
         },
         {
           "type": "category",
@@ -708,27 +708,27 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/reporting/manage-reports"
+              "id": "version-23.04/reporting/manage-reports"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/reports"
+              "id": "version-23.04/reporting/reports"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/widgets"
+              "id": "version-23.04/reporting/widgets"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/configure"
+              "id": "version-23.04/reporting/configure"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/concepts"
+              "id": "version-23.04/reporting/concepts"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/report-development"
+              "id": "version-23.04/reporting/report-development"
             }
           ]
         },
@@ -738,23 +738,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/reporting/installation"
+              "id": "version-23.04/reporting/installation"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/update"
+              "id": "version-23.04/reporting/update"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/upgrade"
+              "id": "version-23.04/reporting/upgrade"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/migrate"
+              "id": "version-23.04/reporting/migrate"
             },
             {
               "type": "doc",
-              "id": "version-22.10/reporting/backup-restore"
+              "id": "version-23.04/reporting/backup-restore"
             }
           ]
         }
@@ -770,31 +770,31 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/centreon-ui"
+              "id": "version-23.04/administration/parameters/centreon-ui"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/monitoring"
+              "id": "version-23.04/administration/parameters/monitoring"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/gorgone"
+              "id": "version-23.04/administration/parameters/gorgone"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/rrdtool"
+              "id": "version-23.04/administration/parameters/rrdtool"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/debug"
+              "id": "version-23.04/administration/parameters/debug"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/data-management"
+              "id": "version-23.04/administration/parameters/data-management"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/medias"
+              "id": "version-23.04/administration/parameters/medias"
             }
           ]
         },
@@ -804,23 +804,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/connect/loginpwd"
+              "id": "version-23.04/connect/loginpwd"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/parameters/ldap"
+              "id": "version-23.04/administration/parameters/ldap"
             },
             {
               "type": "doc",
-              "id": "version-22.10/connect/sso"
+              "id": "version-23.04/connect/sso"
             },
             {
               "type": "doc",
-              "id": "version-22.10/connect/openid"
+              "id": "version-23.04/connect/openid"
             },
             {
               "type": "doc",
-              "id": "version-22.10/connect/autologin"
+              "id": "version-23.04/connect/autologin"
             }
           ]
         },
@@ -830,53 +830,53 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/acceptance-guide"
+              "id": "version-23.04/administration/centreon-ha/acceptance-guide"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/monitoring-guide"
+              "id": "version-23.04/administration/centreon-ha/monitoring-guide"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/operating-guide"
+              "id": "version-23.04/administration/centreon-ha/operating-guide"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/troubleshooting-guide"
+              "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
             }
           ]
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/extensions"
+          "id": "version-23.04/administration/extensions"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/licenses"
+          "id": "version-23.04/administration/licenses"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/database-partitioning"
+          "id": "version-23.04/administration/database-partitioning"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/backup"
+          "id": "version-23.04/administration/backup"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/knowledge-base"
+          "id": "version-23.04/administration/knowledge-base"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/logging-configuration-changes"
+          "id": "version-23.04/administration/logging-configuration-changes"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/platform-statistics"
+          "id": "version-23.04/administration/platform-statistics"
         },
         {
           "type": "doc",
-          "id": "version-22.10/administration/postfix"
+          "id": "version-23.04/administration/postfix"
         }
       ]
     },
@@ -890,11 +890,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/update/update-centreon-platform"
+              "id": "version-23.04/update/update-centreon-platform"
             },
             {
               "type": "doc",
-              "id": "version-22.10/update/update-centreon-ha"
+              "id": "version-23.04/update/update-centreon-ha"
             }
           ]
         },
@@ -904,67 +904,67 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/introduction"
+              "id": "version-23.04/upgrade/introduction"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-22-04"
+              "id": "version-23.04/upgrade/upgrade-from-22-04"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-21-10"
+              "id": "version-23.04/upgrade/upgrade-from-21-10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-21-04"
+              "id": "version-23.04/upgrade/upgrade-from-21-04"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-20-10"
+              "id": "version-23.04/upgrade/upgrade-from-20-10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-20-04"
+              "id": "version-23.04/upgrade/upgrade-from-20-04"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-19-10"
+              "id": "version-23.04/upgrade/upgrade-from-19-10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-19-04"
+              "id": "version-23.04/upgrade/upgrade-from-19-04"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-18-10"
+              "id": "version-23.04/upgrade/upgrade-from-18-10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-from-3-4"
+              "id": "version-23.04/upgrade/upgrade-from-3-4"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
+              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
+              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/centreon-ha/upgrade-from-centreon-failover"
+              "id": "version-23.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
             },
             {
               "type": "doc",
-              "id": "version-22.10/upgrade/upgrade-mariadb"
+              "id": "version-23.04/upgrade/upgrade-mariadb"
             }
           ]
         },
@@ -974,31 +974,31 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/migrate/introduction"
+              "id": "version-23.04/migrate/introduction"
             },
             {
               "type": "doc",
-              "id": "version-22.10/migrate/migrate-from-el-to-el"
+              "id": "version-23.04/migrate/migrate-from-el-to-el"
             },
             {
               "type": "doc",
-              "id": "version-22.10/migrate/migrate-from-el-to-debian"
+              "id": "version-23.04/migrate/migrate-from-el-to-debian"
             },
             {
               "type": "doc",
-              "id": "version-22.10/migrate/migrate-from-3-4"
+              "id": "version-23.04/migrate/migrate-from-3-4"
             },
             {
               "type": "doc",
-              "id": "version-22.10/migrate/nagios-to-centreon"
+              "id": "version-23.04/migrate/nagios-to-centreon"
             },
             {
               "type": "doc",
-              "id": "version-22.10/migrate/poller-display-to-remote-server"
+              "id": "version-23.04/migrate/poller-display-to-remote-server"
             },
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-gorgone-migrate-from-centcore"
+              "id": "version-23.04/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
@@ -1015,7 +1015,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/integrations/introduction-integrations"
+          "id": "version-23.04/integrations/introduction-integrations"
         },
         {
           "type": "category",
@@ -1023,43 +1023,43 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/data-analytics-overview"
+              "id": "version-23.04/integrations/data-analytics/data-analytics-overview"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-elastic-events"
+              "id": "version-23.04/integrations/data-analytics/sc-elastic-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-elastic-metrics"
+              "id": "version-23.04/integrations/data-analytics/sc-elastic-metrics"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-logstash-events"
+              "id": "version-23.04/integrations/data-analytics/sc-logstash-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-datadog-events"
+              "id": "version-23.04/integrations/data-analytics/sc-datadog-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-datadog-metrics"
+              "id": "version-23.04/integrations/data-analytics/sc-datadog-metrics"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-splunk-metrics"
+              "id": "version-23.04/integrations/data-analytics/sc-splunk-metrics"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-splunk-events"
+              "id": "version-23.04/integrations/data-analytics/sc-splunk-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-warp10"
+              "id": "version-23.04/integrations/data-analytics/sc-warp10"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-kafka-events"
+              "id": "version-23.04/integrations/data-analytics/sc-kafka-events"
             }
           ]
         },
@@ -1069,39 +1069,39 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/event-management-overview"
+              "id": "version-23.04/integrations/event-management/event-management-overview"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-hp-bsm"
+              "id": "version-23.04/integrations/event-management/sc-hp-bsm"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-hp-omi"
+              "id": "version-23.04/integrations/event-management/sc-hp-omi"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-opsgenie"
+              "id": "version-23.04/integrations/event-management/sc-opsgenie"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-pagerduty-events"
+              "id": "version-23.04/integrations/event-management/sc-pagerduty-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-service-now-incident-events"
+              "id": "version-23.04/integrations/event-management/sc-service-now-incident-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-service-now-em-events"
+              "id": "version-23.04/integrations/event-management/sc-service-now-em-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-signl4-events"
+              "id": "version-23.04/integrations/event-management/sc-signl4-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-servicenow-mid-server"
+              "id": "version-23.04/integrations/event-management/sc-servicenow-mid-server"
             }
           ]
         },
@@ -1111,59 +1111,59 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/itsm-overview"
+              "id": "version-23.04/integrations/itsm/itsm-overview"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-bmc-footprints"
+              "id": "version-23.04/integrations/itsm/ot-bmc-footprints"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-bmc-remedy"
+              "id": "version-23.04/integrations/itsm/ot-bmc-remedy"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-easyvista"
+              "id": "version-23.04/integrations/itsm/ot-easyvista"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-glpi"
+              "id": "version-23.04/integrations/itsm/ot-glpi"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-glpi-restapi"
+              "id": "version-23.04/integrations/itsm/ot-glpi-restapi"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-itop"
+              "id": "version-23.04/integrations/itsm/ot-itop"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-iws-isilog"
+              "id": "version-23.04/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-jira"
+              "id": "version-23.04/integrations/itsm/ot-jira"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-mail"
+              "id": "version-23.04/integrations/itsm/ot-mail"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-otrs-restapi"
+              "id": "version-23.04/integrations/itsm/ot-otrs-restapi"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-request-tracker-restapi"
+              "id": "version-23.04/integrations/itsm/ot-request-tracker-restapi"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-serena"
+              "id": "version-23.04/integrations/itsm/ot-serena"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/itsm/ot-servicenow"
+              "id": "version-23.04/integrations/itsm/ot-servicenow"
             }
           ]
         },
@@ -1173,11 +1173,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/integrations/notifications/notifications-overview"
+              "id": "version-23.04/integrations/notifications/notifications-overview"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/notifications/plugin-telegram"
+              "id": "version-23.04/integrations/notifications/plugin-telegram"
             }
           ]
         },
@@ -1187,7 +1187,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/integrations/npm/ntopng"
+              "id": "version-23.04/integrations/npm/ntopng"
             }
           ]
         } 
@@ -1199,7 +1199,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/mobile/introduction"
+          "id": "version-23.04/mobile/introduction"
         }
       ]
     },
@@ -1209,27 +1209,27 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/developer/about-developer-resources"
+          "id": "version-23.04/developer/about-developer-resources"
         },
         {
           "type": "doc",
-          "id": "version-22.10/developer/developer-module"
+          "id": "version-23.04/developer/developer-module"
         },
         {
           "type": "doc",
-          "id": "version-22.10/developer/developer-stream-connector"
+          "id": "version-23.04/developer/developer-stream-connector"
         },
         {
           "type": "doc",
-          "id": "version-22.10/developer/developer-broker-stream-connector-migration"
+          "id": "version-23.04/developer/developer-broker-stream-connector-migration"
         },
         {
           "type": "doc",
-          "id": "version-22.10/developer/developer-translate-centreon"
+          "id": "version-23.04/developer/developer-translate-centreon"
         },
         {
           "type": "doc",
-          "id": "version-22.10/developer/developer-widget"
+          "id": "version-23.04/developer/developer-widget"
         },
         {
           "type": "category",
@@ -1237,15 +1237,15 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-broker-stream-connector"
+              "id": "version-23.04/developer/developer-broker-stream-connector"
             },
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-broker-bbdo"
+              "id": "version-23.04/developer/developer-broker-bbdo"
             },
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-broker-mapping"
+              "id": "version-23.04/developer/developer-broker-mapping"
             }
           ]
         },
@@ -1255,15 +1255,15 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-gorgone-client-server-communication"
+              "id": "version-23.04/developer/developer-gorgone-client-server-communication"
             },
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-gorgone-pull-mode"
+              "id": "version-23.04/developer/developer-gorgone-pull-mode"
             },
             {
               "type": "doc",
-              "id": "version-22.10/developer/developer-gorgone-rebound-mode"
+              "id": "version-23.04/developer/developer-gorgone-rebound-mode"
             }
           ]
         },
@@ -1273,23 +1273,23 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/api/introduction"
+              "id": "version-23.04/api/introduction"
             },
             {
               "type": "doc",
-              "id": "version-22.10/api/clapi"
+              "id": "version-23.04/api/clapi"
             },
             {
               "type": "doc",
-              "id": "version-22.10/api/rest-api-v1"
+              "id": "version-23.04/api/rest-api-v1"
             },
             {
               "type": "doc",
-              "id": "version-22.10/api/rest-api-v2"
+              "id": "version-23.04/api/rest-api-v2"
             },
             {
               "type": "doc",
-              "id": "version-22.10/api/graph-views-api"
+              "id": "version-23.04/api/graph-views-api"
             }
           ]
         }
@@ -1301,7 +1301,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/health/centreon-agent"
+          "id": "version-23.04/health/centreon-agent"
         },
         {
           "type": "category",
@@ -1309,19 +1309,19 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/acceptance-guide"
+              "id": "version-23.04/administration/centreon-ha/acceptance-guide"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/monitoring-guide"
+              "id": "version-23.04/administration/centreon-ha/monitoring-guide"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/operating-guide"
+              "id": "version-23.04/administration/centreon-ha/operating-guide"
             },
             {
               "type": "doc",
-              "id": "version-22.10/administration/centreon-ha/troubleshooting-guide"
+              "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
             }
           ]
         }
@@ -1333,11 +1333,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/releases/introduction"
+          "id": "version-23.04/releases/introduction"
         },
         {
           "type": "doc",
-          "id": "version-22.10/releases/lifecycle"
+          "id": "version-23.04/releases/lifecycle"
         },
         {
           "type": "category",
@@ -1345,11 +1345,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/releases/centreon-os"
+              "id": "version-23.04/releases/centreon-os"
             },
             {
               "type": "doc",
-              "id": "version-22.10/releases/centreon-commercial-extensions"
+              "id": "version-23.04/releases/centreon-commercial-extensions"
             }
           ]
         }
@@ -1361,11 +1361,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/security/security"
+          "id": "version-23.04/security/security"
         },
         {
           "type": "doc",
-          "id": "version-22.10/security/key-rotation"
+          "id": "version-23.04/security/key-rotation"
         },
         {
           "type": "category",
@@ -1373,11 +1373,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/security/user-data-storage/gdpr-compliance"
+              "id": "version-23.04/security/user-data-storage/gdpr-compliance"
             },
             {
               "type": "doc",
-              "id": "version-22.10/security/user-data-storage/what-is-centreon-ceip"
+              "id": "version-23.04/security/user-data-storage/what-is-centreon-ceip"
             }
           ]
         }
@@ -1389,15 +1389,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-22.10/resources/known-issues"
+          "id": "version-23.04/resources/known-issues"
         },
         {
           "type": "doc",
-          "id": "version-22.10/resources/troubleshooting"
+          "id": "version-23.04/resources/troubleshooting"
         },
         {
           "type": "doc",
-          "id": "version-22.10/resources/glossary"
+          "id": "version-23.04/resources/glossary"
         }
       ]
     }
