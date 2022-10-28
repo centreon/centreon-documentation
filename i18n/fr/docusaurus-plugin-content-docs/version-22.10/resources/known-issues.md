@@ -9,6 +9,14 @@ Nous appliquons des correctifs lorsque cela est nécessaire et améliorons conti
 
 ## Centreon Web
 
+### Résultats incohérents lors de la supervision d'un métaservice
+
+Cet incident peut se produire lorsque vous créez un métaservice lié à des services supervisés tels que des services Ping par exemple. Alors que les services Ping renvoient des résultats corrects, les résultats reçus dans le panneau de détail pour le métaservice peuvent être incohérents et renvoyer le statut **inconnu** avec un message.
+
+#### Contournement
+
+Il n'existe actuellement pas de contournement.
+
 ### Environment variable not found: "hostCentreon"
 
 Lors de l'installation d'un serveur central (ou d'un serveur distant), un message d'erreur apparaît pendant un court instant dans la barre de notification lors de l'accès à l'assistant pour terminer l'installation. Le message d'erreur est le suivant :
@@ -69,6 +77,16 @@ Puis redémarrer PHP à l'aide de la commande suivante :
 ```shell
 systemctl restart php-fpm
 ```
+
+## Anomaly Detection
+
+### Impossible de superviser un service de détection d'anomalies lié à un métaservice
+
+Lorsque vous créez un métaservice auquel est lié un service de détection des anomalies, il se peut que vous ne receviez pas de données pour les graphiques et les prédictions.
+
+#### Contournement
+
+Il n'existe actuellement pas de contournement.
 
 ## Centreon MBI
 
