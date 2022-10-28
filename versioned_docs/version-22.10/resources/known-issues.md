@@ -10,6 +10,14 @@ issues for future releases.
 
 ## Centreon Web
 
+### Inconsistent results when monitoring a metaservice
+
+This issue may occur when you create a metaservice linked to monitored services, such as Ping services for instance. While the Ping services return correct results, the results received in the **Detail panel** for the metaservice may be inconsistent and return an **unknown** status with a message.
+
+#### Workaround
+
+There is currently no workaround.
+
 ### Environment variable not found: "hostCentreon"
 
 During a central server (or remote server) installation, an error message appears for a short time in the snackbar when accessing the wizard to complete the installation. The error message is the following:
@@ -70,6 +78,16 @@ Then restart PHP using the following command:
 ```shell
 systemctl restart php-fpm
 ```
+
+## Anomaly Detection
+
+### Cannot monitor an Anomaly Detection service linked to a metaservice
+
+When you create a metaservice with an Anomaly Detection service linked to it, you may not receive data for graphs and predictions.
+
+#### Workaround
+
+There is currently no workaround.
 
 ## Centreon MBI
 
