@@ -67,13 +67,13 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Videz le cache :
+Videz le cache :
 
   ```shell
   dnf clean all --enablerepo=*
   ```
 
-2. Mettez à jour l'ensemble des composants :
+Mettez à jour l'ensemble des composants :
 
   ```shell
   dnf update centreon\*
@@ -82,13 +82,13 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 </TabItem>
 <TabItem value="Centos 7" label="Centos 7">
 
-1. Videz le cache :
+Videz le cache :
 
   ```shell
   yum clean all --enablerepo=*
   ```
 
-2. Mettez à jour l'ensemble des composants :
+Mettez à jour l'ensemble des composants :
 
   ```shell
   yum update centreon\*
@@ -97,14 +97,14 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-1. Videz le cache :
+Videz le cache :
 
   ```shell
   apt clean all
   apt update
   ```
 
-2. Mettez à jour l'ensemble des composants :
+Mettez à jour l'ensemble des composants :
 
   ```shell
   apt upgrade centreon
@@ -113,11 +113,9 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 </TabItem>
 </Tabs>
 
-3. Vous pouvez maintenant procéder à la mise à jour en utilisant :
-   - [L'assistant d'interface](#finalisation-de-la-mise-à-jour-avec-lassistant-dinterface)
-   - [L'API](#finalisation-de-la-mise-à-jour-avec-lapi)
-
-#### Finalisation de la mise à jour avec l'assistant d'interface
+Vous devez maintenant finaliser la mise à jour :
+  <Tabs groupId="sync">
+  <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon pour démarrer le processus de
 mise à jour. Cliquez sur **Next** :
@@ -147,16 +145,8 @@ accéder à la page de connexion :
 suivant [cette
 procédure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-7. Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
-la commande suivante :
-
-  ```shell
-  systemctl restart cbd centengine gorgoned
-  ```
-
-Vous pouvez maintenant passer à l'étape [Mise à jour des extensions](#mise-à-jour-des-extensions).
-
-#### Finalisation de la mise à jour avec l'API
+</TabItem>
+<TabItem value="Avec l'API dédié" label="Avec l'API dédié">
 
 1. Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
 mise à jour.
@@ -212,8 +202,10 @@ mise à jour.
 
 5. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion à l'interface web Centreon.
 
-6. Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
-la commande suivante :
+</TabItem>
+</Tabs>
+
+Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant la commande suivante :
 
   ```shell
   systemctl restart cbd centengine gorgoned
