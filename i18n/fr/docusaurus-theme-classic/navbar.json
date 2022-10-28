@@ -1,12 +1,4 @@
 {
-  "title": {
-    "message": "",
-    "description": "The title in the navbar"
-  },
-  "item.label.Documentation": {
-    "message": "Documentation",
-    "description": "Navbar item with label Documentation"
-  },
   "item.label.Centreon OnPrem": {
     "message": "Centreon OnPrem",
     "description": "Navbar item with label Centreon OnPrem"
