@@ -1,6 +1,6 @@
 ---
 id: applications-wsus-nsclient
-title: Microsoft WSUS Server
+title: Microsoft WSUS
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -167,6 +167,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-nrpe3-plugin
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
@@ -174,6 +175,7 @@ yum install centreon-nrpe3-plugin
 
 ```bash
 apt install centreon-nrpe3-plugin
+apt install centreon-plugin-operatingsystems-windows-restapi
 ```
 
 </TabItem>
@@ -185,23 +187,40 @@ apt install centreon-nrpe3-plugin
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **WSUS Server**.
-* Appliquez le modèle d'hôte **App-Wsus-NRPE-custom**.
+* Appliquez le modèle d'hôte de votre choix: **App-Wsus-NRPE-custom** ou **App-Wsus-NSClient-05-Restapi-custom**. 
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+
+
+<Tabs groupId="sync">
+<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
 
 | Obligatoire | Macro                     | Description                                                                            |
 |:------------|:--------------------------|:---------------------------------------------------------------------------------------|
 |             | NRPECLIENT                | (Défaut : 'check_centreon_nrpe')                                                       |
-|             | NRPEEXTRAOPTIONS          | -u -m 8192                                                                             |
-|             | NRPEPORT                  | (Défaut : '5666')                                                                      |
-|             | NRPETIMEOUT               | (Défaut : '55')                                                                        |
+|             | NRPEEXTRAOPTIONS          | Options spécifiques à NRPE (Défaut: -u -m 8192)                                        |
+|             | NRPEPORT                  | Port d'écoute du serveur NRPE (Défaut : '5666')                                        |
+|             | NRPETIMEOUT               | Timeout (Défaut : '55')                                                                |
+|     X       | WSUSPORT                  | Port d'écoute sur serveur WSUS                                                         |
+|     X       | WSUSSERVER                | Nom/FQDN du serveur WSUS                                                               |
+
+</TabItem>
+<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
+
+| Obligatoire | Macro                     | Description                                                                            |
+|:------------|:--------------------------|:---------------------------------------------------------------------------------------|
 |             | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
 |             | NSCPRESTAPILEGACYPASSWORD | Mot de passe pour l'authentification basique de l'API                                  |
 |             | NSCPRESTAPIPORT           | Port d'écoute de l'API                                                                 |
 |             | NSCPRESTAPIPROTO          | Protocole de l'API                                                                     |
-|             | WSUSPORT                  | Port d'écoute sur serveur WSUS                                                         |
-|             | WSUSSERVER                | Nom/FQDN du serveur WSUS                                                               |
+|     X       | WSUSPORT                  | Port d'écoute sur serveur WSUS                                                         |
+|     X       | WSUSSERVER                | Nom/FQDN du serveur WSUS                                                               |
+
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+> Les exemples suivants sont donnés pour le modèle RestAPI.
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec

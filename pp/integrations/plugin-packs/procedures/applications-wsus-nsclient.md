@@ -168,6 +168,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-nrpe3-plugin
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
@@ -175,6 +176,7 @@ yum install centreon-nrpe3-plugin
 
 ```bash
 apt install centreon-nrpe3-plugin
+apt install centreon-plugin-operatingsystems-windows-restapi
 ```
 
 </TabItem>
@@ -186,7 +188,7 @@ apt install centreon-nrpe3-plugin
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **WSUS Server** server settings.
-* Apply the **App-Wsus-NRPE-custom** template to the host.
+* Apply the chosen template to the host: **App-Wsus-NRPE-custom** or **App-Wsus-NSClient-05-Restapi-custom**.
 * Depending on the Host template, fill the Macro fields as follows:
 
 <Tabs groupId="sync">
@@ -217,6 +219,8 @@ apt install centreon-nrpe3-plugin
 </Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
+
+> The following examples come for the RestAPI template.
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
 **centreon-engine** user account (`su - centreon-engine`) and test the plugin by

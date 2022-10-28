@@ -5,7 +5,6 @@ title: Microsoft SQL Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack Assets
 
 ### Templates
