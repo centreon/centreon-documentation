@@ -442,28 +442,100 @@ systemctl restart apache2
 </TabItem>
 </Tabs>
 
-Then log on to the Centreon web interface to continue the upgrade process:
+Then you need to finalize the upgrade process:
 
-Click on **Next**:
+  <Tabs groupId="sync">
+  <TabItem value="Using the wizard" label="Using the wizard">
 
-![image](../assets/upgrade/web_update_1.png)
+1. Log on to the Centreon web interface to continue the update process. Click on **Next**:
 
-Click on **Next**:
+  ![image](../assets/upgrade/web_update_1.png)
 
-![image](../assets/upgrade/web_update_2.png)
+2. Click on **Next**:
 
-The release notes describe the main changes. Click on **Next**:
+  ![image](../assets/upgrade/web_update_2.png)
 
-![image](../assets/upgrade/web_update_3.png)
+3. The release notes describe the main changes. Click on **Next**:
 
-This process performs the various upgrades. Click on **Next**:
+  ![image](../assets/upgrade/web_update_3.png)
 
-![image](../assets/upgrade/web_update_4.png)
+4. This process performs the various upgrades. Click on **Next**:
 
-Your Centreon server is now up to date. Click on **Finish** to access the login
+  ![image](../assets/upgrade/web_update_4.png)
+
+5. Your Centreon server is now up to date. Click on **Finish** to access the login
 page:
 
-![image](../assets/upgrade/web_update_5.png)
+  ![image](../assets/upgrade/web_update_5.png)
+
+  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
+
+6. Deploy the central's configuration from the Centreon web UI by following [this
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
+  
+</TabItem>
+<TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
+
+1. Log on to the central server through your terminal to continue the update process.
+
+  > You need an authentication token to reach the API endpoint. Perform the following procedure to get a token.
+
+  In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
+   - address: 10.25.XX.XX
+   -  port: 80
+   -  version: 22.10
+   -  login: Admin
+   -  password: xxxxx
+
+2. Enter the following request:
+
+  ```shell
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.10/login' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --data '{
+    "security": {
+      "credentials": {
+        "login": "Admin",
+        "password": "xxxxx"
+      }
+    }
+  }'
+  ```
+
+  This is how the result should look like:
+
+    ```shell
+    {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
+    ```
+
+3. Retrieve the token number to use it in the next request.
+
+4. Then enter this request:
+
+  ```shell
+  curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
+  --header 'Content-Type: application/json' \
+  --data '{
+      "components": [
+          {
+              "name": "centreon-web"
+          }
+      ]
+  }'
+  ```
+
+5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
+
+</TabItem>
+</Tabs>
+
+Finally, restart Broker, Engine and Gorgone on the central server by running this command:
+
+  ```shell
+  systemctl restart cbd centengine gorgoned
+  ```
 
 > As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
 

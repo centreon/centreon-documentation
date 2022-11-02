@@ -66,13 +66,13 @@ Please make sure all users are logged out from the Centreon web interface before
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Clean the cache:
+Clean the cache:
 
   ```shell
   dnf clean all --enablerepo=*
   ```
 
-2. Then upgrade all the components with the following command:
+Then upgrade all the components with the following command:
 
   ```shell
  dnf update centreon\*
@@ -81,13 +81,13 @@ Please make sure all users are logged out from the Centreon web interface before
 </TabItem>
 <TabItem value="Centos 7" label="Centos 7">
 
-1. Clean the cache:
+Clean the cache:
 
   ```shell
   yum clean all --enablerepo=*
   ```
 
-2. Then upgrade all the components with the following command:
+Then upgrade all the components with the following command:
 
   ```shell
   yum update centreon\*
@@ -96,14 +96,14 @@ Please make sure all users are logged out from the Centreon web interface before
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-1. Clean the cache:
+Clean the cache:
 
   ```shell
   apt clean all
   apt update
   ```
 
-2. Then upgrade all the components with the following command:
+Then upgrade all the components with the following command:
 
   ```shell
   apt upgrade centreon
@@ -112,11 +112,9 @@ Please make sure all users are logged out from the Centreon web interface before
 </TabItem>
 </Tabs>
 
-3. Now you can either perform the update:
-   - [Using the wizard](#finalize-the-update-using-the-wizard)
-   - [Using a dedicated API endpoint](#finalize-the-update-using-the-api-endpoint)
-
-#### Finalize the update using the wizard
+Now you need to finalize the update:
+  <Tabs groupId="sync">
+  <TabItem value="Using the wizard" label="Using the wizard">
 
 1. Log on to the Centreon web interface to continue the update process. Click on **Next**:
 
@@ -143,17 +141,9 @@ page:
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-7. Finally, restart Broker, Engine and Gorgone on the central server by running
-this command:
-
-  ```shell
-  systemctl restart cbd centengine gorgoned
-  ```
-
-You can now move to the [Update extensions](#update-extensions) step.
-
-#### Finalize the update using the API endpoint
+  
+</TabItem>
+<TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
 
 1. Log on to the central server through your terminal to continue the update process.
 
@@ -207,8 +197,10 @@ You can now move to the [Update extensions](#update-extensions) step.
 
 5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
 
-6. Finally, restart Broker, Engine and Gorgone on the central server by running
-this command:
+</TabItem>
+</Tabs>
+
+Finally, restart Broker, Engine and Gorgone on the central server by running this command:
 
   ```shell
   systemctl restart cbd centengine gorgoned
