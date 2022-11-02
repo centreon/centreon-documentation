@@ -146,7 +146,7 @@ suivant [cette
 procédure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
-<TabItem value="Avec l'API dédié" label="Avec l'API dédié">
+<TabItem value="Avec l'API dédiée" label="Avec l'API dédiée">
 
 1. Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
 mise à jour.
