@@ -45,6 +45,8 @@ AirUpdate button to update the extension and the widgets
 
 ## Step 3: Upgrade the reporting server 
 
+> Ensure a version of Java 17 or later is installed before you start the procedure.
+
 1. Connect to your reporting server and stop the scheduler service (CBIS):
 
     ```shell

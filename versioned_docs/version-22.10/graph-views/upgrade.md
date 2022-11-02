@@ -51,6 +51,8 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+> Ensure a version of Java 17 or later is installed before you start the procedure.
+
 ```shell
 yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
