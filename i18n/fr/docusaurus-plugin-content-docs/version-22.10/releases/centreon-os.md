@@ -14,6 +14,8 @@ Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, vous pouvez vous rendre sur
 notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
+Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https://www.centreon.com/blog/centreon-22-10-les-nouveautes).
+
 ## Centreon Web
 
 ### 22.10.0

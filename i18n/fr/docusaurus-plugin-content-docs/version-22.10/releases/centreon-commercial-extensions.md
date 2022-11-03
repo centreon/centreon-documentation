@@ -13,6 +13,8 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
 
+Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https://www.centreon.com/blog/centreon-22-10-les-nouveautes).
+
 ## Centreon MAP
 
 ### 22.10.0
