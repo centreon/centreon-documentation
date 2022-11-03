@@ -125,3 +125,14 @@ Map` and **Desktop client** button.
     ```shell
     systemctl start centreon-map
     ```
+## Step 5: Update dialects in .properties files
+
+1. In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+
+> This configuration also works with a MySQL database.
+
+2. Then restart the **centreon-map** service:
+
+    ```shell
+    systemctl restart centreon-map
+    ```
