@@ -14,6 +14,8 @@ You can find in this chapter all changelogs concerning **Centreon Commercial Ext
 
 If you have feature requests or want to report a bug, please contact support.
 
+Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/).
+
 ## Centreon MAP
 
 ### 22.10.0
