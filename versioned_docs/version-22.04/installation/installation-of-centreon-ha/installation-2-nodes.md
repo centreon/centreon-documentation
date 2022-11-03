@@ -794,7 +794,7 @@ chkconfig mysql off
 ```
 
 </TabItem>
-<TabItem value="Debian 11 " label="Debian 11">
+<TabItem value="Debian 11" label="Debian 11">
 
 By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
@@ -803,7 +803,7 @@ update-rc.d -f mariadb remove
 ```
 
 </TabItem>
-</Tabs
+</Tabs>
 
 ### Creating the cluster
 

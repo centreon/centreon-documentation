@@ -766,7 +766,6 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 ```
 
 </TabItem>
-<Tabs groupId="sync">
 <TabItem value="Debian 11 " label="Debian 11">
 
 ```bash
@@ -795,7 +794,7 @@ chkconfig mysql off
 ```
 
 </TabItem>
-<TabItem value="Debian 11 " label="Debian 11">
+<TabItem value="Debian 11" label="Debian 11">
 
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
