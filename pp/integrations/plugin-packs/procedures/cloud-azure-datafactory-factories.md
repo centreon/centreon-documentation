@@ -146,13 +146,13 @@ in **AZURERESOURCE**
 
 | Mandatory   | Macro              | Description                                   |
 |:------------|:-------------------|:----------------------------------------------|
-|             | AZUREAPICUSTOMMODE | Custom mode **api**                           |
-|             | AZURECLIENTID      | Client ID                                     |
-|             | AZURECLIENTSECRET  | Client secret                                 |
-|             | AZURERESOURCE      | ID or name of the Azure Data Factory resource |
-|             | AZURERESOURCEGROUP | Resource group name if resource name is used  |
-|             | AZURESUBSCRIPTION  | Subscription ID                               |
-|             | AZURETENANT        | Tenant ID                                     |
+| X           | AZUREAPICUSTOMMODE | Custom mode **api**                           |
+| X           | AZURECLIENTID      | Client ID                                     |
+| X           | AZURECLIENTSECRET  | Client secret                                 |
+| X           | AZURERESOURCE      | ID or name of the Azure Data Factory resource |
+| X           | AZURERESOURCEGROUP | Resource group name if resource name is used  |
+| X           | AZURESUBSCRIPTION  | Subscription ID                               |
+| X           | AZURETENANT        | Tenant ID                                     |
 
 </TabItem>
 </Tabs>
