@@ -153,16 +153,6 @@ apt install centreon-plugin-cloud-azure-datafactory-api
 |             | AZURETENANT        | Tenant ID                                     |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
-
-| Obligatoire | Macro              | Description                                   |
-|:------------|:-------------------|:----------------------------------------------|
-|             | AZURECLICUSTOMMODE | Custom mode **azcli**                         |
-|             | AZURERESOURCE      | ID or name of the Azure Data Factory resource |
-|             | AZURERESOURCEGROUP | Resource group name if resource name is used  |
-|             | AZURESUBSCRIPTION  | Subscription ID                               |
-
-</TabItem>
 </Tabs>
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?

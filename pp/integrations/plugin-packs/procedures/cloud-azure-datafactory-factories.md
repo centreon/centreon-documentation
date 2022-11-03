@@ -155,16 +155,6 @@ in **AZURERESOURCE**
 |             | AZURETENANT        | Tenant ID                                     |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
-
-| Mandatory   | Macro              | Description                                   |
-|:------------|:-------------------|:----------------------------------------------|
-|             | AZURECLICUSTOMMODE | Custom mode **azcli**                         |
-|             | AZURERESOURCE      | ID or name of the Azure Data Factory resource |
-|             | AZURERESOURCEGROUP | Resource group name if resource name is used  |
-|             | AZURESUBSCRIPTION  | Subscription ID                               |
-
-</TabItem>
 </Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
