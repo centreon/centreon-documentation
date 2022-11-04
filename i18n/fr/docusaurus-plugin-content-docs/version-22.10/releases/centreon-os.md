@@ -24,7 +24,7 @@ Release date: `November 4, 2022`
 
 #### Bug fixes
 
-- Fixed an issue with  Resource Status that could cause some resources to be displayed as duplicates
+- Fixed an issue with Resource Status that could cause some resources to be displayed twice.
 
 ### 22.10.0
 
