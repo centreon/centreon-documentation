@@ -18,6 +18,14 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.1
+
+Release date: `November 4, 2022`
+
+#### Bug fixes
+
+- Fixed an issue with  Resource Status that could cause some resources to be displayed as duplicates
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
