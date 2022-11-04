@@ -1289,7 +1289,7 @@ Les ressources clones sont des ressources actives sur les deux nœuds Centraux.
 
 > **Avertissement :** Toutes les commandes qui suivent ne doivent être lancées que sur un seul des nœuds.
 
-##### PHP8
+#### PHP8
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7">
@@ -1320,7 +1320,7 @@ pcs resource create "php" \
 </TabItem>
 </Tabs>
 
-##### Broker RRD
+#### Broker RRD
 
 ```bash
 pcs resource create "cbd_rrd" \
@@ -1334,7 +1334,7 @@ pcs resource create "cbd_rrd" \
 
 ### Création du groupe de ressources Centreon
 
-##### Adresse VIP Serveurs Centraux
+#### Adresse VIP Serveurs Centraux
 
 ```bash
 pcs resource create vip \
@@ -1351,7 +1351,7 @@ pcs resource create vip \
     --group centreon
 ```
 
-##### Service httpd
+#### Service httpd
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -1398,7 +1398,7 @@ pcs resource create http \
 </TabItem>
 </Tabs>
 
-##### Service Gorgone
+#### Service Gorgone
 
 ```bash
 pcs resource create gorgone \
@@ -1410,7 +1410,7 @@ pcs resource create gorgone \
     --group centreon
 ```
 
-##### Service centreon-central-sync
+#### Service centreon-central-sync
 
 Ce service est spécifique à *Centreon HA*. Sa fonction est de répliquer les changements de configuration, l'ajout d'images via l'interface, etc.
 
@@ -1424,7 +1424,7 @@ pcs resource create centreon_central_sync \
     --group centreon
 ```
 
-##### Broker SQL
+#### Broker SQL
 
 ```bash
 pcs resource create cbd_central_broker \
@@ -1436,7 +1436,7 @@ pcs resource create cbd_central_broker \
     --group centreon
 ```
 
-##### Service centengine
+#### Service centengine
 
 ```bash
 pcs resource create centengine \
@@ -1447,7 +1447,7 @@ pcs resource create centengine \
     --group centreon
 ```
 
-##### Service centreontrapd
+#### Service centreontrapd
 
 ```bash
 pcs resource create centreontrapd \
@@ -1459,7 +1459,7 @@ pcs resource create centreontrapd \
     --group centreon
 ```
 
-##### Service snmptrapd
+#### Service snmptrapd
 
 ```bash
 pcs resource create snmptrapd \
@@ -1471,7 +1471,7 @@ pcs resource create snmptrapd \
     --group centreon
 ```
 
-#### Contraintes
+### Contraintes
 
 Dans le cadre d'un Cluster avec bases de données déportées, il est nécessaire de définir des contraintes pour spécifier sur quels nœuds les ressources doivent être exécutées.
 
@@ -1758,7 +1758,6 @@ La configuration des *Output* Broker du central-broker-master se fait à l'aide 
 | Broker Output                         | Parameter  | Value            |
 | ------------------------------------- | ---------- | ---------------- |
 | Unified SQL                           | DB host    | @VIP_SQL_IPADDR@ |
-| Perfdata Generator (Centreon Storage) | DB host    | @VIP_SQL_IPADDR@ |
 
 ### Exporter la configuration
 
