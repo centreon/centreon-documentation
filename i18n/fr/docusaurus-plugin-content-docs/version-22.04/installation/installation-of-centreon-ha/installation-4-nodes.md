@@ -1128,7 +1128,7 @@ pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
 ```
 
-L'état du cluster peut être suivi en temps réel avec la commande `crm_mon`, qui vous permettra de voir apparaître les nouvelles ressources au fur et à mesure.
+L'état du cluster peut être suivi en temps réel avec la commande `crm_mon -f`, qui vous permettra de voir apparaître les nouvelles ressources au fur et à mesure.
 
 #### Ajout du *Quorum Device*
 
@@ -1543,7 +1543,7 @@ pcs resource meta http target-role="started"
 
 #### Contrôle de l'état des ressources
 
-Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon`. Suite à l'activation  des ressources, vous devriez obtenir une sortie similaire à celle-ci:
+Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon -f`. Suite à l'activation  des ressources, vous devriez obtenir une sortie similaire à celle-ci:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
@@ -1624,7 +1624,7 @@ Si non, vous pouvez le créer avec cette commande `mkdir -p /usr/share/centreon-
 
 #### Ressources désactivées
 
-Lorsque vous faites un `crm_mon -fr` et que vous avez une ressource qui est désactivée :
+Lorsque vous faites un `crm_mon -f` et que vous avez une ressource qui est désactivée :
 
 ```text
 ...
