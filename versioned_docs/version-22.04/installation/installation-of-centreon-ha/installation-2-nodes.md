@@ -439,7 +439,7 @@ De plus, commentez la ligne :
 To apply the new configuration, you have to restart the database server:
 
 ```bash
-systemctl restart mairiadb
+systemctl restart mariadb
 ```
 
 Make sure that the restart went well:
