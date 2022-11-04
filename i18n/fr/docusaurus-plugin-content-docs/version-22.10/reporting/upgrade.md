@@ -6,8 +6,8 @@ title: Monter de version l'extension
 > Lors d'une montée de version < 18.10.x vers une version >= 18.10.x, vous devez:
 >
 > - Récupérer une nouvelle licence via le support Centreon
-> - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
->   pas le cas, utiliser la procédure de [migration de votre serveur de
+> - Vous assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
+>   pas le cas, utilisez la procédure de [migration de votre serveur de
 >   reporting](migrate.md)
 
 La montée de version de Centreon MBI se fait en 4 étapes :
@@ -40,24 +40,48 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
     yum update centreon-bi-server
     ```
 
-2. Mettre à jour l'interface: Se connecter à l'interface web de Centreon et se rendre dans le menu
+2. Mettre à jour l'interface: se connecter à l'interface web de Centreon et se rendre dans le menu
  **Administration > Extension > Manager** puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
 
 ## Étape 3 : Mettre  à jour le serveur de reporting
 
-1. Premièrement, arrêtez le service d'ordonnancement (CBIS):
+### Prérequis de la version Java
+  
+  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Puis redémarrez le service :
+  ```shell
+  systemctl restart cbis
+  ```
+
+Vous pouvez maintenant procéder à la mise à jour :
+
+1. Premièrement, arrêtez le service d'ordonnancement (CBIS) :
 
     ```shell
     systemctl stop cbis
     ```
 
-2. Puis mettre à jour les paquets, en exécutant la commande suivante:
+2. Puis mettre à jour les paquets, en exécutant la commande suivante :
 
     ```shell
     yum update centreon-bi\*
     ```
 
-3. Enfin, redémarrer le service d'ordonnancement:
+3. Enfin, redémarrez le service d'ordonnancement :
 
     ```shell
     systemctl start cbis

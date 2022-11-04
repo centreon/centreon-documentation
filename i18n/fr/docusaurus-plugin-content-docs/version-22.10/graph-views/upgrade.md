@@ -45,6 +45,31 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+#### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Puis redémarrez le service :
+  ```shell
+  systemctl restart centreon-map
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  
+Vous pouvez maintenant procéder à la mise à jour :
+
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
@@ -52,7 +77,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
+> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
 2. Mettez à jour le serveur Centreon MAP :
 
@@ -94,13 +119,19 @@ Terminez la montée de version :
 2. Recherchez **Map web client**.
 3. Cliquez sur le bouton de mise à jour (parties module & widget).
 
-## Étape 3 : client lourd Centreon MAP
+## Étape 3 : Client lourd Centreon MAP
 
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lourd est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
-## Étape 4 : Base de données MariaDB
+## Étape 4 : Mise à jour des dialectes dans les fichiers .properties
+
+Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
+
+> Cette configuration fonctionne également avec une base MySQL.
+
+## Étape 5 : Base de données MariaDB
 
 1. Arrêtez le service **centreon-map** :
 
