@@ -395,7 +395,27 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-> Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+#### Prérequis de la version Java
+
+  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)).
+
+Vous pouvez maintenant procéder à l'installation :
 
 ```shell
 yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
@@ -411,7 +431,7 @@ echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | 
 </TabItem>
 </Tabs>
 
-Puis lancer la commande suivante:
+Puis lancer la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
