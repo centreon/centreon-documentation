@@ -119,13 +119,19 @@ Terminez la montée de version :
 2. Recherchez **Map web client**.
 3. Cliquez sur le bouton de mise à jour (parties module & widget).
 
-## Étape 3 : client lourd Centreon MAP
+## Étape 3 : Client lourd Centreon MAP
 
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lourd est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
-## Étape 4 : Base de données MariaDB
+## Étape 4 : Mise à jour des dialectes dans les fichiers .properties
+
+Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
+
+> Cette configuration fonctionne également avec une base MySQL.
+
+## Étape 5 : Base de données MariaDB
 
 1. Arrêtez le service **centreon-map** :
 
