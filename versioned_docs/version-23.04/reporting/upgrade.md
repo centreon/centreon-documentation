@@ -68,8 +68,6 @@ AirUpdate button to update the extension and the widgets
   systemctl restart cbis
   ```
 
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](../administration/secure-platform.md#secure-the-web-server-with-https)).
-
 Now you can start the update process: 
 
 1. Connect to your reporting server and stop the scheduler service (CBIS):

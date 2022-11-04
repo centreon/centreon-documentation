@@ -67,8 +67,6 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
   systemctl restart cbis
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)).
-
 Vous pouvez maintenant procéder à la mise à jour :
 
 1. Premièrement, arrêtez le service d'ordonnancement (CBIS) :
