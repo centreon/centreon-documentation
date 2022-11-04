@@ -246,6 +246,8 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
   ```shell
   sudo update-alternatives --config java
   ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
   
 Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
 ```shell

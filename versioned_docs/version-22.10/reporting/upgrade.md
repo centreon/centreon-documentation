@@ -45,7 +45,33 @@ AirUpdate button to update the extension and the widgets
 
 ## Step 3: Upgrade the reporting server 
 
-> Ensure a version of Java 17 or later is installed before you start the procedure.
+
+#### Java version requirement
+  
+  > Ensure a version of Java 17 or later is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Then restart the service:
+  
+  ```shell
+  systemctl restart cbis
+  ```
+
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](../administration/secure-platform.md#secure-the-web-server-with-https)).
+
+Now you can start the update process: 
 
 1. Connect to your reporting server and stop the scheduler service (CBIS):
 
