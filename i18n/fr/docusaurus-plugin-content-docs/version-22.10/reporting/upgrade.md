@@ -45,8 +45,7 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 ## Étape 3 : Mettre  à jour le serveur de reporting
 
-
-#### Prérequis de la version Java
+### Prérequis de la version Java
   
   > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
   
@@ -68,23 +67,21 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
   systemctl restart cbis
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)).
-
 Vous pouvez maintenant procéder à la mise à jour :
 
-1. Premièrement, arrêtez le service d'ordonnancement (CBIS):
+1. Premièrement, arrêtez le service d'ordonnancement (CBIS) :
 
     ```shell
     systemctl stop cbis
     ```
 
-2. Puis mettre à jour les paquets, en exécutant la commande suivante:
+2. Puis mettre à jour les paquets, en exécutant la commande suivante :
 
     ```shell
     yum update centreon-bi\*
     ```
 
-3. Enfin, redémarrez le service d'ordonnancement:
+3. Enfin, redémarrez le service d'ordonnancement :
 
     ```shell
     systemctl start cbis

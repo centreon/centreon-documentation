@@ -384,7 +384,6 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-
 #### Java version requirement
   
   > Ensure a version of Java 17 or later is installed before you start the procedure.
@@ -401,8 +400,6 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
   ```shell
   sudo update-alternatives --config java
   ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](../administration/secure-platform.md#secure-the-web-server-with-https)).
 
 Now you can install the repository:
 

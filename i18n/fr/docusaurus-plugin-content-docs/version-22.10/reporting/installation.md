@@ -396,6 +396,7 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 <TabItem value="CentOS 7" label="CentOS 7">
 
 #### Prérequis de la version Java
+
   > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
@@ -412,9 +413,8 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)).
-
 Vous pouvez maintenant procéder à l'installation :
+
 ```shell
 yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```

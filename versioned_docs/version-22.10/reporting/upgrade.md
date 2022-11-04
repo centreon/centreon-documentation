@@ -45,8 +45,7 @@ AirUpdate button to update the extension and the widgets
 
 ## Step 3: Upgrade the reporting server 
 
-
-#### Java version requirement
+### Java version requirement
   
   > Ensure a version of Java 17 or later is installed before you start the procedure.
   
@@ -68,8 +67,6 @@ AirUpdate button to update the extension and the widgets
   ```shell
   systemctl restart cbis
   ```
-
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](../administration/secure-platform.md#secure-the-web-server-with-https)).
 
 Now you can start the update process: 
 
