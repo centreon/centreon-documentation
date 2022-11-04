@@ -1264,7 +1264,7 @@ pcs resource create "cbd_rrd" \
 
 ### Creating the *centreon* resource group
 
-##### Web VIP address
+#### Web VIP address
 
 ```bash
 pcs resource create vip \
@@ -1281,7 +1281,7 @@ pcs resource create vip \
     --group centreon
 ```
 
-##### Httpd service
+#### Httpd service
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
@@ -1328,7 +1328,7 @@ pcs resource create http \
 </TabItem>
 </Tabs>
 
-##### Gorgone service
+#### Gorgone service
 
 ```bash
 pcs resource create gorgone \
@@ -1340,7 +1340,7 @@ pcs resource create gorgone \
     --group centreon
 ```
 
-##### centreon-central-sync service
+#### centreon-central-sync service
 
 This service only exists in the context of *Centreon HA*. It provides real time synchronization for configuration files, images, etc.
 
@@ -1354,7 +1354,7 @@ pcs resource create centreon_central_sync \
     --group centreon
 ```
 
-##### SQL Broker
+#### SQL Broker
 
 ```bash
 pcs resource create cbd_central_broker \
@@ -1366,7 +1366,7 @@ pcs resource create cbd_central_broker \
     --group centreon
 ```
 
-##### Centengine service
+#### Centengine service
 
 ```bash
 pcs resource create centengine \
@@ -1377,7 +1377,7 @@ pcs resource create centengine \
     --group centreon
 ```
 
-##### Centreontrapd service
+#### Centreontrapd service
 
 ```bash
 pcs resource create centreontrapd \
@@ -1389,7 +1389,7 @@ pcs resource create centreontrapd \
     --group centreon
 ```
 
-##### Snmptrapd service
+#### Snmptrapd service
 
 ```bash
 pcs resource create snmptrapd \
@@ -1401,7 +1401,7 @@ pcs resource create snmptrapd \
     --group centreon
 ```
 
-#### Resource constraints
+### Resource constraints
 
 When using the 4 nodes architecture, you must define some specific Constraints to specify where Resources could run. 
 
@@ -1453,7 +1453,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 
 ### Activate the Cluster and check Resources operating state
 
-### Enable resources 
+#### Enable resources 
 
 ```bash
 pcs resource enable php-clone
@@ -1670,6 +1670,7 @@ Ticket Constraints:
 </Tabs>
 
 ## Modifying the Centreon configuration files
+
 Following the installation of the cluster and the _vip_mysql_, it is necessary to modify the output of the Centreon Broker and 3 configuration files of the Central. These elements will have to point on the _vip_mysql_ in order to always point on the active MariaDB node.
 These 3 files are :
 * /etc/centreon/centreon.conf.php
@@ -1678,6 +1679,7 @@ These 3 files are :
 You'll need to change the IP of the previous database by the IP of the _vip_mysql_
 
 ### Modifying central-broker-master outputs
+
 This is configured in the Centreon Broker configuration menu in the *Output* tab of *Configuration > Collectors > Centreon Broker Configuration*.
 
 * Modify the "IPv4" output by replacing "@DATABASE_MASTER_IPADDR@" with @VIP_SQL_IPADDR@ in *central-broker-master* configuration:
@@ -1685,9 +1687,9 @@ This is configured in the Centreon Broker configuration menu in the *Output* tab
 | Broker Output                         | Parameter  | Value            |
 | ------------------------------------- | ---------- | ---------------- |
 | Unified SQL                           | DB host    | @VIP_SQL_IPADDR@ |
-| Perfdata Generator (Centreon Storage) | DB host    | @VIP_SQL_IPADDR@ |
 
 ### Exporting configuration
+
 Once the actions in the previous paragraph have been completed, the configuration must be exported (first 3 boxes for the "Central" poller export) for it to be effective.
 
 These actions must be performed only on `@CENTRAL_MASTER_NAME@` and then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
@@ -1703,6 +1705,7 @@ pcs resource restart centreon
 ```
 
 ### Modification of the 3 configuration files
+
 After having modified the output of the broker, we have to modify the Centreon configuration files.
 To do this, first, edit the file `/etc/centreon/conf.pm` and replace @DATABASE_MASTER_IPADDR@ by the address of the _vip-mysql_:
 
