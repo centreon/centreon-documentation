@@ -45,19 +45,43 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 ## Étape 3 : Mettre  à jour le serveur de reporting
 
-1. Premièrement, arrêtez le service d'ordonnancement (CBIS):
+#### Prérequis de la version Java
+  
+  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Puis redémarrez le service :
+  ```shell
+  systemctl restart cbis
+  ```
+
+Vous pouvez maintenant procéder à la mise à jour :
+
+1. Premièrement, arrêtez le service d'ordonnancement (CBIS) :
 
     ```shell
     systemctl stop cbis
     ```
 
-2. Puis mettre à jour les paquets, en exécutant la commande suivante:
+2. Puis mettre à jour les paquets, en exécutant la commande suivante :
 
     ```shell
     yum update centreon-bi\*
     ```
 
-3. Enfin, redémarrer le service d'ordonnancement:
+3. Enfin, redémarrer le service d'ordonnancement :
 
     ```shell
     systemctl start cbis
