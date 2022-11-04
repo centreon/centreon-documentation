@@ -109,7 +109,7 @@ yum clean all --enablerepo=*
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.

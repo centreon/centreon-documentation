@@ -3,7 +3,7 @@ id: applications-monitoring-kadiska-restapi
 title: Kadiska Rest API
 ---
 import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import TabItem from '@theme/TabItem'; 
 
 
 ## Pack Assets
@@ -17,10 +17,13 @@ The Centreon Plugin Pack **Kadiska Rest API** brings 2 different host templates:
 
 It brings the following service templates:
 
-| Service Alias      | Service Template                                  | Service Description                                               | Default | Discovery |
-|:-------------------|:--------------------------------------------------|:------------------------------------------------------------------|:--------|:----------|
-| Target-Statistics  | App-Monitoring-Kadiska-Restapi-Target-Statistics  | Checking performance metrics from Kadiska targets using Rest API  | X       | X         |
-| Watcher-Statistics | App-Monitoring-Kadiska-Restapi-Watcher-Statistics | Checking performance metrics from Kadiska watchers using Rest API | X       |           |
+| Service Alias                           | Service Template                                                       | Service Description                                               | Default | Discovery |
+|:----------------------------------------|:-----------------------------------------------------------------------|:------------------------------------------------------------------|:--------|:----------|
+| Target-Statistics                       | App-Monitoring-Kadiska-Restapi-Target-Statistics                       | Checking performance metrics from Kadiska targets using Rest API  | X       | X         |
+| Watcher-Statistics-Per-Country          | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-Country          | Checking performance metrics from Kadiska watchers per country    |         |           |
+| Watcher-Statistics-Per-ISP              | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-ISP              | Checking performance metrics from Kadiska watchers per ISP        |         |           |
+| Watcher-Statistics-Per-Site-And-Gateway | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-Site-And-Gateway | Checking performance metrics from Kadiska watchers per site and gateway | X       |           |
+
 
 ### Discovery rules
 
@@ -41,7 +44,8 @@ More information about discovering hosts automatically is available on the [dedi
 |:-------------------------------------------------|:------------------------------------------------------------------------------|
 | App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover kadiska targets associated to a station and monitor its performance. |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery).
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 </TabItem>
 </Tabs>
@@ -58,15 +62,58 @@ More information about discovering services automatically is available on the [d
 | *targets*#tracer.round.trip.persecond    | ms    |
 
 </TabItem>
-<TabItem value="Watcher-Statistics" label="Watcher-Statistics">
+<TabItem value="Watcher-Statistics-Per-Country" label="Watcher-Statistics-Per-Country">
 
-| Metric Name                                      | Unit  |
-|:------------------------------------------------ |:------|
-| *watchers*#watcher.errors.percentage             | %     |
-| *watchers*#watcher.pages.count                   | count |
-| *watchers*#watcher.requests.count                | count |
-| *watchers*#watcher.sessions.count                | count |
-| *watchers*#watcher.loading.page.duration.seconds | s     |
+| Metric Name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| *country*#watcher.dtt.spent.time.milliseconds         | ms    |
+| *country*#watcher.errors.percentage                   | %     |
+| *country*#watcher.network.spent.time.milliseconds     | ms    |
+| *country*#watchers.loading.page.duration.milliseconds | ms    |
+| *country*#watchers.pages.count                        | count |
+| *country*#watchers.processing.duration.milliseconds   | ms    |
+| *country*#watcher.redirect.time.milliseconds          | ms    |
+| *country*#watcher.requests.count                      | count |
+| *country*#watcher.sessions.count                      | count |
+| *country*#watcher.srt.spent.time.milliseconds         | ms    |
+| *country*#users.count                                 | count |
+| *country*#watchers.waiting.time.milliseconds          | ms    |
+
+</TabItem>
+<TabItem value="Watcher-Statistics-Per-ISP" label="Watcher-Statistics-Per-ISP">
+
+| Metric Name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| *isp*#isp.dtt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.errors.percentage                           | %     |
+| *isp*#isp.network.spent.time.milliseconds             | ms    |
+| *isp*#isp.loading.page.duration.milliseconds          | ms    |
+| *isp*#isp.pages.count                                 | count |
+| *isp*#isp.processing.duration.milliseconds            | ms    |
+| *isp*#isp.redirect.time.milliseconds                  | ms    |
+| *isp*#isp.requests.count                              | count |
+| *isp*#isp.sessions.count                              | count |
+| *isp*#isp.srt.spent.time.milliseconds                 | ms    |
+| *isp*#users.count                                     | count |
+| *isp*#isp.waiting.time.milliseconds                   | ms    |
+
+</TabItem>
+<TabItem value="Watcher-Statistics-Per-Site-And-Gateway" label="Watcher-Statistics-Per-Site-And-Gateway">
+
+| Metric Name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| watcher.dtt.spent.time.milliseconds                   | ms    |
+| watcher.errors.percentage                             | %     |
+| watcher.network.spent.time.milliseconds               | ms    |
+| watcher.loading.page.duration.milliseconds            | ms    |
+| watcher.pages.count                                   | count |
+| watcher.processing.duration.milliseconds              | ms    |
+| watcher.redirect.time.milliseconds                    | ms    |
+| watcher.requests.count                                | count |
+| watcher.sessions.count                                | count |
+| watcher.srt.spent.time.milliseconds                   | ms    |
+| users.count                                           | count |
+| watcher.waiting.time.milliseconds                     | ms    |
 
 </TabItem>
 </Tabs>
@@ -80,33 +127,74 @@ Ensure to keep the client secret because you will not be able to retrieve it fro
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Monitoring Pack
 
-1. Install the plugin package on every Centreon poller expected to monitor **Kadiska Rest API** resources:
+If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the pack displayed within the
+**Configuration > Plugin Packs > Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
+dnf install centreon-pack-applications-monitoring-kadiska-restapi
 ```
-
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Kadiska Rest API** Centreon Plugin Pack.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the plugin package on every Centreon poller expected to monitor **Kadiska Rest API** resources:
-
-```bash
-yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
-```
-
-2. Install the **Kadiska Rest API** Centreon Plugin Pack RPM on the Centreon central server:
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-monitoring-kadiska-restapi
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Kadiska Rest API** Centreon Plugin Pack.
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-monitoring-kadiska-restapi
+```
+
+</TabItem>
+</Tabs>
+
+Whatever the license type (*online* or *offline*), install the **Kadiska Rest API** Pack through
+the **Configuration > Plugin Packs > Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-applications-monitoring-kadiska-restapi
+```
 
 </TabItem>
 </Tabs>
@@ -118,7 +206,8 @@ yum install centreon-pack-applications-monitoring-kadiska-restapi
 #### Kadiska Station
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Kadiska Rest API** server settings.
+* Fill the **Name**, **Alias** fields according to your Kadiska station name.
+* Specify Kadiska API address name in **IP Address/DNS**.
 * Apply the **App-Monitoring-Kadiska-Station-Restapi-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
@@ -135,7 +224,8 @@ yum install centreon-pack-applications-monitoring-kadiska-restapi
 #### Kadiska Watcher
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Kadiska Rest API** server settings.
+* Fill the **Name**, **Alias** fields according to your Kadiska watcher name.
+* Specify Kadiska API address name in **IP Address/DNS**.
 * Apply the **App-Monitoring-Kadiska-Watcher-Restapi-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
@@ -146,6 +236,8 @@ yum install centreon-pack-applications-monitoring-kadiska-restapi
 | X           | KADISKAAPICLIENTSECRET | Kadiska Client Secret                                                                  |
 |             | KADISKAAPIPORT         | (Default: '443')                                                                       |
 |             | KADISKAAPIPROTO        | (Default: 'https')                                                                     |
+|             | GATEWAYNAME            | Specify Kadiska gateway name                                                           |
+|             | SITENAME               | Specify Kadiska site name                                                              |
 | X           | WATCHERNAME            | Specify Kadiska watcher name                                                           |
 |             | TIMEOUT                |                                                                                        |
 
@@ -158,22 +250,23 @@ running the following command:
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
     --plugin=apps::monitoring::kadiska::plugin \
-    --mode=nettracer-statistics \
-    --client-id='client:xxx' \
-    --client-secret='my-secret' \
-    --filter-station-name='Paris-RT' \
-    --filter-target-name='target_name' \
+    --mode=watcher-statistics \
+    --client-id= \
+    --client-secret= \
+    --select-watcher-name= \
+    --select-site-name= \
+    --select-gateway-name= \
     --period=15 \
     --port='443' \
     --proto='https' \
     --timeout='' \
-    --verbose \
+    --use-new-perfdata
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Round trip: 2 ms Path length: 9 Packets Loss: 3 % | 'tracer.round.trip.persecond'=2ms;;;0; 'tracer.path.length'=9;;;0; 'tracer.packets.loss.percentage'=3%;;;0;100 
+OK: DTT spent: 9000 ms Errors: 9000 Full time network spent: 9000 ms Sessions: 9000 SRT spent: 9000 ms Requests: 9000 Redirect time avg: 9000 ms Loading page duration: 9000 ms Loaded pages: %d API Processing duration: 9000 ms Connected users: 9000 Waiting time avg: 9000 ms DTT spent: 9000 ms Errors: 9000%% Full time network spent: 9000 ms Sessions: 9000 SRT spent: 9000 ms Requests: 9000 Redirect time avg: 9000 ms Loading page duration: 9000 ms Loaded pages: %d API Processing duration: 9000 ms Connected users: 9000 Waiting time avg: 9000 ms DTT spent: 9000 ms Errors: 9000% Full network time spent: 9000 ms Loading page duration: 9000 ms Loaded pages: %d API Processing duration: 9000 ms Redirect time avg: 9000 ms Requests: 9000 Sessions: 9000 SRT spent: 9000 ms Connected users: 9000 Waiting time: 9000 ms | 'isp.dtt.spent.time.milliseconds'=9000ms;;;0; 'isp.errors.percentage'=9000%;;;0;100 'isp.network.spent.time.milliseconds'=9000ms;;;0; 'isp.sessions.count'=9000;;;0; 'isp.srt.spent.time.milliseconds'=9000ms;;;0; 'isp.requests.count'=9000;;;0; 'isp.redirect.time.milliseconds'=9000ms;;;0; 'isp.loading.page.duration.milliseconds'=9000ms;;;0; 'isp.pages.count'=9000;;;0; 'isp.processing.duration.milliseconds'=9000ms;;;0; 'users.count'=9000;;;0; 'isp.waiting.time.milliseconds'=9000ms;;;0; 'watcher.dtt.spent.time.milliseconds'=9000ms;;;0; 'watcher.errors.percentage'=9000%;;;0;100 'watcher.network.spent.time.milliseconds'=9000ms;;;0; 'watcher.sessions.count'=9000;;;0; 'watcher.srt.spent.time.milliseconds'=9000ms;;;0; 'watcher.requests.count'=9000;;;0; 'watcher.redirect.time.milliseconds'=9000ms;;;0; 'watchers.loading.page.duration.milliseconds'=9000ms;;;0; 'watchers.pages.count'=9000;;;0; 'watchers.processing.duration.milliseconds'=9000ms;;;0; 'users.count'=9000;;;0; 'watchers.waiting.time.milliseconds'=9000ms;;;0; 'watcher.dtt.spent.time.milliseconds'=9000;;;; 'watcher.errors.percentage'=9000;;;; 'watcher.network.spent.time.milliseconds'=9000;;;; 'watcher.loading.page.duration.milliseconds'=9000;;;; 'watcher.pages.count'=9000;;;; 'watcher.processing.duration.milliseconds'=9000;;;; 'watcher.redirect.time.milliseconds'=9000;;;; 'watcher.requests.count'=9000;;;; 'watcher.sessions.count'=9000;;;; 'watcher.srt.spent.time.milliseconds'=9000;;;; 'users.count'=9000;;;; 'watcher.waiting.time.milliseconds'=9000;;;; 
 ```
 
 All available options for a given mode can be displayed by adding the
@@ -182,7 +275,7 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
     --plugin=apps::monitoring::kadiska::plugin \
-    --mode=nettracer-statistics \
+    --mode=watcher-statistics \
     --help
 ```
 

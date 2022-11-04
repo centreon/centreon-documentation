@@ -8,6 +8,55 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
+### October
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**VMware VCSA SNMP**](../procedures/applications-vmware-vcsa-snmp.md) - New Pack to check VMWare vCenter Appliance OS with SNMP - Status:stable - centreon-pack-applications-vmware-vcsa-snmp-22.10.0-1
+- [**Splunk**](../procedures/applications-monitoring-splunk-api.md) - Adding Splunk Plugin pack - Status:stable - centreon-pack-applications-monitoring-splunk-api-22.10.0-1
+- [**Aruba Orchestrator Rest API**](../procedures/network-aruba-orchestrator-restapi.md) - New Pack monitoring the orchestrator using its restapi - Status:stable - centreon-pack-network-aruba-orchestrator-restapi-22.10.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Base Pack**](../procedures/base-generic.md) - base-generic - add macro service EXTRAOPTIONS - Status:stable - centreon-pack-base-generic-22.10.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Kadiska - Adding new STPL  - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-22.10.1-1
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-22.10.0-1
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-restapi-22.10.0-1
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - add service updates for windows pack - Status:stable - centreon-pack-operatingsystems-windows-wsman-22.10.0-1
+- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - Add new service to check virtual chassis - Status:stable - centreon-pack-network-switchs-alcatel-omniswitch-snmp-22.10.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Fujitsu Eternus DX**](../procedures/hardware-storage-fujitsu-eternus-dx-ssh.md) - hardware-storage-fujitsu-eternus-dx-ssh - use new ssh backend - Status:stable - centreon-pack-hardware-storage-fujitsu-eternus-dx-ssh-22.10.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-apigateway-22.10.0-1
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-backup-22.10.0-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-billing-22.10.0-1
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-cloudwatch-discover-22.10.0-1
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-ebs-22.10.0-1
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-ec2-22.10.0-1
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-efs-22.10.0-1
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-elb-22.10.0-1
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-fsx-22.10.0-1
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-kinesis-22.10.0-1
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-lambda-22.10.0-1
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-rds-22.10.0-1
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-s3-22.10.0-1
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-sns-22.10.0-1
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-sqs-22.10.0-1
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Fix bug with assume-role option - Status:stable - centreon-pack-cloud-aws-vpn-22.10.0-1
+- [**HP 3PAR SSH**](../procedures/hardware-storage-hp-3par-ssh.md) - hardware-storage-hp-3par-ssh - fix macros for service cages - Status:stable - centreon-pack-hardware-storage-hp-3par-ssh-22.10.0-1
+- [**Office 365 Azure AD**](../procedures/cloud-microsoft-office365-azuread.md) - AzureAD - Fixing typo in check command - Status:stable - centreon-pack-cloud-microsoft-office365-azuread-22.10.0-1
+
+</TabItem>
+</Tabs>
+
 ### September
 
 <Tabs groupId="sync">
@@ -68,34 +117,34 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
- - [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics - Status:stable - centreon-pack-cloud-azure-classicstorage-storageaccount-22.07.0-1
- - [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics - Status:stable - centreon-pack-cloud-azure-storage-storageaccount-22.07.0-1
- - [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Adding Linux Node Exporter Monitoring Pack - Status:stable - centreon-pack-applications-monitoring-node-exporter-linux-22.07.0-1
+- [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics - Status:stable - centreon-pack-cloud-azure-classicstorage-storageaccount-22.07.0-1
+- [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics - Status:stable - centreon-pack-cloud-azure-storage-storageaccount-22.07.0-1
+- [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Adding Linux Node Exporter Monitoring Pack - Status:stable - centreon-pack-applications-monitoring-node-exporter-linux-22.07.0-1
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
- - [**AWS Billing**](../procedures/cloud-aws-billing.md) - Moving AWS service discovery to host discovery - Status:stable - centreon-pack-cloud-aws-billing-22.07.0-1
- - [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add Ntp command and template to Linux NRPE3 Pack - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-22.07.0-1
- - [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Add discovery mode/rule for AWS Lambda - Status:stable - centreon-pack-cloud-aws-lambda-22.07.0-1
- - [**Nortel Standard**](../procedures/network-nortel-standard-snmp.md) - network-nortel-standard-snmp - add stack service - Status:stable - centreon-pack-network-nortel-standard-snmp-22.07.0-1
- - [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Migrate AWS SNS & SQS Service Disco to Host Disco - Status:stable - centreon-pack-cloud-aws-sns-22.07.0-1
- - [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Migrate AWS SNS & SQS Service Disco to Host Disco - Status:stable - centreon-pack-cloud-aws-sqs-22.07.0-1
- - [**Dynatrace Rest API**](../procedures/applications-monitoring-dynatrace-restapi.md) - Enhance Dynatrace Restapi Packs with new services and new metrics - Status:stable - centreon-pack-applications-monitoring-dynatrace-restapi-22.07.0-1
- - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - enh(nmap-disco): add wsman ports - Status:stable - centreon-pack-applications-nmap-cli-22.05.2-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Moving AWS service discovery to host discovery - Status:stable - centreon-pack-cloud-aws-billing-22.07.0-1
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add Ntp command and template to Linux NRPE3 Pack - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-22.07.0-1
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Add discovery mode/rule for AWS Lambda - Status:stable - centreon-pack-cloud-aws-lambda-22.07.0-1
+- [**Nortel Standard**](../procedures/network-nortel-standard-snmp.md) - network-nortel-standard-snmp - add stack service - Status:stable - centreon-pack-network-nortel-standard-snmp-22.07.0-1
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Migrate AWS SNS & SQS Service Disco to Host Disco - Status:stable - centreon-pack-cloud-aws-sns-22.07.0-1
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Migrate AWS SNS & SQS Service Disco to Host Disco - Status:stable - centreon-pack-cloud-aws-sqs-22.07.0-1
+- [**Dynatrace Rest API**](../procedures/applications-monitoring-dynatrace-restapi.md) - Enhance Dynatrace Restapi Packs with new services and new metrics - Status:stable - centreon-pack-applications-monitoring-dynatrace-restapi-22.07.0-1
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - enh(nmap-disco): add wsman ports - Status:stable - centreon-pack-applications-nmap-cli-22.05.2-1
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
- - [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Add services bloat and collection to PostgreSQL - Status:stable - centreon-pack-applications-databases-postgresql-22.07.0-1
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Add services bloat and collection to PostgreSQL - Status:stable - centreon-pack-applications-databases-postgresql-22.07.0-1
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
- - [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fix typos in Active Directory WSMan commands - Status:stable - centreon-pack-applications-active-directory-wsman-22.06.1-1
- - [**AWS ELB**](../procedures/cloud-aws-elb.md) - Add missing Classic and Applications ELB Discovery rules - Status:stable - centreon-pack-cloud-aws-elb-22.07.0-1
- - [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - cloud-azure-database-mysql - Fix typo in serverlog-usage option label - Status:stable - centreon-pack-cloud-azure-database-mysql-22.07.0-1
- - [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixing macro in Ruckus ICX Memory service template - Status:stable - centreon-pack-network-ruckus-icx-snmp-22.07.0-1
+- [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fix typos in Active Directory WSMan commands - Status:stable - centreon-pack-applications-active-directory-wsman-22.06.1-1
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Add missing Classic and Applications ELB Discovery rules - Status:stable - centreon-pack-cloud-aws-elb-22.07.0-1
+- [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - cloud-azure-database-mysql - Fix typo in serverlog-usage option label - Status:stable - centreon-pack-cloud-azure-database-mysql-22.07.0-1
+- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixing macro in Ruckus ICX Memory service template - Status:stable - centreon-pack-network-ruckus-icx-snmp-22.07.0-1
 
 </TabItem>
 </Tabs>

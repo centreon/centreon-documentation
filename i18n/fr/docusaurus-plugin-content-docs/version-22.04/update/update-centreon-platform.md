@@ -18,6 +18,48 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Mise à jour du serveur Centreon Central
 
+### Prérequis
+
+Si vous aviez installé des paquets **debuginfo** (ou **dbgsym** sous Debian), désinstallez-le avant de mettre à jour la plateforme. Vous pourrez les réinstaller après.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf remove \
+centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
+```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+```shell
+yum remove \
+centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
+centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt remove 'centreon-*-dbgsym'
+```
+
+</TabItem>
+</Tabs>
+
 ### Mise à jour de la solution Centreon
 
 Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
@@ -65,7 +107,7 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon\*
+  apt upgrade centreon
   ```
 
 </TabItem>
@@ -177,6 +219,10 @@ la commande suivante :
   systemctl restart cbd centengine gorgoned
   ```
 
+### Réinstaller les paquets **debuginfo** ou **dbgsym** (optionnel)
+
+Si vous aviez désinstallé des paquets **debuginfo** ou **dbgsym** avant la mise à jour, vous pouvez les réinstaller maintenant.
+
 ### Mise à jour des extensions
 
 Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
@@ -197,7 +243,25 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des collecteurs
 
-1. Videz le cache de yum :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Videz le cache :
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+2. Mettez à jour l'ensemble des composants :
+
+  ```shell
+  dnf update centreon-poller
+  ```
+
+</TabItem>
+<TabItem value="Centos 7" label="Centos 7">
+
+1. Videz le cache :
 
   ```shell
   yum clean all --enablerepo=*
@@ -206,8 +270,27 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  yum update centreon\*
+  yum update centreon-poller
   ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+1. Videz le cache :
+
+  ```shell
+  apt clean all
+  apt update
+  ```
+
+2. Mettez à jour l'ensemble des composants :
+
+  ```shell
+  apt upgrade centreon-poller
+  ```
+
+</TabItem>
+</Tabs>
 
   > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 

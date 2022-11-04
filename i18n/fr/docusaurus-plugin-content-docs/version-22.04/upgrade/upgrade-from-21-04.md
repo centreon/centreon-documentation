@@ -167,9 +167,22 @@ yum clean all --enablerepo=*
 
 Mettez à jour l'ensemble des composants :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+</Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 

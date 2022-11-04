@@ -166,7 +166,7 @@ In this tutorial, we will create a very simple probe checking an application's h
 displayed in JSON through a simple API.
 
 You can mockup an API with the free [mocky](https://designer.mocky.io/) tool.
-We created one for this tutorial, test it with `curl https://run.mocky.io/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9`
+We created one for this tutorial, test it with `curl https://run.mocky.io/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656`
 
 It returns the following output: 
 
@@ -335,7 +335,7 @@ The `appmetrics.pm` file will contain your code, in other words, all the instruc
 
 - Declare options for the mode
 - Connect to **run.mocky.io** over HTTPS
-- Get the JSON from the **/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9** endpoint
+- Get the JSON from the **/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656** endpoint
 - Extract information and format it to be compliant with Centreon.
 
 Let's build it iteratively.
@@ -382,6 +382,7 @@ sub new {
         # On the right, it's the code name for this option, optionnaly you can define a default value so the user 
         # doesn't have to set it
          'hostname:s'           => { name => 'hostname' },
+         'proto:s'              => { name => 'proto', default => 'https' },
          'port:s'               => { name => 'port', default => 443 },
          'timeout:s'            => { name => 'timeout' },
         # These options are here to defined conditions about which status the plugin will return regarding HTTP response code
@@ -674,7 +675,7 @@ sub manage_selection {
     my ($self, %options) = @_;
     # We have already loaded all things required for the http module
     # Use the request method from the imported module to run the GET request against the URL path of our API
-    my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
+    my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
     
     # Declare a scalar deserialize the JSON content string into a perl data structure
     my $decoded_content;
@@ -744,7 +745,7 @@ sub manage_selection {
     my ($self, %options) = @_;
     # We have already loaded all things required for the http module
     # Use the request method from the imported module to run the GET request against the URL path of our API
-    my ($content) = $self->{http}->request(url_path => '/v3/6e45073b-068a-40d3-a2c3-31b1ebd54dc9');
+    my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
     # Uncomment the line below when you reached this part of the tutorial.
     # print $content;
 
@@ -777,7 +778,7 @@ sub manage_selection {
         select => $decoded_content->{db_queries}->{select},
         update => $decoded_content->{db_queries}->{update},
         delete => $decoded_content->{db_queries}->{delete}
-    }
+    };
 
 }
 
@@ -854,7 +855,7 @@ sub manage_selection {
         select => $decoded_content->{db_queries}->{select},
         update => $decoded_content->{db_queries}->{update},
         delete => $decoded_content->{db_queries}->{delete}
-    }
+    };
 
     # Initialize an empty app_metrics counter.
     $self->{app_metrics} = {};

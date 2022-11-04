@@ -59,6 +59,22 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.3
+
+Release date: `October 25, 2022`
+
+#### Bug fixes
+
+- Fixed an issue with report publication that could cause LDAP users or local users without passwords to not receive the email
+
+### 22.04.2
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+- Fixed multiple vulnerabilities in report generation
+
 ### 22.04.1
 
 Release date: `July 5, 2022`

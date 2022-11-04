@@ -54,10 +54,6 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 ### Install the MariaDB repository
 
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ```shell
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
@@ -65,20 +61,6 @@ bash ./mariadb_repo_setup
 sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
-</TabItem>
-</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -106,9 +88,22 @@ yum clean all --enablerepo=*
 
 Then upgrade all the components with the following command:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+</Tabs>
 
 > Accept new GPG keys from the repositories as needed.
 
@@ -131,22 +126,21 @@ For each difference between the files, assess whether you should copy it from **
 
 ### Finalizing the upgrade
 
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
 ```shell
-systemctl reload httpd
+systemctl reload php-fpm httpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 </TabItem>

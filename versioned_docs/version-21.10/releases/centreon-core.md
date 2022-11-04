@@ -17,6 +17,22 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.13
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+- [Authentication] Improved autologin access
+
+### 21.10.12
+
+Release date:  `October 6, 2022`
+
+#### Bug fixes
+
+- [Install] Fixed SQL update on Centreon realtime database
+
 ### 21.10.11
 
 Release date: `September 30, 2022`

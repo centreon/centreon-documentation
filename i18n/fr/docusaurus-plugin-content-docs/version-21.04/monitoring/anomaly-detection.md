@@ -347,16 +347,6 @@ régulières seront programmées pour évaluer l'efficacité de la fonctionnalit
 sessions de prise en main à distance peuvent être nécessaires. Une mise à jour de la fonctionnalité peut également
 être demandée pour valider les modifications apportées suite au retour d'expérience.
 
-### Quelle est la durée du programme de test bêta ?
-
-La période de test bêta fermé est d'environ 4 mois. Cela devrait permettre de valider les prévisions générées à partir
-du calcul des modèles, ainsi que la génération d'alertes dans la console d'événements et le déclenchement du processus
-de notification.
-
-#### Quand la fonctionnalité sera-t-elle disponible? Et pour quelle édition Centreon ?
-
-La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 21.10.
-
 ### Combien de temps les données sont-elles hébergées ?
 
 Les données sont conservées pendant toute la validité de la licence. Elles permettront de recalculer les modèles si

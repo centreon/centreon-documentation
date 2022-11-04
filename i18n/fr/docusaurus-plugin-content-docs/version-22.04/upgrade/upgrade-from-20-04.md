@@ -106,7 +106,7 @@ yum clean all --enablerepo=*
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -226,6 +226,7 @@ systemctl enable mariadb
 ### Finalisation de la mise à jour
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+
 ```shell
 systemctl reload httpd24-httpd
 ```
