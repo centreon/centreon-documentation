@@ -145,7 +145,7 @@ It brings the following service templates:
 ### Monitoring user
 
 To use this probe, the configuration of a monitoring user with specific privileges is required. The `serveradmin` role 
-can be used for testing purpose but should never be used in production because of the security risk involved. 
+can be used for testing purposes but should never be used in production because of the security risk involved. 
 
 Birk Bohne, who is a valuable contributor of the _check\_mssql\_health_ probe wrote a script to assign a least-privilege user. 
 His script can be found under the **Preparation of the database** section of the following [documentation](https://github.com/lausser/check_mssql_health/blob/master/doc/check_mssql_health.en.txt). 
