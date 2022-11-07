@@ -28,7 +28,7 @@ Il apporte les modèles de service suivants :
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                                                 |        |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut                                   |        |
 | Sql-Statement        | App-DB-MSSQL-Sql-Statement        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                       |        |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                   |        |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères                                   |        |
 | Transactions         | App-DB-MSSQL-Transactions         | Contrôle permettant de vérifier le nombre de transactions par seconde du serveur. Aucune alerte par défaut                        | X      |
 
 ### Métriques & statuts collectés
