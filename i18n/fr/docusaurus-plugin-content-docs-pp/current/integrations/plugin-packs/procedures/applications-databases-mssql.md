@@ -26,7 +26,7 @@ Il apporte les modèles de service suivants :
 | Deadlocks            | App-DB-MSSQL-Deadlocks            | Contrôle permettant de vérifier le nombre de "deadlocks" par seconde du serveur                                                   | X      |
 | Failed-Jobs          | App-DB-MSSQL-Failed-Jobs          | Contrôle les jobs MSSQL en erreur                                                                                                 | X      |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                                                 |        |
-| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy | Contrôle permettant de vérifier le "Page Life Expectancy du serveur. Aucunes alertes par défaut                                   |        |
+| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut                                   |        |
 | Sql-Statement        | App-DB-MSSQL-Sql-Statement        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                       |        |
 | Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                   |        |
 | Transactions         | App-DB-MSSQL-Transactions         | Contrôle permettant de vérifier le nombre de transactions par seconde du serveur. Aucune alerte par défaut                        | X      |
