@@ -154,7 +154,7 @@ We recommend you use a domain user to better manage its properties and privilege
 
 ### Dependencies
 
-Those packages are required: `freetds perl-DBD-Sybase unixODBC`
+These packages are required: `freetds perl-DBD-Sybase unixODBC`
 
 ### Freetds configuration
 
