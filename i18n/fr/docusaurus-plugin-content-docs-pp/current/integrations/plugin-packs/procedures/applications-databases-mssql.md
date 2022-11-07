@@ -19,7 +19,7 @@ Il apporte les modèles de service suivants :
 |:---------------------|:----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:-------|
 | Backup-Age           | App-DB-MSSQL-Backup-Age           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                                                           |        |
 | Blocked-Processes    | App-DB-MSSQL-Blocked-Processes    | Contrôle permettant de vérifier les processus bloqués. Ce service utilise une requête non valide selon les versions MS SQL Server | X      |
-| Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucunes alertes par défaut                           |        |
+| Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucune alerte par défaut                           |        |
 | Connected-Users      | App-DB-MSSQL-Connected-Users      | Contrôle permettant de vérifier le nombre d'utilisateurs connectés à la base de données                                           | X      |
 | Connection-Time      | App-DB-MSSQL-Connection-Time      | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                                  | X      |
 | Databases-Size       | App-DB-MSSQL-Databases-Size       | Contrôle permettant de vérifier l'espace utilisé des bases de données du serveur                                                  | X      |
