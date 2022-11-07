@@ -9,7 +9,7 @@ const basePathImg = './img/homepage/';
 const links = {
   doc: {
     cloud: 'cloud/getting-started/architecture',
-    gettingstarted: 'docs/getting-started/installation-first-steps',
+    gettingstarted: 'docs/getting-started/welcome',
     pluginpacks: 'pp/integrations/plugin-packs/getting-started/introduction',
     prerequisite: 'docs/installation/prerequisites',
     installation: 'docs/installation/introduction',
@@ -22,7 +22,7 @@ const links = {
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
-    'https://thewatch.centreon.com/',
+    'https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/',
 };
 
 const stringsAndParagraphs = {
@@ -125,7 +125,7 @@ function SummitBlock() {
     <div className={clsx(styles.bannerCustom)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'thewatch-banner-en.png'} />
+          <img src={basePathImg + 'release-banner-en-22.10.png'} />
         </a>
       </div>
     </div>

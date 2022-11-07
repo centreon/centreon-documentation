@@ -9,7 +9,7 @@ const basePathImg = '/fr/img/homepage/';
 const links = {
   doc: {
     cloud: '/fr/cloud/getting-started/architecture',
-    gettingstarted: '/fr/docs/getting-started/installation-first-steps',
+    gettingstarted: '/fr/docs/getting-started/welcome',
     pluginpacks:
       '/fr/pp/integrations/plugin-packs/getting-started/introduction',
     prerequisite: '/fr/docs/installation/prerequisites',
@@ -23,7 +23,7 @@ const links = {
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
-    'https://events.centreon.com/centreon-summit-2022?utm_source=CentreonSummit_Website&utm_medium=medium&utm_campaign=CentreonSummit22',
+    'https://www.centreon.com/blog/centreon-22-10-les-nouveautes',
 };
 
 const stringsAndParagraphs = {
@@ -124,12 +124,10 @@ function ExcellenceBlock() {
 function SummitBlock() {
   return (
     <div className={clsx(styles.bannerCustom)}>
-      <div className={clsx(styles.bannerCustomFR)}>
       <div className={clsx(styles.bannerImage)}>
         <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + '2022-summit-banner-fr.png'} />
+          <img src={basePathImg + 'release-bannner-fr-22.10.png'} />
         </a>
-      </div>
       </div>
     </div>
   );

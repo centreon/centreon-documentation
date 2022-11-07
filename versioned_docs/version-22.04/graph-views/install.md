@@ -60,7 +60,7 @@ The central server and Centreon MAP (Legacy) must be installed in the same major
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get and install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Hardware
 
@@ -107,7 +107,7 @@ children which must be included in the count.
 - Centreon web login with administration rights.
 
 > Even with a correctly sized server, you should have in mind the best
-> practices and recommendations when creating views so you do not face
+> practices & recommendations when creating views so you don't face
 > performance issues.
 
 ### Centreon MAP (Legacy) web interface
@@ -116,7 +116,7 @@ children which must be included in the count.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get and install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Compatibility
 
@@ -538,7 +538,7 @@ Mac and Linux platforms (Debian and Ubuntu).
 You can find the installers in **Monitoring > Map > Desktop Client** or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=22.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
+> For performance considerations, we highly recommend to have less than 5, 10
 > users maximum connected at the same time manipulating views.
 
 ### Installation

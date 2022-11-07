@@ -106,7 +106,7 @@ yum clean all --enablerepo=*
 Then upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Accept new GPG keys from the repositories as needed.
@@ -366,8 +366,9 @@ mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", tabl
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 Then log on to the Centreon web interface to continue the upgrade process:

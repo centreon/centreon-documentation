@@ -20,13 +20,13 @@ Then click on **Next**.
 
 ![image](../assets/installation/acentreoncheckmodules.png)
 
-Define pathes used by monitoring engine. We recommand to use defaults.
+Define pathes used by monitoring engine. We recommend to use defaults.
 
 Then click on **Next**.
 
 ![image](../assets/installation/amonitoringengine2.png)
 
-Define pathes used by broker module. We recommand to use defaults.
+Define pathes used by broker module. We recommend to use defaults.
 
 Then click on **Next**.
 
@@ -46,7 +46,7 @@ user is set to *root* and the root password is empty.
 > If you use a remote database server, or use a specific root user, change
 > these entries
 
-Then define databases name and credentials that will be created. We recommand
+Then define databases name and credentials that will be created. We recommend
 to use default values.
 
 > Centreon database's user password should be the only parameter customized

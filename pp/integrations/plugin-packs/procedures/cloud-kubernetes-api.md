@@ -724,7 +724,7 @@ As mentioned in the introduction, two ways of communication are available:
 - the RestAPI exposed by the Kubernetes cluster,
 - the CLI tool kubectl to communicate with the cluster's control plane.
 
-For better performances, we recommand to use the RestAPI.
+For better performances, we recommend to use the RestAPI.
 
 #### Create a service account
 

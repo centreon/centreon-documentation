@@ -402,6 +402,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-pineapp-securemail-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-proxmox-mg-api'
         },
         {
@@ -491,6 +495,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-netbackup-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-thales-mistral-vs9-restapi'
         },
         {
           type: 'doc',
@@ -1502,6 +1510,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-enterasys-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-evertz-fc7800-snmp'
         },
         {
@@ -1901,6 +1913,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-mac-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-picos-snmp'
         },
         {
           type: 'doc',
@@ -2395,6 +2411,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-telephony-avaya-aes-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-telephony-avaya-cm-snmp'
         },
         {
           type: 'doc',

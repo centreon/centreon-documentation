@@ -7,7 +7,7 @@ This chapter describes how to upgrade your Centreon platform from version 3.4
 (Centreon Web 2.8) to version 20.04.
 
 > Upon completing the upgrade procedure, Centreon EMS users will have to request a
-> new license from [Centreon support](https://centreon.force.com).
+> new license from [Centreon support](https://support.centreon.com).
 
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on CentOS **version 7** distributions.
