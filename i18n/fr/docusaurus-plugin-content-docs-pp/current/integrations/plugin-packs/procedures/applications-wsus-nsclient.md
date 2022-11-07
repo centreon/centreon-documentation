@@ -121,7 +121,7 @@ n'est pas requise pour voir apparaître le pack dans le menu **Configuration > P
 > Si vous souhaitez utiliser le modèle d'hôte **NRPE**, installez le paquet centreon-nrpe3. 
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
 
 <Tabs groupId="sync">
