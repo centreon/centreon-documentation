@@ -60,13 +60,13 @@ This chapter shows some guidelines on how to troubleshoot your MAP installation.
   <logger name="org.apache" level="INFO" />
   ```
   
-2. Restart your **map-ng** server:
+2. Restart your **centreon-map** server:
 
   ```shell
-  systemctl restart centreon-map-ng
+  systemctl restart centreon-map
   ```
 
-## Run our diagnostic tool
+## Run Centreon diagnostic tool
 
 1. Run the following script:
 
@@ -263,3 +263,22 @@ Run the following commands and send us their output:
   ```shell
   yum list centreon-map-server-ng --showduplicates -q
   ```
+
+### MAP configuration is not working in HTTPS
+
+This issue occurs when the MAP module is installed on the Centreon central server while the MAP platform is secured in HTTPS.
+
+#### Symptom
+
+The MAP configuration is not working.
+
+#### Problem
+
+The MAP configuration must be set in TLS.
+
+#### Solution
+
+You need to force the MAP server to use IPv4. 
+
+Go to the **/etc/centreon-map/centreon-map.conf** file
+
