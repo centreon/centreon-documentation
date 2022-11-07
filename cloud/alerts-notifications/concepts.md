@@ -17,7 +17,7 @@ The table below summarizes all the possible statuses for a host.
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | <span style={{color:'#88b917'}}>UP</span>          | The host is available and reachable                                                           |
 | <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable                                                                       |
-| <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies.md) on a host whose status is **DOWN**  |
+| <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable: it depends on a host whose status is **DOWN**  |
 | <span style={{color:'#2ad1d4'}}>PENDING</span>     | The host has just been created and has not been checked yet by the monitoring engine |
 
 ### Service status
