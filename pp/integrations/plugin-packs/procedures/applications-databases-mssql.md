@@ -150,7 +150,7 @@ can be used for testing purposes but should never be used in production because 
 Birk Bohne, who is a valuable contributor of the _check\_mssql\_health_ probe, wrote a script to assign a less-privileged user. 
 His script can be found under the **Preparation of the database** section of the following [documentation](https://github.com/lausser/check_mssql_health/blob/master/doc/check_mssql_health.en.txt). 
 
-We recommend you to use a domain user to better manage its properties and privileges. 
+We recommend you use a domain user to better manage its properties and privileges. 
 
 ### Dependencies
 
