@@ -115,9 +115,7 @@ depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire*
 ### Plugin
 
 À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+du plugin lors de l'utilisation d'un pack.
 
 > Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 

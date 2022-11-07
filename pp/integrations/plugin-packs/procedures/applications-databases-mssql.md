@@ -18,7 +18,7 @@ It brings the following service templates:
 | Service Alias        | Service Template                  | Service Description                                                                                                           | Default |
 |:---------------------|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------|:--------|
 | Backup-Age           | App-DB-MSSQL-Backup-Age           | Check database backups of the server                                                                                          |         |
-| Blocked-Processes    | App-DB-MSSQL-Blocked-Processes    | Check blocked processes on the server. Service cannot work because of a SQL request. It depends of your MS SQL Server version | X       |
+| Blocked-Processes    | App-DB-MSSQL-Blocked-Processes    | Check blocked processes on the server.                                                                                        | X       |
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio       | Check the "Data Buffer Cache Hit Ratio" of the server. No alerts by default                                                   |         |
 | Connected-Users      | App-DB-MSSQL-Connected-Users      | Check number of connected users on the database                                                                               | X       |
 | Connection-Time      | App-DB-MSSQL-Connection-Time      | Check the connection time to the server. This time is given in seconds                                                        | X       |
@@ -27,8 +27,8 @@ It brings the following service templates:
 | Failed-Jobs          | App-DB-MSSQL-Failed-Jobs          | Check MSSQL failed jobs                                                                                                       | X       |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits          | Check locks-waits per second of the server                                                                                    |         |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy | Check the "Page Life Expectancy" of the server. No alerts by default                                                          |         |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement        | Check allowing to execute a custom SQL request with a digital answer                                                          |         |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Check allowing to execute a custom SQL query with a string answer                                                           |         |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement        | Check allowing to execute a custom SQL query returning a number                                                               |         |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Check allowing to execute a custom SQL query returning a string                                                               |         |
 | Transactions         | App-DB-MSSQL-Transactions         | Check transactions per second of the server. No alerts by default                                                             | X       |
 
 ### Collected metrics & status
