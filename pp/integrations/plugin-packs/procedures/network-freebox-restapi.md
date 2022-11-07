@@ -64,11 +64,11 @@ It brings the following service templates:
 
 You have to authorize the client and generate an app_id and a token to monitor your freebox.
 
-- Call the login authorize enpoint, substitute the IP and POST data by yours: 
+- Call the login authorize enpoint, replace the IP and POST data by yours: 
 
 `curl http://<freebox_ip>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
 
-- Validate within the freebox UI and keep the token safe
+- Validate within the Freebox UI and keep the token safe
 - Navigate to http://<freebox_ip>/api/v4/login/authorize/<app_id>
 - Check on the webpage that the application is authorized 
 
@@ -79,7 +79,7 @@ Keep your <app_id> and obtained token with you as you will need it during the ho
 ### Monitoring Pack
 
 If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the pack displayed within the
+instructions below as it is not required in order to have the pack displayed within the
 **Configuration > Plugin Packs > Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:

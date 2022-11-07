@@ -64,15 +64,15 @@ Il apporte les modèles de service suivants :
 
 Il est nécessaire au préalable d'autoriser le client et choisir un _app\_id_ et obtenir un _token_. 
 
-- Appeler la terminaison API permettant d'autoriser une application, remplacer les valeurs par celles souhaitées:
+- Appelez la terminaison API permettant d'autoriser une application, remplacez les valeurs par celles souhaitées:
 
 `curl http://<freebox_ip>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
 
-- Valider depuis l'écran de la freebox et récupérer le _token_
-- Ouvrer la page suivante http://<freebox_ip>/api/v4/login/authorize/<app_id>
-- Vérifier que l'application est correcte et possède les bons droits
+- Validez depuis l'écran de la freebox et récupérez le _token_
+- Ouvrez la page suivante http://<freebox_ip>/api/v4/login/authorize/<app_id>
+- Vérifiez que l'application est correcte et possède les bons droits
 
-Conserver précieusement votre _app\_id_ et le _token_ car ils seront nécessaire durant la configuration de l'hôte.
+Conservez précieusement votre _app\_id_ et le _token_ car ils seront nécessaires durant la configuration de l'hôte.
 
 ## Installation
 
@@ -82,7 +82,7 @@ Si la plateforme est configurée avec une licence *online*, l'installation d'un 
 n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
 
 <Tabs groupId="sync">
@@ -158,7 +158,7 @@ apt install centreon-plugin-network-freebox-restapi
 
 | Obligatoire | Macro               | Description                                                                            |
 |:------------|:--------------------|:---------------------------------------------------------------------------------------|
-|             | FREEBOXAPPID        | L'identifiant d'application définit lors du déroulé des prérequis                      |
+|             | FREEBOXAPPID        | L'identifiant d'application défini lors du déroulé des prérequis                      |
 |             | FREEBOXAPPTOKEN     | Le token obtenu précédemment                                                           |
 |             | FREEBOXEXTRAOPTIONS | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
 

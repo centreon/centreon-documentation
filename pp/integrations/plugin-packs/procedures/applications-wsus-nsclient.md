@@ -105,7 +105,7 @@ and make sure that the **NRPE Server** configuration is correct.
 </TabItem>
 <TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
 
-To monitor an *WSUS Server* through NSClient++ API, install the Centreon packaged version
+To monitor a *WSUS Server* through NSClient++ API, install the Centreon packaged version
 of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
@@ -117,7 +117,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 ### Monitoring Pack
 
 If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the pack displayed within the
+instructions below as it is not required in order to have the pack displayed within the
 **Configuration > Plugin Packs > Manager** menu.
 
 > If you want to use the **NRPE** host template, please install centreon-nrpe3 package.
@@ -288,5 +288,5 @@ the command:
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Please find the [troubleshooting documentation here](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
