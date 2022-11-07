@@ -36,8 +36,6 @@ Resources are checked according to the following parameters:
 * If, after these 3 checks, the resource is still in a non-ok status, its status type becomes HARD and notifications start being sent.
 * Checks are then made every 5 minutes to see if the resource is still in a HARD state. Notifications are sent every 5 minutes.
 
-> To ensure compatibility with future versions, do not change these values.
-
 ## Troubleshooting
 
 ### Contacts are not receiving notification emails

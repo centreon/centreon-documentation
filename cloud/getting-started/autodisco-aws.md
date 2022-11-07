@@ -62,6 +62,6 @@ yum install awscli
 
 3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/tutorials/aws-save.png)
 
-4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
+4. Go to **Configuration > Hosts > Hosts (simplified)** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The hosts appear in the **Resources Status** page: they are monitored.

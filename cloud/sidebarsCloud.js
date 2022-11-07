@@ -13,26 +13,8 @@ module.exports = {
           id: 'getting-started/interface',
         },
         {
-          type: 'category',
-          label: 'Installing a poller',
-          items: [
-            {
-              type: 'doc',
-              id: 'installation/prerequisites',
-            },
-            {
-              type: 'doc',
-              id: 'installation/deploy-poller',
-            },
-          ],
-        },
-        {
           type: 'doc',
           id: 'getting-started/concepts',
-        },
-        {
-          type: 'doc',
-          id: 'users/users',
         },
         {
           type: 'doc',
@@ -69,42 +51,512 @@ module.exports = {
           ],
           
         },
-        {
-          type: "doc",
-          id: "alerts-notifications/notif-configuration"
-        },
-        {
-          type: 'doc',
-          id: 'monitoring/pluginpacks',
-        },
-        {
-          type: 'doc',
-          id: 'monitoring/monitoring-servers/deploying-a-configuration',
-        },
-
       ],
     },
     {
-      "type": "category",
-      "label": "Performance graphs",
-      "items": [
+      type: 'category',
+      label: 'Installing a poller',
+      items: [
         {
-          "type": "doc",
-          "id": "metrology/chart-management"
+          type: 'doc',
+          id: 'installation/prerequisites',
         },
         {
-          "type": "doc",
-          "id": "metrology/chart-template"
+          type: 'doc',
+          id: 'installation/deploy-poller',
         },
-        {
-          "type": "doc",
-          "id": "metrology/chart-curves"
-        },
-        {
-          "type": "doc",
-          "id": "metrology/chart-virtual-metrics"
-        },
-      ]
+      ],
     },
+    {
+        "type": "category",
+        "label": "Monitoring resources",
+        "items": [
+          {
+            "type": "category",
+            "label": "Monitoring basics",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/pluginpacks"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/monitoring-servers/deploying-a-configuration"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Monitoring hosts",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/hosts-create"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/hosts"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/hosts-create-disco"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/hosts-templates"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Monitoring services",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/services-create"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/services"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/services-create-disco"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/services-templates"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/meta-services"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Discovering hosts and services automatically",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/discovery/introduction"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/discovery/hosts-discovery"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/discovery/services-discovery"
+              },
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Organizing hosts and services",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/groups"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/categories"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Basic objects and actions",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/timeperiods"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/macros"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/generic-actions"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Passive Monitoring",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/passive-monitoring/enable-snmp-traps"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/passive-monitoring/create-snmp-traps-definitions"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/passive-monitoring/monitoring-with-snmp-traps"
+              },
+              {
+                "type": "doc",
+                "id": "monitoring/passive-monitoring/debug-snmp-traps-management"
+              },
+            ]
+          },
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Managing events and alerts",
+        "items": [
+          {
+            "type": "category",
+            "label": "Viewing events",
+            "items": [
+              {
+                "type": "doc",
+                "id": "alerts-notifications/concepts"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/resources-status"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/custom-views"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Managing alerts",
+            "items": [
+              {
+                "type": "doc",
+                "id": "alerts-notifications/acknowledge"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/downtimes"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/submit"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/other"
+              }
+            ]
+          },
+          {
+            "type": "doc",
+            "id": "alerts-notifications/notif-configuration"
+          },
+          {
+            "type": "doc",
+            "id": "alerts-notifications/ticketing"
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Managing Centreon users',
+        items: [
+          {
+            type: 'doc',
+            id: 'users/users',
+          },
+        ]
+        },
+      {
+        "type": "category",
+        "label": "Performance graphs",
+        "items": [
+          {
+            "type": "doc",
+            "id": "metrology/chart-management"
+          },
+          {
+            "type": "doc",
+            "id": "metrology/chart-template"
+          },
+          {
+            "type": "doc",
+            "id": "metrology/chart-curves"
+          },
+          {
+            "type": "doc",
+            "id": "metrology/chart-virtual-metrics"
+          },
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Service Mapping",
+        "items": [
+          {
+            "type": "doc",
+            "id": "service-mapping/introduction"
+          },
+          {
+            "type": "category",
+            "label": "Guide",
+            "items": [
+              {
+                "type": "doc",
+                "id": "service-mapping/ba-management"
+              },
+              {
+                "type": "doc",
+                "id": "service-mapping/ba-monitoring"
+              },
+              {
+                "type": "doc",
+                "id": "service-mapping/ba-reporting"
+              },
+              {
+                "type": "doc",
+                "id": "service-mapping/ba-settings"
+              },
+              {
+                "type": "doc",
+                "id": "service-mapping/widgets"
+              }
+            ]
+          },
+        ]
+      },
+      {
+        "type": "link",
+        "href": "/pp/integrations/plugin-packs/getting-started/introduction",
+        "label": "Plugin Packs"
+      },
+
+      {
+        "type": "category",
+        "label": "Integrations",
+        "items": [
+          {
+            "type": "doc",
+            "id": "integrations/introduction-integrations"
+          },
+          {
+            "type": "category",
+            "label": "Data Analytics",
+            "items": [
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/data-analytics-overview"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-elastic-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-elastic-metrics"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-logstash-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-datadog-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-datadog-metrics"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-splunk-metrics"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-splunk-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-warp10"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/data-analytics/sc-kafka-events"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Event Management",
+            "items": [
+              {
+                "type": "doc",
+                "id": "integrations/event-management/event-management-overview"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-hp-bsm"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-hp-omi"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-opsgenie"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-pagerduty-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-service-now-incident-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-service-now-em-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-signl4-events"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/event-management/sc-servicenow-mid-server"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "ITSM",
+            "items": [
+              {
+                "type": "doc",
+                "id": "integrations/itsm/itsm-overview"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-bmc-footprints"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-bmc-remedy"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-easyvista"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-glpi"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-glpi-restapi"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-itop"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-iws-isilog"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-jira"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-mail"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-otrs-restapi"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-request-tracker-restapi"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-serena"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/itsm/ot-servicenow"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "Notifications",
+            "items": [
+              {
+                "type": "doc",
+                "id": "integrations/notifications/notifications-overview"
+              },
+              {
+                "type": "doc",
+                "id": "integrations/notifications/plugin-telegram"
+              }
+            ]
+          },
+          {
+            "type": "category",
+            "label": "NPM",
+            "items": [
+              {
+                "type": "doc",
+                "id": "integrations/npm/ntopng"
+              }
+            ]
+          } 
+        ]
+      },
+
+      {
+        "type": "category",
+        "label": "Centreon mobile",
+        "items": [
+          {
+            "type": "doc",
+            "id": "mobile/introduction"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "API",
+        "items": [
+              {
+                "type": "doc",
+                "id": "api/introduction"
+              },
+              {
+                "type": "doc",
+                "id": "api/rest-api-v1"
+              },
+              {
+                "type": "doc",
+                "id": "api/rest-api-v2"
+              },
+            ]
+      },
+      {
+        "type": "category",
+        "label": "Resources",
+        "items": [
+          {
+            "type": "doc",
+            "id": "resources/glossary"
+          }
+        ]
+      }
   ],
 };
