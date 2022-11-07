@@ -151,7 +151,7 @@ Néanmoins, la solution la plus optimale est l'utilisation d'un compte du domain
 
 ### Dépendances
 
-Il est nécessaire d'installer les paquets suivants: `freetds perl-DBD-Sybase unixODBC`
+Il est nécessaire d'installer les paquets suivants: `freetds perl-DBD-Sybase unixODBC`.
 
 ### Configuration de freetds
 
