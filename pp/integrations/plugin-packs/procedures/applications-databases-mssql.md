@@ -252,7 +252,7 @@ apt install centreon-plugin-applications-databases-mssql
 |:------------|:--------------|:---------------------------------------------------------------------------------------|
 |             | EXTRAOPTIONS  | Any extra option you may want to add to every command line (eg. a --verbose flag)      |
 |      X      | MSSQLPASSWORD | Monitoring user password (Default: 'PASSWORD')                                         |
-|      X      | MSSQLPORT     | MSSQL Instance listening port (Default: '1433')                                        |
+|      X      | MSSQLPORT     | MSSQL instance listening port (Default: '1433')                                        |
 |      X      | MSSQLUSERNAME | Monitoring user login string (Default: 'USERNAME')                                     |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
