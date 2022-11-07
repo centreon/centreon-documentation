@@ -28,7 +28,7 @@ It brings the following service templates:
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits          | Check locks-waits per second of the server                                                                                    |         |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy | Check the "Page Life Expectancy" of the server. No alerts by default                                                          |         |
 | Sql-Statement        | App-DB-MSSQL-Sql-Statement        | Check allowing to execute a custom SQL request with a digital answer                                                          |         |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Check allowing to execute a custom SQL request with a string answer                                                           |         |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String | Check allowing to execute a custom SQL query with a string answer                                                           |         |
 | Transactions         | App-DB-MSSQL-Transactions         | Check transactions per second of the server. No alerts by default                                                             | X       |
 
 ### Collected metrics & status
