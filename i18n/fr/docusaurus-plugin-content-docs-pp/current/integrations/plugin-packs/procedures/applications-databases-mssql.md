@@ -155,7 +155,7 @@ Il est nécessaire d'installer les paquets suivants: `freetds perl-DBD-Sybase un
 
 ### Configuration de freetds
 
-Par défaut, la version utilisé dans le fichier de configuration de freetds est la 4.2. Il est nécessaire d'utiliser au 
+Par défaut, la version utilisée dans le fichier de configuration de freetds est la 4.2. Il est nécessaire d'utiliser au 
 moins la version 8.0 pour un fonctionnement et une sécurité optimale. Pour celà, éditer le fichier freetds.conf afin de 
 décommenter la ligne `version = 4.2` et remplacer `4.2` par `8.0`. 
 
