@@ -16,9 +16,14 @@ The Centreon Plugin Pack **Azure Costs** brings a host template:
 
 It brings the following service template:
 
-| Service Alias   | Service Template                      | Service Description                  | Default | Discovery |
-|:----------------|:--------------------------------------|:-------------------------------------|:--------|:----------|
-| Budget          | Cloud-Azure-Management-Budgets-Api    | Check Azure budget consumption       |         |     x     |
+| Service Alias                 | Service Template                                           | Service Description                                               | Default | Discovery |
+|:------------------------------|:-----------------------------------------------------------|:------------------------------------------------------------------|:--------|:----------|
+| Budget                        | Cloud-Azure-Management-Costs-Budgets-Api                   | Check consumption for a given budget                              |         | X         |
+| Costs-Explorer-Resource-Group | Cloud-Azure-Management-Costs-Costs-Explorer-Resource-Group | Check costs per resource groups                                   |         |           |
+| Costs-Explorer-Subscription   | Cloud-Azure-Management-Costs-Costs-Explorer-Subscription   | Check costs for the whole subscription                            | X       |           |
+| Hybrid-Benefits-Compliance    | Cloud-Azure-Management-Costs-Hybrid-Benefits               | Check that hybrid benefits are enabled on all available resources | X       |           |
+| Orphan-Resources              | Cloud-Azure-Management-Costs-Orphan-Resources              | Check the number of orphaned resources                            | X       |           |
+| Tags-Compliance               | Cloud-Azure-Management-Costs-Tags-Compliance               | Check that required tag is                                        |         |           |
 
 ### Discovery rules
 
@@ -40,6 +45,53 @@ It brings the following service template:
 | Metric Name                          | Unit  |
 |:-------------------------------------|:------|
 | azure.budget.consumption.currency    |       |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Resource-Group" label="Costs-Explorer-Resource-Group">
+
+| Metric Name                                | Unit  |
+|:-------------------------------------------|:------|
+| *resource_group*#azure.resourcegroup.costs |       |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Subscription" label="Costs-Explorer-Subscription">
+
+| Metric Name                                | Unit  |
+|:-------------------------------------------|:------|
+| azure.subscription.global.costs            |       |
+
+</TabItem>
+<TabItem value="Hybrid-Benefits-Compliance" label="Hybrid-Benefits-Compliance">
+
+| Metric Name                              | Unit  |
+|:-----------------------------------------|:------|
+| azure.resources.nohybridbenefits.count   | count |
+| azure.vm.nohybridbenefits.count          | count |
+| azure.sqlvm.nohybridbenefits.count       | count |
+| azure.sqldatabase.nohybridbenefits.count | count |
+| azure.elasticpool.nohybridbenefits.count | count |
+
+
+</TabItem>
+<TabItem value="Orphan-Resources" label="Orphan-Resources">
+
+| Metric Name                       | Unit  |
+|:----------------------------------|:------|
+| azure.resources.orphaned.count    | count |
+| azure.manageddisks.orphaned.count | count |
+| azure.nics.orphaned.count         | count |
+| azure.nsgs.orphaned.count         | count |
+| azure.publicips.orphaned.count    | count |
+| azure.routetables.orphaned.count  | count |
+| azure.snapshots.orphaned.count    | count |
+
+</TabItem>
+<TabItem value="Tags-Compliance" label="Tags-Compliance">
+
+| Metric Name                            | Unit  |
+|:---------------------------------------|:------|
+| azure.tags.resource.notcompliant.count | count |
+| azure.tags.vm.notcompliant.count       | count |
 
 </TabItem>
 </Tabs>
