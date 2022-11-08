@@ -7,6 +7,29 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
+### MAP configuration is not working in HTTPS
+
+#### Symptom
+
+The MAP configuration is not working. This issue occurs when the MAP module is installed on the Centreon central server while the MAP platform is secured in HTTPS.
+
+#### Problem
+
+The MAP configuration is not set in TLS.
+
+#### Solution
+
+If you are using IPv6, you need to force the MAP server to use IPv4. 
+
+1. Go to the **/etc/centreon-map/centreon-map.conf** file.
+
+2. Edit the file by adding the following option:
+
+  ```shell
+  RUN_ARGS="--spring.profiles.active=prod,tls"
+  JAVA_OPTS="-Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=8uT4BM1RsXRmIPQbTEazUAhQHtyM7xZ4nlFMIUqQ7lRkbWz24yemkGs9tS4eOwDfF -Dcentreon-map.access-token-validity-seconds=15552000 -Xms512m -Xmx4G"
+  ``` 
+
 ## Make sure you installed the correct RPMs
 
 1. Run the following command:
@@ -263,22 +286,3 @@ Run the following commands and send us their output:
   ```shell
   yum list centreon-map-server-ng --showduplicates -q
   ```
-
-### MAP configuration is not working in HTTPS
-
-This issue occurs when the MAP module is installed on the Centreon central server while the MAP platform is secured in HTTPS.
-
-#### Symptom
-
-The MAP configuration is not working.
-
-#### Problem
-
-The MAP configuration must be set in TLS.
-
-#### Solution
-
-You need to force the MAP server to use IPv4. 
-
-Go to the **/etc/centreon-map/centreon-map.conf** file
-
