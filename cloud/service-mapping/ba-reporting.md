@@ -49,34 +49,3 @@ The table below details the KPI screen:
 | In Downtime                | Programming or no programming of downtime on the KPI at the time of calculation |
 | Check Time                 | Time during which the KPI was verified                                          |
 | Output                     | KPI output message during the KPI check                                         |
-
-## Force statistics calculation
-
-Events & availability statistics are automatically calculated daily. In
-case you modify the default reporting period, add an extra one or change
-BV association, you may need to rebuild the previously calculated data.
-
-To do so, run the following script:
-
-``` shell
-/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
-```
-
-It is also possible to rebuild a specific BA:
-
-``` shell
-/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --ba=<id of ba>
-```
-
-For more information regarding this script, run the following command:
-
-``` shell
-/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --help
-```
-
-**If you are also using Centreon MBI** and wish to use the updated data, run
-the following command on the reporting server:
-
-``` shell
-/usr/share/centreon-bi/etl/importData.pl -r --bam-only
-```
