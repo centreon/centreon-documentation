@@ -17,10 +17,6 @@ ticket from a mail.
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/installation/index)
-into your Centreon instance
-
 Our provider requires the following parameters:
 
 | Parameter | Example of value |

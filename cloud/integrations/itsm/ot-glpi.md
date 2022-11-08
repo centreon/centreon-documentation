@@ -18,10 +18,6 @@ This connector is (at least) compatible with the following Glpi versions:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-centreon-open-ticket
-into your Centreon instance.
-
 Our provider requires the following parameters:
 
 | Parameter | Example of value                     |

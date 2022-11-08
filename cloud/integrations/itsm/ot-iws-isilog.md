@@ -23,10 +23,6 @@ This connector is compatibile with at least the following versions of Isilog:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/installation/index)
-into your Centreon instance
-
 Our provider requires the following parameters:
 
 | Parameter     | Example of value                 |
@@ -42,7 +38,7 @@ Our provider requires the following parameters:
 
 As of now you'll only be able to open a ticket and close it from Centreon. In
 the near future you'll be able to fill the following parameters when opening a
-ticket
+ticket:
 
   - Origin
   - Impact

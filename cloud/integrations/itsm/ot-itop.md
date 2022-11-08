@@ -21,10 +21,6 @@ This integration is (at least) compatible with the following Itop versions:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md#advanced-configuration)
-into your Centreon instance.
-
 Our provider requires the following parameters:
 
 | Parameter   | Example of value    |

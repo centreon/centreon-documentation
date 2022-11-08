@@ -7,7 +7,7 @@ title: GLPI RestAPI
 
 The GlpiRestApi provider uses the REST API of Glpi to retrieve data in order to
 open a ticket. Since it gathers a lot of configurations objects from Glpi, it
-puts them in cache. Loging out or waiting 10 hours will flush the cache.
+puts them in cache. Logging out or waiting 10 hours will flush the cache.
 
 ![architecture](../../assets/integrations/open-tickets/ot-glpi-rest-api-architecture.png)
 
@@ -24,10 +24,6 @@ You can’t use this provider with Glpi < 9.1. From the 8.5 to 9.0 version, you
 should use the old Glpi provider that uses the Glpi plugin called “webservice”
 
 ## Requirements
-
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md#advanced-configuration)
-into your Centreon instance.
 
 Our provider requires the following parameters:
 

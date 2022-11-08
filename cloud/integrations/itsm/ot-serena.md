@@ -10,17 +10,8 @@ your monitoring alerts.
 
 ![architecture](../../assets/integrations/open-tickets/ot-serena-architecture.png)
 
-## Compatibility
-
-This integration is (at least) compatible with the following Serena versions:
-
-**to be determined**
 
 ## Requirements
-
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/installation/index)
-into your Centreon instance
 
 Our provider requires the following parameters:
 
@@ -34,4 +25,4 @@ Our provider requires the following parameters:
 
 ## Possibilities
 
-As of now, the provider is able to open a ticket
+As of now, the provider is able to open a ticket.

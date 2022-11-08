@@ -19,10 +19,6 @@ This connector is at least compatible with the following versions of OTRS:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](https://documentation.centreon.com/docs/centreon-open-tickets/en/latest/installation/index)
-into your Centreon instance
-
 Our provider requires the following parameters:
 
 | Parameter       | Example of value                   |
@@ -50,12 +46,12 @@ As of now, the provider is able to retrieve the following objects from OTRS:
 Sadly, some extra configuration is required in order to gather this data from
 OTRS.
 
-1.  copying custom webservice files
+1. Copy custom webservice files
 
 copy the content of `extra/Custom` and `extra/Kernal` in `/opt/otrs/` on your
 OTRS server.
 
-2.  Edit the configuration file
+2. Edit the configuration file
 
 Add the following lines in the `/opt/otrs/Kernel/Config.pm` file
 
@@ -93,7 +89,7 @@ $Self->{'GenericInterface::Operation::Module'}->{'CustomerUser::CustomerUserGet'
 };
 ```
 
-3.  Import the webservice
+3. Import the webservice
 
 On your OTRS web interface, use the import web service button and select the
 appropriate yaml file wich is `extra/export/otrs4/centreon.yml` or

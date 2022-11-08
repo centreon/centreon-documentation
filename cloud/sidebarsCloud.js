@@ -345,94 +345,6 @@ module.exports = {
           },
           {
             "type": "category",
-            "label": "Data Analytics",
-            "items": [
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/data-analytics-overview"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-elastic-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-elastic-metrics"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-logstash-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-datadog-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-datadog-metrics"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-splunk-metrics"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-splunk-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-warp10"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/data-analytics/sc-kafka-events"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Event Management",
-            "items": [
-              {
-                "type": "doc",
-                "id": "integrations/event-management/event-management-overview"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-hp-bsm"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-hp-omi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-opsgenie"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-pagerduty-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-service-now-incident-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-service-now-em-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-signl4-events"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/event-management/sc-servicenow-mid-server"
-              }
-            ]
-          },
-          {
-            "type": "category",
             "label": "ITSM",
             "items": [
               {
@@ -493,30 +405,6 @@ module.exports = {
               }
             ]
           },
-          {
-            "type": "category",
-            "label": "Notifications",
-            "items": [
-              {
-                "type": "doc",
-                "id": "integrations/notifications/notifications-overview"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/notifications/plugin-telegram"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "NPM",
-            "items": [
-              {
-                "type": "doc",
-                "id": "integrations/npm/ntopng"
-              }
-            ]
-          } 
         ]
       },
 
