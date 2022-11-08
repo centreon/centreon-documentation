@@ -16,9 +16,15 @@ Le Plugin Pack Centreon **Azure Costs** apporte un modèle d'hôte :
 
 Il apporte le modèle de service suivant :
 
-| Alias           | Modèle                                | Description                                | Défaut  | Découverte |
-|:----------------|:--------------------------------------|:-------------------------------------------|:--------|:-----------|
-| Budget          | Cloud-Azure-Management-Budgets-Api    | Contrôle la consommation d'un budget Azure |         |     x      |
+| Alias                         | Modèle de service                             | Description                                                                     | Défaut | Découverte |
+|:------------------------------|:----------------------------------------------|:--------------------------------------------------------------------------------|:-------|:-----------|
+| Budget                        | Cloud-Azure-Management-Costs-Budgets-Api      | Contrôle l'utilisation d'un budget donné                                        |        | X          |
+| Costs-Explorer-Resource-Group | Cloud-Azure-Management-Costs-Costs-Explorer-Resource-Group | Contrôle les coûts liés à un ou des resource groups                                   |         |           |
+| Costs-Explorer-Subscription   | Cloud-Azure-Management-Costs-Costs-Explorer-Subscription   | Contrôle les coûts d'une subscription Azure                            | X       |           |
+| Hybrid-Benefits-Compliance    | Cloud-Azure-Management-Costs-Hybrid-Benefits  | Contrôle que les hybrid benefits sont bien activés sur les ressources éligibles | X      |            |
+| Orphan-Resources              | Cloud-Azure-Management-Costs-Orphan-Resources | Contrôle les ressources orphelines                                              | X      |            |
+| Tags-Compliance               | Cloud-Azure-Management-Costs-Tags-Compliance  | Contrôle les tags associés aux ressources                                       |        |            |
+
 
 ### Règles de découverte 
 
@@ -37,9 +43,57 @@ Il apporte le modèle de service suivant :
 <Tabs groupId="sync">
 <TabItem value="Budgets" label="Budgets">
 
-| Metric Name                          | Unit  |
+| Métrique                             | Unité |
 |:-------------------------------------|:------|
-| azure.ad.directory.usage.count       |       |
+| azure.ad.directory.usage.count       | count |
+
+</TabItem>
+
+<TabItem value="Costs-Explorer-Resource-Group" label="Costs-Explorer-Resource-Group">
+
+| Metric Name                                | Unit  |
+|:-------------------------------------------|:------|
+| *resource_group*#azure.resourcegroup.costs |       |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Subscription" label="Costs-Explorer-Subscription">
+
+| Metric Name                                | Unit  |
+|:-------------------------------------------|:------|
+| azure.subscription.global.costs            |       |
+
+</TabItem>
+<TabItem value="Hybrid-Benefits-Compliance" label="Hybrid-Benefits-Compliance">
+
+| Métrique                                 | Unité |
+|:-----------------------------------------|:------|
+| azure.resources.nohybridbenefits.count   | count |
+| azure.vm.nohybridbenefits.count          | count |
+| azure.sqlvm.nohybridbenefits.count       | count |
+| azure.sqldatabase.nohybridbenefits.count | count |
+| azure.elasticpool.nohybridbenefits.count | count |
+
+
+</TabItem>
+<TabItem value="Orphan-Resources" label="Orphan-Resources">
+
+| Métrique                          | Unité |
+|:----------------------------------|:------|
+| azure.resources.orphaned.count    | count |
+| azure.manageddisks.orphaned.count | count |
+| azure.nics.orphaned.count         | count |
+| azure.nsgs.orphaned.count         | count |
+| azure.publicips.orphaned.count    | count |
+| azure.routetables.orphaned.count  | count |
+| azure.snapshots.orphaned.count    | count |
+
+</TabItem>
+<TabItem value="Tags-Compliance" label="Tags-Compliance">
+
+| Métrique                               | Unité |
+|:---------------------------------------|:------|
+| azure.tags.resource.notcompliant.count | count |
+| azure.tags.vm.notcompliant.count       | count |
 
 </TabItem>
 </Tabs>
