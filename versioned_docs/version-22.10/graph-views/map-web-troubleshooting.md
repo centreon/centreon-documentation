@@ -5,7 +5,7 @@ title: MAP Web troubleshooting
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter shows some guidelines on how to troubleshoot your MAP Web installation.
+This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
 ### MAP configuration is not working in HTTPS
 
