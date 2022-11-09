@@ -21,6 +21,18 @@ It brings the following service templates:
 | Factory-Usage       | Cloud-Azure-DataFactory-Factories-Factory-Usage-Api       | Check factory size and entities       | X       |
 | Integration-Runtime | Cloud-Azure-DataFactory-Factories-Integration-Runtime-Api | Check integration runtime utilization | X       |
 
+### Discovery rules
+
+The Centreon Plugin Pack **Azure Data Factory** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the Centreon configuration. This provider is named **Microsoft Azure Data Factories**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-datafactory-factories-provider.png)
+
+> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
 ### Collected metrics & status
 
 <Tabs groupId="sync">
@@ -28,8 +40,8 @@ It brings the following service templates:
 
 | Metric Name                                    | Unit  |
 |:-----------------------------------------------|:------|
-| azdatafactory.factoryusage.factory.size.count  | GB    |
-| azdatafactory.factoryusage.size.percentage     | %     |
+| azdatafactory.factoryusage.size.bytes          | B     |
+| azdatafactory.factoryusage.percentage          | %     |
 | azdatafactory.factoryusage.resource.count      |       |
 | azdatafactory.factoryusage.resource.percentage | %     |
 
@@ -178,21 +190,21 @@ running the following command:
     --timeframe='' \
     --interval='' \
     --aggregation='' \
+    --warning-factory-percentage-usage='' \
+    --critical-factory-percentage-usage='' \
+    --warning-resource-percentage-usage='' \
+    --critical-resource-percentage-usage='' \
+    --warning-factory-size='' \
+    --critical-factory-size='' \
     --warning-resource-count='' \
     --critical-resource-count='' \
-    --warning-factory-size-in-gb_units='' \
-    --critical-factory-size-in-gb_units='' \
-    --warning-resource-usage='' \
-    --critical-resource-usage='' \
-    --warning-factory-size-usage='' \
-    --critical-factory-size-usage='' \
     --use-new-perfdata
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Instance 'FACTORY001ABCD' Statistic 'maximum' Metrics Factory size: 40.00GB, Factory usage: 30.00%, Resource count: 10.00, Resource usage: 25.00% | 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.factory.size.count'=40.00GB;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.size.percentage'=30.00%;;;0;100 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.count'=10.00;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.percentage'=25.00%;;;0;100
+OK: Instance 'FACTORY001ABCD' Statistic 'maximum' Metrics Factory size: 40.00GB, Factory usage: 30.00%, Resource count: 10.00, Resource usage: 25.00% | 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.size.bytes'=40.00GB;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.percentage'=30.00%;;;0;100 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.count'=10.00;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.percentage'=25.00%;;;0;100
 ```
 
 All available options for a given mode can be displayed by adding the

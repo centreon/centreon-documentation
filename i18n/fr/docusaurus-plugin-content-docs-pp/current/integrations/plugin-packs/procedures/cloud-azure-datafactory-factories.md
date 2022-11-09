@@ -21,6 +21,20 @@ Il apporte les modèles de service suivants :
 | Factory-Usage       | Cloud-Azure-DataFactory-Factories-Factory-Usage-Api       | Contrôle la taille et les entités de la fabrique | X      |
 | Integration-Runtime | Cloud-Azure-DataFactory-Factories-Integration-Runtime-Api | Contrôle l'utilisation du runtime d'intégration  | X      |
 
+### Règles de découverte
+
+Le Plugin Pack Centreon **Azure Data Factory** inclut un fournisseur de découverte
+d'hôtes nommé **Microsoft Azure Data Factoriess**. Celui-ci permet de découvrir l'ensemble des instances
+rattachées à une souscription Microsoft Azure donnée:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-datafactory-factories-provider.png)
+
+> La découverte **Azure Data Factory** n'est compatible qu'avec le mode **api**. Le mode **azcli** n'est pas supporté dans le cadre
+> de cette utilisation.
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+pour en savoir plus sur la découverte automatique d'hôtes.
+
 ### Métriques & statuts collectés
 
 <Tabs groupId="sync">
@@ -28,8 +42,8 @@ Il apporte les modèles de service suivants :
 
 | Métrique                                       | Unité |
 |:-----------------------------------------------|:------|
-| azdatafactory.factoryusage.factory.size.count  | GB    |
-| azdatafactory.factoryusage.size.percentage     | %     |
+| azdatafactory.factoryusage.size.bytes          | B     |
+| azdatafactory.factoryusage.percentage          | %     |
 | azdatafactory.factoryusage.resource.count      |		 |
 | azdatafactory.factoryusage.resource.percentage | %     |
 
@@ -176,21 +190,21 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --timeframe='' \
     --interval='' \
     --aggregation='' \
+    --warning-factory-percentage-usage='' \
+    --critical-factory-percentage-usage='' \
+    --warning-resource-percentage-usage='' \
+    --critical-resource-percentage-usage='' \
+    --warning-factory-size='' \
+    --critical-factory-size='' \
     --warning-resource-count='' \
     --critical-resource-count='' \
-    --warning-factory-size-in-gb_units='' \
-    --critical-factory-size-in-gb_units='' \
-    --warning-resource-usage='' \
-    --critical-resource-usage='' \
-    --warning-factory-size-usage='' \
-    --critical-factory-size-usage='' \
     --use-new-perfdata
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Instance 'FACTORY001ABCD' Statistic 'maximum' Metrics Factory size: 40.00GB, Factory usage: 30.00%, Resource count: 10.00, Resource usage: 25.00% | 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.factory.size.count'=40.00GB;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.size.percentage'=30.00%;;;0;100 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.count'=10.00;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.percentage'=25.00%;;;0;100
+OK: Instance 'FACTORY001ABCD' Statistic 'maximum' Metrics Factory size: 40.00GB, Factory usage: 30.00%, Resource count: 10.00, Resource usage: 25.00% | 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.size.bytes'=40.00GB;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.percentage'=30.00%;;;0;100 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.count'=10.00;;;0; 'FACTORY001ABCD~maximum#azdatafactory.factoryusage.resource.percentage'=25.00%;;;0;100
 ```
 
 La liste de toutes les options complémentaires et leur signification peut être
