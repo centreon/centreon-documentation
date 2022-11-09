@@ -30,7 +30,7 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 
 ### Installer le pack
 
-Vous avez maintenant accès au catalogue des Plugin Packs, à la page **Configuration > Packs de plugins** :
+Vous pouvez accéder au catalogue des Plugin Packs à la page **Configuration > Packs de plugins** :
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
