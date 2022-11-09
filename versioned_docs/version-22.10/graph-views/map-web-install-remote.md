@@ -1,9 +1,9 @@
 ---
-id: remote-server
-title: Install on a remote server
+id: map-web-install-remote
+title: Install MAP on a remote server
 ---
 
-## Installation of Centreon MAP for a Centreon remote server
+## Installation of Centreon MAP Web for a Centreon remote server
 
 Installation of Centreon MAP extension on a Centreon
 remote server has to be done exactly like the installation on a
@@ -11,10 +11,9 @@ central server, only configuration and uninstallation are different.
 
 If your Centreon remote server has not been installed yet, please refer to
 the following
-[documentation](../installation/installation-of-a-remote-server/using-packages.md)
+[documentation](../installation/installation-of-a-remote-server/using-packages.md).
 
-Then refer to the [installation procedure](install.md) to install
-the 2 mains components:
+Then refer to the [installation procedure](map-web-install.md) to install the 2 mains components:
 
 - The web interface.
 - The server.
@@ -22,9 +21,9 @@ the 2 mains components:
 After that, you will have to perform the additional steps explained below, to finish
 installing Centreon Map on your remote server.
 
-## Images synchronisation
+## Images synchronisation **To check with Dev**
 
-Add an access to the images synchronisation page **Administration  >  Parameters  >  Images**:
+Add access to the images synchronisation page **Administration  >  Parameters  >  Images**
 ```shell
 [root@remote ~]# mysql centreon
 MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
@@ -32,18 +31,23 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 ## Centreon Broker configuration
 
-In order to display real time statuses, **Centreon MAP** needs to receive this data from the Centreon remote server's Broker.
+Configuration of Centreon MAP for a Centreon remote server consists
+in creating configuration for Centreon Broker of the Centreon remote
+server **from** the central server so that, with a dedicated Centreon
+Broker output on the Centreon remote server, Centreon MAP can receive
+real time data directly from its Centreon remote server.
 
-To do so, you need to log in to your central server and modify the Centreon Broker Master configuration of the
-Centreon remote poller. Go to the **Configuration > Pollers > Broker
-configuration** menu and edit the **remote server's** configuration.
+To do so, you need to modify the **Centreon Broker Master**
+configuration of the **Centreon Remote poller**. Go to
+**Configuration > Pollers > Broker configuration** menu and edit the
+remote poller configuration.
 
 In the **Output** tab, create a new output with the following parameters:
 
 ![image](../assets/graph-views/output_broker.png)
 
-To complete the installation process, generate and deploy the Centreon remote
-server configuration by selecting **Restart**.
+To finish the installation, generate, export the configuration and
+**restart** Centreon Broker manually.
 
 ## Uninstalling Centreon MAP
 
