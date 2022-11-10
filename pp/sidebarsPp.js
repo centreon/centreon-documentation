@@ -896,6 +896,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-datafactory-factories'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
         },
         {
