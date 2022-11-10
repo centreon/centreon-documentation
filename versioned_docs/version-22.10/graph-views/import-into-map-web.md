@@ -3,9 +3,9 @@ id: import-into-map-web
 title: Import legacy maps into MAP
 ---
 
-This chapter describes how to import your legacy maps into your MAP Web module.
+This chapter describes how to import your legacy maps into your MAP module.
 
-> When you import your legacy maps, any content created in MAP Web is deleted.
+> When you import your legacy maps, any content created in MAP is deleted.
 
 ## Step 1: Migrate images
 
@@ -30,7 +30,7 @@ systemctl start centreon-map
 
 ## Step 3: Migrate maps
 
-1. To import your legacy maps into MAP Web, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
+1. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
 
   ![image](../assets/graph-views/ng/map-migrate-1.png)
 
