@@ -13,15 +13,6 @@ Acknowledging a resource does not mean that the incident is over: it will be ove
 
 **See also**: [Acknowledging a problem](../alerts-notifications/acknowledge.md).
 
-## BBDO
-
-Broker Binary Data Object: communication protocol used to transfer monitoring data from [pollers](#poller) to the [central server](#central-server).
-
-## Broker
-
-Centreon Broker is the software component that receives monitoring data collected by [monitoring engines](#monitoring-engine).
-Once it receives this data, by default, Centreon Broker redistributes them to the MariaDB and RRD databases.
-
 ## Central server
 
 In Centreon, the central server is the main console where you monitor resources. The central server allows you to:
@@ -44,14 +35,9 @@ See [**Monitoring engine**](#monitoring-engine).
 
 Fully Qualified Domain Name: hostname and domain name for a server. E.g.: demo.centreon.com (hostname: demo, domain name: centreon.com).
 
-## Gorgone
-
-Centreon Gorgone is the software component that allows the [central server](#central-server) to send information to the [pollers](#poller).
-Among other things, Gorgone deploys the configuration to the [monitoring engines](#monitoring-engine).
-
 ## Graph
 
-Graphs are generated from the [metrics](#metric) that make up [services](#service), using [RRD files](#rrd-files). They show how these metrics evolve in time.
+Graphs are generated from the [metrics](#metric) that make up [services](#service). They show how these metrics evolve in time.
 
 **See also**: [Charts management](../metrology/chart-management.md) and the other topics in this section.
 
@@ -82,7 +68,7 @@ Any action performed in the interface that acts on your monitoring in real time.
 ## Monitoring engine
 
 Centreon Engine is the software component that plans checks, executes them, and [notifies](#notification) users if an incident occurs.
-Centreon Engine is present on [pollers](#poller), [remote servers](#remote-server) and the [central server](#central-server).
+Centreon Engine is present on [pollers](#poller) and the [central server](#central-server).
 
 ## Notification
 
@@ -111,13 +97,13 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 
 ## Poller
 
-Centreon server used in a [distributed architecture](#architecture-simple-vs-distributed). A poller can be attached to a [remote server](#remote-server), or directly to a [central server](#central-server).
+Centreon server. A poller is attached to a [central server](#central-server).
 
 - A Centreon poller monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
 
-- A poller has no graphical interface: the resources it monitors are displayed in the interface of the central server and of the remote server it is attached to.
+- A poller has no graphical interface: the resources it monitors are displayed in the interface of the central server it is attached to.
 
-"Poller" is also used to refer to the monitoring engine that is present in a central server, a remote server and a poller.
+"Poller" is also used to refer to the monitoring engine that is present in a central server and a poller.
 
 ## Recurring downtime
 
@@ -125,31 +111,9 @@ Recurring downtimes are [downtimes](#downtime) that occur regularly.
 
 **See also**: [Recurrent downtimes](../alerts-notifications/downtimes.md#recurrent-downtimes).
 
-## Remote server
-
-Centreon server used in a [distributed architecture](#architecture-simple-vs-distributed). A remote server is attached to a central server. Pollers can be attached to a remote server.
-
-- A remote server monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
-
-- It has a graphical interface, but no configuration menus.
-
-- The resources it monitors are displayed in its interface, and in the interface of the central server it is attached to.
-
 ## Resource
 
 Object monitored by a Centreon platform ([hosts](#host), [services](#service), metaservices).
-
-## Retention files
-
-Retention files belong to Centreon [Broker](#broker). These files store the monitoring data that could not be inserted into the database. For instance, if a communication problem occurs between Engine and Broker, the data is not lost, Broker stores them in a file (whose name includes the term "queue"). The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
-
-## Retention period
-
-Time period, in days, during which you want to keep the data from your RRD and MariaDB databases.
-
-## RRD files
-
-An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
 
 ## Scheduler
 
@@ -177,7 +141,7 @@ Unhandled, acknowledged, in downtime.
 
 Indicates:
 
-- the availability of a [host](#host) (UP, DOWN, UNREACHABLE),
+- the availability of a [host](#host) (UP, DOWN),
 
 - the availability or performance of a [service](#service) (OK, WARNING, CRITICAL, UNKNOWN).
 
@@ -217,7 +181,3 @@ Time periods define a time interval for each day of the week. They enable the fu
 Configurable visual element that allows you to display data in a custom view.
 
 **See also**: [Custom views](../alerts-notifications/custom-views.md).
-
-## ZMQ
-
-Protocol used by Centreon [Gorgone](#gorgone) to communicate from the [central server](#central-server) to the [pollers](#poller).

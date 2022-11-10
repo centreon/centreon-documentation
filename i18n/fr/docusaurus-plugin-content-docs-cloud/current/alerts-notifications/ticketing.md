@@ -26,7 +26,7 @@ Définissez le nom de la règle **Rule name** et sélectionnez le **Provider**:
 Un nouveau formulaire apparaît. Configurez ce dernier en fonction de ses
 spécificités.
 
-### Hôtes et serivces
+### Hôtes et services
 
 Pour que les ressources (hôtes et services) reçoivent un numéro de
 ticket, il est nécessaire de leur ajouter une macro personnalisée à leur
@@ -156,7 +156,7 @@ remplacé):
 Après avoir ouvert un ticket, vous souhaitez peut-être envoyer un
 e-mail. Le système de règles de chaînage est conçu pour le faire :
 
--   Créez une règle avec le nom `emailme` et le fourisseur `Mail`
+-   Créez une règle avec le nom `emailme` et le fournisseur `Mail`
 -   Configurez `emailme` pour le champ **Chain rules**
 
 ![image](../assets/alerts/open_ticket_advanced_chain_01.png)

@@ -17,15 +17,6 @@ Acquitter une ressource ne signifie pas que l'incident est résolu : il le sera 
 
 Toute action exécutée depuis l’interface permettant d’agir sur votre supervision en temps réel. Par exemple, [faire un acquittement](#acquittement), planifier une [plage de maintenance](#plage-de-maintenance), forcer un contrôle, etc. 
 
-## BBDO
-
-Broker Binary Data Object : c’est le protocole de communication utilisé pour transporter les données de supervision des [serveurs distants](#serveur-distant) et des [collecteurs](#collecteur) vers le [serveur central](#serveur-central).
-
-## Broker
-
-Centreon Broker est le composant logiciel qui reçoit les données de supervision collectées par les [moteurs de supervision](#moteur-de-supervision).
-Une fois ces données reçues, par défaut, Centreon Broker les redistribue vers les bases de données MariaDB et RRD.
-
 ## Collecteur
 
 Serveur Centreon. Un collecteur est rattaché à un [serveur central](#serveur-central).
@@ -48,27 +39,13 @@ Voir [**Moteur de supervision**](#moteur-de-supervision).
 
 Non traité, acquitté, en maintenance.
 
-## Fichiers de rétention
-
-Les fichiers de rétention sont propres à Centreon [Broker](#broker).
-Ces fichiers permettent de conserver les données de supervision quand elles n’ont pas pu être insérées en base de données. Par exemple s'il y a un problème de connexion entre Engine et Broker, plutôt que de perdre ces données, Broker les stocke dans un fichier (de type file d'attente, dont le nom comporte le terme "queue"). Ce fichier sera ensuite dépilé par Centreon Broker, puis inséré en base pour éviter une perte de données.
-
-## Fichiers RRD
-
-Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les graphiques de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
-
 ## FQDN
 
 Fully Qualified Domain Name : correspond au nom d’hôte et de domaine d’un serveur. Ex : demo.centreon.com (nom d’hôte : demo, nom de domaine : centreon.com).
 
-## Gorgone
-
-Centreon Gorgone est le composant logiciel qui permet la communication du [serveur central](#serveur-central) vers les [collecteurs](#collecteur).
-Notamment, Gorgone déploie la configuration des [moteurs de supervision](#moteur-de-supervision).
-
 ## Graphique
 
-Les graphiques sont générés à partir des [métriques](#métrique) des [services](#service), en utilisant les [fichiers RRD](#fichiers-rrd). Ils permettent de représenter l'évolution dans le temps de ces métriques.
+Les graphiques sont générés à partir des [métriques](#métrique) des [services](#service). Ils permettent de représenter l'évolution dans le temps de ces métriques.
 
 **Voir aussi** : [Gestion des graphiques](../metrology/chart-management.md) et les autres topics de cette section.
 
@@ -115,10 +92,6 @@ Message avertissant l’utilisateur d’un incident. Il est possible de paramét
 ## Ordonnanceur
 
 Voir [**Moteur de supervision**](#moteur-de-supervision).
-
-## Période de rétention
-
-Durée pendant laquelle vous souhaitez conserver vos données de base de données RRD et MariaDB. Elle est exprimée en jours. 
 
 ## Période temporelle
 
@@ -209,7 +182,3 @@ Indique si un changement de [statut](#statut) est confirmé (HARD) ou non-confir
 Élément visuel configurable permettant d’afficher des données dans une vue personnalisée.
 
 **Voir aussi** : [Vues personnalisées](../alerts-notifications/custom-views.md).
-
-## ZMQ
-
-Protocole de communication utilisé par Centreon [Gorgone](#gorgone) depuis le [central](#serveur-central) vers les [collecteurs](#collecteur).
