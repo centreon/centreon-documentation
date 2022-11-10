@@ -5,7 +5,6 @@ title: Azure Data Factory
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Contenu du Pack
 
 ### Modèles
@@ -24,7 +23,7 @@ Il apporte les modèles de service suivants :
 ### Règles de découverte
 
 Le Plugin Pack Centreon **Azure Data Factory** inclut un fournisseur de découverte
-d'hôtes nommé **Microsoft Azure Data Factoriess**. Celui-ci permet de découvrir l'ensemble des instances
+d'hôtes nommé **Microsoft Azure Data Factories**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-datafactory-factories-provider.png)
