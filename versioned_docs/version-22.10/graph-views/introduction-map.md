@@ -23,7 +23,7 @@ Then you can visualize your map directly in the view mode:
 
 ## Procedures
 
-Use the following procedures to use and administrate Centreon MAP:
+Use the following procedures to use and administrate Centreon MAP.
 
 ### Administrating MAP
   - [Install MAP](map-web-install.md) describes prerequisites and procedures to install MAP.

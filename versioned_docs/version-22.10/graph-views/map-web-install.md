@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP module does not use the **centreon_studio** database.
 
-### License
+## License
 
 If you need an additional license for Centreon MAP, please contact the support [Centreon support
 team](https://support.centreon.com/) to get and install your license key.

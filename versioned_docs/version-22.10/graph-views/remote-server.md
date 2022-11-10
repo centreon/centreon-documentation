@@ -3,9 +3,9 @@ id: remote-server
 title: Install on a remote server
 ---
 
-## Installation of Centreon MAP for a Centreon remote server
+## Centreon MAP (Legacy) installation for a Centreon remote server
 
-Installation of Centreon MAP extension on a Centreon
+Installation of Centreon MAP (Legacy) extension on a Centreon
 remote server has to be done exactly like the installation on a
 central server, only configuration and uninstallation are different.
 
@@ -32,7 +32,7 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 ## Centreon Broker configuration
 
-In order to display real time statuses, **Centreon MAP** needs to receive this data from the Centreon remote server's Broker.
+In order to display real time statuses, **Centreon MAP (Legacy)** needs to receive this data from the Centreon remote server's Broker.
 
 To do so, you need to log in to your central server and modify the Centreon Broker Master configuration of the
 Centreon remote poller. Go to the **Configuration > Pollers > Broker
@@ -45,9 +45,8 @@ In the **Output** tab, create a new output with the following parameters:
 To complete the installation process, generate and deploy the Centreon remote
 server configuration by selecting **Restart**.
 
-## Uninstalling Centreon MAP
+## Uninstalling Centreon MAP (Legacy)
 
-On a remote poller, you can uninstall **Centreon MAP** module the same
+On a remote poller, you can uninstall **Centreon MAP (Legacy)** module the same
 way as on the Centreon central server. All Centreon Broker configuration for the Centreon remote server linked to the Centreon
-MAP module have to be manually removed. Look at the [Centreon Broker configuration](#centreon-broker-configuration) section above to
-know what output you need to delete for your Centreon remote server(s).
+MAP (Legacy) module have to be manually removed. Look at the [Centreon Broker configuration](#centreon-broker-configuration) section above to know what output you need to delete for your Centreon remote server(s).
