@@ -16,6 +16,7 @@ ONTAP ou Data ONTAP ou Clustered Data ONTAP (cDOT) ou Data ONTAP 7-Mode est un s
 
 Le Plugin-Pack permet de superviser les ressources:
 
+* Aggregates
 * Cluster
 * Hardware
 * Luns
@@ -27,6 +28,27 @@ Le Plugin-Pack permet de superviser les ressources:
 Les métriques collectées sont les suivantes:
 
 <Tabs groupId="sync">
+<TabItem value="Aggregates" label="Aggregates">
+
+| Metric name                             | Unit  |
+|:----------------------------------------|:------|
+| aggregate.space.usage.bytes             | B     |
+| aggregate.space.free.bytes              | B     |
+| aggregate.space.usage.percentage        | %     |
+| aggregate.io.read.usage.bytespersecond  | B/s   |
+| aggregate.io.write.usage.bytespersecond | B/s   |
+| aggregate.io.other.usage.bytespersecond | B/s   |
+| aggregate.io.total.usage.bytespersecond | B/s   |
+| aggregate.io.read.usage.iops            | iops  |
+| aggregate.io.write.usage.iops           | iops  |
+| aggregate.io.other.usage.iops           | iops  |
+| aggregate.io.total.usage.iops           | iops  |
+| aggregate.io.read.latency.microseconds  | µs    |
+| aggregate.io.write.latency.microseconds | µs    |
+| aggregate.io.other.latency.microseconds | µs    |
+| aggregate.io.total.latency.microseconds | µs    |
+
+</TabItem>
 <TabItem value="Cluster" label="Cluster">
 
 | Metric name                           | Description                                                                                    |
