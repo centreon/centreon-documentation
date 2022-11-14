@@ -1,12 +1,10 @@
 ---
 id: hardware-ups-himoinsa-snmp
 title: Himoinsa SNMP
-
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
@@ -31,10 +29,10 @@ Il apporte les modèles de service suivants :
 <Tabs groupId="sync">
 <TabItem value="Frequency" label="Frequency">
 
-| Métrique               | Unité |
-| :--------------------- | :---- |
-| genset.frequency.hertz | Hz    |
-| mains.frequency.hertz  | Hz    |
+| Métrique                       | Unité |
+| :----------------------------- | :---- |
+| *index*#genset.frequency.hertz | Hz    |
+| *index*#mains.frequency.hertz  | Hz    |
 
 </TabItem>
 <TabItem value="Fuel-Level" label="Fuel-Level">
@@ -46,11 +44,11 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Phase" label="Phase">
 
-| Métrique              | Unité |
-| :-------------------- | :---- |
-| phase1.current.ampere | A     |
-| phase2.current.ampere | A     |
-| phase3.current.ampere | A     |
+| Métrique                      | Unité |
+| :---------------------------- | :---- |
+| *index*#phase1.current.ampere | A     |
+| *index*#phase2.current.ampere | A     |
+| *index*#phase3.current.ampere | A     |
 
 </TabItem>
 <TabItem value="Status" label="Status">
@@ -63,24 +61,23 @@ Il apporte les modèles de service suivants :
 | mode                  |       |
 | transfer-pump         |       |
 
-
 </TabItem>
 <TabItem value="Voltage" label="Voltage">
 
-| Métrique                | Unité |
-| :---------------------- | :---- |
-| gen.vl12.voltage.volt   | V     |
-| gen.vl13.voltage.volt   | V     |
-| gen.vl1n.voltage.volt   | V     |
-| gen.vl23.voltage.volt   | V     |
-| gen.vl2n.voltage.volt   | V     |
-| gen.vl3n.voltage.volt   | V     |
-| mains.vl12.voltage.volt | V     |
-| mains.vl13.voltage.volt | V     |
-| mains.vl1n.voltage.volt | V     |
-| mains.vl23.voltage.volt | V     |
-| mains.vl2n.voltage.volt | V     |
-| mains.vl3n.voltage.volt | V     |
+| Métrique                        | Unité |
+| :------------------------------ | :---- |
+| *index*#gen.vl12.voltage.volt   | V     |
+| *index*#gen.vl13.voltage.volt   | V     |
+| *index*#gen.vl1n.voltage.volt   | V     |
+| *index*#gen.vl23.voltage.volt   | V     |
+| *index*#gen.vl2n.voltage.volt   | V     |
+| *index*#gen.vl3n.voltage.volt   | V     |
+| *index*#mains.vl12.voltage.volt | V     |
+| *index*#mains.vl13.voltage.volt | V     |
+| *index*#mains.vl1n.voltage.volt | V     |
+| *index*#mains.vl23.voltage.volt | V     |
+| *index*#mains.vl2n.voltage.volt | V     |
+| *index*#mains.vl3n.voltage.volt | V     |
 
 </TabItem>
 </Tabs>
