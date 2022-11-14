@@ -1,12 +1,10 @@
 ---
 id: hardware-ups-himoinsa-snmp
 title: Himoinsa SNMP
-
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
@@ -31,10 +29,10 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Frequency" label="Frequency">
 
-| Metric Name            | Unit |
-| :--------------------- | :--- |
-| genset.frequency.hertz | Hz   |
-| mains.frequency.hertz  | Hz   |
+| Metric Name                    | Unit |
+| :----------------------------- | :--- |
+| *index*#genset.frequency.hertz | Hz   |
+| *index*#mains.frequency.hertz  | Hz   |
 
 </TabItem>
 <TabItem value="Fuel-Level" label="Fuel-Level">
@@ -46,11 +44,11 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Phase" label="Phase">
 
-| Metric Name           | Unit |
-| :-------------------- | :--- |
-| phase1.current.ampere | A    |
-| phase2.current.ampere | A    |
-| phase3.current.ampere | A    |
+| Metric Name                   | Unit |
+| :---------------------------- | :--- |
+| *index*#phase1.current.ampere | A    |
+| *index*#phase2.current.ampere | A    |
+| *index*#phase3.current.ampere | A    |
 
 </TabItem>
 <TabItem value="Status" label="Status">
@@ -66,20 +64,20 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Voltage" label="Voltage">
 
-| Metric Name             | Unit |
-| :---------------------- | :--- |
-| gen.vl12.voltage.volt   | V    |
-| gen.vl13.voltage.volt   | V    |
-| gen.vl1n.voltage.volt   | V    |
-| gen.vl23.voltage.volt   | V    |
-| gen.vl2n.voltage.volt   | V    |
-| gen.vl3n.voltage.volt   | V    |
-| mains.vl12.voltage.volt | V    |
-| mains.vl13.voltage.volt | V    |
-| mains.vl1n.voltage.volt | V    |
-| mains.vl23.voltage.volt | V    |
-| mains.vl2n.voltage.volt | V    |
-| mains.vl3n.voltage.volt | V    |
+| Metric Name                     | Unit |
+| :------------------------------ | :--- |
+| *index*#gen.vl12.voltage.volt   | V    |
+| *index*#gen.vl13.voltage.volt   | V    |
+| *index*#gen.vl1n.voltage.volt   | V    |
+| *index*#gen.vl23.voltage.volt   | V    |
+| *index*#gen.vl2n.voltage.volt   | V    |
+| *index*#gen.vl3n.voltage.volt   | V    |
+| *index*#mains.vl12.voltage.volt | V    |
+| *index*#mains.vl13.voltage.volt | V    |
+| *index*#mains.vl1n.voltage.volt | V    |
+| *index*#mains.vl23.voltage.volt | V    |
+| *index*#mains.vl2n.voltage.volt | V    |
+| *index*#mains.vl3n.voltage.volt | V    |
 
 </TabItem>
 </Tabs>
@@ -202,8 +200,7 @@ running the following command:
     --snmp-version='2c' \
     --snmp-community='my-snmp-community' \
     --warning-fuel-level='' \
-    --critical-fuel-level='' \
-    --use-new-perfdata
+    --critical-fuel-level=''
 ```
 
 The expected command output is shown below:
