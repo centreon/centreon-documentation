@@ -8,7 +8,7 @@ de permettre une parfaite intégration avec d'autres solutions.
 
 ## Data streaming
 
-Voici la liste des intégrations disponibles :
+Envoyez vos données vers des solutions spécialisées dans le traitement, le stockage, et l'indexation de grands volumes de données polymorphes. Inclut également les solutions permettant d'alerter sur la base de requêtes sur des outils de concentration de logs.
 
 * Elastic Events
 * Elastic metrics
@@ -19,6 +19,9 @@ Voici la liste des intégrations disponibles :
 * Splunk Events
 * Warp10
 * Kafka Event Manager
+
+Envoyez vos alertes vers des outils spécialisés dans la gestion des événements en termes de qualification, d'escalades ou encore dans l'automatisation de leur traitement.
+
 * BSM
 * HP OMI
 * Opsgenie integration
@@ -30,7 +33,7 @@ Voici la liste des intégrations disponibles :
 
 Voir aussi la documentation des [Stream Connectors Centreon](https://github.com/centreon/centreon-stream-connector-scripts).
 
-# ITSM
+## ITSM
 
 Intégrez Centreon avec un outil d'[ITSM](../integrations/itsm/itsm-overview.md), basé sur [Centreon Open Ticket](../alerts-notifications/ticketing.md).
 

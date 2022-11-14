@@ -8,7 +8,7 @@ a perfect integration within your IT ecosystem. Contact your Centreon consultant
 
 ## Data streaming
 
-Here is a list of available integrations:
+Send your data to solutions specialized in storing, indexing, or managing vast and heterogeneous data sources. It also highlights solutions to generate alerts from log management solutions.
 
 * Elastic Events
 * Elastic metrics
@@ -19,6 +19,9 @@ Here is a list of available integrations:
 * Splunk Events
 * Warp10
 * Kafka Event Manager
+
+Send your logs and alerts to your incident management solution to externalize incident management, including escalations or automation.
+
 * BSM
 * HP OMI
 * Opsgenie integration
