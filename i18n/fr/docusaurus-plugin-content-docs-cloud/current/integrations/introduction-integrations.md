@@ -35,8 +35,8 @@ Voir aussi la documentation des [Stream Connectors Centreon](https://github.com/
 
 ## ITSM
 
-Intégrez Centreon avec un outil d'[ITSM](../integrations/itsm/itsm-overview.md), basé sur [Centreon Open Ticket](../alerts-notifications/ticketing.md).
+Intégrez Centreon avec un outil d'[ITSM](../integrations/itsm/itsm-overview.md), basé sur Centreon Open Tickets.
 
-Vous ne trouvez pas votre outil ou l'intégration que vous voulez? Faites le nous 
-savoir en posant la question sur notre [Slack](https://centreon.slack.com) ou en 
+Vous ne trouvez pas votre outil ou l'intégration que vous voulez? Faites-le nous
+savoir en posant la question sur notre [Slack](https://centreon.slack.com) ou en
 nous contactant au travers du formulaire de notre [site web](https://www.centreon.com/nous-contacter/).

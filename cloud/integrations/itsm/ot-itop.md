@@ -44,7 +44,7 @@ As of now, the provider is able to retrieve the following objects from Itop:
 
 It will also fill the following parameters from a predefined list in Centreon.
 You can extend those lists inside the provider configuration since they are
-[custom lists](../../alerts-notifications/ticketing.md#advanced-configuration).
+custom lists.
 
   - Impact
   - Urgency

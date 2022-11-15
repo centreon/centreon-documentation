@@ -183,28 +183,6 @@ module.exports = {
               }
             ]
           },
-          {
-            "type": "category",
-            "label": "Passive Monitoring",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/passive-monitoring/enable-snmp-traps"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/passive-monitoring/create-snmp-traps-definitions"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/passive-monitoring/monitoring-with-snmp-traps"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/passive-monitoring/debug-snmp-traps-management"
-              },
-            ]
-          },
         ]
       },
       {
@@ -255,10 +233,6 @@ module.exports = {
             "type": "doc",
             "id": "alerts-notifications/notif-configuration"
           },
-          {
-            "type": "doc",
-            "id": "alerts-notifications/ticketing"
-          }
         ]
       },
       {

@@ -49,7 +49,7 @@ As of now, the provider is able to retrieve the following objects from Glpi:
 
 It will also fill the following parameters from a predefined list in Centreon.
 You can extend those lists inside the provider configuration since they are
-[custom lists](../../alerts-notifications/ticketing.md#configuration-avancée).
+custom lists.
 
   - User role
   - Group role
