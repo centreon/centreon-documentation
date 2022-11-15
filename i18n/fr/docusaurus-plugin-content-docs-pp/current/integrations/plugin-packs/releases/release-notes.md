@@ -16,7 +16,6 @@ import TabItem from '@theme/TabItem';
 - [**Himoinsa UPS**](../procedures/hardware-ups-himoinsa-snmp.md) - Adding Himoinsa Plugin pack - Status:stable - centreon-pack-hardware-ups-himoinsa-snmp-22.11.0-1
 - [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - New monitoring pack - Status:stable - centreon-pack-cloud-azure-datafactory-factories-22.11.2-1
 - [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-22.11.0-1
-- [**Azure Data Factory**](../procedures/cloud-azure-datafactory.md) - New monitoring pack - Status:stable - centreon-pack-cloud-azure-datafactory-22.11.0-1
 - [**Enterasys SNMP**](../procedures/network-enterasys-snmp.md) - New monitoring pack - Status:stable - centreon-pack-network-enterasys-snmp-22.11.0-1
 - [**Avaya CM SNMP**](../procedures/hardware-telephony-avaya-cm-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-telephony-avaya-cm-snmp-22.11.0-1
 - [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Adding Pica8 PICOS plugin pack - Status:stable - centreon-pack-operatingsystems-picos-snmp-22.11.0-1
