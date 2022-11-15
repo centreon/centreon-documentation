@@ -1,9 +1,9 @@
 ---
 id: map-web-manage
-title: Manage maps on MAP
+title: Manage maps in MAP
 ---
 
-This chapter provides information about how to create and manage maps from the Centreon MAP interface. You can create two types of map:
+This topic provides information about how to create and manage maps from the Centreon MAP interface. You can create two types of map:
 - Standard maps: to visualize graphical representations of your monitored infrastructure.
 - Geographic views: to display the resources of your IT environment across a defined geographical area.
 
@@ -69,4 +69,4 @@ Click the **arrow** button to edit the access group privileges and confirm the c
 
 ### Copy MAP URL
 
-A **Copy MAP URL** button is available when you open a map in view mode, allowing you to easily access and visualize this map.
+A **Copy MAP URL** button is available when you open a map in view mode, allowing you to easily share the map you opened. 

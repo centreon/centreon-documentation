@@ -9,7 +9,7 @@ The difference with the MAP (Legacy) version is that MAP provides you with an ed
 
 > If you already used the MAP (Legacy) version, note that you can easily [import your legacy maps](import-into-map-web.md) into the MAP interface.
 
-> See how to manage views using Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/).
+> See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/).
 
 ## Overview
 
@@ -38,5 +38,5 @@ Use the following procedures to use and administrate Centreon MAP.
   - [MAP troubleshooting](map-web-troubleshooting.md) helps you to solve some issues occuring in MAP.
 
 ### Using MAP
-  - [Manage maps on MAP](map-web-manage.md) gives you information about how to create and manage maps from the Centreon MAP interface.
+  - [Manage maps in MAP](map-web-manage.md) gives you information about how to create and manage maps from the Centreon MAP interface.
   - [Use the map editor](map-web-editor.md) explains how to build maps using the editor tool.

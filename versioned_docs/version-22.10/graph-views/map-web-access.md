@@ -21,8 +21,6 @@ Perform the following procedure to check whether you are allowed to create a map
 
 2. On the **Map** homepage, the **+** button means that you are allowed to create a map. This means you belong to an access group that is granted the creator role.
 
-[Add screenshot]
-
 ### Granting creator role
  
 Only Centreon administrators can create maps and allow users to create maps.
@@ -30,11 +28,9 @@ Only Centreon administrators can create maps and allow users to create maps.
 Perform the following procedure to allow users to create maps by granting rights on the access group they belong to.
 
 1. As an administrator, go to **Monitoring > Map**.
-[Add screenshot]
 
 2. Click on **Edit creators**.
 A list of existing access groups is displayed.
-[Add screenshot]
 
 3. Select the access group(s) you want.
 
@@ -56,11 +52,8 @@ Perform the following procedure to grant privileges using the sharing action.
 1. Go to **Monitoring > Map**.
 The Map homepage is displayed with the list of available maps.
 
-[Add screenshot]
-
 2. Hover over the map you want to share and click the **Share** button.
 The list of available access groups is displayed.
-[Add screenshot]
 
 3. For the access group you want, select the privilege to grant in the dropdown list.
 
@@ -80,7 +73,3 @@ This table describes the types of privileges and related permissions:
 - Centreon administrators are creators and have Owner privileges on all maps.
 - Users with Owner privileges can also set or change map properties (name and icon).
 - Sharing a map allows the recipient to acquire privileges on that map.
-
-
-
-

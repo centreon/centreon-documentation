@@ -5,11 +5,11 @@ title: Install MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP module does not use the **centreon_studio** database.
+This topic describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP module does not use the **centreon_studio** database.
 
 ## License
 
-If you need an additional license for Centreon MAP, please contact the support [Centreon support
+If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
 team](https://support.centreon.com/) to get and install your license key.
 
 ## Architecture
@@ -38,7 +38,7 @@ The diagram below summarizes the MAP architecture:
 #### License
 
 The server requires the license to be available and valid on Centreon's central
-server. To do this, you must contact the support [Centreon support
+server. To do this, you must contact the [Centreon support
 team](https://support.centreon.com/) to get and install your license key.
 
 #### Software
@@ -61,7 +61,7 @@ team](https://support.centreon.com/) to get and install your license key.
 #### License
 
 The web interface requires the license to be available and valid on Centreon's
-central server. To do this, you must contact the support [Centreon support
+central server. To do this, you must contact the [Centreon support
 team](https://support.centreon.com/) to get and install your license key.
 
 #### Compatibility
@@ -530,7 +530,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
 
 2. In the **Connection information** section, set **Map server** to **Yes**.
 
-3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: http://10.10.10.10:8081
+3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.10.10.10:8081``.
 
 4. Click the **Test connection to Map server** button to test the connection. This test should return the **Connection test successful** message.
 
