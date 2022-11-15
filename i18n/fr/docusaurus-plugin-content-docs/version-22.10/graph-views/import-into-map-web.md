@@ -1,6 +1,6 @@
 ---
 id: import-into-map-web
-title: Import legacy maps into MAP
+title: Importer des cartes legacy dans MAP
 ---
 
 This topic describes how to import your legacy maps into your MAP module.

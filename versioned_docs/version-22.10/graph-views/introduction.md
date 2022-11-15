@@ -36,7 +36,7 @@ Both types of views may be displayed in the same Centreon web user interface:
 
 ## Procedures
 
-Use the following procedures to use and administrate Centreon MAP (Legacy).
+Use the following procedures to administrate and use Centreon MAP (Legacy).
 
 ### Administrating MAP (Legacy)
   - [Install Centreon MAP (Legacy) extension](install.md) describes prerequisites and procedures to install the MAP (Legacy), also named Map4 desktop client.
@@ -50,7 +50,7 @@ Use the following procedures to use and administrate Centreon MAP (Legacy).
   - [MAP (Legacy) troubleshooting](troubleshooter.md) helps you to solve some issues occuring in MAP (Legacy).
 
 ### Using MAP (Legacy)
-  - [Create a standard view](create-standard-view.md) using the MAP (Legacy), also named Map4 desktop client. This topic also describes best practices and limitations.
+  - [Create a standard view](create-standard-view.md) using MAP (Legacy). This topic also describes best practices and limitations.
   - [Create a geo view](create-geo-views.md) using the web interface. This procedure explains how to display your resources across a defined geographical area.
   - [Display views](display-view.md) from the web interface. This topic also describes dedicated features.
   - [Share a view](share-view.md) allows you to share views to a limited audience.

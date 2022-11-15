@@ -1,6 +1,6 @@
 ---
 id: map-web-manage
-title: Manage maps in MAP
+title: Gérer les cartes dans MAP
 ---
 
 This topic provides information about how to create and manage maps from the Centreon MAP interface. You can create two types of map:
@@ -57,7 +57,7 @@ Hover over the map on which you want to apply an action and click the correspond
 
 ### Delete a map
 
-Click the **trash** button and confirm the deletion by clicking the **Delete** button.
+Click the **red cross** button and confirm the deletion by clicking the **Delete** button.
 
 ### Edit map properties
 
@@ -65,8 +65,8 @@ Click the **wrench** button to edit the map properties and confirm the changes b
 
 ### Share a map
 
-Click the **share** button to edit the access group privileges and confirm the changes by clicking the **Save** button.
+Click the **arrow** button to edit the access group privileges and confirm the changes by clicking the **Save** button.
 
 ### Copy MAP URL
 
-A **Copy MAP URL** button is available in view mode, allowing you to easily share the map you opened. 
+A **Copy MAP URL** button is available when you open a map in view mode, allowing you to easily share the map you opened. 
