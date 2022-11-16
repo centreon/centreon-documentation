@@ -5,116 +5,107 @@ title: Installer MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP module does not use the **centreon_studio** database.
+Cette page décrit comment installer Centreon MAP. Il est recommandé d'installer MAP sur le serveur central. Toutefois, si vous disposez de gros volumes de données, vous pouvez l'installer sur votre ancien serveur MAP (Legacy). Le module MAP n'utilise pas la base de données **centreon_studio**.
 
-## License
+## Licence
 
-If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe de support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 ## Architecture
 
-The diagram below summarizes the MAP architecture:
+Le schéma ci-dessous décrit l'architecture de MAP :
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
 
-**Table of network flow**
+**Tableau des flux du réseau**
 
-| Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
-|----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
-| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
-| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
-| Map Server     | Map server | Map server database       | 3306      | TCP        | Store all views and data related to Centreon MAP (Legacy)    |
-| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
-| Web interface  | User       | Map server                | 8081/9443 | HTTP/HTTPS | Retrieve views & content                            |
-| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
 
-\* *With or without a proxy*
+| Application    | Source     | Destination               | Port      | Protocole  | Objet                                                       |
+|----------------|------------|---------------------------|-----------|------------|------------------------------------------------------------ |
+| MAP Server     | MAP server | Centreon central broker   | 5758      | TCP        | Obtenez des mises à jour du statut en temps réel            |
+| MAP Server     | MAP server | Centreon MariaDB database | 3306      | TCP        | Récupérer la configuration et d'autres données de Centreon  |
+| MAP Server     | MAP server | MAP server database       | 3306      | TCP        | Stocker toutes les vues et données relatives à Centreon MAP |
+| Web            | MAP server | Centreon central          | 80/443    | HTTP/HTTPS | Authentification et récupération des données                |
+| Web interface  | User       | MAP server                | 8081/9443 | HTTP/HTTPS | Récupérer les vues et le contenu                            |
+| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
 
-## Prerequisites
+\**Avec ou sans proxy*
 
-### Centreon MAP Engine server
+## Prérequis
 
-#### License
+### Serveur Centreon MAP Engine
 
-The server requires the license to be available and valid on Centreon's central
-server. To do this, you must contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+#### Licence
 
-#### Software
+Le serveur nécessite que la licence soit disponible et valide sur le serveur central de Centreon. Pour ce faire, vous devez contacter le [support Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
-- OS: CentOS 7 or Redhat 7 / 8
-- DBMS: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+#### Logiciel
 
-#### Information required during configuration
+- OS : CentOS 7 ou Redhat 7 / 8
+- DBMS : MariaDB 10.5
+- Pare-feu : Désactivé
+- SELinux : Désactivé
 
-- Centreon web login with administration rights.
+#### Informations requises lors de la configuration
 
-> Even with a correctly sized server, you should have in mind the best
-> practices and recommendations when creating views so you do not face
-> performance issues.
+- Connexion à Centreon Web avec des droits d'administrateur.
 
-### Centreon MAP web interface
+> Même avec un serveur correctement dimensionné, vous devez garder à l'esprit les meilleures pratiques et recommandations lors de la création de vues afin de ne pas rencontrer de problèmes de performance.
 
-#### License
+### Interface web de Centreon MAP
 
-The web interface requires the license to be available and valid on Centreon's
-central server. To do this, you must contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+#### Licence
 
-#### Compatibility
+Le serveur nécessite que la licence soit disponible et valide sur le serveur central de Centreon. Pour ce faire, vous devez contacter le [support Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
-The Centreon MAP web interface is compatible with the following web browsers:
+#### Compatibilité
 
-* Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
-* Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
-* Apple Safari (latest version at the time of Centreon software release and above).
-* Microsoft Edge Chromium (latest version at the time of Centreon software release and above).
+L'interface web MAP de Centreon est compatible avec les navigateurs web suivants :
 
-If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
+* Google Chrome (dernière version au moment de la sortie du logiciel Centreon et supérieure).
+  Veuillez consulter la [FAQ Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=en) pour une description de la politique de support de Chrome. 
+* Mozilla Firefox (dernière version au moment de la sortie du logiciel Centreon et supérieure).
+  Veuillez consulter la [FAQ Mozilla](https://www.mozilla.org/en-US/firefox/organizations/faq/) pour obtenir une description de la politique d'assistance de Firefox.
+* Apple Safari (dernière version au moment de la sortie du logiciel Centreon et supérieure).
+* Microsoft Edge Chromium (dernière version au moment de la sortie du logiciel Centreon et supérieure).
 
-Your screen resolution must be at least 1280 x 768.
+Si une mise à jour de ces navigateurs pris en charge devait entraîner une incompatibilité, Centreon travaillerait sur un correctif dans les plus brefs délais (pour les versions de Centreon supportées). Bien que d'autres navigateurs puissent fonctionner, Centreon ne tentera pas de résoudre les problèmes liés aux navigateurs autres que ceux énumérés ci-dessus.
 
-### Network requirements
+La résolution de votre écran doit être d'au moins 1280 x 768.
 
-Centreon MAP Engine server machine must access:
+### Configuration réseau
 
-- Centreon central Broker, usually on Centreon central machine, using TCP
-  port 5758.
-- Centreon database, usually on Centreon central machine, using TCP port 3306.
-- Centreon MAP database, usually on localhost, using TCP port 3306.
+Le serveur Centreon MAP Engine doit accéder :
 
-All the ports above are default values and can be changed if needed.
+- au Broker du serveur central, généralement sur la machine Centreon central, en utilisant le port TCP 5758,
+- à la base de données Centreon, généralement sur la machine Centreon central, en utilisant le port TCP 3306,
+- à la base de données MAP Centreon, généralement sur l'hôte local, en utilisant le port TCP.
 
-- Centreon MAP central, using HTTP port 80 or HTTPS port 443.
+Tous les ports ci-dessus sont des valeurs par défaut et peuvent être modifiés si nécessaire.
 
-Ports 8081 and 9443 are recommended default values, but other
-configurations are possible.
+- Centreon Web Central, en utilisant le port HTTP 80 ou le port HTTPS 443.
 
-## Server installation
+Les ports 8081 et 9443 sont des valeurs par défaut recommandées, mais d'autres configurations sont possibles.
 
-### Centreon MAP interface
+## Installation du serveur
 
-You must provide to Centreon MAP Engine server a dedicated user
-**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
-Since the password will be stored in human-readable form in a 
-configuration file, you should not use a Centreon admin user account.
+### Interface web de Centreon
 
-- Go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
-- Set the **Reach API Realtime** parameter to **Yes**.
+Vous devez fournir au serveur Centreon MAP Engine un utilisateur dédié **qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists.md).
+Étant donné que le mot de passe sera stocké sous une forme lisible par l'homme dans un fichier de configuration, vous ne devez pas utiliser un compte utilisateur Centreon admin.
+
+- Allez dans **Configuration > Utilisateurs > Contacts/Utilisateurs**. Puis cliquez sur l'onglet **Authentification Centreon**.
+- Définir le paramètre **Accès à l'API de temps réel** sur **Oui**.
 
 ![image](../assets/graph-views/reach-api.png)
 
-Exclude the user from the password expiration policy on page **Administration > Authentication**: their password will never expire.
+Excluez l'utilisateur de la politique d'expiration du mot de passe sur la page **Administration > Authentification** : son mot de passe n'expirera jamais.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
-### Centreon central server
+### Serveur central Centreon
 
-Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
-databases:
+Créez un utilisateur dans l'instance mysql hébergeant les bases de données **centreon** et **centreon_storage** :
 
 ```sql
 CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
@@ -122,13 +113,11 @@ GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-The INSERT privilege will only be used during the installation process
-in order to create new Centreon Broker output. It will be revoked later.
+Le privilège INSERT ne sera utilisé que pendant le processus d'installation afin de créer une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
-### Centreon MAP Engine server
+### Serveur MAP Engine Centreon
 
-If you installed your Centreon MAP server from a "fresh CentOS installation"
-you need to install the **centreon-release** package:
+Si vous avez installé votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet **centreon-release** :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -157,47 +146,46 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-#### Java version requirement
-  > Ensure a version of Java 17 or later is installed before you start the procedure.
+#### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
   
-  - If you need to check the Java version, enter the following command:
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
   ```shell
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
-
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
   ```shell
   sudo update-alternatives --config java
   ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
-Now you can install the **centreon-release** package:
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  
+Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Install the following dependencies:
+Installez les dépendances suivantes :
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-To install the Centreon repository, execute the following command:
+Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-Then import the repository key:
+Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -206,12 +194,11 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 </TabItem>
 </Tabs>
 
-> If the URL does not work, you can manually find this package in the folder.
+> Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
-Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
-Then install Centreon MAP Engine server using the following command:
+Installez ensuite le serveur Centreon MAP Engine à l'aide de la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -238,13 +225,11 @@ apt install centreon-map-engine
 </TabItem>
 </Tabs>
 
-When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 11) if needed.
+Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 11) sera automatiquement installé, si nécessaire.
 
-> You need to have a MariaDB database to store Centreon MAP data, whether
-> it's on localhost or somewhere else.
+> Vous devez disposer d'une base de données MariaDB pour stocker les données de Centreon MAP, qu'elle soit sur localhost ou ailleurs.
 
-To install MariaDB, execute the following command:
+Pour installer MariaDB, exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -272,149 +257,125 @@ apt install mariadb-client mariadb-server
 
 ### Configuration
 
-Make sure the database that stores Centreon MAP data is optimized
-(automatically added by the RPM in `/etc/my.cnf.d/map.cnf`):
+Assurez-vous que la base de données qui stocke les données MAP de Centreon est optimisée (automatiquement ajoutée par le RPM dans `/etc/my.cnf.d/map.cnf`) :
 
 ```text
 max_allowed_packet = 20M
 innodb_log_file_size = 200M
 ```
 
-Then, restart MariaDB:
+Ensuite, redémarrez MariaDB :
 
 ```shell
 systemctl restart mariadb
 ```
 
-#### Secure the database
+#### Sécuriser la base de données
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
 ```shell
 mysql_secure_installation
 ```
+``
 
-* Answer **yes** to all questions except "Disallow root login remotely?".
-* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
+* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?
+* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
-> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-#### Configure.sh script
+#### Script Configure.sh
 
-Execute the Centreon MAP Engine server configuration script. Two modes are available:
-interactive or automatic.
+Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles : interactif ou automatique.
 
-- interactive *(no option/default mode)*: Several questions will be asked to
-  interactively fill in the installation variables.
-- automatic *(--automatic or -a)*: The installation will be done automatically
-  from the values set in `/etc/centreon-studio/vars.sh` file
+- interactif *(aucune option/mode par défaut)* : Plusieurs questions seront posées pour remplir de manière interactive les variables d'installation.
+- automatique *(--automatic ou -a)* : L'installation se fera automatiquement à partir des valeurs définies dans le fichier `/etc/centreon-studio/vars.sh`.
 
-If it's your first installation, we advise you to use the standard mode
-(interactive) and choose **No** when asked for advanced installation mode:
+Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard (interactif) et de choisir **Non** lorsqu'on vous demande le mode d'installation avancé :
 
 ```shell
 /etc/centreon-studio/configure.sh
 ```
 
-If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-studio/studio-config.properties**
+Si vous venez d'installer Centreon 22.10, sachez que la plate-forme utilise désormais le nouveau protocole BBDO v3.
+Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-studio/studio-config.properties**.
 
 ```text
 broker.pb.message.enabled=true
 ```
 
-Then restart the **centreon-map** service:
+Puis redémarrez le service **centreon-map** :
 
 ```shell
 systemctl restart centreon-map
 ```
 
-### Central server
+### Serveur central
 
-> Before restarting Broker you must export the configuration from the Centreon
-> web interface.
+> Avant de redémarrer Broker, vous devez exporter la configuration à partir de l'interface web de Centreon.
 
-Restart Centreon Broker on the Central server:
+Redémarrez Centreon Broker sur le serveur central :
 
 ```shell
 systemctl restart cbd
 ```
 
-Remove the INSERT privilege from user centreon_map:
+Supprimer le privilège INSERT de l'utilisateur **centreon_map** :
 
 ```sql
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-### Centreon MAP Engine server
+### Serveur Centreon MAP Engine
 
-Check your configuration:
+Vérifiez votre configuration :
 
 ```shell
 /etc/centreon-studio/diagnostic.sh
 ```
 
-If configuration is correct, the centreon-map service can be
-started from the Centreon MAP (Legacy) server:
+Si la configuration est correcte, le service **centreon-map** peut être lancé à partir du serveur Centreon MAP (Legacy) :
 
 ```shell
 systemctl restart centreon-map
 ```
 
-Enable the service to start up automatically on server boot:
+Permettez au service de démarrer automatiquement au démarrage du serveur :
 
 ```shell
 systemctl enable centreon-map
 ```
 
-Centreon Map server is now started and enabled, let's install
-the interface part of the extension.
+Le serveur Centreon MAP est maintenant démarré et activé : installons la partie interface de l'extension.
 
 ## Installation
 
-### Step 1: Install the business and beta repositories
+### Étape 1 : Installer le dépôt Business
 
-Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+Installez le dépôt Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
-Then execute the following commands:
+Ensuite, exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-  - For the business repository:
 
     ```shell
     sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el8/stable/noarch/RPMS/centreon-business-release-21.10-5.el8.noarch.rpm
     ```
 
-  - For the beta repository:
-
-    ```shell
-    sudo dnf install https://yum.centreon.com/centreon-beta/09a7da422206046393db5d3d18ff44922023935f507f56aa5d05e6cf2c618844/21.10/el8/stable/noarch/RPMS/centreon-beta-release-21.10-5.el8.noarch.rpm
-    ```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-
-  - For the business repository:
 
     ```shell
     sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el7/stable/noarch/RPMS/centreon-business-release-21.10-5.el7.centos.noarch.rpm
     ```
 
-  - For the beta repository:
-
-    ```shell
-    sudo yum install https://yum.centreon.com/centreon-beta/09a7da422206046393db5d3d18ff44922023935f507f56aa5d05e6cf2c618844/21.10/el7/stable/noarch/RPMS/centreon-beta-release-21.10-5.el7.centos.noarch.rpm
-    ```
-
 </TabItem>
 </Tabs>
 
-### Step 2: Install the MAP module
+### Étape 2 : Installer le module MAP
 
-1. From your terminal, run the following command:
+1. Depuis votre terminal, entrez la commande suivante :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -433,11 +394,11 @@ Then execute the following commands:
   </TabItem>
   </Tabs>
 
-2. Then you need to log on to the Centreon web interface.
+2. Vous devez ensuite vous connecter à l'interface web Centreon.
 
-3. Go to **Administration > Extensions > Manager** and install the **Map Web Client** module.
+3. Allez dans **Administration > Extensions > Gestionnaire** et installez le module **Map Web Client**.
 
-4. Go back to your terminal and create a **centreon_map** user in the mysql instance hosting the **centreon** and **centreon_storage** databases.
+4. Retournez dans le terminal et créez un utilisateur **centreon_map** dans une instance MySQL hébergeant les bases de données **centreon** et **centreon_storage**.
 
   ```shell
   mysql -u root -p
@@ -447,9 +408,9 @@ Then execute the following commands:
   exit
   ```
 
-### Step 3: Install the centreon-map-engine server
+### Étape 3: Installer le serveur centreon-map-engine
 
-1. Install the **centreon-map-engine** server using the following command:
+1. Installez le serveur **centreon-map-engine** en entrant la commande suivante :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -468,46 +429,46 @@ Then execute the following commands:
   </TabItem>
   </Tabs>
 
-2. Proceed to the configuration with the following command:
+2. Définissez la configuration avec cette commande :
 
   ```shell
   /etc/centreon-map/configure.sh
   ```
 
-3. Make sure you replace the default values with the ones that match your environment. For instance, when prompted to provide the login and password of an account that has access to all resources and actions, replace admin/centreon by the correct credentials for your platform.
+3. Assurez-vous de remplacer les valeurs par défaut par celles qui correspondent à votre environnement. Par exemple, lorsque vous devez fournir l'identifiant et le mot de passe d'un compte qui a accès à toutes les ressources et actions, remplacez **admin/centreon** par les informations d'identification adaptées à votre plateforme.
 
-4. If you are not using the BAM (service mapping) module on your platform, go to **Configuration > Pollers > Broker configuration**, click **central-broker-master**, then click **Save**. This is a workaround for a bug that will be fixed in a next release of centreon-broker.
+4. Si vous n'utilisez pas le module BAM (service mapping) sur votre plateforme, allez dans **Configuration > Collecteurs > Configuration de Centreon Broker**, cliquez sur **central-broker-master**, puis sur **Sauvegarder**. Il s'agit d'une solution de contournement pour un problème qui sera corrigé dans une prochaine version de Centreon broker.
 
-5. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) of the central server (using the **Reload** method).
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) du serveur central (en utilisant la méthode **Recharger**).
 
-6. Restart the cbd service:
+6. Redémarrez le service cbd :
 
   ```shell
   systemctl restart cbd
   ```
 
-7. Run the Centreon diagnostic tool:
+7. Lancez l'outil de diagnostic Centreon :
 
   ```shell
   cd /etc/centreon-map
   ./diagnostic.sh
   ```
 
-  > In case of any error, see the **Run our diagnostic tool** section in the [Troubleshooting MAP](map-web-troubleshooting.md#run-our-diagnostic-tool) topic.
+  > En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#run-our-diagnostic-tool).
 
-8. Now the configuration is correct, you can start the server by running this command:
+8. Maintenant que la configuration est correcte, vous pouvez démarrer le serveur en exécutant cette commande :
 
   ```shell
   systemctl start centreon-map-engine
   ```
 
-9. Then enable the service to be started automatically at server startup:
+9. Activez ensuite le service pour qu'il soit lancé automatiquement au démarrage du serveur :
 
   ```shell
   systemctl enable centreon-map-engine
   ```
 
-10. Run the following command to check that the **centreon-map-engine** service is properly started:
+10. Exécutez la commande suivante pour vérifier que le service **centreon-map-engine** est correctement démarré :
 
   ```shell
   systemctl status centreon-map-engine
@@ -522,18 +483,18 @@ Then execute the following commands:
              └─19576 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=NeEmPqd1512l467yKcYkYQsU6XQ1oDZHkBglDH6nmnTWDRz5hIImTollDTZFOhtOB -Dcentreon-map.access-tok>
   ```
 
-### Step 4: Activate the MAP module
+### Étape 4: Activer le module MAP
 
-By default, the MAP module is not enabled. Perform the following procedure to enable it.
+Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'activer.
 
-1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
+1. Connectez-vous à l'interface Centreon et allez à la page **Administration > Extensions > Map > Options**.
 
-2. In the **Connection information** section, set **Map server** to **Yes**.
+2. Dans la section **Informations de connexion**, définissez **Serveur Centreon Map** sur **Oui**.
 
-3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.10.10.10:8081``.
+3. Saisissez l'adresse IP de votre serveur MAP dans le champ **Adresse du serveur Centreon Map**. Si vous avez installé MAP sur le serveur central, il s'agit de l'adresse IP du serveur central. Utilisez son adresse IP complète, et non l'adresse locale (localhost). Le port par défaut est 8081. Par exemple : ``http://10.10.10.10:8081``.
 
-4. Click the **Test connection to Map server** button to test the connection. This test should return the **Connection test successful** message.
+4. Cliquez sur le bouton **Test de connexion au serveur Map** pour tester la connexion. Ce test doit retourner le message **Test de connexion réussi**.
 
-5. Click **Save**.
+5. Cliquez sur **Sauvegarder**.
 
-You can now use the MAP Web module by accessing the **Monitoring > Map** page.
+Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.

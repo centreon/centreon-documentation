@@ -372,7 +372,7 @@ the interface part of the extension.
 
 ## Installation
 
-### Step 1: Install the business and beta repositories
+### Step 1: Install the business repository
 
 Install Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
@@ -382,31 +382,15 @@ Then execute the following commands:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-  - For the business repository:
-
     ```shell
     sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el8/stable/noarch/RPMS/centreon-business-release-21.10-5.el8.noarch.rpm
-    ```
-
-  - For the beta repository:
-
-    ```shell
-    sudo dnf install https://yum.centreon.com/centreon-beta/09a7da422206046393db5d3d18ff44922023935f507f56aa5d05e6cf2c618844/21.10/el8/stable/noarch/RPMS/centreon-beta-release-21.10-5.el8.noarch.rpm
     ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-  - For the business repository:
-
     ```shell
     sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el7/stable/noarch/RPMS/centreon-business-release-21.10-5.el7.centos.noarch.rpm
-    ```
-
-  - For the beta repository:
-
-    ```shell
-    sudo yum install https://yum.centreon.com/centreon-beta/09a7da422206046393db5d3d18ff44922023935f507f56aa5d05e6cf2c618844/21.10/el7/stable/noarch/RPMS/centreon-beta-release-21.10-5.el7.centos.noarch.rpm
     ```
 
 </TabItem>
@@ -536,4 +520,4 @@ By default, the MAP module is not enabled. Perform the following procedure to en
 
 5. Click **Save**.
 
-You can now use the MAP Web module by accessing the **Monitoring > Map** page.
+You can now use the MAP module by accessing the **Monitoring > Map** page.
