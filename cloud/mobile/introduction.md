@@ -4,7 +4,6 @@ title: Introduction
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import videoURL from '../assets/mobile/mobile-demo.mp4';
 
 Centreon comes with a mobile version to let you access resources status whether you're on phone or tablet.
 
