@@ -1878,6 +1878,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
     - add
     - del
     - setparam
+    - gethosttemplate
     - addhosttemplate
     - sethosttemplate
     - delhosttemplate
