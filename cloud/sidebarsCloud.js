@@ -394,24 +394,6 @@ module.exports = {
       },
       {
         "type": "category",
-        "label": "API",
-        "items": [
-              {
-                "type": "doc",
-                "id": "api/introduction"
-              },
-              {
-                "type": "doc",
-                "id": "api/rest-api-v1"
-              },
-              {
-                "type": "doc",
-                "id": "api/rest-api-v2"
-              },
-            ]
-      },
-      {
-        "type": "category",
         "label": "Resources",
         "items": [
           {
