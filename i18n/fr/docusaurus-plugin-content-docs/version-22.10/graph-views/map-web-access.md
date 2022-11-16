@@ -3,41 +3,42 @@ id: map-web-access
 title: Gérer les droits d'accès dans MAP
 ---
 
-This topic explains how users can access the maps according to well-defined privileges.
+Cette page explique comment les utilisateurs accédent aux cartes en fonction de privilèges bien définis.
 
-Users who can create maps are:
+Les utilisateurs pouvant créer des cartes sont :
 
-- Centreon administrators.
-- Users belonging to an access group that is granted the creator role.
-- Rights to access a map – also called privileges – are not managed at user level, but through access groups. You can access a map because you belong to an access group that has privileges to access that map. Privileges allow you to perform some specific actions on maps.
+- Les administrateurs Centreon.
+- Les utilisateurs appartenant à un groupe d'accès auquel le rôle de créateur est attribué.
 
-## Role of map creator
+Les droits d'accès à une carte - également appelés privilèges - ne sont pas gérés au niveau de l'utilisateur, mais par le biais de groupes d'accès. Vous pouvez accéder à une carte parce que vous appartenez à un groupe d'accès qui dispose de privilèges pour accéder à cette carte. Les privilèges vous permettent d'effectuer certaines actions spécifiques sur les cartes.
+
+## Rôle de créateur de cartes
  
-### Checking creator status
+### Vérifier le statut de créateur
 
-Perform the following procedure to check whether you are allowed to create a map.
+Suivez cette procédure pour vérifier si vous êtes autorisé à créer une carte.
 
-1. Go to **Monitoring > Map**.
+1. Allez dans **Supervision > Map**.
 
-2. On the **Map** homepage, the **+** button means that you are allowed to create a map. This means you belong to an access group that is granted the creator role.
+2. Dans la page **Map**, le bouton **+** signifie que vous êtes autorisé à créer une carte. Cela signifie que vous appartenez à un groupe d'accès auquel le rôle de créateur est attribué.
 
-### Granting creator role
+### Attribuer le rôle de créateur
  
-Only Centreon administrators can create maps and allow users to create maps.
+Seuls les administrateurs Centreon peuvent créer des cartes et autoriser les utilisateurs à créer des cartes.
 
-Perform the following procedure to allow users to create maps by granting rights on the access group they belong to.
+Suivez cette procédure pour permettre aux utilisateurs de créer des cartes en leur attribuant des droits sur le groupe d'accès auquel ils appartiennent.
 
-1. As an administrator, go to **Monitoring > Map**.
+1. En tant qu'administrateur, allez dans **Supervision > Map**.
 
-2. Click on **Edit creators**.
-A list of existing access groups is displayed.
+2. Cliquez sur **Edit creators**.
+Une liste des groupes existants s'affiche.
 
-3. Select the access group(s) you want.
+3. Sélectionnez le(s) groupe(s) d'accès que vous souhaitez.
 
-4. Click on Save to confirm.
-Users belonging to the selected access group are now able to create maps.
+4. Cliquez sur **Sauvegarder** pour confirmer.
+Les utilisateurs appartenant au groupe d'accès sélectionné sont maintenant autorisés à créer des cartes.
  
-## Privileges on a map
+## Privilèges sur une carte
 
 Ensure users are well organized in access groups. This will facilitate the granting of privileges according to those groups.
 

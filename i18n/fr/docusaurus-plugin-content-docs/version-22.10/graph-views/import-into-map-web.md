@@ -3,23 +3,23 @@ id: import-into-map-web
 title: Importer des cartes legacy dans MAP
 ---
 
-This topic describes how to import your legacy maps into your MAP module.
+Cette page décrit comment importer vos anciennes cartes (Legacy) dans votre module MAP.
 
-> When you import your legacy maps, any content created in MAP is deleted.
+> Lorsque vous importez vos anciennes cartes, tout le contenu créé dans MAP est supprimé.
 
-## Step 1: Migrate images
+## Étape 1 : Migrer les images
 
-If you have imported images into your desktop client (to custom folders outside the Centreon folder), and used them in your maps, you need first to migrate them to your central server.
+Si vous avez importé des images dans le client lourd (dans des dossiers personnalisés en dehors du dossier Centreon), et que vous les avez utilisées dans vos cartes, vous devez d'abord les migrer vers votre serveur central.
 
-1. In the MAP (Legacy) desktop client, in the **Media** panel, select all images you want to migrate from your custom folders, then right-click them and select **Export**.
+1. Dans le client de lourd MAP (Legacy), dans le panneau **Media**, sélectionnez toutes les images que vous souhaitez migrer depuis vos dossiers personnalisés, faites un clic-droit et sélectionnez **Exporter**.
 
-2. Save the images to your computer.
+2. Sauvegardez les images sur votre machine.
 
-3. In the central server, go to **Administration > Parameters > Images**, then upload all the images from your computer to the **centreon-map** folder. Be careful not to change the name of your images during this process.
+3. Sur le serveur central, allez dans **Administration > Paramètres > Images**, puis téléchargez toutes les images de votre ordinateur dans le répertoire **centreon-map**. Veillez à ne pas changer le nom de vos images au cours de ce processus.
 
-## Step 2: Update MAP (Legacy)
+## Étape 2 : Mettre à jour MAP (Legacy)
 
-For the icons to be displayed properly after you migrate your maps, you need to update your MAP (legacy) by running the following commands:
+Pour que les icônes s'affichent correctement après avoir migré vos cartes, vous devez mettre à jour votre MAP (legacy) en exécutant les commandes suivantes :
 
 ```shell
 yum stop centreon-map
@@ -28,16 +28,16 @@ systemctl daemon-reload
 systemctl start centreon-map
 ```
 
-## Step 3: Migrate maps
+## Étape 3 : Migrer les cartes
 
-1. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
+1. Pour importer vos anciennes cartes dans MAP, allez à la page **Supervision > Map**, puis cliquez sur le bouton **Migrer**. La fenêtre suivante apparaît :
 
   ![image](../assets/graph-views/ng/map-migrate-1.png)
 
-2. Click **Migrate**.
+2. Cliquer sur **Migrer**.
  
   ![image](../assets/graph-views/ng/map-migrate-2.png)
 
-3. When the migration succeeded, you can close the window.
+3. Lorsque la migration a réussi, vous pouvez fermer la fenêtre.
 
-  Your legacy maps are now displayed on the **Map** page. 
+Vos anciennes cartes sont maintenant affichées dans la page **Map**. 

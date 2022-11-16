@@ -19,7 +19,7 @@ Use the following procedure to update your MAP version:
   sudo yum update "centreon-map-engine" "centreon-map-web-client" --enablerepo="centreon-beta-stable\*"
   ```
 
-3. Purge the MAP Web database by connecting to the database and executing the following requests:
+3. Purge the MAP database by connecting to the database and executing the following requests:
  
   ```shell
   drop database centreon_map; create database centreon_map; grant all privileges on centreon_map.* to 'centreon_map'@'%' identified by 'centreon_map';

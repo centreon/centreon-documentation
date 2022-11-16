@@ -9,7 +9,8 @@ Users who can create maps are:
 
 - Centreon administrators.
 - Users belonging to an access group that is granted the creator role.
-- Rights to access a map – also called privileges – are not managed at user level, but through access groups. You can access a map because you belong to an access group that has privileges to access that map. Privileges allow you to perform some specific actions on maps.
+
+Rights to access a map – also called privileges – are not managed at user level, but through access groups. You can access a map because you belong to an access group that has privileges to access that map. Privileges allow you to perform some specific actions on maps.
 
 ## Role of map creator
  
