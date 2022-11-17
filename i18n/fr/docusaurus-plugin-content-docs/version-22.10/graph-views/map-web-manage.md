@@ -3,49 +3,47 @@ id: map-web-manage
 title: Gérer les cartes dans MAP
 ---
 
-This topic provides information about how to create and manage maps from the Centreon MAP interface. You can create two types of map:
-- Standard maps: to visualize graphical representations of your monitored infrastructure.
-- Geographic views: to display the resources of your IT environment across a defined geographical area.
+Cette page décrit comment créer et gérer les cartes à partir de l'interface Centreon MAP. Vous pouvez créer deux types de cartes :
+- Cartes standard : pour visualiser des représentations graphiques de votre infrastructure supervisée.
+- Vues géographiques : pour afficher les ressources de votre infrastructure sur une zone géographique définie.
 
-> Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See the [Manage access rights on MAP](map-web-access.md) topic to know more about rights and permissions.
+> Les options disponibles dans l'interface MAP dépendent des permissions qui vous ont été attribuées par votre administrateur. Voir la page [Gérer les droits d'accès dans MAP](map-web-access.md) pour plus d'informations sur les privilèges et permissions.
 
-The display of the **+** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
+L'affichage du bouton **Add a Map** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
 
-## Create a standard map
+## Créer une carte standard
 
-1. In the **Monitoring > Map** page, click the **+** button located in the **Standard** section.
+1. Dans la page **Supervision > Map**, cliquez sur le bouton **Add a Map** situé dans la section **Standard maps**.
 
-2. Fill in the **Add a Map** properties:
-   - Name: provide a name to the map.
-   - Image: select an image if you want to customize the map's display in the list of maps.
+2. Définissez les propriétés de la nouvelle carte :
+   - Nom : nommez la carte.
+   - Image : sélectionnez une image si vous souhaitez personnaliser l'affichage de la carte dans la liste des cartes.
 
-3. Click **Add** to confirm the map's creation.
+3. Cliquez sur **Ajouter** pour confirmer la création de la carte.
 
-The new map opens directly in the editor interface.
-Go to the [Use the map editor](map-web-editor.md) topic to know how to customize your map.
+La nouvelle carte s'ouvre directement dans l'interface de l'éditeur.
+Allez à la page [Utiliser l'éditeur MAP](map-web-editor.md) pour savoir comment personnaliser votre carte.
 
-## Create a geographic view
+## Créer une vue géographique
 
-1. In the **Monitoring > Map** page, click the **+** button located in the **Geographic** section.
+1. Dans la page **Supervision > Map**, cliquez sur le bouton **Add a new Geographic view** situé dans la section **Geographic views**.
 
-2. Fill in the **Add a new geographical view** property:
-   - Name: provide a name to the geographical view.
+2. Définissez les propriétés de la nouvelle vue géographique :
+   - Nom : nommez la vue géographique.
 
-3. Click **Create** to continue the view's configuration.
+3. Cliquez sur **Ajouter** pour confirmer la création de la vue.
+La nouvelle vue s'affiche dans la liste des **Geographic views**.
 
-4. Fill in the following **Edit view parameters** properties:
-   - Only one marker of the hostgroup(s) will be displayed on the view.
-   - Hosts belonging to the following hostgroup(s) will be displayed on the view.
-   - Business Activities belonging to the following Business View(s) will be displayed on the view.
+4. Cliquez sur la vue pour l'ouvrir, puis sur le bouton **Éditer**. Complétez les paramètres suivants :
 
-5. Click the **Advanced** button to display more parameters.
-
-6. Fill in the following **Advanced** parameters:
+   - Groupe d'hôtes
+   - Hosts belonging to the following Host Group(s)
+   - Activités Métiers
+   - Latitude
+   - Longitude
    - Zoom
-   - Lat
-   - Long
 
-7. Click **Save** to confirm the view's creation.
+7. Cliquez sur **Éditer** pour confirmer les paramètres de la vue.
 
 ## Perform actions on a map
 

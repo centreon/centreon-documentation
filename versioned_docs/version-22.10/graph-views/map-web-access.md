@@ -53,7 +53,7 @@ Perform the following procedure to grant privileges using the sharing action.
 1. Go to **Monitoring > Map**.
 The Map homepage is displayed with the list of available maps.
 
-2. Hover over the map you want to share and click the **Share** button.
+2. Click on the **share** button corresponding to the map you want to share.
 The list of available access groups is displayed.
 
 3. For the access group you want, select the privilege to grant in the dropdown list.

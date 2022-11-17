@@ -24,8 +24,7 @@ The diagram below summarizes the MAP architecture:
 |----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
 | Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
 | Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
-| Map Server     | Map server | Map server database       | 3306      | TCP        | Store all views and data related to Centreon MAP (Legacy)    |
-| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
+|| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
 | Web interface  | User       | Map server                | 8081/9443 | HTTP/HTTPS | Retrieve views & content                            |
 | Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
 
@@ -76,22 +75,6 @@ The Centreon MAP web interface is compatible with the following web browsers:
 If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
 
 Your screen resolution must be at least 1280 x 768.
-
-### Network requirements
-
-Centreon MAP Engine server machine must access:
-
-- Centreon central Broker, usually on Centreon central machine, using TCP
-  port 5758.
-- Centreon database, usually on Centreon central machine, using TCP port 3306.
-- Centreon MAP database, usually on localhost, using TCP port 3306.
-
-All the ports above are default values and can be changed if needed.
-
-- Centreon MAP central, using HTTP port 80 or HTTPS port 443.
-
-Ports 8081 and 9443 are recommended default values, but other
-configurations are possible.
 
 ## Server installation
 
@@ -241,8 +224,7 @@ apt install centreon-map-engine
 When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 11) if needed.
 
-> You need to have a MariaDB database to store Centreon MAP data, whether
-> it's on localhost or somewhere else.
+> You need to have a MariaDB database to store your Centreon MAP data, except if it has already been created at the central level.
 
 To install MariaDB, execute the following command:
 
@@ -307,26 +289,26 @@ interactive or automatic.
 - interactive *(no option/default mode)*: Several questions will be asked to
   interactively fill in the installation variables.
 - automatic *(--automatic or -a)*: The installation will be done automatically
-  from the values set in `/etc/centreon-studio/vars.sh` file
+  from the values set in `/etc/centreon-map/vars.sh` file
 
 If it's your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
-/etc/centreon-studio/configure.sh
+/etc/centreon-map/configure.sh
 ```
 
-If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-studio/studio-config.properties**
+If you have just installed Centreon 22.10, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
+edit the following file: **/etc/centreon-map/studio-config.properties**
 
 ```text
 broker.pb.message.enabled=true
 ```
 
-Then restart the **centreon-map** service:
+Then restart the **centreon-map-engine** service:
 
 ```shell
-systemctl restart centreon-map
+systemctl restart centreon-map-engine
 ```
 
 ### Central server
@@ -351,26 +333,28 @@ REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 Check your configuration:
 
 ```shell
-/etc/centreon-studio/diagnostic.sh
+/etc/centreon-map/diagnostic.sh
 ```
 
-If configuration is correct, the centreon-map service can be
-started from the Centreon MAP (Legacy) server:
+> In case of any error, see the **Run our diagnostic tool** section in the [Troubleshooting MAP](map-web-troubleshooting.md#run-our-diagnostic-tool) topic.
+
+If configuration is correct, the centreon-map-engine service can be
+started from the Centreon MAP server:
 
 ```shell
-systemctl restart centreon-map
+systemctl restart centreon-map-engine
 ```
 
 Enable the service to start up automatically on server boot:
 
 ```shell
-systemctl enable centreon-map
+systemctl enable centreon-map-engine
 ```
 
-Centreon Map server is now started and enabled, let's install
+Centreon MAP Engine server is now started and enabled, let's install
 the interface part of the extension.
 
-## Installation
+## Installation MAP Web client
 
 ### Step 1: Install the business repository
 
@@ -383,11 +367,18 @@ Then execute the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
     ```shell
-    sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el8/stable/noarch/RPMS/centreon-business-release-21.10-5.el8.noarch.rpm
+    sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el8/stable/noarch/RPMS/centreon-business-release-22.10-5.el8.noarch.rpm
     ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
+    ```shell
+    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el7/stable/noarch/RPMS/centreon-business-release-21.10-5.el7.centos.noarch.rpm
+    ```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
 
     ```shell
     sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el7/stable/noarch/RPMS/centreon-business-release-21.10-5.el7.centos.noarch.rpm
@@ -421,63 +412,27 @@ Then execute the following commands:
 
 3. Go to **Administration > Extensions > Manager** and install the **Map Web Client** module.
 
-4. Go back to your terminal and create a **centreon_map** user in the mysql instance hosting the **centreon** and **centreon_storage** databases.
+### Step 3: Activate the MAP module
 
-  ```shell
-  mysql -u root -p
-  CREATE USER 'centreon_map'@'<IP_MAP_SERVER_NG>' IDENTIFIED BY 'centreon_map';
-  GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_MAP_SERVER_NG>';
-  GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_MAP_SERVER_NG>';
-  exit
-  ```
+By default, the MAP module is not enabled. Perform the following procedure to enable it.
 
-### Step 3: Install the centreon-map-engine server
+1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
 
-1. Install the **centreon-map-engine** server using the following command:
+2. In the **Connection information** section, set **Map server** to **Yes**.
 
-  <Tabs groupId="sync">
-  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.10.10.10:8081``.
 
-  ```shell
-  sudo dnf install centreon-map-engine --enablerepo=centreon-beta-stable
-  ```
+4. Click the **Test connection to Map server** button to test the connection. This test should return the **Connection test successful** message.
 
-  </TabItem>
-  <TabItem value="CentOS 7" label="CentOS 7">
+5. Click **Save**.
 
-  ```shell
-  sudo yum install centreon-map-engine --enablerepo=centreon-beta-stable
-  ```
+6. Go to the **Configuration > Pollers > Pollers** page. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) of the central server (using the **Reload** method).
 
-  </TabItem>
-  </Tabs>
-
-2. Proceed to the configuration with the following command:
-
-  ```shell
-  /etc/centreon-map/configure.sh
-  ```
-
-3. Make sure you replace the default values with the ones that match your environment. For instance, when prompted to provide the login and password of an account that has access to all resources and actions, replace admin/centreon by the correct credentials for your platform.
-
-4. If you are not using the BAM (service mapping) module on your platform, go to **Configuration > Pollers > Broker configuration**, click **central-broker-master**, then click **Save**. This is a workaround for a bug that will be fixed in a next release of centreon-broker.
-
-5. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) of the central server (using the **Reload** method).
-
-6. Restart the cbd service:
+7. In the terminal, restart the cbd service:
 
   ```shell
   systemctl restart cbd
   ```
-
-7. Run the Centreon diagnostic tool:
-
-  ```shell
-  cd /etc/centreon-map
-  ./diagnostic.sh
-  ```
-
-  > In case of any error, see the **Run our diagnostic tool** section in the [Troubleshooting MAP](map-web-troubleshooting.md#run-our-diagnostic-tool) topic.
 
 8. Now the configuration is correct, you can start the server by running this command:
 
@@ -485,13 +440,7 @@ Then execute the following commands:
   systemctl start centreon-map-engine
   ```
 
-9. Then enable the service to be started automatically at server startup:
-
-  ```shell
-  systemctl enable centreon-map-engine
-  ```
-
-10. Run the following command to check that the **centreon-map-engine** service is properly started:
+9. Run the following command to check that the **centreon-map-engine** service is properly started:
 
   ```shell
   systemctl status centreon-map-engine
@@ -505,19 +454,5 @@ Then execute the following commands:
              ├─19560 /bin/bash /usr/share/centreon-map-server/bin/centreon-map-engine
              └─19576 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=NeEmPqd1512l467yKcYkYQsU6XQ1oDZHkBglDH6nmnTWDRz5hIImTollDTZFOhtOB -Dcentreon-map.access-tok>
   ```
-
-### Step 4: Activate the MAP module
-
-By default, the MAP module is not enabled. Perform the following procedure to enable it.
-
-1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
-
-2. In the **Connection information** section, set **Map server** to **Yes**.
-
-3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.10.10.10:8081``.
-
-4. Click the **Test connection to Map server** button to test the connection. This test should return the **Connection test successful** message.
-
-5. Click **Save**.
 
 You can now use the MAP module by accessing the **Monitoring > Map** page.

@@ -40,37 +40,39 @@ Les utilisateurs appartenant au groupe d'accès sélectionné sont maintenant au
  
 ## Privilèges sur une carte
 
-Ensure users are well organized in access groups. This will facilitate the granting of privileges according to those groups.
+Assurez-vous que les utilisateurs sont bien regroupés en groupes d'accès. Cela facilitera l'attribution de privilèges en fonction de ces groupes.
 
-### Managing users in access groups
-Users must belong to the right group to get access to specific maps. Use the [Creating an access group](../administration/access-control-lists.md#creating-an-access-group) procedure to manage users in access groups.
+### Gérer les utilisateurs dans les groupes d'accès
 
-### Granting privileges on a map
-Privileges are granted when you perform the action of sharing a map. At map level, you can specify which access group is allowed to access that map, with specific privileges as well.
+Les utilisateurs doivent appartenir au bon groupe pour avoir accès à des cartes spécifiques. Voir la procédure [Créer un groupe d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
 
-Perform the following procedure to grant privileges using the sharing action.
+### Accorder des privilèges sur une carte
 
-1. Go to **Monitoring > Map**.
-The Map homepage is displayed with the list of available maps.
+Les privilèges sont accordés lorsque vous effectuez l'action de partager une carte. Au niveau de la carte, vous pouvez spécifier quel groupe d'accès est autorisé à accéder à cette carte, ainsi que des privilèges spécifiques.
 
-2. Hover over the map you want to share and click the **Share** button.
-The list of available access groups is displayed.
+Suivez cette procédure pour accorder des privilèges à l'aide de la fonctionnalité de partage :
 
-3. For the access group you want, select the privilege to grant in the dropdown list.
+1. Allez dans **Supervision > Map**.
+La page **Map** s'affiche avec la liste des cartes disponibles.
 
-4. Click **Save** to confirm.
-If a user belongs to several access groups, the privilege with the most permissions will be applied.
+2. Cliquez sur le bouton de **partage** correspondant à la carte que vous souhaitez partager.
+La liste des groupes d'accès disponibles s'affiche.
 
-This table describes the types of privileges and related permissions:
+3. Pour le groupe d'accès souhaité, sélectionnez le privilège à accorder dans la liste déroulante.
 
-|            | None | Viewer | Editor | Owner |
+4. Cliquez **Sauvegarder** pour confirmer.
+Si un utilisateur appartient à plusieurs groupes d'accès, le privilège ayant le plus de permissions sera appliqué.
+
+Ce tableau décrit les types de privilèges et les permissions associées :
+
+|            | Aucun privilège | Accès en lecture | Accès en écriture | Propriétaire |
 |------------|------|--------|--------|-------|
-| Can see    |      |   x    |    x   |   x   | 
-| Can edit   |      |        |    x   |   x   |
-| Can share  |      |        |        |   x   |
-| Can delete |      |        |        |   x   |
+| Peut consulter    |      |   x    |    x   |   x   | 
+| Peut éditer   |      |        |    x   |   x   |
+| Peut partager  |      |        |        |   x   |
+| Peut supprimer |      |        |        |   x   |
 
-- When you create a map, you and users in your access group have Owner privileges on that map.
-- Centreon administrators are creators and have Owner privileges on all maps.
-- Users with Owner privileges can also set or change map properties (name and icon).
-- Sharing a map allows the recipient to acquire privileges on that map.
+- Lorsque vous créez une carte, vous et les utilisateurs de votre groupe d'accès disposez des privilèges en tant que propriétaire de cette carte.
+- Les administrateurs Centreon sont des créateurs et disposent des privilèges de propriétaire sur toutes les cartes.
+- Les utilisateurs disposant de privilèges de propriétaire peuvent également définir ou modifier les propriétés de la carte (nom et icône).
+- Le partage d'une carte permet au destinataire d'acquérir des privilèges sur cette carte.

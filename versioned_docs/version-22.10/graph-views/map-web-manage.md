@@ -9,13 +9,13 @@ This topic provides information about how to create and manage maps from the Cen
 
 > Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See the [Manage access rights on MAP](map-web-access.md) topic to know more about rights and permissions.
 
-The display of the **+** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
+The display of the **Add a Map** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
 
 ## Create a standard map
 
-1. In the **Monitoring > Map** page, click the **+** button located in the **Standard** section.
+1. In the **Monitoring > Map** page, click the **Add a Map** button located in the **Standard maps** section.
 
-2. Fill in the **Add a Map** properties:
+2. Fill in the properties of the new map:
    - Name: provide a name to the map.
    - Image: select an image if you want to customize the map's display in the list of maps.
 
@@ -26,7 +26,7 @@ Go to the [Use the map editor](map-web-editor.md) topic to know how to customize
 
 ## Create a geographic view
 
-1. In the **Monitoring > Map** page, click the **+** button located in the **Geographic** section.
+1. In the **Monitoring > Map** page, click the **Add a new Geographic view** button located in the **Geographic views** section.
 
 2. Fill in the **Add a new geographical view** property:
    - Name: provide a name to the geographical view.
