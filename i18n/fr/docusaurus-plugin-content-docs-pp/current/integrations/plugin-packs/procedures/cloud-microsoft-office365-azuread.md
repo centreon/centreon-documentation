@@ -35,7 +35,21 @@ Il apporte le modèle de service suivant :
 ## Prérequis
 
 Afin d'utiliser ce Pack de supervision, il est nécessaire d'attribuer les bons privilèges à votre application/client. Ces privilèges 
-sont listés [ici](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions). 
+sont listés [ici](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions).
+
+La procédure pour définir une application est disponible [ici](../procedures/cloud-microsoft-office365-management.md#prérequis).
+
+### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
+
+Afin de récupérer les données d'Onedrive Online, vous devez spécifier les
+autorisations que votre application requiert: 
+dans le Portail de gestion Azure :
+
+* Microsoft Graph :
+    * Organization.Read.All (Application and Delegated)
+    * Directory.Read.All (Application and Delegated)
+
+La documentation officielle de Microsoft sur les permissions est disponible [ici](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions).
 
 ## Installation
 

@@ -71,6 +71,8 @@ referring not only to the application software, but also to the Azure AD
 registration and role in authentication/authorization "conversations" at runtime.
 (https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
 
+More detailed information is available [here](./cloud-microsoft-office365-management.md#prerequisites).
+
 ### Office365 Management API authorization
 
 To collect data from Skype Online, you need to specify the following

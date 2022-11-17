@@ -34,6 +34,19 @@ It brings the following service template:
 
 ## Prerequisites
 
+### Register an application 
+
+Refer to the documentation available [here](./cloud-microsoft-office365-management.md#prerequisites) to register your application.
+
+### Office365 Management API authorization
+
+To collect data from Onedrive Online, you need to specify the following
+authorization:
+
+* Microsoft Graph :
+    * Organization.Read.All
+    * Directory.Read.All
+
 Check out the endpoint documentation [here](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions). It describes the required privileges to obtain information about the organization directory quota.
 
 ## Setup
