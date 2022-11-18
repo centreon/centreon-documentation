@@ -1183,7 +1183,7 @@ pcs resource create "php" \
 
 ```bash
 pcs resource create "php" \
-    systemd:php8.0-fpm \
+    systemd:php8.1-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
