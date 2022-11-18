@@ -454,6 +454,8 @@ max_allowed_packet=64M
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
+
 ```ini
 [server]
 server-id=1 # SET TO 1 FOR MASTER AND 2 FOR SLAVE
