@@ -12,7 +12,9 @@ import TabItem from '@theme/TabItem';
 
 > Lorsque vous créez/modifiez une activité métier, il faut générer et
 > pousser la configuration pour que les modifications soient prises en
-> compte
+> compte.
+
+> Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez systématiquement l'ajouter à la Vue métier **all_BAs** afin qu'elle puisse être visible des autres utilisateurs.
 
 ### Définition
 
@@ -192,9 +194,7 @@ sections:
 
 #### Vue métier
 
-Lier l'activité métier à une ou plusieurs "Vue métier". Cela permet
-de rendre disponible l'activité métier aux utilisateurs non-admin et de
-configurer les widgets & rapports.
+Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez systématiquement l'ajouter à la Vue métier **all_BAs** afin qu'elle puisse être visible des autres utilisateurs.
 
 #### Affichage
 
@@ -210,11 +210,8 @@ configurer les widgets & rapports.
 
 #### Notification
 
-Configurer à quel moment et qui doit être notifié lors d'une
-dégradation de l'état de l'activité métier. Il est également possible
-de définir les propriétés d'escalade. Lors de la liaison d'une
-escalade à une activité métier, ce sont les propriétés des service de
-l'escalade qui sont utilisés
+Configurez quand et pour quels statuts des notifications doivent être envoyées lorsque le statut de l'activité métier change.
+Ajoutez le groupe de contacts **Notification** pour que les utilisateurs puissent être notifiés.
 
 #### Rapport
 

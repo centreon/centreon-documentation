@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 ## Business Activities (BA)
 
 > When you modify a business activity, you need to push & reload the
-> configuration using the "Poller" menu so that it's applied
+> configuration using the "Poller" menu so that it's applied.
+
+> In Centreon Cloud, when you create a business activity, you need to add it systematically to the **all_BAs** business view so as to make it visible to other users.
 
 ### Definition
 
@@ -195,8 +197,7 @@ you'll be able to configure the following properties:
 
 #### Business View
 
-Link the BA to one or multiple business view so it becomes available for
-non-admin users.
+In Centreon Cloud, when you create a business activity, you need to add it systematically to the **all_BAs** business view so as to make it visible to other users.
 
 #### Display
 
@@ -214,12 +215,8 @@ non-admin users.
 
 #### Notification
 
-Configure when, for what status and who should be notified when the BA's
-status changes. You can also define escalation that applies to that BA.
-
-The escalation is the same as with other **Centreon** objects, when you
-select an escalation, the service escalation definition will be applied
-to the BA.
+Configure when and for what status notifications should be sent when the BA's
+status changes. Add the **Notification** contact group so that users can be notified.
 
 #### Reporting
 

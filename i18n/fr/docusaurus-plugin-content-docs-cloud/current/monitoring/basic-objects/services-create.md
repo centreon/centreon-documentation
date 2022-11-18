@@ -25,6 +25,4 @@ Vous pouvez :
 
     - Créez le [service manuellement](services.md) et dans le champ **Modèle**, sélectionnez un [modèle de service](services-templates.md) (issu ou non d'un Plugin Pack).
 
-    - Créez un service via [les API](../../api/introduction.md).
-
 2. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md).
