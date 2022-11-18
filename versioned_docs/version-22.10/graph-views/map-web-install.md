@@ -24,7 +24,7 @@ The diagram below summarizes the MAP architecture:
 |----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
 | Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
 | Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
-|| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
+| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
 | Web interface  | User       | Map server                | 8081/9443 | HTTP/HTTPS | Retrieve views & content                            |
 | Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
 
@@ -55,7 +55,7 @@ team](https://support.centreon.com/) to get and install your license key.
 > practices and recommendations when creating views so you do not face
 > performance issues.
 
-### Centreon MAP web interface
+### Centreon MAP web client
 
 #### License
 
@@ -65,16 +65,7 @@ team](https://support.centreon.com/) to get and install your license key.
 
 #### Compatibility
 
-The Centreon MAP web interface is compatible with the following web browsers:
-
-* Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
-* Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
-* Apple Safari (latest version at the time of Centreon software release and above).
-* Microsoft Edge Chromium (latest version at the time of Centreon software release and above).
-
-If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
-
-Your screen resolution must be at least 1280 x 768.
+Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the web browsers compatibility [here](../installation/prerequisites.md).
 
 ## Server installation
 
