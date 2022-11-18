@@ -159,6 +159,21 @@ systemctl restart NetworkManager
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+cat >> /etc/sysctl.conf <<EOF
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv4.tcp_retries2 = 3
+net.ipv4.tcp_keepalive_time = 200
+net.ipv4.tcp_keepalive_probes = 2
+net.ipv4.tcp_keepalive_intvl = 2
+EOF
+reboot
+```
+
+</TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
@@ -227,6 +242,13 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt update && apt install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -273,6 +295,13 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```bash
 dnf config-manager --enable ha
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt update && apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
 
 </TabItem>
@@ -601,6 +630,9 @@ What matters here is that the first two connection tests are `OK`.
 
 ### Switching to read-only mode
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / RHEL 7 / CentOS 7" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8/ RHEL 7 / CentOS 7">
+
 Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
 
 * Primary node:
@@ -626,6 +658,38 @@ Then apply this change by restarting MariaDB on both nodes:
 ```bash
 systemctl restart mysql
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file :
+
+* Nœud principal
+
+```ini
+[server]
+server-id=1
+read_only
+log-bin=mysql-bin
+```
+
+* Nœud secondaire
+
+```ini
+[server]
+server-id=2
+read_only
+log-bin=mysql-bin
+```
+
+Appliquer ensuite ce changement par un redémarrage de MariaDB sur les deux nœuds :
+
+```bash
+systemctl restart mariadb
+```
+
+</TabItem>
+</Tabs>
 
 ### Synchronizing the databases and enabling MariaDB replication
 
@@ -792,8 +856,8 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 <TabItem value="Debian 11 " label="Debian 11">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.0-fpm centreon 
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.0-fpm centreon 
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1-fpm centreon 
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1-fpm centreon 
 ```
 
 </TabItem>
@@ -1091,7 +1155,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1110,7 +1174,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1129,7 +1193,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1148,7 +1212,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host' \
     master
 ```
@@ -1239,7 +1303,7 @@ pcs resource create "php" \
 
 ```bash
 pcs resource create "php" \
-    systemd:php8.0-fpm \
+    systemd:php8.1-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
