@@ -864,8 +864,8 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 <TabItem value="Debian 11 " label="Debian 11">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.0-fpm centreon 
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.0-fpm centreon 
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1-fpm centreon 
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1-fpm centreon 
 ```
 
 </TabItem>
