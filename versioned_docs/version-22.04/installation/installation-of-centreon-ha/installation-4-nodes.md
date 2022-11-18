@@ -159,6 +159,21 @@ systemctl restart NetworkManager
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+cat >> /etc/sysctl.conf <<EOF
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv4.tcp_retries2 = 3
+net.ipv4.tcp_keepalive_time = 200
+net.ipv4.tcp_keepalive_probes = 2
+net.ipv4.tcp_keepalive_intvl = 2
+EOF
+reboot
+```
+
+</TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
@@ -424,6 +439,8 @@ max_allowed_packet=64M
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
+For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
 
 ```ini
 [server]
@@ -1091,7 +1108,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1110,7 +1127,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1129,7 +1146,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1148,7 +1165,7 @@ pcs resource create "ms_mysql" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host' \
     master
 ```
@@ -1453,7 +1470,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 
 ### Activate the Cluster and check Resources operating state
 
-#### Enable resources 
+#### Enable resources
 
 ```bash
 pcs resource enable php-clone
