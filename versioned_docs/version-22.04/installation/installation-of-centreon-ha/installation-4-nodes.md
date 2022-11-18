@@ -242,6 +242,13 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt update && apt install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -280,6 +287,13 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt update && apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
 
 </TabItem>
@@ -856,13 +870,13 @@ update-rc.d -f mariadb remove
 
 #### Activating the clustering services
 
-First we enable all the services and start `pcsd` on ** all nodes **:
+First we enable all the services and start `pcsd` on **all nodes**:
 
 ```bash
 systemctl start pcsd
 ```
 
-#### Preparing the server that will hold the function of *quorum device* 
+#### Preparing the server that will hold the function of *quorum device*
 
 You can use one of your pollers to play this role. It must be prepared with the commands below: 
 
