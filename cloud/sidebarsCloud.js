@@ -394,6 +394,16 @@ module.exports = {
       },
       {
         "type": "category",
+        "label": "Security",
+        "items": [
+          {
+            "type": "doc",
+            "id": "security/security"
+          }
+        ]
+      },
+      {
+        "type": "category",
         "label": "Resources",
         "items": [
           {
