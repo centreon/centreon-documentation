@@ -144,7 +144,7 @@ Avant d'en arriver au paramétrage du cluster à proprement parler, quelques ét
 Afin d'améliorer la fiabilité du cluster et étant donné que *Centreon HA* ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -301,7 +301,7 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt update && apt install centreon-ha pcs pacemaker corosync corosync-qdevice 
+apt update && apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
 
 </TabItem>
@@ -1309,7 +1309,7 @@ pcs resource create "php" \
 
 ```bash
 pcs resource create "php" \
-    systemd:php8.0-fpm \
+    systemd:php8.1-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
