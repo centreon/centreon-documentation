@@ -78,5 +78,9 @@
   "sidebar.cloud.category.Integrations": {
     "message": "Intégrations",
     "description": "The label for category Integrations in sidebar cloud"
+  },
+  "sidebar.cloud.category.Security": {
+    "message": "Sécurité",
+    "description": "The label for category Security in sidebar cloud"
   }
 }
