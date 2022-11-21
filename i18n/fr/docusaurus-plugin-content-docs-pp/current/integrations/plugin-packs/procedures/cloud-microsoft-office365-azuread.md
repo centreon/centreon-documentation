@@ -41,7 +41,7 @@ La procédure pour définir une application est disponible [ici](../procedures/c
 
 ### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
-Afin de récupérer les données d'Onedrive Online, vous devez spécifier les
+Afin de récupérer les données de OneDrive Online, vous devez spécifier les
 autorisations que votre application requiert: 
 dans le Portail de gestion Azure :
 
