@@ -78,7 +78,7 @@ lors des « dialogues » d’authentification/autorisation au moment de l’exé
 
 Afin de récupérer les données de Skype Online, vous devez spécifier les
 autorisations que votre application requiert: 
-dans le Portail de gestion Azure :
+Dans le portail de gestion Azure :
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
