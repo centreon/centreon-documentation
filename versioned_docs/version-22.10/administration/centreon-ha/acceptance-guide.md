@@ -1078,7 +1078,7 @@ The situation is stabilized, you can perform a failover by moving the centreon r
 pcs resource move centreon
 ```
 
-The centreon resource is now relocated and cluster is OK, verify with `crm_mon -fr` on any node.
+The centreon resource is now relocated and the cluster is OK, verify with `crm_mon -fr` on any node.
 
 ```text
 Cluster Summary:
