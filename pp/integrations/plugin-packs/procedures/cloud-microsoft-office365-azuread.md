@@ -40,7 +40,7 @@ Refer to the documentation available [here](./cloud-microsoft-office365-manageme
 
 ### Office365 Management API authorization
 
-To collect data from Onedrive Online, you need to specify the following
+To collect data from OneDrive Online, you need to specify the following
 authorization:
 
 * Microsoft Graph :
