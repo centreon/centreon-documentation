@@ -51,7 +51,7 @@ de Microsoft :
 | skype.users.conferences.organized.total.count     | Number of organized conferences       | Count  |
 | skype.users.conferences.participated.total.count  | Number of participed conferences      | Count  |
 
-Une fois l'hôte crée, les macros de services peuvent être configurées pour
+Une fois l'hôte créé, les macros de services peuvent être configurées pour
 filtrer les métriques par utilisateurs ou par boites mail. Plus d'informations
 dans la section [Configuration](#Configuration).
 
