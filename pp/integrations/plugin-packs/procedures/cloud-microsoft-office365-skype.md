@@ -52,7 +52,7 @@ See link for details about metrics :
 </TabItem>
 </Tabs>
 
-Once the host created, you can configure some macros on the service to filter 
+Once the host is created, you can configure some macros on the service to filter 
 information by user. More info in the [Configuration](#Configuration)
 section.
 
