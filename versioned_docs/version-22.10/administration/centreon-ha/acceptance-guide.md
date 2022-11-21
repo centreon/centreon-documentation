@@ -1051,7 +1051,7 @@ Now, database replication should be OK, verify it.
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-the result should be:
+The result should be:
 
 ```text
 Connection MASTER Status '@CENTRAL_SLAVE_NAME@' [OK]
