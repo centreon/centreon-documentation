@@ -1024,7 +1024,7 @@ Error reports:
     Skip because we can't identify a unique slave.
 ```
 
-Vous devez donc resynchroniser les bases depuis @CENTRAL_SLAVE_NAME@ vers @CENTRAL_MASTER_NAME@ en lançant le script "sync-bigdb" sur le **noeud SLAVE**.
+Vous devez donc resynchroniser les bases depuis @CENTRAL_SLAVE_NAME@ vers @CENTRAL_MASTER_NAME@ en lançant le script "sync-bigdb" sur le **nœud SLAVE**.
 
 ```shell
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
