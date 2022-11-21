@@ -1238,8 +1238,8 @@ The MariaDB replication state can be monitored at any time with the `mysql-check
 The expected output is:
 
 ```bash
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1273,7 +1273,7 @@ Normally the two colocation constraints that have been created during the setup 
 ```bash
 Location Constraints:
 Ordering Constraints:
-  pcs constraint order stop centreon then demote ms_mysql-clone
+  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:

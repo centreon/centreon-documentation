@@ -1238,8 +1238,8 @@ L'état de la réplication MariaDB peut être vérifié à n'importe quel moment
 Résultat attendu :
 
 ```bash
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1273,7 +1273,7 @@ En temps normal, seules les contraintes de colocation doivent être actives sur 
 ```bash
 Location Constraints:
 Ordering Constraints:
-  pcs constraint order stop centreon then demote ms_mysql-clone
+  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
