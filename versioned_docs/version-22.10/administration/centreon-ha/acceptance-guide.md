@@ -1006,7 +1006,7 @@ then check the database replication
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-At this time, the cluster is on degraded mode whith two slave nodes.
+At this time, the cluster is in degraded mode whith two slave nodes.
 In this particular case, it return the following information because of ms_mysql resource is stopped on @CENTRAL_MASTER_NAME@:
 
 ```text
