@@ -100,7 +100,7 @@ Si la plateforme est configurée avec une licence *online*, l'installation d'un 
 n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
 
 <Tabs groupId="sync">
