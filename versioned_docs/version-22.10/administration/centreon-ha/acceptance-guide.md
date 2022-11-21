@@ -1060,7 +1060,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-Now, you can perform a failover to return in initial situation.
+Now, you can perform a failover to return to the initial situation.
 
 ```shell
 pcs resource clear centreon
