@@ -167,7 +167,7 @@ apt install centreon-plugin-cloud-microsoft-office365-skype-api
 
 ## Configuration
 
-Lors de la création de votre Hôte dans Centreon, choisissez le modèle
+Lors de la création de votre hôte dans Centreon, choisissez le modèle
 *Cloud-Microsoft-Office365-Skype-Api-custom*. Une fois celui-ci appliqué, 
 certaines Macros liées à l'Hôte doivent être renseignées :
 
