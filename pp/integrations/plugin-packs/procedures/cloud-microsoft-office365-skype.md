@@ -178,7 +178,7 @@ apt install centreon-plugin-cloud-microsoft-office365-skype-api
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-The metric perfdateY will record the date the metric was collected. You can
+The metric perfdate will record the date the metric was collected. You can
 filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 *OFFICE365EXTRAOPTIONS* macro.
 
