@@ -183,7 +183,7 @@ La métrique *perfdate* enregistre la date à laquelle celle-ci a été collect�
 Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
 l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
-Une fois l'hôte créé, il est également possible de paramétrer un ensemble de m
+Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
 macros de service selon la configuration souhaitée :
 
 | Mandatory | Name          | Description                |
