@@ -1072,7 +1072,7 @@ Do a cleanup to clear errors and restart the ms_mysql resource on @CENTRAL_MASTE
 pcs resource cleanup
 ```
 
-Situation is stabilized, you can perform a failover by moving centreon resource.
+The situation is stabilized, you can perform a failover by moving the centreon resource.
 
 ```shell
 pcs resource move centreon
