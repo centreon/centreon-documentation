@@ -963,7 +963,7 @@ log: 'Error: connecting slave', last-rc-change='Tue Nov  8 17:27:21 2022', queue
 ```
 
 If you want to switch to the primary node, you must do a failover.
-So, **before to do this, you must check the cluster and database replication status**.
+So, **before you do this, you must check the cluster and database replication status**.
 
 First, check the constraints
 
