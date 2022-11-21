@@ -135,7 +135,7 @@ When this feature is enabled, you can skip the installation part below.
 
 You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet.
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
