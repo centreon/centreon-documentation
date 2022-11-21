@@ -76,7 +76,7 @@ lors des « dialogues » d’authentification/autorisation au moment de l’exé
 
 ### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
-Afin de récupérer les données d'Skype Online, vous devez spécifier les
+Afin de récupérer les données de Skype Online, vous devez spécifier les
 autorisations que votre application requiert: 
 dans le Portail de gestion Azure :
 
