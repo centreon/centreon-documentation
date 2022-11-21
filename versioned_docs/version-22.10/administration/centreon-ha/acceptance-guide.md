@@ -1030,7 +1030,7 @@ You must do a database synchronization from @CENTRAL_SLAVE_NAME@ to @CENTRAL_MAS
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-Like as previous execution of this sript, verify if LVM Snapshot is correctly deleted and Mysql Slave restarted
+As for the previous execution of this script, verify if LVM Snapshot is correctly deleted and the MySQL Slave restarted
 
 ```text
 Umount and Delete LVM snapshot
