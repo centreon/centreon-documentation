@@ -179,7 +179,7 @@ certaines macros liées à l'Hôte doivent être renseignées :
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
+La métrique *perfdate* enregistre la date à laquelle celle-ci a été collectée. 
 Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
 l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
