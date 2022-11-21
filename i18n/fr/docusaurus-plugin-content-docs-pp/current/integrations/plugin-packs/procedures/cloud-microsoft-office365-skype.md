@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 La suite Microsoft Office 365 inclut Skype, une application offrant différents
 types de services comme la messagerie instantanée et les appels téléphoniques et
-vidéos. 
+vidéo. 
 
 Les informations de supervision de la suite Office sont mises à disposition par
 Microsoft au travers d'une API de gestion Office 365.
