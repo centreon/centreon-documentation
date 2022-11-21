@@ -15,7 +15,7 @@ The monitoring information of Microsoft's Office365 is available
 through the Office365 API Management.
 
 > The data provided by the Office365 Management API are not real-time.
-> They're based on a 7 days reporting period
+> They're based on a 7 days reporting period.
 
 ## Plugin-Pack assets
 
