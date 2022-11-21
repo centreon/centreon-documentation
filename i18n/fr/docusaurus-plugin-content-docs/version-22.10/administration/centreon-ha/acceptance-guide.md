@@ -1030,7 +1030,8 @@ Vous devez donc resynchroniser les bases depuis @CENTRAL_SLAVE_NAME@ vers @CENTR
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-Comme lors de l'exécution précédente de ce script, vérifiez si le snapshot LVM est correctement supprimé et l'esclave Mysql redémarré.
+Comme lors de l'exécution précédente de ce script, vérifiez si le snapshot LVM est correctement supprimé et l'esclave MySQL redémarré.
+```l
 
 ```text
 ...
