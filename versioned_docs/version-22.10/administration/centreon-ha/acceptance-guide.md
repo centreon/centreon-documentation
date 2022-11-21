@@ -1066,7 +1066,7 @@ Now, you can perform a failover to return to the initial situation.
 pcs resource clear centreon
 ```
 
-Do a cleanup to clear errors ans restart ms_mysql resource on @CENTRAL_MASTER_NAME@.
+Do a cleanup to clear errors and restart the ms_mysql resource on @CENTRAL_MASTER_NAME@.
 
 ```shell
 pcs resource cleanup
