@@ -43,7 +43,7 @@ La procédure pour définir une application est disponible [ici](../procedures/c
 
 Afin de récupérer les données de OneDrive Online, vous devez spécifier les
 autorisations que votre application requiert: 
-dans le Portail de gestion Azure :
+Dans le portail de gestion Azure :
 
 * Microsoft Graph :
     * Organization.Read.All (Application and Delegated)
