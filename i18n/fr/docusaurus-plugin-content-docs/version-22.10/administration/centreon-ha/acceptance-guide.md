@@ -918,7 +918,7 @@ iptables -D INPUT @RULE_NUMBER@;
 iptables -D OUTPUT @RULE_NUMBER@
 ```
 
-En exécutant la commande `crm_mon` sur le noeud secondaire, vous verrez le nœud primaire monter dans le cluster mais rester en tant que nœud SLAVE.
+En exécutant la commande `crm_mon` sur le nœud secondaire, vous verrez le nœud primaire monter dans le cluster mais rester en tant que nœud SLAVE.
 
 ```text
 Cluster Summary:
