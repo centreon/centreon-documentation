@@ -1,21 +1,13 @@
 ---
 id: import-into-map-web
-title: Switch from Legacy to MAP
+title: Switch from MAP (Legacy) to MAP
 ---
 
-This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP and how to import your legacy maps into your MAP module.
+This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by importing your legacy maps into your MAP module.
 
-> Centreon MAP must be installed on your environment. See the [MAP installation](map-web-install.md) procedure if needed.
+> Centreon MAP must be installed in your environment. See the [MAP installation](map-web-install.md) procedure if needed.
 
-## Switching from Legacy to MAP
-
-1. Log in to Centreon web interface.
-
-2. Go to the **Administration > Extensions > Map > Options** page.
-
-3. In the **Connection information** section, set the **Map Engine server** to **Yes**. Then click **Save**.
-
-  ![image](../assets/graph-views/ng/switch-map-engine.png)
+Before you start the procedure to import legacy maps into MAP, you need to switch from MAP (Legacy) to MAP by [activating the MAP module](./map-web-install.md#step-3-activate-the-map-module).
 
 ## Importing legacy maps into MAP
 

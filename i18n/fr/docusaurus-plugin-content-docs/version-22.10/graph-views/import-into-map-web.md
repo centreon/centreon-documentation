@@ -1,21 +1,13 @@
 ---
 id: import-into-map-web
-title: Passer de Legacy à MAP
+title: Passer de MAP (Legacy) à MAP
 ---
 
-This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP and how to import your legacy maps into your MAP module.
+Cette page décrit comment passer de Centreon MAP (Legacy) à Centreon MAP en important vos anciennes cartes dans le module MAP.
 
-> Centreon MAP must be installed on your environment. See the [MAP installation](map-web-install.md) procedure if needed.
+> Centreon MAP doit être installé dans votre environnement. Consultez la procédure [Installer MAP](map-web-install.md) si besoin.
 
-## Passer de Legacy à MAP
-
-1. Log in to Centreon web interface.
-
-2. Go to the **Administration > Extensions > Map > Options** page.
-
-3. In the **Connection information** section, set the **Map Engine server** to **Yes**. Then click **Save**.
-
-  ![image](../assets/graph-views/ng/switch-map-engine.png)
+Avant de démarrer la procédure pour importer les anciennes cartes dans MAP, vous devez basculer de MAP (Legacy) à MAP en [activant le module MAP](./map-web-install.md#étape-3-activer-le-module-map).
 
 ## Importer les cartes Legacy dans MAP
 

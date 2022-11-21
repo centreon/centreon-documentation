@@ -69,14 +69,14 @@ Note that the MAP web interface has the same requirements as the Centreon web in
 
 ## Server installation
 
-### Centreon MAP interface
+### Step 1: Set authentication parameters
 
 You must provide to Centreon MAP Engine server a dedicated user
 **who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 
-- Go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
+- Log into Centreon and go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
 - Set the **Reach API Realtime** parameter to **Yes**.
 
 ![image](../assets/graph-views/reach-api.png)
@@ -85,9 +85,9 @@ Exclude the user from the password expiration policy on page **Administration > 
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
-### Centreon central server
+### Step 2: Create a MySQL user
 
-Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
+From the central server terminal, create a user in the MySQL instance hosting 'centreon' and 'centreon_storage'
 databases:
 
 ```sql
@@ -99,7 +99,7 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 The INSERT privilege will only be used during the installation process
 in order to create new Centreon Broker output. It will be revoked later.
 
-### Centreon MAP Engine server
+### Step 3: Install MAP Engine server
 
 If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the **centreon-release** package:
@@ -125,7 +125,7 @@ Complete!
 Then install the **centreon-release** package:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.10.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10.el8.noarch.rpm
 ```
 
 </TabItem>
@@ -168,7 +168,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
@@ -243,7 +243,7 @@ apt install mariadb-client mariadb-server
 </TabItem>
 </Tabs>
 
-### Configuration
+### Step 4: Check the database configuration
 
 Make sure the database that stores Centreon MAP data is optimized
 (automatically added by the RPM in `/etc/my.cnf.d/map.cnf`):
@@ -272,7 +272,7 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-#### Configure.sh script
+#### Edit the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script. Two modes are available:
 interactive or automatic.
@@ -302,7 +302,7 @@ Then restart the **centreon-map-engine** service:
 systemctl restart centreon-map-engine
 ```
 
-### Central server
+### Step 5: Restart Centreon Broker
 
 > Before restarting Broker you must export the configuration from the Centreon
 > web interface.
@@ -319,9 +319,9 @@ Remove the INSERT privilege from user centreon_map:
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-### Centreon MAP Engine server
+### Step 6: Check the configuration
 
-Check your configuration:
+Check the MAP Engine server configuration by using this command:
 
 ```shell
 /etc/centreon-map/diagnostic.sh
@@ -345,11 +345,11 @@ systemctl enable centreon-map-engine
 Centreon MAP Engine server is now started and enabled, let's install
 the interface part of the extension.
 
-## Installation MAP Web client
+## MAP web client installation
 
 ### Step 1: Install the business repository
 
-Install Centreon MAP repository, you can find it on the
+Install the Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following commands:
@@ -358,21 +358,21 @@ Then execute the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
     ```shell
-    sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el8/stable/noarch/RPMS/centreon-business-release-22.10-5.el8.noarch.rpm
+    sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el8/stable/noarch/RPMS/centreon-business-release-22.10-5.el8.noarch.rpm
     ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
     ```shell
-    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el7/stable/noarch/RPMS/centreon-business-release-21.10-5.el7.centos.noarch.rpm
+    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el7/stable/noarch/RPMS/centreon-business-release-22.10-5.el7.centos.noarch.rpm
     ```
 
 </TabItem>
 <TabItem value="Debian" label="Debian">
 
     ```shell
-    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/21.10/el7/stable/noarch/RPMS/centreon-business-release-21.10-5.el7.centos.noarch.rpm
+    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el7/stable/noarch/RPMS/centreon-business-release-22.10-5.el7.centos.noarch.rpm
     ```
 
 </TabItem>
@@ -397,6 +397,13 @@ Then execute the following commands:
   ```
 
   </TabItem>
+  <TabItem value="Debian" label="Debian">
+
+  ```shell
+  sudo apt install centreon-map-web-client
+  ```
+
+  </TabItem>
   </Tabs>
 
 2. Then you need to log on to the Centreon web interface.
@@ -408,18 +415,19 @@ Then execute the following commands:
 By default, the MAP module is not enabled. Perform the following procedure to enable it.
 
 1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
+  ![image](../assets/graph-views/ng/switch-map-engine.png)
 
-2. In the **Connection information** section, set **Map server** to **Yes**.
+2. In the **Connection information** section, set **Map Engine server** to **Yes**.
 
-3. Enter the IP address of your MAP server in the **Map server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.10.10.10:8081``.
+3. Enter the IP address of your MAP server in the **Map Engine server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.25.xxx:8081``.
 
-4. Click the **Test connection to Map server** button to test the connection. This test should return the **Connection test successful** message.
+4. Click the **Test connection to server** button to test the connection. This test should return the **Connection test successful** message.
 
 5. Click **Save**.
 
 6. Go to the **Configuration > Pollers > Pollers** page. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) of the central server (using the **Reload** method).
 
-7. In the terminal, restart the cbd service:
+7. From your terminal, restart the cbd service:
 
   ```shell
   systemctl restart cbd
