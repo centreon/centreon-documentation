@@ -1080,7 +1080,7 @@ La situation est stabilisée, vous pouvez effectuer un failover en déplaçant l
 pcs resource move centreon
 ```
 
-La ressource centreon est maintenant relocalisée et le cluster est OK, vérifiez avec `crm_mon -fr` sur n'importe quel noeud.
+La ressource centreon est maintenant relocalisée et le cluster est OK, vérifiez avec `crm_mon -fr` sur n'importe quel nœud.
 
 ```text
 Cluster Summary:
