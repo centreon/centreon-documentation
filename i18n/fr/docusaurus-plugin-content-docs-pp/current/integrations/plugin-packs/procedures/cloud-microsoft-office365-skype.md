@@ -16,7 +16,7 @@ vidéo.
 Les informations de supervision de la suite Office sont mises à disposition par
 Microsoft au travers d'une API de gestion Office 365.
 
-> Les données mises à disposition par l'API de gestion Office 365 ne sont pas en temps réel et sont basées sur une période de 7 jours
+> Les données mises à disposition par l'API de gestion Office 365 ne sont pas en temps réel et sont basées sur une période de 7 jours.
 
 ## Contenu du Plugin-Pack
 
