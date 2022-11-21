@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 Microsoft’s Office365 suite includes Skype, which is an application that
-provides video chat, voice calls and messages services between different types
+provides video chat, voice calls and message services between different types
 of hardware.
 
 The monitoring information of Microsoft's Office365 is available
