@@ -182,7 +182,7 @@ The metric perfdate will record the date the metric was collected. You can
 filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 *OFFICE365EXTRAOPTIONS* macro.
 
-Once the host created, you can configure some Macros on the services to filter
+Once the host is created, you can configure some macros on the services to filter
 information:
 
 | Mandatory | Name          | Description                |
