@@ -159,7 +159,7 @@ Indicates whether a change in [status](#status) is confirmed (HARD) or not confi
 
 Skeleton of a [resource](#resource) that is preconfigured so that parameters defined on the skeleton are applied to the resource that inherits from it.
 
-There are host templates, service templates and contact templates.
+There are host templates and service templates.
 
 **See also**:
 

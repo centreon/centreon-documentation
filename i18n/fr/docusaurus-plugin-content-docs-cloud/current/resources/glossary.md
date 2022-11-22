@@ -73,7 +73,7 @@ Vous pouvez voir les métriques associées à un service dans le panneau de dét
 
 Squelette préconfiguré d’une [ressource](#ressource) qui permet que les paramètres définis sur le squelette soient appliqués sur la ressource qui en hérite automatiquement.
 
-Il existe des modèles d’hôtes, de services et de contacts.
+Il existe des modèles d’hôtes et de services.
 
 **Voir aussi** :
 
