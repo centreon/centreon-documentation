@@ -29,11 +29,11 @@ versions by pulling the packages from public “unstable” repositories.
 ### Opensource security
 
 Centreon distributes its core platform under GPLv2 and Apache Open Source licenses which makes it
-possible for [contributors](https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md) to extend.
+possible for [contributors](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) to extend.
 Any person who wants to contribute and participate in
-developing the project must respect Centreon’s [Code of Conduct](https://github.com/centreon/centreon/blob/master/CODE_OF_CONDUCT.md).
+developing the project must respect Centreon’s [Code of Conduct](https://github.com/centreon/.github/blob/master/CODE_OF_CONDUCT.md).
 
-Any contribution is posted as a pull request and provided with [information](https://github.com/centreon/centreon/blob/master/.github/PULL_REQUEST_TEMPLATE.md) that helps through the
+Any contribution is posted as a pull request and provided with [information](https://github.com/centreon/.github/blob/master/PULL_REQUEST_TEMPLATE.md) that helps through the
 review process by Centreon. The review includes code quality, functional tests, documentation as
 well as security and determines whether the contribution is accepted or rejected.
 
@@ -71,12 +71,12 @@ of remediating the vulnerability:
 ### Reporting a vulnerability
 
 If you believe you have found a security vulnerability, please report it to us as described in the
-[reporting process](https://github.com/centreon/centreon/blob/master/SECURITY.md).
+[reporting process](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 Please do not report security vulnerabilities through public GitHub issues.
 
 Send an email to [security@centreon.com](mailto:security@centreon.com). If possible, encrypt your message with the [provided PGP
-key](https://github.com/centreon/centreon/blob/master/SECURITY.md#pgp-information).
+key](https://github.com/centreon/centreon/security/policy#pgp-information).
 
 You should receive a response within 48 hours. If for some reason you do not, please follow up via
 email to ensure we received your original message.
@@ -85,8 +85,8 @@ email to ensure we received your original message.
 
 ### Secure configuration
 
-The Centreon documentation includes best practices to secure the [monitoring components](https://docs.centreon.com/docs/administration/secure-platform) as well as
-the [MAP platform](https://docs.centreon.com/docs/graph-views/secure-your-map-platform). Centreon recommends that administrators carefully review those pages when
+The Centreon documentation includes best practices to secure the [monitoring components](../administration/secure-platform.md) as well as
+the [MAP platform](../graph-views/secure-your-map-platform.md). Centreon recommends that administrators carefully review those pages when
 planning an installation and share those guidelines with their internal security teams.
 
 ### Security audit services
