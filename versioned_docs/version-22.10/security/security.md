@@ -44,6 +44,7 @@ penetration tests are run on a yearly basis to independently identify vulnerabil
 practice recommendations for safe implementations.
 
 ## Vulnerability response
+
 Upon receipt of a report for a vulnerability, Centreon will attempt to replicate the reported
 vulnerability and build an action plan with timelines depending on the computed severity.
 
@@ -71,7 +72,7 @@ of remediating the vulnerability:
 ### Reporting a vulnerability
 
 If you believe you have found a security vulnerability, please report it to us as described in the
-[reporting process](https://github.com/centreon/centreon/blob/master/SECURITY.md).
+[reporting process](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 Please do not report security vulnerabilities through public GitHub issues.
 

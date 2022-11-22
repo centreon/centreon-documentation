@@ -105,7 +105,7 @@ Centreon utilise des protocoles, certificats, algorithmes et logiciels à jour p
 
 ### Configuration
 
-Centreon garantit à ses clients la configuration sécurisée de son application.. Cette configuration produit n’est opérée que par des collaborateurs certifiés. Elle s’appuie sur une orchestration et une automatisation garantissant la résilience, la robustesse et l’homogénéisation du service proposé.
+Centreon garantit à ses clients la configuration sécurisée de son application. Cette configuration produit n’est opérée que par des collaborateurs certifiés. Elle s’appuie sur une orchestration et une automatisation garantissant la résilience, la robustesse et l’homogénéisation du service proposé.
 
 ### Accès et authentification à l’administration de la plateforme
 
@@ -114,7 +114,7 @@ L’accès administrateur au produit est limité aux seuls administrateurs dûme
 ### Authentification utilisateur
 
 L’accès utilisateur au produit est limité aux seuls utilisateurs dûment autorisés. Cette autorisation peut être multifactorielle, selon l’expression du besoin du client et sa capacité à sécuriser son environnement (authentification radius, MFA, sécurité et filtrage réseau, etc…).
-Le client peut configurer ses accès et habilitations utilisateurs en s’appuyant sur le portail CIAM (Customer Identity and Access Management) proposé par Centreon. Ce portail s’appuie sur OpenID Connect, mais peut être configuré avec d’autres fournisseurs d’identité propres au client.
+Le client peut configurer ses accès et habilitations utilisateurs en s’appuyant sur le portail CIAM (Customer Identity and Access Management) proposé par Centreon. Ce portail s’appuie sur OpenID Connect, et peut être configuré avec d’autres fournisseurs d’identité propres au client.
 
 ### Logs
 
@@ -135,7 +135,8 @@ Les mécanismes d’automatisation et d’orchestration en place garantissent un
 ### Signalement de vulnérabilités
 
 Centreon dispose d’un process permettant la bonne réception et le bon traitement des signalements de vulnérabilité.
-Les signalements peuvent être effectués par mail à l’adresse suivante : security@centreon.com. 
+Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler comme décrit dans le
+[processus de signalement](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 ### Détection de vulnérabilités
 
