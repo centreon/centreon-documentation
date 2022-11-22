@@ -38,35 +38,50 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
-  yum info centreon-map-web-client
-  yum info centreon-map-server-ng
+  dnf info centreon-map-web-client
+  dnf info centreon-map-server-engine
   ```
   
   </TabItem>
   <TabItem value="CentOS 7" label="CentOS 7">
 
   ```shell
-  dnf info centreon-map-web-client
-  dnf info centreon-map-server-ng
+  yum info centreon-map-web-client
+  yum info centreon-map-server-engine
+  ``` 
+  
+  </TabItem>
+  <TabItem value="Debian" label="Debian">
+
+  ```shell
+  apt info centreon-map-web-client
+  apt info centreon-map-engine
   ``` 
   
   </TabItem>
   </Tabs>
 
-2. In the output, **Repository** should read **centreon-beta-stable-noarch**. If this is not the case, you do not have the correct packages installed. Do the following :
+2. In the output, **Repository** should read **centreon-stable-noarch**. If this is not the case, you do not have the correct packages installed. Do the following :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
-  sudo dnf install centreon-map-web-client --enablerepo=centreon-beta-stable*
+  sudo dnf install centreon-map-web-client
   ```
   
   </TabItem>
   <TabItem value="CentOS 7" label="CentOS 7">
   
   ```shell
-  sudo yum install centreon-map-web-client --enablerepo=centreon-beta-stable*
+  sudo yum install centreon-map-web-client
+  ```
+  
+  </TabItem>
+  <TabItem value="Debian" label="Debian">
+  
+  ```shell
+  sudo apt install centreon-map-web-client
   ```
   
   </TabItem>
@@ -83,10 +98,10 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   <logger name="org.apache" level="INFO" />
   ```
   
-2. Restart your **map-ng** server:
+2. Restart your **centreon-map-engine** server:
 
   ```shell
-  systemctl restart centreon-map-ng
+  systemctl restart centreon-map-engine
   ```
 
 ## Run our diagnostic tool
@@ -137,19 +152,19 @@ Here are the main errors that you can encounter:
 
 1. Make sure the URL specified in **Administration > Extensions > MAP > Options** is reachable (both reachable and resolvable) from the computer accessing the web interface.
 
-2. Check the status of MAP NG by opening the following URL in the browser (use the same values for **MAP_NG_IP_ADDRESS** and **MAP_NG_PORT** as the ones defined in **Administration > Extensions > MAP > Options**).
+2. Check the status of MAP by opening the following URL in the browser (use the same values for **MAP_IP_ADDRESS** and **MAP_PORT** as the ones defined in **Administration > Extensions > MAP > Options**).
 
   ```shell
-  http://[MAP_NG_IP_ADDRESS]:[MAP_NG_PORT]/centreon-map/api/beta/actuator/health
+  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/actuator/health
   ```
   
   Example:
   
   ```shell
-  http://10.0.0.2:8081/centreon-map/api/beta/actuator/health
+  http://10.0.0.2:8081/centreon-map/api/actuator/health
   ```
   
-  The results should be as follows:
+  The result should be as follows:
   
   ```shell
   {
@@ -161,11 +176,11 @@ Here are the main errors that you can encounter:
 
 ## Still stuck?
 
-If you still need help, please post a message to the group, providing us with the basic information about the way Centreon MAP NG is installed.
+If you still need help, please contact the [Centreon support team](https://support.centreon.com/) with the basic information about the way Centreon MAP is installed.
 
 Here is an example for a standard installation:
 
-|            | Central | MAP ng | MAP legacy |
+|            | Central | MAP | MAP (Legacy) |
 |------------|------|--------|--------|
 |Is there a direct connection between this element and the central (are they on the same network?)|n/a|Y|Y|
 |Is this element installed on the same server as the central?   |n/a|Y|N|
@@ -176,13 +191,12 @@ Here is an example for a standard installation:
 
 See above [Run our diagnostic tool](#run-our-diagnostic-tool) and send us the complete output of the script.
 
-- Log files
-  Provide the following log files (these are the default paths):
+Provide the following log files (default paths):
 
-  - Centreon MAP NG server:
+  - Centreon MAP server:
    
    ```shell
-   /var/log/centreon-map/centreon-map-ng.log
+   /var/log/centreon-map/centreon-map-engine.log
    ```
 
   - Centreon Central server:
@@ -197,7 +211,7 @@ If you encounter issues on the web interface, please provide us with screenshots
   - Network tab (F12 key), if possible filtered on failing requests.
   - Console tab (F12 key), if possible filtered on errors.
 
-### Output of yum list command
+### Output of `yum list` command
 
 Run the following commands and send us their output:
 
@@ -207,8 +221,8 @@ Run the following commands and send us their output:
   yum list centreon-map-web-client --showduplicates -q
   ```
     
-  - On the server where **map-ng** is installed:
+  - On the server where **centreon-map-engine** is installed:
   
   ```shell
-  yum list centreon-map-server-ng --showduplicates -q
+  yum list centreon-map-engine --showduplicates -q
   ```

@@ -45,26 +45,26 @@ La nouvelle vue s'affiche dans la liste des **Geographic views**.
 
 7. Cliquez sur **Éditer** pour confirmer les paramètres de la vue.
 
-## Perform actions on a map
+## Procéder à des actions sur une carte
 
-You can perform actions on each standard map and geographic view you have access to. Use the following procedures if you need to edit the map properties, share or delete a map.
+Vous pouvez effectuer des actions sur chaque carte standard et chaque vue géographique à laquelle vous avez accès. Suivez ces procédures si vous souhaitez modifier les propriétés d'une carte, la partager ou la supprimer.
 
-> Deleting a map is the unique action you can perform on a geographic view.
+> La fonctionnalité de partage d'une carte n'est pas disponible sur une vue géographique.
 
-Hover over the map on which you want to apply an action and click the corresponding button.
+Survolez la carte sur laquelle vous souhaitez appliquer une action et cliquez sur le bouton correspondant.
 
-### Delete a map
+### Supprimer une carte
 
-Click the **red cross** button and confirm the deletion by clicking the **Delete** button.
+Cliquez sur le bouton de la corbeille et confirmez la suppression en cliquant sur le bouton **Supprimer**.
 
-### Edit map properties
+### Modifier les propriétés de la carte
 
-Click the **wrench** button to edit the map properties and confirm the changes by clicking the **Edit** button.
+Cliquez sur le bouton de clé à molette pour modifier les propriétés de la carte et confirmez les modifications en cliquant sur le bouton **Modifier**.
 
-### Share a map
+### Partager une carte
 
-Click the **arrow** button to edit the access group privileges and confirm the changes by clicking the **Save** button.
+Cliquez sur le bouton de partage pour modifier les privilèges du groupe d'accès et confirmez les modifications en cliquant sur le bouton **Sauvegarder**.
 
-### Copy MAP URL
+### Copier l'URL de la carte
 
-A **Copy MAP URL** button is available when you open a map in view mode, allowing you to easily share the map you opened. 
+Un bouton de copie d'URL de la carte est disponible en mode visualisation, ce qui vous permet de partager facilement la carte que vous avez ouverte.

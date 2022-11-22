@@ -20,7 +20,7 @@ Suivez cette procédure pour vérifier si vous êtes autorisé à créer une car
 
 1. Allez dans **Supervision > Map**.
 
-2. Dans la page **Map**, le bouton **+** signifie que vous êtes autorisé à créer une carte. Cela signifie que vous appartenez à un groupe d'accès auquel le rôle de créateur est attribué.
+2. Dans la page **Map**, le bouton **Add a Map** signifie que vous êtes autorisé à créer une carte. Cela signifie que vous appartenez à un groupe d'accès auquel le rôle de créateur est attribué.
 
 ### Attribuer le rôle de créateur
  

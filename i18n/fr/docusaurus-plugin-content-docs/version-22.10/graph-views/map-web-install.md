@@ -9,7 +9,7 @@ Cette page décrit comment installer Centreon MAP. Il est recommandé d'installe
 
 ## Licence
 
-Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe de support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
+Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 ## Architecture
 
@@ -62,7 +62,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/prerequisites.md).
 
-## Installation serveur
+## Installation du serveur MAP Engine
 
 ### Étape 1 : définir les paramètres d'authentification
 
@@ -78,7 +78,7 @@ Excluez l'utilisateur de la politique d'expiration du mot de passe sur la page *
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
-### Étape 1 : créer un utilisateur MySQL
+### Étape 2 : créer un utilisateur MySQL
 
 Créez un utilisateur dans l'instance mysql hébergeant les bases de données **centreon** et **centreon_storage** :
 
@@ -92,18 +92,18 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 ### Étape 3 : installer le serveur MAP Engine
 
-Si vous avez installé votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet **centreon-release** :
+Si vous installez votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet **centreon-release** :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-First you need to install an EPEL repository:
+Vous devez d'abord installer le dépôt EPEL :
 
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-The command should return results as follows:
+La commande doit retourner des résultats comme suit :
 
 ```shell
 Installed:
@@ -112,7 +112,7 @@ Installed:
 Complete!
 ```
 
-Then install the **centreon-release** package:
+Ensuite installez le paquet **centreon-release** :
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.10.el8.noarch.rpm
@@ -254,7 +254,7 @@ mysql_secure_installation
 ```
 ``
 
-* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?
+* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
@@ -272,7 +272,7 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 /etc/centreon-studio/configure.sh
 ```
 
-Si vous venez d'installer Centreon 22.10, sachez que la plate-forme utilise désormais le nouveau protocole BBDO v3.
+Si vous venez d'installer Centreon 22.10, sachez que la plateforme utilise désormais le nouveau protocole BBDO v3.
 Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-studio/studio-config.properties**.
 
 ```text
@@ -309,7 +309,7 @@ Vérifiez la configuration du serveur MAP Engine avec cette commande :
 /etc/centreon-studio/diagnostic.sh
 ```
 
-> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#run-our-diagnostic-tool).
+> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
 
 Si la configuration est correcte, le service **centreon-map-engine** peut être lancé à partir du serveur Centreon MAP (Legacy) :
 
@@ -329,7 +329,7 @@ Le serveur Centreon MAP est maintenant démarré et activé : installons la part
 
 ### Étape 1 : Installer le dépôt Business
 
-Installez le dépôt Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Installez le dépôt de Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
 Ensuite, exécutez la commande suivante :
 
@@ -389,7 +389,7 @@ Ensuite, exécutez la commande suivante :
 
 3. Allez dans **Administration > Extensions > Gestionnaire** et installez le module **Map Web Client**.
 
-### Étape 3: activer le module MAP
+### Étape 3 : activer le module MAP
 
 Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'activer.
 

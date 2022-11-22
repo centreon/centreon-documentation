@@ -67,7 +67,7 @@ team](https://support.centreon.com/) to get and install your license key.
 
 Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the web browsers compatibility [here](../installation/prerequisites.md).
 
-## Server installation
+## MAP Engine server installation
 
 ### Step 1: Set authentication parameters
 
@@ -277,9 +277,9 @@ mysql_secure_installation
 Execute the Centreon MAP Engine server configuration script. Two modes are available:
 interactive or automatic.
 
-- interactive *(no option/default mode)*: Several questions will be asked to
+- Interactive *(no option/default mode)*: Several questions will be asked to
   interactively fill in the installation variables.
-- automatic *(--automatic or -a)*: The installation will be done automatically
+- Automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-map/vars.sh` file
 
 If it's your first installation, we advise you to use the standard mode
@@ -313,7 +313,7 @@ Restart Centreon Broker on the Central server:
 systemctl restart cbd
 ```
 
-Remove the INSERT privilege from user centreon_map:
+Remove the INSERT privilege from user **centreon_map**:
 
 ```sql
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
@@ -329,7 +329,7 @@ Check the MAP Engine server configuration by using this command:
 
 > In case of any error, see the **Run our diagnostic tool** section in the [Troubleshooting MAP](map-web-troubleshooting.md#run-our-diagnostic-tool) topic.
 
-If configuration is correct, the centreon-map-engine service can be
+If configuration is correct, the **centreon-map-engine** service can be
 started from the Centreon MAP server:
 
 ```shell

@@ -24,7 +24,7 @@ Le schéma ci-dessous décrit l'architecture de MAP avec un serveur distant :
 
 ## Synchronisation des images
 
-Ajouter l'accès à la page de synchronisation des images **Administration > Paramètres > Images** :
+Ajoutez l'accès à la page de synchronisation des images **Administration > Paramètres > Images** :
 
 ```shell
 [root@remote ~]# mysql centreon

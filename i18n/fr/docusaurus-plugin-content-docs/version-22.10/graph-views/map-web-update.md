@@ -7,7 +7,7 @@ title: Mettre à jour MAP
 
 Suivez cette procédure pour mettre à jour la version de MAP :
 
-1. Arrêtez le service **centreon-map-engine** en exécutant la commande suivante sur la machine hébergeant le service Centre MAP :
+1. Arrêtez le service **centreon-map-engine** en exécutant la commande suivante sur la machine hébergeant le service Centreon MAP :
  
   ```shell
   sudo systemctl stop centreon-map-engine
@@ -16,7 +16,7 @@ Suivez cette procédure pour mettre à jour la version de MAP :
 2. Mettez à jour les paquets en exécutant la commande suivante sur la ou les machines hébergeant le service du central et le service Centreon MAP :
  
   ```shell
-  sudo yum update "centreon-map-engine" "centreon-map-web-client" --enablerepo="centreon-beta-stable\*"
+  sudo yum update "centreon-map-engine" "centreon-map-web-client"
   ```
 
 3. Purgez la base de données MAP en vous y connectant et en exécutant les requêtes suivantes :

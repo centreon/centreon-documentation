@@ -47,7 +47,7 @@ Use **Widget** elements to display graphical data about the ressources you monit
 - **Process:** allows you to trigger an action on any resources based on a command. Here is an example:
   - You have an internal website that uses Apache, and sometimes Apache crashes. Your need to investigate the core problem of why this crash occurs, however your priority is to make sure the end users can access the website.
   - You can use the process widget by assigning a command such as "services httpd restart" so that when the Apache process crashes, users can immediately restart the Apache service from the view by double-clicking on the widget.
-  - To create a service dedicated to an "action": create a command (in **Configuration > Command > Add**) that contains "service httpd restart" (remember to enable shell). Link the command to a passive service. Link the passive service to a host (e.g. the host that hosts the website). Then you can assign that service to the widget.
+  - To create a service dedicated to an "action": create a command (in **Configuration > Command > Checks > Add**) that contains "service httpd restart" (remember to enable shell). Link the command to a passive service. Link the passive service to a host (e.g. the host that hosts the website). Then you can assign that service to the widget.
 
 ### Media elements
 

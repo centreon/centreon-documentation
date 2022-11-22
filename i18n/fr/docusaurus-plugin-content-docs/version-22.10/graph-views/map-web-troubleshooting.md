@@ -5,76 +5,91 @@ title: Dépannage de MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter shows some guidelines on how to troubleshoot your MAP installation.
+Cette page présente quelques recommandations pour résoudre des incidents lors de l'installation de MAP.
 
-## MAP configuration is not working in HTTPS
+## La configuration MAP ne fonctionne pas en HTTPS
 
-### Symptom
+### Symptôme
 
-The MAP configuration is not working. This issue occurs when the MAP module is installed on the Centreon central server while the MAP platform is secured in HTTPS.
+La configuration du module MAP ne fonctionne pas. Ce problème se produit lorsque le module MAP est installé sur le serveur central Centreon alors que la plateforme MAP est sécurisée en HTTPS.
 
-### Problem
+### Problème
 
-The MAP configuration is not set in TLS.
+La configuration MAP n'est pas définie en TLS.
 
 ### Solution
 
-If you are using IPv6, you need to force the MAP server to use IPv4. 
+Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4. 
 
-1. Go to the **/etc/centreon-map/centreon-map.conf** file.
+1. Accédez au fichier **/etc/centreon-map/centreon-map.conf**.
 
-2. Edit the file by adding the following option:
+2. Modifiez le fichier en ajoutant l'option suivante :
 
   ```shell
   RUN_ARGS="--spring.profiles.active=prod,tls"
   JAVA_OPTS="-Djava.net.preferIPv4Stack=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=8uT4BM1RsXRmIPQbTEazUAhQHtyM7xZ4nlFMIUqQ7lRkbWz24yemkGs9tS4eOwDfF -Dcentreon-map.access-token-validity-seconds=15552000 -Xms512m -Xmx4G"
   ``` 
 
-## Make sure you installed the correct RPMs
+## Vérifier que vous avez installé les bons RPMs
 
-1. Run the following command:
+1. Exécutez la commande suivante :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
-  yum info centreon-map-web-client
-  yum info centreon-map-server-ng
+  dnf info centreon-map-web-client
+  dnf info centreon-map-engine
   ```
   
   </TabItem>
   <TabItem value="CentOS 7" label="CentOS 7">
 
   ```shell
-  dnf info centreon-map-web-client
-  dnf info centreon-map-server-ng
+  yum info centreon-map-web-client
+  yum info centreon-map-engine
+  ``` 
+  
+  </TabItem>
+  <TabItem value="Debian" label="Debian">
+
+  ```shell
+  apt info centreon-map-web-client
+  apt info centreon-map-engine
   ``` 
   
   </TabItem>
   </Tabs>
 
-2. In the output, **Repository** should read **centreon-beta-stable-noarch**. If this is not the case, you do not have the correct packages installed. Do the following :
+2. En sortie, **Repository** doit afficher **centreon-stable-noarch**. Si ce n'est pas le cas, vous n'avez pas installé les bons paquets. Procédez donc comme suit :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
-  sudo dnf install centreon-map-web-client --enablerepo=centreon-beta-stable*
+  sudo dnf install centreon-map-web-client
   ```
   
   </TabItem>
   <TabItem value="CentOS 7" label="CentOS 7">
   
   ```shell
-  sudo yum install centreon-map-web-client --enablerepo=centreon-beta-stable*
+  sudo yum install centreon-map-web-client
+  ```
+  
+  </TabItem>
+  <TabItem value="Debian" label="Debian">
+  
+  ```shell
+  sudo apt install centreon-map-web-client
   ```
   
   </TabItem>
   </Tabs>
 
-## Increase the logs level
+## Augmenter le niveau des logs
 
-1. To increase the logs level, edit the **/etc/centreon-map/map-log.xml** file by changing the following entries to INFO:
+1. Pour augmenter le niveau des logs, éditez le fichier **/etc/centreon-map/map-log.xml** en passant les entrées suivantes en INFO :
 
   ```shell
   <logger name="com.centreon.studio" level="INFO" />
@@ -83,31 +98,30 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   <logger name="org.apache" level="INFO" />
   ```
   
-2. Restart your **map-ng** server:
+2. Redémarrez le serveur **centreon-map-engine** :
 
   ```shell
-  systemctl restart centreon-map-ng
+  systemctl restart centreon-map-engine
   ```
 
-## Run our diagnostic tool
+## Exécuter notre outil de diagnostic
 
-1. Run the following script:
+1. Exécutez le script suivant :
 
   ```shell
   cd /etc/centreon-map
   ./diagnostic.sh
   ```
   
-  All entries should be set to **OK** or **INFO**.
+  Toutes les entrées doivent avoir pour valeur **OK** ou **INFO**.
 
-2. Try to solve any errors using the guidelines below.
+2. Essayez de résoudre les erreurs en suivant les instructions ci-dessous.
 
-> If you still have an error, send us the complete output of the script (see the [Still stuck?](#still-stuck) section).
+> Si l'erreur persiste, envoyez-nous les résultats complets du script (voir la section [Toujours bloqué ?](#toujours-bloqué)).
  
+Voici les principales erreurs que vous pouvez rencontrer :
 
-Here are the main errors that you can encounter:
-
-- Database connection or authentication: if any of these are not OK, check your credentials, network, and mysql users.
+- Connexion à la base de données ou authentification : si la connexion ne fonctionne pas, vérifiez vos informations d'identification, votre réseau et vos utilisateurs mysql.
 
   ```shell
   ########## Database connection ##########
@@ -117,7 +131,7 @@ Here are the main errors that you can encounter:
   [ok]   Connection to centreon_map
   ```
 
-- Connection to broker output: if this is not OK, check broker output configuration, network, and TLS configuration (if used).
+- Connexion à la sortie Broker : si elle ne fonctionne pas, vérifiez la configuration de la sortie Broker, le réseau et la configuration TLS (si utilisée).
 
   ```shell
   ########## Broker connection ##########
@@ -125,7 +139,7 @@ Here are the main errors that you can encounter:
   [ok]   Connection to 127.0.0.1 5758 port
    ```
 
-- Connection or authentication from MAP NG to central server:  if this is not OK, check your credentials, network, proxies, and TLS configuration (if used).
+- Connexion ou authentification de MAP au serveur central : si cela ne fonctionne pas, vérifiez vos informations d'identification, votre réseau, vos proxys et votre configuration TLS (si vous l'utilisez).
 
   ```shell
   ########## Authentication ##########
@@ -133,23 +147,23 @@ Here are the main errors that you can encounter:
   [ok]   Centreon Central authentication using user admin
   ``` 
 
-## Debug problems with the web interface
+## Dépanner à l'aide de l'interface web
 
-1. Make sure the URL specified in **Administration > Extensions > MAP > Options** is reachable (both reachable and resolvable) from the computer accessing the web interface.
+1. Assurez-vous que l'URL spécifiée dans **Administration > Extensions > MAP > Options** est accessible (à la fois accessible et résolue) depuis l'ordinateur accédant à l'interface web.
 
-2. Check the status of MAP NG by opening the following URL in the browser (use the same values for **MAP_NG_IP_ADDRESS** and **MAP_NG_PORT** as the ones defined in **Administration > Extensions > MAP > Options**).
+2. Vérifiez le statut de MAP en accédant à l'URL suivante dans le navigateur (utilisez les mêmes valeurs pour **MAP_IP_ADDRESS** et **MAP_PORT** que celles définies dans **Administration > Extensions > MAP > Options**).
 
   ```shell
-  http://[MAP_NG_IP_ADDRESS]:[MAP_NG_PORT]/centreon-map/api/beta/actuator/health
+  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/actuator/health
   ```
   
-  Example:
+  Exemple:
   
   ```shell
-  http://10.0.0.2:8081/centreon-map/api/beta/actuator/health
+  http://10.0.0.2:8081/centreon-map/api/actuator/health
   ```
   
-  The results should be as follows:
+  Le résultat doit être le suivant :
   
   ```shell
   {
@@ -157,58 +171,57 @@ Here are the main errors that you can encounter:
   }
   ```
   
-  > If not, send us a screenshot of the error (see the [Still stuck?](#still-stuck) section).
+  > Si ce n'est pas le cas, veuillez envoyer une capture d'écran de l'erreur (voir la section [Toujours bloqué ?](#toujours-bloqué)).
 
-## Still stuck?
+## Toujours bloqué ?
 
-If you still need help, please post a message to the group, providing us with the basic information about the way Centreon MAP NG is installed.
+Si vous avez toujours besoin d'aide, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) en fournissant les informations de base sur la manière dont Centreon MAP est installé.
 
-Here is an example for a standard installation:
+Voici un exemple d'installation standard :
 
-|            | Central | MAP ng | MAP legacy |
+|            | Central | MAP | MAP (Legacy) |
 |------------|------|--------|--------|
-|Is there a direct connection between this element and the central (are they on the same network?)|n/a|Y|Y|
-|Is this element installed on the same server as the central?   |n/a|Y|N|
-|Is HTTPS enabled?  |Y|Y|Y|
-|Is it a new installation? |N|Y|N|
+|Y a-t-il une connexion directe entre cet élément et le central (sont-ils sur le même réseau ?)|n/a|Y|Y|
+|Cet élément est-il installé sur le même serveur que le central ?   |n/a|Y|N|
+|Le protocole HTTPS est-il activé ?  |Y|Y|Y|
+|Est-ce une nouvelle installation ? |N|Y|N|
 
-### Output of diagnostic.sh
+### Résultat du script diagnostic.sh
 
-See above [Run our diagnostic tool](#run-our-diagnostic-tool) and send us the complete output of the script.
+Voir ci-dessus [Exécuter notre outil de diagnostic](#exécuter-notre-outil-de-diagnostic) et envoyez le résultat complet du script à l'[équipe support de Centreon](https://support.centreon.com/).
 
-- Log files
-  Provide the following log files (these are the default paths):
+Fournissez les fichiers de logs suivants (chemins par défaut) :
 
-  - Centreon MAP NG server:
+  - Centreon MAP Engine server :
    
    ```shell
-   /var/log/centreon-map/centreon-map-ng.log
+   /var/log/centreon-map/centreon-map-engine.log
    ```
 
-  - Centreon Central server:
+  - Centreon Central server :
    ```shell
    /var/log/php-fpm/centreon-error.log
    ```
 
-### Screenshots from the web interface
+### Captures d'écran de l'interface web
 
-If you encounter issues on the web interface, please provide us with screenshots of the interface with the error, with the browser Dev tool opened on the following tabs:
+Si vous rencontrez des problèmes sur l'interface web, veuillez fournir des captures d'écran de l'interface présentant l'erreur, avec l'outil de développement du navigateur ouvert sur les onglets suivants :
   
-  - Network tab (F12 key), if possible filtered on failing requests.
-  - Console tab (F12 key), if possible filtered on errors.
+  - Onglet Réseau (touche F12), si possible filtré sur les requêtes qui échouent.
+  - Onglet Console (touche F12), si possible filtré sur les erreurs.
 
-### Output of yum list command
+### Résultat de la commande `yum list`
 
-Run the following commands and send us their output:
+Exécutez les commandes suivantes et transmettez le résultat au support :
 
-  - On the central:
+  - Sur le central :
   
   ```shell
   yum list centreon-map-web-client --showduplicates -q
   ```
     
-  - On the server where **map-ng** is installed:
+  - Sur le serveur où **centreon-map-engine** est installé :
   
   ```shell
-  yum list centreon-map-server-ng --showduplicates -q
+  yum list centreon-map-engine --showduplicates -q
   ```

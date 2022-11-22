@@ -51,7 +51,7 @@ Go to the [Use the map editor](map-web-editor.md) topic to know how to customize
 
 You can perform actions on each standard map and geographic view you have access to. Use the following procedures if you need to edit the map properties, share or delete a map.
 
-> Deleting a map is the unique action you can perform on a geographic view.
+> The feature to share a map is not available on a geographic view.
 
 Hover over the map on which you want to apply an action and click the corresponding button.
 
