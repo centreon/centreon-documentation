@@ -19,7 +19,7 @@ Toute action exécutée depuis l’interface permettant d’agir sur votre super
 
 ## Collecteur
 
-Serveur Centreon. Un collecteur est rattaché à un [serveur central](#serveur-central).
+Un collecteur est un serveur de supervision installé dans votre infrastructure, qui supervise vos resources. Un collecteur est rattaché à un [serveur central](#serveur-central).
 
 - Un collecteur Centreon supervise des [ressources](#ressource). Il possède un [moteur de supervision](#moteur-de-supervision).
 

@@ -97,7 +97,7 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 
 ## Poller
 
-Centreon server. A poller is attached to a [central server](#central-server).
+A poller is a monitoring server installed in your infrastructure to monitor your resources. A poller is attached to the [central server](#central-server).
 
 - A Centreon poller monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
 
