@@ -61,7 +61,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@CENTRAL_SLAVE_NAME@`: secondary central server's name (must be identical to `hostname -s`)
 * `@DATABASE_MASTER_IPADDR@` : primary database server's IP address
 * `@DATABASE_MASTER_NAME@` : primary database server's FQDN (must be identical to: `hostname -s`)
-* `@DATABASE_SLAVE_IPADDR@` : primary database server's IP address 
+* `@DATABASE_SLAVE_IPADDR@` : secondary database server's IP address 
 * `@DATABASE_SLAVE_NAME@` : secondary database server's FQDN (must be identical to: `hostname -s`)
 * `@QDEVICE_IPADDR@`: quorum device's IP address
 * `@QDEVICE_NAME@`: quorum device's name (must be identical to `hostname -s`)
