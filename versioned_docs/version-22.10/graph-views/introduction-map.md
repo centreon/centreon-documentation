@@ -38,5 +38,6 @@ Use the following procedures to use and administrate Centreon MAP.
   - [MAP troubleshooting](map-web-troubleshooting.md) helps you to solve some issues occuring in MAP.
 
 ### Using MAP
-  - [Manage maps in MAP](map-web-manage.md) gives you information about how to create and manage maps from the Centreon MAP interface.
-  - [Use the map editor](map-web-editor.md) explains how to build maps using the editor tool.
+  - [Manage maps in MAP](map-web-manage.md) gives you information about how to manage maps from the Centreon MAP interface.
+  - [Create a standard map](map-web-create-standard-map.md) describes how to create standard maps and how to customize them using the MAP editor.
+  - [Create a geographic view](map-web-create-geoview.md) explains how to display your resources across a defined geographical area.

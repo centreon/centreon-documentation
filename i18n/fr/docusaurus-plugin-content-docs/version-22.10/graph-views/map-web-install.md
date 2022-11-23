@@ -5,7 +5,9 @@ title: Installer MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cette page décrit comment installer Centreon MAP. Il est recommandé d'installer MAP sur le serveur central. Toutefois, si vous disposez de gros volumes de données, vous pouvez l'installer sur votre ancien serveur MAP (Legacy). Le module MAP n'utilise pas la base de données **centreon_studio**.
+Cette page décrit comment installer Centreon MAP. Il est recommandé d'installer MAP sur un serveur dédié. Toutefois, si vous ne disposez pas de gros volumes de données, vous pouvez l'installer sur le serveur central.
+
+> Note aux utilisateurs de la version MAP (Legacy) : le module MAP ne nécessite pas la base de données **centreon_studio** (utilisée pour un serveur MAP Legacy). Cette base de données peut être supprimée après la [migration de vos anciennes cartes (Legacy) vers MAP](./import-into-map-web.md). Attention, il n'est pas possible de migrer de MAP vers MAP (Legacy).
 
 ## Licence
 
@@ -13,7 +15,10 @@ Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentai
 
 ## Architecture
 
-Le schéma ci-dessous décrit l'architecture de MAP :
+Le schéma ci-dessous décrit l'architecture de MAP.
+
+- Vous pouvez installer Centreon MAP soit sur un serveur dédié, soit sur le serveur central.
+- Centreon MAP ne nécessite aucune installation sur votre machine : cette solution est entièrement disponible dans l'interface web Centreon.
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
 
@@ -327,7 +332,7 @@ Le serveur Centreon MAP est maintenant démarré et activé : installons la part
 
 ## Installation du client web MAP
 
-### Étape 1 : Installer le dépôt Business
+### Étape 1 : installer le dépôt Business
 
 Installez le dépôt de Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
@@ -357,7 +362,7 @@ Ensuite, exécutez la commande suivante :
 </TabItem>
 </Tabs>
 
-### Étape 2 : Installer le module MAP
+### Étape 2 : installer le module MAP
 
 1. Depuis votre terminal, entrez la commande suivante :
 

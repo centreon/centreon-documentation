@@ -663,7 +663,11 @@
                 },
                 {
                 "type": "doc",
-                "id": "version-22.10/graph-views/map-web-editor"
+                "id": "version-22.10/graph-views/map-web-create-standard-map"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.10/graph-views/map-web-create-geoview"
               },
               {
                 "type": "doc",

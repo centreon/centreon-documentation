@@ -5,7 +5,9 @@ title: Install MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic describes how to install Centreon MAP. It is recommended to install MAP on the central server. However, if you have large volumes of data, you can install it on your legacy MAP server. The MAP module does not use the **centreon_studio** database.
+This topic describes how to install Centreon MAP. It is recommended to install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
+
+> Note to users already using the MAP (Legacy) version: the MAP module does not require the **centreon_studio** database (used for a MAP Legacy server). This database can be removed after [migrating your legacy maps to MAP](./import-into-map-web.md). Be aware that it is not possible to migrate from MAP to MAP (legacy).
 
 ## License
 
@@ -14,7 +16,11 @@ team](https://support.centreon.com/) to get and install your license key.
 
 ## Architecture
 
-The diagram below summarizes the MAP architecture:
+The diagram below summarizes the MAP architecture.
+
+- You can either install Centreon MAP on a dedicated server or on the central server.
+- Centreon MAP does not require any installation on your machine: this solution is fully available in the Centreon web interface.
+
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
 
