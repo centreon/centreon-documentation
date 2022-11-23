@@ -36,7 +36,7 @@ Resources are checked according to the following parameters:
 
 ### Contacts are not receiving notification emails
 
-Check that the user has the **Notifications** role.
+Check that the user has the **Notification** role.
 
 ### Notifications have been sent outside the user's time period
 
