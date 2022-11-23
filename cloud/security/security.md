@@ -170,7 +170,7 @@ Centreon does not offer a structured rewards plan for reporting vulnerabilities.
 
 ## Outsourcing and uninterrupted service
 
-Centreon strengthens its abilty to deliver service partly by using outsourcing.
+Centreon strengthens its ability to deliver service partly by using outsourcing.
 Qualified outsourcers hold the best AWS qualifications and skills, and take action within a security framework that has been strictly approved by Centreon.
 This outsourcing allows Centreon to guarantee an uninterrupted service and watch over the AWS infrastructure.
 
