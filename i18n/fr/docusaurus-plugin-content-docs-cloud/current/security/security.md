@@ -157,8 +157,8 @@ Centreon met en œuvre tous les moyens nécessaires pour traiter les vulnérabil
 | --- | --- | --- |
 | 9.0 - 10 | 24h | Dès que possible |
 | 7.0 - 8.9 | 48h ouvrées | 30 jours |
-| 4.0 - 6.9 | 48h ouvrées | 180 jours |
-| 0.1 – 3.9 | 96h ouvrées | 365 jours |
+| 4.0 - 6.9 | 96h ouvrées | 180 jours |
+| 0.1 – 3.9 | 120h ouvrées | 365 jours |
 
 #### Vulnérabilité infrastructure
 
@@ -166,8 +166,8 @@ Centreon met en œuvre tous les moyens nécessaires pour traiter les vulnérabil
 | --- | --- | --- |
 | 9.0 - 10 | 24h | Dès que possible |
 | 7.0 - 8.9 | 48h ouvrées | 8 jours |
-| 4.0 - 6.9 | 48h ouvrées | 15 jours |
-| 0.1 – 3.9 | 96h ouvrées | 30 jours |
+| 4.0 - 6.9 | 96h ouvrées | 15 jours |
+| 0.1 – 3.9 | 120h ouvrées | 30 jours |
 
 Nota : La correction des vulnérabilités infrastructure peut être soumise à des délais complémentaires et peut dépendre de la publication de correctifs par les fournisseurs (hébergeur, éditeur de l’OS). Centreon s’engage à réagir dans les meilleurs délais lorsqu'un tel cas de figure est amené à se présenter.
 

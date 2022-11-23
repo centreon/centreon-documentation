@@ -150,17 +150,17 @@ Centreon implements all necessary means to handle any discovered vulnerabilities
 |------------|---------------------|--------------|
 | 9.0 - 10 | 24h | As soon as possible |
 | 7.0 - 8.9 | 48 working hours | 30 days |
-| 4.0 - 6.9 | 48 working hours | 180 days |
-| 0.1 – 3.9 | 96h working hours | 365 days |
+| 4.0 - 6.9 | 96 working hours | 180 days |
+| 0.1 – 3.9 | 120 working hours | 365 days |
 
 #### Infrastructure vulnerability
 
 | CVSS score | Mitigation deadline | Fix deadline |
 |------------|---------------------|--------------|
 | 9.0 - 10 | 24h | As soon as possible |
-| 7.0 - 8.9 | 48h working hours | 8 days |
-| 4.0 - 6.9 | 48h working hours | 15 days |
-| 0.1 – 3.9 | 96h working hours | 30 days |
+| 7.0 - 8.9 | 48 working hours | 8 days |
+| 4.0 - 6.9 | 96 working hours | 15 days |
+| 0.1 – 3.9 | 120 working hours | 30 days |
 
 Note: Fixing infrastructure vulnerabilities can be subject to extended time limits and can depend on providers publishing fixes (hosting provider, OS publisher). Centreon commits to react as soon as possible should such a scenario arise.
 
