@@ -23,6 +23,10 @@ Vous pouvez ensuite visualiser votre carte directement dans le mode de visualisa
 
 ![image](../assets/graph-views/ng/map-web-global-view.png)
 
+Vos cartes peuvent être affichées de deux façons dans l'interface :
+- Dans la page **Supervision > Map**, en mode visualisation.
+- Dans la page **Accueil > Vues personnalisées**, en utilisant un [widget](../alerts-notifications/custom-views.md) MAP dédié.
+
 ## Procédures
 
 Les procédures suivantes permettent de gérer et d'utiliser Centreon MAP.

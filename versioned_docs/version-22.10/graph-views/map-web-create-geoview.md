@@ -15,7 +15,7 @@ For example, to fill in geographic coordinates for the **Central** host:
 
 1. Go to **Configuration > Hosts > Hosts**. Then click on the **Central** host.
 2. Click the **Host Extended Infos** tab.
-3. Fill in the **Geographic coordinates** field with the `Latitude, Longitude` format . Then click **Save**.
+3. Fill in the **Geographic coordinates** field with the `Latitude, Longitude` format. Then click **Save**.
 
 ## Create a geographic view
 

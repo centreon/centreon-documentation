@@ -23,6 +23,10 @@ Then you can visualize your map directly in the view mode:
 
 ![image](../assets/graph-views/ng/map-web-global-view.png)
 
+Your maps can be displayed in two ways in the interface:
+- In the **Monitoring > Map** page, in view mode.
+- In the **Home > Custom Views** page, using a dedicated MAP [widget](../alerts-notifications/custom-views.md).
+
 ## Procedures
 
 Use the following procedures to use and administrate Centreon MAP.
