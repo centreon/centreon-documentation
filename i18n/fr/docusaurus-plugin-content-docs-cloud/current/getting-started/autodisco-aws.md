@@ -14,7 +14,7 @@ Vous devez disposer :
 
 ## Étape 1 : Installer les dépendances du plugin Amazon EC2
 
-Connectez-vous en SSH sur le collecteur qui supervisera vos instances EC2, puis installez le binaire awscli :
+Connectez-vous en SSH sur le collecteur qui supervisera vos instances EC2, puis installez les éléments suivants :
 
 ```shell
 yum install awscli
