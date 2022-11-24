@@ -16,7 +16,7 @@ Use the following procedure to update your MAP version:
 2. Update the packages by running this command on the machine(s) hosting the central service and the Centreon MAP service:
  
   ```shell
-  sudo yum update "centreon-map-engine" "centreon-map-web-client" --enablerepo="centreon-beta-stable\*"
+  sudo yum update "centreon-map-engine" "centreon-map-web-client"
   ```
 
 3. Purge the MAP database by connecting to the database and executing the following requests:

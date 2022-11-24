@@ -36,12 +36,11 @@ Use the following procedures to use and administrate Centreon MAP.
   - [Install MAP on a remote server](map-web-install-remote.md) explains how to install MAP on a remote server.
   - [Update MAP](map-web-update.md) describes the update process of MAP.
   - [Switch from Map (Legacy) to MAP](import-into-map-web.md) explains how to migrate your legacy maps into the MAP interface.
-  - [Install on a remote server](remote-server.md) explains how to install MAP on a remote server.
   - [Manage access rights on MAP](map-web-manage.md) describes the different rights and permissions on maps.
-  - [MAP known issues](map-web-known-issues.md) is a list of issues you may encounter using MAP.
-  - [MAP troubleshooting](map-web-troubleshooting.md) helps you to solve some issues occuring in MAP.
-
+  
 ### Using MAP
   - [Manage maps in MAP](map-web-manage.md) gives you information about how to manage maps from the Centreon MAP interface.
   - [Create a standard map](map-web-create-standard-map.md) describes how to create standard maps and how to customize them using the MAP editor.
   - [Create a geographic view](map-web-create-geoview.md) explains how to display your resources across a defined geographical area.
+  - [MAP known issues](map-web-known-issues.md) is a list of issues you may encounter using MAP.
+  - [MAP troubleshooting](map-web-troubleshooting.md) helps you to solve some issues occuring in MAP.

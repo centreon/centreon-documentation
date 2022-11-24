@@ -107,6 +107,6 @@ Settings will be displayed depending on the type of element you have selected.
 #### Customize your elements
 
 The **Format** panel allows you to apply formatting options depending on the type of element you have selected.
-- Style tab: to customize shapes, links and text.
-- Text tab: to format all text elements.
-- Arrange tab: to organize elements on the drawing canvas (size, position, alignment) and place them regarding different layers.
+- **Style tab:** to customize shapes, links and text.
+- **Text tab:** to format all text elements.
+- **Arrange tab:** to organize elements on the drawing canvas (size, position, alignment) and place them regarding different layers.

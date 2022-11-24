@@ -252,7 +252,7 @@ apt install mariadb-client mariadb-server
 ### Step 4: Check the database configuration
 
 Make sure the database that stores Centreon MAP data is optimized
-(automatically added by the RPM in `/etc/my.cnf.d/map.cnf`):
+(automatically added by the RPM in **/etc/my.cnf.d/map.cnf**):
 
 ```text
 max_allowed_packet = 20M
@@ -283,12 +283,12 @@ mysql_secure_installation
 Execute the Centreon MAP Engine server configuration script. Two modes are available:
 interactive or automatic.
 
-- Interactive *(no option/default mode)*: Several questions will be asked to
+- Interactive (no option/default mode): several questions will be asked to
   interactively fill in the installation variables.
-- Automatic *(--automatic or -a)*: The installation will be done automatically
-  from the values set in `/etc/centreon-map/vars.sh` file
+- Automatic (--automatic or -a): the installation will be done automatically
+  from the values set in **/etc/centreon-map/vars.sh** file.
 
-If it's your first installation, we advise you to use the standard mode
+If it is your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
@@ -425,7 +425,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
 
 2. In the **Connection information** section, set **Map Engine server** to **Yes**.
 
-3. Enter the IP address of your MAP server in the **Map Engine server address** field. (If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost.). The default port is 8081. For instance: ``http://10.25.xxx:8081``.
+3. Enter the IP address of your MAP server in the **Map Engine server address** field. If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost. The default port is 8081 (for instance: ``http://10.25.xxx:8081``).
 
 4. Click the **Test connection to server** button to test the connection. This test should return the **Connection test successful** message.
 
@@ -446,18 +446,23 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   ```
 
 9. Run the following command to check that the **centreon-map-engine** service is properly started:
-
+  
   ```shell
   systemctl status centreon-map-engine
-  ● centreon-map-ng.service - Centreon Studio map server
-     Loaded: loaded (/usr/lib/systemd/system/ccentreon-map-engine.service; enabled; vendor preset: disabled)
-     Active: active (running) since Tue 2022-09-06 09:29:02 UTC; 15s ago
-   Main PID: 19560 (centreon-map-ng)
-      Tasks: 23 (limit: 24448)
-     Memory: 314.8M
-     CGroup: /system.slice/centreon-map-engine.service
-             ├─19560 /bin/bash /usr/share/centreon-map-server/bin/centreon-map-engine
-             └─19576 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=NeEmPqd1512l467yKcYkYQsU6XQ1oDZHkBglDH6nmnTWDRz5hIImTollDTZFOhtOB -Dcentreon-map.access-tok>
+  ```
+
+  This is an example of results:
+
+  ```shell
+  ● centreon-map-engine.service - Centreon Studio map server
+   Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
+ Main PID: 39103 (centreon-map-en)
+    Tasks: 50 (limit: 23465)
+   Memory: 598.1M
+   CGroup: /system.slice/centreon-map-engine.service
+           ├─39103 /bin/bash /usr/share/centreon-map-engine/bin/centreon-map-engine
+           └─39119 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map
   ```
 
 You can now use the MAP module by accessing the **Monitoring > Map** page.

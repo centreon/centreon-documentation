@@ -9,7 +9,7 @@ Centreon MAP installation on a Centreon remote server has to be done exactly lik
 
 If your Centreon remote server has not been installed yet, please refer to the following [documentation](../installation/installation-of-a-remote-server/using-packages.md).
 
-Then refer to the [installation procedure](map-web-install.md) to install the 2 mains components:
+Then refer to the [installation procedure](map-web-install.md) to install the two main components:
 
 - The web interface.
 - The server.
@@ -25,7 +25,7 @@ The diagram below summarizes the MAP architecture:
 
 ## Images synchronisation
 
-Add access to the images synchronisation page **Administration  >  Parameters  >  Images**
+Add access to the images synchronization page **Administration  >  Parameters  >  Images**
 ```shell
 [root@remote ~]# mysql centreon
 MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;

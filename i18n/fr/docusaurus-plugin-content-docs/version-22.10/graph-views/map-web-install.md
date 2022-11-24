@@ -424,18 +424,23 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 9. Exécutez la commande suivante pour vérifier que le service **centreon-map-engine** est correctement démarré :
-
+  
   ```shell
   systemctl status centreon-map-engine
-  ● centreon-map-ng.service - Centreon Studio map server
-     Loaded: loaded (/usr/lib/systemd/system/ccentreon-map-engine.service; enabled; vendor preset: disabled)
-     Active: active (running) since Tue 2022-09-06 09:29:02 UTC; 15s ago
-   Main PID: 19560 (centreon-map-ng)
-      Tasks: 23 (limit: 24448)
-     Memory: 314.8M
-     CGroup: /system.slice/centreon-map-engine.service
-             ├─19560 /bin/bash /usr/share/centreon-map-server/bin/centreon-map-engine
-             └─19576 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dcentreon-map.signing-key=NeEmPqd1512l467yKcYkYQsU6XQ1oDZHkBglDH6nmnTWDRz5hIImTollDTZFOhtOB -Dcentreon-map.access-tok>
+  ```
+  
+  Voici un exemple de résultat :
+  
+  ```shell
+  ● centreon-map-engine.service - Centreon Studio map server
+   Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
+ Main PID: 39103 (centreon-map-en)
+    Tasks: 50 (limit: 23465)
+   Memory: 598.1M
+   CGroup: /system.slice/centreon-map-engine.service
+           ├─39103 /bin/bash /usr/share/centreon-map-engine/bin/centreon-map-engine
+           └─39119 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.

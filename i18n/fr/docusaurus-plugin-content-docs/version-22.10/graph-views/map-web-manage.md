@@ -17,8 +17,6 @@ Vous pouvez effectuer des actions sur chaque carte standard et chaque vue géogr
 
 > Les fonctionnalités de partage et de copie d'URL d'une carte ne sont pas disponibles sur une vue géographique.
 
-Survolez la carte sur laquelle vous souhaitez appliquer une action et cliquez sur le bouton correspondant.
-
 ### Supprimer une carte
 
 Cliquez sur le bouton de la corbeille et confirmez la suppression en cliquant sur le bouton **Supprimer**.

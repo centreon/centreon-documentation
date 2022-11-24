@@ -18,8 +18,6 @@ You can perform actions on each standard map and geographic view you have access
 
 > The features to share and to copy a map URL are not available on a geographic view.
 
-Hover over the map on which you want to apply an action and click the corresponding button.
-
 ### Delete a map
 
 Click the **trash** button and confirm the deletion by clicking the **Delete** button.
