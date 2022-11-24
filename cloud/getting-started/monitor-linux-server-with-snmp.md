@@ -60,7 +60,7 @@ On the web interface, go to **Configuration > Plugin Packs** and install the **L
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts (simplified)** and click on **Add**:
 
    ![image](../assets/getting-started/quick_start_linux_1.gif)
 
@@ -80,11 +80,11 @@ On the web interface, go to **Configuration > Plugin Packs** and install the **L
 
    ![image](../assets/getting-started/quick_start_linux_3.png)
 
-5. Go to **Configuration > Services > Services by host**. A set of indicators has been created automatically.
+5. Go to **Configuration > Services > Services (simplified)**. A set of indicators has been created automatically.
 
    ![image](../assets/getting-started/quick_start_linux_4a.png)
 
-   You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by the name of the host:
+   You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services (simplified)**. The list will be filtered by the name of the host:
 
    ![image](../assets/getting-started/quick_start_linux_4b.png)
 

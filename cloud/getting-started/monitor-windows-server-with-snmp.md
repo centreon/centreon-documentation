@@ -97,7 +97,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts (simplified)** and click on **Add**:
 
   ![image](../assets/getting-started/quick_start_windows_snmp_11.gif)
 
@@ -117,7 +117,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
   ![image](../assets/getting-started/quick_start_windows_snmp_13.png)
 
-5. Go to **Configuration > Services > Services by host**. A set of indicators has been automatically deployed:
+5. Go to **Configuration > Services > Services (simplified)**. A set of indicators has been automatically deployed:
 
   ![image](../assets/getting-started/quick_start_windows_snmp_14.png)
 
@@ -135,7 +135,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
 ### To go further
 
-The **Windows SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates** to know the complete list:
+The **Windows SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates (simplified)** to know the complete list:
 
    ![image](../assets/getting-started/quick_start_windows_snmp_18.png)
 
@@ -151,7 +151,7 @@ With **Centreon IT Edition** you can add very quickly and very simply the monito
 
 The item was added. You can select another discovery command below **Rule** and repeat the process.
 
-3. The services are added and can be displayed in the **Configuration > Services > Services by host** menu:
+3. The services are added and can be displayed in the **Configuration > Services > Services (simplified)** menu:
 
 	![image](../assets/getting-started/quick_start_windows_snmp_21.png)
 
