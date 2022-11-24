@@ -26,27 +26,28 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Call" label="Call">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *gateway*#gateway.current.connected.calls |       |
-| *gateway*#gateway.current.ongoing.calls   |       |
-| *gateway*#gateway.total.accumulated.calls |       |
-| *isdn*#isdn.current.connected.calls       |       |
-| *isdn*#isdn.current.ongoing.calls         |       |
-| *isdn*#isdn.total.accumulated.calls       |       |
+| Metric Name                               | Unit |
+|:------------------------------------------|:-----|
+| *gateway*#gateway.calls.accumulated.count |      |
+| *gateway*#gateway.calls.connected.count   |      |
+| *gateway*#gateway.calls.ongoing.count     |      |
+| *isdn*#isdn.calls.accumulated.count       |      |
+| *isdn*#isdn.calls.connected.count         |      |
+| *isdn*#isdn.calls.ongoing.count           |      |
 
 </TabItem>
 <TabItem value="System" label="System">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *cpu*#cpu.workload.1m                     | %     |
-| *cpu*#cpu.workload.5m                     | %     |
-| *cpu*#cpu.workload.current                | %     |
-| *memory*#memory.allocated.bytes           | B     |
-| *memory*#memory.allocated.percentage      | %     |
-| *memory*#memory.free.bytes                | B     |
-| *temperature*#temperature.current.celsius | C     |
+| Metric Name                              | Unit  |
+|:-----------------------------------------|:------|
+| cpus.utilization.average.percentage      | %     |
+| *cpu*#cpu.utilization.1m.percentage      | %     |
+| *cpu*#cpu.utilization.5m.percentage      | %     |
+| *cpu*#cpu.utilization.current.percentage | %     |
+| *memory*#memory.free.bytes               | B     |
+| *memory*#memory.usage.bytes              | B     |
+| *memory*#memory.usage.percentage         | %     |
+| *temperature*#probe.temperature.celsius  | C     |
 
 </TabItem>
 </Tabs>
@@ -167,27 +168,29 @@ running the following command:
     --hostname=10.0.0.1 \
     --snmp-version='2c' \
     --snmp-community='my-snmp-community' \
-    --warning-memory-allocated-bytes='' \
-    --critical-memory-allocated-bytes='' \
+    --warning-memory-usage-bytes='' \
+    --critical-memory-usage-bytes='' \
     --warning-memory-free-bytes='' \
     --critical-memory-free-bytes='' \
-    --warning-memory-allocated-percentage='' \
-    --critical-memory-allocated-percentage='' \
-    --warning-cpu-workload-current='' \
-    --critical-cpu-workload-current='' \
-    --warning-cpu-workload-1m='' \
-    --critical-cpu-workload-1m='' \
-    --warning-cpu-workload-5m='' \
-    --critical-cpu-workload-5m='' \
-    --warning-temperature-current-celsius='' \
-    --critical-temperature-current-celsius='' \
+    --warning-memory-usage-percentage='' \
+    --critical-memory-usage-percentage='' \
+    --warning-cpu-utilization-current-percentage='' \
+    --critical-cpu-utilization-current-percentage='' \
+    --warning-cpu-utilization-1m-percentage='' \
+    --critical-cpu-utilization-1m-percentage='' \
+    --warning-cpu-utilization-5m-percentage='' \
+    --critical-cpu-utilization-5m-percentage='' \
+    --warning-probe-temperature-celsius='' \
+    --critical-probe-temperature-celsius='' \
+    --warning-average='' \
+    --critical-average='' \
     --use-new-perfdata
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All CPU usages are ok - All memory usages are ok - All temperatures are ok | 'CPU 2#cpu.workload.current'=15.00%;;;0;100 'CPU 2#cpu.workload.1m'=5.00%;;;0;100 'CPU 2#cpu.workload.5m'=2.00%;;;0;100 'Main CPU#cpu.workload.current'=10.00%;;;0;100 'Main CPU#cpu.workload.1m'=4.00%;;;0;100 'Main CPU#cpu.workload.5m'=3.00%;;;0;100 'System Heap#memory.allocated.bytes'=10997440B;;;0;0 'System Heap#memory.free.bytes'=233509184B;;;0;0 'System Heap#memory.allocated.percentage'=0.00%;;;0;100 'System memory 2#memory.allocated.bytes'=200000000B;;;0;300000000 'System memory 2#memory.free.bytes'=100000000B;;;0;300000000 'System memory 2#memory.allocated.percentage'=66.67%;;;0;100 'Probe 1#temperature.current.celsius'=47.00C;;;0;100 'Probe 2#temperature.current.celsius'=43.00C;;;0;100
+OK: 2 CPU(s) average usage is 12.50 % - All CPU usages are ok - All memory usages are ok - All temperatures are ok | 'cpus.utilization.average.percentage'=12.50%;;;0;100 'CPU 2#cpu.utilization.current.percentage'=15.00%;;;0;100 'CPU 2#cpu.utilization.1m.percentage'=5.00%;;;0;100 'CPU 2#cpu.utilization.5m.percentage'=2.00%;;;0;100 'Main CPU#cpu.utilization.current.percentage'=10.00%;;;0;100 'Main CPU#cpu.utilization.1m.percentage'=4.00%;;;0;100 'Main CPU#cpu.utilization.5m.percentage'=3.00%;;;0;100 'System Heap#memory.usage.bytes'=10997440B;;;0;400000000 'System Heap#memory.free.bytes'=233509184B;;;0;400000000 'System Heap#memory.usage.percentage'=2.75%;;;0;100 'System memory 2#memory.usage.bytes'=200000000B;;;0;300000000 'System memory 2#memory.free.bytes'=100000000B;;;0;300000000 'System memory 2#memory.usage.percentage'=66.67%;;;0;100 'Probe 1#probe.temperature.celsius'=47.00C;;;0;100 'Probe 2#probe.temperature.celsius'=43.00C;;;0;100
 ```
 
 All available options for a given mode can be displayed by adding the
