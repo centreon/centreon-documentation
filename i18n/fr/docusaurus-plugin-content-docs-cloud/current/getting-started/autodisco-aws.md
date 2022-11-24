@@ -18,6 +18,7 @@ Connectez-vous en SSH sur le collecteur qui supervisera vos instances EC2, puis 
 
 ```shell
 yum install awscli
+yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 ## Étape 2 : Configurer la tâche de découverte

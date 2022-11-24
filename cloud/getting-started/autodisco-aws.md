@@ -14,10 +14,11 @@ You must have:
 
 ## Step 1: Installing the Amazon EC2 plugin dependencies
 
-Using SSH, log in to the poller that will monitor your EC2 resources, then install the **awscli** binary:
+Using SSH, log in to the poller that will monitor your EC2 resources, then install the following elements:
 
 ```shell
 yum install awscli
+yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 ## Step 2: Configure the discovery job
