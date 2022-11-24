@@ -15,12 +15,16 @@
     "message": "Tutoriels",
     "description": "The label for category Tutorials in sidebar cloud"
   },
+  "sidebar.cloud.category.Monitoring basics": {
+    "message": "Bases de la supervision",
+    "description": "The label for category Monitoring basics in sidebar cloud"
+  },
   "sidebar.cloud.category.Monitoring resources": {
     "message": "Superviser des ressources",
     "description": "The label for category Monitoring resources in sidebar cloud"
   },
   "sidebar.cloud.category.Monitoring hosts": {
-    "message": "Superviser des hotes",
+    "message": "Superviser des hôtes",
     "description": "The label for category Monitoring hosts in sidebar cloud"
   },
   "sidebar.cloud.category.Monitoring services": {
@@ -28,43 +32,55 @@
     "description": "The label for category Monitoring services in sidebar cloud"
   },
   "sidebar.cloud.category.Discovering hosts and services automatically": {
-    "message": "Discovering hosts and services automatically",
+    "message": "Auto-découverte d'hôtes et de services",
     "description": "The label for category Discovering hosts and services automatically in sidebar cloud"
   },
-  "sidebar.cloud.category.Organizing hosts, services and contacts": {
-    "message": "Organizing hosts, services and contacts",
-    "description": "The label for category Organizing hosts, services and contacts in sidebar cloud"
+  "sidebar.cloud.category.Organizing hosts and services": {
+    "message": "Organiser hôtes et services",
+    "description": "The label for category Organizing hosts and services in sidebar cloud"
   },
   "sidebar.cloud.category.Basic objects and actions": {
-    "message": "Basic objects and actions",
+    "message": "Objets et actions de base",
     "description": "The label for category Basic objects and actions in sidebar cloud"
   },
   "sidebar.cloud.category.Passive Monitoring": {
-    "message": "Passive Monitoring",
+    "message": "Supervision passive",
     "description": "The label for category Passive Monitoring in sidebar cloud"
   },
   "sidebar.cloud.category.Managing events and alerts": {
-    "message": "Managing events and alerts",
+    "message": "Gérer évènements et alertes",
     "description": "The label for category Managing events and alerts in sidebar cloud"
   },
   "sidebar.cloud.category.Viewing events": {
-    "message": "Viewing events",
+    "message": "Visualiser les évènements",
     "description": "The label for category Viewing events in sidebar cloud"
   },
   "sidebar.cloud.category.Managing alerts": {
-    "message": "Managing alerts",
+    "message": "Gérer les alertes",
     "description": "The label for category Managing alerts in sidebar cloud"
   },
   "sidebar.cloud.category.Managing notifications": {
-    "message": "Managing notifications",
+    "message": "Gérer les notifications",
     "description": "The label for category Managing notifications in sidebar cloud"
   },
-  "sidebar.cloud.category.Managing users": {
-    "message": "Managing users",
-    "description": "The label for category Managing users in sidebar cloud"
+  "sidebar.cloud.category.Managing Centreon users": {
+    "message": "Gérer les utilisateurs de Centreon",
+    "description": "The label for category Managing Centreon users in sidebar cloud"
   },
   "sidebar.cloud.category.Performance graphs": {
     "message": "Graphiques de performance",
     "description": "The label for category Performance graphs in sidebar cloud"
+  },
+  "sidebar.cloud.category.Resources": {
+    "message": "Ressources",
+    "description": "The label for category Resources in sidebar cloud"
+  },
+  "sidebar.cloud.category.Integrations": {
+    "message": "Intégrations",
+    "description": "The label for category Integrations in sidebar cloud"
+  },
+  "sidebar.cloud.category.Security": {
+    "message": "Sécurité",
+    "description": "The label for category Security in sidebar cloud"
   }
 }

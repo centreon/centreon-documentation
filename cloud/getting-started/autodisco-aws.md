@@ -14,10 +14,11 @@ You must have:
 
 ## Step 1: Installing the Amazon EC2 plugin dependencies
 
-Using SSH, log in to the poller that will monitor your EC2 resources, then install the **awscli** binary:
+Using SSH, log in to the poller that will monitor your EC2 resources, then install the following elements:
 
 ```shell
 yum install awscli
+yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 ## Step 2: Configure the discovery job
@@ -62,6 +63,6 @@ yum install awscli
 
 3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/tutorials/aws-save.png)
 
-4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
+4. Go to **Configuration > Hosts > Hosts (simplified)** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The hosts appear in the **Resources Status** page: they are monitored.

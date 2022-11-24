@@ -98,7 +98,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Rendez-vous dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
+1. Rendez-vous dans le menu **Configuration > Hôtes > Hôtes (simplifiés)** et cliquez sur **Ajouter** :
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_11.gif)
 
@@ -140,7 +140,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
 ### Pour aller plus loin
 
-Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
+Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles (simplifiés)** et trouvez la liste complète:
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
 
