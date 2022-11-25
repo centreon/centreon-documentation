@@ -51,6 +51,8 @@ In order to keep the cluster safe from split-brain issues, a third server is man
 In order to adhere to best practices and be as resilient as possible, the Quorum server placement
 Quorum server should be at a different site than the two primary nodes, with independent network attachments.
 
+> **WARNING:** Be sure Selinux and Firewalld are disabled.
+
 ### Defining hosts' names and addresses
 
 In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
@@ -618,8 +620,8 @@ To make sure that all the previous steps have been successful, and that the corr
 The expected output is:
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
@@ -755,8 +757,8 @@ In addition, the output of this command must display only `OK` results:
 The expected output is:
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1655,8 +1657,8 @@ The MariaDB replication state can be monitored at any time with the `mysql-check
 The expected output is:
 
 ```bash
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1764,12 +1766,6 @@ These actions must be performed only on `@CENTRAL_MASTER_NAME@` and then the bro
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
-And then you need to restart all the centreon processes using the following command:
-
-```bash
-pcs resource restart centreon
-```
-
 ### Modification of the 3 configuration files
 
 After having modified the output of the broker, we have to modify the Centreon configuration files.
@@ -1849,6 +1845,60 @@ database:
     dsn: "mysql:host=@VIP_SQL_IPADDR@:3306;dbname=centreon_storage"
     username: "@MARIADB_CENTREON_USER@"
     password: "@MARIADB_CENTREON_PASSWD@"
+```
+
+And then you need to restart gorgone and cbd_central_broker resources to changes take effects.
+Restarting gorgone resource will restart all resources below, so using the following command:
+
+```bash
+pcs resource restart gorgone
+```
+
+And after resources are restarted, verify if all is OK with the command `crm_mon -fr`, the result should be like that:
+
+```text
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.4-5.el8_7.2-dc6eb4362e) - partition with quoru
+m
+  * Last updated: Wed Nov 23 10:27:48 2022
+  * Last change:  Wed Nov 23 10:27:43 2022 by hacluster via crmd on @CENTRAL_MASTER_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
+
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ centreon-rhel8-pri-bdd @CENTRAL_SLAVE_NAME@ @DATABASE_SLAVE_NAME@
+]
+
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ centreon-rhel8-pri-bdd ]
+    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
+    * Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started centreon-rhel8-pri-bdd
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ centreon-rhel8-pri-bdd @DATABASE_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ centreon-rhel8-pri-bdd @DATABASE_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started@CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+
+Migration Summary:
+```
+
+If an error is found while your resources are running, try "cleaning" with this command:
+
+```bash
+pcs resource cleanup
 ```
 
 ## Integrating pollers

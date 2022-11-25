@@ -533,8 +533,8 @@ Pour s'assurer que les dernières étapes ont été effectuées correctement, et
 Le résultat attendu est :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
@@ -670,8 +670,8 @@ Si tout s'est bien passé, alors la commande `mysql-check-status.sh` doit renvoy
 Résultat attendu :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1500,8 +1500,8 @@ L'état de la réplication MariaDB peut être vérifié à n'importe quel moment
 Résultat attendu :
 
 ```bash
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
