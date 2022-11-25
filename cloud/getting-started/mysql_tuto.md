@@ -32,7 +32,7 @@ Go to **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin 
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts (simplified)** and click on **Add**:
 
   ![image](../assets/getting-started/quick_start_mysql_1a.gif)
 
@@ -61,7 +61,7 @@ Go to **Configuration > Plugin Packs** and install the **MySQL/MariaDB** Plugin 
 
   ![image](../assets/getting-started/quick_start_mysql_2.png)
 
-6. Go to **Configuration > Services > Services by host**. A set of indicators has been deployed automatically:
+6. Go to **Configuration > Services > Services (simplified)**. A set of indicators has been deployed automatically:
 
   ![image](../assets/getting-started/quick_start_mysql_3.png)
 

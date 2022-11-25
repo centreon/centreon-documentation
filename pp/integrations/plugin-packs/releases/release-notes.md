@@ -8,6 +8,48 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
+### November
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Himoinsa UPS**](../procedures/hardware-ups-himoinsa-snmp.md) - Adding Himoinsa Plugin pack - Status:stable - centreon-pack-hardware-ups-himoinsa-snmp-22.11.0-1
+- [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - New monitoring pack - Status:stable - centreon-pack-cloud-azure-datafactory-factories-22.11.2-1
+- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-22.11.0-1
+- [**Enterasys SNMP**](../procedures/network-enterasys-snmp.md) - New monitoring pack - Status:stable - centreon-pack-network-enterasys-snmp-22.11.0-1
+- [**Avaya CM SNMP**](../procedures/hardware-telephony-avaya-cm-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-telephony-avaya-cm-snmp-22.11.0-1
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Adding Pica8 PICOS plugin pack - Status:stable - centreon-pack-operatingsystems-picos-snmp-22.11.0-1
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - New monitoring pack - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-22.11.0-1
+- [**PineApp Mail Secure**](../procedures/applications-pineapp-securemail-snmp.md) - Add new Pineapp Secure mail Pack - Status:stable - centreon-pack-applications-pineapp-securemail-snmp-22.11.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Add four new modes - Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance - Status:stable - centreon-pack-cloud-azure-management-costs-22.11.2-1
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - New SNMP Host discovery for IP protocol (rfc4293) - Status:stable - centreon-pack-applications-protocol-snmp-22.11.0-1
+- [**Huawei OceanStor SNMP**](../procedures/hardware-storage-huawei-oceanstor-snmp.md) - Add new service to check luns - Status:stable - centreon-pack-hardware-storage-huawei-oceanstor-snmp-22.11.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Ansible**](../procedures/applications-ansible-cli.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-applications-ansible-cli-22.11.0-1
+- [**EMC RecoveryPoint**](../procedures/applications-backup-emc-recoverypoint-ssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-applications-backup-emc-recoverypoint-ssh-22.11.0-1
+- [**Sun SFxxK**](../procedures/hardware-servers-sun-sfxxk-pssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-hardware-servers-sun-sfxxk-pssh-22.11.0-1
+- [**Cisco Standard SSH**](../procedures/network-cisco-standard-ssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-network-cisco-standard-ssh-22.11.0-1
+- [**Stormshield SSH**](../procedures/network-stormshield-ssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-network-stormshield-ssh-22.11.0-1
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Replace a standard command by dedicated ones - Status:stable - centreon-pack-applications-databases-mssql-22.11.1-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Ontap Restapi - Adding Aggregates service template - Status:stable - centreon-pack-hardware-storage-netapp-ontap-restapi-22.11.0-1
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fix PASSWORD and FILTER macros attributes - Status:stable - centreon-pack-applications-monitoring-iplabel-ekara-restapi-22.11.0-1
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fix erroneous mode name in Updates command - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-22.11.0-1
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Remove wrong options from the uptime command - Status:stable - centreon-pack-network-mikrotik-snmp-22.11.0-1
+
+</TabItem>
+</Tabs>
+
 ### October
 
 <Tabs groupId="sync">

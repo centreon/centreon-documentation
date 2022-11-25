@@ -191,6 +191,12 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
 Add the following external repository (for Java 8):
 
 ```shell
@@ -384,7 +390,24 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-> Ensure a version of Java 17 or later is installed before you start the procedure.
+#### Java version requirement
+  
+  > Ensure a version of Java 17 or later is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+Now you can install the repository:
 
 ```shell
 yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
@@ -414,6 +437,13 @@ dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>

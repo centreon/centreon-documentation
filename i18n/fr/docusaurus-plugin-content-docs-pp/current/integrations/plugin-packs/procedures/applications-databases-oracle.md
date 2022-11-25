@@ -138,6 +138,10 @@ Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /us
 Writing Makefile for DBD::Oracle
 ```
 
+Si vous rencontrez une erreur durant l'étape du **Makefile.PL**, essayez de spécifier explicitement une version d'Oracle 
+fonctionnelle pour la compilation (cela n'aura pas d'impact sur le fonctionnement): 
+- `perl Makefile.PL -V 12.1.0 -m /usr/share/oracle/21/client64/demo/demo.mk`
+
 Compiler la bibliothèque :
 
 ```bash

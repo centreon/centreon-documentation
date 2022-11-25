@@ -896,6 +896,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-datafactory-factories'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
         },
         {
@@ -1064,15 +1068,15 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Hardware Server',
+      label: 'hardware-server',
       items: [
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp'
         },
         {
           type: 'doc',
@@ -1080,15 +1084,19 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-video-axis-snmp'
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-cisco-ces-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-cisco-cts-snmp'
         },
         {
           type: 'doc',
@@ -1100,7 +1108,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-idrac-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp'
         },
         {
           type: 'doc',
@@ -1108,11 +1116,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-vxm-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-vxm-restapi'
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-idrac-snmp'
         },
         {
           type: 'doc',
@@ -1124,27 +1132,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-mobotix-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-hikvision-nvr-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-timelinkmicro-tms6001-snmp'
         },
         {
           type: 'doc',
@@ -1165,6 +1153,18 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-hp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-hikvision-nvr-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp'
         },
         {
           type: 'doc',
@@ -1192,11 +1192,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-cisco-cts-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-mobotix-snmp'
         },
         {
           type: 'doc',
@@ -1232,11 +1232,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-superdoctor-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-devices-timelinkmicro-tms6001-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-xfusion-ibmc-snmp'
         }
       ]
     },
@@ -1507,6 +1515,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-efficientip-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-enterasys-snmp'
         },
         {
           type: 'doc',
@@ -2493,6 +2505,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-ups-hp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-himoinsa-snmp'
         },
         {
           type: 'doc',

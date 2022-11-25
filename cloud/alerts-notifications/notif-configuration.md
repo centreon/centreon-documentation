@@ -18,14 +18,10 @@ Notifications are sent in the following cases:
 Notifications are sent to all users for which the notifications have been configured.
 To enable a user to receive notifications:
 
-1. Go to **Configuration > Users > Contacts/Users** and then click on the contact you want to be notified.
-2. In the **General Information** section, in the **Contact template used** field, select **notification_tmpl**.
-3. In the **Linked to contact groups** section, check that the user has the **Notifications** [role](../users/users.md#user-roles).
-4. In the **Notification** section, check that **Enable notifications** is set to **Yes**.
+1. Go to **Configuration > Users > Users** and then click on the contact you want to be notified.
+3. In the **Roles** section, check that the user has the **Notification** [role](../users/users.md#user-roles).
 5. Click **Save**.
 6. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration.md) the configuration.
-
-![image](../assets/configuration/notifs_user_profile.png)
 
 ## How are resources checked?
 
@@ -36,17 +32,15 @@ Resources are checked according to the following parameters:
 * If, after these 3 checks, the resource is still in a non-ok status, its status type becomes HARD and notifications start being sent.
 * Checks are then made every 5 minutes to see if the resource is still in a HARD state. Notifications are sent every 5 minutes.
 
-> To ensure compatibility with future versions, do not change these values.
-
 ## Troubleshooting
 
 ### Contacts are not receiving notification emails
 
-Check that notifications are enabled for the contact, that the user has the **Notifications** role, and that the **notification_tmpl** contact template is selected for them (see [above](#who-are-notifications-sent-to)).
+Check that the user has the **Notification** role.
 
 ### Notifications have been sent outside the user's time period
 
 Check the user's timezone:
 
-1. Go to **Configuration > Users > Contacts/Users** and then click on the contact you want to be notified.
+1. Go to **Configuration > Users > Users** and then click on the contact you want to be notified.
 2. Check the **Timezone/Location** field. The time period during which notifications will be sent to a user is the time period in their timezone.
