@@ -378,7 +378,7 @@ Then execute the following commands:
 <TabItem value="Debian" label="Debian">
 
     ```shell
-    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el7/stable/noarch/RPMS/centreon-business-release-22.10-5.el7.centos.noarch.rpm
+    echo "deb https://apt.centreon.com/repository/22.10-business/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
     ```
 
 </TabItem>

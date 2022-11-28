@@ -23,7 +23,7 @@ Centreon MAP se compose de trois éléments :
 
 Le schéma ci-dessous résume l'architecture :
 
-![image](../assets/graph-views/map_architect.png)
+![image](../assets/graph-views/ng/map_architect.png)
 
 **Tableau des flux du réseau**
 
@@ -267,7 +267,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :

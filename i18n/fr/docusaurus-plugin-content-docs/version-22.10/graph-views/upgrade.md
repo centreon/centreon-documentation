@@ -39,7 +39,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-3.el8.noarch.rpm
 ```
 
 </TabItem>
@@ -71,7 +71,7 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 Vous pouvez maintenant procéder à la mise à jour :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -141,7 +141,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
 
 2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.04, le nouveau protocole BBDO v3 est activé.
+3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.
 
    ```text
