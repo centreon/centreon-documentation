@@ -15,6 +15,26 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.2
+
+Release date: `soon`
+
+### Bug fixes
+
+- Fixed a connection problem between MAP desktop client and MAP server that could lead to timeouts on large maps
+- Fixed an issue with Java 17 that caused MAP server to fail to startup
+- Fixed an issue with API preventing an authenticated user from creating a resource with an image
+- Fixed an issue on line charts not having any data displayed if chart period and chart precision values were too large
+
+### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics
+
+### Enhancements
+
+- Updated diagnostic.sh script to handle Java 17 installation instead of returning an error
+- MAP extension configuration now requires only one MAP server address to be configured
+
 ### 22.04.1
 
 Release date: `July 13, 2022`
