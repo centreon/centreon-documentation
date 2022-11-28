@@ -40,12 +40,12 @@ It brings the following service templates:
 
 | Metric Name                              | Unit  |
 |:-----------------------------------------|:------|
-| cpus.utilization.average.percentage      | %     |
-| *cpu*#cpu.utilization.1m.percentage      | %     |
-| *cpu*#cpu.utilization.5m.percentage      | %     |
-| *cpu*#cpu.utilization.current.percentage | %     |
-| *memory*#memory.free.bytes               | B     |
+| cpu.utilization.percentage               | %     |
+| *cpu*#core.cpu.utilization.percentage    | %     |
+| *cpu*#core.cpu.utilization.1m.percentage | %     |
+| *cpu*#core.cpu.utilization.5m.percentage | %     |
 | *memory*#memory.usage.bytes              | B     |
+| *memory*#memory.free.bytes               | B     |
 | *memory*#memory.usage.percentage         | %     |
 | *temperature*#probe.temperature.celsius  | C     |
 
@@ -168,29 +168,29 @@ running the following command:
     --hostname=10.0.0.1 \
     --snmp-version='2c' \
     --snmp-community='my-snmp-community' \
-    --warning-memory-usage-bytes='' \
-    --critical-memory-usage-bytes='' \
-    --warning-memory-free-bytes='' \
-    --critical-memory-free-bytes='' \
-    --warning-memory-usage-percentage='' \
-    --critical-memory-usage-percentage='' \
-    --warning-cpu-utilization-current-percentage='' \
-    --critical-cpu-utilization-current-percentage='' \
-    --warning-cpu-utilization-1m-percentage='' \
-    --critical-cpu-utilization-1m-percentage='' \
-    --warning-cpu-utilization-5m-percentage='' \
-    --critical-cpu-utilization-5m-percentage='' \
-    --warning-probe-temperature-celsius='' \
-    --critical-probe-temperature-celsius='' \
-    --warning-average='' \
-    --critical-average='' \
+    --warning-memory-usage='' \
+    --critical-memory-usage='' \
+    --warning-memory-usage-free='' \
+    --critical-memory-usage-free='' \
+    --warning-memory-usage-prct='' \
+    --critical-memory-usage-prct='' \
+    --warning-cpu-average='' \
+    --critical-cpu-average='' \
+    --warning-core-cpu-utilization='' \
+    --critical-core-cpu-utilization='' \
+    --warning-core-cpu-utilization-1m='' \
+    --critical-core-cpu-utilization-1m='' \
+    --warning-core-cpu-utilization-5m='' \
+    --critical-core-cpu-utilization-5m='' \
+    --warning-probe-temperature='' \
+    --critical-probe-temperature='' \
     --use-new-perfdata
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: 2 CPU(s) average usage is 12.50 % - All CPU usages are ok - All memory usages are ok - All temperatures are ok | 'cpus.utilization.average.percentage'=12.50%;;;0;100 'CPU 2#cpu.utilization.current.percentage'=15.00%;;;0;100 'CPU 2#cpu.utilization.1m.percentage'=5.00%;;;0;100 'CPU 2#cpu.utilization.5m.percentage'=2.00%;;;0;100 'Main CPU#cpu.utilization.current.percentage'=10.00%;;;0;100 'Main CPU#cpu.utilization.1m.percentage'=4.00%;;;0;100 'Main CPU#cpu.utilization.5m.percentage'=3.00%;;;0;100 'System Heap#memory.usage.bytes'=10997440B;;;0;400000000 'System Heap#memory.free.bytes'=233509184B;;;0;400000000 'System Heap#memory.usage.percentage'=2.75%;;;0;100 'System memory 2#memory.usage.bytes'=200000000B;;;0;300000000 'System memory 2#memory.free.bytes'=100000000B;;;0;300000000 'System memory 2#memory.usage.percentage'=66.67%;;;0;100 'Probe 1#probe.temperature.celsius'=47.00C;;;0;100 'Probe 2#probe.temperature.celsius'=43.00C;;;0;100
+OK: 1 CPU(s) average usage is 25.00 % - All CPU usages are ok - All memory usages are ok - All temperatures are ok | 'cpu.utilization.percentage'=25.00%;;;0;100 '1#core.cpu.utilization.percentage'=10.00%;;;0;100 '1#core.cpu.utilization.1m.percentage'=4.00%;;;0;100 '1#core.cpu.utilization.5m.percentage'=3.00%;;;0;100 '2#core.cpu.utilization.percentage'=15.00%;;;0;100 '2#core.cpu.utilization.1m.percentage'=5.00%;;;0;100 '2#core.cpu.utilization.5m.percentage'=2.00%;;;0;100 '1#memory.usage.bytes'=10997440B;;;0;400000000 '1#memory.free.bytes'=233509184B;;;0;400000000 '1#memory.usage.percentage'=2.75%;;;0;100 '2#memory.usage.bytes'=200000000B;;;0;300000000 '2#memory.free.bytes'=100000000B;;;0;300000000 '2#memory.usage.percentage'=66.67%;;;0;100 '1#probe.temperature.celsius'=47.00C;;;0;100 '2#probe.temperature.celsius'=43.00C;;;0;100
 ```
 
 All available options for a given mode can be displayed by adding the
