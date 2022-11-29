@@ -5,7 +5,6 @@ title: Office365 Exchange
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Vue d'ensemble
 
 La suite Microsoft Office 365 comprend Exchange Online, la version hébergée de
@@ -92,33 +91,73 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Pack de supervision
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Exchange :
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
+dnf install centreon-pack-cloud-microsoft-office365-exchange
 ```
-
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager" 
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Exchange :
-
-```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
-```
-
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack 'Office365 Exchange' :
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-exchange
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager"
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-cloud-microsoft-office365-exchange
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Office365 Exchange**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-cloud-microsoft-office365-exchange-api
+```
 
 </TabItem>
 </Tabs>
@@ -196,19 +235,7 @@ suivante :
   --list-mode
 ```
 
-#### ```UNKNOWN: 500 Can't connect to ...:443```
+### Diagnostic des erreurs communes
 
-Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API de 
-gestion Office 365. Vérifiez que la requête n'a pas bloquée par un outil externe
-(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans 
-les macros *EXTRAOPTIONS* des services correspondants ou directement dans la 
-commande avec l'option ```--proxyurl```.
-
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-
-Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy
-d'entreprise, le protocole de connexion n'est pas supporté par la libraire *lwp*
-utlisée par défaut par le Plugin Centreon.
-
-Cette erreur peut être résolue en utilisant le backend HTTP *curl*.
-Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
+Référez-vous à la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+au dépannage des plugins basés sur HTTP/API.

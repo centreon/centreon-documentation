@@ -23,7 +23,7 @@ Centreon MAP se compose de trois éléments :
 
 Le schéma ci-dessous résume l'architecture :
 
-![image](../assets/graph-views/map_architect.png)
+![image](../assets/graph-views/ng/map_architect.png)
 
 **Tableau des flux du réseau**
 
@@ -45,7 +45,7 @@ Le schéma ci-dessous résume l'architecture :
 
 ### Centreon
 
-Le serveur central et Centreon MAP doivent être installés dans les mêmes versions majeures (c'est-à-dire tous deux en 22.04.x).
+Le serveur central et Centreon MAP doivent être installés dans les mêmes versions majeures (c'est-à-dire tous deux en 22.10.x).
 
 ### Serveur MAP Centreon
 
@@ -180,7 +180,8 @@ Les ports 8080 et 8443 sont des valeurs par défaut recommandées, mais d'autres
 Vous devez fournir au serveur Centreon MAP un utilisateur dédié **qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists.md).
 Étant donné que le mot de passe sera stocké sous une forme lisible par l'homme dans un fichier de configuration, vous ne devez pas utiliser un compte utilisateur Centreon admin.
 
-Donnez à cet utilisateur l'accès à l'API Centreon Web en temps réel :
+- Allez dans **Configuration > Utilisateurs > Contacts/Utilisateurs**. Puis cliquez sur l'onglet **Authentification Centreon**.
+- Définir le paramètre **Accès à l'API de temps réel** sur **Oui**.
 
 ![image](../assets/graph-views/reach-api.png)
 
@@ -222,7 +223,7 @@ Installed:
 Complete!
 ```
 
-Ensuite installez le paquet `centreon-release` :
+Ensuite installez le paquet **centreon-release** :
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
@@ -266,7 +267,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :
@@ -380,7 +381,7 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 /etc/centreon-studio/configure.sh
 ```
 
-Si vous venez d'installer Centreon 22.04, sachez que la plate-forme utilise désormais le nouveau protocole BBDO v3.
+Si vous venez d'installer Centreon 22.10, sachez que la plate-forme utilise désormais le nouveau protocole BBDO v3.
 Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-studio/studio-config.properties**.
 
 ```text

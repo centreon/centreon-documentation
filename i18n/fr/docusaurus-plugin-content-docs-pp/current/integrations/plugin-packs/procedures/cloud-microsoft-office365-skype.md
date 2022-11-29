@@ -1,3 +1,4 @@
+
 ---
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
@@ -6,38 +7,39 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Overview
-Microsoft’s Office365 suite includes Skype, which is an application that
-provides video chat, voice calls and messages services between different types
-of hardware.
+## Vue d'ensemble
 
-The monitoring information of Microsoft's Office365 is available
-through the Office365 API Management.
+La suite Microsoft Office 365 inclut Skype, une application offrant différents
+types de services comme la messagerie instantanée et les appels téléphoniques et
+vidéo. 
 
-> The data provided by the Office365 Management API are not real-time.
-> They're based on a 7 days reporting period
+Les informations de supervision de la suite Office sont mises à disposition par
+Microsoft au travers d'une API de gestion Office 365.
 
-## Plugin-Pack assets
+> Les données mises à disposition par l'API de gestion Office 365 ne sont pas en temps réel et sont basées sur une période de 7 jours.
 
-### Monitored objects
+## Contenu du Plugin-Pack
 
-* Skype devices usage
-* Skype users activity
+### Objets supervisés
 
-### Monitored metrics
+* Utilisation des appareils
+* Activité des utilisateurs
 
-See link for details about metrics : 
+### Métriques collectées
 
-* https://docs.microsoft.com/en-us/SkypeForBusiness/skype-for-business-online-reporting/device-usage-report
-* https://docs.microsoft.com/en-us/SkypeForBusiness/skype-for-business-online-reporting/activity-report
+Plus d'informations sur les métriques collectées sur la documentation officielle
+de Microsoft : 
+
+* https://docs.microsoft.com/fr-fr/SkypeForBusiness/skype-for-business-online-reporting/device-usage-report
+* https://docs.microsoft.com/fr-fr/SkypeForBusiness/skype-for-business-online-reporting/activity-report
 
 <Tabs groupId="sync">
 <TabItem value="Devices-Usage" label="Devices-Usage">
 
-| Metric name                 | Description                                                  | Unit   |
-| :-------------------------- | :----------------------------------------------------------- | :----- |
-| skype.active.devices.count  | Number of active devices                                     | Count  |
-| skype.devices.\*.count      | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
+| Metric name                       | Description                                                  | Unit   |
+| :-------------------------------- | :----------------------------------------------------------- | :----- |
+| skype.devices.active.count        | Number of active devices                                     | Count  |
+| skype.devices.\*.count            | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
 
 </TabItem>
 <TabItem value="User-Activity" label="User-Activity">
@@ -49,32 +51,34 @@ See link for details about metrics :
 | skype.users.conferences.organized.total.count     | Number of organized conferences       | Count  |
 | skype.users.conferences.participated.total.count  | Number of participed conferences      | Count  |
 
+Une fois l'hôte créé, les macros de services peuvent être configurées pour
+filtrer les métriques par utilisateurs ou par boites mail. Plus d'informations
+dans la section [Configuration](#Configuration).
+
 </TabItem>
 </Tabs>
 
-Once the host created, you can configure some macros on the service to filter 
-information by user. More info in the [Configuration](#Configuration)
-section.
+## Prérequis
 
-## Prerequisites
+Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la
+documentation d'Office 365 Management ou suivez le lien dans la partie
+'Aide supplémentaire'.
 
-Refer to the official documentation of Office365 Management or follow the link 
-in the 'More information' section to create an Office365 account and get help 
-about the management features.
+### Enregistrez une application
 
-### Register an application
+Les API de gestion Office 365 utilisent Azure AD pour assurer l’authentification
+sécurisée des données dans Office 365. Pour accéder aux API de gestion
+Office 365, vous devez enregistrer votre application dans Azure AD. Le terme
+*Application* est utilisé comme concept, faisant référence non seulement au
+programme d’application, mais également à son inscription Azure AD et à son rôle
+lors des « dialogues » d’authentification/autorisation au moment de l’exécution.
+(https://docs.microsoft.com/fr-fr/azure/active-directory/develop/app-objects-and-service-principals)
 
-The Office365 Management API use Azure AD to authenticate against Office365.
-To access the Office365 Management API, you need to register your application in
-Azure AD. *Application* is here used by Microsoft as a conceptual term,
-referring not only to the application software, but also to the Azure AD
-registration and role in authentication/authorization "conversations" at runtime.
-(https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
+### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
-### Office365 Management API authorization
-
-To collect data from Skype Online, you need to specify the following
-authorization:
+Afin de récupérer les données de Skype Online, vous devez spécifier les
+autorisations que votre application requiert: 
+Dans le portail de gestion Azure :
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
@@ -83,49 +87,89 @@ authorization:
     * ServiceHealth.Read (Type : Application)
     * ActivityFeed.Read (Type : Application)
 
-### More information
+### Aide supplémentaire
 
-You can access to the official documentation to register your application,
-get your *ID client*, *ID secret* and your *Tenant ID* by following this link:
-https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis
+Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un *ID client* et un *ID secret* :
+https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-with-office-365-management-apis
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Pack de supervision
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office365 Skype:
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
+dnf install centreon-pack-cloud-microsoft-office365-skype
 ```
-
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Skype* from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin package on every poller expected to monitor Office365 Skype:
-
-```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
-```
-
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-skype
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Skype* from the "Configuration > Plugin Packs > Manager" page
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-cloud-microsoft-office365-skype
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Office365 Skype**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-cloud-microsoft-office365-skype-api
+```
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *Cloud-Microsoft-Office365-Skype-Api-custom* template and configure all the mandatory Macros :
+Lors de la création de votre hôte dans Centreon, choisissez le modèle
+*Cloud-Microsoft-Office365-Skype-Api-custom*. Une fois celui-ci appliqué, 
+certaines macros liées à l'Hôte doivent être renseignées :
 
 | Mandatory | Name                  | Description                                                                |
 | :-------- | :-------------------- | :------------------------------------------------------------------------- |
@@ -135,12 +179,12 @@ yum install centreon-pack-cloud-microsoft-office365-skype
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-The metric perfdateY will record the date the metric was collected. You can
-filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
-*OFFICE365EXTRAOPTIONS* macro.
+La métrique *perfdate* enregistre la date à laquelle celle-ci a été collectée. 
+Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
+l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
-Once the host created, you can configure some Macros on the services to filter
-information:
+Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
+macros de service selon la configuration souhaitée :
 
 | Mandatory | Name          | Description                |
 | :-------- | :------------ | :------------------------- |
@@ -149,10 +193,10 @@ information:
 
 ## FAQ
 
-### How can I test the Plugin in the CLI and what do the main parameters stand for ?
+### Comment tester le Plugin Office 365 Onedrive en ligne de commande et que signifient les options principales ?
 
-Once the Centreon Plugin installed, you can test it directly in the CLI of the
-Centreon poller by logging with the *centreon-engine* user:
+Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de
+commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_skype_api.pl \
@@ -163,7 +207,7 @@ Centreon poller by logging with the *centreon-engine* user:
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 ```
 
-Expected output:
+Résultat attendu :
 
 ```bash
 OK: Active devices on 2020-09-27 : 0/1 (0.00%) - Users count by device type : 
@@ -176,8 +220,8 @@ active_devices'=0devices;;;0;1
 'windows_phone'=0;;;0;
 ```
 
-The available thresholds as well as all of the options that can be used with
-this Plugin can be displayed by adding the ```--help``` parameter to the command:
+Les options des différents modes sont consultables via le paramètre ```--help```
+du mode :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_skype_api.pl \
@@ -187,7 +231,8 @@ this Plugin can be displayed by adding the ```--help``` parameter to the command
   --help
 ```
 
-You can display all of the modes that come with the Plugin with the command below:
+Tous les modes disponibles dans le Plugin peuvent être listés via la commande
+suivante :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_skype_api.pl \
@@ -195,17 +240,7 @@ You can display all of the modes that come with the Plugin with the command belo
   --list-mode
 ```
 
-### Why do I get the following error:
+### Diagnostic des erreurs communes
 
-#### ```UNKNOWN: 500 Can't connect to ...:443```
-
-This error message means that the Centreon Plugin couldn't successfully connect to the Office365 Management API.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
-
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-
-When using a proxy to connect to the Office365 Management API, this error message means that the Centreon Plugin library does not support
-the proxy connection protocol.
-
-In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
+Référez-vous à la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+au dépannage des plugins basés sur HTTP/API.
