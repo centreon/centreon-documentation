@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 This chapter describes advanced procedures for configuring your Centreon MAP
 system.
 
-## Monitoring your Centreon MAP server after installation
+## Monitoring your Centreon MAP (Legacy) server after installation
 
-Centreon provides a plugin pack and a plugin to monitor your Centreon MAP
+Centreon provides a plugin pack and a plugin to monitor your Centreon MAP (Legacy)
 server.
 
 ### Install the Packs
@@ -26,7 +26,7 @@ From the Plugin Packs Manager, install the Packs.
 
 ### Install the Plugins
 
-Use SSH to access the Poller that will be monitoring your Centreon MAP server.
+Use SSH to access the Poller that will be monitoring your Centreon MAP (Legacy) server.
 
 Install all the required plugins with the following commands:
 
@@ -58,7 +58,7 @@ To monitor centreon-map JVM, please use following macro values:
 
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
-You can now export your configuration, and your Centreon MAP server will be
+You can now export your configuration, and your Centreon MAP (Legacy) server will be
 monitored.
 
 ![image](../assets/graph-views/jvm3.png)
@@ -83,7 +83,7 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 </TabItem>
 </Tabs>
 
-## Centreon MAP configuration files
+## Centreon MAP (Legacy) configuration files
 
 > We advise you against editing the configuration files manually unless you are
 > an experienced user.
@@ -103,7 +103,7 @@ systemctl restart centreon-map
 > Do not delete any variables in these files! This may cause the server to
 > malfunction or not to start up.
 
-## Backup of Centreon MAP server
+## Backup of Centreon MAP (Legacy) server
 
 ### Saved items
 
@@ -142,7 +142,7 @@ Backup parameters are stored in **/etc/centreon-studio/backup.conf**
 
 > **We advise to export backups to another resource in order to secure them.**
 
-### Restore data from Centreon MAP server
+### Restore data from Centreon MAP (Legacy) server
 
 Restore process is divided in several steps:
 
@@ -150,7 +150,7 @@ Restore process is divided in several steps:
 - Restoring configuration files
 - Restoring database
 
-> **We assume that you have followed the Centreon MAP server installation
+> **We assume that you have followed the Centreon MAP (Legacy) server installation
 > procedure to get a fresh install.**
 
 ### Extracting backup
@@ -181,9 +181,9 @@ mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.
 systemctl start centreon-map
 ```
 
-## Change Centreon MAP server port
+## Change Centreon MAP (Legacy) server port
 
-By default, the Centreon MAP server is listening and sending information
+By default, the Centreon MAP (Legacy) server is listening and sending information
 through the port 8080. If you set the SSL (see [HTTPS/TLS
 Configuration](secure-your-map-platform.md#configure-httpstls-on-the-web-server),
 use the port 8443.
@@ -194,7 +194,7 @@ blocking these ports).
 > If the new port is below 1024, use this procedure below "Define
 > port below 1024" instead.
 
-On your Centreon MAP server, stop the Centreon MAP server:
+On your Centreon MAP (Legacy) server, stop the Centreon MAP server:
 
 ```shell
 systemctl stop centreon-map
@@ -207,7 +207,7 @@ Edit the studio-config.properties settings file located in
 vim /etc/centreon-studio/studio-config.properties
 ```
 
-Add the following line at the MAP SERVER section
+Add the following line at the MAP (Legacy) server section:
 
 ```text
 centreon-map.port=XXXX
@@ -215,13 +215,13 @@ centreon-map.port=XXXX
 
 > Replace *XXXX* with the port you want.
 
-Then restart the Centreon MAP server:
+Then restart the Centreon MAP (Legacy) server:
 
 ```shell
 systemctl start centreon-map
 ```
 
-Wait for Centreon MAP service to start completely (~30 sec to 1 minutes).
+Wait for Centreon MAP (Legacy) service to start completely (~30 sec to 1 minutes).
 
 Test that your server is up and accessible on the new port you defined by
 entering the following URL in your web browser:
@@ -241,12 +241,12 @@ under 1024 are restricted and only accessible through special applications.
 There are a few different workarounds for this issue. One method is "port
 forwarding" through the firewall.
 
-> For this example, set the MAP server to listen and send data through port 80.
+> For this example, set the MAP (Legacy) server to listen and send data through port 80.
 > Replace each occurence of *80* with the port you want to use.
 
 1.  Check your firewall.
 
-    On your MAP server, run the following command to check that the firewall is
+    On your MAP (Legacy) server, run the following command to check that the firewall is
     running:
 
     ```shell
@@ -283,7 +283,7 @@ forwarding" through the firewall.
     systemctl start iptables
     ```
 
-2.  Enable a connection on the port for MAP for listening and sending.
+2.  Enable a connection on the port for MAP (Legacy) for listening and sending.
 
     Execute the following lines on your console:
 
@@ -314,7 +314,7 @@ forwarding" through the firewall.
     /sbin/iptables save
     ```
 
-Your Centreon MAP server is now accessible on port 80. Check this by entering
+Your Centreon MAP (Legacy) server is now accessible on port 80. Check this by entering
 the following URL in your browser:
 
 ```shell
