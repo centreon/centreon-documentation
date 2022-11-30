@@ -602,7 +602,7 @@ Before running the commands in the procedure below, check that:
   ```shell
   /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
   ```
-  2. Then import them using this command on the central server:
+  2. Then import them using this command on the reporting server:
   ```shell
   /usr/share/centreon-bi/etl/importData.pl -r --bam-only
   ```
