@@ -652,7 +652,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
 
 ### Statistiques de Centreon BAM
 
-- Suivez cette procédure si vous avez récemment mis à jour Centreon BAM en version 3.0 ou que vous venez de reconstruire les statistiques de BAM.
+- Suivez cette procédure si vous venez de reconstruire les statistiques de BAM.
 
   - Ré-importer les données de BAM sur le serveur central en exécutant cette commande :
   
