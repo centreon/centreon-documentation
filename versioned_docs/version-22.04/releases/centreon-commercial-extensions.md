@@ -14,7 +14,13 @@ You can find in this chapter all changelogs concerning **Centreon Commercial Ext
 
 If you have feature requests or want to report a bug, please contact support.
 
-## Centreon MAP
+## Centreon MAP 
+
+### 22.04.2
+
+- First release
+
+## Centreon MAP Legacy
 
 ### 22.04.2
 
