@@ -19,6 +19,17 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.1
 
+Release date:
+
+#### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics
+- Fix the security issue CVE-2022-42889 (Text4shell)
+
+#### Bug fixes
+
+- Fixed an issue where resources tooltips in MAP legacy widget could not be displayed properly
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
