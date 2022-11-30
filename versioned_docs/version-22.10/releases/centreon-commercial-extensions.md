@@ -16,7 +16,13 @@ If you have feature requests or want to report a bug, please contact support.
 
 Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/).
 
-## Centreon MAP
+## Centreon MAP 
+
+### 22.10.1
+
+- First release
+
+## Centreon MAP Legacy
 
 ### 22.10.1
 
