@@ -15,7 +15,13 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https://www.centreon.com/blog/centreon-22-10-les-nouveautes).
 
-## Centreon MAP
+## Centreon MAP 
+
+### 22.10.1
+
+- First release
+
+## Centreon MAP Legacy
 
 ### 22.10.1
 
