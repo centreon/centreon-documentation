@@ -587,8 +587,7 @@ Before running the commands in the procedure below, check that:
 
 ### Centreon BAM statistics
 
-- Follow this procedure if you recently updated your Centreon BAM module to 3.0 or rebuilt the
-Centreon BAM statistics.
+- Follow this procedure if you rebuilt the Centreon BAM statistics.
 
   - Reimport the BAM data on the central server by running the following command:
   
