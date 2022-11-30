@@ -17,6 +17,8 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.1
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
