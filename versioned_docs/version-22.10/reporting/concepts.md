@@ -598,7 +598,7 @@ Before running the commands in the procedure below, check that:
 
 - If statistics are not up to date, follow this prodedure:
 
-  1. You need first to execute the following command to rebuild statistics:
+  1. You need first to execute the following command to rebuild statistics on the central server:
   ```shell
   /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
   ```
