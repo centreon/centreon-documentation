@@ -25,7 +25,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.1
 
-Release date:
+Release date: `November 29, 2022`
 
 #### Security fixes
 
