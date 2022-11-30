@@ -662,7 +662,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
   Cela aura pour effet de n'importer que les tables de reporting du
 module BAM.
 
-- Maintenant suivez cette procédure si les données de reporting ne semble pas à jour :
+- Si les données de reporting ne semblent toujours pas à jour, suivez cette procédure :
 
   1. Vous devez d'abord exécuter cette commande pour recalculer globalement les statistiques de BAM :
 
