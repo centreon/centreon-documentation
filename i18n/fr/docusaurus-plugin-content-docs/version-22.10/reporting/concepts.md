@@ -664,7 +664,7 @@ module BAM.
 
 - Si les données de reporting ne semblent toujours pas à jour, suivez cette procédure :
 
-  1. Vous devez d'abord exécuter cette commande pour recalculer globalement les statistiques de BAM :
+  1. Vous devez d'abord exécuter cette commande sur le serveur central pour recalculer globalement les statistiques de BAM :
 
   ```shell
   /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
