@@ -18,6 +18,8 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.1
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
