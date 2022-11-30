@@ -596,7 +596,7 @@ Before running the commands in the procedure below, check that:
   ```
   This will import all Centreon BAM reporting tables.
 
-- If statistics are not up to date, follow this prodedure:
+- If statistics are not up to date, follow this procedure:
 
   1. You need first to execute the following command to rebuild statistics on the central server:
   ```shell

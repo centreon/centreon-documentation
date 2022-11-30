@@ -650,22 +650,29 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
         La reconstruction a pris 4 jours : du 01/01 au 04/01 , il faut alors reprendre la procédure depuis le début en utilisant date_start = 01-01 et date_end = 04/01.
     La procédure est terminée et la sortie de la sonde de supervision BI devrait être “ETL execution OK, database is up-to-date”.
 
-### Centreon BAM
+### Statistiques de Centreon BAM
 
-Si vous avez récemment mis à jour Centreon BAM en version 3.0 ou que
-vous venez de reconstruire les statistiques de BAM, vous devez
-ré-importer les données de BAM sur les serveur de reporting. Pour cela,
-exécutez la commande suivante :
+- Suivez cette procédure si vous venez de reconstruire les statistiques de BAM.
 
-    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
-
-Cela aura pour effet de n'importer que les tables de reporting du
+  - Ré-importer les données de BAM sur le serveur central en exécutant cette commande :
+  
+  ```shell
+  /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  ```
+  Cela aura pour effet de n'importer que les tables de reporting du
 module BAM.
 
-Si les données de reporting ne semble pas à jour, les statistiques de BAM peuvent être globalement
-recalculées en exécutant la commande suivante:
+- Si les données de reporting ne semblent toujours pas à jour, suivez cette procédure :
 
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+  1. Vous devez d'abord exécuter cette commande sur le serveur central pour recalculer globalement les statistiques de BAM :
+
+  ```shell
+  /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+  ```
+  2. Réimportez-les ensuite sur le serveur MBI en exécutant cette commande :
+  ```shell
+  /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  ```
 
 ### Comment calculer uniquement les données de Centile
 
