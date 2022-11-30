@@ -669,7 +669,7 @@ module BAM.
   ```shell
   /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
   ```
-  2. Importez-les ensuite en exécutant cette commande sur le serveur central :
+  2. Réimportez-les ensuite sur le serveur MBI en exécutant cette commande :
   ```shell
   /usr/share/centreon-bi/etl/importData.pl -r --bam-only
   ```
