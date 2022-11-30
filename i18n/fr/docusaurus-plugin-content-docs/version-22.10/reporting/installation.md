@@ -187,7 +187,34 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma 8" label="Alma 8">
+
+```shell
+dnf config-manager --set-enabled 'powertools'
+```
+
+
+```shell
+dnf install centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+```shell
+dnf install centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+```shell
+dnf config-manager --set-enabled ol8_codeready_builder
+```
 
 ```shell
 dnf install centreon-bi-server
