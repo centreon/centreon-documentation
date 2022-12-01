@@ -358,32 +358,6 @@ the interface part of the extension.
 Install the Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
-Then execute the following commands:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-    ```shell
-    sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el8/stable/noarch/RPMS/centreon-business-release-22.10-5.el8.noarch.rpm
-    ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-    ```shell
-    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el7/stable/noarch/RPMS/centreon-business-release-22.10-5.el7.centos.noarch.rpm
-    ```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-
-    ```shell
-    echo "deb https://apt.centreon.com/repository/22.10-business/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-    ```
-
-</TabItem>
-</Tabs>
-
 ### Step 2: Install the MAP module
 
 1. From your terminal, run the following command:

@@ -336,32 +336,6 @@ Le serveur Centreon MAP est maintenant démarré et activé : installons la part
 
 Installez le dépôt de Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
-Ensuite, exécutez la commande suivante :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-    ```shell
-    sudo dnf install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el8/stable/noarch/RPMS/centreon-business-release-22.10-5.el8.noarch.rpm
-    ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-    ```shell
-    sudo yum install https://yum.centreon.com/centreon-business/1a97ff9985262bf3daf7a0919f9c59a6/22.10/el7/stable/noarch/RPMS/centreon-business-release-22.10-5.el7.centos.noarch.rpm
-    ```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-
-    ```shell
-    echo "deb https://apt.centreon.com/repository/22.10-business/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-    ```
-
-</TabItem>
-</Tabs>
-
 ### Étape 2 : installer le module MAP
 
 1. Depuis votre terminal, entrez la commande suivante :
