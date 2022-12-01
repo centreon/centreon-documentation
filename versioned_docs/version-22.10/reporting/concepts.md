@@ -589,7 +589,7 @@ Before running the commands in the procedure below, check that:
 
 - Follow this procedure if you rebuilt the Centreon BAM statistics.
 
-  - Reimport the BAM data on the central server by running the following command:
+  - Reimport the BAM data from the central server to the reporting server by running the following command:
   
   ```shell
   /usr/share/centreon-bi/etl/importData.pl -r --bam-only
