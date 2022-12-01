@@ -654,7 +654,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
 
 - Suivez cette procédure si vous venez de reconstruire les statistiques de BAM.
 
-  - Ré-importer les données de BAM sur le serveur central en exécutant cette commande :
+  - Ré-importer les données BAM du serveur central dans le serveur de reporting en exécutant cette commande :
   
   ```shell
   /usr/share/centreon-bi/etl/importData.pl -r --bam-only
