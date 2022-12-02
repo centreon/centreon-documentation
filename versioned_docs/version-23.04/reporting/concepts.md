@@ -598,19 +598,25 @@ Before running the commands in the procedure below, check that:
 
 ### Centreon BAM statistics
 
-If you recently updated your Centreon BAM module to 3.0 or rebuilt the
-Centreon BAM statistics, you must reimport the BAM data on the reporting
-server by running the following command:
+- Follow this procedure if you rebuilt the Centreon BAM statistics.
 
-    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  - Reimport the BAM data from the central server to the reporting server by running the following command:
+  
+  ```shell
+  /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  ```
+  This will import all Centreon BAM reporting tables.
 
-This will import all Centreon BAM reporting tables.
+- If statistics are not up to date, follow this procedure:
 
-If statistics are not up to date, first execute the following command to rebuild statistics &
-then import them using the previous command
-
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
-
+  1. You need first to execute the following command to rebuild statistics on the central server:
+  ```shell
+  /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+  ```
+  2. Then import them using this command on the reporting server:
+  ```shell
+  /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  ```
 
 ### How to rebuild only Centile statistics
 
