@@ -201,11 +201,11 @@ dnf install centreon-bi-server
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
 ```shell
-dnf install centreon-bi-server
+dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 ```shell
-dnf config-manager --set-enabled ol8_codeready_builder
+dnf install centreon-bi-server
 ```
 
 </TabItem>
