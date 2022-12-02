@@ -90,6 +90,22 @@ Il n'existe actuellement pas de contournement.
 
 ## Centreon MBI
 
+### Erreur lors de l'exécution du script ETL
+
+Cet incident est dû à des changements apportés sur les paquets et renvoie une erreur similaire à celle-ci :
+
+```shell
+Can't open perl script "/usr/share/centreon-bi/etl/perfdataStatisticsBuilder_legacy.pl": No such file or folder
+```
+
+#### Contournement
+
+Exécutez la commande suivante en tant qu'utilisateur ``root`` ou ``centreonBI`` :
+
+```shell
+sed -i 's/_legacy//g' /usr/share/centreon-bi/bin/centreonBIETL
+```
+
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 
 #### Contournement

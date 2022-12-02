@@ -91,6 +91,22 @@ There is currently no workaround.
 
 ## Centreon MBI
 
+### Error during the ETL script execution
+
+This issue is due to package changes and returns an error similar to the following one:
+
+```shell
+Can't open perl script "/usr/share/centreon-bi/etl/perfdataStatisticsBuilder_legacy.pl": No such file or folder
+```
+
+#### Workaround
+
+Run the following command as a ``root`` or ``centreonBI`` user:
+
+```shell
+sed -i 's/_legacy//g' /usr/share/centreon-bi/bin/centreonBIETL
+```
+
 ### MBI does not work if databases have custom names
 
 #### Workaround
