@@ -120,7 +120,7 @@ Complete!
 Ensuite installez le paquet **centreon-release** :
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.10.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10.el8.noarch.rpm
 ```
 
 </TabItem>
