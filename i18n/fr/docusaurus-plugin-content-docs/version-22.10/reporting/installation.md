@@ -181,10 +181,10 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
+1. Installez le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
-Puis lancez la commande suivante :
+2. Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
@@ -192,7 +192,6 @@ Puis lancez la commande suivante :
 ```shell
 dnf config-manager --set-enabled 'powertools'
 ```
-
 
 ```shell
 dnf install centreon-bi-server
@@ -369,10 +368,10 @@ veillez à les connaître avant de commencer :
   centreonBI, sur le serveur Central (pour la mise à disposition des
   rapports générés sur l'interface)
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
+1. Installez le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
-Puis suivre la procédure :
+2. Puis suivre la procédure :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
