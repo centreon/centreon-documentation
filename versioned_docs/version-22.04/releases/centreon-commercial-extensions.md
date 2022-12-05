@@ -14,11 +14,15 @@ You can find in this chapter all changelogs concerning **Centreon Commercial Ext
 
 If you have feature requests or want to report a bug, please contact support.
 
-## Centreon MAP 
+## Centreon MAP
 
 ### 22.04.2
 
 - First release
+
+Web editor: Create and edit your views directly from your web browser.
+New server: Brand new server and data model providing better performance.
+Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
 

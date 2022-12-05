@@ -13,11 +13,15 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
 
-## Centreon MAP 
+## Centreon MAP
 
 ### 22.04.2
 
 - First release
+
+Web editor: Create and edit your views directly from your web browser.
+New server: Brand new server and data model providing better performance.
+Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
 
