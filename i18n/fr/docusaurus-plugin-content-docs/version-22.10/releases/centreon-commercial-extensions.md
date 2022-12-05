@@ -22,7 +22,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 - First release: `<release_date>`
 
 - Web editor: Create and edit your views directly from your web browser.
-New server: Brand new server and data model providing better performance
+- New server: Brand new server and data model providing better performance.
 Migration process: Integrated migration process of your legacy views
 
 ## Centreon MAP Legacy
