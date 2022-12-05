@@ -20,7 +20,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.1
 
-- First release
+- First release: `<release_date>`
 
 Web editor: Create and edit your views directly from your web browser
 New server: Brand new server and data model providing better performance
