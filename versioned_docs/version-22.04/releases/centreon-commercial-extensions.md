@@ -36,7 +36,7 @@ Release date: `soon`
 ### Security fixes
 
 - Actuator endpoints are now disabled by default, except for health and metrics.
-- Fix the security issue CVE-2022-42889 (Text4shell)
+- Fixed the security issue CVE-2022-42889 (Text4shell vulnerability).
 
 ### Enhancements
 
