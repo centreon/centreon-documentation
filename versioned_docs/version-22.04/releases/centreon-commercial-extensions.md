@@ -28,7 +28,7 @@ Release date: `soon`
 
 ### Bug fixes
 
-- Fixed a connection problem between MAP desktop client and MAP server that could lead to timeouts on large maps
+- Fixed a connection problem between MAP desktop client and MAP server that could lead to timeouts on large maps.
 - Fixed an issue with Java 17 that caused MAP server to fail to startup
 - Fixed an issue with API preventing an authenticated user from creating a resource with an image
 - Fixed an issue with the display of line charts if the period and precision values of the chart were too large.
