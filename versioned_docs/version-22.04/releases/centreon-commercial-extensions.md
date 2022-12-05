@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.2
 
-- First release
+- First release: `<release_date>`
 
 Web editor: Create and edit your views directly from your web browser.
 New server: Brand new server and data model providing better performance.
