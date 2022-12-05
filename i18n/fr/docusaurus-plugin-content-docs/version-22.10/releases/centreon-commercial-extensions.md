@@ -15,11 +15,15 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https://www.centreon.com/blog/centreon-22-10-les-nouveautes).
 
-## Centreon MAP 
+## Centreon MAP
 
 ### 22.10.1
 
 - First release
+
+Web editor: Create and edit your views directly from your web browser
+New server: Brand new server and data model providing better performance
+Migration process: Integrated migration process of your legacy views
 
 ## Centreon MAP Legacy
 
