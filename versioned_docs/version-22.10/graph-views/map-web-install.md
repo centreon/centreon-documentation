@@ -296,7 +296,7 @@ If it is your first installation, we advise you to use the standard mode
 ```
 
 If you have just installed Centreon 22.10, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-map/studio-config.properties**
+edit the following file: **/etc/centreon-map/map-config.properties**
 
 ```text
 broker.pb.message.enabled=true
