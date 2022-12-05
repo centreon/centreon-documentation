@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.2
 
-- First release
+- First release: `<release_date>`
 
 Web editor: Create and edit your views directly from your web browser.
 New server: Brand new server and data model providing better performance.
