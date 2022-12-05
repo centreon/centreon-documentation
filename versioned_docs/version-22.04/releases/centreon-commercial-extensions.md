@@ -40,7 +40,7 @@ Release date: `soon`
 
 ### Enhancements
 
-- Updated diagnostic.sh script to handle Java 17 installation instead of returning an error
+- Updated the diagnostic.sh script to handle Java 17 installation instead of returning an error.
 - MAP extension configuration now requires only one MAP server address to be configured
 
 ### 22.04.1
