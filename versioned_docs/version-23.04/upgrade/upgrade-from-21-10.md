@@ -23,10 +23,6 @@ servers:
 - Central server
 - Database server
 
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 21.10.
-
 ## Upgrade the Centreon Central server
 
 ### Update the Centreon repository
