@@ -358,6 +358,8 @@ installation process:
   BI user on the central monitoring server (to publish reports on the
   interface).
 
+#### Procedure
+
 1. To start installing the reporting server, install the MBI repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 

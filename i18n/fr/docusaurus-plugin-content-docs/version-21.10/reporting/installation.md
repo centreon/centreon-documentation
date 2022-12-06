@@ -310,6 +310,8 @@ veillez à les connaître avant de commencer :
   centreonBI, sur le serveur Central (pour la mise à disposition des
   rapports générés sur l'interface)
 
+#### Procédure
+
 1. Installez le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 

@@ -369,6 +369,8 @@ You must have the following information before proceeding with the installation 
 - Access (user/password) to the reporting database
 - Define and retrieve the ssh password of the centreonBI user, on the Central server (for the availability of the reports generated on the interface)
 
+#### Procedure
+
 1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/s/repositories).
 
 2. Then run the following command:
