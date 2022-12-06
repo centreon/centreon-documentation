@@ -41,7 +41,7 @@ Release date: `November 29, 2022`
 
 #### Bug fixes
 
-- Fixed an issue where resources' tooltips in the MAP legacy widget could not be displayed properly
+- Fixed an issue where resources' tooltips in the MAP legacy widget could not be displayed properly.
 
 ### 22.10.0
 
