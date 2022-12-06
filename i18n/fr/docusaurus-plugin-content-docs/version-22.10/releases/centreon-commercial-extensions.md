@@ -19,7 +19,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.1
 
-- First release: `<release_date>`
+- First release: `December 6, 2022`
 
 The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
 
