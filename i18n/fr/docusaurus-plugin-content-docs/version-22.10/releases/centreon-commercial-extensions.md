@@ -35,7 +35,7 @@ Release date: `November 29, 2022`
 
 #### Security fixes
 
-- Actuator endpoints are now disabled by default, except for health and metrics
+- Actuator endpoints are now disabled by default, except for health and metrics.
 - Fixed the security issue CVE-2022-42889 (Text4shell).
 
 #### Bug fixes
