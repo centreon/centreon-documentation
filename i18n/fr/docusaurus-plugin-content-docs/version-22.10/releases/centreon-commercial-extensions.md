@@ -21,7 +21,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 - First release: `<release_date>`
 
-> The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
+The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
 
 - Web editor: Create and edit your views directly from your web browser.
 - New server: Brand new server and data model providing better performance.
