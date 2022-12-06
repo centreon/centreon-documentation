@@ -147,7 +147,7 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -269,16 +269,16 @@ mysql_secure_installation
 Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles : interactif ou automatique.
 
 - Interactif *(aucune option/mode par défaut)* : plusieurs questions seront posées pour remplir de manière interactive les variables d'installation.
-- Automatique *(--automatic ou -a)* : l'installation se fera automatiquement à partir des valeurs définies dans le fichier `/etc/centreon-studio/vars.sh`.
+- Automatique *(--automatic ou -a)* : l'installation se fera automatiquement à partir des valeurs définies dans le fichier `/etc/centreon-map/vars.sh`.
 
 Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard (interactif) et de choisir **Non** lorsqu'on vous demande le mode d'installation avancé :
 
 ```shell
-/etc/centreon-studio/configure.sh
+/etc/centreon-map/configure.sh
 ```
 
 Si vous venez d'installer Centreon 22.04, sachez que la plateforme utilise désormais le nouveau protocole BBDO v3.
-Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-studio/studio-config.properties**.
+Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-map/map-config.properties**.
 
 ```text
 broker.pb.message.enabled=true
@@ -311,7 +311,7 @@ REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 Vérifiez la configuration du serveur MAP Engine avec cette commande :
 
 ```shell
-/etc/centreon-studio/diagnostic.sh
+/etc/centreon-map/diagnostic.sh
 ```
 
 > En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
