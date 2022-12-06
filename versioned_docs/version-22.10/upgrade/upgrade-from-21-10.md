@@ -71,8 +71,12 @@ Centreon 22.10 uses PHP in version 8.1.
 
 You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -81,8 +85,12 @@ dnf module install php:remi-8.1
 
 You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -90,6 +98,7 @@ dnf module install php:remi-8.1
 <TabItem value="CentOS 7" label="CentOS 7">
 
 You need to enable the php 8.1 repository
+
 ```shell
 yum-config-manager --enable remi-php81
 ```
