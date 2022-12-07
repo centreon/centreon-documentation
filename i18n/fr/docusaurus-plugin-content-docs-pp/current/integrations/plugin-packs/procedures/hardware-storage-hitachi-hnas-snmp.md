@@ -25,9 +25,9 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-| Nom de la règle                             | Description                                               |
-|:--------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-Hitachi-Hnas-SNMP-Interface-Name | Discover the disk partitions and monitor space occupation |
+| Nom de la règle                             | Description                                                             |
+|:--------------------------------------------|:------------------------------------------------------------------------|
+| HW-Storage-Hitachi-Hnas-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

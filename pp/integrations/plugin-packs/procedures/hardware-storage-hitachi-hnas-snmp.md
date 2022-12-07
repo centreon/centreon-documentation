@@ -25,9 +25,9 @@ It brings the following service templates:
 
 ### Discovery rules
 
-| Rule Name                                   | Description                                                             |
-|:--------------------------------------------|:------------------------------------------------------------------------|
-| HW-Storage-Hitachi-Hnas-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Rule Name                                   | Description                                         |
+|:--------------------------------------------|:----------------------------------------------------|
+| HW-Storage-Hitachi-Hnas-SNMP-Interface-Name | Discover network interfaces and monitor utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
