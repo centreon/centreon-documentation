@@ -70,11 +70,15 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Virtual-Volumes-Quotas" label="Virtual-Volumes-Quotas">
 
-| Métrique                                                               | Unité |
-|:-----------------------------------------------------------------------|:------|
-| virtual_volumes.quotas.detected.count                                  |       |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes | B     |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count |       |
+| Métrique                                                                    | Unité |
+|:----------------------------------------------------------------------------|:------|
+| virtual_volumes.quotas.detected.count                                       |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes      | B     |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.free.bytes       | B     |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.usage.percentage | %     |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.percentage | %     |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">

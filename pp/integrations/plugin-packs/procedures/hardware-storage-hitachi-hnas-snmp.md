@@ -25,9 +25,9 @@ It brings the following service templates:
 
 ### Discovery rules
 
-| Rule Name                                   | Description                                               |
-|:--------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-Hitachi-Hnas-SNMP-Interface-Name | Discover the disk partitions and monitor space occupation |
+| Rule Name                                   | Description                                                             |
+|:--------------------------------------------|:------------------------------------------------------------------------|
+| HW-Storage-Hitachi-Hnas-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -70,11 +70,15 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 </TabItem>
 <TabItem value="Virtual-Volumes-Quotas" label="Virtual-Volumes-Quotas">
 
-| Metric Name                                                            | Unit  |
-|:-----------------------------------------------------------------------|:------|
-| virtual_volumes.quotas.detected.count                                  |       |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes | B     |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count |       |
+| Metric Name                                                                 | Unit  |
+|:----------------------------------------------------------------------------|:------|
+| virtual_volumes.quotas.detected.count                                       |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes      | B     |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.free.bytes       | B     |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.usage.percentage | %     |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.percentage | %     |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
