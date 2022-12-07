@@ -26,6 +26,7 @@ Release date: `soon`
 #### Bug fixes
 
 - Fixed an issue with large SQL queries that caused the Centreon interface to become unavailable
+- [Install] Added missing update scripts
 
 ### 22.10.1
 
