@@ -21,7 +21,7 @@ Il apporte les modèles de service suivants :
 | Hardware-Global        | HW-Storage-Hitachi-Hnas-Hardware-Global-SNMP        | Contrôle le matériel                                     | X      |            |
 | Interfaces             | HW-Storage-Hitachi-Hnas-Interfaces-SNMP             | Contrôle les interfaces                                  |        | X          |
 | Virtual-Volumes-Quotas | HW-Storage-Hitachi-Hnas-Virtual-Volumes-Quotas-SNMP | Contrôle l'utilisation des quotas des volumes virtuels |        |            |
-| Volume-Usage-Global    | HW-Storage-Hitachi-Hnas-Volume-Usage-Global-SNMP    | Contrôle l'utilisation des volume                        | X      |            |
+| Volume-Usage-Global    | HW-Storage-Hitachi-Hnas-Volume-Usage-Global-SNMP    | Contrôle l'utilisation des volumes                        | X      |            |
 
 ### Règles de découverte
 
