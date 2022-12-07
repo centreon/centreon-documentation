@@ -20,7 +20,7 @@ Il apporte les modèles de service suivants :
 | Cluster-Status         | HW-Storage-Hitachi-Hnas-Cluster-Status-SNMP         | Contrôle l'état des noeuds du cluster                    |        |            |
 | Hardware-Global        | HW-Storage-Hitachi-Hnas-Hardware-Global-SNMP        | Contrôle le matériel                                     | X      |            |
 | Interfaces             | HW-Storage-Hitachi-Hnas-Interfaces-SNMP             | Contrôle les interfaces                                  |        | X          |
-| Virtual-Volumes-Quotas | HW-Storage-Hitachi-Hnas-Virtual-Volumes-Quotas-SNMP | Contrôle l'utilisation des quotas des volumes virtuelles |        |            |
+| Virtual-Volumes-Quotas | HW-Storage-Hitachi-Hnas-Virtual-Volumes-Quotas-SNMP | Contrôle l'utilisation des quotas des volumes virtuels |        |            |
 | Volume-Usage-Global    | HW-Storage-Hitachi-Hnas-Volume-Usage-Global-SNMP    | Contrôle l'utilisation des volume                        | X      |            |
 
 ### Règles de découverte
