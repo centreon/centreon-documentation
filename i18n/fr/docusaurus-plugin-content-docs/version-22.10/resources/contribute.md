@@ -17,7 +17,7 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
 * Ne changez pas les blancs ou les fins de ligne dans les parties du fichier que vous n'éditez pas. Vérifiez que votre éditeur de texte n'est pas configuré pour reformater automatiquement tout le fichier à l'enregistrement.
 
-* Si vous parlez français, appliquez vos changements aux versions anglaises et françaises de la documentation. La version française est stituée dans le dossier **i18n**.
+* Si vous parlez français, appliquez vos changements aux versions anglaises et françaises de la documentation. La version française est située dans le dossier **i18n**.
 
 ## Éditer une seule page de documentation
 
