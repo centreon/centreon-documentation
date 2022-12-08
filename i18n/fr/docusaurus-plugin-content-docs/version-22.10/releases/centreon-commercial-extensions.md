@@ -17,6 +17,14 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+#### Bug fixes
+
+- Fixed server startup error due to duplicate key.
+
 ### 22.10.1
 
 - First release: `November 29, 2022`
