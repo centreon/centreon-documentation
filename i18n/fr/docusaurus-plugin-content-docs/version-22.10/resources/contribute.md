@@ -154,6 +154,6 @@ Pour faire cela, vous devez builder la documentation localement.
 Dans certains cas, le build local peut échouer. Vérifiez le message d'erreur dans le log. Il se peut que :
 
 * une image manque,
-* un lien ait un format incorrect
+* un lien ait un format incorrect,
 * des backticks (caractères ``` autour des blocs de code) ne soit pas fermés correctement, ou bien qu'il y ait un espace en trop avant les backticks
 * un fichier n'ait pas exactement le même nom en français et en anglais.
