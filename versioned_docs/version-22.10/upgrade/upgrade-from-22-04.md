@@ -99,6 +99,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -110,6 +113,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
