@@ -112,7 +112,7 @@ Votre branche doit être basée sur la branche **staging**. Depuis cette branche
 Une fois la PR faite, l'équipe documentation de Centreon :
 
 * S'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
-* s'assurera que votre PR soit mergée et publiée.
+* S'assurera que votre PR soit mergée et publiée.
 
 ### Modifier le même fichier dans différentes versions
 
