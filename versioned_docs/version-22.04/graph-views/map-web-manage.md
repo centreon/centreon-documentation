@@ -1,6 +1,6 @@
 ---
 id: map-web-manage
-title: Manage maps in MAP
+title: Managing maps in MAP
 ---
 
 This topic provides information about how to perform actions on your maps from the Centreon MAP interface. You can create two types of map:

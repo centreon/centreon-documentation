@@ -1,6 +1,6 @@
 ---
 id: map-web-create-geoview
-title: Create a geographic view
+title: Creating a geographic view
 ---
 
 This topic provides information about how to create geographic views from the Centreon MAP interface.

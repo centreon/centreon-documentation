@@ -1,6 +1,6 @@
 ---
 id: map-web-update
-title: Update MAP
+title: Updating MAP
 ---
 
 > A reset of your MAP database is necessary: the modifications you made on your maps using the web editor will be lost. Otherwise, note that the MAP Legacy database (and therefore legacy maps) will not be impacted.

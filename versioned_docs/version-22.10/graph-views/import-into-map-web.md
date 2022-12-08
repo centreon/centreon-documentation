@@ -1,6 +1,6 @@
 ---
 id: import-into-map-web
-title: Switch from MAP (Legacy) to MAP
+title: Switching from MAP (Legacy) to MAP
 ---
 
 This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by importing your legacy maps into your MAP module.

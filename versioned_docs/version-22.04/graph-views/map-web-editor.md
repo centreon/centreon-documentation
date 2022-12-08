@@ -1,6 +1,6 @@
 ---
 id: map-web-editor
-title: Use the map editor
+title: Using the map editor
 ---
 
 This topic describes how to customize your maps using the edition mode features.
