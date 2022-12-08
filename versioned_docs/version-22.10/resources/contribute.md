@@ -153,7 +153,7 @@ To do this, you must build the documentation locally.
 
 In some cases, the build may fail. Check the error message in the log. Possible reasons are:
 
-* an image is missing
+* an image is missing,
 * a link has an incorrect format
 * some backticks (``` characters used around code blocks) are not closed properly, or there is an extra space before the backticks
 * a file doesn’t have the exact same name in French and in English.
