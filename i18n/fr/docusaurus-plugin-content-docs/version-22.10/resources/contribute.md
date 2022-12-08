@@ -155,5 +155,5 @@ Dans certains cas, le build local peut échouer. Vérifiez le message d'erreur d
 
 * une image manque,
 * un lien ait un format incorrect,
-* des backticks (caractères ``` autour des blocs de code) ne soit pas fermés correctement, ou bien qu'il y ait un espace en trop avant les backticks
+* des backticks (caractères ``` autour des blocs de code) ne soit pas fermés correctement, ou bien qu'il y ait un espace en trop avant les backticks,
 * un fichier n'ait pas exactement le même nom en français et en anglais.
