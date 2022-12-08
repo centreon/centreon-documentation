@@ -136,7 +136,7 @@ Pour faire cela, vous devez builder la documentation localement.
    ```
 
 5. Buildez la version EN ou FR du site (plus rapide qu'un build complet):
-   * EN: `yarn start`
+   * EN : `yarn start`
    * FR: `yarn start --locale=fr`
 
    Le site de documentation s'ouvre dans votre navigateur à l'adresse suivante : `http://localhost:3000/`.
