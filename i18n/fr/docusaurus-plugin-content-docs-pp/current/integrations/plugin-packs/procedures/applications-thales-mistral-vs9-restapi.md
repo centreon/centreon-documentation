@@ -33,7 +33,7 @@ Il apporte les modèles de service suivants :
 
 | Alias             | Modèle de service                               | Description                    | Défaut |
 |:------------------|:------------------------------------------------|:-------------------------------|:-------|
-| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi | Contrôle les certificates CA   | X      |
+| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi | Contrôle les certificats CA   | X      |
 | Cluster           | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi      | Contrôle l'état du cluster MMC | X      |
 | Clusters          | App-Thales-Mistral-Vs9-Clusters-Restapi         | Contrôle l'état des clusters   |        |
 
