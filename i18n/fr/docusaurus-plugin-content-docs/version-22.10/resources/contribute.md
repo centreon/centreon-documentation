@@ -56,7 +56,7 @@ La PR est faite ! L'équipe documentation de Centreon :
 * S'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
 * S'assurera que votre PR soit mergée et publiée.
 
-## J'ai créé une pull request mais je veux faire d'autres modifications. Que faire?
+## J'ai créé une pull request mais je veux faire d'autres modifications. Que faire ?
 
 1. Pour éditer un autre fichier, rendez-vous dans votre fork de notre dépôt de documentation sur GitHub (**Your profile** > cliquez sur le fork) puis sélectionnez votre branche en utilisant la liste déroulante en haut à gauche de l'écran.
 
