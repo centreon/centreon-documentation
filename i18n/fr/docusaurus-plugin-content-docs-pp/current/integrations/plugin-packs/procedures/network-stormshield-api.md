@@ -18,9 +18,11 @@ Il apporte les modèles de service suivants :
 | Alias      | Modèle de service              | Description                                         | Défaut | Découverte |
 |:-----------|:-------------------------------|:----------------------------------------------------|:-------|:-----------|
 | Cpu        | Net-Stormshield-Cpu-Api        | Contrôle du taux d'utilisation du CPU de la machine | X      |            |
+| Ha         | Net-Stormshield-Ha-Api         | Contrôle la haute disponibilité                     |        |            |
 | Hardware   | Net-Stormshield-Hardware-Api   | Contrôle le matériel                                | X      |            |
 | Health     | Net-Stormshield-Health-Api     | Contrôle l'état de santé                            | X      |            |
 | Interfaces | Net-Stormshield-Interfaces-Api | Contrôle les interfaces                             |        | X          |
+| Memory     | Net-Stormshield-Memory-Api     | Contrôle la mémoire                                 | X      |            |
 | Uptime     | Net-Stormshield-Uptime-Api     | Contrôle l'uptime                                   | X      |            |
 
 ### Règles de découverte
@@ -41,6 +43,23 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 |:------------------------------------------|:------|
 | cpu.utilization.percentage                | %     |
 | *cpu_num*#core.cpu.utilization.percentage | %     |
+
+</TabItem>
+<TabItem value="Ha" label="Ha">
+
+| Métrique                                | Unité |
+|:----------------------------------------|:------|
+| members.detected.count                  |       |
+| members.none.count                      |       |
+| members.starting.count                  |       |
+| members.waiting_peer.count              |       |
+| members.ready.count                     |       |
+| members.reboot.count                    |       |
+| members.down.count                      |       |
+| member state                            |       |
+| member link status                      |       |
+| member config status                    |       |
+| *member_name*#member.quality.percentage | %     |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -71,6 +90,20 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 | *interface_user_name~interface_real_name*#interface.traffic.out.bitspersecond | b/s   |
 | *interface_user_name~interface_real_name*#interface.packets.accepted.count    |       |
 | *interface_user_name~interface_real_name*#interface.packets.blocked.count     |       |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Métrique                         | Unité |
+|:---------------------------------|:------|
+| memory.usage.percentage          | %     |
+| memory.protected_host.percentage | %     |
+| memory.fragmented.percentage     | %     |
+| memory.connections.percentage    | %     |
+| memory.icmp.percentage           | %     |
+| memory.data_tracking.percentage  | %     |
+| memory.dynamic.percentage        | %     |
+| memory.ether_state.percentage    | %     |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

@@ -18,9 +18,11 @@ It brings the following service templates:
 | Service Alias | Service Template               | Service Description                                  | Default | Discovery |
 |:--------------|:-------------------------------|:-----------------------------------------------------|:--------|:----------|
 | Cpu           | Net-Stormshield-Cpu-Api        | Check the rate of utilization of CPU for the machine | X       |           |
+| Ha            | Net-Stormshield-Ha-Api         | Check high availability                              |         |           |
 | Hardware      | Net-Stormshield-Hardware-Api   | Check hardware                                       | X       |           |
 | Health        | Net-Stormshield-Health-Api     | Check health                                         | X       |           |
 | Interfaces    | Net-Stormshield-Interfaces-Api | Check interfaces                                     |         | X         |
+| Memory        | Net-Stormshield-Memory-Api     | Check memory                                         | X       |           |
 | Uptime        | Net-Stormshield-Uptime-Api     | Check uptime                                         | X       |           |
 
 ### Discovery rules
@@ -41,6 +43,23 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 |:------------------------------------------|:------|
 | cpu.utilization.percentage                | %     |
 | *cpu_num*#core.cpu.utilization.percentage | %     |
+
+</TabItem>
+<TabItem value="Ha" label="Ha">
+
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| members.detected.count                  |       |
+| members.none.count                      |       |
+| members.starting.count                  |       |
+| members.waiting_peer.count              |       |
+| members.ready.count                     |       |
+| members.reboot.count                    |       |
+| members.down.count                      |       |
+| member state                            |       |
+| member link status                      |       |
+| member config status                    |       |
+| *member_name*#member.quality.percentage | %     |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -71,6 +90,20 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 | *interface_user_name~interface_real_name*#interface.traffic.out.bitspersecond | b/s   |
 | *interface_user_name~interface_real_name*#interface.packets.accepted.count    |       |
 | *interface_user_name~interface_real_name*#interface.packets.blocked.count     |       |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| memory.usage.percentage          | %     |
+| memory.protected_host.percentage | %     |
+| memory.fragmented.percentage     | %     |
+| memory.connections.percentage    | %     |
+| memory.icmp.percentage           | %     |
+| memory.data_tracking.percentage  | %     |
+| memory.dynamic.percentage        | %     |
+| memory.ether_state.percentage    | %     |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
