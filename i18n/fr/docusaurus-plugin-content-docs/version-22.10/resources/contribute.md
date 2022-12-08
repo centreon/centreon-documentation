@@ -135,7 +135,7 @@ Pour faire cela, vous devez builder la documentation localement.
    yarn
    ```
 
-5. Buildez la version EN ou FR du site (plus rapide qu'un build complet):
+5. Buildez la version EN ou FR du site (plus rapide qu'un build complet) :
    * EN : `yarn start`
    * FR : `yarn start --locale=fr`
 
