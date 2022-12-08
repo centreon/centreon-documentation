@@ -96,7 +96,7 @@ Votre branche doit être basée sur la branche **staging**. Depuis cette branche
 
 4. Effectuez vos modifications :
 
-   * [buildez la documentation localement](#comment-prévisualiser-ma-pr) pour vérifier que tout s'affiche correctement.
+   * [buildez la documentation localement](#comment-prévisualiser-ma-pr) pour vérifier que tout s'affiche correctement,
    * n'oubliez pas de faire `git add` sur tous les fichiers nécessaires (particulièrement les images).
 5. Commitez vos modifications et pushez-les.
 6. Allez sur [GitHub](https://github.com/centreon/centreon-documentation). Vous devriez voir un message tel que celui-ci :
