@@ -126,7 +126,7 @@ Pour faire cela, vous devez builder la documentation localement.
 
 #### Procédure
 
-1. Sur votre disque, rendez-vous dans le dossier **centreon-documentation** de votre branch.
+1. Sur votre disque, rendez-vous dans le dossier **centreon-documentation** de votre branche.
 2. Installez [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable).
 3. Installez [Node.js](https://nodejs.org/en/download/).
 4. Installez les dépendances :
