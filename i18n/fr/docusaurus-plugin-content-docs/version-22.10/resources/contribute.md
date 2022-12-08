@@ -53,7 +53,7 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
 La PR est faite ! L'équipe documentation de Centreon :
 
-* s'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
+* S'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
 * s'assurera que votre PR soit mergée et publiée.
 
 ## J'ai créé une pull request mais je veux faire d'autres modifications. Que faire?
