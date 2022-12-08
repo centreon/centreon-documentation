@@ -99,6 +99,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -110,13 +113,17 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-You need to enable the php 8.1 repository
+You need to enable the php 8.1 repository:
+
 ```shell
 yum-config-manager --enable remi-php81
 ```
