@@ -74,7 +74,7 @@ Si vous souhaitez apporter des changements à un certain nombre de fichiers (ou 
 
 Votre branche doit être basée sur la branche **staging**. Depuis cette branche, vous pouvez proposer des modifications à des documentations qui sont déjà publiées et toujours supportées :
 
-* pour Centreon OnPrem, les versions 21.10 à 22.10
+* pour Centreon OnPrem, les versions 21.10 à 22.10,
 * les sections “Centreon Cloud” et “Plugin Packs”.
 
 ### Procédure
