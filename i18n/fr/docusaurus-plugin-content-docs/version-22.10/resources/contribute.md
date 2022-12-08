@@ -66,7 +66,7 @@ La PR est faite ! L'équipe documentation de Centreon :
 
    ![image](../assets/resources/commit_to_branch.png)
 
-3. Cliquez sur **Commit changes**. Vos modifications sont committées, pushées et ajoutées à la liste des commits pour cette pull request.
+3. Cliquez sur **Commit changes**. Vos modifications sont commitées, pushées et ajoutées à la liste des commits pour cette pull request.
 
 ## Éditer plusieurs pages à la fois
 
