@@ -35,7 +35,7 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
    ![image](../assets/resources/propose_changes.png)
 
-4. Dans le premier champ, entrez une courte description de vos modifications (par exemple “Fix typo”) : cette description deviendra le titre de votre commit. Vous pouvez ajouter plus d'inforations dans le second champ.
+4. Dans le premier champ, entrez une courte description de vos modifications (par exemple “Fix typo”) : cette description deviendra le titre de votre commit. Vous pouvez ajouter plus d'informations dans le second champ.
 5. Cliquez sur **Propose changes**. Une branche est créée dans un fork du dépôt Centreon, et un commit est pushé dans cette branche. La page montre maintenant vos modifications :
 
    ![image](../assets/resources/propose_changes2.png)
