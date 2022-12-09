@@ -57,8 +57,8 @@ It brings the following service templates:
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Patton SmartNode SNMP**
-server. Please refer to the official documentation from XXX:
-* LINK
+server. Please refer to the official documentation from Patton:
+* https://www.patton.com/manuals/
 
 ### Network flow
 

@@ -57,7 +57,7 @@ Il apporte les modèles de service suivants :
 ### Configuration SNMP
 
 Afin de superviser votre **Patton SmartNode SNMP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* https://www.patton.com/manuals/
 
 ### Flux réseau
 
