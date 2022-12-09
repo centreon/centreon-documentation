@@ -116,7 +116,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ## Prerequisites
 
-To monitor, a user with read privileges on API is required.
+To monitor, a user with read privileges on the API is required.
 
 ## Setup
 
@@ -162,7 +162,7 @@ When this feature is enabled, you can skip the installation part below.
 
 You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet.
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
@@ -197,7 +197,7 @@ apt install centreon-plugin-network-stormshield-api
 ### Host
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Stormshield** server settings.
+* Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your **Stormshield** server settings.
 * Apply the **Net-Stormshield-Api-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
