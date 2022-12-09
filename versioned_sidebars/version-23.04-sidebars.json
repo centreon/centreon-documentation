@@ -1398,6 +1398,10 @@
         {
           "type": "doc",
           "id": "version-23.04/resources/glossary"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/resources/contribute"
         }
       ]
     }
