@@ -116,7 +116,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ## Prerequisites
 
-To monitor, a user with read privileges on API is required.
+To monitor, a user with read privileges on the API is required.
 
 ## Setup
 
