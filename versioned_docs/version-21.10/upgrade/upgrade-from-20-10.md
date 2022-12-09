@@ -35,10 +35,6 @@ servers:
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 20.10.
-
 ## Upgrade the Centreon Central server
 
 > Since 21.04, Centreon uses **MariaDB 10.5**.
