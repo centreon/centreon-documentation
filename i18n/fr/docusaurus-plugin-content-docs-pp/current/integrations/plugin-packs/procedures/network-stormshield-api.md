@@ -116,7 +116,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ## Prérequis
 
-Pour la supervision, un utilisateur avec les droits en lecture sur l'API est nécessaire.
+Pour la supervision, un utilisateur avec des droits de lecture sur l'API est nécessaire.
 
 ## Installation
 
