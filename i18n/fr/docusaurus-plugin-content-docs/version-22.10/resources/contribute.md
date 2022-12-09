@@ -3,11 +3,11 @@ id: contribute
 title: Contribuer à la documentation Centreon
 ---
 
-Vous pouvez contribuer à la documentation Centreon en soumettant des pull requests sur [notre dépôt GitHub](https://github.com/centreon/centreon-documentation). EN tant que contributeur externe vous ne pouvez pas commiter directement sur le dépôt : un fork sera créé automatiquement quand vous commiterez.
+Vous pouvez contribuer à la documentation Centreon en soumettant des pull requests sur [notre dépôt GitHub](https://github.com/centreon/centreon-documentation). En tant que contributeur externe vous ne pouvez pas commiter directement sur le dépôt : un fork sera créé automatiquement quand vous commiterez.
 
 * Si vous avez une question générale concernant la configuration ou l'utilisation de Centreon, posez-la plutôt sur [Slack](https://centreon.github.io/register-slack/), ou sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
 
-* Si vous avez une idée de nouvelle fonctionnalité ou de changement de comportement pour un aspect spécifique de Centreon, ou que vous avez trouvé un bug, ovrez une "issue" dans le dépôt du code du projet  correspondant. Utilisez le [guide de contribution](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md).
+* Si vous avez une idée de nouvelle fonctionnalité ou de changement de comportement pour un aspect spécifique de Centreon, ou que vous avez trouvé un bug, ouvrez une "issue" dans le dépôt du code du projet  correspondant. Utilisez le [guide de contribution](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md).
 
 ## Recommandations pour vos pull requests
 
@@ -15,9 +15,9 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
 * Essayez de ne pas toucher à un trop grand nombre de fichiers à la fois en une seule PR, si possible.
 
-* Ne changez pas les blancs ou les fins de ligne dans les parties du fichier que vous n'éditez pas. Vérifiez que votre éditeur de texte n'est pas configuré pour reformater automtiquement tout le fichier à l'enregistrement.
+* Ne changez pas les blancs ou les fins de ligne dans les parties du fichier que vous n'éditez pas. Vérifiez que votre éditeur de texte n'est pas configuré pour reformater automatiquement tout le fichier à l'enregistrement.
 
-* Si vous parlez français, appliquez vos changements aux versions anglaises et françaises de la documentation. La version française est stituée dans le dossier **i18n**.
+* Si vous parlez français, appliquez vos changements aux versions anglaises et françaises de la documentation. La version française est située dans le dossier **i18n**.
 
 ## Éditer une seule page de documentation
 
@@ -35,7 +35,7 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
    ![image](../assets/resources/propose_changes.png)
 
-4. Dans le premier champ, entrez une courte description de vos modifications (par exemple “Fix typo”) : cette description deviendra le titre de votre commit. Vous pouvez ajouter plus d'inforations dans le second champ.
+4. Dans le premier champ, entrez une courte description de vos modifications (par exemple “Fix typo”) : cette description deviendra le titre de votre commit. Vous pouvez ajouter plus d'informations dans le second champ.
 5. Cliquez sur **Propose changes**. Une branche est créée dans un fork du dépôt Centreon, et un commit est pushé dans cette branche. La page montre maintenant vos modifications :
 
    ![image](../assets/resources/propose_changes2.png)
@@ -53,10 +53,10 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
 La PR est faite ! L'équipe documentation de Centreon :
 
-* s'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
-* s'assurera que votre PR soit mergée et publiée.
+* S'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
+* S'assurera que votre PR soit mergée et publiée.
 
-## J'ai créé une pull request mais je veux faire d'autres modifications. Que faire?
+## J'ai créé une pull request mais je veux faire d'autres modifications. Que faire ?
 
 1. Pour éditer un autre fichier, rendez-vous dans votre fork de notre dépôt de documentation sur GitHub (**Your profile** > cliquez sur le fork) puis sélectionnez votre branche en utilisant la liste déroulante en haut à gauche de l'écran.
 
@@ -66,7 +66,7 @@ La PR est faite ! L'équipe documentation de Centreon :
 
    ![image](../assets/resources/commit_to_branch.png)
 
-3. Cliquez sur **Commit changes**. Vos modifications sont committées, pushées et ajoutées à la liste des commits pour cette pull request.
+3. Cliquez sur **Commit changes**. Vos modifications sont commitées, pushées et ajoutées à la liste des commits pour cette pull request.
 
 ## Éditer plusieurs pages à la fois
 
@@ -96,7 +96,7 @@ Votre branche doit être basée sur la branche **staging**. Depuis cette branche
 
 4. Effectuez vos modifications :
 
-   * [buildez la documentation localement](#comment-prévisualiser-ma-pr) pour vérifier que tout s'affiche correctement.
+   * [buildez la documentation localement](#comment-prévisualiser-ma-pr) pour vérifier que tout s'affiche correctement,
    * n'oubliez pas de faire `git add` sur tous les fichiers nécessaires (particulièrement les images).
 5. Commitez vos modifications et pushez-les.
 6. Allez sur [GitHub](https://github.com/centreon/centreon-documentation). Vous devriez voir un message tel que celui-ci :
@@ -111,8 +111,8 @@ Votre branche doit être basée sur la branche **staging**. Depuis cette branche
 
 Une fois la PR faite, l'équipe documentation de Centreon :
 
-* s'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
-* s'assurera que votre PR soit mergée et publiée.
+* S'assurera que votre pull request soit validée : quelqu'un vérifiera que toutes les modifications de la PR sont factuellement correctes. Il se peut que nous vous demandions d'apporter des changements à votre PR. Dans ce cas, vous recevrez une notification de GitHub.
+* S'assurera que votre PR soit mergée et publiée.
 
 ### Modifier le même fichier dans différentes versions
 
@@ -126,7 +126,7 @@ Pour faire cela, vous devez builder la documentation localement.
 
 #### Procédure
 
-1. Sur votre disque, rendez-vous dans le dossier **centreon-documentation** de votre branch.
+1. Sur votre disque, rendez-vous dans le dossier **centreon-documentation** de votre branche.
 2. Installez [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable).
 3. Installez [Node.js](https://nodejs.org/en/download/).
 4. Installez les dépendances :
@@ -135,9 +135,9 @@ Pour faire cela, vous devez builder la documentation localement.
    yarn
    ```
 
-5. Buildez la version EN ou FR du site (plus rapide qu'un build complet):
-   * EN: `yarn start`
-   * FR: `yarn start --locale=fr`
+5. Buildez la version EN ou FR du site (plus rapide qu'un build complet) :
+   * EN : `yarn start`
+   * FR : `yarn start --locale=fr`
 
    Le site de documentation s'ouvre dans votre navigateur à l'adresse suivante : `http://localhost:3000/`.
    La plupart des changements sont pris en compte immédiatement sans avoir à redémarrer le serveur.
@@ -153,7 +153,7 @@ Pour faire cela, vous devez builder la documentation localement.
 
 Dans certains cas, le build local peut échouer. Vérifiez le message d'erreur dans le log. Il se peut que :
 
-* une image manque
-* un lien ait un format incorrect
-* des backticks (caractères ``` autour des blocs de code) ne soit pas fermés correctement, ou bien qu'il y ait un espace en trop avant les backticks
+* une image manque,
+* un lien ait un format incorrect,
+* des backticks (caractères ``` autour des blocs de code) ne soit pas fermés correctement, ou bien qu'il y ait un espace en trop avant les backticks,
 * un fichier n'ait pas exactement le même nom en français et en anglais.
