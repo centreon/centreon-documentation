@@ -197,7 +197,7 @@ apt install centreon-plugin-network-stormshield-api
 ### Host
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Stormshield** server settings.
+* Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your **Stormshield** server settings.
 * Apply the **Net-Stormshield-Api-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
