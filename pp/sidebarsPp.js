@@ -1250,7 +1250,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'network',
+      label: 'Network',
       items: [
         {
           type: 'doc',
@@ -1298,6 +1298,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-aruba-aoscx-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-aruba-instant-snmp'
         },
         {
@@ -1310,7 +1314,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-aruba-aoscx-snmp'
+          id: 'integrations/plugin-packs/procedures/network-routers-atrica-snmp'
         },
         {
           type: 'doc',
@@ -1318,15 +1322,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-routers-atrica-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-atto-fibrebridge-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-bgp-snmp'
         },
         {
           type: 'doc',
@@ -1339,6 +1335,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-beeware-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-bgp-snmp'
         },
         {
           type: 'doc',
@@ -1358,11 +1358,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp'
+          id: 'integrations/plugin-packs/procedures/network-cisco-apic-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cisco-apic-restapi'
+          id: 'integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp'
         },
         {
           type: 'doc',
@@ -1394,11 +1394,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cisco-meraki-snmp'
+          id: 'integrations/plugin-packs/procedures/network-cisco-meraki-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cisco-meraki-restapi'
+          id: 'integrations/plugin-packs/procedures/network-cisco-meraki-snmp'
         },
         {
           type: 'doc',
@@ -1430,15 +1430,15 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cisco-wlc-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cisco-waas-snmp'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cisco-wap-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cisco-wlc-snmp'
         },
         {
           type: 'doc',
@@ -1490,15 +1490,19 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-dell-xseries-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-denyall-snmp'
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-switchs-dell-xseries-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-digi-portserverts-snmp'
         },
         {
           type: 'doc',
@@ -1530,6 +1534,14 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-lenovo-rackswitch-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fiberstore-snmp'
         },
         {
@@ -1542,14 +1554,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiswitch-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp'
         },
         {
@@ -1559,6 +1563,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiswitch-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp'
         },
         {
           type: 'doc',
@@ -1578,6 +1590,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
         },
         {
@@ -1591,10 +1607,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hp-vc-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
         },
         {
           type: 'doc',
@@ -1643,14 +1655,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-loadbalancers-kemp-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-lenovo-rackswitch-snmp'
         },
         {
           type: 'doc',
@@ -1724,7 +1728,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-ssh'
         },
-        {
+		{
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-patton-smartnode-snmp'
         },
@@ -1739,6 +1743,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-perle-ids-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-firewalls-pfsense-snmp'
         },
         {
           type: 'doc',
@@ -1770,6 +1778,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-ruckus-zonedirector-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ruckus-icx-snmp'
         },
         {
@@ -1779,10 +1791,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ruckus-smartzone-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-ruckus-zonedirector-snmp'
         },
         {
           type: 'doc',
@@ -1818,15 +1826,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-tplink-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-teltonika-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
+          id: 'integrations/plugin-packs/procedures/network-tplink-snmp'
         },
         {
           type: 'doc',
@@ -1842,19 +1846,11 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ucopia-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-versa-director-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-versa-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-viptela-snmp'
         },
         {
           type: 'doc',
@@ -1866,7 +1862,15 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-firewalls-pfsense-snmp'
+          id: 'integrations/plugin-packs/procedures/network-versa-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-versa-director-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-viptela-snmp'
         }
       ]
     },
