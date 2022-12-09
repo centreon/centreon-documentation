@@ -169,10 +169,10 @@ Description of users, umask and home directory:
 The tasks explained in this chapter must be performed on the Centreon
 central server.
 
-Install the Centreon MBI repository, you can find it on the 
+1. Install the Centreon MBI repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
-Then run the following command:
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -331,10 +331,12 @@ installation process:
   BI user on the central monitoring server (to publish reports on the
   interface).
 
-To start installing the reporting server, install the MBI repository, you can find it on the 
+#### Procedure
+
+1. To start installing the reporting server, install the MBI repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
-Then perform the following procedure:
+2. Then perform the following procedure:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
