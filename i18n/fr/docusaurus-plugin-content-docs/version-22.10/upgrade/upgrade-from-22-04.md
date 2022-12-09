@@ -97,8 +97,12 @@ Centreon 22.10 utilise PHP en version 8.1.
 
 Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -107,8 +111,12 @@ dnf module install php:remi-8.1
 
 Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 

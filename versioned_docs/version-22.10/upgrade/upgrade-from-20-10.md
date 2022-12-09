@@ -89,6 +89,7 @@ Centreon 22.10 uses PHP in version 8.1.
 <TabItem value="RHEL 8" label="RHEL 8">
 
 First, you need to install the **remi** repository:
+
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
@@ -98,8 +99,12 @@ sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpm
 
 Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -107,6 +112,7 @@ dnf module install php:remi-8.1
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 First, you need to install the **remi** repository:
+
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
@@ -115,8 +121,12 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
 Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -124,12 +134,15 @@ dnf module install php:remi-8.1
 <TabItem value="CentOS 7" label="CentOS 7">
 
 First, you need to install the **remi** repository:
+
 ```shell
 yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
+
 Then, you need to enable the php 8.1 repository
+
 ```shell
 yum-config-manager --enable remi-php81
 ```
