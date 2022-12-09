@@ -96,7 +96,6 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 | Metric Name                      | Unit  |
 |:---------------------------------|:------|
-| memory.usage.percentage          | %     |
 | memory.protected_host.percentage | %     |
 | memory.fragmented.percentage     | %     |
 | memory.connections.percentage    | %     |

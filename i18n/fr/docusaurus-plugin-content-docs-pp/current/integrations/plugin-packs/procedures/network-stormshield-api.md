@@ -96,7 +96,6 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 | Métrique                         | Unité |
 |:---------------------------------|:------|
-| memory.usage.percentage          | %     |
 | memory.protected_host.percentage | %     |
 | memory.fragmented.percentage     | %     |
 | memory.connections.percentage    | %     |
