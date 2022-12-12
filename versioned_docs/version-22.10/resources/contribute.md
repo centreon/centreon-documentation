@@ -10,7 +10,7 @@ This page only details the procedure to request changes in the documentation:
 
 * If you have an idea for a new feature please submit it or on the [Ideas](https://thewatch.centreon.com/ideas) section of The Watch.
 
-* If you want to report a behavior change in a specific aspect of Centreon, or have found a bug, file that issue in the project's code repository. You may use the contribution guide [here](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md).
+* If you have found a bug, file that issue in the project's code repository. You may use the contribution guide [here](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md).
 
 ## Pull request guidelines
 
