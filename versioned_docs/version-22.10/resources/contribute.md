@@ -8,7 +8,7 @@ You can contribute to the Centreon documentation by submitting pull requests on 
 This page only details the procedure to request changes in the documentation:
 * If your problem is a general question about Centreon or the documentation, ask in the [Slack](https://centreon.github.io/register-slack/) channel instead, or on our community platform [The Watch](https://thewatch.centreon.com/).
 
-* If you have an idea for a new feature please submit it or on the [Ideas](https://thewatch.centreon.com/ideas) section of The Watch.
+* If you have an idea for a new feature please submit it in the [Ideas](https://thewatch.centreon.com/ideas) section of The Watch.
 
 * If you have found a bug, file that issue in the project's code repository. You may use the contribution guide [here](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md).
 
