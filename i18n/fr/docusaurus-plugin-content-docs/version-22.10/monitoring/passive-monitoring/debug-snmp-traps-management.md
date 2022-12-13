@@ -85,7 +85,7 @@ Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitr
 Vous pouvez activer le mode debug pour le service **centreontrapd**. Éditez le fichier suivant :
 
 ```shell
-vi /etc/sysonfig/centreontrapd
+vi /etc/sysconfig/centreontrapd
 ```
 
 Puis modifiez l'option **severity** en **debug** :
