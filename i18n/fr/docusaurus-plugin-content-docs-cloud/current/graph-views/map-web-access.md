@@ -3,6 +3,8 @@ id: map-web-access
 title: Gérer les droits d'accès dans MAP
 ---
 
+**à réviser**
+
 Cette page explique comment les utilisateurs accédent aux cartes en fonction de privilèges bien définis.
 
 Les utilisateurs pouvant créer des cartes sont :
@@ -41,10 +43,6 @@ Les utilisateurs appartenant au groupe d'accès sélectionné sont maintenant au
 ## Privilèges sur une carte
 
 Assurez-vous que les utilisateurs sont bien regroupés en groupes d'accès. Cela facilitera l'attribution de privilèges en fonction de ces groupes.
-
-### Gérer les utilisateurs dans les groupes d'accès
-
-Les utilisateurs doivent appartenir au bon groupe pour avoir accès à des cartes spécifiques. Voir la procédure [Créer un groupe d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
 
 ### Accorder des privilèges sur une carte
 

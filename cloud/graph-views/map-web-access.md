@@ -3,6 +3,8 @@ id: map-web-access
 title: Manage access rights in MAP
 ---
 
+**To be revised**
+
 This topic explains how users can access the maps according to well-defined privileges.
 
 Users who can create maps are:
@@ -41,9 +43,6 @@ Users belonging to the selected access group are now able to create maps.
 ## Privileges on a map
 
 Ensure users are well organized in access groups. This will facilitate the granting of privileges according to those groups.
-
-### Managing users in access groups
-Users must belong to the right group to get access to specific maps. Use the [Creating an access group](../administration/access-control-lists.md#creating-an-access-group) procedure to manage users in access groups.
 
 ### Granting privileges on a map
 Privileges are granted when you perform the action of sharing a map. At map level, you can specify which access group is allowed to access that map, with specific privileges as well.

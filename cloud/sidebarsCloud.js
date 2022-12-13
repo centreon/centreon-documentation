@@ -311,11 +311,7 @@ module.exports = {
             "type": "category",
           "label": "Guide",
           "items": [
-            {
-              "type": "doc",
-              "id": "graph-views/introduction-map"
-            }, 
-                                                  {
+              {
               "type": "doc",
               "id": "graph-views/map-web-access"
               },

@@ -34,7 +34,7 @@ Suivez cette procédure pour ouvrir votre carte en mode édition :
 
 Voici comment se présente l'éditeur MAP :
 
-![image](../assets/graph-views/ng/map-web-editor-description.png)
+![image](../assets/graph-views/map-web-editor-description.png)
 
 **1. Fil d'Ariane :** vous permet de savoir quels éléments de la carte vous avez parcourus pour atteindre la vue courante. 
 **2. Barre d'outils :** permet de masquer/afficher des panneaux, annuler/répéter des actions, et d'adapter/zoomer/dézoomer l'espace de travail.
