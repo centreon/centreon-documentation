@@ -13,7 +13,11 @@ Avant de démarrer la procédure pour importer les anciennes cartes dans MAP, vo
 
 > Lorsque vous importez vos anciennes cartes, tout le contenu créé dans MAP est supprimé.
 
-### Étape 1 : migrer les images
+### Étape 1 : installer MAP
+
+Vous devez d'abord installer Centreon MAP. Allez à cette [page](map-web-install.md) pour procéder à l'installation et basculer sur le serveur MAP Engine.
+
+### Étape 2 : migrer les images
 
 Si vous avez importé des images dans le client lourd (dans des dossiers personnalisés en dehors du dossier Centreon), et que vous les avez utilisées dans vos cartes, vous devez d'abord les migrer vers votre serveur central.
 
@@ -23,7 +27,7 @@ Si vous avez importé des images dans le client lourd (dans des dossiers personn
 
 3. Sur le serveur central, allez dans **Administration > Paramètres > Images**, puis téléchargez toutes les images de votre ordinateur dans le répertoire **centreon-map**. Veillez à ne pas changer le nom de vos images au cours de ce processus.
 
-### Étape 2 : mettre à jour MAP (Legacy)
+### Étape 3 : mettre à jour MAP (Legacy)
 
 Pour que les icônes s'affichent correctement après avoir migré vos cartes, vous devez mettre à jour votre MAP (legacy) en exécutant les commandes suivantes :
 
@@ -34,7 +38,7 @@ systemctl daemon-reload
 systemctl start centreon-map
 ```
 
-### Étape 3 : migrer les cartes
+### Étape 4 : migrer les cartes
 
 1. Pour importer vos anciennes cartes dans MAP, allez à la page **Supervision > Map**, puis cliquez sur le bouton **Migrer**. La fenêtre suivante apparaît :
 
