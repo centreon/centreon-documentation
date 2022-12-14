@@ -5,14 +5,13 @@ title: Kadiska Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem'; 
 
-
 ## Pack Assets
 
 ### Templates
 
-The Centreon Plugin Pack **Kadiska Rest API** brings 2 different host templates:
+The Centreon Pack **Kadiska Rest API** brings 2 different host templates:
 
-* App-Monitoring-Kadiska-Station-Restapi-custom
+* App-Monitoring-Kadiska-Runner-Restapi-custom
 * App-Monitoring-Kadiska-Watcher-Restapi-custom
 
 It brings the following service templates:
@@ -32,7 +31,7 @@ It brings the following service templates:
 
 | Rule Name       | Description               |
 |:----------------|:--------------------------|
-| Stations        | Discover Kadiska stations |
+| Runners         | Discover Kadiska runners  |
 | Watchers        | Discover Kadiska watchers |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
@@ -42,7 +41,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule Name                                        | Description                                                                   |
 |:-------------------------------------------------|:------------------------------------------------------------------------------|
-| App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover kadiska targets associated to a station and monitor its performance. |
+| App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover kadiska targets associated to a runner and monitor its performance.  |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -64,20 +63,20 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Country" label="Watcher-Statistics-Per-Country">
 
-| Metric Name                                           | Unit  |
-|:------------------------------------------------------|:------|
-| *country*#watcher.dtt.spent.time.milliseconds         | ms    |
-| *country*#watcher.errors.percentage                   | %     |
-| *country*#watcher.network.spent.time.milliseconds     | ms    |
-| *country*#watchers.loading.page.duration.milliseconds | ms    |
-| *country*#watchers.pages.count                        | count |
-| *country*#watchers.processing.duration.milliseconds   | ms    |
-| *country*#watcher.redirect.time.milliseconds          | ms    |
-| *country*#watcher.requests.count                      | count |
-| *country*#watcher.sessions.count                      | count |
-| *country*#watcher.srt.spent.time.milliseconds         | ms    |
-| *country*#users.count                                 | count |
-| *country*#watchers.waiting.time.milliseconds          | ms    |
+| Metric Name                                          | Unit  |
+|:-----------------------------------------------------|:------|
+| *country*#country.dtt.spent.time.milliseconds        | ms    |
+| *country*#country.errors.percentage                  | %     |
+| *country*#country.network.spent.time.milliseconds    | ms    |
+| *country*#country.loading.page.duration.milliseconds | ms    |
+| *country*#country.pages.count                        | count |
+| *country*#country.processing.duration.milliseconds   | ms    |
+| *country*#country.redirect.time.milliseconds         | ms    |
+| *country*#country.requests.count                     | count |
+| *country*#country.sessions.count                     | count |
+| *country*#country.srt.spent.time.milliseconds        | ms    |
+| *country*#country.users.count                        | count |
+| *country*#country.waiting.time.milliseconds          | ms    |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-ISP" label="Watcher-Statistics-Per-ISP">
@@ -94,26 +93,26 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 | *isp*#isp.requests.count                              | count |
 | *isp*#isp.sessions.count                              | count |
 | *isp*#isp.srt.spent.time.milliseconds                 | ms    |
-| *isp*#users.count                                     | count |
+| *isp*#isp.users.count                                 | count |
 | *isp*#isp.waiting.time.milliseconds                   | ms    |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Site-And-Gateway" label="Watcher-Statistics-Per-Site-And-Gateway">
 
-| Metric Name                                           | Unit  |
-|:------------------------------------------------------|:------|
-| watcher.dtt.spent.time.milliseconds                   | ms    |
-| watcher.errors.percentage                             | %     |
-| watcher.network.spent.time.milliseconds               | ms    |
-| watcher.loading.page.duration.milliseconds            | ms    |
-| watcher.pages.count                                   | count |
-| watcher.processing.duration.milliseconds              | ms    |
-| watcher.redirect.time.milliseconds                    | ms    |
-| watcher.requests.count                                | count |
-| watcher.sessions.count                                | count |
-| watcher.srt.spent.time.milliseconds                   | ms    |
-| users.count                                           | count |
-| watcher.waiting.time.milliseconds                     | ms    |
+| Metric Name                                                                                | Unit  |
+|:-------------------------------------------------------------------------------------------|:------|
+| *watcher_name~site_name~gateway_name*watcher.dtt.spent.time.milliseconds                   | ms    |
+| *watcher_name~site_name~gateway_name*watcher.errors.percentage                             | %     |
+| *watcher_name~site_name~gateway_name*watcher.network.spent.time.milliseconds               | ms    |
+| *watcher_name~site_name~gateway_name*watcher.loading.page.duration.milliseconds            | ms    |
+| *watcher_name~site_name~gateway_name*watcher.pages.count                                   | count |
+| *watcher_name~site_name~gateway_name*watcher.processing.duration.milliseconds              | ms    |
+| *watcher_name~site_name~gateway_name*watcher.redirect.time.milliseconds                    | ms    |
+| *watcher_name~site_name~gateway_name*watcher.requests.count                                | count |
+| *watcher_name~site_name~gateway_name*watcher.sessions.count                                | count |
+| *watcher_name~site_name~gateway_name*watcher.srt.spent.time.milliseconds                   | ms    |
+| *watcher_name~site_name~gateway_name*watcher.users.count                                   | count |
+| *watcher_name~site_name~gateway_name*watcher.waiting.time.milliseconds                     | ms    |
 
 </TabItem>
 </Tabs>
@@ -203,12 +202,12 @@ apt install centreon-plugin-applications-monitoring-kadiska-restapi
 
 ### Host
 
-#### Kadiska Station
+#### Kadiska Runner
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** fields according to your Kadiska station name.
+* Fill the **Name**, **Alias** fields according to your Kadiska runner name.
 * Specify Kadiska API address name in **IP Address/DNS**.
-* Apply the **App-Monitoring-Kadiska-Station-Restapi-custom** template to the host.
+* Apply the **App-Monitoring-Kadiska-Runner-Restapi-custom** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 | Mandatory   | Macro                  | Description                                                                            |
@@ -218,7 +217,7 @@ apt install centreon-plugin-applications-monitoring-kadiska-restapi
 | X           | KADISKAAPICLIENTSECRET | Kadiska Client Secret                                                                  |
 |             | KADISKAAPIPORT         | (Default: '443')                                                                       |
 |             | KADISKAAPIPROTO        | (Default: 'https')                                                                     |
-| X           | STATIONNAME            | Specify Kadiska station name                                                           |
+| X           | RUNNERNAME             | Specify Kadiska runner name                                                            |
 |             | TIMEOUT                |                                                                                        |
 
 #### Kadiska Watcher
