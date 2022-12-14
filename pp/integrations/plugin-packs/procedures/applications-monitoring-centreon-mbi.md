@@ -21,7 +21,7 @@ Install NPRE on the Centreon MBI reporting server
 yum install centreon-nrpe-daemon
 ```
 
-Edit the file */etc/nrpe/centreon-nrpe.cfg* and:
+Edit the file */etc/nrpe.d/centreon-nrpe.cfg* and:
 
   - Add the IP of the poller that monitors the Centreon MBI reporting server on
     the *allowed\_host=* part.
