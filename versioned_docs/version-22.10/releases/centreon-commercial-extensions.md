@@ -50,7 +50,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 Release date: `December 16, 2022`
 
-- no change.
+- No change.
 
 ### 22.10.2
 
