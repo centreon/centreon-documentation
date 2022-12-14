@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please contact support.
 The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
 
 - Web editor: Create and edit your views directly from your web browser.
-New server: Brand new server and data model providing better performance.
+- New server: Brand new server and data model providing better performance.
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
