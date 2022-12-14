@@ -17,6 +17,45 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+#### Bug fixes
+
+- Fixed server startup error due to duplicate key.
+
+### 22.10.1
+
+- First release: `November 29, 2022`
+
+The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
+
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
+- Migration process: Integrated migration process of your legacy views.
+
+## Centreon MAP Legacy
+
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+- No change.
+
+### 22.10.1
+
+Release date: `November 29, 2022`
+
+#### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics.
+- Fixed the security issue CVE-2022-42889 (Text4shell).
+
+#### Bug fixes
+
+- Fixed an issue where resources' tooltips in the MAP legacy widget could not be displayed properly.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`

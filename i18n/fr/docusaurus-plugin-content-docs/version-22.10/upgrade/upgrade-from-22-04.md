@@ -23,10 +23,6 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
-### Mise à jour vers la dernière version mineure
-
-Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 22.04.
-
 ## Montée de version du serveur Centreon Central
 
 ### Mise à jour des dépôts
@@ -97,8 +93,12 @@ Centreon 22.10 utilise PHP en version 8.1.
 
 Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -107,8 +107,12 @@ dnf module install php:remi-8.1
 
 Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 

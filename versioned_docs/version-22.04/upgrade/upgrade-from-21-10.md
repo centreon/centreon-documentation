@@ -23,10 +23,6 @@ servers:
 - Central server
 - Database server
 
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 21.10.
-
 ## Upgrade the Centreon Central server
 
 ### Update the Centreon repository
@@ -58,7 +54,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
 

@@ -78,6 +78,24 @@ To check its operation, you should check the centreontrapd configuration setting
 You can check the proper functioning of binary centreontrapd by checking the configuration part of
 *[centreontrapd](enable-snmp-traps.md#centreontrapd)*.
 
+You can set up debug mode for the **centreontrapd** service. Edit the following file:
+
+```shell
+vi /etc/sysconfig/centreontrapd
+```
+
+Then modify option **severity** to **debug**:
+
+```shell
+OPTIONS="--logfile=/var/log/centreon/centreontrapd.log --severity=debug --config=/etc/centreon/conf.pm  --config-extra=/etc/centreon/centreontrapd.pm"
+```
+
+Then restart **centreontrapd**:
+
+```shell
+systemctl restart centreontrapd
+```
+
 ### Centreon Gorgone
 
 Gorgoned daemon must be running to forward information from Centreontrapd to the monitoring engine as an external command.

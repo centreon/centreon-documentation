@@ -34,11 +34,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 20.10.
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -77,7 +73,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
 
@@ -89,6 +85,7 @@ Centreon 22.10 uses PHP in version 8.1.
 <TabItem value="RHEL 8" label="RHEL 8">
 
 First, you need to install the **remi** repository:
+
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
@@ -98,8 +95,12 @@ sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpm
 
 Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -107,6 +108,7 @@ dnf module install php:remi-8.1
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 First, you need to install the **remi** repository:
+
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
@@ -115,8 +117,12 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 
 Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
 to confirm:
+
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -124,12 +130,15 @@ dnf module install php:remi-8.1
 <TabItem value="CentOS 7" label="CentOS 7">
 
 First, you need to install the **remi** repository:
+
 ```shell
 yum install -y yum-utils
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
+
 Then, you need to enable the php 8.1 repository
+
 ```shell
 yum-config-manager --enable remi-php81
 ```

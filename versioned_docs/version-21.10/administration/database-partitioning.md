@@ -7,7 +7,7 @@ title: Database partitioning
 
 Some tables in the 'centreon\_storage' database are partitioned to:
 
-- Optimize the execution time of sevral queries,
+- Optimize the execution time of several queries,
 - Optimize the purge of data,
 - Minimize the reconstruction of the tables in error during a crash of the
 DBMS.

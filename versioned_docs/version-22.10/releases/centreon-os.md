@@ -19,6 +19,15 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.2
+
+Release date: `December 7, 2022`
+
+#### Bug fixes
+
+- Fixed an issue with large SQL queries that caused the Centreon interface to become unavailable
+- [Install] Added missing update scripts
+
 ### 22.10.1
 
 Release date: `November 4, 2022`

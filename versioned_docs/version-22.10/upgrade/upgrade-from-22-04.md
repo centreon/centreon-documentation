@@ -23,10 +23,6 @@ servers:
 - Central server
 - Database server
 
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 22.04.
-
 ## Upgrade the Centreon Central server
 
 ### Update the Centreon repository
@@ -99,6 +95,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -110,6 +109,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
