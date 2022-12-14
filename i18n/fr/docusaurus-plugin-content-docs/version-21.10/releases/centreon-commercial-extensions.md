@@ -15,6 +15,12 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.8
+
+Release date: `not yet ready`
+
+#### Bug fixes
+
 ### 21.10.7
 
 Release date : `October 26, 2022`
