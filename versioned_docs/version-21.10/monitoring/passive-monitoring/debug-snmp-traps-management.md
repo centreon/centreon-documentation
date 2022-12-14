@@ -81,7 +81,7 @@ You can check the proper functioning of binary centreontrapd by checking the con
 You can set up debug mode for the **centreontrapd** service. Edit the following file:
 
 ```shell
-vi /etc/sysonfig/centreontrapd
+vi /etc/sysconfig/centreontrapd
 ```
 
 Then modify option **severity** to **debug**:
