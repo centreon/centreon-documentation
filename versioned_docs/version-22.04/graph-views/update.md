@@ -2,6 +2,8 @@
 id: update
 title: Update the extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This chapter describes how to update your Centreon MAP extension. This
 is done by updating the three main components:
@@ -19,13 +21,37 @@ Be sure to read the release notes for an explanation of features, fixes
 
 ## Centreon MAP Server
 
-Run the following commands to upgrade your Centreon MAP server:
+Run the following commands to upgrade your Centreon MAP (Legacy) server:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+systemctl stop centreon-map
+dnf update centreon-map-server
+systemctl start centreon-map
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ``` shell
 systemctl stop centreon-map
 yum update centreon-map-server
 systemctl start centreon-map
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+systemctl stop centreon-map
+apt update && apt upgrade centreon-map-web-client
+systemctl start centreon-map
+```
+
+</TabItem>
+</Tabs>
 
 This point only applies if you customized your **centreon-map.conf** configuration file. When updating your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 

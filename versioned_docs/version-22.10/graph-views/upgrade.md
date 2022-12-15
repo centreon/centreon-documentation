@@ -5,7 +5,6 @@ title: Upgrade the extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 This chapter describes how to upgrade your Centreon MAP (Legacy) extension. This
 is done by upgrading the four main components:
 
@@ -46,6 +45,15 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
+> Install Centreon MAP (Legacy) repository, you can find it on the
+> [support portal](https://support.centreon.com/s/repositories).
+
+2. Update Centreon MAP (Legacy) server:
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -79,9 +87,6 @@ Now you can start the update process:
 yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
-</TabItem>
-</Tabs>
-
 > Install Centreon MAP (Legacy) repository, you can find it on the
 > [support portal](https://support.centreon.com/s/repositories).
 
@@ -91,6 +96,25 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
     yum update centreon-map-server
     ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+> Install Centreon MAP (Legacy) repository, you can find it on the
+> [support portal](https://support.centreon.com/s/repositories).
+
+2. Update Centreon MAP (Legacy) server:
+
+    ```shell
+    apt update && apt upgrade centreon-map-server
+    ```
+
+</TabItem>
+</Tabs>
+
 3. Enable and start **centreon-map** service:
 
     ```shell
@@ -98,7 +122,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
     systemctl start centreon-map
     ```
 
-5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
   * The old configuration file is renamed **centreon-map.conf.rpmsave**
   * The upgrade installs a new **centreon-map.conf** file.
@@ -113,9 +137,28 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 
 ## Step 2: Centreon MAP (Legacy) web interface
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
 
 Complete the upgrade: 
 1. Go to **Administration > Extensions > Manager**.
