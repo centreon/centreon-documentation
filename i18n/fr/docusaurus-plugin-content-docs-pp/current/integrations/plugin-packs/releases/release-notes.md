@@ -8,6 +8,37 @@ import TabItem from '@theme/TabItem';
 
 ## 2022
 
+### Décembre
+
+
+<Tabs groupId="sync">
+
+<TabItem value="New connectors" label="New connectors">
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - network-stormshield-api - initial release - Status:stable - centreon-pack-network-stormshield-api-22.12.0-1
+- [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Add Patton Snmp plugin pack - Status:stable - centreon-pack-network-patton-smartnode-snmp-22.12.0-1
+- [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - hardware-sensors-apc-snmp - initial release - Status:stable - centreon-pack-hardware-sensors-apc-snmp-22.12.0-1
+</TabItem>
+
+<TabItem value="Enhancements" label="Enhancements">
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - hardware-storage-netapp-ontap-restapi - add service quotas - Status:stable - centreon-pack-hardware-storage-netapp-ontap-restapi-22.12.0-1
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - applications-thales-mistral-vs9-restapi - add service clusters - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-22.12.0-1
+- [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - cloud-microsoft-office365-management - add subscriptions service - Status:stable - centreon-pack-cloud-microsoft-office365-management-22.12.0-1
+- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - hardware-storage-hitachi-hnas-snmp - add service virtual-volumes-quotas - Status:stable - centreon-pack-hardware-storage-hitachi-hnas-snmp-22.12.0-1
+</TabItem>
+
+<TabItem value="Breaking changes" label="Breaking changes">
+- [**Informix DB**](../procedures/applications-databases-informix.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-informix-22.12.0-1
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-mssql-22.12.0-1
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-mysql-22.12.0-1
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-oracle-22.12.0-1
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-postgresql-22.12.0-1
+- [**Sybase**](../procedures/applications-databases-sybase.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-sybase-22.12.0-1
+- [**Antivirus ClamAV**](../procedures/applications-antivirus-clamav-ssh.md) - applications-antivirus-clamav-ssh - use new ssh backend - Status:stable - centreon-pack-applications-antivirus-clamav-ssh-22.12.0-1
+</TabItem>
+
+
+</Tabs>
+
 ### Novembre
 
 <Tabs groupId="sync">
