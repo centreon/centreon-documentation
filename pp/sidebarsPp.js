@@ -2086,11 +2086,15 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-sensors-comet-p8000-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-apc-snmp'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-sensors-geist-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-comet-p8000-snmp'
         },
         {
           type: 'doc',
