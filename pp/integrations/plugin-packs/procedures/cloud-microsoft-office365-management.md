@@ -17,28 +17,36 @@ The Centreon Plugin relies on the Office 365 Graph API to collect and monitor th
 
 * Application credentials: Expiration of key and password credentials for each applications.
 * Office services: Applications available on the Office 365 portal: Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
+* Subscriptions: Commercial subscriptions that an organization has acquired
 
-## Collected metrics
+## Collected metrics & status
 
 <Tabs groupId="sync">
-
 <TabItem value="App-Credentials" label="App-Credentials">
 
-| Metric name                                            | Description                                  | Unit   |
-| :----------------------------------------------------- | :------------------------------------------- | :----- |
-| password status                                        | Current password status (valid or expired)   |        |
-| *app_name~key_id*#application.password.expires.seconds | Number of seconds before password expiration | s      |
-| key status                                             | Current key status (valid or expired)        |        |
-| *app_name~key_id*#application.key.expires.seconds      | Number of seconds before key expiration      | s      |
+| Metric name                                            | Unit   |
+| :----------------------------------------------------- | :----- |
+| password status                                        |        |
+| *app_name~key_id*#application.password.expires.seconds | s      |
+| key status                                             |        |
+| *app_name~key_id*#application.key.expires.seconds      | s      |
 
 </TabItem>
-
 <TabItem value="Service-Status" label="Service-Status">
 
-| Metric name     | Description                                        |
-| :-------------- | :------------------------------------------------- |
-| service         | Name of monitored service. Unit: Text              |
-| status (service)| Status of the monitored service. Unit: Text        |
+| Metric name     | Unit   |
+| :-------------- | :----- |
+| service status  |        |
+
+</TabItem>
+<TabItem value="Subscriptions" label="Subscriptions">
+
+| Metric name                                   | Unit   |
+| :-------------------------------------------- | :----- |
+| subscription status                           |        |
+| *skuPartNumber*#subscription.usage.count      |        |
+| *skuPartNumber*#subscription.free.count       |        |
+| *skuPartNumber*#subscription.usage.percentage | %      |
 
 </TabItem>
 </Tabs>
