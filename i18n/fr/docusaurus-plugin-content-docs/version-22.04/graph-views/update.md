@@ -43,7 +43,7 @@ systemctl start centreon-map
 
 ``` shell
 systemctl stop centreon-map
-apt update && apt upgrade centreon-map-web-client
+apt update && apt upgrade centreon-map-web-server
 systemctl start centreon-map
 ```
 
@@ -67,9 +67,30 @@ Pour chaque différence entre les fichiers, évaluez si vous devez la copier de 
 
 ## Interface web de Centreon MAP
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
+
 
 Terminez la mise à niveau en allant dans **Administration > Extensions > Gestionnaire** (parties module et widget) :
 

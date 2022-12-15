@@ -114,9 +114,29 @@ echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | 
 
 ## Step 2: Centreon MAP web interface
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
 
 Complete the upgrade: 
 1. Go to **Administration > Extensions > Manager**.
