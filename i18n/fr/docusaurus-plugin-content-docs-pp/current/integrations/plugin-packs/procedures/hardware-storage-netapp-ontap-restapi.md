@@ -19,7 +19,7 @@ Le Plugin-Pack permet de superviser les ressources:
 * Cluster
 * Hardware
 * Luns
-* Quotas
+* Quotas 
 * Snapmirrors
 * Volumes
 
