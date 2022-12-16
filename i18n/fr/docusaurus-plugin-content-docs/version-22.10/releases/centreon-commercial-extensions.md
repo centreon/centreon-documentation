@@ -17,6 +17,14 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.3
+
+Release date: `December 16, 2022`
+
+#### Bug fixes
+
+- Added more fixes for server startup error due to duplicate key.
+
 ### 22.10.2
 
 Release date: `December 9, 2022`
@@ -36,6 +44,12 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.10.3 
+
+Release date:  `December 16, 2022`
+
+- No change.
 
 ### 22.10.2
 
