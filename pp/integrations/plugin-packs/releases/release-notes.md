@@ -38,6 +38,7 @@ import TabItem from '@theme/TabItem';
 - [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-postgresql-22.12.0-1
 - [**Sybase**](../procedures/applications-databases-sybase.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-sybase-22.12.0-1
 - [**Antivirus ClamAV**](../procedures/applications-antivirus-clamav-ssh.md) - applications-antivirus-clamav-ssh - use new ssh backend - Status:stable - centreon-pack-applications-antivirus-clamav-ssh-22.12.0-1
+
 </TabItem>
 
 </Tabs>
