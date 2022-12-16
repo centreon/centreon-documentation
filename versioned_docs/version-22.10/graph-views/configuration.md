@@ -1,6 +1,6 @@
 ---
 id: configuration
-title: Configure
+title: Configuring rights
 ---
 
 ## Administrate users rights
