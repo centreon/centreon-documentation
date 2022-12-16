@@ -1,6 +1,6 @@
 ---
 id: upgrade
-title: Upgrade the extension
+title: Upgrading the extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

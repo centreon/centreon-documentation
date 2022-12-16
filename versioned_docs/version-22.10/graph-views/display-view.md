@@ -1,6 +1,6 @@
 ---
 id: display-view
-title: Display views
+title: Displaying views
 ---
 
 The existing standard and geographic views are accessible from Centreon web user

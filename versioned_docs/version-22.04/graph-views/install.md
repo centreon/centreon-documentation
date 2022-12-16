@@ -1,6 +1,6 @@
 ---
 id: install
-title: Install Centreon MAP extension
+title: Installing Centreon MAP extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

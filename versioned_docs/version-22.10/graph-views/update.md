@@ -1,6 +1,6 @@
 ---
 id: update
-title: Update the extension
+title: Updating the extension
 ---
 
 This chapter describes how to update your Centreon MAP (Legacy) extension. This

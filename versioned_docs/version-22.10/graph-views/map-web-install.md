@@ -1,6 +1,6 @@
 ---
 id: map-web-install
-title: Install MAP
+title: Installing MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
