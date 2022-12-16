@@ -13,6 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 
 <TabItem value="New connectors" label="New connectors">
+
 - [**Stormshield API**](../procedures/network-stormshield-api.md) - network-stormshield-api - initial release - Status:stable - centreon-pack-network-stormshield-api-22.12.0-1
 - [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Add Patton Snmp plugin pack - Status:stable - centreon-pack-network-patton-smartnode-snmp-22.12.0-1
 - [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - hardware-sensors-apc-snmp - initial release - Status:stable - centreon-pack-hardware-sensors-apc-snmp-22.12.0-1
