@@ -43,7 +43,7 @@ systemctl start centreon-map
 
 ``` shell
 systemctl stop centreon-map
-apt update && apt upgrade centreon-map-web-server
+apt update && apt upgrade centreon-map-server
 systemctl start centreon-map
 ```
 
