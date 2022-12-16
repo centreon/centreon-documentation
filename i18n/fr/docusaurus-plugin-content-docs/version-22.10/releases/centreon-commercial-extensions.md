@@ -23,7 +23,7 @@ Release date: `December 16, 2022`
 
 #### Bug fixes
 
-- Fixed server startup error due to duplicate key.
+- Added more fixes for server startup error due to duplicate key.
 
 ### 22.10.2
 
