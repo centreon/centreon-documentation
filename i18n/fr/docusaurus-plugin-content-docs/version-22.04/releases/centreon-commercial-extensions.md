@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.2
 
-- First release: `<release_date>`
+- First release: `December 16, 2022`
 
 The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
 
@@ -29,7 +29,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.2
 
-Release date: `soon`
+Release date: `December 16, 2022`
 
 ### Bug fixes
 
