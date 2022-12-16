@@ -26,9 +26,11 @@ import TabItem from '@theme/TabItem';
 - [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - applications-thales-mistral-vs9-restapi - add service clusters - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-22.12.0-1
 - [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - cloud-microsoft-office365-management - add subscriptions service - Status:stable - centreon-pack-cloud-microsoft-office365-management-22.12.0-1
 - [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - hardware-storage-hitachi-hnas-snmp - add service virtual-volumes-quotas - Status:stable - centreon-pack-hardware-storage-hitachi-hnas-snmp-22.12.0-1
+
 </TabItem>
 
 <TabItem value="Breaking changes" label="Breaking changes">
+
 - [**Informix DB**](../procedures/applications-databases-informix.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-informix-22.12.0-1
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-mssql-22.12.0-1
 - [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-mysql-22.12.0-1
