@@ -31,10 +31,11 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="App-Thales-Mistral-Vs9-Mmc-Restapi-custom" label="App-Thales-Mistral-Vs9-Mmc-Restapi-custom">
 
-| Alias             | Modèle de service                                            | Description                    | Défaut |
-|:------------------|:-------------------------------------------------------------|:-------------------------------|:-------|
-| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi              | Contrôle les certificates CA   | X      |
-| Cluster           | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi                   | Contrôle l'état du cluster MMC | X      |
+| Alias             | Modèle de service                               | Description                    | Défaut |
+|:------------------|:------------------------------------------------|:-------------------------------|:-------|
+| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi | Contrôle les certificats CA   | X      |
+| Cluster           | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi      | Contrôle l'état du cluster MMC | X      |
+| Clusters          | App-Thales-Mistral-Vs9-Clusters-Restapi         | Contrôle l'état des clusters   |        |
 
 </TabItem>
 </Tabs>
@@ -57,6 +58,16 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 ### Métriques & statuts collectés
 
 <Tabs groupId="sync">
+<TabItem value="Clusters" label="Clusters">
+
+| Métrique                                                    | Unité |
+|:------------------------------------------------------------|:------|
+| clusters.detected.count                                     |       |
+| cluster status                                              |       |
+| member status                                               |       |
+| *cluster_name~member_name*#member.contact.last.time.seconds | s     |
+
+</TabItem>
 <TabItem value="Device-Certificates" label="Device-Certificates">
 
 | Métrique                                       | Unité |

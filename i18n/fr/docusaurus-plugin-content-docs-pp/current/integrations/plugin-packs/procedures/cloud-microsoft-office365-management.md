@@ -16,28 +16,36 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 * Application credentials : L'expiration des clés et mot de passes pour les applications.
 * Services Office : Tous les services Office 365 : Office 365 Portal, Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
+* Subscriptions : Abonnements commerciaux acquis par une organisation
 
-## Métriques collectées
+## Métriques & statuts collectés
 
 <Tabs groupId="sync">
-
 <TabItem value="App-Credentials" label="App-Credentials">
 
-| Metric name                                            | Description                                  | Unit   |
-| :----------------------------------------------------- | :------------------------------------------- | :----- |
-| password status                                        | Current password status (valid or expired)   |        |
-| *app_name~key_id*#application.password.expires.seconds | Number of seconds before password expiration | s      |
-| key status                                             | Current key status (valid or expired)        |        |
-| *app_name~key_id*#application.key.expires.seconds      | Number of seconds before key expiration      | s      |
+| Métrique                                               | Unité |
+| :----------------------------------------------------- | :---- |
+| password status                                        |       |
+| *app_name~key_id*#application.password.expires.seconds | s     |
+| key status                                             |       |
+| *app_name~key_id*#application.key.expires.seconds      | s     |
 
 </TabItem>
-
 <TabItem value="Service-Status" label="Service-Status">
 
-| Metric name      | Description                                        |
-| :--------------- | :------------------------------------------------- |
-| service          | Name of monitored service. Unit: Text              |
-| status (service) | Status of the monitored service. Unit: Text        |
+| Métrique         | Unité |
+| :--------------- | :---- |
+| service status   |       |
+
+</TabItem>
+<TabItem value="Subscriptions" label="Subscriptions">
+
+| Métrique                                      | Unité  |
+| :-------------------------------------------- | :----- |
+| subscription status                           |        |
+| *skuPartNumber*#subscription.usage.count      |        |
+| *skuPartNumber*#subscription.free.count       |        |
+| *skuPartNumber*#subscription.usage.percentage | %      |
 
 </TabItem>
 </Tabs>

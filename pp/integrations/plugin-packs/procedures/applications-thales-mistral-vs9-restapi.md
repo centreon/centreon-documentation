@@ -31,10 +31,11 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="App-Thales-Mistral-Vs9-Mmc-Restapi-custom" label="App-Thales-Mistral-Vs9-Mmc-Restapi-custom">
 
-| Service Alias     | Service Template                                             | Service Description      | Default |
-|:------------------|:-------------------------------------------------------------|:-------------------------|:--------|
-| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi              | Check CA certificates    | X       |
-| Cluster           | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi                   | Check MMC cluster status | X       |
+| Service Alias     | Service Template                                | Service Description      | Default |
+|:------------------|:------------------------------------------------|:-------------------------|:--------|
+| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi | Check CA certificates    | X       |
+| Cluster           | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi      | Check MMC cluster status | X       |
+| Clusters          | App-Thales-Mistral-Vs9-Clusters-Restapi         | Check clusters           |         |
 
 </TabItem>
 </Tabs>
@@ -56,6 +57,16 @@ More information about discovering hosts automatically is available on the [dedi
 ### Collected metrics & status
 
 <Tabs groupId="sync">
+<TabItem value="Clusters" label="Clusters">
+
+| Metric Name                                                 | Unit  |
+|:------------------------------------------------------------|:------|
+| clusters.detected.count                                     |       |
+| cluster status                                              |       |
+| member status                                               |       |
+| *cluster_name~member_name*#member.contact.last.time.seconds | s     |
+
+</TabItem>
 <TabItem value="Device-Certificates" label="Device-Certificates">
 
 | Metric Name                                    | Unit  |
