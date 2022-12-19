@@ -16,26 +16,26 @@ Suivez cette procédure pour mettre à jour la version de MAP :
   ```
 
 2. Mettez à jour les paquets en exécutant la commande suivante sur la ou les machines hébergeant le service du central et le service Centreon MAP :
-  
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
-sudo dnf update "centreon-map-engine" "centreon-map-web-client"
+sudo dnf update centreon-map-engine centreon-map-web-client
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ``` shell
-sudo yum update "centreon-map-engine" "centreon-map-web-client"
+sudo yum update centreon-map-engine centreon-map-web-client
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ``` shell
-sudo apt update "centreon-map-engine" "centreon-map-web-client"
+sudo apt update centreon-map-engine centreon-map-web-client
 ```
 
 </TabItem>
