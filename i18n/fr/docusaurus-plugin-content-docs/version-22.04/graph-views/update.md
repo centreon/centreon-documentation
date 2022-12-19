@@ -2,6 +2,8 @@
 id: update
 title: Mettre à jour l'extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à jour votre extension Centreon MAP. Pour ce faire, vous devez mettre à jour les trois principaux composants :
 
@@ -18,11 +20,35 @@ N'oubliez pas de lire les notes de release pour une explication des fonctionnali
 
 Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+systemctl stop centreon-map
+dnf update centreon-map-server
+systemctl start centreon-map
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ``` shell
 systemctl stop centreon-map
 yum update centreon-map-server
 systemctl start centreon-map
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+systemctl stop centreon-map
+apt update && apt upgrade centreon-map-server
+systemctl start centreon-map
+```
+
+</TabItem>
+</Tabs>
 
 Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration **centreon-map.conf**.
 Lors de la mise à jour de votre module MAP, le fichier **/etc/centreon-studio/centreon-map.conf** n'est pas mis à niveau automatiquement : le nouveau fichier de configuration apporté par le rpm ne remplace pas l'ancien fichier.
@@ -41,9 +67,30 @@ Pour chaque différence entre les fichiers, évaluez si vous devez la copier de 
 
 ## Interface web de Centreon MAP
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
+
 
 Terminez la mise à niveau en allant dans **Administration > Extensions > Gestionnaire** (parties module et widget) :
 
