@@ -42,6 +42,14 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
+> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+
+2. Mettez à jour le serveur Centreon MAP (Legacy) :
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -74,16 +82,31 @@ Vous pouvez maintenant procéder à la mise à jour :
 yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
-</TabItem>
-</Tabs>
-
 > Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
-2. Mettez à jour le serveur Centreon MAP :
+2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
     ```shell
     yum update centreon-map-server
     ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+
+2. Mettez à jour le serveur Centreon MAP (Legacy) :
+
+    ```shell
+    apt update && apt upgrade centreon-map-server
+    ```
+
+</TabItem>
+</Tabs>
 
 3. Activez et démarrez le service **centreon-map** :
 
@@ -92,7 +115,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
     systemctl start centreon-map
     ```
 
-5. Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration **centreon-map.conf**.
+4. Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration **centreon-map.conf**.
 Lors de la mise à jour de votre module MAP, le fichier **/etc/centreon-studio/centreon-map.conf** n'est pas mis à jour automatiquement : le nouveau fichier de configuration apporté par le rpm ne remplace pas l'ancien fichier.
 Vous devez copier les modifications manuellement dans votre fichier de configuration personnalisé.
 
@@ -109,9 +132,28 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 
 ## Étape 2 : Interface web Centreon MAP
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
 
 Terminez la montée de version :
 

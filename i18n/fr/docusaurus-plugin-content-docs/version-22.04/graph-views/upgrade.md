@@ -42,15 +42,20 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
+> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
+
+2. Mettez à jour le serveur Centreon MAP :
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
-
-</TabItem>
-</Tabs>
 
 > Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
 
@@ -59,6 +64,24 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
     ```shell
     yum update centreon-map-server
     ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
+
+2. Mettez à jour le serveur Centreon MAP :
+
+    ```shell
+    apt update && apt upgrade centreon-map-server
+    ```
+
+</TabItem>
+</Tabs>
 
 3. Activez et démarrez le service **centreon-map** :
 
@@ -84,9 +107,29 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 
 ## Étape 2 : Interface web Centreon MAP
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
 
 Terminez la montée de version :
 
