@@ -188,7 +188,11 @@ The search bar shows all applied criteria, as text. Autocomplete helps you enter
 
     ![image](../assets/alerts/resources-status/search_tab.gif)
 
-3. Use spaces between search criteria. Criteria are added using an AND criterion: results will match all criteria. You can use regular expressions.
+3. Use spaces between search criteria. Criteria are added using an AND criterion: results will match all criteria. 
+
+   * You can use regular expressions. Wildcards are not supported: a search pattern starting with a * is not valid.
+   * You cannot perform a pattern-based search inside a field that has a finite number of values (hostgroups, status, etc): for these fields, use the [**Search options**](#search-criteria) button.
+
 4. Once you have entered all your search criteria, type a space character or press **Esc** to exit autocomplete, then press **Enter**.
 
 Example :

@@ -197,7 +197,11 @@ toutes les ressources de type services et métaservices.
   ![image](../assets/alerts/resources-status/search_tab.gif)
 
 3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
-selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
+selon un critère "ET" : les résultats correspondront à tous les critères saisis.
+
+   * Vous pouvez utiliser des expressions régulières. Les wildcards ne sont pas supportées : un motif de recherche commençant par * n'est pas valide.
+   * Vous ne pouvez pas faire de recherche basée sur un motif dans un champ ayant un nombre fini de valeurs (groupes d'hôtes, statuts, etc) : pour ces champs, utilisez le bouton [**Critères de recherche**](#critères-de-recherche).
+
 4. Une fois les critères de recherche saisis, entrez un caractère espace ou appuyez sur **Échap** pour sortir de l'autocomplétion, puis appuyez sur **Entrée**.
 
 Exemple :
