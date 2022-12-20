@@ -23,7 +23,7 @@ Release date: `not yet ready`
 
 - Fixed issue that prevented images from being created when using `/media` api endpoint.
 - Fixed issues and improved the map display (visibility, background and breadcrumb color).
-- Fixed issue when user clicking on a parent resource link would cause the iframe to be loaded into himself.
+- Fixed issue when user clicking on a parent resource link would cause the iframe to be loaded into itself.
 - Fixed issue that caused the status displayed on container being different from the real host status.
 - Fixed an issue that caused Icons for Servicegroups, Hostgroups and containers to not be displayed.
 - Fixed an isssue tat cause Tooltips on resources to not be enabled for display in Centreon MAP Widget.
