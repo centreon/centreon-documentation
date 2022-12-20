@@ -21,6 +21,20 @@ Release date: `not yet ready`
 
 #### Bug fixes
 
+- Fixed issue that prevented images from being created when using /media api endpoint.
+- Fixed issues and improved the map display (visibility, background and breadcrumb color).
+- Fixed issue when user clicking on a parent resource link would cause the iframe to be loaded into himself.
+- Fixed issue that caused the status displayed on container being different from the real host status.
+- Fixed an issue that caused Icons for Servicegroups, Hostgroups and containers to not be displayed.
+- Fixed an isssue tat cause Tooltips on resources to not be enabled for display in Centreon MAP Widget.
+- Fixed an issue preventing a user from saving MAP extension option if a map server address field is left empty.
+- Fixed an issue where resources tooltips in MAP legacy widget could not be displayed properly.
+
+#### Enhancements
+
+- Spring boot version upgraded to 2.6.6 version.
+- Improved Centreon MAP Extension options so that only one MAP server is required to validate the form.
+
 ### 21.10.7
 
 Release date : `October 26, 2022`
