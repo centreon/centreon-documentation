@@ -144,7 +144,7 @@ Si vous entrez du texte dans la barre de recherche, par défaut la recherche se 
 - Nom de l'hôte
 - Alias de l'hôte
 - Adresse ou FQDN de l'hôte
-- Description du service
+- Nom du service
 
 Par exemple, si vous entrez "rta", toutes les ressources contenant un "rta" dans l'un des champs ci-dessus seront affichées (par exemple, un métaservice nommé **Ping-RTA-Average**).
 
