@@ -29,6 +29,7 @@ Release date: `not yet ready`
 - Fixed an isssue tat cause Tooltips on resources to not be enabled for display in Centreon MAP Widget.
 - Fixed an issue preventing a user from saving MAP extension option if a map server address field is left empty.
 - Fixed an issue where resources tooltips in MAP legacy widget could not be displayed properly.
+- Fixed an issue that caused MAP names to overlap in MAP listing page.
 
 #### Enhancements
 
