@@ -22,7 +22,7 @@ Release date: `not yet ready`
 
 #### Bug fixes
 
-- Fixed issue that prevented images from being created when using /media api endpoint.
+- Fixed issue that prevented images from being created when using `/media` api endpoint.
 - Fixed issues and improved the map display (visibility, background and breadcrumb color).
 - Fixed issue when user clicking on a parent resource link would cause the iframe to be loaded into himself.
 - Fixed issue that caused the status displayed on container being different from the real host status.
