@@ -92,11 +92,19 @@
         },
         {
           "type": "doc",
-          "id": "version-22.10/installation/prerequisites"
+          "id": "version-22.10/installation/compatibility"
         },
         {
           "type": "doc",
           "id": "version-22.10/installation/architectures"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/installation/prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/installation/technical"
         },
         {
           "type": "doc",
