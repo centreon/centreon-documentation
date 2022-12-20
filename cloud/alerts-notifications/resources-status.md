@@ -145,7 +145,7 @@ If you type text into the search bar, by default the search is performed on the 
 - Name of the host
 - Alias of the host
 - Address or FQDN of the host
-- Description of the service
+- Name of the service
 
 For instance, if you type "rta", all resources containing "rta" in one of the above fields will be displayed (e.g. a metaservice called **Ping-RTA-Average**).
 
@@ -175,7 +175,7 @@ in one or several fields.
 - **service_group**: search for services that belong to a service group
 - **service_severity**: search for services according to the name of their severity
 - **service_severity_level**: search for services according to the level of their severity
-- **s.description**: search only in the description of the service (i.e. its name in column **Resource**)
+- **s.description**: search only in the name of the service (shown in column **Resource**)
 - **type**: display only hosts, services or metaservices
 
 #### Using the search bar

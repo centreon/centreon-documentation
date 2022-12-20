@@ -173,7 +173,7 @@ Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [C
 - **service_group** : rechercher les services rattachés à un groupe de services
 - **service_severity**: rechercher des services selon le nom de la criticité associée
 - **service_severity_level**: rechercher des services selon le niveau de la criticité associée
-- **s.description** : chercher uniquement sur la description du service (son nom dans la colonne **Resource**)
+- **s.description** : chercher uniquement sur le nom du service (indiqué dans la colonne **Resource**)
 - **type** : afficher uniquement les hôtes, les services ou les métaservices
 
 #### Utiliser la barre de recherche
