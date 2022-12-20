@@ -27,7 +27,6 @@ Release date: `not yet ready`
 - Fixed issue when user clicking on a parent resource link would cause the iframe to be loaded into itself.
 - Fixed issue that caused the status displayed on a container to be different from the correct host status.
 - Fixed an issue where icons for service groups, host groups and containers were not displayed.
-- Fixed an isssue tat cause Tooltips on resources to not be enabled for display in Centreon MAP Widget.
 - Fixed an issue preventing a user from saving MAP extension option if a map server address field is left empty.
 - Fixed an issue where resources tooltips in MAP legacy widget could not be displayed properly.
 - Fixed an issue that caused MAP names to overlap in MAP listing page.
