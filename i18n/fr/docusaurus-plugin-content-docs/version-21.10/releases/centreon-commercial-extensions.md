@@ -33,7 +33,7 @@ Release date: `not yet ready`
 #### Enhancements
 
 - Spring boot version upgraded to 2.6.6 version.
-- Improved Centreon MAP Extension options so that only one MAP server is required to validate the form.
+- Improved Centreon MAP Extension options so that only one MAP server is required to validate the form, when MAP Engine server is checked.
 
 ### 21.10.7
 
