@@ -40,7 +40,6 @@ Procédez au partitionnement en suivant les recommandations suivantes :
 | /                          | au moins 20 Go                                                                                             |
 | /var/log                   | au moins 10 Go                                                                                             |
 | /var/lib/centreon-broker   | au moins 5 Go                                                                                              |
-| /var/cache/centreon/backup | au moins 5 Go (penser à exporter les sauvegarde de manière régulière puis supprimer les données exportées) |
 
 ## Réseau
 
