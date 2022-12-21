@@ -29,6 +29,7 @@ Release date: `not yet ready`
 - Fixed an issue preventing a user from saving MAP extension options if one map server address field is left empty.
 - Fixed an issue where resources tooltips in MAP Legacy widget could not be displayed properly.
 - Fixed an issue that caused MAP names to overlap in MAP listing page.
+- Fixed an issue that could cause layers to not be applied properly
 
 #### Enhancements
 
