@@ -122,7 +122,13 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
-## Step 4 : MariaDB database
+## Step 4: Update dialects in .properties files
+
+In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+
+> This configuration also works with a MySQL database.
+
+## Step 5 : MariaDB database
 
 1. Stop the **centreon-map** service:
     ```shell
