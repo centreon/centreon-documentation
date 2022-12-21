@@ -27,7 +27,7 @@ Assurez-vous de lire les notes de version pour une explication des fonctionnalit
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon sont régulièrement renouvelées. Le dernier changement a eu lieu le 14 octobre 2021.
 Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
 
-## Étape 1 : Serveur Centreon MAP
+## Étape 1 : serveur Centreon MAP
 
 > Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
@@ -130,7 +130,7 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 
   Pour chaque différence entre les fichiers, évaluez si vous devez la copier de **centreon-map.conf.rpmsave** vers **centreon-map.conf**.
 
-## Étape 2 : Interface web Centreon MAP
+## Étape 2 : interface web Centreon MAP
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -161,19 +161,19 @@ Terminez la montée de version :
 2. Recherchez **Map web client**.
 3. Cliquez sur le bouton de mise à jour (parties module & widget).
 
-## Étape 3 : Client lourd Centreon MAP
+## Étape 3 : client lourd Centreon MAP
 
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lourd est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
-## Étape 4 : Mise à jour des dialectes dans les fichiers .properties
+## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 
 Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
 
 > Cette configuration fonctionne également avec une base MySQL.
 
-## Étape 5 : Base de données MariaDB
+## Étape 5 : base de données MariaDB
 
 1. Arrêtez le service **centreon-map** :
 
