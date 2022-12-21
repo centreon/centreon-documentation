@@ -66,21 +66,6 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
     ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
-
-2. Mettez à jour le serveur Centreon MAP :
-
-    ```shell
-    apt update && apt upgrade centreon-map-server
-    ```
-
-</TabItem>
 </Tabs>
 
 3. Activez et démarrez le service **centreon-map** :
@@ -119,13 +104,6 @@ dnf update centreon-map-web-client
 
 ```shell
 yum update centreon-map-web-client
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update && apt upgrade centreon-map-web-client
 ```
 
 </TabItem>
