@@ -13,7 +13,7 @@ Cette page répertorie les rubriques de dépannage disponibles dans cette docume
 * [Dépanner les erreurs sur les licences](../administration/licenses.md#dépanner-les-erreurs-sur-les-licences)
 * [Dépanner les incidents sur la découverte des hôtes](../monitoring/discovery/troubleshooting-hosts-discovery.md)
 
-## Sur notre platforme communautaire The Watch
+## Sur notre plateforme communautaire The Watch
 
 * Un problème pour mettre en place votre solution IT-100? Consultez notre [groupe dédié](https://thewatch.centreon.com/groups/centreon-it-100-users-54).
 
