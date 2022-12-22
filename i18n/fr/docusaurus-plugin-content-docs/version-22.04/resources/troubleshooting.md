@@ -6,7 +6,8 @@ title: Dépannage de la plateforme Centreon
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé.
 
 * [Dépanner les erreurs de plugins](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
-* [Dépanner MAP](../graph-views/troubleshooter.md)
+* [Dépanner de MAP](../graph-views/map-web-troubleshooting.md)
+* [Dépanner de MAP Legacy](../graph-views/troubleshooter.md)
 * [Dépanner Centreon-HA](../administration/centreon-ha/troubleshooting-guide.md)
 * [Dépanner l'envoi d'emails avec Postfix](../administration/postfix.md#dépanner-lenvoi-demails-avec-postfix)
 * [Dépanner les erreurs sur les licences](../administration/licenses.md#dépanner-les-erreurs-sur-les-licences)

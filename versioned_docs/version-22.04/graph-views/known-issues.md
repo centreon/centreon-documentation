@@ -1,6 +1,6 @@
 ---
 id: known-issues
-title: Known issues
+title: MAP (Legacy) known issues
 ---
 
 Below is a list of know issues and/or bugs you may encounter when using
