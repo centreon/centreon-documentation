@@ -1720,7 +1720,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-ssh'
         },
-		{
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-patton-smartnode-snmp'
         },
@@ -1847,6 +1847,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ucopia-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-vectra-restapi'
         },
         {
           type: 'doc',
