@@ -20,6 +20,11 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `not yet ready`
 
+#### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics.
+- Fixed the security issue CVE-2022-42889 (Text4shell).
+
 #### Bug fixes
 
 - Fixed issue that prevented images from being created when using `/media` api endpoint.
