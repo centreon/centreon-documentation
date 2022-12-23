@@ -19,7 +19,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `December 27, 2022`
 
-- Fixed "COPY FROM URL" button from viewer.
+- Fixed "COPY FROM URL" feature from viewer.
 
 ### 22.04.2
 
