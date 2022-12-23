@@ -20,7 +20,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `December 27, 2022`
 
-- Fixed "COPY FROM URL" button from viewer.
+- Fixed "COPY FROM URL" feature from viewer.
 
 ### 22.04.2
 
