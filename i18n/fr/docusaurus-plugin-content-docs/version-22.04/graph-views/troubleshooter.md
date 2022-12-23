@@ -1,6 +1,6 @@
 ---
 id: troubleshooter
-title: Dépannage
+title: Dépannage de MAP (Legacy)
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
