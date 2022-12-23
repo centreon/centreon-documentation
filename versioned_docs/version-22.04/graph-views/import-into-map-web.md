@@ -13,7 +13,11 @@ Before you start the procedure to import legacy maps into MAP, you need to switc
 
 > When you import your legacy maps, any content created in MAP is deleted.
 
-### Step 1: Migrate images
+### Step 1: Install MAP
+
+You need first to install Centreon MAP. Go to this [page](map-web-install.md) to perform the installation and switch to the MAP Engine server.
+
+### Step 2: Migrate images
 
 If you have imported images into your desktop client (to custom folders outside the Centreon folder), and used them in your maps, you need first to migrate them to your central server.
 
@@ -23,7 +27,7 @@ If you have imported images into your desktop client (to custom folders outside 
 
 3. In the central server, go to **Administration > Parameters > Images**, then upload all the images from your computer to the **centreon-map** folder. Be careful not to change the name of your images during this process.
 
-### Step 2: Update MAP (Legacy)
+### Step 3: Update MAP (Legacy)
 
 For the icons to be displayed properly after you migrate your maps, you need to update your MAP (legacy) by running the following commands:
 
@@ -34,7 +38,7 @@ systemctl daemon-reload
 systemctl start centreon-map
 ```
 
-### Step 3: Migrate maps
+### Step 4: Migrate maps
 
 1. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
 
