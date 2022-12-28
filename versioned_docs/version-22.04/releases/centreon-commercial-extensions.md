@@ -16,6 +16,12 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.3
+
+Release date: `December 28, 2022`
+
+- Fixed "COPY FROM URL" feature from viewer.
+
 ### 22.04.2
 
 - First release: `December 16, 2022`
@@ -28,6 +34,10 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.3
+
+N/A
+ 
 ### 22.04.2
 
 Release date: `December 16, 2022`
