@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 21.10.8
 
-Release date: `not yet ready`
+Release date: `December 28, 2022`
 
 #### Security fixes
 
