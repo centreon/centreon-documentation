@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.8
 
-Release date: `not yet ready`
+Release date: `December 28, 2022`
 
 #### Security fixes
 
