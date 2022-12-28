@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.3
 
-Release date: `December 27, 2022`
+Release date: `December 28, 2022`
 
 - Fixed "COPY FROM URL" feature from viewer.
 
