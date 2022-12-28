@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.3
 
-Release date: `December 27, 2022`
+Release date: `December 28, 2022`
 
 - Fixed "COPY FROM URL" feature from viewer.
 
