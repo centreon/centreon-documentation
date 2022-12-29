@@ -51,7 +51,6 @@ Release date: `December 28, 2022`
 - Allow map owner to share a MAP with other ACL groups.
 - Add choice to display percentage or absolute value on links and gauges to the user.
 - Add "copy URL to clipboard" in viewer.
-- Improved Centreon MAP Extension options so that only one MAP server is required to validate the form.
 
 ### 21.10.7
 
