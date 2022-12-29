@@ -39,7 +39,6 @@ Release date: `December 28, 2022`
 - Fixed the bug where acknowledgements were not displayed on the resource.
 - Fixed issue when the call to update the breadcrumb is not launched.
 - Fixed the bug when MAP search bar does not return good results
-- fixed opacity migration bug for migrated url.
 - Fixed bug when url shape have unwanted concatenation inside the url.
 - Fixed an issue that could cause layers to not be applied properly
 - Fixed an issue when image not displayed in viewer.
