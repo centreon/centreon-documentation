@@ -40,7 +40,6 @@ Release date: `December 28, 2022`
 - Fixed issue when the call to update the breadcrumb is not launched.
 - Fixed the bug when MAP search bar does not return good results
 - Fixed bug where url shape has unwanted concatenation inside the url.
-- Fixed an issue that could cause layers to not be applied properly
 - Fixed an issue when image not displayed in viewer.
 - Fixed the bug when switching from legacy to NG lead to broken tooltip links.
 - Fixed an issue when Sort on names when requesting the list of MAP web client.
