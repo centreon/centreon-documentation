@@ -37,7 +37,7 @@ Release date: `December 28, 2022`
 - Fixed an issue that caused MAP names to overlap in MAP listing page.
 - Fixed an issue that could prevent the correct application of layers.
 - Fixed an issue where white shape color is not saved.
-- Fixed the bug when acknowlegment is not displayed on the ressource.
+- Fixed the bug where acknowledgements were not displayed on the resource.
 - Fixed issue when the call to update the breadcrumb is not launched.
 - Fixed the bug when MAP search bar does not return good results
 - fixed opacity migration bug for migrated url.
