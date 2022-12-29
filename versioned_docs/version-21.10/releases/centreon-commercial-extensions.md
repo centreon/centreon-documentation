@@ -43,7 +43,6 @@ Release date: `December 28, 2022`
 - fixed opacity migration bug for migrated url.
 - Fixed bug when url shape have unwanted concatenation inside the url.
 - Fixed an issue when image not displayed in viewer.
-- Fixed the bug when switching from legacy to NG lead to broken tooltip links.
 - Fixed an issue when Sort on names when requesting the list of MAP web client.
 - Fixed the bug of the small size of the MAP viewer.
 
