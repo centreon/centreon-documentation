@@ -36,11 +36,26 @@ Release date: `December 28, 2022`
 - Fixed an issue where resources tooltips in MAP Legacy widget could not be displayed properly.
 - Fixed an issue that caused MAP names to overlap in MAP listing page.
 - Fixed an issue that could prevent the correct application of layers.
+- Fixed an issue where white shape color is not saved.
+- Fixed the bug when acknowlegment is not displayed on the ressource.
+- Fixed issue when the call to update the breadcrumb is not launched.
+- Fixed the bug when MAP search bar does not return good results
+- fixed opacity migration bug for migrated url.
+- Fixed bug when url shape have unwanted concatenation inside the url.
+- Fixed an issue that could cause layers to not be applied properly
+- Fixed an issue when image not displayed in viewer.
+- Fixed the bug when switching from legacy to NG lead to broken tooltip links.
+- Fixed an issue when Sort on names when requesting the list of MAP web client.
+- Fixed the bug of the small size of the MAP viewer.
 
 #### Enhancements
 
 - Spring boot version upgraded to 2.6.6 version.
 - Improved Centreon MAP Extension options so that only one MAP server is required to validate the form, when MAP Engine server is checked.
+- Allow map owner to share a MAP with other ACL groups.
+- Add choice to display percentage or absolute value on links and gauges to the user.
+- Add "copy URL to clipboard" in viewer.
+- Improved Centreon MAP Extension options so that only one MAP server is required to validate the form.
 
 ### 21.10.7
 
