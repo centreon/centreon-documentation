@@ -29,7 +29,7 @@ Il apporte les modèles de service suivants :
 | Nom de la règle                   | Description                                                             |
 |:----------------------------------|:------------------------------------------------------------------------|
 | Net-Vectra-Restapi-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
-| Net-Vectra-Restapi-Sensor-Name    | Découvre les sondes réseaux et supervise l'utilisation                  |
+| Net-Vectra-Restapi-Sensor-Name    | Découvre les sondes réseau et supervise l'utilisation                  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
