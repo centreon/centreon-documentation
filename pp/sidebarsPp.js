@@ -1720,7 +1720,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-ssh'
         },
-		{
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-patton-smartnode-snmp'
         },
@@ -2124,7 +2124,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Storage',
+      label: 'storage',
       items: [
         {
           type: 'doc',
@@ -2224,22 +2224,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-hcp-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-hnas-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-standard-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-ssh'
         },
         {
@@ -2273,6 +2257,22 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-hcp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-hnas-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-standard-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp'
         },
         {
           type: 'doc',
@@ -2372,15 +2372,23 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-restapi'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flasharray-legacy-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-qnap-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flasharray-v2-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flashblade-v2-restapi'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-qsan-nas-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-qnap-snmp'
         },
         {
           type: 'doc',
