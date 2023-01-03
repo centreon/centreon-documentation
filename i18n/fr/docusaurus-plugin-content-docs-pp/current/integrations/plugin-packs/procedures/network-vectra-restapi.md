@@ -94,7 +94,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ## Prérequis
 
-Le Pack utilise les API endpoints suivants :
+Le Pack utilise les endpoints d'API suivants :
 * /health/connectivity
 * /health/cpu
 * /health/disk
