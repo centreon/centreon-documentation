@@ -134,13 +134,6 @@ considerations.
 </TabItem>
 </Tabs>
 
-#### Users and groups
-
-| User                 | Group                      |
-|----------------------|----------------------------|
-| centreonBI (new)     | apache,centreon,centreonBI |
-| apache (existing)    | centreonBI                 |
-
 #### Description of users, umask and home directory
 
 | User        | umask | home             |
