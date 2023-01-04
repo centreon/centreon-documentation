@@ -95,7 +95,7 @@ performances & d'isolation.
 
 - Centreon Web 22.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php/8.0/mods-available/centreon.ini` (même que celui retourné par la commande
+  `/etc/php/8.1/mods-available/centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -162,7 +162,7 @@ Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-Quic
 | /                              | 5GB minimum                                                                                  |
 | /var (containing MariaDB data) | utiliser le résultat du fichier de simulation de l'espace disque ci-dessus                   |
 | Dossier temporaire de MariaDB  | Fortement recommandé de le positionner dans /var                                             |
-| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB. |
+| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB.       |
 
 Pour controler l'espace libre, utiliser la commande suivante en remplaçant
 **vg_data** par le nom du volume groupe:
