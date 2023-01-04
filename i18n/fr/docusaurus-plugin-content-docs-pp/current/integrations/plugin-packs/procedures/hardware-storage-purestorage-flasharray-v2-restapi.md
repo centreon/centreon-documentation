@@ -85,7 +85,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ## Prérequis
 
-Vous devez configurer l'utilisateur qui peut se connecter à la baie de stockage. Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
+Vous devez configurer un utilisateur pouvant se connecter à la baie de stockage. Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
 
 ## Installation
 
