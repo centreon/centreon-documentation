@@ -169,10 +169,10 @@ Description of users, umask and home directory:
 The tasks explained in this chapter must be performed on the Centreon
 central server.
 
-Install the Centreon MBI repository, you can find it on the
+1. Install the Centreon MBI repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
-Then run the following command:
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
@@ -358,10 +358,12 @@ installation process:
   BI user on the central monitoring server (to publish reports on the
   interface).
 
-To start installing the reporting server, install the MBI repository, you can find it on the 
+#### Procedure
+
+1. To start installing the reporting server, install the MBI repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
-Then perform the following procedure:
+2. Then perform the following procedure:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -419,7 +421,7 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 
 #### Java version requirement
   
-  > Ensure a version of Java 17 or later is installed before you start the procedure.
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -427,9 +429,9 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
   ```shell
   sudo update-alternatives --config java
   ```

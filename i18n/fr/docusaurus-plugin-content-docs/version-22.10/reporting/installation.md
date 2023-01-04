@@ -181,10 +181,10 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
+1. Installez le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
-Puis lancez la commande suivante :
+2. Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
@@ -192,7 +192,6 @@ Puis lancez la commande suivante :
 ```shell
 dnf config-manager --set-enabled 'powertools'
 ```
-
 
 ```shell
 dnf install centreon-bi-server
@@ -369,10 +368,12 @@ veillez à les connaître avant de commencer :
   centreonBI, sur le serveur Central (pour la mise à disposition des
   rapports générés sur l'interface)
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
+#### Procédure
+
+1. Installez le dépôt MBI, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/s/repositories).
 
-Puis suivre la procédure :
+2. Puis suivre la procédure :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -430,7 +431,7 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 
 #### Prérequis de la version Java
 
-  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -438,9 +439,9 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
 
   ```shell
   sudo update-alternatives --config java
