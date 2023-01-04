@@ -76,33 +76,47 @@ performances & d'isolation.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 22.04
+- Centreon Web 23.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/php.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci-dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
+  
+#### Utilisateurs et groupes
+
+| Utilisateur          | Groupe                     |
+|----------------------|----------------------------|
+| centreonBI (nouveau) | apache,centreon,centreonBI |
+| apache (existant)    | centreonBI                 |
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-- Centreon Web 22.04
+- Centreon Web 23.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php/8.0/mods-available/centreon.ini` (même que celui retourné par la commande
+  `/etc/php/8.1/mods-available/centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
 
+#### Utilisateurs et groupes
+
+| Utilisateur          | Groupe                       |
+|----------------------|------------------------------|
+| centreonBI (nouveau) | www-data,centreon,centreonBI |
+| apache (existant)    | centreonBI                   |
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-- Centreon Web 22.04
+- Centreon Web 23.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
 
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
@@ -110,15 +124,14 @@ performances & d'isolation.
   - wait_timeout
   - interactive_timeout
 
-</TabItem>
-</Tabs>
-
 #### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                     |
 |----------------------|----------------------------|
 | centreonBI (nouveau) | apache,centreon,centreonBI |
 | apache (existant)    | centreonBI                 |
+</TabItem>
+</Tabs>
 
 #### Description des utilisateurs, umask et répertoire personnel
 
@@ -149,7 +162,7 @@ Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-Quic
 | /                              | 5GB minimum                                                                                  |
 | /var (containing MariaDB data) | utiliser le résultat du fichier de simulation de l'espace disque ci-dessus                   |
 | Dossier temporaire de MariaDB  | Fortement recommandé de le positionner dans /var                                             |
-| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB. |
+| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB.       |
 
 Pour controler l'espace libre, utiliser la commande suivante en remplaçant
 **vg_data** par le nom du volume groupe:
