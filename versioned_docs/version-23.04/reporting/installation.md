@@ -46,10 +46,8 @@ between the dedicated BI server, the Centreon server and the databases:
 | **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
 |-----------------|--------------------------|--------------------------------------|----------|--------------|
 | ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
-| SSH             | Reporting server         |  Centreon Server                    | 22       | TCP          |
-
-| CBIS            | Reporting server         | Centreon Server                     | 80       | HTTP*        |
-
+| SSH             | Reporting server         |  Centreon Server                     | 22       | TCP          |
+| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
 | CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
 | Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
@@ -81,39 +79,13 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 22.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.d/php.ini`
+- Centreon Web 23.04
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-- Centreon Web 22.04
-- Check that `date.timezone` is correctly configured in the `/etc/php/8.0/mods-available/centreon.ini` file
-  (same as the one returned by the `timedatectl status` command).
-- Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
-  execution of long queries and can stop ETL or report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-- Centreon Web 22.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.ini`  file
-
-  (same as the one returned by the `timedatectl status` command).
-- Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
-  execution of long queries and can stop ETL or report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-
-</TabItem>
-</Tabs>
 
 #### Users and groups
 
@@ -121,6 +93,46 @@ considerations.
 |----------------------|----------------------------|
 | centreonBI (new)     | apache,centreon,centreonBI |
 | apache (existing)    | centreonBI                 |
+  
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+- Centreon Web 23.04
+- Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
+  (same as the one returned by the `timedatectl status` command).
+- Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
+  execution of long queries and can stop ETL or report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+
+#### Users and groups
+
+| User                 | Group                        |
+|----------------------|------------------------------|
+| centreonBI (new)     | www-data,centreon,centreonBI |
+| apache (existing)    | centreonBI                   |
+  
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+- Centreon Web 23.04
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
+
+  (same as the one returned by the `timedatectl status` command).
+- Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
+  execution of long queries and can stop ETL or report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+  
+#### Users and groups
+
+| User                 | Group                      |
+|----------------------|----------------------------|
+| centreonBI (new)     | apache,centreon,centreonBI |
+| apache (existing)    | centreonBI                 |
+
+</TabItem>
+</Tabs>
 
 #### Description of users, umask and home directory
 
