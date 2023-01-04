@@ -56,7 +56,7 @@ Il apporte les modèles de service suivants :
 
 Le Pack utilise l'ancienne API. Vous pouvez tester le Pack [Pure Storage FlashArray Rest API v2](hardware-storage-purestorage-flasharray-v2-restapi.md) plus récent.
 
-Vous devez configurer l'utilisateur qui peut se connecter à la baie de stockage. Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
+Vous devez configurer un utilisateur pouvant se connecter à la baie de stockage. Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
 
 ## Installation
 
