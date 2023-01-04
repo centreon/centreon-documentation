@@ -45,9 +45,9 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 ## Étape 3 : Mettre  à jour le serveur de reporting
 
-#### Prérequis de la version Java
+### Prérequis de la version Java
   
-  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -55,9 +55,9 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
   ```shell
   sudo update-alternatives --config java
   ```
