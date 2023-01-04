@@ -12,7 +12,9 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 22.10.x).
+Installez BAM sur le serveur central.
+Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 23.04.x).
+Si vous voulez pouvoir voir les Activités métier supervisées par un serveur distant, installez BAM également sur le serveur distant. Lorsque BAM est installé sur un serveur distant, les Activités métier n'incluent que les ressources supervisées par le serveur distant.
 
 ## Installation
 
