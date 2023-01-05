@@ -41,7 +41,7 @@ Release date: `soon`
 - Fixed issue where graphs could not be exported on the performance page.
 -	[Configuration] Fixed possibility to disable contact/contact group additive inheritance if not yet configured
 - Fixed an issue causing the service icons on the widgets to not be visible
-- [ResourceStatus] Fixed the display of command in service details panel
+- [ResourceStatus] Fixed the display of commands in the service details panel
 - Fixed an issue preventing a user to edit a recurrent downtime if the linked host group was disabled
 - [Monitoring] Removed obsolete code to export of graph in CSV
 - [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on Resource Status page
