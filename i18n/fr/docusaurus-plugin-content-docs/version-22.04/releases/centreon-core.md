@@ -35,7 +35,7 @@ Release date: `soon`
 - Fixed an issue causing acknowledgement/downtimes to fail without returning an error when the character case for the resource was wrong
 - Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
 - [Authentication] Fixed user theme retrieval via OpenID Connect login
-- [Core] API v2 now handles React pages.
+- [Core] The v2 API now handles React pages.
 - Fixed an issue that cause months to be missing from the calendar selection
 - Fixed and issueTrying to log in to push the web upgrade/update does not return the depicted error message anymore.
 - Fixed issue when graphs could not be exported on the performance page.
