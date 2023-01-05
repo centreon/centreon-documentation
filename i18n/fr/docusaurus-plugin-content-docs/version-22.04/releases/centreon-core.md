@@ -62,7 +62,7 @@ Release date: `soon`
 - [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
 - [Configuration] Sanitized queries in the list of broker configurations
 - [Configuration] Sanitized queries in the list of service groups
--	[Core] Fixed vulnerabilities in color_picker.php
+- [Core] Fixed vulnerabilities in color_picker.php
 - [Core] Fixed vulnerabilities in pathway.php
 - [Core] Fixed vulnerabilities in color_picker_mb.php
 -	[Core] Fixed vulnerabilities in rename.php
