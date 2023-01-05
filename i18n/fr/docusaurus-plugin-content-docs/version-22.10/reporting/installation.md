@@ -486,6 +486,30 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+#### Prérequis de la version Java
+
+> Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+- Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+
+  ```shell
+  java -version
+  ```
+
+- Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+- Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+Vous pouvez maintenant procéder à l'installation :
+
+```shell
+yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+```
+
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```

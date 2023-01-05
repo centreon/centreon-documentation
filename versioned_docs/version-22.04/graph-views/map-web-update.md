@@ -5,8 +5,6 @@ title: Updating MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> A reset of your MAP database is necessary: the modifications you made on your maps using the web editor will be lost. Otherwise, note that the MAP Legacy database (and therefore legacy maps) will not be impacted.
-
 Use the following procedure to update your MAP version:
 
 1. Stop the **centreon-map-engine** service by running this command on the machine hosting the Centreon MAP service:

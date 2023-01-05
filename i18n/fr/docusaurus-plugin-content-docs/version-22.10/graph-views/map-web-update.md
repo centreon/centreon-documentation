@@ -5,8 +5,6 @@ title: Mettre à jour MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Une réinitialisation de votre base de données MAP est nécessaire : les modifications que vous avez apportées à vos cartes à l'aide de l'éditeur web seront perdues. En revanche, notez que la base de données MAP Legacy (et donc les anciennes cartes) ne sera pas impactée.
-
 Suivez cette procédure pour mettre à jour la version de MAP :
 
 1. Arrêtez le service **centreon-map-engine** en exécutant la commande suivante sur la machine hébergeant le service Centreon MAP :
