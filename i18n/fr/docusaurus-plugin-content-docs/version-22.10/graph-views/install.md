@@ -5,6 +5,10 @@ title: Installer l'extension MAP de Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+- L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
+- Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
+
 > Centreon MAP nécessite une clé de licence valide. Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
 Ce chapitre décrit comment installer Centreon MAP.
