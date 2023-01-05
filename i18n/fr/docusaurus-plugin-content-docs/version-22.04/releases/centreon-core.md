@@ -37,7 +37,7 @@ Release date: `soon`
 - [Authentication] Fixed user theme retrieval via OpenID Connect login
 - [Core] The v2 API now handles React pages.
 - Fixed an issue that caused months to be missing from the calendar selection
-- Fixed and issueTrying to log in to push the web upgrade/update does not return the depicted error message anymore.
+- Fixed and issue where trying to log in to push the web upgrade/update does not return the depicted error message anymore.
 - Fixed issue when graphs could not be exported on the performance page.
 -	[Configuration] Fixed possibility to disable Contact/Contactgroup additive inheritance if not yet configured
 - Fixed an issue causing the service icons on the widgets to not be visible
