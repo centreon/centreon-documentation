@@ -54,7 +54,7 @@ Release date: `soon`
 - [Core] Fixed vulnerabilities in functions.js file
 - [Configuration] Sanitized queries when displaying logos
 - [Configuration] Sanitized queries in the list of services by host group
-- [Configuration] Sanitized queries in service category
+- [Configuration] Sanitized queries in service categories
 - [Configuration] Sanitized queries in the list of meta service
 - [Configuration] Sanitized queries in the list of host categories
 - [Configuration] Sanitized queries in the list of commands
