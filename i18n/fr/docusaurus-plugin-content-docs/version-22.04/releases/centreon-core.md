@@ -65,7 +65,7 @@ Release date: `soon`
 - [Core] Fixed vulnerabilities in color_picker.php
 - [Core] Fixed vulnerabilities in pathway.php
 - [Core] Fixed vulnerabilities in color_picker_mb.php
--	[Core] Fixed vulnerabilities in rename.php
+- [Core] Fixed vulnerabilities in rename.php
 - [Configuration] Fixed vulnerabilities in services listing	
 -	[Configuration] Fixed vulnerabilities in host form
 ### 22.04.7
