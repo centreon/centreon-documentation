@@ -47,7 +47,7 @@ Release date: `soon`
 - [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on Resource Status page
 - Fixed an issue with view contact notfications window
 - [Administration] Fixed access to provider configuration endpoint using ACL
--	[API] Fixed API access when user doesn't have access to UI
+- [API] Fixed API access when user doesn't have access to UI
 
 #### Security fixes
 
