@@ -28,7 +28,7 @@ Release date: `soon`
 #### Bug fixes
 
 - [Administration] Access group fields can now be empty for OpenID Connect configuration
-- Fixed a bug that blocked exporting multiple pollers configuration at the same time with a shared severity
+- Fixed a bug that blocked exporting multiple poller configurations at the same time with a shared severity
 - [ResourceStatus] Fix an issue that made users unable to Disacknowledge services
 - [Authentication] Fixed authentication with complete url for token endpoint
 - Fixed an ACL issue allowing users to modify users even when they had read-only permissions
