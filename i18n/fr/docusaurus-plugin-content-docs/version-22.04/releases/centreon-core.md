@@ -23,7 +23,7 @@ Release date: `soon`
 #### Enhancements
 
 - A new API endpoint is now available to update a Centreon platform. This allows updates to take place without having to go through the Centreon Update Web Wizard.
-- [CEIP] Improved telemetry to know configured authentications options
+- [CEIP] Improved telemetry to know configured authentication options
 
 #### Bug fixes
 
