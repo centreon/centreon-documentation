@@ -16,6 +16,58 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.8
+
+Release date: `soon`
+
+#### Enhancements
+
+- New API endpoint is now available to update a Centreon platform. This allows updates to take place without having the go through the Centreon Update Web Wizard.
+- [CEIP] Improved telemetry to know configured authentications options
+
+#### Bug fixes
+
+- [Administration] Access group fields can now be empty for OpenId Connect configuration
+- Fixed a bug that blocked exporting multiple pollers configuration at the same time with a shared severity
+- [ResourceStatus] Fix an issue that made users unable to Disacknowledge services
+- [Authentication] Fixed authentication with complete url for token endpoint
+- Fixed an ACL issue allowing users to modify users even when they had read-only permissions
+- Fixed an issue causing Acknowledgement/downtimes to fail without returning an error when the character case for the resource was wrong
+- Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
+- [Authentication] Fixed user theme retrieval via OpenID Connect login
+- [Core] API v2 now handles React pages.
+- Fixed an issue that cause months to be missing from the calendar selection
+- Fixed and issueTrying to log in to push the web upgrade/update does not return the depicted error message anymore.
+- Fixed issue when graphs could not be exported on the performance page.
+-	[Configuration] Fixed possibility to disable Contact/Contactgroup additive inheritance if not yet configured
+- Fixed an issue causing the service icons on the widgets to not be visible
+- [ResourceStatus] Fixed the display of command in service details panel
+- Fixed an issue preventing a user to edit a recurrent downtime if the linked host group was disabled
+- [Monitoring] Removed obsolete code to export of graph in CSV
+- [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on Resource Status page
+- Fixed an issue with view contact notfications window
+- [Administration] Fixed access to provider configuration endpoint using ACL
+-	[API] Fixed API access when user doesn't have access to UI
+
+#### Security fixes
+
+- [Core] Fixed vulnerabilities in functions.js file
+- [Configuration] Sanitized queries when displaying logos
+- [Configuration] Sanitized queries in the list of services by host group
+- [Configuration] Sanitized queries in service category
+- [Configuration] Sanitized queries in the list of meta service
+- [Configuration] Sanitized queries in the list of host categories
+- [Configuration] Sanitized queries in the list of commands
+- [Configuration] Sanitized queries in the list of trap groups
+- [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
+- [Configuration] Sanitized queries in the list of broker configurations
+- [Configuration] Sanitized queries in the list of service groups
+-	[Core] Fixed vulnerabilities in color_picker.php
+- [Core] Fixed vulnerabilities in pathway.php
+- [Core] Fixed vulnerabilities in color_picker_mb.php
+-	[Core] Fixed vulnerabilities in rename.php
+- [Configuration] Fixed vulnerabilities in services listing	
+-	[Configuration] Fixed vulnerabilities in host form
 ### 22.04.7
 
 Release date: `October 12, 2022`
