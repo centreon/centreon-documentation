@@ -68,6 +68,7 @@ Release date: `soon`
 - [Core] Fixed vulnerabilities in rename.php
 - [Configuration] Fixed vulnerabilities in services listing	
 - [Configuration] Fixed vulnerabilities in host form
+
 ### 22.04.7
 
 Release date: `October 12, 2022`
