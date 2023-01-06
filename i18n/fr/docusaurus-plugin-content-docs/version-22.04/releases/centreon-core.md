@@ -45,7 +45,7 @@ Release date: `soon`
 - Fixed an issue preventing a user to edit a recurrent downtime if the linked host group was disabled
 - [Monitoring] Removed obsolete code to export graphs in CSV
 - [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resource Status page
-- Fixed an issue with view contact notfications window
+- Fixed an issue with "view contact notifications" window
 - [Administration] Fixed access to provider configuration endpoint using ACL
 - [API] Fixed API access when user doesn't have access to UI
 
