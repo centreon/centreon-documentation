@@ -3,6 +3,10 @@ id: remote-server
 title: Installing on a remote server
 ---
 
+> As MAP (Legacy) will not evolve anymore, we suggest you install [Centreon MAP](introduction-map.md) instead. MAP has significant advantages compared to MAP (Legacy) including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
+
 ## Centreon MAP (Legacy) installation for a Centreon remote server
 
 Installation of Centreon MAP (Legacy) extension on a Centreon
