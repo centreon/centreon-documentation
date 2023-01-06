@@ -231,6 +231,18 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Installez **gpg**:
+
+```shell
+apt install gpg
+```
+
+Importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
 Ajoutez le dépôt externe suivant (pour Java 8):
 
 ```shell

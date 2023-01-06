@@ -2,35 +2,90 @@
 id: update
 title: Update the extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 The update of Centreon MBI is made of 2 steps :
 
--   Updating the extension interface
--   Updating the reporting server
+- Updating the extension interface
+- Updating the reporting server
 
 ## Upgrade the extension interface
 
 1. Update the package, run the following commands:
 
-        yum update centreon-bi-server
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-2. Update through the interface:  Log on to the Centreon web interface and go to 
-the *Administration > Extension > Manager* page and click on the 
-AirUpdate button to update the extension and the widgets
+```shell
+dnf clean all
+dnf update centreon-bi-server
+```
 
-## Upgrade the reporting server 
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum clean all
+yum update centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt clean all
+apt update centreon-bi-server
+```
+
+</TabItem>
+</Tabs>
+
+2. Update through the interface: Log on to the Centreon web interface, go to
+the **Administration > Extension > Manager** page and click on the
+Update button to update the extension and the widgets.
+
+## Upgrade the reporting server
 
 Connect to your reporting server and stop the scheduler service (CBIS):
 
-    systemctl stop cbis
+```shell
+systemctl stop cbis
+```
 
 Then run the following commands: :
 
-    yum clean all
-    yum update centreon-bi\*
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Start the scheduler service: 
+```shell
+dnf clean all
+dnf update centreon-bi\*
+```
 
-    systemctl start cbis
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
-You're done :)
+```shell
+yum clean all
+yum update centreon-bi\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt clean all
+apt update centreon-bi\*
+```
+
+</TabItem>
+</Tabs>
+
+Start the scheduler service:
+
+```shell
+systemctl start cbis
+```
+
+MBI is now updated.
