@@ -3,6 +3,10 @@ id: remote-server
 title: Installer MAP sur un serveur distant
 ---
 
+> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+- L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
+- Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
+
 ## Installation de Centreon MAP sur un serveur distant Centreon
 
 L'installation de l'extension **Centreon MAP** sur un **serveur distant Centreon** doit se faire exactement comme l'installation sur un serveur central, seules la configuration et la désinstallation sont différentes.
