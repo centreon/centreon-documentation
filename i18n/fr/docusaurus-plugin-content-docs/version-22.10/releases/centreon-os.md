@@ -50,7 +50,7 @@ Release date: `soon`
 - [Configuration] Sanitized queries in the list of host categories
 - [Configuration] Sanitized queries in the list of commands
 - [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
-- [Configuration] Sanitized queries in the list of broker configurations
+- [Configuration] Sanitized queries in the list of Broker configurations
 - [Core] Fixed vulnerabilities in color_picker.php
 - [Core] Fixed vulnerabilities in pathway.php
 - [Core] Fixed vulnerabilities in color_picker_mb.php
