@@ -41,7 +41,7 @@ Release date: `soon`
 - [Resource-Status] Monitoring engine command displayed in detail regarding ACL configured
 - Fixed "view contact notifications" window
 - [API] Fixed API access when user doesn't have access to UI
-- Fixed issue pagination not displayed in all legacy pages
+- Fixed an issue where the pagination was not displayed in all legacy pages
 
 #### Security fixes
 
