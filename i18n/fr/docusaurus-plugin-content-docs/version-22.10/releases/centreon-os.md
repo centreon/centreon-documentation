@@ -36,7 +36,7 @@ Release date: `soon`
 - Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
 - Allow users to configure Broker's global maximum retention
 - Fixed an issue that caused months to be missing from the calendar selection
-- Bugfix of pagination on event log page
+- Fixed bug with pagination on event log page
 - Recurrent downtime editing issues with disabled objects
 - [Resource-Status] Monitoring engine command displayed in detail regarding ACL configured
 - Fix view contact notfications window
