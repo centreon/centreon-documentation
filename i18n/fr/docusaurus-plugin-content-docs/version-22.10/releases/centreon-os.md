@@ -59,7 +59,7 @@ Release date: `soon`
 - [Configuration] Fixed vulnerabilities in host form
 - [API] Fixed API access when user doesn't have access to UI
 - Fixed issue pagination not displayed in all legacy pages
-- Correction to correctly retrieve the user's roles.
+- Fixed an issue with how users' roles were retrieved.
 
 ### 22.10.2
 
