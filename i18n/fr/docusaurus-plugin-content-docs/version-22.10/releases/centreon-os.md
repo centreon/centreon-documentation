@@ -37,7 +37,7 @@ Release date: `soon`
 - Allow users to configure Broker's global maximum retention
 - Fixed an issue that caused months to be missing from the calendar selection
 - Fixed bug with pagination on event log page
-- Recurrent downtime editing issues with disabled objects
+- Fixed recurrent downtime editing issues with disabled objects
 - [Resource-Status] Monitoring engine command displayed in detail regarding ACL configured
 - Fix view contact notfications window
 - [API] Fixed API access when user doesn't have access to UI
