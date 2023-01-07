@@ -39,7 +39,7 @@ Release date: `soon`
 - Fixed bug with pagination on event log page
 - Fixed recurrent downtime editing issues with disabled objects
 - [Resource-Status] Monitoring engine command displayed in detail regarding ACL configured
-- Fix view contact notfications window
+- Fixed "view contact notifications" window
 - [API] Fixed API access when user doesn't have access to UI
 - Fixed issue pagination not displayed in all legacy pages
 
