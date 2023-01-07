@@ -29,7 +29,7 @@ Release date: `soon`
 #### Bug fixes
 
 - Fixed a bug that blocked exporting multiple pollers' configuration at the same time with a shared severity
-- [Authentication] Fixed authentication with complete url for token endpoint
+- [Authentication] Fixed authentication with complete URL for token endpoint
 - Fixed bug whre it's impossible to filter on hosts and/or services in 22.10.
 - Fixed an ACL bug allowing users to modify users even when they had read-only permissions
 - Acknowledgement/downtimes failed without returning an error when the character case for the resource was wrong
