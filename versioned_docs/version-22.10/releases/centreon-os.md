@@ -29,20 +29,20 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed a bug that blocked exporting multiple pollers' configuration at he same time with a shared severity
-- [Authentication] Fixed authentication with complete url for token endpoint
-- Fixed bug whre it's impossible to filter on hosts and/or services in 22.10.
+- Fixed a bug that blocked exporting multiple pollers' configuration at the same time with a shared severity
+- [Authentication] Fixed authentication with complete URL for token endpoint
+- Fixed bug where it's impossible to filter on hosts and/or services in Centreon 22.10.
 - Fixed an ACL bug allowing users to modify users even when they had read-only permissions
 - Acknowledgement/downtimes failed without returning an error when the character case for the resource was wrong
 - Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
 - Allow users to configure Broker's global maximum retention
 - Fixed an issue that caused months to be missing from the calendar selection
-- Bugfix of pagination on event log page
-- Recurrent downtime editing issues with disabled objects
-- [Resource-Status] Monitoring engine command displayed in detail regarding ACL configured
-- Fix view contact notfications window
+- Fixed bug with pagination on event log page
+- Fixed recurrent downtime editing issues with disabled objects
+- [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resource Status page
+- Fixed "view contact notifications" window
 - [API] Fixed API access when user doesn't have access to UI
-- Fixed issue pagination not displayed in all legacy pages
+- Fixed an issue where the pagination was not displayed in all legacy pages
 
 #### Security fixes
 
@@ -51,16 +51,15 @@ Release date: `soon`
 - [Configuration] Sanitized queries in the list of host categories
 - [Configuration] Sanitized queries in the list of commands
 - [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
-- [Configuration] Sanitized queries in the list of broker configurations
+- [Configuration] Sanitized queries in the list of Broker configurations
 - [Core] Fixed vulnerabilities in color_picker.php
 - [Core] Fixed vulnerabilities in pathway.php
 - [Core] Fixed vulnerabilities in color_picker_mb.php
 - [Core] Fixed vulnerabilities in rename.php
 - [Configuration] Fixed vulnerabilities in services listing
 - [Configuration] Fixed vulnerabilities in host form
-- [API] Fixed API access when user doesn't have access to UI
 - Fixed issue pagination not displayed in all legacy pages
-- Correction to correctly retrieve the user's roles.
+- Fixed an issue with how users' roles were retrieved.
 
 ### 22.10.2
 
