@@ -63,7 +63,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Privilèges AWS
 
-Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS/EC2 :
+Pour pouvoir utiliser le monitoring AWS/EC2, configurez un compte (combinaison de access key et secret key) et attribuez-lui les privilèges suivants :
 
 | AWS Privilege                  | Description                                                     |
 | :----------------------------- | :-------------------------------------------------------------- |
