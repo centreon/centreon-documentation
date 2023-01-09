@@ -57,7 +57,6 @@ Release date: `soon`
 - [Core] Fixed vulnerabilities in rename.php
 - [Configuration] Fixed vulnerabilities in services listing
 - [Configuration] Fixed vulnerabilities in host form
-- Fixed issue pagination not displayed in all legacy pages
 - Fixed an issue with how users' roles were retrieved.
 
 ### 22.10.2
