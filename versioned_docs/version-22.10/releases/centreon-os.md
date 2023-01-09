@@ -39,7 +39,7 @@ Release date: `soon`
 - Fixed an issue that caused months to be missing from the calendar selection
 - Fixed bug with pagination on event log page
 - Fixed recurrent downtime editing issues with disabled objects
-- [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resource Status page
+- [Resources Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
 - Fixed "view contact notifications" window
 - [API] Fixed API access when user doesn't have access to UI
 - Fixed an issue where the pagination was not displayed in all legacy pages
