@@ -16,17 +16,12 @@ de partager, présenter ou retravailler les données dans un système annexe;
 - [Centreon Open Ticket](../alerts-notifications/ticketing.md), permet 
 l'ajout de fonctionnalités permettant l'ouverture manuelle de ticket sur la base des 
 données d'une alerte directement au travers des bacs à événements Centreon;
-- [Centreon Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction), permet la 
-récupération d'informations de supervision de systèmes tiers afin d'utiliser 
-Centreon comme une tour de contrôle devenant le point unique de gestion 
-et de traitement des alertes de vos équipements et applicatifs critiques.
 
 Cette documentation est organisée en fonction des fonctionnalités des logiciels avec 
 lesquels Centreon peut s'interfacer. Les grandes familles d'intégrations sont les 
 suivantes: 
 
 - [Data Analytics](../integrations/data-analytics/data-analytics-overview.md)
-- [Digital Experience Monitoring](../integrations/digital-experience-monitoring/dem-overview.md)
 - [Event Management](../integrations/event-management/event-management-overview.md)
 - [ITSM](../integrations/itsm/itsm-overview.md)
 - [Notifications](../integrations/notifications/notifications-overview.md)
