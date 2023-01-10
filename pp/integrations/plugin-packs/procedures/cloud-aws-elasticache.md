@@ -35,7 +35,7 @@ It brings the following service templates:
 
 ### Discovery rules
 
-The pack provides a discovery rule to automatically discover Elasticache resources:
+The pack provides a discovery rule to automatically discover Elasticache resources.
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-elasticache-provider.png)
 
@@ -45,84 +45,84 @@ More information about the Host Discovery module is available in the Centreon do
 <Tabs groupId="sync">
 <TabItem value="ElastiCache-Commands" label="ElastiCache-Commands">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CPUUtilization   | The percentage of CPU utilization. Unit: Percent                                       |
+| Metric name      | Description       | Unit                                                                     |
+| :--------------- | :-----------------|:-------------------------------------------------------------------- |
+| CPUUtilization   | The percentage of CPU utilization. | Percent                                       |
 
 </TabItem>
 <TabItem value="ElastiCache-Connections" label="ElastiCache-Connections">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CurrConnections  | A count of the number of connections connected to the cache at an instant in time. ElastiCache uses two to three of the connections to monitor the cluster.In addition to the above, memcached creates a number of internal connections equal to twice the threads used for the node type. The thread count for the various node types can be see in the Nodetype Specific Parameters of the applicable Parameter Group. Unit: Count                                                                                                 |
-| NewConnections   |The number of new connections the cache has received. This is derived from the memcached total_connections statistic by recording the change in total_connections across a period of time. This will always be at least 1, due to a connection reserved for a ElastiCache. Unit: Count                                                                                               |
+| Metric name      | Description      |       Unit                                                               |
+| :--------------- | :----------------|:--------------------------------------------------------------------- |
+| CurrConnections  | A count of the number of connections connected to the cache at an instant in time. ElastiCache uses two to three of the connections to monitor the cluster. In addition to the above, memcached creates a number of internal connections equal to twice the number of threads used for the node type. The thread count for the various node types can be seen in the Nodetype Specific Parameters of the applicable Parameter Group. | Count                                                                                                 |                                                                                       |
+| NewConnections   | The number of new connections the cache has received. This is derived from the memcached total_connections statistic by recording the change in total_connections across a period of time. This will always be at least 1, due to a connection reserved for ElastiCache. |Count                                                                                               |
 
 </TabItem>
 <TabItem value="ElastiCache-Cpu" label="ElastiCache-Cpu">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CPUUtilization   | The percentage of CPU utilization. Unit: Percent                                       |
+| Metric name      | Description                        | Unit                                                    |
+| :--------------- | :----------------------------------|:--------------------------------------------------- |
+| CPUUtilization   | The percentage of CPU utilization. | Percent                                       |
 
 </TabItem>
 <TabItem value="ElastiCache-Evictions" label="ElastiCache-Evictions">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| Evictions   | The number of non-expired items the cache evicted to allow space for new writes.	 Unit: Count                                       |
-| Reclaimed   | The number of expired items the cache evicted to allow space for new writes.		 Unit: Count                                       |
+| Metric name      | Description     | Unit                                                                       |
+| :--------------- | :---------------|:---------------------------------------------------------------------- |
+| Evictions   | The number of non-expired items the cache evicted to allow space for new writes.	 | Count                                       |
+| Reclaimed   | The number of expired items the cache evicted to allow space for new writes.		 | Count                                       |
 
 
 </TabItem>
 <TabItem value="ElastiCache-Items" label="ElastiCache-Items">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CurrItems   | A count of the number of items currently stored in the cache.			 Unit: Count                                      |
-| NewItems   | The number of new items the cache has stored. This is derived from the memcached total_items statistic by recording the change in total_items across a period of time.	 Unit: Count      
+| Metric name      | Description               | Unit                                                             |
+| :--------------- | :-------------------------|:------------------------------------------------------------ |
+| CurrItems   | A count of the number of items currently stored in the cache.			 | Count                                      |
+| NewItems   | The number of new items the cache has stored. This is derived from the memcached total_items statistic by recording the change in total_items across a period of time.	| Count      
 
 </TabItem>
 <TabItem value="ElastiCache-Network" label="ElastiCache-Network">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| NetworkBytesIn   | The number of bytes the host has read from the network.			 Unit: Bytes         |
-| NetworkBytesIn   | 	The number of bytes sent out on all network interfaces by the instance.    Unit: Bytes                                                                                  |
+| Metric name      | Description          | Unit                                                                  |
+| :--------------- | :--------------------|:----------------------------------------------------------------- |
+| NetworkBytesIn   | The number of bytes the host has read from the network.			 | Bytes         |
+| NetworkBytesIn   | 	The number of bytes sent out on all network interfaces by the instance.    | Bytes                                                                                  |
 
 </TabItem>
 <TabItem value="ElastiCache-Replication" label="ElastiCache-Replication">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| ReplicationBytes | For nodes in a replicated configuration, ReplicationBytes reports the number of bytes that the primary is sending to all of its replicas. This metric is representative of the write load on the replication group. 			 Unit: Bytes         |
-| ReplicationLag   | This metric is only applicable for a node running as a read replica. It represents how far behind, in seconds, the replica is in applying changes from the primary node. For Redis engine version 5.0.6 onwards, the lag can be measured in milliseconds.   Unit: Seconds                   |
+| Metric name      | Description     | Unit                                                                       |
+| :--------------- | :---------------|:---------------------------------------------------------------------- |
+| ReplicationBytes | For nodes in a replicated configuration, ReplicationBytes reports the number of bytes that the primary is sending to all of its replicas. This metric is representative of the write load on the replication group. 			| Bytes         |
+| ReplicationLag   | This metric is only applicable for a node running as a read replica. It represents how far behind, in seconds, the replica is in applying changes from the primary node. For Redis engine version 5.0.6 onwards, the lag can be measured in milliseconds.  | Seconds                   |
 
 </TabItem>
 <TabItem value="ElastiCache-Requests" label="ElastiCache-Requests">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CasHits |The number of Cas requests the cache has received where the requested key was found and the Cas value matched.			 Unit: Count         |
-| CasMisses   | The number of Cas requests the cache has received where the key requested was not found.   Unit: Count                   |
-| DecrHits   | The number of decrement requests the cache has received where the requested key was found.   Unit: Count                   |
-| DecrMisses   | The number of decrement requests the cache has received where the requested key was not found.   Unit: Count                   |
-| DeleteHits   | The number of delete requests the cache has received where the requested key was found.   Unit: Count                   |
-| DeleteMisses  |The number of delete requests the cache has received where the requested key was not found.   Unit: Count                   |
-| GetHits  |The number of get requests the cache has received where the key requested was found.   Unit: Count                   |
-| GetMisses  |The number of get requests the cache has received where the key requested was not found.   Unit: Count                   |
-| IncrHits  |The number of increment requests the cache has received where the key requested was found.   Unit: Count                   |
-| IncrMisses  |The number of increment requests the cache has received where the key requested was not found.   Unit: Count                   |
-| TouchHits  |The number of keys that have been touched and were given a new expiration time.   Unit: Count                   |
-| TouchMisses  |The number of items that have been touched, but were not found.   Unit: Count                   |
-| CacheHits |XXXXXXXXXXXXXXXXXXXXX   Unit: Count                   |
-| CacheMisses  |XXXXXXXXXXXXXXXXXXXXXXX   Unit: Count                   |
+| Metric name      | Description     | Unit                                                                       |
+| :--------------- | :---------------|:---------------------------------------------------------------------- |
+| CasHits |The number of Cas requests the cache has received where the requested key was found and the Cas value matched.			 |Count         |
+| CasMisses   | The number of Cas requests the cache has received where the key requested was not found.  | Count                   |
+| DecrHits   | The number of decrement requests the cache has received where the requested key was found.   | Count                   |
+| DecrMisses   | The number of decrement requests the cache has received where the requested key was not found.   | Count                   |
+| DeleteHits   | The number of delete requests the cache has received where the requested key was found.   | Count                   |
+| DeleteMisses  |The number of delete requests the cache has received where the requested key was not found.  | Count                   |
+| GetHits  |The number of get requests the cache has received where the key requested was found.  | Count                   |
+| GetMisses  |The number of get requests the cache has received where the key requested was not found.   | Count                   |
+| IncrHits  |The number of increment requests the cache has received where the key requested was found.  | Count                   |
+| IncrMisses  |The number of increment requests the cache has received where the key requested was not found.   | Count                   |
+| TouchHits  |The number of keys that have been touched and were given a new expiration time.  | Count                   |
+| TouchMisses  |The number of items that have been touched, but were not found.   | Count                   |
+| CacheHits | The number of successful read-only key lookups in the main dictionary.  | Count                   |
+| CacheMisses  | The number of unsuccessful read-only key lookups in the main dictionary.    | Count            |
 </TabItem>
 <TabItem value="ElastiCache-Usage" label="ElastiCache-Usage">
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| BytesUsedForCacheItems |The number of bytes used to store cache items.			 Unit: Bytes         |
-| BytesUsedForCache   | Dimension: Tier=Memory for Redis clusters using Data tiering: The total number of bytes used for cache by memory. This is the value of used_memory statistic at Redis   Unit: Bytes                   |
+| Metric name      | Description      | Unit                                                                      |
+| :--------------- | :----------------|:--------------------------------------------------------------------- |
+| BytesUsedForCacheItems |The number of bytes used to store cache items.			| Bytes         |
+| BytesUsedForCache   | Dimension: Tier=Memory for Redis clusters using Data tiering: The total number of bytes used for cache by memory. This is the value of used_memory statistic at Redis  | Bytes                   |
 
 </TabItem>
 </Tabs>
