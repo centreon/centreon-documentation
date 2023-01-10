@@ -19,6 +19,50 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.3
+
+Release date: `January 9, 2023`
+
+> There is currently a known issue affecting version 22.10.3. Please do not update your platform. A new version will be released shortly.
+
+#### Enhancements
+
+- [APIv2] Added vault configuration endpoint
+
+#### Bug fixes
+
+- Fixed a bug that blocked exporting multiple pollers' configuration at the same time with a shared severity
+- [Authentication] Fixed authentication with complete URL for token endpoint
+- Fixed bug where it's impossible to filter on hosts and/or services in Centreon 22.10.
+- Fixed an ACL bug allowing users to modify users even when they had read-only permissions
+- Acknowledgement/downtimes failed without returning an error when the character case for the resource was wrong
+- Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
+- Allow users to configure Broker's global maximum retention
+- Fixed an issue that caused months to be missing from the calendar selection
+- Fixed bug with pagination on event log page
+- Fixed recurrent downtime editing issues with disabled objects
+- [Resources Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
+- Fixed "view contact notifications" window
+- [API] Fixed API access when user doesn't have access to UI
+- Fixed an issue where the pagination was not displayed in all legacy pages
+- [Install] Fixed app_key error during upgrade
+- 
+#### Security fixes
+
+- [Core] Fixed vulnerabilities in functions.js file
+- [Configuration] Sanitized queries in the list of services by host group
+- [Configuration] Sanitized queries in the list of host categories
+- [Configuration] Sanitized queries in the list of commands
+- [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
+- [Configuration] Sanitized queries in the list of Broker configurations
+- [Core] Fixed vulnerabilities in color_picker.php
+- [Core] Fixed vulnerabilities in pathway.php
+- [Core] Fixed vulnerabilities in color_picker_mb.php
+- [Core] Fixed vulnerabilities in rename.php
+- [Configuration] Fixed vulnerabilities in services listing
+- [Configuration] Fixed vulnerabilities in host form
+- Fixed an issue with how users' roles were retrieved.
+
 ### 22.10.2
 
 Release date: `December 7, 2022`
