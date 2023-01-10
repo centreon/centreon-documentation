@@ -1,28 +1,30 @@
 ---
-id: remote-server
+id: map-web-install-remote
 title: Installer MAP sur un serveur distant
 ---
 
-> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
-- L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
-- Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
+## Installation de Centreon MAP sur un serveur distant
 
-## Installation de Centreon MAP sur un serveur distant Centreon
-
-L'installation de l'extension **Centreon MAP** sur un **serveur distant Centreon** doit se faire exactement comme l'installation sur un serveur central, seules la configuration et la désinstallation sont différentes.
+L'installation de l'extension Centreon MAP sur un serveur distant Centreon doit se faire exactement comme l'installation sur un serveur central, seules la configuration et la désinstallation sont différentes.
 
 Si votre serveur distant Centreon n'a pas encore été installé, veuillez vous référer à la [documentation](../installation/installation-of-a-remote-server/using-packages.md) suivante.
 
-Reportez-vous ensuite à la [procédure d'installation](install.md) pour installer les 2 composants principaux :
+Reportez-vous ensuite à la [procédure d'installation](map-web-install.md) pour installer les 2 composants principaux :
 
 - L'interface web
 - Le serveur
 
 Après cela, vous devrez effectuer des étapes supplémentaires, expliquées ci-dessous, pour terminer l'installation de Centreon MAP pour votre serveur distant Centreon.
 
+## Architecture
+
+Le schéma ci-dessous décrit l'architecture de MAP avec un serveur distant :
+
+![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+
 ## Synchronisation des images
 
-Ajouter l'accès à la page de synchronisation des images **Administration > Paramètres > Images**.
+Ajoutez l'accès à la page de synchronisation des images **Administration > Paramètres > Images** :
 
 ```shell
 [root@remote ~]# mysql centreon
@@ -43,4 +45,4 @@ Pour finir l'installation, générez et déployez la configuration du serveur di
 
 ## Désinstallation de Centreon MAP
 
-Sur un serveur distant, vous pouvez désinstaller le module **Centreon MAP** de la même manière que sur le serveur central Centreon. Toutes les configurations de **Centreon Broker** pour le serveur distant Centreon liées au module **Centreon MAP** doivent être supprimées manuellement. Consultez la [section ci-dessus](#configuration-de-centreon-broker) pour savoir quelles sorties vous devez supprimer pour votre ou vos serveurs distants Centreon.
+Sur un serveur distant, vous pouvez désinstaller le module Centreon MAP de la même manière que sur le serveur central Centreon. Toutes les configurations de Centreon Broker pour le serveur distant Centreon liées au module Centreon MAP doivent être supprimées manuellement. Consultez la section [Configuration de Centreon Broker](#configuration-de-centreon-broker) pour savoir quelles sorties vous devez supprimer pour votre ou vos serveurs distants Centreon.
