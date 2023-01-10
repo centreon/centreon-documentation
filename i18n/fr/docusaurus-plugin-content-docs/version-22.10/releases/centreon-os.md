@@ -18,6 +18,14 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.4
+
+Release date: `January 10, 2023`
+
+#### Bug fixes
+
+- [Core] Fixed update scripts that could cause an error during poller configuration export after update from 22.10.2 to 22.10.3
+
 ### 22.10.3
 
 Release date: `January 9, 2023`
