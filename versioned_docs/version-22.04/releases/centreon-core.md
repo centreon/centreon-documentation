@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.8
 
-Release date: `soon`
+Release date: `December 11, 2023`
 
 #### Enhancements
 
