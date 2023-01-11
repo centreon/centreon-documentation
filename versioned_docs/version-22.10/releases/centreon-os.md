@@ -31,8 +31,6 @@ Release date: `January 10, 2023`
 
 Release date: `January 9, 2023`
 
-> There is currently a known issue affecting version 22.10.3. Please do not update your platform. A new version will be released shortly.
-
 #### Enhancements
 
 - [APIv2] Added vault configuration endpoint
