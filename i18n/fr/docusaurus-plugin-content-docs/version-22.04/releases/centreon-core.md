@@ -31,7 +31,7 @@ Release date: `soon`
 - Fixed a bug that blocked exporting multiple poller configurations at the same time with a shared severity
 - [ResourceStatus] Fixed an issue that made users unable to disacknowledge services
 - [Authentication] Fixed authentication with complete URL for token endpoint
-- Fixed an ACL issue allowing users to modify users even when they had read-only permissions
+- Fixed an ACL issue with user modification permissions
 - Fixed an issue causing acknowledgement/downtimes to fail without returning an error when the character case for the resource was wrong
 - Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
 - [Authentication] Fixed user theme retrieval via OpenID Connect login
