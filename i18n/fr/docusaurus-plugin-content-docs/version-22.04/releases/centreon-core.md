@@ -48,6 +48,7 @@ Release date: `soon`
 - Fixed an issue with "view contact notifications" window
 - [Administration] Fixed access to provider configuration endpoint using ACL
 - [API] Fixed API access when user doesn't have access to UI
+[Install] Fixed app_key error during upgrade
 
 #### Security fixes
 
