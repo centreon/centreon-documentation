@@ -42,7 +42,7 @@ Release date: `soon`
 - [Configuration] Fixed possibility to disable contact/contact group additive inheritance if not yet configured
 - Fixed an issue causing the service icons on the widgets to not be visible
 - [ResourceStatus] Fixed the display of commands in the service details panel
-- Fixed an issue preventing a user to edit a recurrent downtime if the linked host group was disabled
+- Fixed an issue preventing a user to edit a recurrent downtime if the linked host group is disabled
 - [Monitoring] Removed obsolete code to export graphs in CSV
 - [Resource-Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resource Status page
 - Fixed an issue with "view contact notifications" window
