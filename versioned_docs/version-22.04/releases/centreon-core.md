@@ -39,7 +39,7 @@ Release date: `December 11, 2023`
 - [Core] The v2 API now handles React pages.
 - Fixed an issue that caused months to be missing from the calendar selection
 - Fixed an issue where trying to log in to push the web upgrade/update does not return the expected error message anymore.
-- Fixed issue where graphs could not be exported on the performance page.
+- Fixed an issue where graphs could not be exported on the performance page.
 - [Configuration] Fixed possibility to disable contact/contact group additive inheritance if not yet configured
 - Fixed an issue causing the service icons on the widgets to not be visible
 - [ResourceStatus] Fixed the display of commands in the service details panel
