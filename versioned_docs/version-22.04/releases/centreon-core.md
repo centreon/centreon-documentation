@@ -62,7 +62,7 @@ Release date: `December 11, 2023`
 - [Configuration] Sanitized queries in the list of commands
 - [Configuration] Sanitized queries in the list of trap groups
 - [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
-- [Configuration] Sanitized queries in the list of broker configurations
+- [Configuration] Sanitized queries in the list of Broker configurations
 - [Configuration] Sanitized queries in the list of service groups
 - [Core] Fixed vulnerabilities in color_picker.php
 - [Core] Fixed vulnerabilities in pathway.php
