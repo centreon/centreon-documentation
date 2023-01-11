@@ -57,7 +57,7 @@ Release date: `December 11, 2023`
 - [Configuration] Sanitized queries when displaying logos
 - [Configuration] Sanitized queries in the list of services by host group
 - [Configuration] Sanitized queries in service categories
-- [Configuration] Sanitized queries in the list of meta service
+- [Configuration] Sanitized queries in the list of meta services
 - [Configuration] Sanitized queries in the list of host categories
 - [Configuration] Sanitized queries in the list of commands
 - [Configuration] Sanitized queries in the list of trap groups
