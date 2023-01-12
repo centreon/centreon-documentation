@@ -21,7 +21,7 @@ Release date : `soon`
 
 #### Bug fixes
 
-- Fixed an issue preventing users to create a map with the API
+- Fixed an issue preventing users to create a map with the API.
 - Fixed an issue that caused server to fail to start when trying to load empty output.
 - Fixed links where empty bendpoints caused maps to become not editable.
 - Resource name properties are now used for links when saving maps.
