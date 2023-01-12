@@ -24,10 +24,10 @@ Release date : `soon`
 
 #### Bug fixes
 
-- Fixed an issue preventing to create MAP with API
+- Fixed an issue preventing users to create a map with the API
 - Fixed an issue that caused server to fail to start when trying to load empty output.
-- Fixed links when bendpoints are empty cause map to become not editable.
-- Fixed display label and use ressource name properties for links.
+- Fixed links where empty bendpoints caused maps to become not editable.
+- Resource name properties are now used for links when saving maps.
 
 ### 22.10.3
 
