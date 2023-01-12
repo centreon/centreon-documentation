@@ -26,6 +26,7 @@ Release date : `soon`
 - Fixed an issue that caused server to fail to start when trying to load empty output.
 - Fixed links where empty bendpoints caused maps to become not editable.
 - Resource name properties are now used for links when saving maps.
+- Fixed an issue that caused metric links in the same views to display the same value after the first refresh.
 
 ### 22.04.3
 
