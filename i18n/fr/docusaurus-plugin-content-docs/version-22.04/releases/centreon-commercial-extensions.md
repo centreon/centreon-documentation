@@ -15,6 +15,17 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.4
+
+Release date : `soon`
+
+#### Bug fixes
+
+- Fixed an issue preventing to create MAP with API
+- Fixed an issue that caused server to fail to start when trying to load empty output.
+- Fixed links when bendpoints are empty cause map to become not editable.
+- Fixed display label and use ressource name properties for links.
+
 ### 22.04.3
 
 Release date: `December 28, 2022`
