@@ -86,14 +86,7 @@ This is how your central server should be partitioned:
 
 ### Pollers
 
-* To handle between 2000 services with checks every 5 minutes to 500 services with checks every minute:
-
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 2 vCPU    |
-  | RAM                         | 2 GB      |
-
-* To handle up to 7000 services with checks every 5 minutes:
+To handle up to 7000 services with checks every 5 minutes:
 
   | Element                     | Value     |
   | ----------------------------| --------- |
@@ -147,14 +140,7 @@ This is how your central server should be partitioned:
 
 ### Pollers
 
-* To handle between 2000 services with checks every 5 minutes to 500 services with checks every minute:
-
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 2 vCPU    |
-  | RAM                         | 2 GB      |
-
-* To handle up to 7000 services with checks every 5 minutes:
+To handle up to 7000 services with checks every 5 minutes:
 
   | Element                     | Value     |
   | ----------------------------| --------- |

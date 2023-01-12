@@ -86,14 +86,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 ### Collecteurs
 
-* Pour traiter entre 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes :
-
-  | Élément                     | Valeur    |
-  | ----------------------------| --------- |
-  | CPU (cœur logique à 3Ghz)   | 2 vCPU    |
-  | RAM                         | 2 Go      |
-
-* Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
 
   | Élément                     | Valeur    |
   | ----------------------------| --------- |
@@ -145,14 +138,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 ### Collecteurs
 
-* Pour traiter entre 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes :
-
-  | Élément                     | Valeur    |
-  | ----------------------------| --------- |
-  | CPU (cœur logique à 3Ghz)   | 2 vCPU    |
-  | RAM                         | 2 Go      |
-
-* Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
 
   | Élément                     | Valeur    |
   | ----------------------------| --------- |
