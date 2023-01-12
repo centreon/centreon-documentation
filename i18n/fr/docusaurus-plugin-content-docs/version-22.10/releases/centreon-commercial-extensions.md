@@ -17,6 +17,17 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.4
+
+Release date : `soon`
+
+#### Bug fixes
+
+- Fixed an issue preventing to create MAP with API
+- Fixed an issue that caused server to fail to start when trying to load empty output.
+- Fixed links when bendpoints are empty cause map to become not editable.
+- Fixed display label and use ressource name properties for links.
+
 ### 22.10.3
 
 Release date: `December 16, 2022`
