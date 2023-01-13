@@ -55,6 +55,16 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Using Centreon CIAM',
+      items: [
+        {
+          type: 'doc',
+          id: 'ciam/ciam',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Installing a poller',
       items: [
         {
