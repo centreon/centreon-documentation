@@ -1,41 +1,43 @@
 ---
 id: ciam
-title: Using Centreon CIAM
+title: Utiliser le site Centreon CIAM
 ---
 
-## What is Centreon CIAM?
+## Qu'est-ce que Centreon CIAM?
 
-Centreon CIAM (Customer Identity and Access Management) is a module that:
+Centreon CIAM (Customer Identity and Access Management) est un module qui :
 
-- allows you to access all your Centreon applications
-- allows your administrator to manage your organizations, manage all Centreon user accounts for an organization, and manage the way users will log in to Centreon.
+- vous permet d'accéder à toutes vos applications Centreon
+- permet à votre administrateur de gérer vos organisations, de gérer tous les comptes utilisateurs Centreon pour une organisation, et de gérer la façon dont les utilisateurs vont se connecter à Centreon.
 
 Une organisation correspond à un périmètre d'équipements à superviser. Par exemple, vous pourrez avoir une organisation Europe et une organisation Asie. Les différentes organisations sont indépendantes les unes des autres. Selon vos besoins, vous aurez une seule organisation ou bien plusieurs. Chaque organisation a ses propres applications, dont sa propre plateforme Centreon Cloud.
 
-## I am an administrator
+## Je suis un administrateur
 
-### Creating an organization
+### Créer votre compte
 
-1. Log in to Centreon CIAM:
-   - When you first log in to Centreon CIAM using the URL provided by the Centreon support team, the default screen will have a **Create your organization** button.
-   - If you already have created an organization and want to create a new one, in the top banner, in the **Select organization** list, click **Create an organization**.
-2. Fill in the fields:
-   - **Domain name**: this name will determine the URL used to access all applications (e.g. the Centreon Cloud platform) for this organization. The name can contain alphanumeric characters (lowercase letters), dashes and underscores. It must contain at least 3 characters. Exemple : if you enter **my-organization**, the URL of your Centreon Cloud platform will be **my-organization.centreon.cloud**.
-   - **Display name**. This is the name your organization will have in the CIAM interface.
-3. Click **Create**. The new organization appears in the **Select organization** list in the top banner.
-4. Send your domain name to the Centreon support team. They will create a license for your organization and will build your Centreon Cloud platform.
+Cliquez dans l'email que vous avez reçu de la part de Centreon pour créer votre compte.
 
-### Inviting users into the organisation
+### Créer une organisation
 
-You need to invite all your users to Centreon individually.
+1. Connectez-vous à Centreon CIAM:
+   - Lors de votre première connexion à Centreon CIAM (en utilisant l'URL fournie par le support Centreon), l'écran par défaut vous proposera un bouton **Create your organization**.
+   - Si vous avez déjà créé une organisation et vous souhaitez en créer un nouvelle, dans la bannière en haut de la page, cliquez sur **Create an organization** dans la liste **Select organization**.
+2. Renseignez les champs suivants :
+   - **Domain name**: ce nom déterminera l'URL que vous utiliserez pour accédez à toutes vos applications pour cette organisation (par exemple, votre plateforme Centreon Cloud). Le nom peut contenir des caractères alphanumériques (mnuscules), des tirets et des underscores. Il doit contenir au moins 3 caractères. Exemple : si vous entrez **my-organization**, l'URL de votre plateforme Centreon Cloud sera **my-organization.centreon.cloud**.
+   - **Display name**. Il s'agit du nom de votre organization dans l'interface CIAM.
+3. Cliquez sur **Create**. La nouvelle organisation apparaît dans la liste **Select organization** dans la bannière en haut de la page.
+4. Envoyez votre nom de domaine au support Centreon. L'équipe se chargera de créer une licence pour votre organisation et de générer votre plateforme Centreon Cloud. Vous pourrez ensuite inviter des utilisateurs dans votre organisation.
 
-1. Go to **Users**, and then click **Invite user**.
-2. Fill in the person's email and select the role they will have in the CIAM and in Centreon Cloud (see [User roles](https://docs.centreon.com/cloud/users/#user-roles)).
-3. Click **Invite**. They will receive an email with the following subject line: **You've been invited to join `<organization>`'s Centreon account**. Your email address will be visible in this email.
+### Inviter des utilisateurs dans l'organisation
 
-## I am a Centreon user
+1. À la page **Users**, cliquez sur **Invite user**.
+2. Renseignez les emails des utilisateurs que vous souhaitez inviter, et sélectionnez le rôle à leur attribuer dans le CIAM et dans Centreon Cloud (voir [Rôles des utilisateurs](../users##rôles-des-utilisateurs)).
+3. Cliquez sur **Invite**. Les personnes recevront un email intitulé **You've been invited to join `<organization>`'s Centreon account**. Votre adresse email sera visible dans cet email.
 
-Your administrator has invited you to Centreon CIAM: you have received an email inviting you to the platform.
+## Je suis un utilisateur Centreon
 
-1. In the email, click **Accept invitation**.
-2. Enter your password, then click **Continue**. The Centreon CIAM site opens.
+Votre administrateur vous a invité dans Centreon CIAM : vous avez reçu un email vous invitant sur la plateforme.
+
+1. Dans l'email, cliquez sur **Accept invitation**.
+2. Entrez votre mot de passe, puis cliquez sur **Continue**. Le site Centreon CIAM s'ouvre.
