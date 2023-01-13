@@ -48,7 +48,7 @@ The poller executing the check must be able to connect to the centreon_storage d
 The SQL user must hold required privileges to "SELECT" data within **index_data**, **metrics**, and **instances** tables tables in the **centreon_storage** database.
 
 When using the **Virtual-Curve** service, the configuration file must be readable by the **centreon-engine** user. 
-
+  
 ## Setup
 
 <Tabs groupId="sync">
