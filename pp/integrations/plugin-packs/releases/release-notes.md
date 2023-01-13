@@ -6,6 +6,34 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2023
+
+### January
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+- [**Talend TMC API**](../procedures/cloud-talend-tmc-api.md) - cloud-talend-tmc-api - initial release - Status:stable - centreon-pack-cloud-talend-tmc-api-23.01.0-1
+- [**Vectra Rest API**](../procedures/network-vectra-restapi.md) - network-vectra-restapi - initial release - Status:stable - centreon-pack-network-vectra-restapi-23.01.0-1
+</TabItem>
+
+<TabItem value="Enhancements" label="Enhancements">
+- [**Pure Storage FlashArray Legacy Rest API**](../procedures/hardware-storage-purestorage-flasharray-legacy-restapi.md) - refactoring purestorage rest api - Status:stable - centreon-pack-hardware-storage-purestorage-flasharray-legacy-restapi-23.01.0-1
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - refactoring purestorage rest api - Status:stable - centreon-pack-hardware-storage-purestorage-flasharray-v2-restapi-23.01.0-1
+- [**Pure Storage FlashBlade Rest API v2**](../procedures/hardware-storage-purestorage-flashblade-v2-restapi.md) - refactoring purestorage rest api - Status:stable - centreon-pack-hardware-storage-purestorage-flashblade-v2-restapi-23.01.0-1
+- [**Pure Storage RestAPI**](../procedures/hardware-storage-purestorage-restapi.md) - refactoring purestorage rest api - Status:deprecated - centreon-pack-hardware-storage-purestorage-restapi-23.01.0-1
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - operatingsystems-linux-nrpe3 - update diskio command options - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-23.01.0-1
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - enh (cloud-aws-cloudfront): Add discovery mode/rule for AWS CloudFront - Status:stable - centreon-pack-cloud-aws-cloudfront-22.12.1-1
+</TabItem>
+
+<TabItem value="Fix" label="Fix">
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - MON-16509-issues-on-kadiska-plugin-pack - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.01.2-1
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-applications-nmap-cli-22.07.5-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-cloud-aws-billing-22.10.0-1
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-network-cisco-meraki-restapi-22.07.5-1
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-virtualization-proxmox-ve-restapi-22.07.5-1
+</TabItem>
+</Tabs>
+
 ## 2022
 
 ### December
