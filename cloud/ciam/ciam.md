@@ -14,6 +14,10 @@ An organization covers a scope of equipments you want to monitor. For instance, 
 
 ## I am an administrator
 
+### Creating your account
+
+Click in the email you have received from Centreon to create your account.
+
 ### Creating an organization
 
 1. Log in to Centreon CIAM:
@@ -23,7 +27,7 @@ An organization covers a scope of equipments you want to monitor. For instance, 
    - **Domain name**: this name will determine the URL used to access all applications (e.g. the Centreon Cloud platform) for this organization. The name can contain alphanumeric characters (lowercase letters), dashes and underscores. It must contain at least 3 characters. Exemple : if you enter **my-organization**, the URL of your Centreon Cloud platform will be **my-organization.centreon.cloud**.
    - **Display name**. This is the name your organization will have in the CIAM interface.
 3. Click **Create**. The new organization appears in the **Select organization** list in the top banner.
-4. Send your domain name to the Centreon support team. They will create a license for your organization and will build your Centreon Cloud platform.
+4. Send your domain name to the Centreon support team. They will create a license for your organization and will build your Centreon Cloud platform. You can then invite users into your organization.
 
 ### Inviting users into the organisation
 
