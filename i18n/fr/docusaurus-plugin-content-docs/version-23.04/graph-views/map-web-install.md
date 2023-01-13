@@ -250,21 +250,89 @@ Ensuite, redémarrez MariaDB :
 systemctl restart mariadb
 ```
 
-#### Sécuriser la base de données
-
 Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
 ```shell
 mysql_secure_installation
 ```
-``
 
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-#### Éditer le script configure.sh
+### Étape 5 - optionnelle : si MAP Engine et MAP Legacy sont installés sur le même serveur
+
+> Si vous disposez déjà de MAP Legacy et que vous installez MAP Engine sur le même serveur, vous devez exécuter la procédure suivante. Sinon, passez à l'étape [Éditer le script configure.sh](#étape-6--éditer-le-script-configuresh).
+
+Cette procédure permet de s'assurer que le fichier de configuration peut être utilisé à la fois pour MAP Engine et MAP Legacy.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
+1. Faites une sauvegarde du fichier **/etc/my.cnf.d/map.cnf** :
+
+  ```shell
+  cp map.cnf map.cnf.bk
+  ```
+
+2. Exécutez le script de configuration du serveur Centreon MAP Engine.
+
+  Deux modes sont disponibles :
+   - Interactif *(aucune option/mode par défaut)* : plusieurs questions seront posées pour remplir de manière interactive les variables d'installation.
+   - Automatique *(--automatic ou -a)* : l'installation se fera automatiquement à partir des valeurs définies dans le fichier `/etc/centreon-map/vars.sh`.
+  
+  Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard (interactif) et de choisir **Non** lorsqu'on vous demande le mode d'installation avancé :
+    
+   ```shell
+   /etc/centreon-map/configure.sh
+  ```
+
+3. Récupérez la sauvegarde du fichier de configuration :
+  
+  ```shell
+  cp map.cnf.bk map.cnf
+  ```
+  
+  Répondez **Y**. Ensuite redémarrez MySQL:
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+1. Faites une sauvegarde du fichier **/etc/mysql/my.cnf** :
+
+  ```shell
+  cp my.cnf my.cnf.bk
+  ```
+
+2. Exécutez le script d'installation :
+  
+  ```shell
+  apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
+  ```
+
+3. Récupérez la sauvegarde du fichier de configuration :
+  
+  ```shell
+  cp my.cnf.bk my.cnf
+  ```
+  
+  Répondez **Y**. Ensuite redémarrez MySQL :
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+</Tabs>
+
+> Vous pouvez maintenant passer à l'étape [Redémarrer Centreon Broker](#étape-7--redémarrer-centreon-broker).
+
+### Étape 6 : éditer le script configure.sh
 
 Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles : interactif ou automatique.
 
@@ -290,7 +358,7 @@ Puis redémarrez le service **centreon-map-engine** :
 systemctl restart centreon-map-engine
 ```
 
-### Étape 5 : redémarrer Centreon Broker
+### Étape 7 : redémarrer Centreon Broker
 
 > Avant de redémarrer Broker, vous devez exporter la configuration à partir de l'interface web de Centreon.
 
@@ -306,7 +374,7 @@ Supprimer le privilège INSERT de l'utilisateur **centreon_map** :
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-### Étape 6 : vérifier la configuration
+### Étape 8 : vérifier la configuration
 
 Vérifiez la configuration du serveur MAP Engine avec cette commande :
 
