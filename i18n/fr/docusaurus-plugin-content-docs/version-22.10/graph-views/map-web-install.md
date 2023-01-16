@@ -46,7 +46,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-- OS : CentOS 7 ou Redhat 7 / 8
+- OS :- Redhat 8 - Alma linux version?? - Oracle linux 8 - Debian 11 - centos 7* - RedHat 7*  (*non recommandé)
 - DBMS : MariaDB 10.5
 - Pare-feu : Désactivé
 - SELinux : Désactivé
