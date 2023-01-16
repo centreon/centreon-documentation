@@ -37,7 +37,6 @@ It brings the following service templates:
 
 The pack provides a discovery rule to automatically discover Elasticache resources.
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-elasticache-provider.png)
 
 More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
 
