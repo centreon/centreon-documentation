@@ -100,7 +100,11 @@ children which must be included in the count.
 
 #### Software
 
-- OS: CentOS 7 or Redhat 7 / 8
+- OS:
+  - Redhat 8, Alma Linux 8, Oracle Linux 8
+  - Debian 11
+  - Not recommended (due to end of support from Centreon 23.04) - CentOS 7, RHEL 7
+
 - DBMS: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled

@@ -89,7 +89,11 @@ Un élément est tout objet graphique dans Centreon MAP. La plupart des élémen
 
 #### Logiciel
 
-- OS : CentOS 7 or Redhat 7 / 8
+- OS :
+  - Redhat 8, Alma Linux 8, Oracle Linux 8
+  - Debian 11
+  - Non recommandé (fin de support à partir de Centreon 23.04) - CentOS 7, RHEL 7
+
 - DBMS : MariaDB 10.5
 - Pare-feu : Désactivé
 - SELinux : Désactivé

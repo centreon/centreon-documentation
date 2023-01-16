@@ -48,7 +48,11 @@ team](https://support.centreon.com/) to get and install your license key.
 
 #### Software
 
-- OS: Redhat 8 - Alma linux version 8 - Oracle linux 8 - Debian 11 - centos 7* - RedHat 7*  (*not recommended)
+- OS:
+  - Redhat 8, Alma Linux 8, Oracle Linux 8
+  - Debian 11
+  - Not recommended (due to end of support from Centreon 23.04) - CentOS 7, RHEL 7
+
 - DBMS: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled
