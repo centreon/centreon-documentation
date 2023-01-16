@@ -418,7 +418,7 @@ Release date: `January 16, 2023`
 - Fixed an issue where deleted host groups and service groups weren’t available in the filter menu
 - Fixed a deadlock issue due to new Broker stats engine
 - Fixed an issue due to a data type mismatch that could block Broker
-- Fixed an issue where broker displays the expected warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
+- Fixed an issue where Broker displays the expected warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
 
 ### 21.10.3
 
