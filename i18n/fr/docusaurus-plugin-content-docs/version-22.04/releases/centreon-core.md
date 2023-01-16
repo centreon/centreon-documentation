@@ -18,7 +18,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.8
 
-Release date: `December 11, 2023`
+Release date: `January 16, 2023`
 
 #### Enhancements
 
