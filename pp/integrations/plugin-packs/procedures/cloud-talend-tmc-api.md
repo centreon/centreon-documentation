@@ -78,7 +78,7 @@ No metrics.
 
 To monitor, a token is required.
 
-Please refer to their official documentation:: https://help.talend.com/r/en-US/Cloud/management-console-user-guide/cloud-access-token?utm_source=tadoc&utm_medium=learn_more
+Please refer to the official documentation:: https://help.talend.com/r/en-US/Cloud/management-console-user-guide/cloud-access-token?utm_source=tadoc&utm_medium=learn_more
 
 ## Setup
 
