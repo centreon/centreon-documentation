@@ -126,6 +126,7 @@ Vous trouverez plus d'informations sur la découverte d'hôtes et son fonctionne
 
 </TabItem>
 </Tabs>
+
 ## Prérequis
 
 ### Privilèges AWS
