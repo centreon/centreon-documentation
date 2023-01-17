@@ -987,6 +987,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-node-exporter-api'
         },
         {
+           type: 'doc',
+           id: 'integrations/plugin-packs/procedures/cloud-talend-tmc-api'
+        },
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi'
         }
