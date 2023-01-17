@@ -46,8 +46,19 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-- OS : CentOS 7 ou Redhat 7 / 8
-- DBMS : MariaDB 10.5
+| Version                  | Mode d'installation                                   |
+|--------------------------|-------------------------------------------------------|
+| Alma Linux 8             | paquets RPM, sources                                  |
+| RHEL 8                   | paquets RPM, sources                                  |
+| Debian 11                | paquets DEB                                           |
+| *CentOS 7/RHEL 7         | paquets RPM, machine virtuelle, sources               |
+
+*Non recommandé (fin de support à partir de Centreon 23.04)
+
+| Logiciel | Version |
+|----------|---------|
+| MariaDB  | 10.5.x  |
+
 - Pare-feu : Désactivé
 - SELinux : Désactivé
 
