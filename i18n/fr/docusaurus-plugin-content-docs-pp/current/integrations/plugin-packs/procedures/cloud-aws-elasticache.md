@@ -41,6 +41,7 @@ Ce pack propose une règle de découverte d'hôtes permettant de découvrir auto
 Vous trouverez plus d'informations sur la découverte d'hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery).
 
 ### Métriques & statuts collectés
+
 <Tabs groupId="sync">
 <TabItem value="ElastiCache-Commands" label="ElastiCache-Commands">
 
