@@ -18,7 +18,7 @@ to advanced filtering and formatting capabilities.
 extension introduces additional UI actions and backend boiler-plates to create 
 cases within your favorite ticketing system. 
 
-This documention is organized to guide you to the right integration depending upon the 
+This documentation is organized to guide you to the right integration depending upon the 
 feature or value-proposition you want to obtain by connecting Centreon with a third-party
 solution. Here is a list of integrations domains:
 
