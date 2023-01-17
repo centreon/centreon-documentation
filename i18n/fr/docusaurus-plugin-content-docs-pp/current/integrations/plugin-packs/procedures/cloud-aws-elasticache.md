@@ -22,7 +22,7 @@ Il apporte les modèles de service suivants :
 |:------------------------|:---------------------------------------------|:-------------------------------------------------|:-------|
 | ElastiCache-Commands    | Cloud-Aws-ElastiCache-Commands-Memcached-Api | Contrôle les performances du cache Memcached     | X      |
 | ElastiCache-Commands    | Cloud-Aws-ElastiCache-Commands-Redis-Api     | Contrôle les performances du cache Redis         | X      |
-| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api        | Contrôle le nombre de connexion                  | X      |
+| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api        | Contrôle le nombre de connexions                  | X      |
 | ElastiCache-Cpu         | Cloud-Aws-ElastiCache-Cpu-Api                | Contrôle l'utilisation CPU                       | X      |
 | ElastiCache-Evictions   | Cloud-Aws-ElastiCache-Evictions-Api          | Contrôle le nombre d'évictions                   | X      |
 | ElastiCache-Items       | Cloud-Aws-ElastiCache-Items-Api              | Contrôle le nombre d'items                       | X      |
