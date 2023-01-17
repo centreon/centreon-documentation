@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 20.10
-vers la version 22.04.
+vers la version 22.10.
 
 ## Prérequis
 
