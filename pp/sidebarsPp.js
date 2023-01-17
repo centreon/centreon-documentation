@@ -2376,7 +2376,15 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-restapi'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flasharray-legacy-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flasharray-v2-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flashblade-v2-restapi'
         },
         {
           type: 'doc',
