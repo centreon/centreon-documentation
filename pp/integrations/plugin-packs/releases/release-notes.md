@@ -24,16 +24,17 @@ import TabItem from '@theme/TabItem';
 - [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - operatingsystems-linux-nrpe3 - update diskio command options - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-23.01.0-1
 - [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - enh (cloud-aws-elasticache): Add discovery mode/rule for AWS ElastiCache - Status:stable - centreon-pack-cloud-aws-elasticache-23.01.2-1
 - [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - fix (sql-metrics): add poller delay - Status:stable - centreon-pack-applications-monitoring-centreon-sql-metrics-23.01.5-1
-- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - enh (cloud-aws-cloudfront): Add discovery mode/rule for AWS CloudFront - Status:stable - centreon-pack-cloud-aws-cloudfront-22.12.1-1
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - enh (cloud-aws-cloudfront): Add discovery mode/rule for AWS CloudFront - Status:stable - centreon-pack-cloud-aws-cloudfront-23.01.0-1
 </TabItem>
 
 <TabItem value="Fix" label="Fix">
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - MON-16509-issues-on-kadiska-plugin-pack - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.01.2-1
-- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-applications-nmap-cli-22.07.5-1
-- [**AWS Billing**](../procedures/cloud-aws-billing.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-cloud-aws-billing-22.10.0-1
-- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-network-cisco-meraki-restapi-22.07.5-1
-- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-virtualization-proxmox-ve-restapi-22.07.5-1
 - [**Amazon RDS**](../procedures/cloud-aws-rds.md) - fix typo cloud-aws-rds instance-status mode - Status:stable - centreon-pack-cloud-aws-rds-23.01.0-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-cloud-aws-billing-23.01.0-1
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-network-cisco-meraki-restapi-23.01.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - MON-16509-issues-on-kadiska-plugin-pack - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.01.2-1
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - fix(pp): increased release number - Status:stable - centreon-pack-applications-nmap-cli-23.01.0-1
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-virtualization-proxmox-ve-restapi-23.01.0-1
+- [**RabbitMQ RestAPI**](../procedures/applications-rabbitmq-restapi.md) - FIX(pack): RabbitMQ - Update MACROS values - Status:stable - centreon-pack-applications-rabbitmq-restapi-23.02.0-1
 </TabItem>
 </Tabs>
 
