@@ -402,7 +402,13 @@ You must have the following information before proceeding with the installation 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-Enable codeready-builder repositories:
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Enable the **codeready-builder** repository:
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
@@ -424,6 +430,12 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Enable codeready-builder repositories:
 
@@ -448,6 +460,11 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 <TabItem value="Alma 8" label="Alma 8">
 
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Enable powertools repositories:
 
@@ -541,10 +558,16 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 </Tabs>
 
-Enable the cbis service:
+Enable the **cbis** service:
 
 ```shell
 systemctl enable cbis
+```
+
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned & systemctl enable gorgoned
 ```
 
 ### Configure the reporting server

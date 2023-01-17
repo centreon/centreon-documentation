@@ -114,6 +114,7 @@ Vous pouvez maintenant procéder à la montée de version :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf clean all
 dnf update centreon-bi\*
 ```
