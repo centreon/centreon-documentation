@@ -408,7 +408,7 @@ By:
 
 ### 21.10.4
 
-Release date: `January 16, 2023`
+Release date: `January 17, 2023`
 
 #### Centreon Broker
 
