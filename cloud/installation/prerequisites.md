@@ -9,17 +9,7 @@ The poller should be installed on a dedicated fresh CentOS 7 server.
 
 ## Hardware
 
-The host machine must have at least the following characteristics:
-
-* To handle between 2000 services with checks every 5 minutes to 500 services with checks every minute:
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* To handle up to 7000 services with checks every 5 minutes:
+The host machine must have at least the following characteristics to handle up to 7000 services with checks every 5 minutes:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
