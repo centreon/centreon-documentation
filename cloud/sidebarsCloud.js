@@ -55,11 +55,15 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Using Centreon CIAM',
+      label: 'Managing Centreon Cloud users',
       items: [
         {
           type: 'doc',
           id: 'ciam/ciam',
+        },
+        {
+          type: 'doc',
+          id: 'users/users',
         },
       ],
     },
@@ -242,16 +246,6 @@ module.exports = {
         ]
       },
       {
-        type: 'category',
-        label: 'Managing Centreon users',
-        items: [
-          {
-            type: 'doc',
-            id: 'users/users',
-          },
-        ]
-        },
-      {
         "type": "category",
         "label": "Performance graphs",
         "items": [
@@ -385,17 +379,6 @@ module.exports = {
               }
             ]
           },
-        ]
-      },
-
-      {
-        "type": "category",
-        "label": "Centreon mobile",
-        "items": [
-          {
-            "type": "doc",
-            "id": "mobile/introduction"
-          }
         ]
       },
       {

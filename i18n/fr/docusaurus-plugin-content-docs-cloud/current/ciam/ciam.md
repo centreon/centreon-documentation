@@ -16,7 +16,10 @@ Une organisation correspond à un périmètre d'équipements à superviser. Par 
 
 ### Créer votre compte
 
-Cliquez dans l'email que vous avez reçu de la part de Centreon pour créer votre compte.
+1. Allez à l'URL fournie par le support Centreon, puis cliquez sur **Sign up**.
+2. Entrez votre adresse email et votre mot de passe, puis cliquez sur **Continue**. L'écran vous invite à consulter vos emails.
+3. Dans l'email que vous avez reçu, cliquez sur **Confirm my account**.
+4. Cliquez sur **Back to Centreon Customer identity and Access management Web**. Vous pouvez maintenant créer une organisation.
 
 ### Créer une organisation
 

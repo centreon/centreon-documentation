@@ -16,7 +16,10 @@ An organization covers a scope of equipments you want to monitor. For instance, 
 
 ### Creating your account
 
-Click in the email you have received from Centreon to create your account.
+1. Go to the URL provided by the Centreon support team, then click **Sign up**.
+2. Enter your email address and password, then click **Continue**. The screen prompts you to check your emails.
+3. In the email you have received, click **Confirm my account**.
+4. Click **Back to Centreon Customer identity and Access management Web**. You can now create an organization.
 
 ### Creating an organization
 

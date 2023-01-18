@@ -63,9 +63,9 @@
     "message": "Gérer les notifications",
     "description": "The label for category Managing notifications in sidebar cloud"
   },
-  "sidebar.cloud.category.Managing Centreon users": {
+  "sidebar.cloud.category.Managing Centreon Cloud users": {
     "message": "Gérer les utilisateurs de Centreon",
-    "description": "The label for category Managing Centreon users in sidebar cloud"
+    "description": "The label for category Managing Centreon Cloud users in sidebar cloud"
   },
   "sidebar.cloud.category.Performance graphs": {
     "message": "Graphiques de performance",
