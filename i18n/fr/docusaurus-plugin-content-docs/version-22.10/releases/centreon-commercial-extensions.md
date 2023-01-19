@@ -61,7 +61,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 Release date: `January 17, 2023`
 
-- No change
+- No change.
 .
 ### 22.10.3 
 
