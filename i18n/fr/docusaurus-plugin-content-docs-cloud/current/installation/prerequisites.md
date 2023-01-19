@@ -11,7 +11,7 @@ Le collecteur doit être installé sur un serveur CentOS 7 dédié, fraîchement
 
 La machine hôte doit avoir au moins les caractéristiques suivantes :
 
-* Pour traiter entre 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes :
+* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -19,7 +19,7 @@ La machine hôte doit avoir au moins les caractéristiques suivantes :
 | RAM                         | 2 GB      |
 | HDD                         | 40 GB     |
 
-* Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
