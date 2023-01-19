@@ -46,7 +46,7 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
@@ -88,7 +88,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
@@ -104,7 +104,7 @@ echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | 
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 

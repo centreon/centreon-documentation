@@ -49,7 +49,7 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 ```
 
 > Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP server:
 
@@ -65,7 +65,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 > Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP server:
 

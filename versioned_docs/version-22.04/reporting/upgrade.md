@@ -27,9 +27,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 When you upgrade from a previous major version to 22.04.x, you first need to update the repository on your Central & Reporting servers.
 
-You will find the new "Business" repository on the "Depots" tab in your Centreon Support account on https://support.centreon.com :
-
-![image](../assets/reporting/support_repos.png)
+You will find the new "Business" repository on the "Reposiories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ## Step 2: Upgrade the extension interface
 
