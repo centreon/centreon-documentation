@@ -68,7 +68,7 @@ yum-config-manager --enable remi-php80
 > la procédure de mise à jour.
 
 Si vous avez des extensions Business installées, mettez à jour le dépôt business en 21.10.
-Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
 ```shell

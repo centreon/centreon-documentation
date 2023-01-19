@@ -66,7 +66,7 @@ yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centr
 </Tabs>
 
     > Install Centreon MAP repository, you can find it on the
-    > [support portal](https://support.centreon.com/s/repositories).
+    > [support portal](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 3. Update Centreon MAP server:
 

@@ -282,7 +282,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 > If the URL doesn't work, you can manualy find this package in the folder.
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
 
@@ -448,7 +448,7 @@ the interface part of the extension.
 ### Central server
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:
 
