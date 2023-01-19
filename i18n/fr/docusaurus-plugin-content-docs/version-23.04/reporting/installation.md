@@ -211,7 +211,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
 1. Installez le dépôt MBI, vous pouvez le trouver sur le
-[portail support](https://support.centreon.com/s/repositories).
+[portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante :
 
@@ -378,12 +378,12 @@ processus d'installation :
 - Accès (utilisateur/mot de passe) à la base de données de reporting
 - Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
 
-Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 #### Procédure
 
 1. Installez le dépôt MBI, vous pouvez le trouver sur le
-[portail support](https://support.centreon.com/s/repositories).
+[portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis suivez la procédure :
 
