@@ -277,7 +277,7 @@ mysql_secure_installation
 
 ### Step 5 - Optional: If MAP Engine and MAP Legacy are installed on the same server
 
-> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [Edit the configure.sh script](#step-6--edit-the-configuresh-script) step.
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [Execute the configure.sh script](#step-6--execute-the-configuresh-script) step.
 
 This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
 
@@ -344,9 +344,15 @@ This procedure is to ensure that the configuration file can be used for both MAP
 </TabItem>
 </Tabs>
 
+4. Then restart the **centreon-map-engine** service:
+  
+  ```shell
+  systemctl restart centreon-map-engine
+  ```
+  
 > Now go directly to the [Restart Centreon Broker](#step-7-restart-centreon-broker) step.
 
-### Step 6 : Edit the configure.sh script
+### Step 6 : Execute the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script.
 
@@ -359,13 +365,6 @@ If it is your first installation, we advise you to use the standard mode (intera
   ```shell
   /etc/centreon-map/configure.sh
   ```
-
-If you have just installed Centreon 22.10, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-map/map-config.properties**
-
-```text
-broker.pb.message.enabled=true
-```
 
 Then restart the **centreon-map-engine** service:
 
