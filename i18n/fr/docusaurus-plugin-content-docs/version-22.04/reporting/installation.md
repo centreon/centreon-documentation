@@ -435,6 +435,7 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Activer les dépôts powertools :
 
 ```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
