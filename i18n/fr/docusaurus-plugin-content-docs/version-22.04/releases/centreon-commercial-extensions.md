@@ -45,9 +45,15 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.4
+
+Release date : `soon`
+
+- No change.
+
 ### 22.04.3
 
-N/A
+- No change.
 
 ### 22.04.2
 
