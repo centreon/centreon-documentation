@@ -30,7 +30,7 @@ Release date : `January 20, 2023`
 - Fixed server startup error due to duplicate key.
 - Fixed an issue that could prevent the correct application of layers.
 - Fixed an issue that caused centreon-map-engine to require java-17-openjdk-devel rpm and prevented successful installation.
-- Fixed an issue that cause modifications to resource names in editor to not be properly updated after re opening editor.
+- Fixed an issue where resource names modifications in the editor were not correctly updated after reopening the editor.
 
 ### 22.04.3
 
