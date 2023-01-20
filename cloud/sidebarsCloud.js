@@ -330,11 +330,7 @@ module.exports = {
                 {
                   "type": "doc",
                   "id": "graph-views/map-web-known-issues"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "graph-views/map-web-troubleshooting"
-                    }
+                  }            
                 ]
               }
             ]
