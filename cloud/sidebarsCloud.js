@@ -181,10 +181,6 @@ module.exports = {
             "items": [
               {
                 "type": "doc",
-                "id": "monitoring/basic-objects/timeperiods"
-              },
-              {
-                "type": "doc",
                 "id": "monitoring/basic-objects/macros"
               },
               {
@@ -210,6 +206,10 @@ module.exports = {
               {
                 "type": "doc",
                 "id": "alerts-notifications/resources-status"
+              },
+              {
+                "type": "doc",
+                "id": "/alerts-notifications/event-log"
               },
               {
                 "type": "doc",

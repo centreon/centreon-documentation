@@ -21,12 +21,10 @@ There are 3 roles for users in Centreon Cloud, each with a specific set of right
 * **Editor**. **Editors** can do the same things as **Users**, but they also can:
   * create hosts and services, meta-services, templates, categories...
   * disacknowledge an acknowledgement, submit a result...
-  * view the list of pollers, export the configuration.
+  * view the list of pollers, export the configuration
+  * install plugin packs.
 
-* **Administrator**. **Administrators** can do the same things as **Editors**, but they also can:
-  * create time periods
-  * install plugin packs
-  * view logs and information about the platform and the monitoring engine.
+* **Administrator**. **Administrators** can do the same things as **Editors**, but they also can invite users using the CIAM.
 
 ## Creating users
 
