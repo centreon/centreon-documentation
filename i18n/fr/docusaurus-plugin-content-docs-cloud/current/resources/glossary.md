@@ -93,16 +93,6 @@ Message avertissant l’utilisateur d’un incident. Il est possible de paramét
 
 Voir [**Moteur de supervision**](#moteur-de-supervision).
 
-## Période temporelle
-
-Une période temporelle définit un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à activer les fonctionnalités du [moteur de supervision](#moteur-de-supervision) sur des plages horaires données. Elles permettent de définir :
-
-- quand les commandes de vérification seront exécutées, c’est-à-dire la période de temps durant laquelle on supervise,
-
-- quand des [notifications](#notification) seront envoyées.
-
-**Voir aussi** : [Les périodes temporelles](../monitoring/basic-objects/timeperiods.md).
-
 ## Plage de maintenance
 
 Une plage de maintenance ou temps d’arrêt est une période de temps durant laquelle les [notifications](#notification) sont désactivées pour une ressource. Les plages de maintenance sont utilisées lors d'opérations de maintenance programmée ; elles permettent d'éviter de recevoir des alertes de type faux-positif.
