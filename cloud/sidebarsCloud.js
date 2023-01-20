@@ -296,9 +296,45 @@ module.exports = {
                 "id": "service-mapping/widgets"
               }
             ]
-          },
+          }
         ]
       },
+      {
+        "type": "category",
+        "label": "Graphical views",
+        "items": [
+        {
+          "type": "doc",
+          "id": "graph-views/introduction-map"
+        }, 
+        {                    
+            "type": "category",
+          "label": "Guide",
+          "items": [
+              {
+              "type": "doc",
+              "id": "graph-views/map-web-access"
+              },
+                              {
+                    "type": "doc",
+                    "id": "graph-views/map-web-manage"
+                  },
+                  {
+                  "type": "doc",
+                  "id": "graph-views/map-web-create-standard-map"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-create-geoview"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-known-issues"
+                  }            
+                ]
+              }
+            ]
+                            },
       {
         "type": "link",
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
