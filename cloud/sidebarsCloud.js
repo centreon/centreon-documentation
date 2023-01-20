@@ -209,7 +209,7 @@ module.exports = {
               },
               {
                 "type": "doc",
-                "id": "/alerts-notifications/event-log"
+                "id": "alerts-notifications/event-log"
               },
               {
                 "type": "doc",
