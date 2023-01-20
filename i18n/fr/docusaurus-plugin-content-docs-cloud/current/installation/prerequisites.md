@@ -5,7 +5,7 @@ title: Prérequis
 
 ## OS
 
-Le collecteur doit être installé sur un serveur CentOS 7 dédié, fraîchement installé.
+Le collecteur doit être installé sur un serveur Alma Linux 8 dédié, fraîchement installé. Même si Centos 7 est toujours supporté, nous vous invitons à ne pas l'utiliser car sa fin de support est proche.
 
 ## Hardware
 
