@@ -52,7 +52,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.4
 
-Release date : `soon`
+Release date : `January 20, 2023`
 
 - No change.
 
