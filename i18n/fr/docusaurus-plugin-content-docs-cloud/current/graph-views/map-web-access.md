@@ -47,7 +47,6 @@ La liste des rôles disponibles s'affiche.
 3. Pour le rôle **Utilisateurs** (appelés **Opérateurs** dans la liste), sélectionnez le privilège à accorder dans la liste déroulante.
 
 4. Cliquez **Sauvegarder** pour confirmer.
-Si un utilisateur appartient à plusieurs groupes d'accès, le privilège ayant le plus de permissions sera appliqué.
 
 ### Permissions associées
 

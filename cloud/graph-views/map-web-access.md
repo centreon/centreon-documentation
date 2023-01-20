@@ -47,7 +47,6 @@ The list of available roles is displayed.
 3. For the **Users** (called **Operators** in the list) role, select the privilege to grant in the dropdown list.
 
 4. Click **Save** to confirm.
-If a user belongs to several types or role, the privilege with the most permissions will be applied.
 
 ### Related permissions
 
