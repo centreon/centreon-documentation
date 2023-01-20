@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.4
 
-Release date : `soon`
+Release date : `January 20, 2023`
 
 #### Bug fixes
 
@@ -27,6 +27,10 @@ Release date : `soon`
 - Fixed links where empty bendpoints caused maps to become not editable.
 - Resource name properties are now used for links when saving maps.
 - Fixed an issue that caused metric links in the same views to display the same value after the first refresh.
+- Fixed server startup error due to duplicate key.
+- Fixed an issue that could cause layers to not be applied properly
+- Fixed an issue that caused centreon-map-engine to require java-17-openjdk-devel rpm and prevented successful installation
+- Fixed an issue that cause modifications to resource names in editor to not be properly updated after re opening editor
 
 ### 22.04.3
 
