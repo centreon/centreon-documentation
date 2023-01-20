@@ -41,6 +41,8 @@ Users belonging to the selected role(s) are now able to create maps.
  
 ## Privileges on a map
 
+> The **Editor** role must imperatively keep the **Owner** privilege. If you change this privilege, all users may lose access to maps. Technical improvements are in progress to avoid this issue.
+
 Privileges are granted when you perform the action of sharing a map. At map level, you can specify which type of role is allowed to access that map, with specific privileges as well. 
 
 ### Granting privileges to Users role
@@ -71,7 +73,5 @@ This table describes the types of privileges and related permissions:
 | Can share  |      |        |        |   x   |
 | Can delete |      |        |        |   x   |
 
-- When you create a map, you and users in your type or role have Owner privileges on that map.
-- Administrators are creators and have Owner privileges on all maps.
 - Users with Owner privileges can also set or change map properties (name and icon).
 - Sharing a map allows the recipient to acquire privileges on that map.

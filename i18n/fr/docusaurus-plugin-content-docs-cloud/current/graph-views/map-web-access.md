@@ -41,6 +41,8 @@ Les utilisateurs appartenant au groupe d'accès sélectionné sont maintenant au
  
 ## Privilèges sur une carte
 
+> Le rôle d'**Éditeur** doit impérativement garder le privilège de **Propriétaire**. En modifiant ce privilège, tous les utilisateurs peuvent perdre l'accès aux cartes. Des améliorations techniques sont en cours pour éviter cet incident.
+
 Les privilèges sont accordés lorsque vous effectuez l'action de partager une carte. Au niveau de la carte, vous pouvez spécifier quel groupe d'accès est autorisé à accéder à cette carte, ainsi que des privilèges spécifiques.
 
 ### Accorder des privilèges au rôle Utilisateurs
@@ -71,7 +73,5 @@ Ce tableau décrit les types de privilèges et les permissions associées :
 | Peut partager  |      |        |        |   x   |
 | Peut supprimer |      |        |        |   x   |
 
-- Lorsque vous créez une carte, vous et les utilisateurs de votre type de rôle disposez des privilèges en tant que propriétaire de cette carte.
-- Les administrateurs sont des créateurs et disposent des privilèges de propriétaire sur toutes les cartes.
 - Les utilisateurs disposant de privilèges de propriétaire peuvent également définir ou modifier les propriétés de la carte (nom et icône).
 - Le partage d'une carte permet au destinataire d'acquérir des privilèges sur cette carte.
