@@ -16,6 +16,22 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.4
+
+Release date : `January 20, 2023`
+
+#### Bug fixes
+
+- Fixed an issue preventing users to create a map with the API.
+- Fixed an issue that caused server to fail to start when trying to load empty output.
+- Fixed links where empty bendpoints caused maps to become not editable.
+- Resource name properties are now used for links when saving maps.
+- Fixed an issue that caused metric links in the same views to display the same value after the first refresh.
+- Fixed server startup error due to duplicate key.
+- Fixed an issue that could prevent the correct application of layers.
+- Fixed an issue that caused MAP Engine server to require java-17-openjdk-devel RPM and prevented successful installation.
+- Fixed an issue where resource names modifications in the editor were not correctly updated after reopening the editor.
+
 ### 22.04.3
 
 Release date: `December 28, 2022`
@@ -34,9 +50,15 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.4
+
+Release date : `January 20, 2023`
+
+- No change.
+
 ### 22.04.3
 
-N/A
+- No change.
  
 ### 22.04.2
 
