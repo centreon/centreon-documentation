@@ -82,5 +82,9 @@
   "sidebar.cloud.category.Security": {
     "message": "Sécurité",
     "description": "The label for category Security in sidebar cloud"
+  },
+  "sidebar.cloud.category.Graphical views": {
+    "message": "Vues graphiques",
+    "description": "The label for category Graphical views in sidebar cloud"
   }
 }
