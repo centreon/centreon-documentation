@@ -382,18 +382,11 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode
+If it's your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
 /etc/centreon-studio/configure.sh
-```
-
-If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-studio/studio-config.properties**
-
-```text
-broker.pb.message.enabled=true
 ```
 
 Then restart the **centreon-map** service:

@@ -138,7 +138,7 @@ Installed:
 
 Complete!
 ```
-
+  
 Then install the **centreon-release** package:
 
 ```shell
@@ -149,7 +149,7 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 <TabItem value="CentOS 7" label="CentOS 7">
 
 #### Java version requirement
-  > Ensure a version of Java 17 or later is installed before you start the procedure.
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -157,15 +157,14 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
-
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
   ```shell
   sudo update-alternatives --config java
   ```
   
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 Now you can install the **centreon-release** package:
 
@@ -289,7 +288,7 @@ mysql_secure_installation
 
 ### Step 5 - Optional: If MAP Engine and MAP Legacy are installed on the same server
 
-> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [Edit the configure.sh script](#step-6--edit-the-configuresh-script) step.
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [Execute the configure.sh script](#step-6--execute-the-configuresh-script) step.
 
 This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
 
@@ -356,9 +355,15 @@ This procedure is to ensure that the configuration file can be used for both MAP
 </TabItem>
 </Tabs>
 
+4. Then restart the **centreon-map-engine** service:
+  
+  ```shell
+  systemctl restart centreon-map-engine
+  ```
+
 > Now go directly to the [Restart Centreon Broker](#step-7-restart-centreon-broker) step.
 
-### Step 6 : Edit the configure.sh script
+### Step 6 : Execute the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script.
 
@@ -371,13 +376,6 @@ If it is your first installation, we advise you to use the standard mode (intera
   ```shell
   /etc/centreon-map/configure.sh
   ```
-
-If you have just installed Centreon 22.10, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-map/map-config.properties**
-
-```text
-broker.pb.message.enabled=true
-```
 
 Then restart the **centreon-map-engine** service:
 

@@ -266,6 +266,7 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
   - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
   
 Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
+
 ```shell
 yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
@@ -394,13 +395,6 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 
 ```shell
 /etc/centreon-studio/configure.sh
-```
-
-Si vous venez d'installer Centreon 22.10, sachez que la plate-forme utilise désormais le nouveau protocole BBDO v3.
-Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-studio/studio-config.properties**.
-
-```text
-broker.pb.message.enabled=true
 ```
 
 Puis redémarrez le service **centreon-map** :
