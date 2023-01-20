@@ -7,10 +7,11 @@ This topic explains how users can access the maps according to well-defined priv
 
 ## Roles in MAP
 
+### Definitions
+
 Different types of roles are:
 
-- **Administrators:** can create new maps. Can see, edit, delete and share all maps.
-- **Editors:** can create new maps. Can see, edit, delete, share their own maps and those shared with them.
+- **Administrators / Editors:** can create new maps. Can see, edit, delete and share all maps.
 - **Users (also called Operators):** by default, they have no privileges on maps. They only can see maps shared with them.
 
 Rights to access a map – also called privileges – are not managed at user level, but through access groups (or roles). You can access a map because you belong to a type of role that has privileges to access that map. Privileges allow you to perform some specific actions on maps.
@@ -25,20 +26,6 @@ Perform the following procedure to check whether you are allowed to create a map
 
 2. On the **Map** homepage, the **+** button means that you are allowed to create a map. This means you belong to a type of role that is granted the creator privilege.
 
-### Granting creator role
-
-Perform the following procedure to allow users to create maps by granting rights on the type of role they belong to.
-
-1. Go to **Monitoring > Map**.
-
-2. Click on **Edit creators**.
-A list of existing roles is displayed.
-
-3. Select the role(s) you want.
-
-4. Click on **Save** to confirm.
-Users belonging to the selected role(s) are now able to create maps.
- 
 ## Privileges on a map
 
 > The **Editor** role must imperatively keep the **Owner** privilege. If you change this privilege, all users may lose access to maps. Technical improvements are in progress to avoid this issue.
@@ -57,7 +44,7 @@ The Map homepage is displayed with the list of available maps.
 2. Click on the **share** button corresponding to the map you want to share.
 The list of available roles is displayed.
 
-3. For the Users role, select the privilege to grant in the dropdown list.
+3. For the **Users** (called **Operators** in the list) role, select the privilege to grant in the dropdown list.
 
 4. Click **Save** to confirm.
 If a user belongs to several types or role, the privilege with the most permissions will be applied.

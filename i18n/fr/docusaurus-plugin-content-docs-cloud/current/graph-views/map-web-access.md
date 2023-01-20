@@ -3,14 +3,15 @@ id: map-web-access
 title: Gérer les droits d'accès dans MAP
 ---
 
-Cette page explique comment les utilisateurs accédent aux cartes en fonction de privilèges bien définis.
+Cette page explique comment les utilisateurs accèdent aux cartes en fonction de privilèges bien définis.
 
 ## Rôles dans MAP
 
+### Définitions
+
 Les différents types de rôles sont :
 
-- **Administrateurs :** peuvent créer de nouvelles cartes. Ils peuvent voir, modifier, supprimer et partager toutes les cartes.
-- **Éditeurs :** peuvent créer de nouvelles cartes. Ils peuvent voir, modifier, supprimer, partager leurs propres cartes et celles qu'on leur partage.
+- **Administrateurs / Éditeurs :** peuvent créer de nouvelles cartes. Ils peuvent voir, modifier, supprimer et partager toutes les cartes.
 - **Utilisateurs (aussi appelés Opérateurs) :** par défaut, ils n'ont aucun privilège sur les cartes. Ils ne peuvent voir que les cartes qu'on leur partage.
 
 Les droits d'accès à une carte - également appelés privilèges - ne sont pas gérés au niveau de l'utilisateur, mais par le biais de groupes d'accès (ou rôles). Vous pouvez accéder à une carte parce que vous appartenez à un type de rôle qui dispose de privilèges pour accéder à cette carte. Les privilèges vous permettent d'effectuer certaines actions spécifiques sur les cartes.
@@ -25,20 +26,6 @@ Suivez cette procédure pour vérifier si vous êtes autorisé à créer une car
 
 2. Dans la page **Map**, le bouton **Add a Map** signifie que vous êtes autorisé à créer une carte. Cela signifie que vous appartenez à un type de rôle auquel le privilège de créateur est attribué.
 
-### Attribuer le rôle de créateur
-
-Suivez cette procédure pour permettre aux utilisateurs de créer des cartes en leur attribuant des droits sur le type de rôle auquel ils appartiennent.
-
-1. En tant qu'administrateur, allez dans **Supervision > Map**.
-
-2. Cliquez sur **Edit creators**.
-Une liste de rôles existants s'affiche.
-
-3. Sélectionnez le(s) rôle(s) que vous souhaitez.
-
-4. Cliquez sur **Sauvegarder** pour confirmer.
-Les utilisateurs appartenant au groupe d'accès sélectionné sont maintenant autorisés à créer des cartes.
- 
 ## Privilèges sur une carte
 
 > Le rôle d'**Éditeur** doit impérativement garder le privilège de **Propriétaire**. En modifiant ce privilège, tous les utilisateurs peuvent perdre l'accès aux cartes. Des améliorations techniques sont en cours pour éviter cet incident.
@@ -57,7 +44,7 @@ La page **Map** s'affiche avec la liste des cartes disponibles.
 2. Cliquez sur le bouton de **partage** correspondant à la carte que vous souhaitez partager.
 La liste des rôles disponibles s'affiche.
 
-3. Pour le rôle Utilisateurs, sélectionnez le privilège à accorder dans la liste déroulante.
+3. Pour le rôle **Utilisateurs** (appelés **Opérateurs** dans la liste), sélectionnez le privilège à accorder dans la liste déroulante.
 
 4. Cliquez **Sauvegarder** pour confirmer.
 Si un utilisateur appartient à plusieurs groupes d'accès, le privilège ayant le plus de permissions sera appliqué.
