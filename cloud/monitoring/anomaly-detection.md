@@ -181,7 +181,7 @@ When you are satisfied that the status changes you see are relevant (they do hap
   - **Implied Contacts**: select who will receive notifications for this service.
   - **Implied Contact Groups**: select the contact groups that will receive notifications for this service.
   - **Notification Interval**: define how frequently notifications should be sent once the service has entered a CRITICAL HARD state and has not been acknowledged yet. The default value is **0**, which means only one notification will be sent per status change.
-  - **Notification Period**: select the [time period](../monitoring/basic-objects/timeperiods.md) during which these users may receive notifications.
+  - **Notification Period**: select the time period during which these users may receive notifications.
   - **Notification Type**: select the types of notifications you want to receive (when the service enters a CRITICAL state and/or when it goes back to normal).
 
 3. Click on **Save**.

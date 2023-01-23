@@ -55,6 +55,20 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Managing Centreon Cloud users',
+      items: [
+        {
+          type: 'doc',
+          id: 'ciam/ciam',
+        },
+        {
+          type: 'doc',
+          id: 'users/users',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Installing a poller',
       items: [
         {
@@ -167,10 +181,6 @@ module.exports = {
             "items": [
               {
                 "type": "doc",
-                "id": "monitoring/basic-objects/timeperiods"
-              },
-              {
-                "type": "doc",
                 "id": "monitoring/basic-objects/macros"
               },
               {
@@ -196,6 +206,10 @@ module.exports = {
               {
                 "type": "doc",
                 "id": "alerts-notifications/resources-status"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/event-log"
               },
               {
                 "type": "doc",
@@ -231,16 +245,6 @@ module.exports = {
           },
         ]
       },
-      {
-        type: 'category',
-        label: 'Managing Centreon users',
-        items: [
-          {
-            type: 'doc',
-            id: 'users/users',
-          },
-        ]
-        },
       {
         "type": "category",
         "label": "Performance graphs",
@@ -411,17 +415,6 @@ module.exports = {
               }
             ]
           },
-        ]
-      },
-
-      {
-        "type": "category",
-        "label": "Centreon mobile",
-        "items": [
-          {
-            "type": "doc",
-            "id": "mobile/introduction"
-          }
         ]
       },
       {

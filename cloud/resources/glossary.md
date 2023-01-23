@@ -166,16 +166,6 @@ There are host templates and service templates.
 - [Using host templates](../monitoring/basic-objects/hosts-templates.md),
 - [Using service templates](../monitoring/basic-objects/services-templates.md),
 
-## Time period
-
-Time periods define a time interval for each day of the week. They enable the functionalities of the [monitoring engine](#monitoring-engine) over a given time slot. Use time periods to define:
-
-- when check commands are executed, i.e. the time period during which resources are monitored,
-
-- when [notifications](#notification) are sent.
-
-**See also**: [Time periods](../monitoring/basic-objects/timeperiods.md).
-
 ## Widget
 
 Configurable visual element that allows you to display data in a custom view.
