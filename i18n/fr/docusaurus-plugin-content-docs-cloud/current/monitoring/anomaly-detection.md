@@ -185,7 +185,7 @@ cliquez sur le service Anomaly Detection désiré.
    - **Contacts liés** : sélectionnez les contacts qui seront notifiés.
    - **Groupes de contacts liés** : sélectionnez des groupes de contacts qui seront notifiés.
    - **Intervalle de notification** : définissez la fréquence à laquelle envoyer des notifications une fois que le service est entré en  état CRITIQUE HARD et tant qu'il n'a pas été acquitté. La valeur par défaut est **0**, ce qui veut dire qu'une seule notification par changement d'état sera envoyée.
-   - **Période de notification** : sélectionnez la [période de temps](../monitoring/basic-objects/timeperiods.md) pendant laquelle ces utilisateurs pourront recevoir des notifications.
+   - **Période de notification** : sélectionnez la période de temps pendant laquelle ces utilisateurs pourront recevoir des notifications.
    - **Type de notification** : sélectionnez les types de notification qui seront envoyées (lorsque le service passe en état CRITIQUE, et/ou quand il revient à la normale).
 
 3. Cliquez sur **Sauvegarder**.
