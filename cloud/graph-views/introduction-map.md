@@ -5,10 +5,6 @@ title: Introduction to Centreon MAP
 
 Centreon MAP is a solution fully available in the Centreon web interface while offering you the best possible experience in creating, visualizing and sharing graphical representations of your monitored infrastructure.
 
-The difference with the MAP (Legacy) version is that MAP provides you with an edition tool fully embedded in the web interface. You do not need to install anything on your desktop. You can navigate easily between the edition mode and the view mode.
-
-> See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/).
-
 ## Overview
 
 Create, customize, and visualize your maps within a single web interface.
