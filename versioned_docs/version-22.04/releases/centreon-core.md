@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.9
 
-Release date: `January 23, 2023`
+Release date: `January 26, 2023`
 
 #### Bug fixes
 
