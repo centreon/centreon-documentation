@@ -5,15 +5,22 @@ title: Huawei OceanStor SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Contenu du Plugin Pack
 
-### Objets supervisés
+### Modèles
 
-Le Plugin Pack *Huawei OceanStor SNMP* collecte les données pour:
-* Controllers
-* Hardware
-* Storage pools
+Le Pack Centreon **Huawei OceanStor SNMP** apporte un modèle d'hôte :
+
+* HW-Storage-Huawei-Oceanstor-SNMP-custom
+
+Il apporte les modèles de service suivants :
+
+| Alias           | Modèle de service                                | Description                                       | Défaut | Découverte |
+|:----------------|:-------------------------------------------------|:--------------------------------------------------|:-------|:-----------|
+| Controllers     | HW-Storage-Huawei-Oceanstor-Controllers-SNMP     | Contrôle les contrôleurs                          | X      | X          |
+| Hardware-Global | HW-Storage-Huawei-Oceanstor-Hardware-Global-SNMP | Contrôle les composants matériel de l'équipement  | X      |            |
+| Luns            | HW-Storage-Huawei-Oceanstor-Luns-SNMP            | Contrôle les LUNs                                 | X      | X          |
+| Storage-Pools   | HW-Storage-Huawei-Oceanstor-Storage-Pools-SNMP   | Contrôle les pools de stockage                    |        | X          |
 
 ### Règles de découvertes
 
@@ -23,103 +30,166 @@ Le Plugin Pack *Huawei OceanStor SNMP* collecte les données pour:
 | Nom de la règle                                    | Description                                                                            |
 | :------------------------------------------------- | :------------------------------------------------------------------------------------- |
 | HW-Storage-Huawei-Oceanstor-SNMP-Controller-Id     | Découvre les contrôleurs et supervise le statut et l'utilisation processeur et mémoire |
+| HW-Storage-Huawei-Oceanstor-SNMP-Lun-Name          | Découvre les LUNs et supervise l'espace utilisé                                        |
 | HW-Storage-Huawei-Oceanstor-SNMP-Storage-Pool-Name | Découvre les pools de stockage et supervise le statut et l'espace utilisé              |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 </TabItem>
 </Tabs>
 
-### Métriques collectées
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Controllers" label="Controllers">
 
-| Metric name                                             | Description                              | Unit |
-| :------------------------------------------------------ | :--------------------------------------- | :--- |
-| status                                                  | Status of the controller                 |      |
-| *controller\_id*\#controller.cpu.utilization.percentage | CPU utilization                          | %    |
-| *controller\_id*\#controller.memory.usage.percentage    | Memory usage                             | %    |
+| Métrique                                              | Unité |
+| :---------------------------------------------------- | :---- |
+| status                                                |       |
+| *controller_id*#controller.cpu.utilization.percentage | %     |
+| *controller_id*#controller.memory.usage.percentage    | %     |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                                            | Description                       | Unit |
-| :----------------------------------------------------- | :-------------------------------- | :--- |
-| bbu status                                             | Status of the battery backup unit |      |
-| disk status                                            | Status of the disk                |      |
-| *disk\_instance*#hardware.disk.temperature.celsius     | Temperature of the disk           | C    |
-| enclosure status                                       | Status of the enclosure           |      |
-| *enclosure\_id*#hardware.enclosure.temperature.celsius | Temperature of the enclosure      | C    |
-| expboard status                                        | Status of the expansion board     |      |
-| fan status                                             | Status of the fan                 |      |
-| psu status                                             | Status of the power supply        |      |
+| Métrique                                               | Unité |
+| :----------------------------------------------------- | :---- |
+| bbu status                                             |       |
+| disk status                                            |       |
+| *disk_instance*#hardware.disk.temperature.celsius      | C     |
+| enclosure status                                       |       |
+| *enclosure\_id*#hardware.enclosure.temperature.celsius | C     |
+| expboard status                                        |       |
+| fan status                                             |       |
+| psu status                                             |       |
 
 </TabItem>
-<TabItem value="Storage-pools" label="Storage-pools">
+<TabItem value="Luns" label="Luns">
 
-| Metric name                                              | Description                              | Unit |
-| :------------------------------------------------------- | :--------------------------------------- | :--- |
-| status                                                   | Status of the stprage pool               |      |
-| *storagepool\_name*\#storage_pool.space.usage.bytes      | Usage of the storage pool                | B    |
-| *storagepool\_name*\#storage_pool.space.free.bytes       | Free space left on the storage pool      | B    |
-| *storagepool\_name*\#storage_pool.space.usage.percentage | Usage of the storage pool in percentage  | %    |
+| Métrique                              | Unité |
+| :------------------------------------ | :---- |
+| *lun_name*#lun.space.usage.bytes      | B     |
+| *lun_name*#lun.space.free.bytes       | B     |
+| *lun_name*#lun.space.usage.percentage | %     |
+| *lun_name*#lun.space.prot.bytes       | B     |
+
+</TabItem>
+<TabItem value="Storage-Pools" label="Storage-Pools">
+
+| Métrique                                               | Unité |
+| :----------------------------------------------------- | :---- |
+| status                                                 |       |
+| *storagepool_name*#storage_pool.space.usage.bytes      | B     |
+| *storagepool_name*#storage_pool.space.free.bytes       | B     |
+| *storagepool_name*#storage_pool.space.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
+### Configuration SNMP
+
 Afin de contrôler votre équipement Huawei OceanStor, le SNMP doit être configuré. 
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Pack de supervision
 
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
+dnf install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
-
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Huawei OceanStor SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
-
-```bash
-yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
-```
-
-2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Huawei OceanStor SNMP* depuis la page "Configuration > Plugin Packs > Manager"
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-hardware-storage-huawei-oceanstor-snmp
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Huawei OceanStor SNMP**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-hardware-storage-huawei-oceanstor-snmp
+```
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *HW-Storage-Huawei-Oceanstor-SNMP-Custom*
+### Hôte
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
-> d'authentification et de chiffrement adéquats
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Huawei OceanStor**.
+* Appliquez le modèle d'hôte **HW-Storage-Huawei-Oceanstor-SNMP-custom**.
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ?
+| Obligatoire | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
@@ -133,7 +203,7 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All controllers are ok | '0A#controller.cpu.utilization.percentage'=6.00%;0:95;;0;100 '0A#controller.memory.usage.percentage'=76.00%;;;0;100 '0B#controller.cpu.utilization.percentage'=8.00%;0:95;;0;100 '0B#controller.memory.usage.percentage'=75.00%;;;0;100
@@ -147,14 +217,8 @@ checking controller '0B'
     memory used: 75.00 %
 ```
 
-Cette commande contrôle les contrôleurs (```--mode=controllers```) d'un équipement Huawei OceanStor ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
-en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *huawei_ro* (```--snmp-community='huawei_ro'```).
-
-Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-utilization='90'```)
-et une alarme CRITICAL si supérieur à 95% (```--critical-cpu-utilization='95'```).
-
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
-en ajoutant le paramètre ```--help``` à la commande:
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
@@ -163,16 +227,16 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## J'obtiens le message d'erreur suivant:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
-### UNKNOWN: SNMP GET Request : Timeout
+```bash
+/usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
+    --plugin=storage::huawei::oceanstor::snmp::plugin \
+    --list-mode
+```
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
-Il est également possible qu'un firewall bloque le flux.
+### Diagnostic des erreurs communes
 
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.34774.4).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.

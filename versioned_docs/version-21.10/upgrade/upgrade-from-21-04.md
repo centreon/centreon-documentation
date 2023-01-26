@@ -24,11 +24,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 21.04.
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -53,20 +49,48 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
+### Install the MariaDB repository
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
 ### Upgrade PHP
 
 Centreon 21.10 uses PHP in version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
 First, you need to install the **remi** repository:
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
+
+Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+First, you need to install the **remi** repository:
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+```
+
 Then, you need to change the PHP stream from version 7.3 to 8.0 by executing the following commands and answering **y**
 to confirm:
 ```shell
@@ -97,7 +121,7 @@ yum-config-manager --enable remi-php80
 > before starting the upgrade procedure.
 
 If you have installed Business extensions, update the Business repository to version 21.10.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -302,4 +326,10 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```

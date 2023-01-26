@@ -38,7 +38,7 @@ You must have **/sbin/nologin** like:
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> As a reminder, the list of users and groups can be found [here](./installation/prerequisites.md#users-and-groups)
+> As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
 
 ## Enable SELinux
 
@@ -330,7 +330,7 @@ Status for the jail: centreon
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-apache-web-server-with-a-self-signed-certificate).
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-a-self-signed-certificate).
 
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).

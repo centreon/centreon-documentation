@@ -682,9 +682,9 @@ our %centreon_central_sync_config = (
 Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponibles. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
 
 ```bash
-rm /etc/cron.d/centreon
-rm /etc/cron.d/centstorage
-rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
 ```
 
 ### Modification des droits
@@ -1016,7 +1016,7 @@ pcs resource master ms_mysql \
 ```
 
 </TabItem>
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -1270,7 +1270,7 @@ pcs resource meta http target-role="started"
 
 #### Contrôle de l'état des ressources
 
-Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon`. Suite à l'activation 
+Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon -fr`. Suite à l'activation 
 des ressources, vous devriez obtenir une sortie similaire à celle-ci: 
 
 <Tabs groupId="sync">
@@ -1341,6 +1341,32 @@ Active resources:
 
 </TabItem>
 </Tabs>
+
+#### Ressources désactivées
+
+Lorsque vous faites un `crm_mon -fr` et que vous avez une ressource qui est désactivée :
+
+```text
+...
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+...
+```
+
+Vous devez activer la ressource avec la commande suivante :
+
+```bash
+pcs resource enable @RESSOURCE_NAME@
+```
+
+Dans notre cas :
+
+```bash
+pcs resource enable vip_mysql
+```
 
 #### Contrôler la synchronisation des bases
 

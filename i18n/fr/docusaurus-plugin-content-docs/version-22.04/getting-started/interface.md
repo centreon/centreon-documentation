@@ -13,7 +13,7 @@ Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bo
 
 ![image](../assets/getting-started/aconnection.png)
 
->Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon!2021**.
+>Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon123!**.
 Si ce n'est pas le cas, l'identifiant par défaut est **admin** et le mot de passe est celui que vous avez défini à [l'étape 5 de l'installation web](../installation/web-and-post-installation.md).
 
 Vous êtes maintenant connecté à l'interface web Centreon.
@@ -103,23 +103,23 @@ langue.
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
 > Rendez-vous dans le chapitre [How to translate Centreon](../developer/developer-translate-centreon.md) pour plus d'informations.
 
-## Réinitialisez votre mot de passe
+## Réinitialiser le mot de passe
 
-### Réinitialisez votre mot de passe avant expiration
+### Réinitialiser le mot de passe avant expiration
 
 Lorsque votre mot de passe va expirer dans les 7 prochains jours, un point orange apparaît dans le
 bandeau à droite à côté de l'icône de profil :
 
-![image](../assets/administration/password_will_expire.png)
+![image](../assets/getting-started/password_will_expire.png)
 
-Cliquez sur **Modifier le profil**, puis modifiez votre mot de passe :
+Cliquez sur **Editer le profil**, puis modifiez votre mot de passe :
 
-![image](../assets/administration/password_expiration.png)
+![image](../assets/getting-started/password_expiration.png)
 
-### Réinitialisez votre mot de passe après expiration
+### Réinitialiser le mot de passe après expiration
 
 Si vous n'avez pas changé votre mot de passe avant son expiration, après connexion vous serez redirigé vers une page dédiée où vous pourrez le mettre à jour :
 
-![image](../assets/administration/password_expired.png)
+![image](../assets/getting-started/password_expired.png)
 
 Entrez votre mot de passe actuel, définissez-en un nouveau puis cliquez sur **Réinitialiser le mot de passe**.

@@ -182,10 +182,10 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
-[portail support](https://support.centreon.com/s/repositories).
+1. Installez le dépôt MBI, vous pouvez le trouver sur le 
+[portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-Puis lancez la commande suivante :
+2. Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
@@ -310,10 +310,12 @@ veillez à les connaître avant de commencer :
   centreonBI, sur le serveur Central (pour la mise à disposition des
   rapports générés sur l'interface)
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
-[portail support](https://support.centreon.com/s/repositories).
+#### Procédure
 
-Puis lancer la commande suivante:
+1. Installez le dépôt MBI, vous pouvez le trouver sur le 
+[portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">

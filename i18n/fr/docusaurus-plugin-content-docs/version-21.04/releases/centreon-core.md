@@ -19,6 +19,120 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.20
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+- [Authentication] Improved autologin access
+
+### 21.04.19
+
+Release date: `September 30, 2022`
+
+#### Security fixes
+
+- [Configuration] Fixed SQLis in Centreon Broker configuration menu
+
+### 21.04.18
+
+Release date: `September 20, 2022`
+
+#### Bug Fixes
+
+- [Configuration] Fixed an error in the Configuration > Services > Templates menu causing HTML code to be displayed
+- [Core] Cleaned code in forMyAccount
+- [Core] Corrected escapeSecure usage
+- [Widgets] Restored possibility to not select a poller in preferences
+
+#### Security fixes
+
+- [Administration] Applied validation of format with media synchronization
+- [Administration] Sanitized and bound Centreon ACL class queries
+- [CLAPI] Added a check to verify that the user has the admin role
+- [Configuration] Fixed SQLi in poller's resource creation
+- [Configuration] Sanitized and bound queries in centreonConnector file
+- [Configuration] Sanitized and bound queries in contactgroup file
+- [Configuration] Sanitized and bound queries in listServiceCategories file
+- [Configuration] Sanitized and bound queries in listVirtualMetrics file
+- [Configuration] Sanitized and bound queries in service argumentsXml file
+- [Configuration] Sanitized and bound queries in service host categories file
+- [Configuration] Sanitized and bound queries in servicegroup_dependency file
+- [Monitoring] Fixed XSS vulnerability in deprecated services status details page
+
+### 21.04.17
+
+Release date: `August 22, 2022`
+
+#### Enhancement
+
+- [Install] Improved error handling during installation
+- [Configuration] Use API to select metrics in virtual metrics configuration form
+
+#### Bug Fixes
+
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Core] Fixed the database partitioning for MySQL 8
+
+#### Security fixes
+
+- [Administration] Sanitized SQLi in media synchronization
+- [Administration] Sanitized and bound ACL group queries
+- [Administration] Sanitized and bound ACL menus definitions queries
+- [Administration] Sanitized and bound Auth class queries
+- [Administration] Sanitized and bound queries in ACL actions definition
+- [Configuration] Fixed an XSS vulnerability in the Broker configuration page
+- [Configuration] Fixed an XSS vulnerability in the service template form
+- [Configuration] Sanitized and bound downtime queries
+- [Configuration] Sanitized and bound escalation form queries
+- [Configuration] Sanitized and bound hosts dependencies configuration queries
+- [Configuration] Sanitized and bound hosts queries
+- [Configuration] Sanitized and bound queries in Centreon Broker configuration listing
+- [Configuration] Sanitized and bound queries in CentreonXMLBGRequest class
+- [Configuration] Sanitized and bound queries in Meta Services dependency configuration
+- [Configuration] Sanitized and bound queries in generateImage file
+- [Configuration] Sanitized and bound queries in hostgroups dependency configuration
+- [Configuration] Sanitized and bound queries in virtual metrics configuration
+- [Configuration] Sanitized and bound service configuration queries
+- [Configuration] Sanitized and bound service dependency queries
+- [Configuration] Sanitized and bound timeperiod form queries
+- [Core] Clean code in centreonUser.class.php
+- [Install] Sanitized and bound update queries
+- [Monitoring] Sanitized SQLi in Centreon centreonGraph class
+
+### 21.04.16
+
+Release date: `August 3, 2022`
+
+#### Security
+
+- [Configuration] Fixed SQLi vulnerability in escalations configuration
+- [Configuration] Fixed XSS vulnerability in escalations configuration
+
+### 21.04.15
+
+Release date: `June 10, 2022`
+
+#### Bug Fixes
+
+- [API] Fixed /monitoring/host endpoint to return service state
+- [API] Fixed SQL syntax when retrieving service_id field
+- [Business Activity] Fixed synchronization of configuration with Remote Server
+- [Install] Fixed error when installing Centreon with remote DBMS
+- [Remote Server] Fixed synchronization of configuration
+- [Widget] The list of pollers is now filtered according to the user's ACLs
+
+#### Security
+
+- [Security] Fixed RCE in command
+- [Security] Fixed SQLi in virtual metrics
+- [Security] Sanitize and bind "User" class query
+- [Security] Sanitize and bind "hostgroups" queries
+- [Security] Sanitize and bind "meta_service" related queries
+- [Security] Sanitize and bind "poller" queries
+- [Security] Sanitize and bind ACL resources queries
+
 ### 21.04.14
 
 Release date: `May 2, 2022`
@@ -392,6 +506,15 @@ Release date: `15 novembre 2021`
 
 ## Centreon Engine
 
+### 21.04.5
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Reviewed the way time period exceptions are handled to fix some issues with the way notifications are managed
+
+
 ### 21.04.4
 
 `20 octobre 2021`
@@ -449,6 +572,20 @@ nouvelle version fixe ce problème.
 dans une prochaine version.
 
 ## Centreon Broker
+
+### 21.04.8
+
+Release date: `June 10, 2022`
+
+#### Improvements
+
+- Improved the way TCP connections are stored by keeping them in an ordered structure. This should avoid rare connection issues experienced by some users
+
+#### Bug fixes
+
+- Broker crashed when a logger was disabled/off
+- Fixed an issue that could prevent broker from connecting again after the database was stopped to make a LVM snapshot
+
 
 ### 21.04.7
 
@@ -637,6 +774,15 @@ Nouvelle version majeure.
 
 ## Centreon Connector Perl
 
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Fixed a memory leak issue in the Perl connector
+
+
 ### 21.04.3
 
 `20 octobre 2021`
@@ -664,6 +810,14 @@ Nouvelle version majeure.
 - Compatibilité avec les autres composants 21.04.
 
 ## Centreon Connector SSH
+
+### 21.04.4
+
+Release date: `June 10, 2022`
+
+#### Bug fixes
+
+- Fixed an issue that could cause the SSH connector to crash
 
 ### 21.04.3
 

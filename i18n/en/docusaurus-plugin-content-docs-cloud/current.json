@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.cloud.category.Getting started": {
+    "message": "Getting started",
+    "description": "The label for category Getting started in sidebar cloud"
+  },
+  "sidebar.cloud.category.Installing a poller": {
+    "message": "Installing a poller",
+    "description": "The label for category Installing a poller in sidebar cloud"
+  },
+  "sidebar.cloud.category.Tutorials": {
+    "message": "Tutorials",
+    "description": "The label for category Tutorials in sidebar cloud"
+  },
+  "sidebar.cloud.category.Performance graphs": {
+    "message": "Performance graphs",
+    "description": "The label for category Performance graphs in sidebar cloud"
+  }
+}

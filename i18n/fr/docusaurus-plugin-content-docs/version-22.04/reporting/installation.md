@@ -5,27 +5,27 @@ title: Installation de Centreon MBI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Architecture
-
-Ce chapitre présente l'architecture logicielle de l'extension **Centreon MBI**. Il
-permet d'acquérir une compréhension de son intégration à la plateforme Centreon.
+Ce chapitre présente l'architecture logicielle de l'extension **Centreon MBI** et fournit un aperçu de
+l'intégration de l'extension au logiciel de supervision Centreon.
 
 Ce document s'adresse aux administrateurs qui vont installer ou configurer Centreon MBI.
 
-Dans ce chapitre, vous trouverez :
+Quatre grandes étapes sont nécessaires pour installer Centreon MBI :
 
-- le diagramme d'architecture logicielle
-- le diagramme d'architecture des RPMs
+- Vérifiez les prérequis du système.
+- Installez l'interface Centreon MBI dans l'application Centreon (Centreon MBI Server).
+- Installez le serveur de reporting (Centreon MBI Reporting Server).
+- Configurer l'extraction, la transformation et le chargement (ETL) dans l'interface MBI Centreon.
+
+## Architecture
 
 ### Un serveur de reporting dédié
 
-Cette architecture et les pré-requis présentés sont valables pour les
-environnements suivant:
+L'architecture et ces prérequis s'appliquent aux environnements de :
 
-- tests
-- production
+- test
 - pré-production
+- production.
 
 Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 
@@ -33,18 +33,16 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 
 *La base de monitoring n'est pas nécessairement sur le même serveur que le serveur Centreon*
 
-- **ETL** : Mécanisme d'extraction, calcul et chargement des données
-  dans la base de données dediée reporting.
-- **CBIS** : Ordonnanceur gérant la génération et la publication
-  automatique des rapports.
-- **Reporting database** : Base de données MariaDB contenant les données
-  de reporting et certaines données extraites de la base de monitoring.
+- **ETL** : Processus qui extrait, transforme et charge les données dans la
+  base de données de reporting.
+- **CBIS** : Ordonnanceur qui gère l'exécution et la publication des rapports.
+- **Base de données de reporting** : Base de données MariaDB qui contient les données de reporting
+  et certaines données brutes extraites de la base de données de supervision.
 
 ### Tableaux des flux réseau
 
-Dans le tableau ci-dessous, sont représentés les différents flux
-présents entre le serveur de reporting dédié, le serveur Centreon et les
-bases de données, par défaut.
+Le tableau ci-dessous présente les différents types de flux, par défaut,
+entre le serveur BI dédié, le serveur Centreon et les bases de données :
 
 | **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
 |-----------------|--------------------------|--------------------------------------|----------|--------------|
@@ -54,77 +52,96 @@ bases de données, par défaut.
 | CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
 | Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
 
-\**Uniquement nécessaire pour les rapports Host-Graph-v2 and Hostgroup-Graph-v2*
+\**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
-### Packages
+### Informations sur les paquets
 
-L'installation de Centreon MBI est basée sur deux paquets RPM :
+L'installation de Centreon MBI est basée sur deux paquets RPM :
 
-- **Centreon-bi-server :** Ce paquet installe l'interface de Centreon MBI sur
-  le frontend de Centreon. Ce paquet doit être installé sur le serveur web de
-  Centreon.
-- **Centreon-bi-reporting-server** : Ce paquet contient tous les éléments
-  composants le serveur reporting : moteur de génération de rapports, les
-  rapports standards et l'ETL. Il doit être installé sur un serveur dédié
-  aux processus de reporting.
+- **Centreon-bi-server :** Installe l'interface MBI intégrée à l'interface de Centreon. Le paquet est installé sur le serveur central Centreon.
+- **Centreon-bi-reporting-server** : Contient tous les composants nécessaires à l'exécution
+  du serveur de reporting (planificateur de rapports, ETL, rapports standard). Il doit être
+  installé sur un serveur dédié aux processus de reporting.
 
-L'installation du moteur de base de données doit être faite en même
-temps. Nous conseillons fortement d'installer la base MariaDB sur le
-serveur de reporting pour des questions de performances & d'isolation.
+L'installation de la base de données doit être faite en même temps. Nous recommandons
+fortement d'installer la base MariaDB sur le serveur de reporting pour des raisons de
+performances & d'isolation.
 
 ## Pré-requis
 
 ### Server Centreon central
 
-**Logiciels**
+#### Prérequis logiciels
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/php.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
-- Evitez l'utilisation des variables ci dessous dans le fichier de
-  configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes
-  longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
-  des rapports.
+- Evitez l'utilisation des variables ci-dessous dans le fichier de
+  configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
+  
+| Utilisateur          | Groupe                     |
+|----------------------|----------------------------|
+| centreonBI (nouveau) | apache,centreon,centreonBI |
+| apache (existant)    | centreonBI                 |
+  
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+- Centreon Web 22.04
+- Vérifiez que `date.timezone` est correctement configurée dans le fichier
+  `/etc/php/8.0/mods-available/centreon.ini` (même que celui retourné par la commande
+  `timedatectl status`)
+- Evitez l'utilisation des variables ci dessous dans le fichier de
+  configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
+  - wait_timeout
+  - interactive_timeout
+  
+#### Utilisateurs et groupes
+
+| Utilisateur          | Groupe                       |
+|----------------------|------------------------------|
+| centreonBI (nouveau) | www-data,centreon,centreonBI |
+| apache (existant)    | centreonBI                   |
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 - Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/opt/rh/rh-php73/php.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
+
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
-  configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes
-  longues et ceci pourrait arrêter l'exécution des ETL ainsi que la génération
-  des rapports.
+  configuration MariaDB `/etc/my.cnf`: Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
 
-</TabItem>
-</Tabs>
-
-**Ajout d'utilisateurs ou de groupes**
+#### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                     |
 |----------------------|----------------------------|
 | centreonBI (nouveau) | apache,centreon,centreonBI |
 | apache (existant)    | centreonBI                 |
 
-**Description des utilisateurs, umask et répertoire utilisateur**
+</TabItem>
+</Tabs>
+
+
+#### Description des utilisateurs, umask et répertoire personnel
 
 | Utilisateur | umask | home             |
 |-------------|-------|------------------|
 | centreonBI  | 0002  | /home/centreonBI |
 
-### Serveur de reporting
+### Serveur de reporting dédié
 
-**Matériel**
+#### Couche Matériel
 
 | Nombre de services supervisés | CPU minimum          | Mémoire Vive  |
 |-------------------------------|----------------------|---------------|
@@ -134,9 +151,11 @@ serveur de reporting pour des questions de performances & d'isolation.
 | >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
 | > 100 000                     | > Contacter Centreon |               |
 
-**Espace disque** : Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+#### Espace de stockage
 
-**File system**
+Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+
+#### Partition
 
 | File system                    | Taille                                                                                       |
 |--------------------------------|----------------------------------------------------------------------------------------------|
@@ -152,21 +171,30 @@ Pour controler l'espace libre, utiliser la commande suivante en remplaçant
 vgdisplay vg_data | grep -i free*
 ```
 
-**Logiciels**
+#### Couche Interlogiciel et logiciel
 
-* OS : CentOS / Redhat 7 ou 8
-* SGBD : MariaDB 10.5
-* Firewall : Désactivé
-* SELinux : Désactivé
+- OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
+- SGBD : MariaDB 10.5
+- Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
+
+> Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
+> Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
+> Vous pouvez changer le fuseau horaire avec cette commande :
+>
+>```shell
+>timedatectl set-timezone Europe/Paris
+>```
 
 Veillez à optimiser MariaDB sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
 [fichier suivant](../assets/reporting/installation/centreon.cnf).
-Veillez à créer un dossier `tmp` dans `/var/lib/mysql/`.
 
-> N'utilisez pas ce fichier d'optimisation sur le serveur de supervision.
+Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
-Ajout d'utilisateurs ou de groupes :
+> Ne définissez pas ces optimisations MariaDB sur votre serveur de supervision.
+
+Utilisateurs et groupes :
 
 | Utilisateur | Groupe     |
 |-------------|------------|
@@ -180,12 +208,11 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 ## Installer l'extension sur Centreon
 
-Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
+Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
-[portail support](https://support.centreon.com/s/repositories).
+1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-Puis lancez la commande suivante :
+2. Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -202,22 +229,38 @@ yum install centreon-bi-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Ajoutez le dépôt externe suivant (pour Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Puis installez Centreon MBI:
+
+```shell
+apt update && apt install centreon-bi-server
+```
+
+</TabItem>
 </Tabs>
 
 ### Activer l'extension
 
-Le menu *Administration > Extensions > Manager* de Centreon permet d'installer
-les différentes extensions détectées. Une carte référence **Centreon MBI**.
-Cliquer sur le "+" pour installer l'extension.
+Le menu **Administration > Extension > Gestionnaire** vous permet
+d'installer les différentes extensions détectées par Centreon. Cliquez sur la tuile  **Centreon MBI** pour l'installer.
 
-Uploader via l'interface la license reçue correspondant à Centreon MBI.
+Par la suite, téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
 ### Configurer l'extension
 
 Renseignez les valeurs suivantes dans les options générales de Centreon
 MBI, menu *Rapports > Monitoring Business Intelligence > Options Générales* :
 
-| Tab                                                                                    | Option                     | Value                                                                                |
+| Onglet                                                                                 | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Options de  l'ordonnanceur                                                             | Hôte de CBIS               | Adresse IP du serveur de reporting                                                   |
 | Options de l'ETL Une base de données MariaDB dédiée au reporting a été  mise en place. | Oui                        |                                                                                      |
@@ -227,67 +270,95 @@ MBI, menu *Rapports > Monitoring Business Intelligence > Options Générales* :
 
 ### Accès à la base de données Centrale
 
-#### Cas #1 : La base MariaDB de monitoring est hébèrgée sur le même serveur que le serveur Central Centreon
+Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
-Lancez la commande ci dessous pour autoriser le serveur de reporting à
-se connecter aux bases de données du serveur de supervision.
+<Tabs groupId="sync">
+<TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
+
+
+La base de données de supervision MariaDB est hébergée sur le serveur de supervision central.
+
+Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter
+aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@ :** Mot de passe root du serveur MariaDB du serveur de supervision.
-Si il n'y a pas de mot de passe root, ne spécifiez pas l'option "root-password".
+**@ROOTPWD@** : Mot de passe root de la base MariaDB de supervision.
+S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
 
-#### Cas2 # La base MariaDB de monitoring est hébergée sur un serveur dédié
+</TabItem>
+<TabItem value="Base de surpervision déportée par rapport au central" label="Base de surpervision déportée par rapport au central">
 
-Connectez vous en SSH sur le serveur de base de données, et lancez les
-commandes suivantes :
+La base de données de supervision MariaDB est hébergée sur un serveur dédié.
+
+Connectez-vous par SSH au serveur de la base de données, et exécutez les commandes suivantes :
 
 ```SQL
-mysql> CREATE USER 'centreonbi'@'$BI_ENGINE_IP$' IDENTIFIED BY 'centreonbi';
-mysql> GRANT ALL PRIVILEGES ON centreon.* TO 'centreonbi'@'$BI_ENGINE_IP$';
-mysql> GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
+CREATE USER 'centreonbi'@'$BI_ENGINE_IP$' IDENTIFIED BY 'centreonbi';
+GRANT ALL PRIVILEGES ON centreon.* TO 'centreonbi'@'$BI_ENGINE_IP$';
+GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 ```
 
-**$BI_ENGINE_IP$ :** Adresse IP du serveur de reporting
+**$BI_ENGINE_IP$** : Adresse IP du serveur de reporting.
 
-> Si vous utilisez une réplication MariaDB pour vos bases de données de
-> **monitoring**, lors de l'installation de Centreon MBI, des vues sont
-> créées. Il faut les exclure de la réplication en rajoutant la ligne
-> suivante dans le fichier my.cnf du slave
-> ```shell
-> replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
-> ```
-> puis créer les vues sur le slave en lançant la commande:
->
->  #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+</TabItem>
+</Tabs>
 
-Allez au chapitre suivant pour continuer l'installation.
+Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**,
+certaines vues sont créées lors de l'installation de Centreon MBI.
+Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le
+fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 11.
+
+```shell
+replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
+```
+
+Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
+ligne de commande suivante :
+
+```bash
+mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+```
+
+#### Configuration spécifique à Debian 11
+
+MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Donnez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez **mariadb**.
+
+```shell
+systemctl restart mariadb
+```
 
 ### Donner des droits à l'utilisateur cbis
 
 Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
 
-- Host-Graph-v2 
-
+- Host-Graph-v2
 - Hostgroup-Graph-v2.
 
 Pour tester la connexion entre le serveur de reporting MBI et l'API Centreon, utilisez la commande suivante pour télécharger un graphique. Remplacez les paramètres du graphique et les timestamps, et remplacez XXXXXXXXX par le jeton d'autologin de l'utilisateur **cbis**:
 
-```
-curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>end=<date_fin>' --output /tmp/image.png
+```bash
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>&end=<date_fin>' --output /tmp/image.png
+
 ```
 
 Exemple :
 
-```
+```bash
 curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=otmw3n1hu03bvt9e0caphuf50ph8sdthcsk8ofdk&username=CBIS&hostname=my-poller&service=Cpu&start=1623016800&end=1623621600' --output /tmp/image.png
 ```
 
 Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désiré doit avoir été téléchargée dans le répertoire `/tmp` :
 
-```
+```text
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 18311  100 18311    0     0  30569      0 --:--:-- --:--:-- --:--:-- 30569
@@ -297,26 +368,31 @@ Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désir�
 
 ### Installer les paquets
 
-Ce chapitre aborde l'installation du serveur de reporting.
+Vous devez disposer des informations suivantes avant de procéder au
+processus d'installation :
 
-Lors de ce chapitre, vous aurez besoin des informations suivantes,
-veillez à les connaître avant de commencer :
+- IP/DNS de la base de données de supervision
+- IP/DNS de l'interface web Centreon
+- IP/DNS de la base de données de reporting (localhost fortement recommandé)
+- Accès (utilisateur/mot de passe) à la base de données de reporting
+- Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
 
-- IP/DNS de la base de monitoring
-- IP/DNS de l'interface de Centreon
-- IP/DNS de la base de reporting (localhost fortement recommandé)
-- accès (user/password) aux bases de données de monitoring & reporting
-- définir puis récupérer le mot de passe ssh de l'utilisateur
-  centreonBI, sur le serveur Central (pour la mise à disposition des
-  rapports générés sur l'interface)
+#### Procédure
 
-Installer le dépôt MBI, vous pouvez le trouver sur le 
-[portail support](https://support.centreon.com/s/repositories).
+1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-Puis lancer la commande suivante:
+2. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+Activer les dépôts codeready-builder :
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Puis lancer l'installation :
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
@@ -324,9 +400,87 @@ dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
+
 ```shell
 cd /etc/pki/rpm-gpg/
 wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+Activer les dépôts codeready-builder :
+
+```shell
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Puis lancer l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Alma 8" label="Alma 8">
+
+Activer les dépôts powertools :
+
+```shell
+dnf config-manager --set-enabled 'powertools'
+```
+
+Puis lancer l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Installez les paquets prérequis :
+
+```shell
+apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Ajouter le dépôt externe suivant (pour Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Puis lancer l'installation :
+
+```shell
+apt update
+apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
 </TabItem>
@@ -336,8 +490,8 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, importez la clé du dépôt :
+
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -355,6 +509,9 @@ systemctl enable cbis
 ### Configurer le serveur de reporting
 
 #### Optimisations MariaDB
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 /  RHEL 7 / CentOS 7">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
@@ -390,26 +547,139 @@ fichier `/etc/my.cnf` et dans la section [client], ajoutez :
 socket=$PATH_TO_SOCKET$
 ```
 
-#### Installer la configuration
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
+optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mariadb.conf.d/`.
+
+Renommez le fichier en `80-centreon.cnf` :
+
+```shell
+mv centreon.cnf 80-centreon.cnf
+```
+
+MariaDB doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut.
+Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Définissez le paramètre **bind-address** à **0.0.0.0** et redémarrez mariadb.
+
+```shell
+systemctl restart mariadb
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
+option dans `/etc/mysql/mariadb.cnf` ne fonctionnera pas.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
+*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
+nouveau MariaDB:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
+fichier `/etc/mysql/mariadb.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+</Tabs>
+
+### Sécuriser la base de données
+
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
+Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
+
+```shell
+mysql_secure_installation
+```
+
+- Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
+- Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Commencer à configurer
 
 Vérifiez que le MariaDB de reporting est bien démarré puis lancez les
-commandes ci dessous et répondez aux questions:
+commandes ci dessous et répondez aux questions:
 
 ```shell
 /usr/share/centreon-bi/config/install.sh
 ```
 
-Le script effectue l'échange de clés ssh entre le serveur de
-supervision et le serveur de reporting, et configure la règle de
-publication sftp standard pour pouvoir publier les rapports sur le
-Centreon Web. Enfin, il active les backup et démarre le service cbis.
+Le script gère l'échange de clés SSH entre le serveur de supervision et le serveur de reporting, et configure la règle de publication SFTP par défaut
+afin de publier les rapports sur l'interface web Centreon. Enfin, il active la sauvegarde et démarre le service CBIS.
 
-Une fois l'installation terminée, poursuivez au chapitre suivant pour
-configurer l'ETL.
+Une fois l'installation terminée, poursuivez au chapitre suivant pour configurer l'ETL.
+
+#### Problème avec la clé d'échange SSH
+
+Dans quelques cas, l'échange de clés SSH échoue.
+Afin de résoudre le problème, procédez manuellement comme suit :
+
+**Sur le serveur de supervision**. Pour commencer, passez dans l'environnement `bash` de `centreonBI` :
+
+```bash
+su - centreonBI
+```
+
+Ensuite, générez une clé SSH pour préparer l'environnement :
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+Ensuite, **sur le serveur de reporting**, passez dans l'environnement `bash` de `centreonBI` :
+
+```bash
+su - centreonBI
+```
+
+Générez la clé SSH :
+
+```bash
+ssh-keygen -t ed25519 -a 100
+cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+```
+
+Après avoir exécuté ces commandes, copiez le contenu du fichier qui a été affiché par la commande `cat` et collez-le dans le fichier **~/.ssh/authorized_keys** **sur le serveur de supervision** et
+appliquez ensuite les permissions correctes au fichier (toujours en tant que l'utilisateur `centreon`) :
+
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
+
+L'échange de clés doit ensuite être validé par une première connexion qui acceptera la signature du serveur SSH (toujours en tant que l'utilisateur `centreonBI`) **depuis le serveur de reporting** :
+
+```bash
+ssh centreonBI@@MONITORING_SERVER@
+```
+
+Ensuite, quittez la session `centreonBI` avec `exit` ou `Ctrl-D` sur les deux serveurs.
+
+Pour continuer, relancez le script d'installation (`/usr/share/centreon-bi/config/install.sh`) comme ci-dessus et répondez **Oui** lorsqu'on vous demande de procéder à l'échange de clés SSH.
+Vous aurez une erreur lors de la création de l'USER car il existe déjà. Ce n'est pas une étape bloquante.
 
 ### ETL : Configuration
 
-Centreon MBI intègre un ETL qui permet de :
+Centreon MBI intègre un ETL qui permet de :
 
 - Synchroniser les données brutes de la supervision vers le serveur de
   reporting
@@ -417,150 +687,159 @@ Centreon MBI intègre un ETL qui permet de :
   données statistiques
 - Contrôler la rétention des données sur le serveur de reporting
 
-Avant de passer aux étapes suivantes, il est nécessaire de lire le
-chapitre des [bonnes pratiques](#TODO) afin de
-vous assurer que la configuration des objets dans Centreon (groupes,
-categories...) est conforme aux attentes de Centreon MBI.
+Avant de passer aux étapes suivantes, il est nécessaire de lire le chapitre des [bonnes pratiques](concepts.md#bonnes-pratiques-de-supervision) afin de
+vous assurer que la configuration des objets dans Centreon (groupes, catégories...) est conforme aux attentes de Centreon MBI.
 
-Dans le menu `Rapports > Monitoring Business Intelligence > General
-Options > Options de l'ETL` de Centreon, spécifiez les options
-suivantes :
+Dans le menu `Rapports > Monitoring Business Intelligence > Options générales > Options de l'ETL`, spécifiez les options
+suivantes :
 
-| Option                                                                                                                                   | Values                                                                                                                                                                                                                                                                                                                               |   |
-|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| **Options générales**                                                                                                                    |                                                                                                                                                                                                                                                                                                                                      |   |
-| Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                 |   |
-| Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                              |   |
-| Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.     |   |
-| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.                                                                                                                                                                                                                   |   |
-| **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                      |   |
-| Groupes d hotes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                            |   |
-| Catégories d hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                         |   |
-| Catégories de services                                                                                                                   | Sélectionnez les catégories de services pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                     |   |
-| **Calcul des données de disponibilité**                                                                                                  |                                                                                                                                                                                                                                                                                                                                      |   |
-| Sélectionner les plages de services pour le calcul des statistiques de disponibilité                                                     | Plages horaires (time periods) pour lesquelles les calculs de disponibiltié des hôtes et des services sont réalisées                                                                                                                                                                                                                 |   |
-| **Calcul des données de performance et de capacité**                                                                                     |                                                                                                                                                                                                                                                                                                                                      |   |
-| Granularité des données statistiques à calculer                                                                                          | Sélectionnez le ou les niveaux de granularité pour le calcul des données de performance (1)                                                                                                                                                                                                                                          |   |
-| Sélectionner les plages de services pour le calcul des statistiques de performance                                                       | Plages horaires sur les jours de la semaine pris en compte dans le calcul des données de capacité et de performance                                                                                                                                                                                                                  |   |
-| **Capacity statistic aggregated by month**                                                                                               |                                                                                                                                                                                                                                                                                                                                      |   |
-| Sélectionner la plage de service 24h/24, 7j/7 pour le calcul des statistiques mensuelles de capacité                                     | Selectionnez la plage horaire 24x7.                                                                                                                                                                                                                                                                                                  |   |
-| Sélectionner les catégories de services liées aux indicateurs de capacité                                                                | Sélectionnez les catégories de services ayant été rattachés à des services de type capacité                                                                                                                                                                                                                                          |   |
-| Exclure les métriques qui ne renvoient pas une indication d utilisation des espaces de stockage                                          | Concerne uniquement les métriques liées aux services qui renvoient une information de capacité. Sélectionnez uniquement les métriques qui donnent une valeur maximale ou une valeur totale de capacité et non une valeur d’utilisation. (exemple, la métrique “ size ” returnée par le plugins check_centreon_snmp_remote_storage ») |   |
-|                                                                                                                                          | **Paramètres pour le calcul des centiles**                                                                                                                                                                                                                                                                                           |   |
-| Calculating centile aggregation by                                                                                                       | Selectionnez la granularité des calculs. Le rapport de trafic fourni en standard avec BI 2.1 utilise les données au Mois.                                                                                                                                                                                                            |   |
-| Sélectionner les catégories de services sur lesquelles aggréger les données                                                              | Selectionnez uniquement les catégories de services pertinente (Ex: Traffic)                                                                                                                                                                                                                                                          |   |
-| Premier jour de la semaine                                                                                                               | Selectionnez le premier jour à considérer pour les statistiques à la semaine                                                                                                                                                                                                                                                         |   |
-| Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)                                      | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées                                                                                                                                                                                                                                         |   |
+| Option                                                                                                                                   | Valeurs                                                                                                                                                                                                                                                                                                                                            |
+|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Options générales**                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                    |
+| Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                               |
+| Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                                            |
+| Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance. Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.                  |
+| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.                                                                                                                                                                                                                                 |
+| **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                                    |
+| Groupes d'hôtes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                          |
+| Catégories d'hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                       |
+| Catégories de services                                                                                                                   | Sélectionnez les catégories de services pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                   |
+| **Calcul des données de disponibilité**                                                                                                  |                                                                                                                                                                                                                                                                                                                                                    |
+| Sélectionner les plages de services pour le calcul des statistiques de disponibilité                                                     | Plages horaires (time periods) pour lesquelles les calculs de disponibilité des hôtes et des services sont réalisées                                                                                                                                                                                                                               |
+| **Calcul des données de performance et de capacité**                                                                                     |                                                                                                                                                                                                                                                                                                                                                    |
+| Granularité des données statistiques à calculer                                                                                          | Sélectionnez le ou les niveaux de granularité pour le calcul des données de performance (1)                                                                                                                                                                                                                                                        |
+| Sélectionner les plages de services pour le calcul des statistiques de performance                                                       | Plages horaires sur les jours de la semaine pris en compte dans le calcul des données de capacité et de performance                                                                                                                                                                                                                                |
+| **Capacity statistic aggregated by month**                                                                                               |                                                                                                                                                                                                                                                                                                                                                    |
+|   Sélectionne la plage de service 24h/24, 7j/7 pour le calcul des statistiques mensuelles de capacité                                    | Sélectionnez la plage horaire 24x7.                                                                                                                                                                                                                                                                                                                |
+| Sélectionner les catégories de services liées aux indicateurs de capacité                                                                | Sélectionnez les catégories de services ayant été rattachés à des services de type capacité                                                                                                                                                                                                                                                        |
+| Exclure les métriques qui ne renvoient pas une indication d'utilisation des espaces de stockage                                          | Concerne uniquement les métriques liées aux services qui renvoient une information de capacité. Sélectionnez uniquement les métriques qui donnent une valeur maximale ou une valeur totale de capacité et non une valeur d’utilisation. (Par exemple, la métrique “ size ” returnée par le plugin check_centreon_snmp_remote_storage »)            |
+| **Paramètres pour le calcul des centiles**                                                                                               |                                                                                                                                                                                                                                                                                                                                                    |
+| Calculating centile aggregation by                                                                                                       | Sélectionnez la granularité des calculs. Le rapport de trafic fourni en standard avec BI 2.1 utilise les données au Mois.                                                                                                                                                                                                                          |
+| Sélectionner les catégories de services sur lesquelles aggréger les données                                                              | Sélectionnez uniquement les catégories de services pertinentes (Ex: Traffic)                                                                                                                                                                                                                                                                       |
+| Premier jour de la semaine                                                                                                               | Sélectionnez le premier jour à considérer pour les statistiques à la semaine                                                                                                                                                                                                                                                                       |
+| Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)                                      | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées                                                                                                                                                                                                                                                       |
 
-**(1)** Les rapports nécessitant une granularité des données à l'heure
-sont listés ci-dessous. Si vous ne souhaitez pas utiliser ces rapports,
-désactivez le calcul des statistiques à l'heure:
+**(1)** Les rapports nécessitant une granularité des données à l'heure sont listés ci-dessous.
+Si vous ne souhaitez pas utiliser ces rapports,désactivez le calcul des statistiques à l'heure:
 
-- Hotsgroup-Host-details-1
+- Hostgroup-Host-details-1
+
 - Host-detail-v2
--   Hostgroup-traffic-Average-Usage-By-Interface
+- Hostgroup-traffic-Average-Usage-By-Interface
 - Hostgroup-traffic-by-Interface-And-Bandwith-Ranges
 
 ### ETL: Rétention de données
 
-Le serveur de reporting contient des données de statistiques dans des
-tables spécifiques à Centreon MBI. Ces données sont stockées dans la
-base de données *centreon_storage*.
+Le serveur de reporting contient des tables de statistiques spécifiques à Centreon MBI dans la base de données "centreon_storage".
+L'espace de stockage utilisé par ces tables augmente chaque jour. Il est possible de contrôler la taille de ces tables en définissant
+des règles de rétention des données.
 
-L'espace utilisé par ces tables augmentera de jour en jour; il est
-possible de contrôler la volumétrie de ces données en configurant des
-règles de rétention.
+Sous **Rapports > Monitoring Business Intelligence > Options Générales > Options de rétention des données**,
+la rétention des données peut être gérée par :
 
-Dans le menu : *Reporting > Monitoring Business Intelligence > Options
-générales > Options de rétention des données* la rétention peut être
-gérée par:
+- Type de données (disponibilité, performance).
+- Granularité des données (données brutes, valeurs horaires, quotidiennes ou mensuelles).
 
-- type de données (disponibilité ou performance)
-- granularité des données (données brutes de la supervision, données
-  agrégées par heure, jour ou mois)
+> Avant d'activer les options de rétention de données, vérifiez que le moteur de reporting
+> utilise un serveur MariaDB dédié, et que l'option correspondante est réglée sur
+> **Oui** dans le menu **Reporting > Business Intelligence > Options générales Options ETL**.
 
-Activez la rétention de données en cochant "Yes" puis paramétrez les
-différents options de configuration.
+Activez la gestion de la rétention des données en sélectionnant **Oui**, puis définissez les options de la configuration (exemple ci-dessous).
 
 ![image](../assets/reporting/installation/bi_retention.png)
 
-Pour activer la purge automatique des données, éditez le cron
-`/etc/cron.d/centreon-bi-purge` sur le serveur de reporting puis
-dé-commentez la ligne suivante :
+Pour activer la purge automatique des anciennes données, modifiez le fichier cron
+**/etc/cron.d/centreon-bi-purge** sur le serveur de reporting, puis décommentez la ligne suivante :
 
 ```shell
-0 20 * * * root @CENTREON_BI_HOME@/etl/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+#0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
 ```
 
-> Évitez les périodes pendant lesquelles les calculs de statistiques avec
-> l'ETL Centreon MBI et la génération des rapports sont programmés.
+Évitez les périodes prévues pour les calculs statistiques avec Centreon MBI ETL et les générations de rapports.
 
-Il est possible d'exécuter le cron de manière journalière ou
-hebdomadaire, cela dépendra de la charge générée par la purge des
-données sur votre serveur de reporting.
+Vous pouvez exécuter ce cron quotidiennement ou hebdomadairement, en fonction du temps d'exécution du batch et de la charge générée sur le serveur.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 Redémarrez le service cron :
+
 ```shell
 systemctl restart crond
 ```
 
-**BONNES PRATIQUES** : Sélectionnez différentes périodes de rétention en
-fonction de la granularité des données statistiques:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-- Les données agrégées par heure sont souvent exploitées afin
-  d'analyser des métriques sur une période proche. Il n'est pas
-  nécessaire de conserver ces données sur plusieurs mois;
-- Au delà de 5 ou 6 mois, vous auriez probablement besoin de voir la
-  tendance de la disponibilité et des statistiques de performances. Il
-  serait donc envisageable de conserver au plus 6 mois les données
-  agrégées par jour et configurer une rétention des données agrégées
-  au mois sur plusieurs dizaines de mois.
+Redémarrez le service cron :
 
-Passez à la section suivante pour continuer l'installation.
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+**BONNES PRATIQUES** : Sélectionnez différentes périodes de rétention en fonction de la granularité des données statistiques:
+
+- Les valeurs agrégées par heure sont utilisées pour analyser une métrique sur une courte période, elles prennent
+  beaucoup d'espace sur le disque. Vous n'aurez peut-être pas besoin de conserver ces statistiques plus de deux ou trois mois.
+- Au-delà de cinq ou six mois, vous n'aurez peut-être besoin que de visualiser la tendance pour lesstatistiques de disponibilité ou de performance.
+  Vous pourriez alors conserver lesdonnées agrégées quotidiennes pendant un maximum de six mois, par exemple, etconfigurer la conservation des données 
+  agrégées mensuelles pour une période de plusieurs dizaines de mois.
+
+Veuillez passer à la section suivante pour continuer l'installation.
 
 ### ETL : Execution
 
-> Avant d'aller plus loin, assurez vous d'avoir positionné les
-> optimisations MariaDB fournis dans les pré-requis. Assurez vous également
-> d'avoir configuré la rétention des données et de l'avoir activée afin
-> de ne récupérer et calculer que les données dont vous avez besoins.
+> Avant de continuer, assurez-vous que vous avez installé le fichier de configuration MariaDB comme indiqué ci-dessus dans les prérequis.
+> Configurez et activez la rétention des données afin que seules les données requises soient importées et calculées.
 
-#### Reconstruire les statistiques en utilisant les données historiques
+#### Reconstruction des statistiques à partir des données historiques
 
-La commande qui suit, à exécuter sur le serveur de *REPORTING*, aura
-pour effet de :
+Exécutez la commande suivante sur le serveur de reporting. Celle-ci va :
 
-- Supprimer les données existantes sur la base de reporting
-- Importer les données brutes à partir de la base de données de
-  supervision, en utilisant les paramètres de retention
-- Alimenter les tables qui contiennent les informations de
-  disponibilité des équipements et des services
-- Alimenter les tables qui contiennent les informations de performance
-  et de capacité des équipements et des services
+- Supprimer toutes les données existantes du serveur de reporting.
+- Importer les données de supervision brutes du serveur de supervision vers le serveur de reporting (en fonction des paramètres de rétention).
+- Remplir les tables contenant les statistiques de disponibilité des hôtes et des services.
+- Remplir les tables contenant les statistiques de performance et de capacité des hôtes et des services.
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -r
 ```
 
-#### Activer l'exécution journalière
+#### Activer l'exécution quotidienne du script
 
-Une fois que la reconstruction des données est terminée, il faut activer
-l'exécution journalière du script. Pour cela, sur le serveur de
-reporting, éditez le fichier « /etc/cron.d/centreon-bi-engine » et
-dé-commentez la ligne suivante :
+Une fois le processus de reconstruction des données terminé, vous pouvez activer le calcul des
+statistiques.
+Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine** et décommentez la ligne suivante :
 
 ```shell
-30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+#30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
 ```
 
-Redémarrez le service cron sur le serveur de reporting :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
+Redémarrez le service cron sur le serveur de reporting :
 
 ```shell
 systemctl restart crond
 ```
 
-> Verifiez que le batch *centreonBIETL* commence une fois que le batch
-> *eventReportBuilder* est terminé sur le serveur de monitoring (vérifiez
-> les heures dans le cron `/etc/cron.d/centreon`).
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-La configuration de votre installation de Centreon MBI est terminée, consultez le [tutorial](../getting-started/analyze-resources-availability.md)
+Redémarrez le service cron sur le serveur de reporting :
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+> Assurez-vous que le batch **centreonBIETL** ne démarre qu'une fois que le batch **eventReportBuilder** est terminé sur
+> le serveur de supervision (consultez le fichier cron **/etc/cron.d/centreon** sur le serveur de supervision).
+
+L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel](../getting-started/analyze-resources-availability.md).

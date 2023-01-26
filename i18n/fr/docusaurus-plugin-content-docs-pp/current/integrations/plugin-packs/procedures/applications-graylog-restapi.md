@@ -78,7 +78,7 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Graylog* :
 
 ```bash
-yum install centreon-pack-graylog-restapi
+yum install centreon-pack-applications-graylog-restapi
 ```
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 

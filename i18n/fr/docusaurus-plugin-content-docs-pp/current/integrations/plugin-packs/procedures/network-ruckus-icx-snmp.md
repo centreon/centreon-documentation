@@ -115,8 +115,8 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle d'Hôte *Net-Switch-Ruckus-Icx-SNMP-custom* et renseignez les champs *SNMP community* et *SNMP version*.
 
-> Si vous utilisez la version 3 de SNMP, sélectionnez la bonne version de SNMP et configurez tous les paramètres SNMP v3 
-> à l'aide la macro SNMPEXTRAOPTIONS:
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
 
 | Mandatory   | Name                    | Description                      |
 | :---------- | :---------------------- | :------------------------------- |

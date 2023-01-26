@@ -27,11 +27,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
-
-### Mise à jour vers la dernière version mineure
-
-Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 3.4 (Centreon Web 2.8).
+> Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon central
 
@@ -61,7 +57,17 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
-> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
+> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+### Installer le dépôt MariaDB
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
 
 ### Montée de version de PHP
 
@@ -81,7 +87,7 @@ yum-config-manager --enable remi-php80
 ### Montée de version de la solution Centreon
 
 Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
-Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêtez le processus Centreon Broker :
 ```shell
@@ -102,7 +108,7 @@ yum clean all --enablerepo=*
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -161,6 +167,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 ```
+
+> Si vous utilisiez l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
 
 ### Actions complémentaires
 
@@ -465,6 +473,16 @@ toutes les extensions, en commençant par les suivantes :
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
+#### Droits sur les fichiers de Broker et Engine
+
+Ajustez les droits sur les fichiers de Broker et d'Engine :
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
+
 #### Démarrer le gestionnaire de tâches
 
 Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en passant de
@@ -487,6 +505,14 @@ exécutant la commande suivante:
 ```shell
 chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 ```
+
+#### Suppression du "Nom du processus de bascule" dans la configuration des outputs broker
+
+> Dans les anciennes versions de Centreon, le mécanisme de rétention qui stockait les données issues de la supervision dans des fichiers temporaires en cas de coupure réseau nécessitait d'être configuré manuellement.
+> Depuis Centreon 3.4, cela n'est plus nécessaire, et dans les versions plus récentes, **cela peut même bloquer le fonctionnement de Broker**.
+
+
+Depuis le menu **Configuration > Collecteurs > Configuration de Centreon Broker**, supprimez la valeur du paramètre **Nom du processus de bascule (failover)** pour chacun des outputs de chacune des entrées de configuration de Centreon Broker.
 
 #### Redémarrage des processus de supervision
 
@@ -537,6 +563,12 @@ Démarrez et activez **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 ### Actions post montée de version

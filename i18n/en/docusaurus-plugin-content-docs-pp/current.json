@@ -1,0 +1,78 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.pp.category.Getting started": {
+    "message": "Getting started",
+    "description": "The label for category Getting started in sidebar pp"
+  },
+  "sidebar.pp.category.How-to guides": {
+    "message": "How-to guides",
+    "description": "The label for category How-to guides in sidebar pp"
+  },
+  "sidebar.pp.category.Applications": {
+    "message": "Applications",
+    "description": "The label for category Applications in sidebar pp"
+  },
+  "sidebar.pp.category.Blockchain": {
+    "message": "Blockchain",
+    "description": "The label for category Blockchain in sidebar pp"
+  },
+  "sidebar.pp.category.Centreon": {
+    "message": "Centreon",
+    "description": "The label for category Centreon in sidebar pp"
+  },
+  "sidebar.pp.category.Cloud": {
+    "message": "Cloud",
+    "description": "The label for category Cloud in sidebar pp"
+  },
+  "sidebar.pp.category.Database": {
+    "message": "Database",
+    "description": "The label for category Database in sidebar pp"
+  },
+  "sidebar.pp.category.Hardware Server": {
+    "message": "Hardware Server",
+    "description": "The label for category Hardware Server in sidebar pp"
+  },
+  "sidebar.pp.category.Network": {
+    "message": "Network",
+    "description": "The label for category Network in sidebar pp"
+  },
+  "sidebar.pp.category.Operating System": {
+    "message": "Operating System",
+    "description": "The label for category Operating System in sidebar pp"
+  },
+  "sidebar.pp.category.Printer": {
+    "message": "Printer",
+    "description": "The label for category Printer in sidebar pp"
+  },
+  "sidebar.pp.category.Protocol": {
+    "message": "Protocol",
+    "description": "The label for category Protocol in sidebar pp"
+  },
+  "sidebar.pp.category.Sensor": {
+    "message": "Sensor",
+    "description": "The label for category Sensor in sidebar pp"
+  },
+  "sidebar.pp.category.Storage": {
+    "message": "Storage",
+    "description": "The label for category Storage in sidebar pp"
+  },
+  "sidebar.pp.category.Toip Voip": {
+    "message": "Toip Voip",
+    "description": "The label for category Toip Voip in sidebar pp"
+  },
+  "sidebar.pp.category.Ups Pdu": {
+    "message": "Ups Pdu",
+    "description": "The label for category Ups Pdu in sidebar pp"
+  },
+  "sidebar.pp.category.Virtualization": {
+    "message": "Virtualization",
+    "description": "The label for category Virtualization in sidebar pp"
+  },
+  "sidebar.pp.category.Developers Center": {
+    "message": "Developers Center",
+    "description": "The label for category Developers Center in sidebar pp"
+  }
+}

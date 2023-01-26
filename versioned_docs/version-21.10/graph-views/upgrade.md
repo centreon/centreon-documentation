@@ -66,7 +66,7 @@ yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centr
 </Tabs>
 
 > Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 3. Update Centreon MAP server:
 
@@ -122,7 +122,13 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
-## Step 4: MariaDB database
+## Step 4: Update dialects in .properties files
+
+In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+
+> This configuration also works with a MySQL database.
+
+## Step 5: MariaDB database
 
 1. Stop the **centreon-map** service:
     ```shell

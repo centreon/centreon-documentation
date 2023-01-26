@@ -259,7 +259,7 @@ Il est possible d'activer le protocole http2 pour améliorer les performances r�
 
 Pour utiliser http2, vous devez suivre les étapes suivantes:
 
-1. [Configurer le https pour Centreon](secure-platform.md#securisez-le-serveur-web-apache)
+1. [Configurer le https pour Centreon](#sécurisez-le-serveur-web-apache)
 
 2. Installer le module nghttp2:
 

@@ -9,7 +9,7 @@ to version 22.04.
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
+> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md)
 
 ## Prerequisites
 
@@ -23,11 +23,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 18.10.
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -52,7 +48,17 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Install the MariaDB repository
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
 
 ### Upgrade PHP
 
@@ -75,7 +81,7 @@ yum-config-manager --enable remi-php80
 > before starting the upgrade procedure.
 
 If you have installed Business extensions, update the Business repository to version 22.04.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -96,7 +102,7 @@ yum clean all --enablerepo=*
 Then upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Accept new GPG keys from the repositories as needed.
@@ -145,6 +151,8 @@ In particular, make sure your customized Apache configuration contains the follo
     ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
+
+> If you were using the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
 
 ### Additional actions
 
@@ -375,8 +383,9 @@ mysql --batch --skip-column-names --execute 'SELECT CONCAT("ALTER TABLE `", tabl
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 Then log on to the Centreon web interface to continue the upgrade process:
@@ -417,6 +426,16 @@ with the following:
 - Auto Discovery.
 
 Then you can upgrade all other commercial extensions.
+
+#### Set rights on Broker and Engine files
+
+Set the following rights on Broker and Engine files:
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
 
 #### Start the tasks manager
 
@@ -494,6 +513,12 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 ### Post-upgrade actions

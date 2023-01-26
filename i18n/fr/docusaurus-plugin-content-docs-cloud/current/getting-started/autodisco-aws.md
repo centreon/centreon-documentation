@@ -14,10 +14,11 @@ Vous devez disposer :
 
 ## Étape 1 : Installer les dépendances du plugin Amazon EC2
 
-Connectez-vous en SSH sur le collecteur qui supervisera vos instances EC2, puis installez le binaire awscli :
+Connectez-vous en SSH sur le collecteur qui supervisera vos instances EC2, puis installez les éléments suivants :
 
 ```shell
 yum install awscli
+yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 ## Étape 2 : Configurer la tâche de découverte
@@ -63,6 +64,6 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 3. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés, puis cliquez sur **Enregistrer**. ![image](../assets/getting-started/aws-save.png)
 
-4. Allez à la page **Configuration > Hôtes > Hôtes** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
+4. Allez à la page **Configuration > Hôtes > Hôtes (simplifiés)** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 
 5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.

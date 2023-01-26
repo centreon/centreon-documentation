@@ -1,35 +1,9 @@
 ---
 id: hardware-storage-hp-storeonce-restapi
-title: HP StoreOnce
+title: HP StoreOnce (Deprecated)
 ---
 
-## Prerequisites
+## **WARNING** This Pack is deprecated
 
-### Centreon Plugin
+This Pack has been deprecated and replaced by [HP StoreOnce 3.x Rest API](hardware-storage-hp-storeonce3-restapi.md) or [HP StoreOnce 4.x Rest API](hardware-storage-hp-storeonce4-restapi.md). 
 
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-plugin-Hardware-Storage-Hp-Storeonce-Restapi
-```
-
-### Rest API
-
-The plugin need an account to connect on Rest API.
-
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                                  |
-| :---------------------- | :------------------------------------- |
-| Host name               | *Name of the host*                     |
-| Alias                   | *Host description*                     |
-| IP                      | *Host IP Address*                      |
-| Monitored from          | *Monitoring Poller to use*             |
-| Host Multiple Templates | HW-Storage-HP-Storeonce-Restapi-custom |
-
-Click on the *Save* button.

@@ -8,96 +8,140 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
+This Plugin Pack allows to get metrics and statuses collected thanks to the NSClient++ 
 monitoring agent and its embedded NRPE Server. 
 
-## Pack assets
+### Templates
 
-### Monitored objects
+The Centreon Plugin Pack **Windows NSClient 0.5** brings 1 host template:
 
-* Windows Server OS from 2003 SP2 version
-* Windows Workstation from XP version
+* OS-Windows-NSClient-05-NRPE-custom
+
+It brings the following service templates:
+
+| Service Alias         | Service Template                                           | Service Description                                        | Default | Discovery |
+|:----------------------|:-----------------------------------------------------------|:-----------------------------------------------------------|:--------|:----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-NRPE-custom  | Check active sessions using NRPE protocol                  |         |           |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-NRPE-custom          | Check generic counter using NRPE protocol                  |         |           |
+| Cpu                   | OS-Windows-NSClient05-Cpu-NRPE-custom                      | Check Cpu usage using NRPE protocol                        | X       |           |
+| Disks                 | OS-Windows-NSClient05-Disks-NRPE-custom                    | Check disks usage using NRPE protocol                      |         | X         |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom         | Check event logs using NRPE protocol                       |         |           |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-NRPE-custom            | Check files (dates, size, etc...) using NRPE protocol      |         |           |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom         | Check log file using NRPE protocol                         |         |           |
+| Memory                | OS-Windows-NSClient05-Memory-NRPE-custom                   | Check memory usage using NRPE protocol                     | X       |           |
+| Ntp                   | OS-Windows-NSClient05-Ntp-NRPE-custom                      | Check Ntp time synchronization using NRPE protocol         |         |           |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom           | Check pending reboot using NRPE protocol                   |         |           |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-NRPE-custom          | Check processes state using NRPE protocol                  |         |           |
+| Remote-Ping           | OS-Windows-NSClient05-Remote-Ping-NRPE-custom              | Check remote ping using NRPE protocol                      |         |           |
+| Services-Auto         | OS-Windows-NSClient05-Services-Auto-NRPE-custom            | Check automatic started services state using NRPE protocol | X       |           |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-NRPE-custom    | Check services state using NRPE protocol                   |         |           |
+| Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                 | Check sessions using NRPE protocol                         |         |           |
+| Swap                  | OS-Windows-NSClient05-Swap-NRPE-custom                     | Check swap usage using NRPE protocol                       | X       |           |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom             | Check scheduled tasks using NRPE protocol                  |         |           |
+| Updates               | OS-Windows-Updates-NRPE-custom                             | Check windows pending updates                              |         |           |
+| Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                   | Check uptime using NRPE protocol                           |         |           |
+
+### Discovery rules
+
+<Tabs groupId="sync">
+<TabItem value="Service" label="Service">
+
+| Rule Name                 | Description         |
+|:--------------------------|:--------------------|
+| OS-Winfows-NRPE-Disk-Name | Discover disk name. |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery).
+
+</TabItem>
+</Tabs>
 
 ### Collected metrics
 
 <Tabs groupId="sync">
 <TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
 
-| Metric name     | Description                             |
-| :-------------- | :-------------------------------------- |
-| Sessions\_value | Number of actived sessions. Unit: Count |
+| Metric name     | Unit  |
+| :-------------- | :---- |
+| Sessions\_value | Count |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Metric name    | Description                          |
-| :------------- | :----------------------------------- |
-| Counter\_value | Number of counter found. Unit: Count |
+| Metric name    | Unit  |
+| :------------- | :---- |
+| Counter\_value | Count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name | Description                                                      |
-| :---------- | :--------------------------------------------------------------- |
-| total 5m    | CPU Utilization of Windows serveur over 5 minutes. Unit: Percent |
-| total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
-| total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
+| Metric name | Unit |
+| :---------- | :--- |
+| total 5m    | %    |
+| total 1m    | %    |
+| total 5s    | %    |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Metric name | Description                                   |
-| :---------- | :-------------------------------------------- |
-| used        | Used and Total Storage allocated. Unit: Bytes |
+| Metric name | Unit  |
+| :---------- | :---- |
+| used        | Bytes |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Metric name  | Description                            |
-| :----------- | :------------------------------------- |
-| problemCount | Number of event log found. Unit: Count |
+| Metric name  | Unit  |
+| :----------- | :---- |
+| problemCount | Count |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric name | Description                        |
-| :---------- | :--------------------------------- |
-| count       | Number of files found. Unit: Count |
+| Metric name | Unit  |
+| :---------- | :---- |
+| count       | Count |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Metric name        | Description                                                                   |
-| :----------------- | :---------------------------------------------------------------------------- |
-| default\_lines     | Number of line that match with tag word found in logfile. Unit: Count         |
-| default\_warnings  | Number of line that match with warning pattern found in logfile. Unit: Count  |
-| default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
-| default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
+| Metric name        | Unit  |
+| :----------------- | :---- |
+| default\_lines     | Count |
+| default\_warnings  | Count |
+| default\_criticals | Count |
+| default\_unknowns  | Count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name | Description                        |
-| :---------- | :--------------------------------- |
-| used        | Total usage of memory. Unit: Bytes |
+| Metric name | Unit  |
+| :---------- | :---- |
+| used        | Bytes |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name | Description                             |
-| :---------- | :-------------------------------------- |
-| swap        | Total usage of swap memory. Unit: Bytes |
+| Metric name | Unit  |
+| :---------- | :---- |
+| swap        | Bytes |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric name                   | Description                                               |
-| :---------------------------- | :-------------------------------------------------------- |
-| sessions-created              | Number of created users session. Unit: Count              |
-| sessions-disconnected         | Number of disconnected users session. Unit: Count         |
-| sessions-reconnected          | Number of reconnected users session. Unit: Count          |
-| sessions-active               | Number of active users session. Unit: Count               |
-| sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
+| Metric name                   | Unit  |
+| :---------------------------- | :---- |
+| sessions-created              | Count |
+| sessions-disconnected         | Count |
+| sessions-reconnected          | Count |
+| sessions-active               | Count |
+| sessions-disconnected-current | Count |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Metric Name                   | Unit   |
+|:------------------------------|:-------|
+| windows.pending.updates.count |        |
 
 </TabItem>
 </Tabs>
@@ -145,7 +189,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 
 ## Host configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your *Windows* server settings.
 * Select the *OS-Windows-NSClient-05-NRPE-custom* template to apply to the Host.
 * Once the template is applied, fill in the corresponding macros. If you're in 21.10 or higher version and you've just installed **centreon-nrpe3-plugin**, you will have to replace the default macro values by the bold ones:

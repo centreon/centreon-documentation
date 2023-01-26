@@ -11,7 +11,7 @@ Centreon depuis la version 21.04 vers la version 22.04.
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.md)
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
 
 ## Prérequis
 
@@ -25,11 +25,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
-
-### Mise à jour vers la dernière version mineure
-
-Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 21.04.
+> Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon Central
 
@@ -56,21 +52,66 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
+> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+### Installer le dépôt MariaDB
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+</TabItem>
+</Tabs>
 
 ### Upgrade PHP
 
 Centreon 22.04 utilise PHP en version 8.0.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+
+```
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+Vous devez tout d'abord installer les dépôts **remi** :
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
 ```
 Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.0 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
@@ -102,7 +143,7 @@ yum-config-manager --enable remi-php80
 > la procédure de mise à jour.
 
 Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
-Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
 ```shell
@@ -122,9 +163,22 @@ yum clean all --enablerepo=*
 
 Mettez à jour l'ensemble des composants :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+</Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
@@ -191,6 +245,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
 </LocationMatch>
 ```
 
+> Si vous utilisiez OpenID ou l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
+
 ### Finalisation de la mise à jour
 
 <Tabs groupId="sync">
@@ -252,11 +308,19 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Ajustez les droits sur les fichiers de Broker et d'Engine :
 
-3. Redémarrez les processus Centreon :
-
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
     ```
+
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
+
+    ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
@@ -311,4 +375,10 @@ Démarrez et activez **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
 ```

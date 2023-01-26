@@ -28,9 +28,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 Lors d'une montée de version majeure (ex: 20.10.x à 22.04.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
-Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
-
-![image](../assets/reporting/support_repos.png)
+Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ## Étape 2 : Mettre à jour l'interface
 
@@ -41,7 +39,7 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
     ```
 
 2. Mettre à jour l'interface: Se connecter à l'interface web de Centreon et se rendre dans le menu
- `Administration > Extension > Manager` puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
+ **Administration > Extension > Manager** puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
 
 ## Étape 3 : Mettre  à jour le serveur de reporting
 

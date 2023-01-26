@@ -597,7 +597,7 @@ pcs quorum device add model net \
 À exécuter **seulement sur un nœud de Centreon-Map** :
 
 <Tabs groupId="sync">
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -643,7 +643,7 @@ pcs resource create "ms_mysql" \
 > **AVERTISSEMENT:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 <Tabs groupId="sync">
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource meta ms_mysql-master \

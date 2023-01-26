@@ -21,14 +21,16 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon supports the following operating systems: CentOS 7, AlmaLinux 8, RedHat/OracleLinux 7 or 8.
+Centreon supports the following operating systems: CentOS 7, AlmaLinux 8, RedHat/OracleLinux 7 or 8, Debian 11.
 
-| Version                | Installation mode                                      |
-|------------------------|--------------------------------------------------------|
-| CentOS 7               | RPM packages, virtual machine , sources                |
-| Alma/RHEL/Oracle Linux | RPM packages, sources                                  |
+| Version                  | Installation mode                                      |
+|--------------------------|--------------------------------------------------------|
+| CentOS 7                 | RPM packages, virtual machine , sources                |
+| Alma Linux 8             | RPM packages, sources                                  |
+| RHEL/Oracle Linux 7 or 8 | RPM packages, sources                                  |
+| Debian 11                | DEB packages                                           |
 
-Open Source users, without Support contract, can use another GNU/Linux operating system.
+Open Source users, without a support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
 Bear in mind that IT Edition and Business Edition modules do not work yet on unsupported distributions.
 
@@ -174,6 +176,20 @@ Description of software and linked users:
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+| Software          | Service          | User             | Comment         |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | www-data         | automatic start |
+| PHP-FPM           | php-fpm          | www-data         | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |

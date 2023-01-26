@@ -180,7 +180,7 @@ It configured at installation and will probably not need any modification later.
 Before proceding, you should have read [the best practice parts](installation.md#best-practices-for-monitoring) to ensure
 that the objects (e.g., groups, categories) are configured according to Centreon MBI requirements.
 
-In the Centreon menu `Reporting > Business Intelligence > General Options > ETL options`,
+In the Centreon menu **Reporting > Business Intelligence > General Options > ETL options**,
 specify the following options:
 
 | **Options**                                                                               |   **Values**
@@ -229,7 +229,7 @@ will appear in the list of service categories available for centile
 statistics.
 
 You can create as many centile-time period combinations as you like, **but
-we strongly recommand** not having more than 2 or 3 combination* on a small number of metrics
+we strongly recommend** not having more than 2 or 3 combination* on a small number of metrics
 contained in the category.
 
 

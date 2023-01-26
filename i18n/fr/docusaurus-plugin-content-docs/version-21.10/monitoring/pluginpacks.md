@@ -36,7 +36,7 @@ yum update centreon-pp-manager
 ### Licence
 
 Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des Plugin Packs. Contactez
-les équipes [support Centreon](https://centreon.force.com) pour obtenir votre licence.
+les équipes [support Centreon](https://support.centreon.com) pour obtenir votre licence.
 
 
 ### Connecteurs
@@ -64,7 +64,7 @@ Un plugin pack s'installe en 4 étapes :
 
 * Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
 * Si vous avez une licence **hors ligne** :
-  - installez le dépôt des Plugin Packs (contactez l'[équipe support Centreon](https://centreon.force.com/) pour en obtenir l'adresse)
+  - installez le dépôt des Plugin Packs (rendez-vous sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en obtenir l'adresse)
   - installez ou mettez à jour le catalogue des Plugin Packs
 depuis votre serveur central :
 
@@ -189,7 +189,7 @@ Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-
 1. Exécutez la commande suivante sur **tous les collecteurs**:
 
     ```shell
-    yum update centreon-plugins\*
+    yum update centreon-plugin\*
     ```
 
 2. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md) sur tous les collecteurs. L'option **Redémarrer l'ordonnanceur** doit avoir la valeur **Redémarrer**.

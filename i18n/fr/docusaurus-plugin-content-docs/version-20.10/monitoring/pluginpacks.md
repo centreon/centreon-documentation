@@ -58,7 +58,7 @@ yum update centreon-pp-manager
 
 Une licence est nécessaire pour accéder au catalogue complet des Plugin Packs. Si votre plate-forme Centreon est
 connectée à une souscription en ligne, celle-ci sera automatiquement téléchargée sur votre serveur. Sinon contactez
-les équipes *[support Centreon](https://centreon.force.com)*.
+les équipes *[support Centreon](https://support.centreon.com)*.
 
 ### Accès aux Plugin Pack
 
@@ -236,7 +236,7 @@ Votre Plugin Pack est maintenant à jour.
 Exécutez la commande suivante sur **tous les collecteurs**:
 
 ```shell
-yum update centreon-plugins\*
+yum update centreon-plugin\*
 ```
 
 Puis redémarrez **tous les collecteurs**.

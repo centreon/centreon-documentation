@@ -74,7 +74,7 @@ yum install centreon-anomaly-detection
 
 ### Installation via l'interface
 
-Rendez-vous dans le menu `Administration > Extensions > Gestionnaire` et
+Rendez-vous dans le menu **Administration > Extensions > Gestionnaire** et
 recherchez **anomaly**. Cliquez sur le bouton **Install selection**.
 Le module est maintenant installé :
 
@@ -90,7 +90,7 @@ systemctl restart gorgoned
 
 ### Ajouter votre jeton
 
-Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 cliquez sur le bouton **Add Centreon Cloud Token** :
 
 ![imaage](../assets/monitoring/anomaly/install_03.png)
@@ -116,7 +116,7 @@ La configuration doit se faire en 3 étapes :
 1.  [Activer l'envoi des données collectées vers Centreon
     Cloud](#activer-lenvoi-des-données-collectées-vers-centreon-cloud) afin de
     démarrer la modélisation du comportement régulier puis de contrôler via le
-    menu `Supervision > Informations de performance > Graphiques` les premiers
+    menu **Supervision > Informations de performance > Graphiques** les premiers
     calculs de modélisation effectués.
 2.  Une fois que les modèles semblent corrects, [activer la génération
     d'alertes](#activer-la-génération-dalertes)
@@ -125,7 +125,7 @@ La configuration doit se faire en 3 étapes :
 
 ### Activer l'envoi des données collectées vers Centreon Cloud
 
-Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 cliquez sur le bouton **Create manually** :
 
 ![imaage](../assets/monitoring/anomaly/configure_01.png)
@@ -149,7 +149,7 @@ Cliquez sur **Save**.
 Il est maintenant temps de [déployer la
 supervision](monitoring-servers/deploying-a-configuration.md).
 
-Accédez ensuite au menu `Supervision > Détails des statuts > Services` et
+Accédez ensuite au menu **Supervision > Détails des statuts > Services** et
 sélectionnez **All** pour le filtre État du service. Après quelques minutes,
 les premiers résultats de la surveillance apparaissent.
 
@@ -168,7 +168,7 @@ Si, en suivant régulièrement le modèle généré et les données du menu
 `Monitoring > Performances > Graphs`, vous pensez que votre modèle est
 stable, vous pouvez activer la génération d'alertes.
 
-Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 éditez un service de détection d'anomalie:
 
 ![imaage](../assets/monitoring/anomaly/configure_02.png)
@@ -182,7 +182,7 @@ supervision](monitoring-servers/deploying-a-configuration.md).
 
 ### Activer le processus de notification
 
-Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 éditez un service de détection d'anomalie:
 
 ![imaage](../assets/monitoring/anomaly/configure_03.png)
@@ -208,7 +208,7 @@ Depuis la version 20.10.1, il est possible d'utiliser l'assistant de création.
 En effet, cette nouvelle fonctionnalité permet de mettre en avant les services
 présentant soit une saisonnalité, soit une stabilité régulière.
 
-Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 cliquez sur le bouton **Create from analysis**.
 
 La liste des services existant de votre plate-forme Centreon est affichée ainsi
@@ -243,11 +243,11 @@ Les services d'anomalies sont des services réguliers mais disposant de seuils
 flottants qui s'adaptent selon le modèle calculé. Il est donc possible de
 visualiser ses services et les alertes détectées :
 
-  - Dans le menu `Supervision > Détails des statuts > Services`.
-  - Dans le menu `Supervision > Informations de performance > Graphiques`.
-  - Dans le menu `Supervision > Journaux d'évènements`.
-  - Dans la widget **service-monitoring** via le menu `Accueil >
-    Vues personnalisées`.
+  - Dans le menu **Supervision > Détails des statuts > Services**.
+  - Dans le menu **Supervision > Informations de performance > Graphiques**.
+  - Dans le menu **Supervision > Journaux d'évènements**.
+  - Dans le widget **service-monitoring** via le menu **Accueil >
+    Vues personnalisées**.
   - Et tous les menus où vous pouvez opérer sur les services.
 
 ## Transférer l'historique des données
@@ -343,16 +343,6 @@ Une fois les candidats sélectionnés, Centreon les contactera pour leur indique
 régulières seront programmées pour évaluer l'efficacité de la fonctionnalité sur la plateforme des clients. Des
 sessions de prise en main à distance peuvent être nécessaires. Une mise à jour de la fonctionnalité peut également
 être demandée pour valider les modifications apportées suite au retour d'expérience.
-
-### Quelle est la durée du programme de test bêta ?
-
-La période de test bêta fermé est d'environ 4 mois. Cela devrait permettre de valider les prévisions générées à partir
-du calcul des modèles, ainsi que la génération d'alertes dans la console d'événements et le déclenchement du processus
-de notification.
-
-#### Quand la fonctionnalité sera-t-elle disponible? Et pour quelle édition Centreon ?
-
-La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 21.10.
 
 ### Combien de temps les données sont-elles hébergées ?
 

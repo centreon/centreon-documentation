@@ -7,8 +7,8 @@ We have included a set of generic reports that you can reconfigure for your
 environment based on Centreon concepts (e.g., business activities, host groups
 and categories, service categories, metrics).
 
-> You can have a look to our [Reports
-> book](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf) to find the
+> You can have a look at our [Reports
+> book](../assets/reporting/Centreon-MBI-Sample-Reports.pdf) to find the
 > report you need before consulting this report guide.
 
 Most of these reports have been designed to be perfectly rendered in
@@ -831,7 +831,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options`
+Go to **Reporting > Business Intelligence > General Options > Scheduler Options**
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
@@ -841,7 +841,7 @@ server needs to access it using HTTP or HTTPS protocole. A curl command
 sent to the URL of the API should generate an image file.
 
 ``` shell
-curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Replace the values between $ signs by real values.
@@ -849,7 +849,7 @@ Replace the values between $ signs by real values.
 Example:
 
 ``` shell
-curl http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
+curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
 ```
 
 > If you are using SSL/TLS on your Central server, and if the certificate is
@@ -908,7 +908,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-Go to `Reporting > Business Intelligence > General Options > Scheduler Options` 
+Go to **Reporting > Business Intelligence > General Options > Scheduler Options** 
 and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
@@ -918,7 +918,7 @@ server needs to access it using HTTP or HTTPS protocole. A curl command
 sent to the URL of the API should generate an image file.
 
 ``` shell
-curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Replace the values between $ signs by real values.
@@ -926,7 +926,7 @@ Replace the values between $ signs by real values.
 Example:
 
 ``` shell
-curl http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
+curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
 ```
 
 > If you are using SSL/TLS on your Central server, and if the certificate is

@@ -459,7 +459,7 @@ To use this template in your BIRT report:
 
 ### Define the project structure
 
-We highly recommand defining and applying standard conventions for:
+We highly recommend defining and applying standard conventions for:
 
 -   Creating a directory tree for reports and resources.
 -   Naming directories and files.
@@ -654,6 +654,6 @@ properties:
 
 ### Running the report job
 
-In the menu `Reporting > Business Intelligence > Jobs`, define a job
+In the menu **Reporting > Business Intelligence > Jobs**, define a job
 to run your report design, and fill in all the specific report
 parameters.

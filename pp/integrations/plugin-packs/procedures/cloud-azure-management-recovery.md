@@ -1,126 +1,196 @@
 ---
 id: cloud-azure-management-recovery
 title: Azure Recovery
+
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Pack Assets
+
+### Templates
+
+The Centreon Plugin Pack **Azure Recovery** brings a host template:
+
+* Cloud-Azure-Management-Recovery-Backup-custom
+
+It brings the following service templates:
+
+| Service Alias       | Service Template                                        | Service Description                         | Default |
+| :------------------ | :------------------------------------------------------ | :------------------------------------------ | :------ |
+| Backup-Items-Status | Cloud-Azure-Management-Recovery-Backup-Items-Status-Api | Check items backup state for a given vault | X       |
+| Backup-Jobs-Status  | Cloud-Azure-Management-Recovery-Backup-Jobs-Status-Api  | Check backup jobs state for a given vault  | X       |
+| Replication-Health  | Cloud-Azure-Management-Recovery-Replication-Health-Api  | Check replication and failover health for a given vault | X      |
+
+### Discovery rules
+
+The Centreon Plugin Pack **Azure Recovery** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the Centreon configuration. This provider is named **Microsoft Azure Recovery Vaults**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-recovery-provider.png)
+
+> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+### Collected metrics & status
+
+<Tabs groupId="sync">
+<TabItem value="Backup-Items-Status" label="Backup-Items-Status">
+
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| Backup item status          |       |
+
+</TabItem>
+<TabItem value="Backup-Jobs-Status" label="Backup-Jobs-Status">
+
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| Backup job status           |       |
+
+</TabItem>
+
+<TabItem value="Replication-Health" label="Replication-Health">
+
+| Metric Name                 | Unit  |
+|:----------------------------|:------|
+| Replication health          |       |
+| Failover health             |       |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### Centreon Plugin
+Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-Install this plugin on each needed poller:
+## Setup
 
-``` shell
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Recovery** resources:
+
+```bash
 yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
 ```
 
-### Perl dependencies (for 'api' custom mode)
+2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Recovery** Centreon Plugin Pack.
 
-By installing the plugin, some perl depencies will be installed :
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
 
-    JSON::XS
-    DateTime
-    Digest::MD5
-    Digest::SHA
-    LWP::UserAgent
-    LWP::Protocol::https
-    IO::Socket::SSL
-    URI
-    HTTP::ProxyPAC
+1. Install the plugin package on every Centreon poller expected to monitor **Azure Recovery** resources:
 
-The login and access token handling will be made by the plugin itself.
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
+```
 
-### Azure CLI 2.0 (for 'azcli' custom mode)
+2. Install the **Azure Recovery** Centreon Plugin Pack RPM on the Centreon central server:
 
-The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
+```bash
+yum install centreon-pack-cloud-azure-management-recovery
+```
 
-On CentOS/RedHat, install with following commands:
+3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Recovery** Centreon Plugin Pack.
 
-    (As root)
-    # rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    # echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-    # yum install azure-cli
-    (As centreon-engine)
-    # az login
+</TabItem>
+</Tabs>
 
-The shell should prompt:
+## Configuration
 
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
+### Host
 
-Go to <https://microsoft.com/devicelogin> and enter the given code.
+* Log into Centreon and add a new host through **Configuration > Hosts**.
+* In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+* Apply the **Cloud-Azure-Management-Recovery-Backup-custom** template to the host.
+* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+  These mandatory macros differ depending on the custom mode used.
 
-Log in with your account credentials. You should use a service account.
-Application is not yet supported.
+<Tabs groupId="sync">
+<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-The command line should now show:
+| Mandatory | Macro              | Description                                  |
+| :-------- | :----------------- | :------------------------------------------- |
+| X         | AZUREAPICUSTOMMODE | Custom mode **api**                          |
+| X         | AZUREVAULTNAME     | Backup vault name                            |
+| X         | AZURECLIENTID      | Client ID                                    |
+| X         | AZURECLIENTSECRET  | Client secret                                |
+| X         | AZURERESOURCEGROUP | Resource group name                          |
+| X         | AZURESUBSCRIPTION  | Subscription ID                              |
+| X         | AZURETENANT        | Tenant ID                                    |
+|           | PROXYURL           | Proxy URL                                    |
 
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+</TabItem>
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-You now have a hidden azure directory where your token is stored in an
-accessTokens.json file.
+| Mandatory | Macro              | Description                                  |
+| :-------- | :----------------- | :------------------------------------------- |
+|  X        | AZURECLICUSTOMMODE | Custom mode **azcli**                        |
+|  X        | AZURERESOURCEGROUP | Resource group name                          |
+|  X        | AZURESUBSCRIPTION  | Subscription ID                              |
 
-## Centreon Configuration
+</TabItem>
+</Tabs>
 
-### Create a new host
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
+running the following command:
 
-| Field                   | Value                                         |
-| :---------------------- | :-------------------------------------------- |
-| Host name               | *Name of the host*                            |
-| Alias                   | *Host description*                            |
-| IP                      | *Host IP Address*                             |
-| Monitored from          | *Monitoring Poller to use*                    |
-| Host Multiple Templates | Cloud-Azure-Management-Recovery-Backup-custom |
+```bash
+/usr/lib/centreon/plugins//centreon_azure_management_recovery_api.pl \
+    --plugin=cloud::azure::management::recovery::plugin \
+    --mode=backup-jobs-status \
+    --custommode='api' \
+    --resource-group='GPBACK1234' \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --proxyurl='' \
+    --vault-name='vault123' \
+    --warning-status='' \
+    --critical-status='%{status} eq "Failed"' \
+    --warning-total-completed='' \
+    --critical-total-completed='' \
+    --warning-total-failed='' \
+    --critical-total-failed='' \
+    --warning-total-inprogress='' \
+    --critical-total-inprogress='' 
+```
 
-Click on the *Save* button.
+The expected command output is shown below:
 
-### Set host macros
+```bash
+OK: Backup Job 'backupjob456' Status 'Completed' [Duration: 41m 12s]
+```
 
-The following macros must be configured on host.
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
-#### Common macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_management_recovery_api.pl \
+    --plugin=cloud::azure::management::recovery::plugin \
+    --mode=backup-jobs-status \
+    --help
+```
 
-| Macro              | Description    |
-| :----------------- | :------------- |
-| AZUREVAULTNAME     | Vault name     |
-| AZURERESOURCEGROUP | Resource group |
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
-#### 'api' custom mode macros
+```bash
+/usr/lib/centreon/plugins//centreon_azure_management_recovery_api.pl \
+    --plugin=cloud::azure::management::recovery::plugin \
+    --list-mode
+```
 
-| Macro             | Description       |
-| :---------------- | :---------------- |
-| AZURECUSTOMMODE   | Custom mode 'api' |
-| AZURESUBSCRIPTION | Subscription ID   |
-| AZURETENANT       | Tenant ID         |
-| AZURECLIENTID     | Client ID         |
-| AZURECLIENTSECRET | Client secret     |
+### Troubleshooting
 
-#### 'azcli' custom mode macros
-
-| Macro             | Description         |
-| :---------------- | :------------------ |
-| AZURECUSTOMMODE   | Custom mode 'azcli' |
-| AZURESUBSCRIPTION | Subscription ID     |
-
-Click on the *Save* button.
-
-## Available metrics
-
-Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
-to see the description of return metrics for this Azure service.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).

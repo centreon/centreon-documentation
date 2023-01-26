@@ -52,7 +52,7 @@ host, based on the elements discovered by the probes. The created unit services
 will be attached to a service template so that Centreon's functionalities can be
 used (inheritance, overloading and more).
 
-To create a rule, go to `Configuration > Services > Rules` and click on the
+To create a rule, go to **Configuration > Services > Rules** and click on the
 **Add** button:
 
 ![image](../../assets/configuration/autodisco/create_rule_1.png)
@@ -198,7 +198,7 @@ For each discovery plugins you need to define two commands:
 
 ### Command to list available XML attributes
 
-Go to `Configuration > Commands > Discovery` menu and click on **Add** button to
+Go to **Configuration > Commands > Discovery** menu and click on the **Add** button to
 create the first command.
 
 Fill the fileds:
@@ -234,7 +234,7 @@ Save the command.
 
 ### Command to get the list of items on a host
 
-Go to `Configuration > Commands > Discovery` menu and click on **Add** button to
+Go to **Configuration > Commands > Discovery** menu and click on the **Add** button to
 create the first command.
 
 Fill the fileds:

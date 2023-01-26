@@ -1,0 +1,164 @@
+---
+id: centreon-commercial-extensions
+title: Commercial Extensions
+---
+
+## Introduction
+
+You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
+
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will let you know the impact of the installation of these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
+
+If you have feature requests or want to report a bug, please contact support.
+
+Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/).
+
+## Centreon MAP
+
+### 22.10.4
+
+Release date : `January 17, 2023`
+
+#### Bug fixes
+
+- Fixed an issue preventing users to create a map with the API.
+- Fixed an issue that caused server to fail to start when trying to load empty output.
+- Fixed links where empty bendpoints caused maps to become not editable.
+- Resource name properties are now used for links when saving maps.
+- Fixed an issue that caused metric links in the same views to display the same value after the first refresh.
+
+### 22.10.3
+
+Release date: `December 16, 2022`
+
+#### Bug fixes
+
+- Added more fixes for server startup error due to duplicate key.
+
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+#### Bug fixes
+
+- Fixed server startup error due to duplicate key.
+
+### 22.10.1
+
+- First release: `November 29, 2022`
+
+The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
+
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
+- Migration process: Integrated migration process of your legacy views.
+
+## Centreon MAP Legacy
+
+### 22.10.4
+
+Release date : `January 17, 2023`
+
+- No change.
+
+### 22.10.3
+
+Release date: `December 16, 2022`
+
+- No change.
+
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+- No change.
+
+### 22.10.1
+
+Release date: `November 29, 2022`
+
+#### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics.
+- Fixed the security issue CVE-2022-42889 (Text4shell).
+
+#### Bug fixes
+
+- Fixed an issue where resources' tooltips in the MAP legacy widget could not be displayed properly.
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+#### Performance
+
+- Move to Java 17
+
+## Centreon BAM
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+## Centreon MBI
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+#### Performance
+
+- ETL daily and rebuild optimizations
+- Move to Java 17
+
+## Centreon Auto Discovery
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+#### Enhancements
+
+- Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the 22.04 release, it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
+- When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
+
+## Centreon Plugin Packs Manager
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+## Centreon License Manager
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+## Centreon Anomaly Detection
+
+### 22.10.0
+
+Release date: `October 26, 2022`
+
+- Compatibility with other 22.10 components.
+
+#### Enhancements
+
+- Added new type of resources in Resource Status (display and filter)
+- Added prediction envelope size management by user from Resources Status
+- Downtimes on regular services are now propagated to related Anomaly Detection service(s)

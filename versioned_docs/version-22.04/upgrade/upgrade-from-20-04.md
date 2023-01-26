@@ -9,7 +9,7 @@ to version 22.04.
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md)
+> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.md#upgrade-mariadb-server)
@@ -26,11 +26,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 20.04.
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
@@ -48,7 +44,17 @@ Run the following commands:
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Install the MariaDB repository
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
 
 ### Upgrade PHP
 
@@ -71,7 +77,7 @@ yum-config-manager --enable remi-php80
 > before starting the upgrade procedure.
 
 If you have installed Business extensions, update the Business repository to version 22.04.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -92,12 +98,13 @@ yum clean all --enablerepo=*
 Then upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Accept new GPG keys from the repositories as needed.
 
 The PHP timezone should be set. Run the command:
+
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
@@ -135,6 +142,8 @@ In particular, make sure your customized Apache configuration contains the follo
     ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
+
+> If you were using the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
 
 ### Upgrade the MariaDB server
 
@@ -217,8 +226,9 @@ systemctl enable mariadb
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 Then log on to the Centreon web interface to continue the upgrade process:
@@ -258,9 +268,18 @@ with the following:
 
     Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Set the following rights on Broker and Engine files:
 
-3. Restart Centreon processes:
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart Centreon processes:
+
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
@@ -302,6 +321,12 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 ## Secure your platform

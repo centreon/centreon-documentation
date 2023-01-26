@@ -82,13 +82,31 @@ son fonctionnement, il convient de vérifier les paramètres de configuration de
 Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitre de configuration de
 *[centreontrapd](enable-snmp-traps.md#centreontrapd)*.
 
+Vous pouvez activer le mode debug pour le service **centreontrapd**. Éditez le fichier suivant :
+
+```shell
+vi /etc/sysconfig/centreontrapd
+```
+
+Puis modifiez l'option **severity** en **debug** :
+
+```shell
+OPTIONS="--logfile=/var/log/centreon/centreontrapd.log --severity=debug --config=/etc/centreon/conf.pm  --config-extra=/etc/centreon/centreontrapd.pm"
+```
+
+Puis redémarrez **centreontrapd** :
+
+```shell
+systemctl restart centreontrapd
+```
+
 ### Centeon Gorgone
 
 Dans le cas d’un serveur central, le processus Centreon Gorgone doit être démarré pour transférer la commande externe à
 l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le
-menu **Administration > Options > Debug** et redémarrez le processus.
+menu **Administration > Parameters > Debug** et redémarrez le processus.
 
-> Vous pouvez modifier le niveau de journalisation des logs  via le menu `Administation > Paramètres > Débogage`
+> Vous pouvez modifier le niveau de journalisation des logs  via le menu **Administration > Paramètres > Débogage**
 
 En cas de non réception de la commande externe, vérifiez le chemin d’accès au fichier de commande du processus défini
 dans la variable "$cmdFile" du fichier de configuration **/etc/centreon/conf.pm**. Le chemin doit être 

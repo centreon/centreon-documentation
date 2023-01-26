@@ -63,7 +63,7 @@ MAP is **Centreon 20.10**
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Hardware
 
@@ -110,7 +110,7 @@ children which must be included in the count.
 - Centreon Web login with admin rights.
 
 > Even with a correctly sized server, you should have in mind the best
-> practices & recommandations when creating views so you don't face
+> practices & recommendations when creating views so you don't face
 > performance issues.
 
 ### Centreon MAP Web interface
@@ -119,7 +119,7 @@ children which must be included in the count.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Compatibility
 
@@ -191,7 +191,7 @@ Centreon MAP Desktop Client machines must access:
 - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
 - Internet with or without proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other
+Ports 8080 and 8443 are recommended default values, but other
 configurations are possible.
 
 ## Server installation
@@ -254,7 +254,7 @@ Then install Centreon MAP server using the following command:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install centreon-map-server
+dnf install centreon-map-server --exclude=centreon-bi-engine
 ```
 
 </TabItem>
@@ -431,7 +431,7 @@ Mac and Linux platforms (Debian and Ubuntu).
 You can find the installers in `Monitoring > Map > Desktop Client` or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=20.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
+> For performance considerations, we highly recommend to have less than 5, 10
 > users maximum connected at the same time manipulating views.
 
 ### Installation
@@ -541,7 +541,7 @@ yum install centreon-map-server-ng
 And proceed to the configuration with the following command:
 
 ```shell
-/etc/centreon-map/configure.sh
+/etc/centreon-studio/configure.sh
 ```
 
 The configuration is exactly the same as the usual server, but is stored

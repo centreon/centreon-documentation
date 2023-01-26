@@ -8,7 +8,7 @@ concepts de Centreon : groupes d'hôtes, catégories d'hôtes, catégories
 de services, métriques, etc.
 
 > Vous pouvez jeter un oeil au [Reports
-> book](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf) pour trouver le
+> book](../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf) pour trouver le
 > rapport dont vous avez besoin avant de consulter ce guide.
 
 La plupart des rapports ont été créés pour un rendu optimal sur PDF, il
@@ -880,7 +880,7 @@ Pour résumer un "curl" sur l'URL de l'API doit répondre sans erreur
 de certificat, example :
 
 ``` shell
-curl http://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Remplacez par les bonnes valeurs les variable '$xxxx$'.
@@ -888,7 +888,7 @@ Remplacez par les bonnes valeurs les variable '$xxxx$'.
 Exemple :
 
 ``` shell
-http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
+http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
 ```
 
 > Si votre serveur Central utilise SSL/TLS, et si le certificat est auto-signé
@@ -958,7 +958,7 @@ Exemple, à partir du serveur de reporting, le "curl" suivant doit
 répondre et générer un fichier de type image :
 
 ``` shell
-curl https://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+curl https://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
 Remplacez par les bonnes valeurs les variable '$xxxx$'.
@@ -966,7 +966,7 @@ Remplacez par les bonnes valeurs les variable '$xxxx$'.
 Exemple d'adresse :
 
 ``` shell
-http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
+http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600
 ```
 
 > Si votre serveur Central utilise SSL/TLS, et si le certificat est auto-signé

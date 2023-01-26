@@ -5,12 +5,14 @@ title: À partir d'une VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
-VMware et pour l'outil Oracle VirtualBox.
-Elle est basée sur le système d'exploitation **Linux CentOS 7** et inclut
-une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
+Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi comprenant une installation de Centreon. Ces machines virtuelles sont disponibles au format OVA pour les environnements
+VMware et pour l'outil Oracle VirtualBox :
 
-La VM est configurée en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
+- centreon-vmware-vm-22.04-1.el8.ova.zip, VM basée sur Alma 8.6 et compatible avec vSphere 6.7 et supérieur
+
+- centreon-vbox-vm-22.04-1.el7.ova.zip, VM basée sur CentOS 7.9 et compatible avec Oracle VirtualBox et vSphere 6.0 et supérieur.
+
+Les VMs sont configurées en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
 
 **Prérequis**
 
@@ -193,7 +195,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 `http://addresse_ip/centreon` ou `http://FQDN/centreon`. (Par exemple, une URL valide serait
 `http://192.168.1.44/centreon`.)
 
-7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon!2021`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
+7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon123!`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
 8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md).
 
@@ -205,7 +207,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 ## Identifiants par défaut
 
-- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon!2021`.
+- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon123!`.
 - Le compte d'administration du serveur (via SSH) est: `root`/`centreon`.
 - Le mot de passe root du SGBD n'est pas initialisé.
 

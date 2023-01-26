@@ -21,7 +21,7 @@ Here is the minimal acceptable Lua code to work as stream connector:
   end
 ```
 
-We recommand to put Lua scripts in the ``/usr/share/centreon-broker/lua``
+We recommend to put Lua scripts in the ``/usr/share/centreon-broker/lua``
 directory. If it does not exist, we can create it. Just be careful that
 directory to be accesible for the centreon-broker user. If a stream connector
 is composed of several files (a main script and a module for example), you can

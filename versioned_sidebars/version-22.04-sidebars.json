@@ -174,8 +174,22 @@
           ]
         },
         {
-          "type": "doc",
-          "id": "version-22.04/ceip/what-is-centreon-ceip"
+          "type": "category",
+          "label": "Installation of a manual Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
+            }
+          ]
         }
       ]
     },
@@ -286,6 +300,10 @@
             {
               "type": "doc",
               "id": "version-22.04/monitoring/discovery/administration"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/monitoring/discovery/troubleshooting-hosts-discovery"
             }
           ]
         },
@@ -582,40 +600,78 @@
     {
       "type": "category",
       "label": "Graphical views",
-      "items": [
+      "link": {
+        "type": "generated-index",
+        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
+      },
+      "collapsed": true,
+         "items": [
+                {
+          "type": "category",
+        "label": "Centreon MAP",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-22.04/graph-views/introduction-map"
+          }, 
+          {
+      "type": "doc",
+      "id": "version-22.04/graph-views/map-web-install"
+      },
+      {
+        "type": "doc",
+        "id": "version-22.04/graph-views/map-web-install-remote"
+        },
         {
           "type": "doc",
-          "id": "version-22.04/graph-views/introduction"
-        },
-        {
-          "type": "category",
-          "label": "Guide",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-22.04/graph-views/create-standard-view"
+          "id": "version-22.04/graph-views/map-web-update"
+          },
+      {
+          "type": "doc",
+          "id": "version-22.04/graph-views/import-into-map-web"
+          },
+          {
+            "type": "doc",
+            "id": "version-22.04/graph-views/map-web-access"
             },
-            {
-              "type": "doc",
-              "id": "version-22.04/graph-views/create-geo-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.04/graph-views/display-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.04/graph-views/share-view"
+                            {
+                  "type": "doc",
+                  "id": "version-22.04/graph-views/map-web-manage"
+                },
+                {
+                "type": "doc",
+                "id": "version-22.04/graph-views/map-web-create-standard-map"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.04/graph-views/map-web-create-geoview"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.04/graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-22.04/graph-views/map-web-troubleshooting"
+                  }
+              ]
             }
-          ]
-        },
-        {
+          ,
+                {
           "type": "category",
-          "label": "Administrate",
+          "label": "Centreon MAP (Legacy)",
           "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/introduction"
+            },
             {
               "type": "doc",
               "id": "version-22.04/graph-views/install"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/remote-server"
             },
             {
               "type": "doc",
@@ -635,11 +691,23 @@
             },
             {
               "type": "doc",
-              "id": "version-22.04/graph-views/remote-server"
+              "id": "version-22.04/graph-views/advanced-configuration"
             },
             {
               "type": "doc",
-              "id": "version-22.04/graph-views/advanced-configuration"
+              "id": "version-22.04/graph-views/create-standard-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/create-geo-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/display-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/share-view"
             },
             {
               "type": "doc",
@@ -653,7 +721,7 @@
         }
       ]
     },
-    {
+       {
       "type": "category",
       "label": "Reporting",
       "items": [
@@ -933,7 +1001,11 @@
             },
             {
               "type": "doc",
-              "id": "version-22.04/migrate/migrate-from-20-x"
+              "id": "version-22.04/migrate/migrate-from-el-to-el"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/migrate/migrate-from-el-to-debian"
             },
             {
               "type": "doc",
@@ -946,6 +1018,10 @@
             {
               "type": "doc",
               "id": "version-22.04/migrate/poller-display-to-remote-server"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
@@ -979,6 +1055,10 @@
             {
               "type": "doc",
               "id": "version-22.04/integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/data-analytics/sc-logstash-events"
             },
             {
               "type": "doc",
@@ -1123,6 +1203,16 @@
               "id": "version-22.04/integrations/notifications/plugin-telegram"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "NPM",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/integrations/npm/ntopng"
+            }
+          ]
         }
       ]
     },
@@ -1179,6 +1269,24 @@
             {
               "type": "doc",
               "id": "version-22.04/developer/developer-broker-mapping"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Centreon Gorgone",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/developer/developer-gorgone-rebound-mode"
             }
           ]
         },
@@ -1285,6 +1393,20 @@
         {
           "type": "doc",
           "id": "version-22.04/security/key-rotation"
+        },
+        {
+          "type": "category",
+          "label": "User data storage",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/security/user-data-storage/gdpr-compliance"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/security/user-data-storage/what-is-centreon-ceip"
+            }
+          ]
         }
       ]
     },
@@ -1295,6 +1417,14 @@
         {
           "type": "doc",
           "id": "version-22.04/resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/resources/glossary"
         }
       ]
     }

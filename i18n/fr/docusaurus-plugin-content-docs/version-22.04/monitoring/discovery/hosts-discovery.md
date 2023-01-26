@@ -163,7 +163,7 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
     ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
     Les changements seront appliqués directement à la liste des résultats lorsque vous cliquerez sur l'icône **Sauvegarder** en haut à droite du panneau.
 

@@ -9,7 +9,7 @@ Centreon depuis la version 18.10 vers la version 22.04.
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.md)
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
 
 ## Prérequis
 
@@ -23,11 +23,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
-
-### Mise à jour vers la dernière version mineure
-
-Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 18.10.
+> Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon Central
 
@@ -55,9 +51,19 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
-> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
+> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-### Montée de version de PHP
+### Installer le dépôt MariaDB
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
+
+## Montée de version de PHP
 
 Centreon 22.04 utilise PHP en version 8.0.
 
@@ -78,7 +84,7 @@ yum-config-manager --enable remi-php80
 > la procédure de mise à jour.
 
 Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.04.
-Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
 ```shell
@@ -99,7 +105,7 @@ yum clean all --enablerepo=*
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -147,6 +153,8 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 ```
+
+> Si vous utilisiez l'authentification Web SSO, des étapes de configuration supplémentaires sont nécessaires. Voir la [note de release](../releases/centreon-core.md#breaking-changes).
 
 ### Actions complémentaires
 
@@ -423,6 +431,16 @@ toutes les extensions, en commençant par les suivantes :
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
+#### Droits sur les fichiers de Broker et Engine
+
+Ajustez les droits sur les fichiers de Broker et d'Engine :
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
+
 #### Démarrer le gestionnaire de tâches
 
 Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en passant
@@ -501,6 +519,12 @@ Démarrez et activez **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 ### Actions post montée de version

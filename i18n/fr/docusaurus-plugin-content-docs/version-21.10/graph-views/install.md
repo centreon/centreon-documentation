@@ -58,7 +58,7 @@ Le serveur central et Centreon MAP doivent être dans la même version majeure (
 #### Licence
 
 Le serveur exige que la licence soit disponible et valide sur le serveur central Centreon. Contactez le [support
-Centreon](https://centreon.force.com/) pour obtenir et installer votre clé de licence.
+Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
 #### Matériel
 
@@ -113,7 +113,7 @@ qui doivent être inclus dans le décompte.
 #### Licence
 
 L'interface web nécessite que la licence soit disponible et valide sur le serveur 
-central de Centreon. Contactez l'[équipe support Centreon](https://centreon.force.com/) pour obtenir
+central de Centreon. Contactez l'[équipe support Centreon](https://support.centreon.com/) pour obtenir
 et installer votre clé de licence.
 
 #### Compatibilité
@@ -240,7 +240,7 @@ yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centr
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
 Installez le dépôt MAP de Centreon, que vous trouverez sur
-le [portail du support](https://support.centreon.com/s/repositories).
+le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
@@ -248,7 +248,7 @@ Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install centreon-map-server
+dnf install centreon-map-server --exclude=centreon-bi-engine
 ```
 
 </TabItem>
@@ -340,7 +340,7 @@ Le serveur Centreon Map est maintenant démarré et activé : installons la part
 
 ### Serveur Central
 
-Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Ensuite, exécutez la commande suivante :
 

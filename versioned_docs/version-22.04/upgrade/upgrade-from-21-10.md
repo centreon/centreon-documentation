@@ -11,7 +11,7 @@ to version 22.04.
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x.md).
+> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md).
 
 ## Prerequisites
 
@@ -22,10 +22,6 @@ servers:
 
 - Central server
 - Database server
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 21.10.
 
 ## Upgrade the Centreon Central server
 
@@ -50,7 +46,17 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Install the MariaDB repository
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
 
 ### Upgrade the Centreon solution
 
@@ -58,7 +64,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > before starting the upgrade procedure.
 
 If you have installed Business extensions, update the Business repository to version 22.04.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -78,9 +84,22 @@ yum clean all --enablerepo=*
 
 Then upgrade all the components with the following command:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+</Tabs>
 
 > Accept new GPG keys from the repositories as needed.
 
@@ -99,24 +118,25 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
 
+> If you were using OpenID or the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
+
 ### Finalizing the upgrade
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
 ```shell
-systemctl reload httpd
+systemctl reload php-fpm httpd
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 </TabItem>
@@ -159,9 +179,17 @@ with the following:
 
     Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Set the following rights on Broker and Engine files:
 
-3. Restart the processes:
+    ```shell
+    chown apache:apache /etc/centreon-engine/*
+    chown apache:apache /etc/centreon-broker/*
+    su - apache -s /bin/bash -c umask
+    ```
+
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart the processes:
 
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
@@ -217,4 +245,10 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```

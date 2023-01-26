@@ -49,6 +49,7 @@ regexp)
 * Packet-Errors-Global : Check packet errors and discards on interfaces (all
 interfaces or filtered with regexp)
 * Process-Generic : Check linux processes
+* Systemd-Sc-Status : Check services managed by *systemd*
 * Traffic-Generic-Name : Check Traffic (single interface)
 * Traffic-Global : Check Traffic (all interfaces or filtered with regexp)
 

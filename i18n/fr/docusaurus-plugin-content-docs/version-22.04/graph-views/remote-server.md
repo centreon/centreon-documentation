@@ -1,59 +1,46 @@
 ---
 id: remote-server
-title: Install on a Remote server
+title: Installer MAP sur un serveur distant
 ---
 
-## Installation of Centreon MAP for a Centreon Remote Server
+> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+- L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
+- Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
 
-Installation of **Centreon MAP** extension installation on a **Centreon
-Remote Server** has to be done exactly like the installation on a
-Central server, only configuration and uninstallation are different.
+## Installation de Centreon MAP sur un serveur distant Centreon
 
-If your Centreon Remote Server has not been installed yet, please refer to
-the following
-[documentation](https://documentation.centreon.com/docs/centreon/en/latest/administration_guide/poller/install_remote_server)
+L'installation de l'extension **Centreon MAP** sur un **serveur distant Centreon** doit se faire exactement comme l'installation sur un serveur central, seules la configuration et la désinstallation sont différentes.
 
-Then refer to the [installation procedure](install.md) to install
-the 2 mains components:
+Si votre serveur distant Centreon n'a pas encore été installé, veuillez vous référer à la [documentation](../installation/installation-of-a-remote-server/using-packages.md) suivante.
 
-- The web interface
-- The server
+Reportez-vous ensuite à la [procédure d'installation](install.md) pour installer les 2 composants principaux :
 
-After that, you'll have to do extra steps, explained below, to finish
-Centreon Map installation for your Centreon Remote Server.
+- L'interface web
+- Le serveur
 
-## Images synchronisation
+Après cela, vous devrez effectuer des étapes supplémentaires, expliquées ci-dessous, pour terminer l'installation de Centreon MAP pour votre serveur distant Centreon.
 
-Add access to the images synchronisation page `Administration  >  Parameters  >  Images `
+## Synchronisation des images
+
+Ajouter l'accès à la page de synchronisation des images **Administration > Paramètres > Images**.
+
 ```shell
 [root@remote ~]# mysql centreon
 MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
 ```
 
-## Centreon Broker configuration
+## Configuration de Centreon Broker
 
-Configuration of **Centreon MAP** for a Centreon Remote Server consists
-in creating configuration for Centreon Broker of the Centreon Remote
-Server **from** the Central server so that, with a dedicated Centreon
-Broker output on the Centreon Remote Server, Centreon Map can receive
-real time data directly from its Centreon Remote Server.
+Pour pouvoir afficher les statuts en temps réel, **Centreon MAP** nécessite de recevoir ces données en provenance du Broker du serveur distant Centreon.
 
-To do so, you need to modify the **Centreon Broker Master**
-configuration of the **Centeon Remote poller**. Go to
-`Configuration > Pollers > Broker configuration` menu and edit the
-remote poller configuration.
+Pour ce faire, vous devez vous connecter au serveur central et modifier la configuration de Centreon Broker Master du serveur distant Centreon. Allez dans le menu **Configuration > Collecteurs > Configuration de Centreon Broker** et modifiez la configuration du **serveur distant**.
 
-In the Output tab, create a new output with the following parameters:
+Dans l'onglet **Output**, créez une nouvelle sortie avec les paramètres suivants :
 
 ![image](../assets/graph-views/output_broker.png)
 
-To finish the installation, generate, export the configuration and
-**restart** Centreon Broker manually.
+Pour finir l'installation, générez et déployez la configuration du serveur distant Centreon en sélectionnant le mode **Redémarrer**.
 
-## Uninstalling Centreon MAP
+## Désinstallation de Centreon MAP
 
-On a remote poller, you can uninstall **Centreon MAP** module the same
-way as on the Centreon server central. All **Centreon Broker**
-configuration for the Centreon Remote Server linked to the **Centreon
-MAP** module have to be manualy removed. Look at the chapter above to
-now what output you need to delete for your Centreon Remote Server(s)
+Sur un serveur distant, vous pouvez désinstaller le module **Centreon MAP** de la même manière que sur le serveur central Centreon. Toutes les configurations de **Centreon Broker** pour le serveur distant Centreon liées au module **Centreon MAP** doivent être supprimées manuellement. Consultez la [section ci-dessus](#configuration-de-centreon-broker) pour savoir quelles sorties vous devez supprimer pour votre ou vos serveurs distants Centreon.

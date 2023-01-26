@@ -26,11 +26,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 3.4 (Centreon Web 2.8).
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon central server
 
@@ -55,7 +51,17 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Install the MariaDB repository
+
+```shell
+cd /tmp
+curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash ./mariadb_repo_setup
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+rm -f ./mariadb_repo_setup
+```
 
 ### Upgrade PHP
 
@@ -75,7 +81,7 @@ yum-config-manager --enable remi-php80
 ### Upgrade the Centreon solution
 
 If you have installed Business extensions, update the Business repository to version 22.04.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -96,7 +102,7 @@ yum clean all --enablerepo=*
 Upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\* php-pecl-gnupg
 ```
 
 > Accept new GPG keys from the repositories as needed.
@@ -156,6 +162,8 @@ In particular, make sure your customized Apache configuration contains the follo
     ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
+
+> If you were using the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
 
 ### Additional actions
 
@@ -410,8 +418,9 @@ lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugi
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
-systemctl reload httpd24-httpd
+systemctl reload php-fpm httpd24-httpd
 ```
 
 Then log on to the Centreon web interface to continue the upgrade process:
@@ -450,6 +459,16 @@ with the following:
 
 Then you can upgrade all other commercial extensions.
 
+#### Set rights on Broker and Engine files
+
+Set the following rights on Broker and Engine files:
+
+```shell
+chown apache:apache /etc/centreon-engine/*
+chown apache:apache /etc/centreon-broker/*
+su - apache -s /bin/bash -c umask
+```
+
 #### Start the tasks manager
 
 Since 20.04, Centreon has changed its tasks manager from *Centcore* to *Gorgone*.
@@ -470,6 +489,13 @@ Change the rights on the statistics RRD files by running the following command:
 ```shell
 chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 ```
+
+#### Remove "Failover name" from the broker outputs' configuration
+
+> In older versions of Centreon, the broker retention mechanism that stored monitoring data in temporary files when a network outage occurred used to require manual configuration.
+> Since Centreon 3.4 this is not necessary anymore, and in more recent versions **it may cause broker not to work at all**.
+
+Go to **Configuration > Pollers > Broker configuration** and empty the value of the **Failover name** parameter for each output of each broker configuration item.
 
 #### Restart monitoring processes
 
@@ -520,6 +546,12 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 If the Centreon BAM module is installed, refer to the

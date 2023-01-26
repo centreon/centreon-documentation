@@ -417,10 +417,10 @@ System commands menu. Then enter the following:
 
 - Label: SSH
 - Path: terminator
-- Parameters:
+- Arguments:
 
   ```text
-  -e ssh [root@%host.address](mailto:root@%host.address%)
+  -e ssh [root@%host.address%](mailto:root@%host.address%)
   ```
 
 Here, the `%host.address%` will be automatically replaced by the host address of

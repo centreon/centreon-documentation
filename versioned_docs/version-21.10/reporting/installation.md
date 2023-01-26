@@ -73,7 +73,7 @@ Centreon MBI installation requires two RPM packages:
   reporting server -- report scheduler, ETL, standards reports -- and must
   reside on a dedicated server for reporting processes.
 
-You should install the MariaDB database at the same time. We highly recommand
+You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
 considerations.
 
@@ -125,7 +125,7 @@ considerations.
 |------------------------------|-------------------------------------------------------------------------------------------|
 | /                            | 5GB minimum                                                                               |
 | /var (containing MariaDB data) | Use the result of the above disk-space simulation file MariaDB data)                      |
-| MariaDB temp folder          | We recommand keeping it in /var                                                           |
+| MariaDB temp folder          | We recommend keeping it in /var                                                           |
 | Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MariaDB DBMS **data** |
 
 To check the free space use the command below, replacing vg\_data by the
@@ -169,10 +169,10 @@ Description of users, umask and home directory:
 The tasks explained in this chapter must be performed on the Centreon
 central server.
 
-Install the Centreon MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
+1. Install the Centreon MBI repository, you can find it on the 
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-Then run the following command:
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
@@ -292,16 +292,18 @@ installation process:
 
 - IP/DNS of the monitoring database
 - IP/DNS of the Centreon web interface
-- IP/DNS of the reporting database (localhost highly recommanded)
+- IP/DNS of the reporting database (localhost highly recommended)
 - Access (user/password) to the reporting database
 - Knowledge of the SSH password (after defining it) for the Centreon
   BI user on the central monitoring server (to publish reports on the
   interface).
 
-To start installing the reporting server, install the MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
+#### Procedure
 
-Then execute the following command:
+1. To start installing the reporting server, install the MBI repository, you can find it on the 
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+2. Then execute the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">

@@ -5,7 +5,6 @@ title: Office365 Exchange
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 Microsoft’s Office365 suite includes Exchange Online, which is a hosted messaging application 
@@ -89,35 +88,76 @@ You can access to the official documentation to register your application,
 get your *ID client*, *ID secret* and your *Tenant ID* by following this link:
 https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis
 
-## Installation
+## Setup
+
+### Monitoring Pack
+
+If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the pack displayed within the
+**Configuration > Plugin Packs > Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin package on every poller expected to monitor Office365 Exchange:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
+dnf install centreon-pack-cloud-microsoft-office365-exchange
 ```
-
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Exchange* from the "Configuration > Plugin Packs > Manager" page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin package on every poller expected to monitor Office365 Exchange:
-
-```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
-```
-
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-exchange
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Exchange* from the "Configuration > Plugin Packs > Manager" page
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-cloud-microsoft-office365-exchange
+```
+
+</TabItem>
+</Tabs>
+
+Whatever the license type (*online* or *offline*), install the **Office365 Exchange** Pack through
+the **Configuration > Plugin Packs > Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-cloud-microsoft-office365-exchange-api
+```
 
 </TabItem>
 </Tabs>
@@ -196,21 +236,7 @@ below:
   --list-mode
 ```
 
-### Why do I get the following error:
+### Troubleshooting
 
-#### ```UNKNOWN: 500 Can't connect to ...:443```
-
-This error message means that the Centreon Plugin couldn't successfully connect
-to the Office365 Management API. Check that no third party device
-(such as a firewall) is blocking the request. A proxy connection may also be 
-necessary to connect to the API. This can be done by using the ```--proxyurl```
-option in the command.
-
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-
-When using a proxy to connect to the Office365 Management API, this error
-message means that the Centreon Plugin library does not support the proxy
-connection protocol.
-
-In order to prevent this issue, use the *curl* HTTP backend by adding the
-following option to the command: ```--http-backend='curl'```.
+Refer to the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).

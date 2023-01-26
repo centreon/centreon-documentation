@@ -604,9 +604,9 @@ our %centreon_central_sync_config = (
 Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponible. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
 
 ```bash
-rm /etc/cron.d/centreon
-rm /etc/cron.d/centstorage
-rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
 ```
 
 ### Modification des droits
@@ -926,7 +926,7 @@ pcs resource master ms_mysql \
 ```
 
 </TabItem>
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource meta ms_mysql-master \

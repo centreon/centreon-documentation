@@ -3,26 +3,52 @@ id: install
 title: Install Centreon BAM extension
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To
 > purchase one, contact
 > [Centreon](mailto:sales@centreon.com).
 
 ## Prerequisites
 
-The central server and Centreon BAM must be installed in the same major versions (i.e. both in 22.04.x).
+Install BAM on the central server.
+The central server and Centreon BAM must be installed in the same major versions (i.e. both in 22.10.x).
+If you want to be able to view the Business activities monitored by a remote server, install BAM on the remote server too. When BAM is installed on a remote server, the Business activities will only include the resources monitored by the remote server.
 
 ## Installation
 
 ### Install the package
 
 Add the Centreon BAM repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 And install the package using the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-bam-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ``` shell
 yum install centreon-bam-server
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt install centreon-bam-server
+```
+
+</TabItem>
+
+</Tabs>
 
 ### Upload the license
 

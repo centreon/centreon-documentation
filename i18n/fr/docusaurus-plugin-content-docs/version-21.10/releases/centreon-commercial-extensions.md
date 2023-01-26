@@ -15,6 +15,67 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.8
+
+Release date: `December 28, 2022`
+
+#### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics.
+- Fixed the security issue CVE-2022-42889 (Text4shell).
+
+#### Bug fixes
+
+- Fixed issue that prevented images from being created when using `/media` api endpoint.
+- Fixed issues and improved the map display (visibility, background and breadcrumb color).
+- Fixed issue when user clicking on a parent resource link would cause the iframe to be loaded into itself.
+- Fixed issue that caused the status displayed on a container to be different from the correct host status.
+- Fixed an issue where icons for service groups, host groups and containers were not displayed.
+- Fixed an issue preventing a user from saving MAP extension options if one map server address field is left empty.
+- Fixed an issue where resources tooltips in MAP Legacy widget could not be displayed properly.
+- Fixed an issue that caused MAP names to overlap in MAP listing page.
+- Fixed an issue that could prevent the correct application of layers.
+- Fixed an issue where white shape color is not saved.
+- Fixed the bug where acknowledgements were not displayed on the resource.
+- Fixed issue when the call to update the breadcrumb is not launched.
+- Fixed the bug when MAP search bar does not return good results
+- Fixed bug where url shape has unwanted concatenation inside the url.
+- Fixed an issue where images were not displayed in viewer.
+- Fixed an issue where Sort on was on labels rather than names when requesting the list of maps from MAP web client.
+- Fixed the bug of the small size of the MAP viewer.
+
+#### Enhancements
+
+- Spring boot version upgraded to 2.6.6 version.
+- Improved Centreon MAP Extension options so that only one MAP server is required to validate the form, when MAP Engine server is checked.
+- Allow map owner to share a MAP with other ACL groups.
+- Add choice to display percentage or absolute value on links and gauges to the user.
+- Add "copy URL to clipboard" in viewer.
+
+### 21.10.7
+
+Release date : `October 26, 2022`
+
+#### Bug fixes
+
+- Map widget contents could not be loaded, resulting in a 500 error.
+
+### 21.10.6
+
+Release date: `October 6, 2022`
+
+#### Bug fixes
+
+- Fixed issues with MAP Desktop connection timeout with very large map infastructures
+
+### 21.10.5
+
+Release date: `May 30, 2022`
+
+- Fixed regressions on API endpoints due to Spring Boot version
+- Fixed weather styled elements that were not showing any image
+- Changed label in MAP home page about server IP address
+
 ### 21.10.4
 
 Release date: `April 22, 2022`
@@ -96,6 +157,14 @@ Release date: `December 7, 2021`
 - [Configuration] Warn the user for unsaved changes on BA/BV
 
 ## Centreon MBI
+
+### 21.10.2
+
+Release date: `October 12, 2022`
+
+#### Security fixes
+
+- Fixed multiple vulnerabilities in report generation
 
 ### 21.10.1
 

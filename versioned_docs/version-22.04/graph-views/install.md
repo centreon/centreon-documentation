@@ -1,10 +1,13 @@
 ---
 id: install
-title: Install Centreon MAP extension
+title: Installing Centreon MAP extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> As MAP (Legacy) will not evolve anymore, we suggest you install [Centreon MAP](introduction-map.md) instead. MAP has significant advantages compared to MAP (Legacy) including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -60,7 +63,7 @@ The central server and Centreon MAP must be installed in the same major versions
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Hardware
 
@@ -97,8 +100,19 @@ children which must be included in the count.
 
 #### Software
 
-- OS: CentOS 7 or Redhat 7 / 8
-- DBMS: MariaDB 10.5
+| Version                  | Installation mode                                      |
+|--------------------------|--------------------------------------------------------|
+| Alma Linux 8             | RPM packages, sources                                  |
+| RHEL 8                   | RPM packages, sources                                  |
+| Debian 11                | DEB packages                                           |
+| *CentOS 7/RHEL 7         | RPM packages, virtual machine , sources                |
+
+*Not recommended (due to end of support from Centreon 23.04)
+
+| Software | Version |
+|----------|---------|
+| MariaDB  | 10.5.x  |
+
 - Firewall: Disabled
 - SELinux: Disabled
 
@@ -107,7 +121,7 @@ children which must be included in the count.
 - Centreon Web login with admin rights.
 
 > Even with a correctly sized server, you should have in mind the best
-> practices & recommandations when creating views so you don't face
+> practices & recommendations when creating views so you don't face
 > performance issues.
 
 ### Centreon MAP Web interface
@@ -116,7 +130,7 @@ children which must be included in the count.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Compatibility
 
@@ -188,7 +202,7 @@ Centreon MAP Desktop Client machines must access:
 - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
 - Internet with or without proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other
+Ports 8080 and 8443 are recommended default values, but other
 configurations are possible.
 
 ## Server installation
@@ -242,12 +256,33 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Install the following dependencies:
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+To install the Centreon repository, execute the following command:
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+</TabItem>
 </Tabs>
 
 > If the URL doesn't work, you can manualy find this package in the folder.
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
 
@@ -266,6 +301,14 @@ yum install centreon-map-server
 ```
 
 </TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-server
+```
+
+</TabItem>
 </Tabs>
 
 When installing Centreon MAP server, it will automatically install java
@@ -273,6 +316,32 @@ When installing Centreon MAP server, it will automatically install java
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.
+
+To install MariaDB, execute the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+</Tabs>
 
 ### Configuration
 
@@ -290,6 +359,21 @@ Then, restart MariaDB:
 systemctl restart mariadb
 ```
 
+#### Secure the database
+
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+
+```shell
+mysql_secure_installation
+```
+
+* Answer **yes** to all questions except "Disallow root login remotely?".
+* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
+
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Configure.sh script
+
 Execute the Centreon MAP server configuration script. Two modes are available:
 interactive or automatic.
 
@@ -298,18 +382,11 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode
+If it's your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
 /etc/centreon-studio/configure.sh
-```
-
-If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-map/map-config.properties**
-
-```text
-broker.pb.message.enabled=true
 ```
 
 Then restart the **centreon-map** service:
@@ -364,7 +441,7 @@ the interface part of the extension.
 ### Central server
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:
 
@@ -380,6 +457,14 @@ dnf install centreon-map-web-client
 
 ```shell
 yum install centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install centreon-map-web-client
 ```
 
 </TabItem>
@@ -403,7 +488,7 @@ installed, we will configure it.
 
 ### Configuration
 
-Go to `Administration > Extensions > Options`, and in the Centreon MAP menu
+Go to **Administration > Extensions > Options**, and in the Centreon MAP menu
 update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
@@ -412,7 +497,7 @@ update the Centreon MAP server address field:
 
 ### Using the client
 
-The Centreon MAP Web interface is now available in `Monitoring > MAP`.
+The Centreon MAP Web interface is now available in **Monitoring > MAP**.
 
 ![image](../assets/graph-views/install-web-step-4.png)
 
@@ -438,10 +523,10 @@ widget. The result after installed:
 The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
-You can find the installers in `Monitoring > Map > Desktop Client` or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+You can find the installers in **Monitoring > Map > Desktop Client** or
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=22.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
+> For performance considerations, we highly recommend to have less than 5, 10
 > users maximum connected at the same time manipulating views.
 
 ### Installation

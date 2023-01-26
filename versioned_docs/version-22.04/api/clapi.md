@@ -1,6 +1,6 @@
 ---
 id: clapi
-title: Command Line API (v1)
+title: Command Line API (v1) - CLAPI
 ---
 
 ## Overview
@@ -2339,7 +2339,7 @@ The required parameters are the following:
 | Name                | Name of contact                               |
 | Alias (login)       | Alias of contact (also login id)              |
 | Email               | Email of contact                              |
-| Password            | Password of contact                           |
+| Password            | Password of contact (this field doesn't apply to contact templates) |
 | Admin               | *1* (admin) or *0* (non admin)                |
 | GUI Access          | *1* (can access UI) or *0* (cannot access UI) |
 | Language            | Language pack has to be installed on Centreon |
@@ -2407,6 +2407,8 @@ Parameters that you can change are the following:
 | autologin\_key        | Used for auto login                                                                  |
 | template              | Name of the template to apply to the contact                                         |
 | timezone              | Timezone                                                                             |
+| reach_api             | **1** if the user has access to the API configuration, **0** otherwise                                                             |
+| reach_api_rt          | **1** if the user has access to the API realtime, **0** otherwise                                                                 |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
@@ -3288,9 +3290,15 @@ centreon -u admin -p 'centreon' -o HOST -a setmacro -v "Centreon-Server;warning;
 centreon -u admin -p 'centreon' -o HOST -a setmacro -v "Centreon-Server;critical;90;0;description of macro"
 ```
 
-The second number, just before the description, can be:
-  * 0 for a normal macro
-  * 1 for a password macro
+The required parameters are the following:
+
+| Order    | Description                              |
+| -------- | ---------------------------------------- |
+| 1        | Host name                                |
+| 2        | Macro name                               |
+| 3        | Macro value                              |
+| 4        | 1 for a password macro, 0 otherwise      |
+| 5        | Description of macro                     |
 
 > ***NOTE:*** If the macro already exists, this action will only update the macro value. Otherwise, macro will be created.
 
@@ -4664,6 +4672,17 @@ centreon -u admin -p 'centreon' -o SERVICE -a setmacro -v "test;ping;time;80;0;d
 centreon -u admin -p 'centreon' -o SERVICE -a setmacro -v "test;ping;pl;400;0;description of macro"
 ```
 
+The required parameters are the following:
+
+| Order    | Description                              |
+| -------- | ---------------------------------------- |
+| 1        | Host name                                |
+| 2        | Service name                             |
+| 3        | Macro name                               |
+| 4        | Macro value                              |
+| 5        | 1 for a password macro, 0 otherwise      |
+| 6        | Description of macro                     |
+
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
 #### Delmacro
@@ -5397,7 +5416,6 @@ Parameters that you may change are:
 | friday    | Time Period definition for Friday                                                                                 |
 | saturday  | Time Period definition for Saturday                                                                               |
 | include   | example: \[...\] -v "Timeperiod\_Test;include;workhours"; Use delimiter &#124; for multiple inclusion definitions |
-| exclude   | example: \[...\] -v "Timeperiod\_Test;exclude;weekend" use delimiter &#124; for multiple exclusion definitions    |
 
 #### Getexception
 

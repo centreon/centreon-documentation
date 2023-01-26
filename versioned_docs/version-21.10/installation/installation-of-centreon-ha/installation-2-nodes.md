@@ -602,9 +602,9 @@ our %centreon_central_sync_config = (
 In high-availability setup, gorgone daemon manages all cron-based scheduled tasks. To avoid cron on both nodes, remove all Centreon related cron in /etc/cron.d/ directory:
 
 ```bash
-rm /etc/cron.d/centreon
-rm /etc/cron.d/centstorage
-rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
 ```
 
 ### Permission modifications
@@ -924,7 +924,7 @@ pcs resource master ms_mysql \
 ```
 
 </TabItem>
-<TabItem value="CentOS7" label="CentOS7">
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 pcs resource meta ms_mysql-master \
@@ -1121,7 +1121,7 @@ After this step, all resources should be running on the same node, the platform 
 
 #### Checking the resources' states
 
-You can monitor the cluster's resources in real time using the `crm_mon` command:
+You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -1187,6 +1187,32 @@ Active resources:
 
 </TabItem>
 </Tabs>
+
+#### Disabled resources
+
+When you do a `crm_mon -fr` and you have a resource that is disable :
+
+```text
+...
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @DATABASE_MASTER_NAME@ ]
+     Slaves: [ @DATABASE_SLAVE_NAME@ ]
+     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+...
+```
+
+You must enable the resource with the following command :
+
+```bash
+pcs resource enable @RESSOURCE_NAME@
+```
+
+In our case :
+
+```bash
+pcs resource enable vip_mysql
+```
 
 #### Checking the database replication thread
 

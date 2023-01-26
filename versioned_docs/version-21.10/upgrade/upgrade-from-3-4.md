@@ -24,11 +24,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 3.4 (Centreon Web 2.8).
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon central server
 
@@ -72,7 +68,7 @@ yum-config-manager --enable remi-php80
 ### Upgrade the Centreon solution
 
 If you have installed Business extensions, update the Business repository to version 21.10.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -334,6 +330,13 @@ Change the rights on the statistics RRD files by running the following command:
 chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 ```
 
+#### Remove "Failover name" from the broker outputs' configuration
+
+> In older versions of Centreon, the broker retention mechanism that stored monitoring data in temporary files when a network outage occurred used to require manual configuration.
+> Since Centreon 3.4 this is not necessary anymore, and in more recent versions **it may cause broker not to work at all**.
+
+Go to **Configuration > Pollers > Broker configuration** and empty the value of the **Failover name** parameter for each output of each broker configuration item.
+
 #### Restart monitoring processes
 
 Centreon Broker component has changed its configuration file format.
@@ -494,6 +497,12 @@ Start and enable **gorgoned**:
 ```shell
 systemctl start gorgoned
 systemctl enable gorgoned
+```
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```
 
 If the Centreon BAM module is installed, refer to the

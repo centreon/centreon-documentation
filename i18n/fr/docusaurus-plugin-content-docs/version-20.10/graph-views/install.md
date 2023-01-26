@@ -63,7 +63,7 @@ MAP is **Centreon 20.10**
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Hardware
 
@@ -119,7 +119,7 @@ children which must be included in the count.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+team](https://support.centreon.com/) to get & install your license key.
 
 #### Compatibility
 
@@ -254,7 +254,7 @@ Then install Centreon MAP server using the following command:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install centreon-map-server
+dnf install centreon-map-server --exclude=centreon-bi-engine
 ```
 
 </TabItem>
@@ -541,7 +541,7 @@ yum install centreon-map-server-ng
 And proceed to the configuration with the following command:
 
 ```shell
-/etc/centreon-map/configure.sh
+/etc/centreon-studio/configure.sh
 ```
 
 The configuration is exactly the same as the usual server, but is stored

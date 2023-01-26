@@ -27,9 +27,9 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 | Status                                         | Description                                                            |
 |------------------------------------------------|------------------------------------------------------------------------|
 | <span style={{color:'#88b917'}}>OK</span>      | Le service ne présente aucun problème                                  |
-| <span style={{color:'#ff9a13'}}>WARNING</span> | Le service a dépassé le seuil d'alerte                                 |
-| <span style={{color:'#e00b3d'}}>DOWN</span>    | Le service a dépassé le seuil critique                                 |
-| <span style={{color:'#bcbdc0'}}>UNKNOWN</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
+| <span style={{color:'#ff9a13'}}>ALERTE</span> | Le service a dépassé le seuil d'alerte                                 |
+| <span style={{color:'#e00b3d'}}>CRITIQUE</span>    | Le service a dépassé le seuil critique                                 |
+| <span style={{color:'#bcbdc0'}}>INCONNU</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
 
 ### Statuts avancés
 

@@ -53,7 +53,7 @@ yum update centreon-pp-manager
 
 A license is required to access the full Plugin Packs catalog. If your Centreon platform is linked to an online
 subscription your license will be directly downloaded to your server. Otherwise, contact the
-[Centreon support team](https://centreon.force.com) to get and install your license key.
+[Centreon support team](https://support.centreon.com) to get and install your license key.
 
 ### Access to Plugin Packs
 
@@ -228,7 +228,7 @@ To update the plugins, execute the following command on **all pollers**.
 Update the plugins on **all pollers**:
 
 ```shell
-yum update centreon-plugins\*
+yum update centreon-plugin\*
 ```
 
 Restart the Centreon Engine on **all pollers**.

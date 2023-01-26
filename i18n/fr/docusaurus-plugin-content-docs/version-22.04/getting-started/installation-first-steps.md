@@ -16,3 +16,5 @@ Vous trouverez dans ce chapitre les informations nécessaires à un démarrage r
 * [Créer une vue graphique](create-graphical-view.md)
 * [Modéliser vos services informatiques (Service Mapping)](model-it-services.md)
 * [Analyser la disponibilité des ressources (Reporting)](analyze-resources-availability.md)
+
+Vous pouvez également consulter notre [glossaire des concepts Centreon](../resources/glossary.md).

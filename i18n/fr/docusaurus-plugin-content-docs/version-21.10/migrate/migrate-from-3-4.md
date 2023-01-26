@@ -23,7 +23,7 @@ et disposant des prérequis suivants :
 
 > En cas de migration d'une plate-forme disposant du système de redondance
 > Centreon, il est nécessaire de contacter votre
-> [support Centreon](https://centreon.force.com).
+> [support Centreon](https://support.centreon.com).
 
 > En cas de migration d'une plate-forme disposant du module **Centreon Poller
 > Display 1.6.x**, référez-vous à la
