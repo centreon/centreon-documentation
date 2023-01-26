@@ -5,6 +5,9 @@ title: Lenovo XCC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Overview
+
+Lenovo develops, manufactures and sells computer hardware and software.
 
 ## Pack Assets
 
@@ -16,28 +19,39 @@ The Centreon Plugin Pack **Lenovo XCC SNMP** brings a host template:
 
 It brings the following service template:
 
-| Service Alias   | Service Template                   | Service Description | Default |
-|:----------------|:-----------------------------------|:--------------------|:--------|
-| Hardware-Global | HW-Lenovo-Xcc-Hardware-Global-SNMP | Check all sensors   | X       |
+| Service Alias | Service Template                   | Service Description | Default |
+|:--------------|:-----------------------------------|:--------------------|:--------|
+| Hardware      | HW-Lenovo-Xcc-Hardware-Global-SNMP | Check all sensors   | X       |
 
 ### Collected metrics & status
 
 <Tabs groupId="sync">
-<TabItem value="Hardware-Global" label="Hardware-Global">
+<TabItem value="Hardware" label="Hardware">
 
-Could not retrive metrics
+| Metric name                   | Description                          | Unit |
+|:------------------------------|:-------------------------------------|:-----|
+| temperature.status            | Status of temperature                |      |
+| voltage.status                | Status of voltage                    |      |
+| fan.status                    | Status of fan                        |      |
+| psu.status                    | Status of psu                        |      |
+| disk.status                   | Status of disk                       |      |
+| raidvolume.status             | Status of raidvolume                 |      |
+| hardware.temperature.celsius  | Temperature of the different sensors | C    |
+| hardware.voltage.volt         | Voltage of the different sensors     |      |
+| hardware.fan.speed.percentage | Speed of fan                         | %    |
 
 </TabItem>
 </Tabs>
+
+
 
 ## Prerequisites
 
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Lenovo XCC SNMP**
-server. Please refer to the official documentation from Lenovo XCC SNMP:
-* [Lenovo XCC](https://lenovopress.lenovo.com/lp0880-xcc-support-on-thinksystem-servers)
-* [Configuring SNMPv3](https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.systems.management.xcc.doc%2FNN1ia_c_configuringSNMP.html)
+server. Please refer to the official documentation from XXX:
+* [Lenovo XCC SNMP](https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.systems.management.xcc.doc%2FNN1ia_c_configuringSNMP.html)
 
 ### Network flow
 
@@ -46,33 +60,74 @@ SNMP port.
 
 ## Setup
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Monitoring Pack
 
-1. Install the plugin package on every Centreon poller expected to monitor **Lenovo XCC SNMP** resources:
+If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the pack displayed within the
+**Configuration > Plugin Packs > Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
+dnf install centreon-pack-hardware-servers-lenovo-xcc-snmp
 ```
-
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Lenovo XCC SNMP** Centreon Plugin Pack.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the plugin package on every Centreon poller expected to monitor **Lenovo XCC SNMP** resources:
-
-```bash
-yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
-```
-
-2. Install the **Lenovo XCC SNMP** Centreon Plugin Pack RPM on the Centreon central server:
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-hardware-servers-lenovo-xcc-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Lenovo XCC SNMP** Centreon Plugin Pack.
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-hardware-servers-lenovo-xcc-snmp
+```
+
+</TabItem>
+</Tabs>
+
+Whatever the license type (*online* or *offline*), install the **Lenovo XCC SNMP** Pack through
+the **Configuration > Plugin Packs > Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-hardware-servers-lenovo-xcc-snmp
+```
 
 </TabItem>
 </Tabs>
@@ -86,11 +141,12 @@ yum install centreon-pack-hardware-servers-lenovo-xcc-snmp
 * Apply the **HW-Server-Lenovo-Xcc-SNMP-custom** template to the host.
 
 If you are using SNMP Version 3, use the **SNMPEXTRAOPTIONS** macro to configure
-your own SNMPv3 credentials combo.
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory   | Macro            | Description                                  |
-|:------------|:-----------------|:---------------------------------------------|
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo  |
+| Mandatory | Macro            | Description                                 |
+|:----------|:-----------------|:--------------------------------------------|
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -113,7 +169,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: All 34 components are ok [2/2 disk, 14/14 fans, 2/2 psu, 1/1 raidvolume, 11/11 temperatures, 4/4 voltages]. | 'temp_CPU1 Temp'=30C;;;; 'temp_CPU1 DTS'=-51.0C;;0:-0.2;; 'temp_CPU2 Temp'=31C;;;; 'temp_CPU2 DTS'=-51.0C;;0:-0.2;; 'temp_DIMM 5 Temp'=27C;;;; 'temp_DIMM 8 Temp'=27C;;;; 'temp_DIMM 17 Temp'=27C;;;; 'temp_DIMM 20 Temp'=27C;;;; 'temp_PCH Temp'=43C;;;; 'temp_Ambient Temp'=27C;0:43;0:47;; 'temp_Exhaust Temp'=27C;;;; 'volt_CMOS Battery'=3.1850;2.3920:;2.2490:;; 'volt_SysBrd 3.3V'=3.3015;;2.9760:3.6270;; 'volt_SysBrd 5V'=5.0310;;4.4928:5.4990;; 'volt_SysBrd 12V'=12.096;;10.808:13.216;; 'fan_Fan 1A Tach'=41%;;;0;100 'fan_Fan 1B Tach'=33%;;;0;100 'fan_Fan 2A Tach'=33%;;;0;100 'fan_Fan 2B Tach'=33%;;;0;100 'fan_Fan 3A Tach'=33%;;;0;100 'fan_Fan 3B Tach'=33%;;;0;100 'fan_Fan 4A Tach'=33%;;;0;100 'fan_Fan 4B Tach'=33%;;;0;100 'fan_Fan 5A Tach'=33%;;;0;100 'fan_Fan 5B Tach'=33%;;;0;100 'fan_Fan 6A Tach'=33%;;;0;100 'fan_Fan 6B Tach'=33%;;;0;100 'fan_Fan 7A Tach'=33%;;;0;100 'fan_Fan 7B Tach'=33%;;;0;100 'count_disk'=2;;;; 'count_fan'=14;;;; 'count_psu'=2;;;; 'count_raidvolume'=1;;;; 'count_temperature'=11;;;; 'count_voltage'=4;;;;
 ```
 
 All available options for a given mode can be displayed by adding the
