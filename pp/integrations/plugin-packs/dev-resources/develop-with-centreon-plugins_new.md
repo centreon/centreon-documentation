@@ -1374,7 +1374,7 @@ All files showed in this tutorial can be found on the centreon-plugins GitHub in
 
 > You have to move the contents of `contrib/tutorial/apps/` to `apps/` if you want to run it for testing purposes.
 >
-> `cp -R contrib/tutorial/apps/* apps/`
+> `cp -R src/contrib/tutorial/apps/* src/apps/`
 
 <div id='set_up_tuto'/>
 
@@ -1523,6 +1523,89 @@ touch src/apps/myawesomeapp/api/mode/appsmetrics.pm
 ### 5.Create the plugin.pm file
 
 [Retour à table of content (4)](#table_of_content_4)
+
+The `plugin.pm` is the first thing to create, it contains:
+
+- A set of instructions to load required libraries and compilation options
+- A list of all **mode(s)** and path(s) to their associated files/perl packages
+- A description that will display when you list all plugins or display this plugin's help.
+
+Here is the commented version of the plugin.pm file:
+
+```perl title="my-awesome-app plugin.pm file"
+[.. license and copyright things ..]
+
+# Name of your perl package
+package apps::myawesomeapp::api::plugin;
+
+# Always use strict and warnings, will guarantee that your code is clean and help debugging it
+use strict;
+use warnings;
+# Load the base for your plugin, here we don't do SNMP, SQL or have a custom directory, so we use the _simple base
+use base qw(centreon::plugins::script_simple);
+
+# Global sub to create and return the perl object. Don't bother understand what each instruction is doing. 
+sub new {
+    my ($class, %options) = @_;
+    my $self = $class->SUPER::new(package => __PACKAGE__, %options);
+    bless $self, $class;
+
+    # A version, we don't really use it but could help if your want to version your code
+    $self->{version} = '0.1';
+    # Important part! 
+    #    On the left, the name of the mode as users will use it in their command line
+    #    On the right, the path to the file (note that .pm is not present at the end)
+    $self->{modes} = {
+        'app-metrics' => 'apps::myawesomeapp::api::mode::appmetrics'
+    };
+
+    return $self;
+}
+
+# Declare this file as a perl module/package
+1;
+
+# Beginning of the documenation/help. `__END__` Specify to the interpreter that instructions below don't need to be compiled
+# =head1 [..] Specify the section level and the label when using the plugin with --help
+# Check my-awesome [..] Quick overview of wath the plugin is doing
+# =cut Close the head1 section
+
+__END__
+
+=head1 PLUGIN DESCRIPTION
+
+Check my-awesome-app health and metrics through its custom API
+
+=cut
+```
+
+Your first dummy plugin is working, congrats!
+
+Run this command:
+
+`perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --list-mode`
+
+It already outputs a lot of things. Ellipsized lines are basically all standard capabilities
+inherited from the **script_custom** base.
+
+You probably already recognized things you've previsously defined in your **plugin.pm** module.
+
+```perl
+
+Plugin Description:
+    Check my-awesome-app health and metrics through its custom API
+
+Global Options:
+    --mode  Choose a mode.
+[..]
+    --version
+            Display plugin version.
+[..]
+
+Modes Available:
+   app-metrics
+```
+
 
 <div id='create_mode_tuto'/>
 
