@@ -52,7 +52,7 @@ Release date: `January 9, 2023`
 - [API] Fixed API access when user doesn't have access to UI
 - Fixed an issue where the pagination was not displayed in all legacy pages
 - [Install] Fixed app_key error during upgrade
-- 
+
 #### Security fixes
 
 - [Core] Fixed vulnerabilities in functions.js file
