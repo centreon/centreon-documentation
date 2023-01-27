@@ -1364,7 +1364,7 @@ Table of contents (4)
  1. [Set up your environment](#set_up_tuto)
  2. [Input](#input_tuto)
  3. [Understand the data](#understand_data_tuto)
- 4. [4.Create directories for a new plugin](#make_dir_tuto)
+ 4. [Create directories for a new plugin](#make_dir_tuto)
  5. [Create the plugin.pm file](#create_plugin_tuto)
  6. [Create the appmetrics.pm file](#create_mode_tuto)
 *******
