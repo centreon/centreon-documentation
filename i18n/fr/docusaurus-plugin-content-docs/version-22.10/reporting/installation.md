@@ -73,6 +73,8 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 

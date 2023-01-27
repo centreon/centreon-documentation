@@ -78,6 +78,8 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 **Logiciels**
 
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 

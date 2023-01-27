@@ -46,21 +46,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-| Version                  | Mode d'installation                                   |
-|--------------------------|-------------------------------------------------------|
-| Alma Linux 8             | paquets RPM, sources                                  |
-| RHEL 8                   | paquets RPM, sources                                  |
-| Debian 11                | paquets DEB                                           |
-| *CentOS 7/RHEL 7         | paquets RPM, machine virtuelle, sources               |
-
-*Non recommandé (fin de support à partir de Centreon 23.04)
-
-| Logiciel | Version |
-|----------|---------|
-| MariaDB  | 10.5.x  |
-
-- Pare-feu : Désactivé
-- SELinux : Désactivé
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 #### Informations requises lors de la configuration
 
@@ -266,9 +252,8 @@ Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base d
 ```shell
 mysql_secure_installation
 ```
-``
 
-* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?
+* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?".
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).

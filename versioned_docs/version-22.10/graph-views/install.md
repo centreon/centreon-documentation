@@ -100,21 +100,7 @@ children which must be included in the count.
 
 #### Software
 
-| Version                  | Installation mode                                      |
-|--------------------------|--------------------------------------------------------|
-| Alma Linux 8             | RPM packages, sources                                  |
-| RHEL 8                   | RPM packages, sources                                  |
-| Debian 11                | DEB packages                                           |
-| *CentOS 7/RHEL 7         | RPM packages, virtual machine , sources                |
-
-*Not recommended (due to end of support from Centreon 23.04)
-
-| Software | Version |
-|----------|---------|
-| MariaDB  | 10.5.x  |
-
-- Firewall: Disabled
-- SELinux: Disabled
+See the [software requirements](../installation/prerequisites.md#software).
 
 #### Information required during configuration
 

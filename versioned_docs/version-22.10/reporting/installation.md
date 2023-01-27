@@ -22,7 +22,7 @@ Four main steps are required to install Centreon MBI:
 
 ### A dedicated reporting server
 
-The architecture and these requirements apply to :
+The architecture and these requirements apply to:
 
 - test
 - pre-production
@@ -71,6 +71,8 @@ reporting server for performance & isolation reasons.
 
 #### Software requirements
 
+See the [software requirements](../installation/prerequisites.md#software).
+
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
 considerations.
@@ -79,7 +81,7 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 22.04
+- Centreon Web 22.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
