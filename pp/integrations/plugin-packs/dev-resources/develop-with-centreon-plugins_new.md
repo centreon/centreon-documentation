@@ -1357,6 +1357,18 @@ La sortie affichera la liste des bases de données PostgreSQL.
 
 [Retour à table of content (1)](#table_of_content_1)
 
+<div id='table_of_content_4'/>
+
+*******
+Table of contents (4)
+ 1. [Set up your environment](#set_up_tuto)
+ 2. [Input](#input_tuto)
+ 3. [Understand the data](#understand_data_tuto)
+ 4. [4.Create directories for a new plugin](#make_dir_tuto)
+ 5. [Create the plugin.pm file](#create_plugin_tuto)
+ 6. [Create the appmetrics.pm file](#create_mode_tuto)
+*******
+
 All files showed in this tutorial can be found on the centreon-plugins GitHub in the 
 [tutorial](https://github.com/centreon/centreon-plugins/tree/develop/src/contrib/tutorial) **contrib** section.
 
@@ -1364,7 +1376,11 @@ All files showed in this tutorial can be found on the centreon-plugins GitHub in
 >
 > `cp -R contrib/tutorial/apps/* apps/`
 
+<div id='set_up_tuto'/>
+
 ### 1.Set up your environment
+
+[Retour à table of content (4)](#table_of_content_4)
 
 To use the centreon-plugins framework, you'll need the following: 
 
@@ -1410,7 +1426,12 @@ dnf install 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Enc
     'perl(HTTP::ProxyPAC)' 'perl-CryptX' 'perl(MIME::Base64)' 'perl(JSON::XS)' 'perl-JSON-Path' \
     'perl-KeePass-Reader' 'perl(Storable)' 'perl(POSIX)' 'perl(Encode)'
 ```
+
+<div id='input_tuto'/>
+
 ### 2.Input
+
+[Retour à table of content (4)](#table_of_content_4)
 
 **Context: simple JSON health API**
 
@@ -1453,7 +1474,11 @@ It returns the following output:
 }
 ```
 
+<div id='understand_data_tuto'/>
+
 ### 3.Understand the data
+
+[Retour à table of content (4)](#table_of_content_4)
 
 Understanding the data is very important as it will drive the way you will design
 the **mode** internals. This is the **first thing to do**, no matter what protocol you
@@ -1474,7 +1499,11 @@ In our example, the most common things are present. We can summarize it like tha
 
 Understanding this will be important to code it correctly.
 
+<div id='make_dir_tuto'/>
+
 ### 4.Create directories for a new plugin
+
+[Retour à table of content (4)](#table_of_content_4)
 
 Create directories and files required for your **plugin** and **modes**. 
 
@@ -1489,7 +1518,17 @@ touch src/apps/myawesomeapp/api/plugin.pm
 touch src/apps/myawesomeapp/api/mode/appsmetrics.pm
 ```
 
+<div id='create_plugin_tuto'/>
 
+### 5.Create the plugin.pm file
+
+[Retour à table of content (4)](#table_of_content_4)
+
+<div id='create_mode_tuto'/>
+
+### 6.Create the appmetrics.pm file
+
+[Retour à table of content (4)](#table_of_content_4)
 
 
 TUTO 2020
@@ -1512,10 +1551,10 @@ $ mkdir os/linux/snmp/mode
 
 [Retour à table of content (1)](#table_of_content_1)
 
-<div id='table_of_content_4'/>
+<div id='table_of_content_5'/>
 
 *******
-Table of contents (4)
+Table of contents (5)
  1. [Outputs](#outputs)
  2. [Options](#options)
  3. [Discovery](#discovery)
@@ -1530,7 +1569,7 @@ A large part of these guidelines come from the [Monitoring Plugins project](http
 
 ### 1. Outputs
 
-[Retour à table of content (4)](#table_of_content_4)
+[Retour à table of content (5)](#table_of_content_5)
 
 #### 1.1 Formatting
 
@@ -1689,7 +1728,7 @@ Checking sensors
 
 ### 2. Options
 
-[Retour à table of content (4)](#table_of_content_4)
+[Retour à table of content (5)](#table_of_content_5)
 
 Option management is a central piece of a successful plugin. You should:
 
@@ -1702,7 +1741,7 @@ Option management is a central piece of a successful plugin. You should:
 
 ###  3. Discovery
 
-[Retour à table of content (4)](#table_of_content_4)
+[Retour à table of content (5)](#table_of_content_5)
 
 This section describes how you should format your data to comply with the requirements of Centreon Discovery UI modules.
 
@@ -1862,7 +1901,7 @@ no data is obtained for a given key, it still has to be displayed (e.g `total=""
 
 ### 4. Performances
 
-[Retour à table of content (4)](#table_of_content_4)
+[Retour à table of content (5)](#table_of_content_5)
 
 A monitoring plugin has to do one thing and do it right - it's important to code your plugin with the idea to make
 it as efficient as possible. Keep in mind that your Plugin might run every minute, against a large
@@ -1902,7 +1941,7 @@ system when something is broken and that, for any reason, the plugin cannot obta
 
 ### 5. Security
 
-[Retour à table of content (4)](#table_of_content_4)
+[Retour à table of content (5)](#table_of_content_5)
 
 #### 5.1 System commands
 
@@ -1922,7 +1961,7 @@ security problems.
 
 ### 6. Help and documentation
 
-[Retour à table of content (4)](#table_of_content_4)
+[Retour à table of content (5)](#table_of_content_5)
 
 For each plugin, the minimum documentation is the help, you have to explain to users what the plugin
 is doing and how they can use the built-in options to achieve their own alerting scenario.
