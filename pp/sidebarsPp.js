@@ -378,6 +378,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-oracle-ucp-jmx'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-oracle-ovm-api'
         },
         {
