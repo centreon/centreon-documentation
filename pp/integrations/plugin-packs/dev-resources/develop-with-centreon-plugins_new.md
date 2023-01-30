@@ -31,6 +31,7 @@ Table of contents (2)
  2. [Dossiers partagés](#architecture_shared)
  3. [Fichier plugin.pm](#architecture_plugin)
  4. [Fichier mode.pm](#architecture_mode)
+ 5. [Model Classes Usage](#architecture_model_class)
 *******
 
 [Retour à table of content (1)](#table_of_content_1)
@@ -381,6 +382,370 @@ A description of the mode and its arguments is needed to generate the documentat
   =cut
 
 ```
+
+<div id='architecture_model_class'/>
+
+### 5. Model Classes Usage
+
+[Retour à table of content (2)](#table_of_content_2)
+
+---
+**Introduction**
+
+With the experience of plugin development, we have created two classes:
+
+* centreon::plugins::templates::counter
+* centreon::plugins::templates::hardware
+
+It was developed to have a more consistent code and less redundant code. According to context, you should use one of two classes for modes. 
+Following classes can be used for whatever plugin type (SNMP, Custom, DBI,...).
+
+#### 5.1 Class counter
+
+##### When to use it ?
+
+If you have some counters (CPU Usage, Memory, Session...), you should use that class.
+If you have only one global counter to check, it's maybe not useful to use it (but only for these case).
+
+##### Class methods
+
+List of methods:
+
+* **new**: class constructor. Overload if you need to add some specific options or to use a statefile.
+* **check_options**: overload if you need to check your specific options.
+* **manage_selection**: overload if *mandatory*. Method to get informations for the equipment.
+* **set_counters**: overload if **mandatory**. Method to configure counters.
+
+** Examples**
+
+---
+
+** Example 1**
+
+
+We want to develop the following SNMP plugin:
+
+* measure the current sessions and current SSL sessions usages.
+
+```perl
+
+  package my::module::name;
+  
+  use base qw(centreon::plugins::templates::counter);
+  
+  use strict;
+  use warnings;
+  
+  sub set_counters {
+    my ($self, %options) = @_;
+    
+    $self->{maps_counters_type} = [
+        { name => 'global', type => 0, message_separator => ' - ' },
+    ];
+    $self->{maps_counters}->{global} = [
+        { label => 'sessions', set => {
+                key_values => [ { name => 'sessions' } ],
+                output_template => 'Current sessions : %s',
+                perfdatas => [
+                    { label => 'sessions', template => '%s', min => 0 },
+                ],
+            }
+        },
+        { label => 'sessions-ssl', set => {
+                key_values => [ { name => 'sessions_ssl' } ],
+                output_template => 'Current ssl sessions : %s',
+                perfdatas => [
+                    { label => 'sessions_ssl', template => '%s', min => 0 },
+                ],
+            }
+        },
+    ];
+  }
+  
+  sub manage_selection {
+    my ($self, %options) = @_;
+
+    # OIDs are fake. Only for the example.
+    my ($oid_sessions, $oid_sessions_ssl) = ('.1.2.3.4.0', '.1.2.3.5.0');
+    
+    my $result = $options{snmp}->get_leef(
+      oids => [ $oid_sessions, $oid_sessions_ssl ],
+      nothing_quit => 1
+    );
+    $self->{global} = {
+      sessions => $result->{$oid_sessions},
+      sessions_ssl => $result->{$oid_sessions_ssl}
+    };
+  }
+
+```
+
+Output may display:
+
+```
+
+  OK: Current sessions : 24 - Current ssl sessions : 150 | sessions=24;;;0; sessions_ssl=150;;;0;
+
+```
+
+As you can see, we create two arrays of hash tables in **set_counters** method. We use arrays to order the output.
+
+* **maps_counters_type**: global configuration. Attributes list:
+
+  * *name*: the name is really important. It will be used in hash **map_counters** and also in **manage_selection** as you can see.
+  * *type*: 0 or 1. With 0 value, the output will be written in the short output. With the value 1, it depends if we have one or multiple instances.
+  * *message_multiple*: only useful with *type* 1 value. The message will be displayed in short ouput if we have multiple instances selected.
+  * *message_separator*: the string displayed between counters (Default: ', ').
+  * *cb_prefix_output*, *cb_suffix_output*: name of a method (in a string) to callback. Methods will return a string to be displayed before or after **all** counters.
+  * *cb_init*: name of a method (in a string) to callback. Method will return 0 or 1. With 1 value, counters are not checked.
+
+* **maps_counters**: complex structure to configure counters. Attributes list:
+
+  * *label*: name used for threshold options.
+  * *threshold*: if we set the value to 0. There is no threshold check options (can be used if you want to set and check option yourself).
+  * *set*: hash table:
+  
+    * *keys_values*: array of hashes. Set values used for the counter. Order is important (by default, the first value is used to check). 
+
+      * *name*: attribute name. Need to match with attributes in **manage_selection** method!
+      * *diff*: if we set the value to 1, we'll have the difference between two checks (need a statefile!).
+      * *per_second*: if we set the value to 1, the *diff* values will be calculated per seconds (need a statefile!). No need to add diff attribute.
+    
+    * *output_template*: string to display. '%s' will be replaced by the first value of *keys_values*.
+    * *output_use*: which value to be used in *output_template* (If not set, we use the first value of *keys_values*).
+    * *output_change_bytes*: if we set the value to 1 or 2, we can use a second '%s' in *output_template* to display the unit. 1 = divide by 1024 (Bytes), 2 = divide by 1000 (bits).
+    * *perfdata*: array of hashes. To configure perfdatas
+    
+      * *label*: name displayed.
+      * *value*: value to used. It's the name from *keys_values*.
+      * *template*: value format (could be for example: '%.3f').
+      * *unit*: unit displayed.
+      * *min*, *max*: min and max displayed. You can use a value from *keys_values*.
+      * *label_extra_instance*: if we set the value to 1, perhaps we'll have a suffix concat with *label*.
+      * *instance_use*: which value from *keys_values* to be used. To be used if *label_extra_instance* is 1.
+
+** Example 2**
+
+We want to add the current number of sessions by virtual servers.
+
+```perl
+
+  package my::module::name;
+  
+  use base qw(centreon::plugins::templates::counter);
+  
+  use strict;
+  use warnings;
+  
+  sub set_counters {
+    my ($self, %options) = @_;
+    
+    $self->{maps_counters_type} = [
+        { name => 'global', type => 0, cb_prefix_output => 'prefix_global_output' },
+        { name => 'vs', type => 1, cb_prefix_output => 'prefix_vs_output', message_multiple => 'All Virtual servers are ok' }
+    ];
+    $self->{maps_counters}->{global} = [
+        { label => 'total-sessions', set => {
+                key_values => [ { name => 'sessions' } ],
+                output_template => 'current sessions : %s',
+                perfdatas => [
+                    { label => 'total_sessions', template => '%s', min => 0 },
+                ],
+            }
+        },
+        { label => 'total-sessions-ssl', set => {
+                key_values => [ { name => 'sessions_ssl' } ],
+                output_template => 'current ssl sessions : %s',
+                perfdatas => [
+                    { label => 'total_sessions_ssl', template => '%s', min => 0 },
+                ],
+            }
+        },
+    ];
+    
+    $self->{maps_counters}->{vs} = [
+        { label => 'sessions', set => {
+                key_values => [ { name => 'sessions' }, { name => 'display' } ],
+                output_template => 'current sessions : %s',
+                perfdatas => [
+                    { label => 'sessions', template => '%s', 
+                      min => 0, label_extra_instance => 1, instance_use => 'display' },
+                ],
+            }
+        },
+        { label => 'sessions-ssl', set => {
+                key_values => [ { name => 'sessions_ssl' }, { name => 'display' } ],
+                output_template => 'current ssl sessions : %s',
+                perfdatas => [
+                    { label => 'sessions_ssl', template => '%s', 
+                      min => 0, label_extra_instance => 1, instance_use => 'display' },
+                ],
+            }
+        },
+    ];
+  }
+  
+  sub prefix_vs_output {
+    my ($self, %options) = @_;
+    
+    return "Virtual server '" . $options{instance_value}->{display} . "' ";
+  }
+  
+  sub prefix_global_output {
+    my ($self, %options) = @_;
+    
+    return "Total ";
+  }
+  
+  sub manage_selection {
+    my ($self, %options) = @_;
+
+    # OIDs are fake. Only for the example.
+    my ($oid_sessions, $oid_sessions_ssl) = ('.1.2.3.4.0', '.1.2.3.5.0');
+    
+    my $result = $options{snmp}->get_leef(oids => [ $oid_sessions, $oid_sessions_ssl ],
+                                          nothing_quit => 1);
+    $self->{global} = { sessions => $result->{$oid_sessions},
+                        sessions_ssl => $result->{$oid_sessions_ssl}
+                      };
+    my $oid_table_vs = '.1.2.3.10';
+    my $mapping = {
+        vsName        => { oid => '.1.2.3.10.1' },
+        vsSessions    => { oid => '.1.2.3.10.2' },
+        vsSessionsSsl => { oid => '.1.2.3.10.3' },
+    };
+    
+    $self->{vs} = {};
+    $result = $options{snmp}->get_table(oid => $oid_table_vs,
+                                        nothing_quit => 1);
+    foreach my $oid (keys %{$result->{ $oid_table_vs }}) {
+        next if ($oid !~ /^$mapping->{vsName}->{oid}\.(.*)$/;
+        my $instance = $1;
+        my $data = $options{snmp}->map_instance(mapping => $mapping, results => $result->{$oid_table_vs}, instance => $instance);
+        
+        $self->{vs}->{$instance} = { display => $data->{vsName}, 
+                                     sessions => $data->{vsSessions}, sessions_ssl => $data->{vsSessionsSsl}};
+    }
+  }
+
+```
+
+If we have at least 2 virtual servers:
+
+```
+
+  OK: Total current sessions : 24, current ssl sessions : 150 - All Virtual servers are ok | total_sessions=24;;;0; total_sessions_ssl=150;;;0; sessions_foo1=11;;;0; sessions_ssl_foo1=70;;;0; sessions_foo2=13;;;0; sessions_ssl_foo2=80;;;0;
+  Virtual server 'foo1' current sessions : 11, current ssl sessions : 70
+  Virtual server 'foo2' current sessions : 13, current ssl sessions : 80
+
+```
+
+** Example 3**
+
+The model can also be used to check strings (not only counters). So we want to check the status of a virtualserver.
+
+```perl
+
+  package my::module::name;
+  
+  use base qw(centreon::plugins::templates::counter);
+  
+  use strict;
+  use warnings;
+  
+  sub set_counters {
+    my ($self, %options) = @_;
+    
+    $self->{maps_counters_type} = [
+        { name => 'vs', type => 1, cb_prefix_output => 'prefix_vs_output', message_multiple => 'All Virtual server status are ok' }
+    ];    
+    $self->{maps_counters}->{vs} = [
+        { label => 'status', threshold => 0, set => {
+                key_values => [ { name => 'status' }, { name => 'display' } ],
+                closure_custom_calc => $self->can('custom_status_calc'),
+                closure_custom_output => $self->can('custom_status_output'),
+                closure_custom_perfdata => sub { return 0; },
+                closure_custom_threshold_check => $self->can('custom_threshold_output')
+            }
+        }
+    ];
+  }
+  
+  sub custom_threshold_output {
+    my ($self, %options) = @_; 
+    my $status = 'ok';
+    
+    if ($self->{result_values}->{status} =~ /problem/) {
+        $status = 'critical';
+    }
+    return $status;
+  }
+  
+  sub custom_status_output {
+    my ($self, %options) = @_;
+    
+    my $msg = sprintf("status is '%s'", $self->{result_values}->{status});
+    return $msg;
+  }
+  
+  sub custom_status_calc {
+    my ($self, %options) = @_;
+    
+    $self->{result_values}->{status} = $options{new_datas}->{$self->{instance} . '_status'};
+    $self->{result_values}->{display} = $options{new_datas}->{$self->{instance} . '_display'};
+    return 0;
+  }
+  
+  sub prefix_vs_output {
+    my ($self, %options) = @_;
+    
+    return "Virtual server '" . $options{instance_value}->{display} . "' ";
+  }
+  
+  sub check_options {
+    my ($self, %options) = @_;
+    $self->SUPER::check_options(%options);
+
+  }
+  
+  sub manage_selection {
+    my ($self, %options) = @_;
+
+    my $oid_table_vs = '.1.2.3.10';
+    my $mapping = {
+        vsName        => { oid => '.1.2.3.10.1' },
+        vsStatus      => { oid => '.1.2.3.10.4' },
+    };
+    
+    $self->{vs} = {};
+    my $result = $options{snmp}->get_table(oid => $oid_table_vs,
+                                        nothing_quit => 1);
+    foreach my $oid (keys %{$result->{ $oid_table_vs }}) {
+        next if ($oid !~ /^$mapping->{vsName}->{oid}\.(.*)$/;
+        my $instance = $1;
+        my $data = $options{snmp}->map_instance(mapping => $mapping, results => $result->{$oid_table_vs}, instance => $instance);
+        
+        $self->{vs}->{$instance} = { display => $data->{vsName}, 
+                                     status => $data->{vsStatus} };
+    }
+  }
+
+```
+
+The following example show 4 new attributes:
+
+* *closure_custom_calc*: should be used to do more complex calculation.
+* *closure_custom_output*: should be used to have a more complex output (An example: want to display the total, free and used value at the same time).
+* *closure_custom_perfdata*: should be used to manage yourself the perfdata.
+* *closure_custom_threshold_check*: should be used to manage yourself the threshold check.
+
+
+#### 5.2 Class hardware
+
+---
+
+TODO
+
 
 <div id='librairies'/>
 
