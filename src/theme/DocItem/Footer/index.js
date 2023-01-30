@@ -7,6 +7,7 @@ import EditThisPage from '@theme/EditThisPage';
 import TagsListInline from '@theme/TagsListInline';
 import styles from './styles.module.css';
 import Translate from '@docusaurus/Translate';
+import { useLocation } from 'react-router-dom';
 
 function TagsRow(props) {
   return (
@@ -27,6 +28,7 @@ function EditMetaRow({
   lastUpdatedBy,
   formattedLastUpdatedAt,
 }) {
+  const location = useLocation();
   return (
     <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, 'row')}>
       <div className="col">{editUrl && <EditThisPage editUrl={editUrl} /> }</div>
@@ -45,7 +47,7 @@ function EditMetaRow({
 <line fill="none" stroke="#0072ce" stroke-linecap="round" x1="6.78" y1="10.62" x2="13.55" y2="10.62"/>
 </svg>
 
-      <a rel="noreferrer noopener" href={`https://docs.google.com/forms/d/e/1FAIpQLSdeKkEHWbxn4ZweR1M4OEMzP_QoqKmjl6t4iC_yKeX2CFjzAw/viewform?usp=pp_url&entry.371845164=${window.location.href}`} target="_blank">
+      <a rel="noreferrer noopener" href={`https://docs.google.com/forms/d/e/1FAIpQLSdeKkEHWbxn4ZweR1M4OEMzP_QoqKmjl6t4iC_yKeX2CFjzAw/viewform?usp=pp_url&entry.371845164=docs.centreon.com${location.pathname}`} target="_blank">
       <Translate
         id="theme.common.feedback"
         description="The link label to give feedback on the page">
