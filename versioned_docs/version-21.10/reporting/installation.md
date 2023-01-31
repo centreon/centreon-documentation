@@ -83,6 +83,8 @@ considerations.
 
 **Software**
 
+See the [software requirements](../installation/prerequisites.md#software).
+
 - Centreon 21.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -103,7 +105,6 @@ considerations.
 | User       | umask  | home             |
 |------------|--------|------------------|
 | centreonBI |  0002  | /home/centreonBI |
-
 
 ### Reporting dedicated server
 

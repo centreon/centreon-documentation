@@ -95,10 +95,7 @@ qui doivent être inclus dans le décompte.
 
 #### Logiciel
 
-- OS: CentOS or Redhat 7 / 8
-- DBMS: MariaDB 10.5
->- Firewall: Désactivé
->- SELinux: Désactivé
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 #### Informations requises pendant l'installation
 

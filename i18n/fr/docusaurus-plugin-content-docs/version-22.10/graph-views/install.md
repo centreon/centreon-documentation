@@ -89,21 +89,7 @@ Un élément est tout objet graphique dans Centreon MAP. La plupart des élémen
 
 #### Logiciel
 
-| Version                  | Mode d'installation                                   |
-|--------------------------|-------------------------------------------------------|
-| Alma Linux 8             | paquets RPM, sources                                  |
-| RHEL 8                   | paquets RPM, sources                                  |
-| Debian 11                | paquets DEB                                           |
-| *CentOS 7/RHEL 7         | paquets RPM, machine virtuelle, sources               |
-
-*Non recommandé (fin de support à partir de Centreon 23.04)
-
-| Logiciel | Version |
-|----------|---------|
-| MariaDB  | 10.5.x  |
-
-- Pare-feu : Désactivé
-- SELinux : Désactivé
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 #### Informations requises lors de la configuration
 
