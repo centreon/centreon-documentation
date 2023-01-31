@@ -132,6 +132,8 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el8.noarch.rpm` and `https://yum.centreon.com/standard/21.10/el8/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el8.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -140,10 +142,25 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el7.centos.noarch.rpm` and `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+# Add centreon-engine user
+useradd --create-home centreon-engine
+# Install centreon-nrpe3-daemon
+apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
+# Create directory for the plugin cache
+mkdir -p /var/lib/centreon/centplugins/
+chown centreon-engine: /var/lib/centreon/centplugins/
+```
+
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-plugin-operatingsystems-linux-local%2Fcentreon-plugin-operatingsystems-linux-local_20221215-102705-bullseye_amd64.deb` and `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-nrpe3-daemon%2Fcentreon-nrpe3-daemon_4.0.3-1_amd64.deb` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `apt update` command, so it is not recommended**.
+
 </TabItem>
 </Tabs>
-
-> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` and `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
 
 #### NRPE daemon configuration
 
@@ -209,7 +226,7 @@ If everything is fine, this command:
 should produce this output:
 
 ```text
-NRPE v3.2.1
+NRPE v4.0.3
 ```
 
 Otherwise please refer to the [troubleshooting](#troubleshooting) section.

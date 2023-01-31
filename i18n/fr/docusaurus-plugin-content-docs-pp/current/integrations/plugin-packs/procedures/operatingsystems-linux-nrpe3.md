@@ -138,6 +138,8 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el8.noarch.rpm` et `https://yum.centreon.com/standard/21.10/el8/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el8.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -146,14 +148,29 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+# Ajout de l'utilisateur centreon-engine user
+useradd --create-home centreon-engine
+# Installation de centreon-nrpe3-daemon
+apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
+# Création du répertoire pour le cache du plugin
+mkdir -p /var/lib/centreon/centplugins/
+chown centreon-engine: /var/lib/centreon/centplugins/
+```
+
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-plugin-operatingsystems-linux-local%2Fcentreon-plugin-operatingsystems-linux-local_20221215-102705-bullseye_amd64.deb` et `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-nrpe3-daemon%2Fcentreon-nrpe3-daemon_4.0.3-1_amd64.deb` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `apt update`**.
+
 </TabItem>
 </Tabs>
 
-> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
-
 ### Configuration de NRPE
 
-Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` 
+Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg`
 
 ```ini
 [...]
@@ -216,7 +233,7 @@ Si tout a été correctement installé et configuré, la commande :
 devrait aboutir au résultat suivant :
 
 ```text
-NRPE v3.2.1
+NRPE v4.0.3
 ```
 
 Dans le cas contraire, se référer à la section [troubleshooting](#troubleshooting).
@@ -277,7 +294,7 @@ Si le message retourné est le suivant :
 connect to address x.x.x.x port 5666: Connection refused
 ```
 
-C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (*ie.* le poller) n'est pas autorisée à interroger l'agent NRPE. 
+C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (*ie.* le poller) n'est pas autorisée à interroger l'agent NRPE.
 
 Il faut alors vérifier le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` ([*cf* plus haut](#configuration-de-nrpe).
 
