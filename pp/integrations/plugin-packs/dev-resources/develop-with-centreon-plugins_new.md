@@ -502,6 +502,11 @@ As you can see, we create two arrays of hash tables in **set_counters** method. 
 * **maps_counters**: complex structure to configure counters. Attributes list:
 
   * *label*: name used for threshold options.
+  * *type*: depend of data dimensions
+    * 0 : global
+    * 1 : instance
+    * 2 : group
+    * 3 : multiple
   * *threshold*: if we set the value to 0. There is no threshold check options (can be used if you want to set and check option yourself).
   * *set*: hash table:
   
