@@ -24,6 +24,11 @@ Table of contents (1)
 A rédiger : Qu'est ce qu'un pluggin, à quoi ça sert, qu'est ce qu'il y a dedans ?
 
 
+Les sondes (ou les plugins) Centreon sont des exécutables qui permettent de récupérer l'état d'une ressource particulière. Il s'agit
+généralement d'un script, ou parfois d'un binaire, exécuté en ligne de commande.
+Les sondes permettent de récupérer le pourcentage d'utilisation de la CPU, l'espace disque non utilisé, le pourcentage de la bande
+passante utilisée par une interface réseau, ou encore l'utilisation de la mémoire vive. Elles exécutent donc toutes les fonctions de
+supervision, et utilisent des protocoles afin d'obtenir les statuts actuels des hôtes et de retourner un statut.
 
 
 
