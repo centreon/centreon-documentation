@@ -1144,7 +1144,7 @@ Parameter    | Type         | Default | Description
              |              |         | Keys can be: "oid", "start", "end".
 dont_quit    | Int (0 or 1) | 0       | Don't quit even if an SNMP error occured.
 nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.
-return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.             |
+return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.             
 
 **Exemple**
 
