@@ -1138,6 +1138,15 @@ Return hash table of SNMP values for multiple SNMP tables.
 
 **Parameters**
 
+
+|  Paramètre      |        Type          |   Défaut       |          Description                                                                  |
+|-----------------|----------------------|----------------|---------------------------------------------------------------------------------------|
+| **oids**        |  Hash table          |                | Table de hashage des OIDs à récupérer (Peut être spécifié avec la méthode ``load``).  |
+|                 |                      |                | Les clés peuvent être : "oid", "start", "end".                                        |
+| dont_quit       |  Int (0 or 1)        |       0        | Ne pas quitter même si une erreur snmp se produit.                                    |
+| nothing_quit    |  Int (0 or 1)        |       0        | Quitter si aucune valeur n'est retournée.                                             |
+| return_type     |  Int (0 or 1)        |       0        | Retourner une table de hashage à un niveau au lieu de plusieurs.   
+
 Parameter    | Type         | Default | Description
 -------------|--------------|---------|-----------------------------------------------------------
 oids         | Hash table   |-        | Hash table of OIDs to check (Can be set by 'load' method).
