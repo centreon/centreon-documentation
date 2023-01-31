@@ -74,20 +74,20 @@ You can display it using the command `tree -L 1`.
 └── storage
 ```
 
-Les répertoires racines sont oganisés par catégorie dont voici certaines détaillées :
+Root directories are organized by section:
 
-* Application            : apps
-* Base de données        : database
-* Matériel               : hardware
-* Equipement réseau      : network
-* Système d'exploitation : os
-* Equipement de stockage : storage
+* Application       : apps
+* Database          : database
+* Hardware          : hardware
+* Network equipment : network
+* Operating System  : os
+* Storage equipment : storage
 
 #### 1.2 Architecture du dossier d'un pluggin
 
 [Retour à table of content (2)](#table_of_content_2)
 
-Selon l'objet supervisé, il existe une organisation qui peut être utilisée :
+According to the monitored object, it exists an organization which can use:
 
 * Type
 * Constructor
