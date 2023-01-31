@@ -1147,13 +1147,13 @@ Return hash table of SNMP values for multiple SNMP tables.
 | nothing_quit    |  Int (0 or 1)        |       0        | Quitter si aucune valeur n'est retournée.                                             |
 | return_type     |  Int (0 or 1)        |       0        | Retourner une table de hashage à un niveau au lieu de plusieurs.   
 
-Parameter    | Type         | Default | Description
--------------|--------------|---------|-----------------------------------------------------------
-oids         | Hash table   |-        | Hash table of OIDs to check (Can be set by 'load' method).
--            |-             |-        | Keys can be: "oid", "start", "end".
-dont_quit    | Int (0 or 1) | 0       | Don't quit even if an SNMP error occured.
-nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.
-return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.        
+|Parameter    | Type         | Default | Description
+|-------------|--------------|---------|-----------------------------------------------------------|
+|oids         | Hash table   |-        | Hash table of OIDs to check (Can be set by 'load' method).|
+|-            |-             |-        | Keys can be: "oid", "start", "end".                       |
+|dont_quit    | Int (0 or 1) | 0       | Don't quit even if an SNMP error occured.                 |
+|nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.                             |
+|return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.   |      
 
 **Exemple**
 
