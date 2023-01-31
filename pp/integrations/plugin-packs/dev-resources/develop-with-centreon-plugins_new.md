@@ -801,7 +801,7 @@ separator | String | \-      | Separator between status and output string.
 short_msg | String |         | Short output (first line).
 long_msg  | String |         | Long output (used with --verbose option).
 
-**Exemple**
+**Example**
 
 This is an example of how to manage output:
 
@@ -842,7 +842,7 @@ critical  | String |         | Critical threshold.
 min       | Int    |         | Minimum value of the performance data.
 max       | Int    |         | Maximum value of the performance data.
 
-**Exemple**
+**Example**
 
 This is an example of how to add performance data:
 
@@ -891,7 +891,7 @@ cast_int  | Int (0 or 1) |         | Cast absolute to int.
 op        | String       |         | Operator to apply to start/end value (uses with 'value').
 value     | Int          |         | Value to apply with 'op' option.
 
-**Exemple**
+**Example**
 
 This is an example of how to manage performance data for output:
 
@@ -910,7 +910,7 @@ $self->{output}->perfdata_add(label    => 'memory_used',
 
 ```
 **tip**
-Dans cet exemple, au lieu d'afficher les seuils Dégradé et Critique en 'pourcentage', la fonction calculera et affichera ceux-ci en 'bytes'.
+Dans cet Example, au lieu d'afficher les seuils Dégradé et Critique en 'pourcentage', la fonction calculera et affichera ceux-ci en 'bytes'.
 
 --------------
 #### 2.2 threshold_validate
@@ -927,7 +927,7 @@ Parameter | Type   | Default | Description
 label     | String |         | Threshold label.
 value     | String |         | Threshold value.
 
-**Exemple**
+**Example**
 
 This example checks if warning threshold is correct:
 
@@ -957,7 +957,7 @@ Parameter | Type         | Default | Description
 value     | Int          |         | Performance data value to compare.
 threshold | String array |         | Threshold label to compare and exit status if reached.
 
-**Exemple**
+**Example**
 
 This example checks if performance data reached thresholds:
 
@@ -993,7 +993,7 @@ Parameter | Type | Default | Description
 value     | Int  |         | Performance data value to convert.
 network   |      | 1024    | Unit to divide (1000 if defined).
 
-**Exemple**
+**Example**
 
 This example change bytes to human readable unit:
 
@@ -1032,7 +1032,7 @@ Return hash table table of SNMP values for multiple OIDs (do not work with SNMP 
 
 **Parameters**
 
-**Exemple**
+**Example**
 
 This is an example of how to get 2 SNMP values:
 
@@ -1064,7 +1064,7 @@ instance_regexp | String       |         | Regular expression to get instances f
 begin           | Int          |         | Instance to begin
 end             | Int          |         | Instance to end
 
-**Exemple**
+**Example**
 
 This is an example of how to get 4 instances of a SNMP table by using **load** method:
 
@@ -1115,7 +1115,7 @@ dont_quit    | Int (0 or 1) | 0       | Don't quit even if an SNMP error occured
 nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.
 return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.
 
-**Exemple**
+**Example**
 
 This is an example of how to get a SNMP table:
 
@@ -1138,15 +1138,6 @@ Return hash table of SNMP values for multiple SNMP tables.
 
 **Parameters**
 
-
-|  Paramètre      |        Type          |   Défaut       |          Description                                                                  |
-|-----------------|----------------------|----------------|---------------------------------------------------------------------------------------|
-| **oids**        |  Hash table          |                | Table de hashage des OIDs à récupérer (Peut être spécifié avec la méthode ``load``).  |
-|                 |                      |                | Les clés peuvent être : "oid", "start", "end".                                        |
-| dont_quit       |  Int (0 or 1)        |       0        | Ne pas quitter même si une erreur snmp se produit.                                    |
-| nothing_quit    |  Int (0 or 1)        |       0        | Quitter si aucune valeur n'est retournée.                                             |
-| return_type     |  Int (0 or 1)        |       0        | Retourner une table de hashage à un niveau au lieu de plusieurs.   
-
 |Parameter    | Type         | Default | Description
 |-------------|--------------|---------|-----------------------------------------------------------|
 |oids         | Hash table   |-        | Hash table of OIDs to check (Can be set by 'load' method).|
@@ -1155,7 +1146,7 @@ Return hash table of SNMP values for multiple SNMP tables.
 |nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.                             |
 |return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.   |      
 
-**Exemple**
+**Example**
 
 This is an example of how to get 2 SNMP tables:
 
@@ -1183,7 +1174,7 @@ Get hostname parameter (useful to get hostname in mode).
 
 None.
 
-**Exemple**
+**Example**
 
 This is an example of how to get hostname parameter:
 
@@ -1203,7 +1194,7 @@ Get port parameter (useful to get port in mode).
 
 None.
 
-**Exemple**
+**Example**
 
 This is an example of how to get port parameter:
 
@@ -1224,7 +1215,7 @@ Parameter | Type         | Default | Description
 ----------|--------------|---------|-----------------------
 **-**     | String array |         | Array of OIDs to sort.
 
-**Exemple**
+**Example**
 
 This example prints sorted OIDs:
 
@@ -1260,7 +1251,7 @@ Parameter | Type   | Default | Description
 ----------|--------|---------|-----------------
 **-**     | String |         | String to strip.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **trim** method:
 
@@ -1290,7 +1281,7 @@ Parameter | Type | Default | Description
 ----------|------|---------|------------------------------
 **-**     | Int  |         | Number of seconds to convert.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **change_seconds** method:
 
@@ -1323,7 +1314,7 @@ timeout         | Int          | 30      | Command timeout.
 wait_exit       | Int (0 or 1) | 0       | Command process ignore SIGCHLD signals.
 redirect_stderr | Int (0 or 1) | 0       | Print errors in output.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **backtick** method:
 
@@ -1357,7 +1348,7 @@ sudo            | String |         | Use sudo command.
 command_path    | String |         | Command path.
 command_options | String |         | Command arguments.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **execute** method.
 We suppose ``--remote`` option is enabled:
@@ -1391,7 +1382,7 @@ command_options | String |         | Command arguments.
 timeout         | Int    |         | Command timeout.
 no_quit         | Int    |         | Don't quit even if an error occured.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **windows_execute** method.
 
@@ -1434,7 +1425,7 @@ Parameter         | Type   | Default | Description
 **statefile_dir** | String |         | Directory of the cache file.
 memcached         | String |         | Memcached server to use.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **read** method:
 
@@ -1464,7 +1455,7 @@ Parameter | Type   | Default | Description
 ----------|--------|---------|-----------------------------
 name      | String |         | Get a value from cache file.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **get** method:
 
@@ -1494,7 +1485,7 @@ Parameter | Type   | Default | Description
 ----------|--------|---------|-----------------------------
 data      | String |         | Data to write in cache file.
 
-**Exemple**
+**Example**
 
 This is an example of how to use **write** method:
 
@@ -2673,7 +2664,7 @@ TUTO 2020
 
 Premièrement, vous avez besoin de créer un dossier sur le git afin de stocker le nouveau plugin.
 
-Par exemple, si vous voulez ajouter un plugin pour superviser Linux par SNMP, vous devez créer ce dossier :
+Par Example, si vous voulez ajouter un plugin pour superviser Linux par SNMP, vous devez créer ce dossier :
 ```shell
 $ mkdir -p os/linux/snmp
 ```
