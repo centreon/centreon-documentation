@@ -830,15 +830,13 @@ Les données de performance sont affichées après le symbole '|'.
 
 **Parameters**
 
-|  Paramètre      |    Type         |   Défaut    |          Description                                    |
-|-----------------|-----------------|-------------|---------------------------------------------------------|
-| label           | String          |             | Label de la donnée de performance.                      |
-| value           | Int             |             | Valeur de la donnée de performance.                     |
-| unit            | String          |             | Unité de la donnée de performance.                      |
-| warning         | String          |             | Seuil Dégradé.                                          |
-| critical        | String          |             | Seuil Critique.                                         |
-| min             | Int             |             | Valeur minimum de la donnée de performance.             |
-| max             | Int             |             | Valeur maximum de la donnée de performance.             |
+Parameter | Type         | Default | Description
+----------|--------------|---------|----------------------------------------------------------
+**label** | String       |         | Threshold label.
+total     | Int          |         | Percent threshold to transform in global.
+cast_int  | Int (0 or 1) |         | Cast absolute to int.
+op        | String       |         | Operator to apply to start/end value (uses with 'value').
+value     | Int          |         | Value to apply with 'op' option.
 
 **Exemple**
 
