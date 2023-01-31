@@ -803,7 +803,7 @@ Add string to output (print it with display method). If status is different than
 
 **Exemple**
 
-Voici un exemple de gestion de la sortie du plugin :
+This is an example of how to manage output:
 ```perl
 
 $self->{output}->output_add(severity  => 'OK',
@@ -814,7 +814,7 @@ $self->{output}->output_add(long_msg  => 'Port 1 is disconnected');
 
 $self->{output}->display();
 ```
-La sortie affichera :
+Output displays :
 ```
 CRITICAL - There is a critical problem
 Port 1 is disconnected
@@ -858,7 +858,7 @@ $self->{output}->perfdata_add(label    => 'memory_used',
 
 $self->{output}->display();
 ```
-La sortie affichera :
+Output displays :
 ```
 OK - Memory is ok | 'memory_used'=30000000B;80000000;90000000;0;100000000
 ```
@@ -970,7 +970,7 @@ $self->{output}->output_add(severity  => $exit,
 $self->{output}->display();
 ```
 
-La sortie affichera :
+Output displays :
 ```
   WARNING - Used memory is 85% |
 ```
@@ -1000,7 +1000,7 @@ my ($value, $unit) = $self->{perfdata}->change_bytes(value => 100000);
 
 print $value.' '.$unit."\n";
 ```
-La sortie affichera :
+Output displays :
 ```
   100 KB
 ```
@@ -1254,7 +1254,7 @@ print $word."\n";
 print $trim_word."\n";
 ```
 
-La sortie affichera :
+Output displays :
 ```
 Hello world !
 ```
@@ -1283,7 +1283,7 @@ my $human_readable_time =  centreon::plugins::misc::change_seconds($seconds);
 print 'Human readable time : '.$human_readable_time."\n";
 ```
 
-La sortie affichera :
+Output displays :
 ```
 Human readable time : 1h 2m 30s
 ```
