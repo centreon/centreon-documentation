@@ -5,8 +5,8 @@
 *******
 Table of contents (1)
  1. [Introduction](#introduction)
- 2. [Architecture](#architecture)
- 3. [List of shared libraries in centreon folder](#librairies)
+ 2. [Layout](#architecture)
+ 3. [List of shared libraries in centreon directory](#librairies)
  4. [Tutorial : How to create a plugin](#tutoriel)
  5. [Pluggins guidelines and good practices](#guidelines)
 *******
@@ -15,34 +15,43 @@ Table of contents (1)
 
 ## I. Pluggins introduction
 
-[Retour à table of content (1)](#table_of_content_1)
+[Table of content (1)](#table_of_content_1)
+
+
+
+
 
 A rédiger : Qu'est ce qu'un pluggin, à quoi ça sert, qu'est ce qu'il y a dedans ?
 
+
+
+
+
+
 <div id='architecture'/>
 
-## II. Architecture
+## II. Layout
 
 <div id='table_of_content_2'/>
 
 *******
 Table of contents (2)
- 1. [Architecture des dossiers](#architecture_dossier)
- 2. [Dossiers partagés](#architecture_shared)
- 3. [Fichier plugin.pm](#architecture_plugin)
- 4. [Fichier mode.pm](#architecture_mode)
+ 1. [Directories layout](#architecture_dossier)
+ 2. [Shared directories](#architecture_shared)
+ 3. [Plugin.pm file](#architecture_plugin)
+ 4. [Mode.pm file](#architecture_mode)
  5. [Model Classes Usage](#architecture_model_class)
 *******
 
-[Retour à table of content (1)](#table_of_content_1)
+[Table of content (1)](#table_of_content_1)
 
 <div id='architecture_dossier'/>
 
-### 1. Architecture des dossiers / Layout and concepts
+### 1. Directories layout
 
-#### 1.1 Architecture du dossier des plugins
+#### 1.1 Plugins directories layout
 
-[Retour à table of content (2)](#table_of_content_2)
+[Table of content (2)](#table_of_content_2)
 
 The project content is made of a main binary (`centreon_plugins.pl`), and a logical
 directory structure allowing to separate plugins and modes files across the domain they
@@ -73,7 +82,6 @@ You can display it using the command `tree -L 1`.
 ├── sonar-project.properties
 └── storage
 ```
-
 Root directories are organized by section:
 
 * Application       : apps
@@ -83,9 +91,9 @@ Root directories are organized by section:
 * Operating System  : os
 * Storage equipment : storage
 
-#### 1.2 Architecture du dossier d'un pluggin
+#### 1.2 Single plugin directory layout
 
-[Retour à table of content (2)](#table_of_content_2)
+[Table of content (2)](#table_of_content_2)
 
 According to the monitored object, it exists an organization which can use:
 
@@ -117,13 +125,14 @@ perl centreon_plugins.pl --plugin=os::linux::local::plugin --mode=cpu
 
 <div id='architecture_shared'/>
 
-### 2. Dossiers partagés
+### 2. Shared directories
 
-[Retour à table of content (2)](#table_of_content_2)
+[Table of content (2)](#table_of_content_2)
 
 Some specific directories are not related to a domain (os, cloud...) and are used across all plugins.
 
 #### 2.1 The centreon directory
+
 The centreon directory is specific, it contains:
 
 * Project libraries/packages. This is all the code that will help you to develop faster by avoiding coding protocol-related things (SNMP, HTTPx, SSH...) or common things like options or cache management from scratch. You can read the perl modules if you're an experienced developer but there is very little chance that you would have to modify anything in it.
@@ -132,13 +141,14 @@ The centreon directory is specific, it contains:
 Une description plus en détail des différentes librairies communes est disponible [ici](#librairies)
 
 #### 2.2 The snmp_standard/mode directory
+
 The snmp_standard/mode exists since the beginning when SNMP monitoring was much more used than it is today. All the modes it contains use standard OIDs, which means that many plugins are relying on these when the manufacturer supports standard MIBs on their devices.
 
 <div id='architecture_plugin'/>
 
-### 3. File plugin.mp
+### 3. Plugin.mp file
 
-[Retour à table of content (2)](#table_of_content_2)
+[Table of content (2)](#table_of_content_2)
 
 This file must contain : 
 * license / copyright
@@ -152,21 +162,19 @@ First this file contains the Copyright section. At the end of it, you can add yo
 # ...
 # Authors : <your name> <<your email>>
 ```
-
 Then the **package** name : path to your package. '::' instead of '/', and no .pm at the end.
 
 ```perl
 package path::to::plugin;
 ```
-
 Used libraries (strict and warnings are mandatory). 
 
 ```perl
 use strict;
 use warnings;
 ```
-
 Centreon librarie :
+
 ```perl
 use base qw(**centreon_library**);
 ```
@@ -226,9 +234,9 @@ __END__
 
 <div id='architecture_mode'/>
 
-### 4. File mode.pm
+### 4. Mode.pm file
 
-[Retour à table of content (2)](#table_of_content_2)
+[Table of content (2)](#table_of_content_2)
 
 Mode.pm as plugin.pm has also :
 * license / copyright
@@ -262,7 +270,6 @@ But mode.pm also needs at least :
         return $self;
   }
 ```
-
 Mode version must be declared in the **new** constructor:
 
 ```perl
@@ -270,7 +277,6 @@ Mode version must be declared in the **new** constructor:
   $self->{version} = '1.0';
 
 ```
-
 Several options can be declared in the **new** constructor:
 
 ```perl
@@ -282,7 +288,6 @@ Several options can be declared in the **new** constructor:
   });
 
 ```
-
 Here is the description of arguments used in this example:
 
 * option1 : String value
@@ -302,7 +307,6 @@ The mode need a **check_options** method to validate options:
   }
 
 ```
-
 For example, Warning and Critical thresholds must be validate in **check_options** method:
 
 ```perl
@@ -317,7 +321,6 @@ For example, Warning and Critical thresholds must be validate in **check_options
   }
 
 ```
-
 In this example, help is printed if thresholds do not have a correct format.
 
 Then comes the **run** method, where you perform measurement, check thresholds, display output and format performance datas.
@@ -350,7 +353,6 @@ This is an example to check a SNMP value:
   }
 
 ```
-
 In this example, we check a SNMP OID that we compare to warning and critical thresholds.
 There are the methods which we use:
 
@@ -368,7 +370,6 @@ Then, declare the module:
   1;
 
 ```
-
 A description of the mode and its arguments is needed to generate the documentation:
 
 ```perl
@@ -387,9 +388,9 @@ A description of the mode and its arguments is needed to generate the documentat
 
 ### 5. Model Classes Usage
 
-[Retour à table of content (2)](#table_of_content_2)
+[Table of content (2)](#table_of_content_2)
 
----
+
 **Introduction**
 
 With the experience of plugin development, we have created two classes:
@@ -421,7 +422,6 @@ List of methods:
 ---
 
 ** Example 1**
-
 
 We want to develop the following SNMP plugin:
 
@@ -479,7 +479,6 @@ We want to develop the following SNMP plugin:
   }
 
 ```
-
 Output may display:
 
 ```
@@ -487,7 +486,6 @@ Output may display:
   OK: Current sessions : 24 - Current ssl sessions : 150 | sessions=24;;;0; sessions_ssl=150;;;0;
 
 ```
-
 As you can see, we create two arrays of hash tables in **set_counters** method. We use arrays to order the output.
 
 * **maps_counters_type**: global configuration. Attributes list:
@@ -634,7 +632,6 @@ We want to add the current number of sessions by virtual servers.
   }
 
 ```
-
 If we have at least 2 virtual servers:
 
 ```
@@ -736,7 +733,6 @@ The model can also be used to check strings (not only counters). So we want to c
   }
 
 ```
-
 The following example show 4 new attributes:
 
 * *closure_custom_calc*: should be used to do more complex calculation.
@@ -744,19 +740,26 @@ The following example show 4 new attributes:
 * *closure_custom_perfdata*: should be used to manage yourself the perfdata.
 * *closure_custom_threshold_check*: should be used to manage yourself the threshold check.
 
-
 #### 5.2 Class hardware
 
----
+
+
+
+
 
 TODO
 
 
+
+
+
+
+
 <div id='librairies'/>
 
-## III. Référentiel des librairies centreon pluggin en commun
+## III. List of shared libraries in centreon directory
 
-Ce chapitre décrit les bibliothèques Centreon qui peuvent être utilisées dans votre développement.
+This chapter describes Centreon libraries which you can use in your development.
 
 <div id='table_of_content_3'/>
 
@@ -771,15 +774,15 @@ Table of content (3)
  7. [DBI](#lib_dbi)
 *******
 
-[Retour à table of content (1)](#table_of_content_1)
+[Table of content (1)](#table_of_content_1)
 
 <div id='lib_output'/>
 
 ### 1. Output
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque vous permet de construire la sortie de votre plugin.
+This library allows you to build output of your plugin.
 
 --------------
 #### 1.1 output_add
@@ -787,10 +790,9 @@ Cette bibliothèque vous permet de construire la sortie de votre plugin.
 
 **Description**
 
-Ajouter une chaîne de caractères à la sortie (affichée avec la méthode **display**).
-Si le statut est différent de 'OK', le message de sortie associé à 'OK' ne sera pas affiché.
+Add string to output (print it with display method). If status is different than 'ok', output associated with 'ok' status is not printed
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre |    Type |   Défaut |          Description                                          |
 | -----------|---------|----------|---------------------------------------------------------------|
@@ -826,7 +828,7 @@ Port 1 is disconnected
 Ajouter une donnée de performance à la sortie (affichée avec la méthode **display**).
 Les données de performance sont affichées après le symbole '|'.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                    |
 |-----------------|-----------------|-------------|---------------------------------------------------------|
@@ -865,7 +867,7 @@ OK - Memory is ok | 'memory_used'=30000000B;80000000;90000000;0;100000000
 
 ### 2. Perfdata
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
 Cette bibliothèque vous permet de gérer les données de performance.
 
@@ -877,7 +879,7 @@ Cette bibliothèque vous permet de gérer les données de performance.
 
 Gérer les seuils des données de performance pour la sortie.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                                     |
 |-----------------|-----------------|-------------|--------------------------------------------------------------------------|
@@ -916,7 +918,7 @@ Dans cet exemple, au lieu d'afficher les seuils Dégradé et Critique en 'pource
 
 Valider et associer un seuil à un label.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                    |
 |-----------------|-----------------|-------------|---------------------------------------------------------|
@@ -945,7 +947,7 @@ Les bon formats de seuils sont consultables ici : https://nagios-plugins.org/doc
 
 Vérifier la valeur d'une donnée de performance avec un seuil pour déterminer son statut.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                                    |
 |-----------------|-----------------|-------------|-------------------------------------------------------------------------|
@@ -981,7 +983,7 @@ La sortie affichera :
 Convertir des bytes en unité de mesure lisible.
 Retourner une valeur et une unité.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                    |
 |-----------------|-----------------|-------------|---------------------------------------------------------|
@@ -1007,7 +1009,7 @@ La sortie affichera :
 
 ### 3. SNMP
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
 Cette bibliothèque vous permet d'utiliser le protocole SNMP dans votre plugin.
 Pour l'utiliser, vous devez ajouter la ligne suivant au début de votre fichier **plugin.pm** :
@@ -1024,7 +1026,7 @@ use base qw(centreon::plugins::script_snmp);
 
 Retourne une table de hashage de valeurs SNMP pour plusieurs OIDs (ne fonctionne pas avec les tables SNMP).
 
-**Paramètres**
+**Parameters**
 
 **Exemple**
 
@@ -1048,7 +1050,7 @@ print $result->{$oid_sysUpTime}."\n";
 
 Charger une liste d'OIDs à utiliser avec la méthode **get_leef**.
 
-**Paramètres**
+**Parameters**
 
 **Exemple**
 
@@ -1091,7 +1093,7 @@ print Dumper($result2);
 
 Retourner une table de hashage de valeurs SNMP pour une table SNMP.
 
-**Paramètres**
+**Parameters**
 
 
 |  Paramètre      |        Type          |   Défaut       |          Description                                            |
@@ -1124,7 +1126,7 @@ print Dumper($results);
 
 Retourner une table de hashage de valeurs SNMP pour plusieurs tables SNMP.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |        Type          |   Défaut       |          Description                                                                  |
 |-----------------|----------------------|----------------|---------------------------------------------------------------------------------------|
@@ -1158,7 +1160,7 @@ print Dumper($results);
 
 Récupérer le nom d'hôte en paramètre (utile pour obtenir le nom d'hôte dans un mode).
 
-**Paramètres**
+**Parameters**
 
 Aucun.
 
@@ -1196,7 +1198,7 @@ my $port = $self->{snmp}->get_port();
 
 Retourner des OIDs triés.
 
-**Paramètres**
+**Parameters**
 
 
 |  Paramètre      |    Type           |   Défaut    |          Description                                    |
@@ -1217,7 +1219,7 @@ foreach my $oid ($self->{snmp}->oid_lex_sort(keys %{$self->{results}->{$my_oid}}
 
 ### 4. Misc
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
 Cette bibliothèque fournit un ensemble de méthodes diverses.
 Pour l'utiliser, vous pouvez directement utiliser le chemin de la méthode :
@@ -1233,7 +1235,7 @@ centreon::plugins::misc::<my_method>;
 
 Enlever les espaces de début et de fin d'une chaîne de caractères.
 
-**Paramètres**
+**Parameters**
 
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                    |
@@ -1264,7 +1266,7 @@ Hello world !
 
 Convertir des secondes en unité de mesure lisible.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                    |
 |-----------------|-----------------|-------------|---------------------------------------------------------|
@@ -1293,7 +1295,7 @@ Human readable time : 1h 2m 30s
 
 Exécuter une commande système.
 
-**Paramètres**
+**Parameters**
 
 
 |  Paramètre      |    Type         |   Défaut    |          Description                                    |
@@ -1327,7 +1329,7 @@ La sortie affichera les fichiers du répertoire '/home'.
 
 Exécuter une commande à distance.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre       |    Type         |   Défaut    |          Description                                                                               |
 |------------------|-----------------|-------------|----------------------------------------------------------------------------------------------------|
@@ -1361,7 +1363,7 @@ La sortie affichera les fichier du répertoire /home d'un hôte distant à trave
 
 Exécuter une commande sur Windows.
 
-**Paramètres**
+**Parameters**
 
 
 |  Paramètre       |    Type         |   Défaut    |          Description                                            |
@@ -1390,7 +1392,7 @@ La sortie affichera la configuration IP d'un hôte Windows.
 
 ### 5.Statefile
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
 Cette bibliothèque fournit un ensemble de méthodes pour utiliser un fichier de cache.
 Pour l'utiliser, ajouter la ligne suivante au début de votre **mode** :
@@ -1407,7 +1409,7 @@ use centreon::plugins::statefile;
 
 Lire un fichier de cache.
 
-**Paramètres**
+**Parameters**
 
 
 |  Paramètre        |    Type         |   Défaut    |          Description                                    |
@@ -1430,7 +1432,7 @@ $self->{statefile_value}->read(statefile => 'my_cache_file',
 use Data::Dumper;
 print Dumper($self->{statefile_value});
 ```
-La sortie affichera le fichier de cache et ses paramètres.
+La sortie affichera le fichier de cache et ses Parameters.
 
 --------------
 #### 5.2 get
@@ -1440,7 +1442,7 @@ La sortie affichera le fichier de cache et ses paramètres.
 
 Récupérer les données d'un fichier de cache.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre        |    Type         |   Défaut    |          Description                                    |
 |-------------------|-----------------|-------------|---------------------------------------------------------|
@@ -1471,7 +1473,7 @@ La sortie affichera la valeur associée à 'property1' du fichier de cache.
 
 Ecrire des données dans le fichier de cache.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre        |    Type         |   Défaut    |          Description                                    |
 |-------------------|-----------------|-------------|---------------------------------------------------------|
@@ -1499,7 +1501,7 @@ Ensuite, vous pouvez voir le résultat dans le fichier '/var/lib/centreon/centpl
 
 ### 6. HTTP
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
 Cette bibliothèque fournit un ensemble de méthodes pour utiliser le protocole HTTP.
 Pour l'utiliser, ajouter la ligne suivante au début de votre **mode** :
@@ -1532,7 +1534,7 @@ Certaines options doivent être spécifiées dans **plugin.pm** :
 Tester la connexion vers une url HTTP.
 Retourner le contenu de la page web.
 
-**Paramètres**
+**Parameters**
 
 Cette méthode utilise les options du plugin précédemment définies.
 
@@ -1558,7 +1560,7 @@ La sortie affichera le contenu de la page web '\http://google.com/'.
 
 ### 7. DBI
 
-[Retour à table of content (3)](#table_of_content_3)
+[Table of content (3)](#table_of_content_3)
 
 Cette bibliothèque vous permet de vous connecter à une ou plusieurs bases de données.
 Pour l'utiliser, ajouter la ligne suivante au début de votre fichier **plugin.pm** :
@@ -1575,7 +1577,7 @@ use base qw(centreon::plugins::script_sql);
 
 Se connecter à une ou plusieurs bases de données.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre |    Type      |   Défaut |          Description                                      |
 |------------|--------------|----------|-----------------------------------------------------------|
@@ -1612,7 +1614,7 @@ Vous êtes alors connecté à la base de données MySQL.
 
 Exécuter une requête SQL sur la base de données.
 
-**Paramètres**
+**Parameters**
 
 |  Paramètre        |    Type         |   Défaut    |          Description                                    |
 |-------------------|-----------------|-------------|---------------------------------------------------------|
@@ -1640,7 +1642,7 @@ La sortie affichera le nombre de requêtes MySQL lentes.
 
 Retourner une tableau à partir d'une requête SQL.
 
-**Paramètres**
+**Parameters**
 
 Aucun.
 
@@ -1665,7 +1667,7 @@ La sortie affichera l'uptime MySQL.
 
 Retourner un tableau à partir d'une requête SQL.
 
-**Paramètres**
+**Parameters**
 
 Aucun.
 
@@ -1701,7 +1703,7 @@ La sortie affichera les lectures physiques sur une base de données Oracle.
 
 Retourner une table de hashage à partir d'une requête SQL.
 
-**Paramètres**
+**Parameters**
 
 Aucun.
 
@@ -1725,7 +1727,7 @@ La sortie affichera la liste des bases de données PostgreSQL.
 
 ## IV. Tutoriel de création d'un pluggin
 
-[Retour à table of content (1)](#table_of_content_1)
+[Table of content (1)](#table_of_content_1)
 
 <div id='table_of_content_4'/>
 
@@ -1750,7 +1752,7 @@ All files showed in this tutorial can be found on the centreon-plugins GitHub in
 
 ### 1.Set up your environment
 
-[Retour à table of content (4)](#table_of_content_4)
+[Table of content (4)](#table_of_content_4)
 
 To use the centreon-plugins framework, you'll need the following: 
 
@@ -1801,7 +1803,7 @@ dnf install 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Enc
 
 ### 2.Input
 
-[Retour à table of content (4)](#table_of_content_4)
+[Table of content (4)](#table_of_content_4)
 
 **Context: simple JSON health API**
 
@@ -1848,7 +1850,7 @@ It returns the following output:
 
 ### 3.Understand the data
 
-[Retour à table of content (4)](#table_of_content_4)
+[Table of content (4)](#table_of_content_4)
 
 Understanding the data is very important as it will drive the way you will design
 the **mode** internals. This is the **first thing to do**, no matter what protocol you
@@ -1873,7 +1875,7 @@ Understanding this will be important to code it correctly.
 
 ### 4.Create directories for a new plugin
 
-[Retour à table of content (4)](#table_of_content_4)
+[Table of content (4)](#table_of_content_4)
 
 Create directories and files required for your **plugin** and **modes**. 
 
@@ -1892,7 +1894,7 @@ touch src/apps/myawesomeapp/api/mode/appsmetrics.pm
 
 ### 5.Create the plugin.pm file
 
-[Retour à table of content (4)](#table_of_content_4)
+[Table of content (4)](#table_of_content_4)
 
 The `plugin.pm` is the first thing to create, it contains:
 
@@ -1981,7 +1983,7 @@ Modes Available:
 
 ### 6.Create the appmetrics.pm file
 
-[Retour à table of content (4)](#table_of_content_4)
+[Table of content (4)](#table_of_content_4)
 
 The `appmetrics.pm` file will contain your code, in other words, all the instructions to:
 
@@ -2674,7 +2676,7 @@ $ mkdir os/linux/snmp/mode
 
 ## V. Pluggins guidelines
 
-[Retour à table of content (1)](#table_of_content_1)
+[Table of content (1)](#table_of_content_1)
 
 <div id='table_of_content_5'/>
 
@@ -2694,7 +2696,7 @@ A large part of these guidelines come from the [Monitoring Plugins project](http
 
 ### 1. Outputs
 
-[Retour à table of content (5)](#table_of_content_5)
+[Table of content (5)](#table_of_content_5)
 
 #### 1.1 Formatting
 
@@ -2853,7 +2855,7 @@ Checking sensors
 
 ### 2. Options
 
-[Retour à table of content (5)](#table_of_content_5)
+[Table of content (5)](#table_of_content_5)
 
 Option management is a central piece of a successful plugin. You should:
 
@@ -2866,7 +2868,7 @@ Option management is a central piece of a successful plugin. You should:
 
 ###  3. Discovery
 
-[Retour à table of content (5)](#table_of_content_5)
+[Table of content (5)](#table_of_content_5)
 
 This section describes how you should format your data to comply with the requirements of Centreon Discovery UI modules.
 
@@ -3026,7 +3028,7 @@ no data is obtained for a given key, it still has to be displayed (e.g `total=""
 
 ### 4. Performances
 
-[Retour à table of content (5)](#table_of_content_5)
+[Table of content (5)](#table_of_content_5)
 
 A monitoring plugin has to do one thing and do it right - it's important to code your plugin with the idea to make
 it as efficient as possible. Keep in mind that your Plugin might run every minute, against a large
@@ -3066,7 +3068,7 @@ system when something is broken and that, for any reason, the plugin cannot obta
 
 ### 5. Security
 
-[Retour à table of content (5)](#table_of_content_5)
+[Table of content (5)](#table_of_content_5)
 
 #### 5.1 System commands
 
@@ -3086,11 +3088,11 @@ security problems.
 
 ### 6. Help and documentation
 
-[Retour à table of content (5)](#table_of_content_5)
+[Table of content (5)](#table_of_content_5)
 
 For each plugin, the minimum documentation is the help, you have to explain to users what the plugin
 is doing and how they can use the built-in options to achieve their own alerting scenario.
 
 You can look at how we handle help at mode level with the centreon-plugins framework [here](develop-with-centreon-plugins.md).
 
-[Retour à table of content (1)](#table_of_content_1)
+[Table of content (1)](#table_of_content_1)
