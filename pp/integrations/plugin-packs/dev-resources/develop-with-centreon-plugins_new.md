@@ -794,16 +794,17 @@ Add string to output (print it with display method). If status is different than
 
 **Parameters**
 
-|  Paramètre |    Type |   Défaut |          Description                                          |
-| -----------|---------|----------|---------------------------------------------------------------|
-| severity   | String  |    OK    | Statut du message de sortie.                                  |
-| separator  | String  |    \-    | Séparateur entre le statut et le message de sortie.           |
-| short_msg  | String  |          | Message de sortie court (première ligne).                     |
-| long_msg   | String  |          | Message de sortie long (utilisé avec l'option ``--verbose``). |
+Parameter | Type   | Default | Description
+----------|--------|---------|--------------------------------------------
+severity  | String | OK      | Status of the output.
+separator | String | \-      | Separator between status and output string.
+short_msg | String |         | Short output (first line).
+long_msg  | String |         | Long output (used with --verbose option).
 
 **Exemple**
 
 This is an example of how to manage output:
+
 ```perl
 
 $self->{output}->output_add(severity  => 'OK',
@@ -815,6 +816,7 @@ $self->{output}->output_add(long_msg  => 'Port 1 is disconnected');
 $self->{output}->display();
 ```
 Output displays :
+
 ```
 CRITICAL - There is a critical problem
 Port 1 is disconnected
@@ -825,22 +827,24 @@ Port 1 is disconnected
 
 **Description**
 
-Ajouter une donnée de performance à la sortie (affichée avec la méthode **display**).
-Les données de performance sont affichées après le symbole '|'.
+Add performance data to output (print it with **display** method).
+Performance data are displayed after '|'.
 
 **Parameters**
 
-Parameter | Type         | Default | Description
-----------|--------------|---------|----------------------------------------------------------
-**label** | String       |         | Threshold label.
-total     | Int          |         | Percent threshold to transform in global.
-cast_int  | Int (0 or 1) |         | Cast absolute to int.
-op        | String       |         | Operator to apply to start/end value (uses with 'value').
-value     | Int          |         | Value to apply with 'op' option.
+Parameter | Type   | Default | Description
+----------|--------|---------|---------------------------------------
+label     | String |         | Label of the performance data.
+value     | Int    |         | Value of the performance data.
+unit      | String |         | Unit of the performance data.
+warning   | String |         | Warning threshold.
+critical  | String |         | Critical threshold.
+min       | Int    |         | Minimum value of the performance data.
+max       | Int    |         | Maximum value of the performance data.
 
 **Exemple**
 
-Voici un exemple d'ajout d'une donnée de performance :
+This is an example of how to add performance data:
 
 ```perl
 
@@ -857,6 +861,7 @@ $self->{output}->perfdata_add(label    => 'memory_used',
 $self->{output}->display();
 ```
 Output displays :
+
 ```
 OK - Memory is ok | 'memory_used'=30000000B;80000000;90000000;0;100000000
 ```
@@ -867,29 +872,28 @@ OK - Memory is ok | 'memory_used'=30000000B;80000000;90000000;0;100000000
 
 [Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque vous permet de gérer les données de performance.
+This library allows you to manage performance data.
 
 --------------
 #### 2.1 get_perfdata_for_output
 --------------
 
 **Description**
-
-Gérer les seuils des données de performance pour la sortie.
+Manage thresholds of performance data for output.
 
 **Parameters**
 
-|  Paramètre      |    Type         |   Défaut    |          Description                                                     |
-|-----------------|-----------------|-------------|--------------------------------------------------------------------------|
-| **label**       | String          |             | Label du seuil.                                                          |
-| total           | Int             |             | Seuil en pourcentage à transformer en valeur globale.                    |
-| cast_int        | Int (0 or 1)    |             | Cast une valeur absolue en entier.                                       |
-| op              | String          |             | Opérateur à appliquer à la valeur de début/fin (utilisé avec ``value``). |
-| value           | Int             |             | Valeur à appliquer avec l'option ``op``.                                 |
+Parameter | Type         | Default | Description
+----------|--------------|---------|----------------------------------------------------------
+**label** | String       |         | Threshold label.
+total     | Int          |         | Percent threshold to transform in global.
+cast_int  | Int (0 or 1) |         | Cast absolute to int.
+op        | String       |         | Operator to apply to start/end value (uses with 'value').
+value     | Int          |         | Value to apply with 'op' option.
 
 **Exemple**
 
-Voici un exemple de gestion des données de performance pour la sortie :
+This is an example of how to manage performance data for output:
 
 ```perl
 
@@ -914,18 +918,18 @@ Dans cet exemple, au lieu d'afficher les seuils Dégradé et Critique en 'pource
 
 **Description**
 
-Valider et associer un seuil à un label.
+Validate and affect threshold to a label.
 
 **Parameters**
 
-|  Paramètre      |    Type         |   Défaut    |          Description                                    |
-|-----------------|-----------------|-------------|---------------------------------------------------------|
-| label           | String          |             | Label du seuil.                                         |
-| value           | String          |             | Valeur du seuil.                                        |
+Parameter | Type   | Default | Description
+----------|--------|---------|-----------------
+label     | String |         | Threshold label.
+value     | String |         | Threshold value.
 
 **Exemple**
 
-Voici un exemple vérifiant si le seuil dégradé est correct :
+This example checks if warning threshold is correct:
 
 ```perl
 
@@ -943,18 +947,19 @@ Les bon formats de seuils sont consultables ici : https://nagios-plugins.org/doc
 
 **Description**
 
-Vérifier la valeur d'une donnée de performance avec un seuil pour déterminer son statut.
+
+Check performance data value with threshold to determine status.
 
 **Parameters**
 
-|  Paramètre      |    Type         |   Défaut    |          Description                                                    |
-|-----------------|-----------------|-------------|-------------------------------------------------------------------------|
-| value           | Int             |             | Valeur de la donnée de performance à comparer.                          |
-| threshold       | String array    |             | Label du seuil à comparer et statut de sortie si celui-ci est atteint.  |
+Parameter | Type         | Default | Description
+----------|--------------|---------|-------------------------------------------------------
+value     | Int          |         | Performance data value to compare.
+threshold | String array |         | Threshold label to compare and exit status if reached.
 
 **Exemple**
 
-Voici un exemple vérifiant si une donnée de performance a atteint certains seuils :
+This example checks if performance data reached thresholds:
 
 ```perl
 $self->{perfdata}->threshold_validate(label => 'warning', value => 80);
@@ -967,8 +972,8 @@ $self->{output}->output_add(severity  => $exit,
                             short_msg => sprint("Used memory is %i%%", $prct_used));
 $self->{output}->display();
 ```
-
 Output displays :
+
 ```
   WARNING - Used memory is 85% |
 ```
@@ -978,19 +983,19 @@ Output displays :
 
 **Description**
 
-Convertir des bytes en unité de mesure lisible.
-Retourner une valeur et une unité.
+Convert bytes to human readable unit.
+Return value and unit.
 
 **Parameters**
 
-|  Paramètre      |    Type         |   Défaut    |          Description                                    |
-|-----------------|-----------------|-------------|---------------------------------------------------------|
-| value           | Int             |             | Valeur de données de performance à convertir.           |
-| network         |                 | 1024        | Unité de division (1000 si définie).                    |
+Parameter | Type | Default | Description
+----------|------|---------|-----------------------------------
+value     | Int  |         | Performance data value to convert.
+network   |      | 1024    | Unit to divide (1000 if defined).
 
 **Exemple**
 
-Voici un exemple de conversion des bytes en unité de mesure lisible :
+This example change bytes to human readable unit:
 
 ```perl
 
@@ -999,6 +1004,7 @@ my ($value, $unit) = $self->{perfdata}->change_bytes(value => 100000);
 print $value.' '.$unit."\n";
 ```
 Output displays :
+
 ```
   100 KB
 ```
@@ -1009,8 +1015,8 @@ Output displays :
 
 [Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque vous permet d'utiliser le protocole SNMP dans votre plugin.
-Pour l'utiliser, vous devez ajouter la ligne suivant au début de votre fichier **plugin.pm** :
+This library allows you to use SNMP protocol in your plugin.
+To use it, add the following line at the beginning of your **plugin.pm**:
 
 ```perl
 
@@ -1022,13 +1028,13 @@ use base qw(centreon::plugins::script_snmp);
 
 **Description**
 
-Retourne une table de hashage de valeurs SNMP pour plusieurs OIDs (ne fonctionne pas avec les tables SNMP).
+Return hash table table of SNMP values for multiple OIDs (do not work with SNMP table).
 
 **Parameters**
 
 **Exemple**
 
-Voici un exemple pour récupérer 2 valeurs SNMP :
+This is an example of how to get 2 SNMP values:
 
 ```perl
 
@@ -1046,13 +1052,21 @@ print $result->{$oid_sysUpTime}."\n";
 
 **Description**
 
-Charger une liste d'OIDs à utiliser avec la méthode **get_leef**.
+Load a range of OIDs to use with **get_leef** method.
 
 **Parameters**
 
+Parameter       | Type         | Default | Description
+----------------|--------------|---------|---------------------------------------------------------------
+**oids**        | String array |         | Array of OIDs to check.
+instances       | Int array    |         | Array of OID instances to check.
+instance_regexp | String       |         | Regular expression to get instances from **instances** option.
+begin           | Int          |         | Instance to begin
+end             | Int          |         | Instance to end
+
 **Exemple**
 
-Voici un exemple pour obtenir les 4 premières instances d'une table SNMP en utilisant la méthode **load** :
+This is an example of how to get 4 instances of a SNMP table by using **load** method:
 
 ```perl
 my $oid_dskPath = '.1.3.6.1.4.1.2021.9.1.2';
@@ -1064,8 +1078,7 @@ my $result = $self->{snmp}->get_leef(nothing_quit => 1);
 use Data::Dumper;
 print Dumper($result);
 ```
-
-Voici un exemple pour obtenir plusieurs instances dynamiquement (modules mémoire de matériel Dell) en utilisant la méthode **load** :
+This is an example of how to get multiple instances dynamically (memory modules of Dell hardware) by using **load** method:
 
 ```perl
 my $oid_memoryDeviceStatus = '.1.3.6.1.4.1.674.10892.1.1100.50.1.5';
@@ -1089,23 +1102,22 @@ print Dumper($result2);
 
 **Description**
 
-Retourner une table de hashage de valeurs SNMP pour une table SNMP.
+Return hash table of SNMP values for SNMP table.
 
 **Parameters**
 
-
-|  Paramètre      |        Type          |   Défaut       |          Description                                            |
-|-----------------|----------------------|----------------|-----------------------------------------------------------------|
-| **oid**         |  String              |                | OID de la table SNMP à récupérer.                               |
-| start           |  Int                 |                | Premier OID à récupérer.                                        |
-| end             |  Int                 |                | Dernier OID à récupérer.                                        |
-| dont_quit       |  Int (0 or 1)        |       0        | Ne pas quitter même si une erreur SNMP se produit.              |
-| nothing_quit    |  Int (0 or 1)        |       0        | Quitter si aucune valeur n'est retournée.                       |
-| return_type     |  Int (0 or 1)        |       0        | Retourner une table de hashage à un niveau au lieu de plusieurs.|
+Parameter    | Type         | Default | Description
+-------------|--------------|---------|--------------------------------------------------------
+**oid**      | String       |         | OID of the snmp table to check.
+start        | Int          |         | First OID to check.
+end          | Int          |         | Last OID to check.
+dont_quit    | Int (0 or 1) | 0       | Don't quit even if an SNMP error occured.
+nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.
+return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.
 
 **Exemple**
 
-Voici un exemple pour récupérer une table SNMP :
+This is an example of how to get a SNMP table:
 
 ```perl
 my $oid_rcDeviceError            = '.1.3.6.1.4.1.15004.4.2.1';
@@ -1122,21 +1134,21 @@ print Dumper($results);
 
 **Description**
 
-Retourner une table de hashage de valeurs SNMP pour plusieurs tables SNMP.
+Return hash table of SNMP values for multiple SNMP tables.
 
 **Parameters**
 
-|  Paramètre      |        Type          |   Défaut       |          Description                                                                  |
-|-----------------|----------------------|----------------|---------------------------------------------------------------------------------------|
-| **oids**        |  Hash table          |                | Table de hashage des OIDs à récupérer (Peut être spécifié avec la méthode ``load``).  |
-|                 |                      |                | Les clés peuvent être : "oid", "start", "end".                                        |
-| dont_quit       |  Int (0 or 1)        |       0        | Ne pas quitter même si une erreur snmp se produit.                                    |
-| nothing_quit    |  Int (0 or 1)        |       0        | Quitter si aucune valeur n'est retournée.                                             |
-| return_type     |  Int (0 or 1)        |       0        | Retourner une table de hashage à un niveau au lieu de plusieurs.                      |
+Parameter    | Type         | Default | Description
+-------------|--------------|---------|-----------------------------------------------------------
+**oids**     | Hash table   |         | Hash table of OIDs to check (Can be set by 'load' method).
+             |              |         | Keys can be: "oid", "start", "end".
+dont_quit    | Int (0 or 1) | 0       | Don't quit even if an SNMP error occured.
+nothing_quit | Int (0 or 1) | 0       | Quit if no value is returned.
+return_type  | Int (0 or 1) | 0       | Return a hash table with one level instead of multiple.             |
 
 **Exemple**
 
-Voici un exemple pour récupérer 2 tables SNMP :
+This is an example of how to get 2 SNMP tables:
 
 ```perl
 my $oid_sysDescr        = ".1.3.6.1.2.1.1.1";
@@ -1156,15 +1168,15 @@ print Dumper($results);
 
 **Description**
 
-Récupérer le nom d'hôte en paramètre (utile pour obtenir le nom d'hôte dans un mode).
+Get hostname parameter (useful to get hostname in mode).
 
 **Parameters**
 
-Aucun.
+None.
 
 **Exemple**
 
-Voici un exemple pour obtenir le nom d'hôte en paramètre :
+This is an example of how to get hostname parameter:
 
 ```perl
 my $hostname = $self->{snmp}->get_hostname();
@@ -1175,15 +1187,16 @@ my $hostname = $self->{snmp}->get_hostname();
 
 **Description**
 
-Récupérer le port en paramètre (utile pour obtenir le port dans un mode).
+
+Get port parameter (useful to get port in mode).
 
 **Parameters**
 
-Aucun.
+None.
 
 **Exemple**
 
-Voici un exemple pour obtenir le port en paramètre :
+This is an example of how to get port parameter:
 
 ```perl
 my $port = $self->{snmp}->get_port();
@@ -1194,18 +1207,17 @@ my $port = $self->{snmp}->get_port();
 
 **Description**
 
-Retourner des OIDs triés.
+Return sorted OIDs.
 
 **Parameters**
 
-
-|  Paramètre      |    Type           |   Défaut    |          Description                                    |
-|-----------------|-------------------|-------------|---------------------------------------------------------|
-| **-**           |  String array     |             | Tableau d'OIDs à trier.                                 |
+Parameter | Type         | Default | Description
+----------|--------------|---------|-----------------------
+**-**     | String array |         | Array of OIDs to sort.
 
 **Exemple**
 
-Cet exemple afichera des OIDs triés :
+This example prints sorted OIDs:
 
 ```perl
 foreach my $oid ($self->{snmp}->oid_lex_sort(keys %{$self->{results}->{$my_oid}})) {
@@ -1219,8 +1231,8 @@ foreach my $oid ($self->{snmp}->oid_lex_sort(keys %{$self->{results}->{$my_oid}}
 
 [Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque fournit un ensemble de méthodes diverses.
-Pour l'utiliser, vous pouvez directement utiliser le chemin de la méthode :
+This library provides a set of miscellaneous methods.
+To use it, you can directly use the path of the method:
 
 ```perl
 centreon::plugins::misc::<my_method>;
@@ -1231,18 +1243,17 @@ centreon::plugins::misc::<my_method>;
 
 **Description**
 
-Enlever les espaces de début et de fin d'une chaîne de caractères.
+Strip whitespace from the beginning and end of a string.
 
 **Parameters**
 
-
-|  Paramètre      |    Type         |   Défaut    |          Description                                    |
-|-----------------|-----------------|-------------|---------------------------------------------------------|
-| **-**           | String          |             | Chaîne à modifier.                                   |
+Parameter | Type   | Default | Description
+----------|--------|---------|-----------------
+**-**     | String |         | String to strip.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **trim** :
+This is an example of how to use **trim** method:
 
 ```perl
 my $word = '  Hello world !  ';
@@ -1251,8 +1262,8 @@ my $trim_word =  centreon::plugins::misc::trim($word);
 print $word."\n";
 print $trim_word."\n";
 ```
-
 Output displays :
+
 ```
 Hello world !
 ```
@@ -1262,17 +1273,17 @@ Hello world !
 
 **Description**
 
-Convertir des secondes en unité de mesure lisible.
+Convert seconds to human readable text.
 
 **Parameters**
 
-|  Paramètre      |    Type         |   Défaut    |          Description                                    |
-|-----------------|-----------------|-------------|---------------------------------------------------------|
-| **-**           | Int             |             | Nombre de secondes à convertir.                         |
+Parameter | Type | Default | Description
+----------|------|---------|------------------------------
+**-**     | Int  |         | Number of seconds to convert.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **change_seconds** :
+This is an example of how to use **change_seconds** method:
 
 ```perl
 my $seconds = 3750;
@@ -1280,8 +1291,8 @@ my $human_readable_time =  centreon::plugins::misc::change_seconds($seconds);
 
 print 'Human readable time : '.$human_readable_time."\n";
 ```
-
 Output displays :
+
 ```
 Human readable time : 1h 2m 30s
 ```
@@ -1291,22 +1302,21 @@ Human readable time : 1h 2m 30s
 
 **Description**
 
-Exécuter une commande système.
+Execute system command.
 
 **Parameters**
 
-
-|  Paramètre      |    Type         |   Défaut    |          Description                                    |
-|-----------------|-----------------|-------------|---------------------------------------------------------|
-| **command**     | String          |             | Commande à exécuter.                                    |
-| arguments       | String array    |             | Arguments de la commande.                               |
-| timeout         | Int             |     30      | Timeout de la commande.                                 |
-| wait_exit       | Int (0 or 1)    |     0       | Le processus de la commande ignore les signaux SIGCHLD. |
-| redirect_stderr | Int (0 or 1)    |     0       | Afficher les erreurs dans la sortie.                    |
+Parameter       | Type         | Default | Description
+----------------|--------------|---------|----------------------------------------
+**command**     | String       |         | Command to execute.
+arguments       | String array |         | Command arguments.
+timeout         | Int          | 30      | Command timeout.
+wait_exit       | Int (0 or 1) | 0       | Command process ignore SIGCHLD signals.
+redirect_stderr | Int (0 or 1) | 0       | Print errors in output.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **backtick** :
+This is an example of how to use **backtick** method:
 
 ```perl
 my ($error, $stdout, $exit_code) = centreon::plugins::misc::backtick(
@@ -1317,7 +1327,7 @@ my ($error, $stdout, $exit_code) = centreon::plugins::misc::backtick(
 
 print $stdout."\n";
 ```
-La sortie affichera les fichiers du répertoire '/home'.
+Output displays files in '/home' directory.
 
 --------------
 #### 4.4 execute
@@ -1325,23 +1335,23 @@ La sortie affichera les fichiers du répertoire '/home'.
 
 **Description**
 
-Exécuter une commande à distance.
+Execute command remotely.
 
 **Parameters**
 
-|  Paramètre       |    Type         |   Défaut    |          Description                                                                               |
-|------------------|-----------------|-------------|----------------------------------------------------------------------------------------------------|
-| **output**       | Object          |             | Sortie du plugin ($self->{output}).                                                                |
-| **options**      | Object          |             | Options du plugin ($self->{option_results}) pour obtenir les informations de connexion à distance. |
-| sudo             | String          |             | Utiliser la commande sudo.                                                                         |
-| **command**      | String          |             | Commande à exécuter.                                                                               |
-| command_path     | String          |             | Chemin de la commande.                                                                             |
-| command_options  | String          |             | Arguments de la commande.                                                                          |
+Parameter       | Type   | Default | Description
+----------------|--------|---------|----------------------------------------------------------------
+**output**      | Object |         | Plugin output ($self->{output}).
+**options**     | Object |         | Plugin options ($self->{option_results}) to get remote options.
+sudo            | String |         | Use sudo command.
+**command**     | String |         | Command to execute.
+command_path    | String |         | Command path.
+command_options | String |         | Command arguments.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **execute**.
-Nous supposons que l'option ``--remote`` soit activée :
+This is an example of how to use **execute** method.
+We suppose ``--remote`` option is enabled:
 
 ```perl
 my $stdout = centreon::plugins::misc::execute(output => $self->{output},
@@ -1351,7 +1361,7 @@ my $stdout = centreon::plugins::misc::execute(output => $self->{output},
                                               command_path => '/bin/',
                                               command_options => '-l');
 ```
-La sortie affichera les fichier du répertoire /home d'un hôte distant à travers une connexion SSH.
+Output displays files in /home using ssh on a remote host.
 
 --------------
 #### 4.5 windows_execute
@@ -1359,23 +1369,22 @@ La sortie affichera les fichier du répertoire /home d'un hôte distant à trave
 
 **Description**
 
-Exécuter une commande sur Windows.
+Execute command on Windows.
 
 **Parameters**
 
-
-|  Paramètre       |    Type         |   Défaut    |          Description                                            |
-|------------------|-----------------|-------------|-----------------------------------------------------------------|
-| **output**       | Object          |             | Sortie du plugin ($self->{output}).                             |
-| **command**      | String          |             | Commande à exécuter.                                            |
-| command_path     | String          |             | Chemin de la commande.                                          |
-| command_options  | String          |             | Arguments de la commande.                                       |
-| timeout          | Int             |             | Timeout de la commande.                                         |
-| no_quit          | Int             |             | Ne pas quitter même si une erreur SNMP se produit.              |
+Parameter       | Type   | Default | Description
+----------------|--------|---------|-------------------------------------
+**output**      | Object |         | Plugin output ($self->{output}).
+**command**     | String |         | Command to execute.
+command_path    | String |         | Command path.
+command_options | String |         | Command arguments.
+timeout         | Int    |         | Command timeout.
+no_quit         | Int    |         | Don't quit even if an error occured.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **windows_execute**.
+This is an example of how to use **windows_execute** method.
 
 ```perl
 my $stdout = centreon::plugins::misc::windows_execute(output => $self->{output},
@@ -1384,7 +1393,7 @@ my $stdout = centreon::plugins::misc::windows_execute(output => $self->{output},
                                                       command_path => '',
                                                       command_options => '/all');
 ```
-La sortie affichera la configuration IP d'un hôte Windows.
+Output displays IP configuration on a Windows host.
 
 <div id='lib_statefile'/>
 
@@ -1392,8 +1401,9 @@ La sortie affichera la configuration IP d'un hôte Windows.
 
 [Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque fournit un ensemble de méthodes pour utiliser un fichier de cache.
-Pour l'utiliser, ajouter la ligne suivante au début de votre **mode** :
+
+This library provides a set of methods to use a cache file.
+To use it, add the following line at the beginning of your **mode**:
 
 ```perl
 use centreon::plugins::statefile;
@@ -1405,20 +1415,19 @@ use centreon::plugins::statefile;
 
 **Description**
 
-Lire un fichier de cache.
+Read cache file.
 
 **Parameters**
 
-
-|  Paramètre        |    Type         |   Défaut    |          Description                                    |
-|-------------------|-----------------|-------------|---------------------------------------------------------|
-| **statefile**     | String          |             | Nom du fichier de cache.                                |
-| **statefile_dir** | String          |             | Répertoire du fichier de cache.                         |
-| memcached         | String          |             | Serveur memcached à utiliser.                           |
+Parameter         | Type   | Default | Description
+------------------|--------|---------|-----------------------------
+**statefile**     | String |         | Name of the cache file.
+**statefile_dir** | String |         | Directory of the cache file.
+memcached         | String |         | Memcached server to use.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **read** :
+This is an example of how to use **read** method:
 
 ```perl
 $self->{statefile_value} = centreon::plugins::statefile->new(%options);
@@ -1430,7 +1439,7 @@ $self->{statefile_value}->read(statefile => 'my_cache_file',
 use Data::Dumper;
 print Dumper($self->{statefile_value});
 ```
-La sortie affichera le fichier de cache et ses Parameters.
+Output displays cache file and its parameters.
 
 --------------
 #### 5.2 get
@@ -1438,17 +1447,17 @@ La sortie affichera le fichier de cache et ses Parameters.
 
 **Description**
 
-Récupérer les données d'un fichier de cache.
+Get data from cache file.
 
 **Parameters**
 
-|  Paramètre        |    Type         |   Défaut    |          Description                                    |
-|-------------------|-----------------|-------------|---------------------------------------------------------|
-| name              | String          |             | Récupérer une valeur du fichier de cache.               |
+Parameter | Type   | Default | Description
+----------|--------|---------|-----------------------------
+name      | String |         | Get a value from cache file.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **get** :
+This is an example of how to use **get** method:
 
 ```perl
 $self->{statefile_value} = centreon::plugins::statefile->new(%options);
@@ -1460,8 +1469,7 @@ $self->{statefile_value}->read(statefile => 'my_cache_file',
 my $value = $self->{statefile_value}->get(name => 'property1');
 print $value."\n";
 ```
-
-La sortie affichera la valeur associée à 'property1' du fichier de cache.
+Output displays value for 'property1' of the cache file.
 
 --------------
 #### 5.3 write
@@ -1469,17 +1477,17 @@ La sortie affichera la valeur associée à 'property1' du fichier de cache.
 
 **Description**
 
-Ecrire des données dans le fichier de cache.
+Write data to cache file.
 
 **Parameters**
 
-|  Paramètre        |    Type         |   Défaut    |          Description                                    |
-|-------------------|-----------------|-------------|---------------------------------------------------------|
-| data              | String          |             | Données à écrire dans le fichier de cache.              |
+Parameter | Type   | Default | Description
+----------|--------|---------|-----------------------------
+data      | String |         | Data to write in cache file.
 
 **Exemple**
 
-Voici un exemple d'utilisation de la méthode **write** :
+This is an example of how to use **write** method:
 
 ```perl
 $self->{statefile_value} = centreon::plugins::statefile->new(%options);
@@ -1492,8 +1500,7 @@ my $new_datas = {};
 $new_datas->{last_timestamp} = time();
 $self->{statefile_value}->write(data => $new_datas);
 ```
-
-Ensuite, vous pouvez voir le résultat dans le fichier '/var/lib/centreon/centplugins/my_cache_file', le timestamp y est écrit.
+Then, you can read the result in '/var/lib/centreon/centplugins/my_cache_file', timestamp is written in it.
 
 <div id='lib_http'/>
 
@@ -1501,27 +1508,26 @@ Ensuite, vous pouvez voir le résultat dans le fichier '/var/lib/centreon/centpl
 
 [Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque fournit un ensemble de méthodes pour utiliser le protocole HTTP.
-Pour l'utiliser, ajouter la ligne suivante au début de votre **mode** :
+This library provides a set of methodss to use HTTP protocol.
+To use it, add the following line at the beginning of your **mode**:
 
 ```perl
 use centreon::plugins::http;
 ```
 
-Certaines options doivent être spécifiées dans **plugin.pm** :
+Some options must be set in **plugin.pm**:
 
-
-|  Option         |    Type         |          Description                                                 |
-|-----------------|-----------------|----------------------------------------------------------------------|
-| **hostname**    | String          | Adresse IP/FQDN du serveur web.                                      |
-| **port**        | String          | Port HTTP.                                                           |
-| **proto**       | String          | Protocole utilisé ('HTTP' ou 'HTTPS').                               |
-| credentials     |                 | Utiliser les informations d'authentification.                        |
-| ntlm            |                 | Utiliser l'authentification NTLM (si ``--credentials`` est utilisée).|
-| username        | String          | Nom d'utilisateur (si ``--credentials`` est utilisée).               |
-| password        | String          | Mot de passe (si ``--credentials`` est utilisée).                    |
-| proxyurl        | String          | Proxy à utiliser.                                                    |
-| url_path        | String          | URL à se connecter (commence par '/').                               |
+ Option       | Type   | Description
+-------------|--------|--------------------------------------------------------
+**hostname** | String | IP Addr/FQDN of the webserver host.
+**port**     | String | HTTP port.
+**proto**    | String | Used protocol ('http' or 'https').
+credentials  |        | Use credentials.
+ntlm         |        | Use NTLM authentication (if ``--credentials`` is used).
+username     | String | Username (if ``--credentials`` is used).
+password     | String | User password (if ``--credentials`` is used).
+proxyurl     | String | Proxy to use.
+url_path     | String | URL to connect (start to '/').
 
 --------------
 #### 6.1 connect
@@ -1529,17 +1535,18 @@ Certaines options doivent être spécifiées dans **plugin.pm** :
 
 **Description**
 
-Tester la connexion vers une url HTTP.
-Retourner le contenu de la page web.
+Test a connection to an HTTP url.
+Return content of the webpage.
 
 **Parameters**
 
-Cette méthode utilise les options du plugin précédemment définies.
+This method use plugin options previously defined.
 
-**Exemple**
+**Example**
 
-Voici un exemple d'utilisation de la méthode **connect**.
-Nous supposons que ces options sont définies :
+This is an example of how to use **connect** method.
+
+We suppose these options are defined :
 * --hostname = 'google.com'
 * --urlpath  = '/'
 * --proto    = 'http'
@@ -1551,8 +1558,7 @@ $self->{http}->set_options(%{$self->{option_results}});
 my $webcontent = $self->{http}->request();
 print $webcontent;
 ```
-
-La sortie affichera le contenu de la page web '\http://google.com/'.
+Output displays content of the webpage '\http://google.com/'.
 
 <div id='lib_dbi'/>
 
@@ -1560,8 +1566,8 @@ La sortie affichera le contenu de la page web '\http://google.com/'.
 
 [Table of content (3)](#table_of_content_3)
 
-Cette bibliothèque vous permet de vous connecter à une ou plusieurs bases de données.
-Pour l'utiliser, ajouter la ligne suivante au début de votre fichier **plugin.pm** :
+This library allows you to connect to databases.
+To use it, add the following line at the beginning of your **plugin.pm**:
 
 ```perl
 use base qw(centreon::plugins::script_sql);
@@ -1573,36 +1579,38 @@ use base qw(centreon::plugins::script_sql);
 
 **Description**
 
-Se connecter à une ou plusieurs bases de données.
+Connect to databases.
 
 **Parameters**
 
-|  Paramètre |    Type      |   Défaut |          Description                                      |
-|------------|--------------|----------|-----------------------------------------------------------|
-| dontquit   | Int (0 or 1) |     0    | Ne pas quitter même si une erreur de connexion se produit.|
+Parameter | Type         | Default | Description
+----------|--------------|---------|-----------------------------------
+dontquit  | Int (0 or 1) | 0       | Don't quit even if errors occured.
 
-**Exemple**
+**Example**
 
-Voici un exemple d'utilisation de la méthode **connect**.
-Le format de la chaîne de connexion peut avoir les formes suivantes :
+This is an example of how to use **connect** method.
+
+The format of the connection string can have the following forms:
+
 ```
     DriverName:database_name
     DriverName:database_name@hostname:port
     DriverName:database=database_name;host=hostname;port=port
 ```
+In plugin.pm:
 
-Dans plugin.pm :
 ```perl
 $self->{sqldefault}->{dbi} = ();
 $self->{sqldefault}->{dbi} = { data_source => 'mysql:host=127.0.0.1;port=3306' };
 ```
+In your mode:
 
-Dans votre mode :
 ```perl
 $self->{sql} = $options{sql};
 my ($exit, $msg_error) = $self->{sql}->connect(dontquit => 1);
 ```
-Vous êtes alors connecté à la base de données MySQL.
+Then, you are connected to the MySQL database.
 
 --------------
 #### 7.2 query
@@ -1610,17 +1618,17 @@ Vous êtes alors connecté à la base de données MySQL.
 
 **Description**
 
-Exécuter une requête SQL sur la base de données.
+Send query to database.
 
 **Parameters**
 
-|  Paramètre        |    Type         |   Défaut    |          Description                                    |
-|-------------------|-----------------|-------------|---------------------------------------------------------|
-| query             | String          |             | Requête SQL à exécuter.                                 |
+Parameter | Type   | Default | Description
+----------|--------|---------|-------------------
+query     | String |         | SQL query to send.
 
-**Exemple**
+**Example**
 
-Voici un exemple d'utilisation de la méthode **query** :
+This is an example of how to use **query** method:
 
 ```perl
 $self->{sql}->query(query => q{SHOW /*!50000 global */ STATUS LIKE 'Slow_queries'});
@@ -1629,8 +1637,7 @@ my ($name, $result) = $self->{sql}->fetchrow_array();
 print 'Name : '.$name."\n";
 print 'Value : '.$value."\n";
 ```
-
-La sortie affichera le nombre de requêtes MySQL lentes.
+Output displays count of MySQL slow queries.
 
 --------------
 #### 7.3 fetchrow_array
@@ -1638,15 +1645,15 @@ La sortie affichera le nombre de requêtes MySQL lentes.
 
 **Description**
 
-Retourner une tableau à partir d'une requête SQL.
+Return Array from sql query.
 
 **Parameters**
 
-Aucun.
+None.
 
-**Exemple**
+**Example**
 
-Voici un exemple d'utilisation de la méthode **fetchrow_array** :
+This is an example of how to use **fetchrow_array** method:
 
 ```perl
 $self->{sql}->query(query => q{SHOW /*!50000 global */ STATUS LIKE 'Uptime'});
@@ -1654,8 +1661,7 @@ my ($dummy, $result) = $self->{sql}->fetchrow_array();
 
 print 'Uptime : '.$result."\n";
 ```
-
-La sortie affichera l'uptime MySQL.
+Output displays MySQL uptime.
 
 --------------
 #### 7.4 fetchall_arrayref
@@ -1663,15 +1669,15 @@ La sortie affichera l'uptime MySQL.
 
 **Description**
 
-Retourner un tableau à partir d'une requête SQL.
+Return Array from SQL query.
 
 **Parameters**
 
-Aucun.
+None.
 
-**Exemple**
+**Example**
 
-Voici un exemple d'utilisation de la méthode **fetchrow_array** :
+This is an example of how to use **fetchrow_array** method:
 
 ```perl
 $self->{sql}->query(query => q{
@@ -1690,8 +1696,7 @@ my $session_logical_reads = @$result[0]->[3];
 
 print $physical_reads."\n";
 ```
-
-La sortie affichera les lectures physiques sur une base de données Oracle.
+Output displays physical reads on Oracle database.
 
 --------------
 #### 7.5 fetchrow_hashref
@@ -1699,15 +1704,15 @@ La sortie affichera les lectures physiques sur une base de données Oracle.
 
 **Description**
 
-Retourner une table de hashage à partir d'une requête SQL.
+Return Hash table from SQL query.
 
 **Parameters**
 
-Aucun.
+None.
 
-**Exemple**
+**Example**
 
-Voici un exemple d'utilisation de la méthode **fetchrow_hashref** :
+This is an example of how to use **fetchrow_hashref** method:
 
 ```perl
 $self->{sql}->query(query => q{
@@ -1718,8 +1723,7 @@ while ((my $row = $self->{sql}->fetchrow_hashref())) {
   print $row->{datname}."\n";
 }
 ```
-
-La sortie affichera la liste des bases de données PostgreSQL.
+Output displays Postgres databases.
 
 <div id='tutoriel'/>
 
