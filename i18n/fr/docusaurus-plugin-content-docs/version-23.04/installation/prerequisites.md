@@ -26,7 +26,7 @@ Les OS supportés par Centreon sont AlmaLinux 8, RedHat/OracleLinux 8 et Debian 
 | Version                  | Mode d'installation                                   |
 |--------------------------|-------------------------------------------------------|
 | Alma Linux 8             | paquets RPM, sources                                  |
-| RHEL/Oracle Linux 7      | paquets RPM, sources                                  |
+| RHEL/Oracle Linux 8      | paquets RPM, sources                                  |
 | Debian 11                | paquets DEB                                           |
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
