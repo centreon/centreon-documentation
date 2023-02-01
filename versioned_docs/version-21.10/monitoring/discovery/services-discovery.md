@@ -123,12 +123,10 @@ during the discovery. This inclusion/exclusion is relative to an XML attribute.
 
 The inclusion/exclusion rules, are defined using the following algorithm:
 
-  - If only inclusion rules are present, the attribute's value corresponding to
-    at least one inclusion will be considered
   - If only exclusion rules are present, every element will be considered,
-    except the ones corresponding to an exclusion
+    except the ones corresponding to an exclusion.
   - If both types are present, the process checks if the element corresponds to
-    an inclusion and then checks if it is not listed into the exclusion list
+    an inclusion and then checks if it is not listed into the exclusion list. The order in which you list the rules is important.
 
 The second part **Macros** allows to define matches between an XML attribute and
 a service's template macro. For all created services the macros' values will be
