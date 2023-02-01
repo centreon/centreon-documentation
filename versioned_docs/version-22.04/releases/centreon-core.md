@@ -383,7 +383,7 @@ Release date: `February 1, 2023`
 
 - Improved Broker's behaviour when trying to insert negative values in unsigned columns of the storage database.
 - Improved network connection stability by sending tcpkeepalive packet every 30s on tcp stream.
-- Improved the manner of sending bulk data with Broker.
+- Improved the manner of sending bulk data with Broker on MariaDB databases.
 - It is now possible to use empty strings for parameter values in stream connectors.
 
 ##### Bug fixes
@@ -401,6 +401,7 @@ Release date: `February 1, 2023`
 - Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
 - Fixed an issue where Broker displayed the expected warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
 - Fixed a defect in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
+
 ### 22.04.1
 
 Release date: `August 30, 2022`
