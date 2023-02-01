@@ -27,7 +27,7 @@ To quickly test Centreon from a CentOS / Oracle Linux / RHEL in version 8, you
 can run the following command as **root**:
 
 ```Bash
-curl -L https://raw.githubusercontent.com/centreon/centreon/21.10.x/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/21.10.x/centreon/unattended.sh | sh
 ```
 
 The script will install a central server using version 21.10, from the stable repository, with minimal output on your terminal.

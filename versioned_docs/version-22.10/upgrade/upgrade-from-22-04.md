@@ -23,10 +23,6 @@ servers:
 - Central server
 - Database server
 
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 22.04.
-
 ## Upgrade the Centreon Central server
 
 ### Update the Centreon repository
@@ -58,7 +54,7 @@ apt update
 </TabItem>
 </Tabs>
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Install the MariaDB repository
 
@@ -99,6 +95,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -110,6 +109,9 @@ to confirm:
 
 ```shell
 dnf module reset php
+```
+
+```shell
 dnf module install php:remi-8.1
 ```
 
@@ -137,7 +139,7 @@ systemctl stop php8.0-fpm
 > before starting the upgrade procedure.
 
 If you have installed Business extensions, update the Business repository to version 22.10.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 

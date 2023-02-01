@@ -27,7 +27,7 @@ Assurez-vous de lire les notes de version pour une explication des fonctionnalit
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon sont régulièrement renouvelées. Le dernier changement a eu lieu le 14 octobre 2021.
 Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
 
-## Étape 1 : Serveur Centreon MAP
+## Étape 1 : serveur Centreon MAP
 
 > Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
@@ -42,6 +42,14 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
+> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Mettez à jour le serveur Centreon MAP :
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -49,16 +57,16 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-</TabItem>
-</Tabs>
-
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
+> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP :
 
     ```shell
     yum update centreon-map-server
     ```
+
+</TabItem>
+</Tabs>
 
 3. Activez et démarrez le service **centreon-map** :
 
@@ -82,11 +90,24 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 
   Pour chaque différence entre les fichiers, évaluez si vous devez la copier de **centreon-map.conf.rpmsave** vers **centreon-map.conf**.
 
-## Étape 2 : Interface web Centreon MAP
+## Étape 2 : interface web Centreon MAP
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+</Tabs>
 
 Terminez la montée de version :
 
@@ -100,7 +121,13 @@ Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lou
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
-## Étape 4 : Base de données MariaDB
+## Étape 4 : mise à jour des dialectes dans les fichiers .properties
+
+Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
+
+> Cette configuration fonctionne également avec une base MySQL.
+
+## Étape 5 : base de données MariaDB
 
 1. Arrêtez le service **centreon-map** :
 

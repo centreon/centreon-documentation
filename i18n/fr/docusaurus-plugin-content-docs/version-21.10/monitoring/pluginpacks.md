@@ -64,7 +64,7 @@ Un plugin pack s'installe en 4 étapes :
 
 * Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
 * Si vous avez une licence **hors ligne** :
-  - installez le dépôt des Plugin Packs (contactez l'[équipe support Centreon](https://support.centreon.com/) pour en obtenir l'adresse)
+  - installez le dépôt des Plugin Packs (rendez-vous sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en obtenir l'adresse)
   - installez ou mettez à jour le catalogue des Plugin Packs
 depuis votre serveur central :
 

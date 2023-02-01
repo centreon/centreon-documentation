@@ -28,9 +28,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 Lors d'une montée de version majeure (ex: 20.10.x à 22.10.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
-Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
-
-![image](../assets/reporting/support_repos.png)
+Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ## Étape 2 : Mettre à jour l'interface
 
@@ -47,7 +45,7 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 ### Prérequis de la version Java
   
-  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -55,9 +53,9 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
   ```shell
   sudo update-alternatives --config java
   ```

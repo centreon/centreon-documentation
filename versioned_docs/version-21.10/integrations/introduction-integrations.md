@@ -18,16 +18,11 @@ to advanced filtering and formatting capabilities.
 extension introduces additional UI actions and backend boiler-plates to create 
 cases within your favorite ticketing system. 
 
-- [Centreon Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction), offers 
-the possibility of grabbing data from other monitoring tools and making Centreon 
-the single pane of glass for all your alerts.
-
-This documention is organized to guide you to the right integration depending upon the 
+This documentation is organized to guide you to the right integration depending upon the 
 feature or value-proposition you want to obtain by connecting Centreon with a third-party
 solution. Here is a list of integrations domains:
 
 - [Data Analytics](../integrations/data-analytics/data-analytics-overview.md)
-- [Digital Experience Monitoring](../integrations/digital-experience-monitoring/dem-overview.md)
 - [Event Management](../integrations/event-management/event-management-overview.md)
 - [ITSM](../integrations/itsm/itsm-overview.md)
 - [Notifications](../integrations/notifications/notifications-overview.md)

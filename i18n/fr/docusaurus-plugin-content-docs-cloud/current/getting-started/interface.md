@@ -7,7 +7,7 @@ title: Aperçu de l'interface Centreon
 
 Lors de votre première connexion à Centreon Cloud, utilisez l'URL et les identifiants que le support Centreon vous a fourni. L'URL de connexion a le format suivant : `https://<organisation>.<region>.centreon.cloud`.
 
-Renseignez votre identifiant et mot de passe, puis cliquez sur le bouton **Connect** :
+Renseignez votre identifiant et mot de passe (définis via [Centreon CIAM](../ciam/ciam.md)), puis cliquez sur le bouton **Connect** :
 
 ![image](../assets/getting-started/aconnection.png)
 
@@ -49,7 +49,7 @@ Cliquez sur l'icône **collecteurs** pour développer le menu. Dans le menu, cli
 
 Dans la partie de droite du bandeau supérieur, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
 
-* Pour les hôtes : le nombre d'hôtes avec le statut **INDISPONIBLE**, **INJOIGNABLE** et **DISPONIBLE**.
+* Pour les hôtes : le nombre d'hôtes avec le statut **INDISPONIBLE** et **DISPONIBLE**.
 * Pour les services: le nombre de services avec le statut **CRITIQUE**, **ALERTE**, **INCONNU** et **OK**.
 
 Ces nombres incluent les alertes non confirmées (SOFT), mais n'incluent pas les ressources acquittées ou en maintenance. Les ressources en attente sont indiquées par une pastille bleue sur les icônes **hôtes** ou **services**.
@@ -61,15 +61,55 @@ Cliquez sur un cercle représentant un statut :
 
 Cliquez sur les icônes **hôtes** ou **services** pour développer le menu et afficher le détail des hôtes et services.
 
-## Changer la langue de l'interface
+### Passer en mode sombre
 
-Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Edit profile**:
+Lors de votre première connexion, l'interface Centreon s'affiche en mode clair par défaut.
+
+Dans le bandeau supérieur, cliquez sur l'icône profil et utilisez le bouton pour activer le mode sombre. Lorsque vous vous reconnecterez, le mode que vous avez sélectionné précédemment restera activé.
+
+- Mode clair :
+
+![image](../assets/getting-started/light_mode_switch.png)
+
+- Mode sombre :
+
+![image](../assets/getting-started/dark_mode_switch.png)
+
+Vous pouvez aussi passer en mode sombre en modifiant le thème de l'interface dans les paramètres du compte.
+
+Allez dans **Administration > Paramètres > Mon compte** et sélectionnez l'onglet **Informations générales**. 
+Sélectionnez **Light** ou **Dark** dans le champ **Front-end Theme**.
+
+Puis cliquez sur **Sauvegarder**. Le thème de l'interface est maintenant dans le mode que vous avez choisi.
+
+### Langue de l'interface utilisateur
+
+Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Editer le profil**:
 
 ![image](../assets/getting-started/change_language_1.png)
 
-Dans la liste de sélection des langues, sélectionnez la vôtre :
+Dans la liste **Langue**, sélectionnez la vôtre.
 
-![image](../assets/getting-started/change_language_2.png)
-
-Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
+Puis cliquez sur **Sauvegarder**. Votre interface est maintenant traduite dans votre
 langue.
+
+## Réinitialisez votre mot de passe
+
+### Réinitialisez votre mot de passe avant expiration
+
+Lorsque votre mot de passe va expirer dans les 7 prochains jours, un point orange apparaît dans le
+bandeau à droite à côté de l'icône de profil :
+
+![image](../assets/administration/password_will_expire.png)
+
+Cliquez sur **Editer le profil**, puis modifiez votre mot de passe :
+
+![image](../assets/administration/password_expiration.png)
+
+### Réinitialisez votre mot de passe après expiration
+
+Si vous n'avez pas changé votre mot de passe avant son expiration, après connexion vous serez redirigé vers une page dédiée où vous pourrez le mettre à jour :
+
+![image](../assets/administration/password_expired.png)
+
+Entrez votre mot de passe actuel, définissez-en un nouveau puis cliquez sur **Réinitialiser le mot de passe**.

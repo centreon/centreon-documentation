@@ -27,7 +27,7 @@ Assurez-vous de lire les notes de version pour une explication des fonctionnalit
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon sont régulièrement renouvelées. Le dernier changement a eu lieu le 14 octobre 2021.
 Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
 
-## Étape 1 : Serveur Centreon MAP
+## Étape 1 : serveur Centreon MAP
 
 > Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
@@ -39,14 +39,22 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
+
+> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Mettez à jour le serveur Centreon MAP (Legacy) :
+
+    ```shell
+    dnf update centreon-map-server
+    ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 #### Prérequis de la version Java
-  > Assurez-vous qu'une version de Java 17 ou ultérieure est installée avant de commencer la procédure.
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -54,9 +62,9 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou ultérieure), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou ultérieure) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
   ```shell
   sudo update-alternatives --config java
   ```
@@ -66,24 +74,39 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
   systemctl restart centreon-map
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
   
 Vous pouvez maintenant procéder à la mise à jour :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
-</TabItem>
-</Tabs>
+> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
-
-2. Mettez à jour le serveur Centreon MAP :
+2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
     ```shell
     yum update centreon-map-server
     ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Mettez à jour le serveur Centreon MAP (Legacy) :
+
+    ```shell
+    apt update && apt upgrade centreon-map-server
+    ```
+
+</TabItem>
+</Tabs>
 
 3. Activez et démarrez le service **centreon-map** :
 
@@ -92,7 +115,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
     systemctl start centreon-map
     ```
 
-5. Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration **centreon-map.conf**.
+4. Ce point ne s'applique que si vous avez personnalisé votre fichier de configuration **centreon-map.conf**.
 Lors de la mise à jour de votre module MAP, le fichier **/etc/centreon-studio/centreon-map.conf** n'est pas mis à jour automatiquement : le nouveau fichier de configuration apporté par le rpm ne remplace pas l'ancien fichier.
 Vous devez copier les modifications manuellement dans votre fichier de configuration personnalisé.
 
@@ -107,11 +130,30 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 
   Pour chaque différence entre les fichiers, évaluez si vous devez la copier de **centreon-map.conf.rpmsave** vers **centreon-map.conf**.
 
-## Étape 2 : Interface web Centreon MAP
+## Étape 2 : interface web Centreon MAP
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-map-web-client
+```
+
+</TabItem>
+</Tabs>
 
 Terminez la montée de version :
 
@@ -119,19 +161,19 @@ Terminez la montée de version :
 2. Recherchez **Map web client**.
 3. Cliquez sur le bouton de mise à jour (parties module & widget).
 
-## Étape 3 : Client lourd Centreon MAP
+## Étape 3 : client lourd Centreon MAP
 
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lourd est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
-## Étape 4 : Mise à jour des dialectes dans les fichiers .properties
+## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 
 Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
 
 > Cette configuration fonctionne également avec une base MySQL.
 
-## Étape 5 : Base de données MariaDB
+## Étape 5 : base de données MariaDB
 
 1. Arrêtez le service **centreon-map** :
 
@@ -141,7 +183,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
 
 2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.04, le nouveau protocole BBDO v3 est activé.
+3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.
 
    ```text

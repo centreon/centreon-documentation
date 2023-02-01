@@ -128,16 +128,11 @@ durant la découverte. Cette inclusion/exclusion concerne les attributs XML.
 
 Les règles d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
 
-  - Si seules des règles d’inclusion sont présentes, la valeur de l’attribut
-    correspondant à au moins une inclusion est prise en compte
   - Si seulement des règles d’exclusion sont présentes, chaque élément sera pris
-    en compte, sauf ceux correspondant à une exclusion
+    en compte, sauf ceux correspondant à une exclusion.
   - Si les deux types sont présents, le processus vérifiera l’élément
     correspondant à une inclusion puis s’assurera qu’il n’est pas listé dans une
-    exclusion
-  - Le seconde partie Macros permet de définir la relation entre l’attribut XML
-    et la macro du modèle de service. Pour tous les services créés, les valeurs
-    des macros seront remplacées par les valeurs des attributs.
+    exclusion. L'ordre dans lequel vous listez les règles est important.
 
 ![image](../../assets/configuration/autodisco/create_rule_6.png)
 

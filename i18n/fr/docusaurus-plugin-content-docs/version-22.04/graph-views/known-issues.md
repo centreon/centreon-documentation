@@ -1,6 +1,6 @@
 ---
 id: known-issues
-title: Problèmes connus
+title: Problèmes connus dans MAP (Legacy)
 ---
 
 Vous trouverez ci-dessous une liste de problèmes et/ou de bugs connus que vous pouvez rencontrer lors de l'utilisation de Centreon MAP.

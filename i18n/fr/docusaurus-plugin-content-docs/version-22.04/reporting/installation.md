@@ -73,18 +73,25 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/php.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci-dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
-
+  
+| Utilisateur          | Groupe                     |
+|----------------------|----------------------------|
+| centreonBI (nouveau) | apache,centreon,centreonBI |
+| apache (existant)    | centreonBI                 |
+  
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -96,13 +103,20 @@ performances & d'isolation.
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
+  
+#### Utilisateurs et groupes
+
+| Utilisateur          | Groupe                       |
+|----------------------|------------------------------|
+| centreonBI (nouveau) | www-data,centreon,centreonBI |
+| apache (existant)    | centreonBI                   |
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 - Centreon Web 22.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
 
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
@@ -110,15 +124,16 @@ performances & d'isolation.
   - wait_timeout
   - interactive_timeout
 
-</TabItem>
-</Tabs>
-
 #### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                     |
 |----------------------|----------------------------|
 | centreonBI (nouveau) | apache,centreon,centreonBI |
 | apache (existant)    | centreonBI                 |
+
+</TabItem>
+</Tabs>
+
 
 #### Description des utilisateurs, umask et répertoire personnel
 
@@ -197,9 +212,9 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
-Installer le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/s/repositories).
+1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-Puis lancez la commande suivante :
+2. Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -364,9 +379,11 @@ processus d'installation :
 - Accès (utilisateur/mot de passe) à la base de données de reporting
 - Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
 
-Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+#### Procédure
 
-Puis lancer la commande suivante:
+1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">

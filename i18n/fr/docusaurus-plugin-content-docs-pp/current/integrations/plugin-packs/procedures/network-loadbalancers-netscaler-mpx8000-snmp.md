@@ -1,49 +1,10 @@
 ---
 id: network-loadbalancers-netscaler-mpx8000-snmp
-title: Netscaler MPX 8000
+title: Netscaler MPX 8000 (Déprécié)
 ---
 
-## Prerequisites
+## **ATTENTION** Ce Pack est déprécié
 
-### Centreon Plugin
+Ce Pack a été déprécié au profit du Pack "Citrix Netscaler".
 
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-plugin-Network-Loadbalancers-Netscaler-Mpx8000-Snmp
-```
-
-Be sure to have with you the following information:
-
-  - Read-Only SNMP community
-  - IP Address of the equipment
-
-### Configure SNMP on your server
-
-Follow constructor procedure for your equipment.
-
-### SNMP Permissions
-
-Read-Only access.
-
-### Troubleshooting
-
-Read [Troubleshooting
-SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
-
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                                | Value                                    |
-| :----------------------------------- | :--------------------------------------- |
-| Host name                            | *Name of the host*                       |
-| Alias                                | *Host description*                       |
-| IP                                   | *Host IP Address*                        |
-| Monitored from                       | *Monitoring Poller to use*               |
-| Host Multiple Templates              | Net-Citrix-Netscaler-MPX8000-SNMP-custom |
-
-Click on the *Save* button.
+Référez vous à [cette procedure](network-loadbalancers-netscaler-snmp.md).

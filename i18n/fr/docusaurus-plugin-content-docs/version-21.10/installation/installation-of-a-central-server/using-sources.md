@@ -648,7 +648,7 @@ service snmptrapd restart
 
 ## Centreon library (Centreon CLIB)
 
-Installez Centreon CLIB en utilisant [cette procédure](https://github.com/centreon/centreon-clib.md#fetching-sources).
+Installez Centreon CLIB en utilisant [cette procédure](https://github.com/centreon/centreon-clib#fetching-sources). 
 
 ## Monitoring engine (Centreon Engine)
 

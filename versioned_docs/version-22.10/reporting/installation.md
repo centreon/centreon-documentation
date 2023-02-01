@@ -6,173 +6,216 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Centreon MBI is a Centreon **extension** that requires a valid license key. To
-> purchase one and retrieve the necessary repositories, contact
-> [Centreon](mailto:sales@centreon.com).
+This chapter presents the software architecture of the **Centreon MBI** extension
+and provides an overview of the integration of the extension with Centreon monitoring software.
 
+This document is intended for administrators who will install or configure Centreon MBI.
 
-Four major steps to installing Centreon MBI:
+Four main steps are required to install Centreon MBI:
 
-- Check the system prerequisites.
+- Check the system requirements.
 - Install the Centreon MBI interface in the Centreon application (Centreon MBI Server).
 - Install the reporting server (Centreon MBI Reporting Server).
-- Configure Extract, Transform, Load (ETL) in the Centreon MBI.
+- Configure the extraction, transformation and loading (ETL) in the Centreon MBI interface.
 
 ## Architecture
 
-This chapter describes the Centreon MBI architecture and provides an
-overview of how the extension is integrated into Centreon monitoring
-software.
+### A dedicated reporting server
 
-The information is addressed to administrators who will be installing or
-configuring Centreon MBI.
+The architecture and these requirements apply to:
 
-### Dedicated reporting server
+- test
+- pre-production
+- production environments.
 
-This architecture and prerequisites apply to:
-
-- Test environnements
-- Pre-production environments
-- Production environments.
-
-The diagram below shows the main components of Centreon MBI:
+The diagram below highlights the main components of Centreon MBI:
 
 ![image](../assets/reporting/installation/architecture.png)
 
-*The monitoring database can be installed on a server other than the Centreon server.*
+*The monitoring database is not necessarily on the same server as the Centreon server*.
 
-- **ETL**: Process that extracts, transforms and loads data into the
-  reporting database.
-- **CBIS**: Scheduler that manages job execution and publication.
-- **Reporting database**: MariaDB database that contains reporting data
-  and some raw data extracted from the monitoring database.
+- **ETL**: Process that extracts, transforms and loads data into the reporting database.
+- **CBIS**: The scheduler that manages the execution and publication of reports.
+- **Reporting Database**: The MariaDB database that contains the reporting data and some raw data extracted from the monitoring database.
 
-### Network flow table
+### Network Flow Tables
 
-The table below presents the different types of flow, by default,
-between the dedicated BI server, Centreon server and databases:
+The table below shows the different types of flows, by default,
+between the dedicated BI server, the Centreon server and the databases:
 
-|  **Application**  |  **Source**      |       Destination     |   Port |  Protocol |
-|-------------------|------------------|-----------------------|--------|-----------|
-|  ETL/CBIS         | Reporting server |  Centreon Database    | 3306   | TCP       |
-|  SSH              | Reporting server |  Centreon             | 22     | TCP       |
-|  CBIS             | Centreon         |  Reporting server     | 1234   | TCP       |
-|  CBIS             | Reporting server |  Centreon             | 80     | HTTP\*    |
-|  Widgets          | Centreon         |  Reporting server     | 3306   | TCP       |
+| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
+|-----------------|--------------------------|--------------------------------------|----------|--------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
+| SSH             | Reporting server         |  Centreon Server                     | 22       | TCP          |
+| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
+| CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
+| Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
+*Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
-\**Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use Centreon API to generate graphs*
+### Information about the packages
 
-### Packages information
+The Centreon MBI installation is based on two RPM packages:
 
-Centreon MBI installation requires two RPM packages:
+- **Centreon-bi-server:** Installs the MBI interface integrated with the Centreon interface. The package is installed on the Centreon central server.
+- **Centreon-bi-reporting-server**: Contains all the components needed to run the reporting server
+  (report scheduler, ETL, standard reports). It must be installed on a server dedicated to reporting processes.
 
-- Centreon-bi-server: Installs the Centreon MBI interface integrated into the
-  Centreon front end and must reside on the Centreon Web Server.
-- Centreon-bi-reporting-server: Contains all the components needed to run the
-  reporting server -- report scheduler, ETL, standards reports -- and must
-  reside on a dedicated server for reporting processes.
-
-You should install the MariaDB database at the same time. We highly recommand
-installing the database on the same server for performance & isolation
-considerations.
+The installation of the database must be done at the same time. We strongly recommend installing the MariaDB database on the
+reporting server for performance & isolation reasons.
 
 ## Prerequisites
 
-### Centreon central server
+### Central Centreon server
 
-**Software**
 
-- Centreon 22.10
-- Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
-  (same timezone displayed with the command `timedatectl status`)
-- Avoid the usage of the following variables in your monitoring MariaDB configuration.
-  They halt long queries execution and can stop the ETL or the report generation jobs:
+#### Software requirements
+
+See the [software requirements](../installation/prerequisites.md#software).
+
+You should install the MariaDB database at the same time. We highly recommend
+installing the database on the same server for performance & isolation
+considerations.
+
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+- Centreon Web 22.10
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
+  file (same as the one returned by the `timedatectl status` command).
+- Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
+  execution of long queries and can stop ETL or report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+  
+#### Users and groups
+
+| User                 | Group                      |
+|----------------------|----------------------------|
+| centreonBI (new)     | apache,centreon,centreonBI |
+| apache (existing)    | centreonBI                 |
+  
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+- Centreon Web 22.10
+- Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
+  (same as the one returned by the `timedatectl status` command).
+- Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
+  execution of long queries and can stop ETL or report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+  
+#### Users and groups
+
+| User                 | Group                        |
+|----------------------|------------------------------|
+| centreonBI (new)     | www-data,centreon,centreonBI |
+| apache (existing)    | centreonBI                   |
+  
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+- Centreon Web 22.10
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
+
+  (same as the one returned by the `timedatectl status` command).
+- Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
+  execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
 
-**Users and groups**
+#### Users and groups
 
-| User               | Group                        |
-|--------------------|------------------------------|
-|  centreonBI (new)  | apache, centreon, centreonBI |
-|  apache (existing) | centreonBI                   |
+| User                 | Group                      |
+|----------------------|----------------------------|
+| centreonBI (new)     | apache,centreon,centreonBI |
+| apache (existing)    | centreonBI                 |
+  
+</TabItem>
+</Tabs>
 
-**Description of users, umask and home directory**
+#### Description of users, umask and home directory
 
-| User       | umask  | home             |
-|------------|--------|------------------|
-| centreonBI |  0002  | /home/centreonBI |
+| User        | umask | home             |
+|-------------|-------|------------------|
+| centreonBI  | 0002  | /home/centreonBI |
+
+### Dedicated reporting server
+
+#### Hardware layer
+
+| Number of services supervised | Minimum CPU          | RAM           |
+|-------------------------------|----------------------|---------------|
+| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
+| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
+| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
+| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
+| > 100 000                     | > Contact Centreon   |               |
+
+#### Storage space
+Use [the following file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+
+#### Partitioning
 
 
-### Reporting dedicated server
 
-**Hardware**
+| File system                    | Size                                                                                         |
+|--------------------------------|----------------------------------------------------------------------------------------------|
+| /                              | 5GB minimum                                                                                  |
+| /var (containing MariaDB data) | Use the result of the above disk space simulation file                                       |
+| MariaDB temporary folder       | Strongly recommended to place it in /var                                                     |
+| Volume group*                  | 5G minimum free space on the **Volume group** hosting the MariaDB **data**.                  |
 
-| Monitored services      | CPU                    | RAM           |
-|-------------------------|------------------------|---------------|
-|  < 4 000                | 2 CPU ( 3Ghz ) minimum | 12GB minimum  |
-|  < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum  |
-| >= 20 000 and < 40 000  | 4 CPU (3GHz) minimum   | 24GB minimum  |
-| > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum  |
-| > 100 000               | > Contact Centreon     |               |
 
-**Storage space**: Use the following [storage estimation file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
-
-**File system**
-
-| File system                  | Size                                                                                      |
-|------------------------------|-------------------------------------------------------------------------------------------|
-| /                            | 5GB minimum                                                                               |
-| /var (containing MariaDB data) | Use the result of the above disk-space simulation file MariaDB data)                      |
-| MariaDB temp folder          | We recommand keeping it in /var                                                           |
-| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MariaDB DBMS **data** |
-
-To check the free space use the command below, replacing vg\_data by the
-Volume group name:
+To check the free space, use the following command by replacing **vg_data** with the name of the group volume:
 
 ```shell
-vgdisplay vg_data | grep -i free
+vgdisplay vg_data | grep -i free*
 ```
 
-**Software**
+#### Firmware and software layer
 
-- OS: CentOS 7 / Redhat 7 or 8
-- SGBD: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+- OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
+- SGBD : MariaDB 10.5
+- Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
+- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
-We advise to tune your MariaDB database server on your reporting server in
-order to have better performance. You will need at least 12GB on your
-reporting server to run the configuration file provided below. Add the
-[following file](../assets/reporting/installation/centreon.cnf) on your
-reporting server in /etc/my.cnf.d/.
+> Make sure that the time zone of the reporting server is the same as that of the central server, otherwise report publications will fail (link to download missing).
+> The same time zone must be displayed with the `timedatectl` command.
+> You can change the time zone with this command:
+>
+>```shell
+>timedatectl set-timezone Europe/Paris
+>```
 
-Make sure to have a *tmp* folder in */var/lib/mysql*.
+Be sure to optimize MariaDB on your reporting server.
+You will need at least 12GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf).
+
+Make sure you have a **tmp** folder in **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
-Users and groups:
+Users and groups :
 
-| User       | Group      |
-|------------|------------|
-| centreonBI | centreonBI |
+| User        | Group      |
+|-------------|------------|
+| centreonBI  | centreonBI |
 
-Description of users, umask and home directory:
+Description of users, umask and user directory:
 
-| User       | umask      | home              |
-|------------|------------|-------------------|
-| centreonBI | 0002       |  /home/centreonBI |
+| User        | umask | home             |
+|-------------|-------|------------------|
+| centreonBI  | 0002  | /home/centreonBI |
 
 ## Install the extension on Centreon
 
-The tasks explained in this chapter must be performed on the Centreon
-central server.
+The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-Install the Centreon MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
+1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-Then run the following command:
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -208,46 +251,52 @@ apt update && apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
-### Activate the extension
+### Enable the extension
 
-The menu **Administration > Extension > Manager** of Centreon enables you to
-install the different extension detected by Centreon. Click on the **Centreon MBI** card to install it.
+The menu **Administration > Extension > Manager** allows you to install the different extensions detected by Centreon. Click on the **Centreon MBI** tile to install it.
 
-Upload the license sent by the Centreon team to be able to start configuring the General Options.
+Then, download the license sent by the Centreon team to start configuring the general options.
 
-### Configure the general options
+### Configure the extension
 
-Set the following parameters in the General Options menu `Reporting >
-Monitoring Business Intelligence > General Options`:
-
-| Tab                  | Option                                           | Value                                                       |
-|----------------------|--------------------------------------------------|-------------------------------------------------------------|
-| Scheduler  Options   | CBIS Host                                        | Reporting server IP Address                                 |
-| ETL Options          | Reporting engine uses a dedicated MariaDB server | Yes                                                         |
-| Reporting Widgets \* | Reporting MariaDB database                       | Reporting database IP Address (default = same as CBIS Host) |
+Enter the following values in the Centreon general options
+MBI menu, *Reports > Monitoring Business Intelligence > General Options* :
 
 
-\* *The connection test will not yet work at this stage of the
-installation process.*
+| Tabs                                                                                   | Option                     | Value                                                                                |
+|----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
+| Scheduler options                                                                      | CBIS Host                  | IP address of the reporting server                                                   |
+| ETL options A MariaDB database dedicated to reporting has been set up.                 | Yes                        |                                                                                      |
+| Reporting widgets                                                                      | Reporting MariaDB database | IP address of the reporting base (default = IP address of the reporting server)      |
 
-### Centreon central databases access
+\**The connection test will not work at this point in the installation*.
 
-#### Case #1: MariaDB monitoring database is hosted on the Central monitoring server
+### Access to the Central database
 
-Launch the command below to authorize the reporting server to connect to
-the monitoring server databases. Use the following option:
+Download the license sent by the Centreon team to start configuring the general options.
 
-**@ROOTPWD@**: Root MariaDB password of the monitoring databases
-server.If there is no password for "root" user, don't specify the
-option **root-password**.
+<Tabs groupId="sync">
+<TabItem value="Local monitoring base at the central office" label="Local monitoring base at the central office">
+
+The MariaDB monitoring database is hosted on the central monitoring server.
+
+Run the command below to allow the reporting server to connect to the databases on the monitoring server.
+
+Use the following option:
 
 ```shell
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-#### Case #2: MariaDB monitoring database is hosted on a dedicated server
+**@ROOTPWD@** : Root password of the MariaDB database of supervision.
+If there is no password for the "root" user, do not specify the **root-password** option.
 
-Connect by SSH to the database server, and the run the following commands:
+</TabItem>
+<TabItem value="Remote monitoring base in relation to the central office" label="Remote monitoring base in relation to the central office">
+
+The MariaDB monitoring database is hosted on a dedicated server.
+
+Connect via SSH to the database server, and run the following commands:
 
 ```SQL
 CREATE USER 'centreonbi'@'$BI_ENGINE_IP$' IDENTIFIED BY 'centreonbi';
@@ -255,130 +304,189 @@ GRANT ALL PRIVILEGES ON centreon.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 ```
 
-**$BI_ENGINE_IP$**: IP address of the reporting server.
+**$BI_ENGINE_IP$** : IP address of the reporting server.
 
-> If you're using MariaDB replication for your **monitoring databases**,
-> certain views are created during installation of Centreon MBI. You need
-> to exclude them from replication by adding the following line in the
-> my.cnf file of the slave server.
-> ```shell
-> replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
-> ```
-> Then, create the views manually on the slave server by launching the
-> following command line:
->
-> #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+</TabItem>
+</Tabs>
 
+If you use MariaDB replication for your **monitoring databases**, some views
+are created during the installation of Centreon MBI.
+You must exclude them from replication by adding the following line to the **my.cnf**
+file of the slave server or mariadb.cnf on Debian 11.
 
-Please go to the next chapter to continue the installation.
+```shell
+replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
+```
 
-##### Additional configuration for Debian 11
+Then, create the views manually on the slave server by running the following
+command:
 
-MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+```bash
+mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+```
+
+#### Debian 11 specific configuration
+
+MariaDB must listen on all interfaces instead of listening on localhost/127.0.0.1 (default value). Edit the following file:
 
 ```shell
 /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
-Set the **bind-address** parameter to **0.0.0.0**.
+Set **bind-address** to **0.0.0.0** and restart **mariadb**.
 
-### Grant rights to user cbis
+```shell
+systemctl restart mariadb
+```
 
-When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all resources monitored by Centreon](../administration/access-control-lists.md) to be able to extract performance graphs for the following reports:
+### Give rights to the cbis user
 
-- Host-Graph-v2 
 
+When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) named **cbis** is automatically created.
+It allows the report generation engine to extract data from Centreon (using the APIs) in order to insert them in the report.
+This user must [have access to all resources monitored by Centreon](../administration/access-control-lists.md) in order to extract the performance graphs for the following reports:
+
+- Host-Graph-v2
 - Hostgroup-Graph-v2.
 
-To test the MBI reporting server's connection to the Centreon API, use the following command to download a graph. Replace the parameters of the graph and the timestamps by the ones you want, and replace XXXXXXXXX by the autologin token for user **cbis**:
+To test the connection between the MBI reporting server and the Centreon API, use the following command to download a graph. Replace the graph parameters and timestamps, and replace XXXXXXXXX with the user's autologin token **cbis**:
 
-```
+```bash
 curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<host_name>&service=<service_description>&start=<start_date>&end=<end_date>' --output /tmp/image.png
-```
-
-Example:
 
 ```
+
+Example :
+
+```bash
 curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=otmw3n1hu03bvt9e0caphuf50ph8sdthcsk8ofdk&username=CBIS&hostname=my-poller&service=Cpu&start=1623016800&end=1623621600' --output /tmp/image.png
 ```
 
-The output should look like this, and `/tmp/image.png` should be an image of the graph you wanted:
+The result should look like the code below, and the desired graph image must have been uploaded to the `/tmp` directory:
 
-```
+```text
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 18311  100 18311    0     0  30569      0 --:--:-- --:--:-- --:--:-- 30569
 ```
 
-## Install the dedicated reporting server
+## Install the reporting server
 
 ### Install the packages
 
-You need the following information available before proceeding with the
-installation process:
+You must have the following information before proceeding with the installation process:
 
 - IP/DNS of the monitoring database
 - IP/DNS of the Centreon web interface
-- IP/DNS of the reporting database (localhost highly recommanded)
+- IP/DNS of the reporting database (localhost strongly recommended)
+
 - Access (user/password) to the reporting database
-- Knowledge of the SSH password (after defining it) for the Centreon
-  BI user on the central monitoring server (to publish reports on the
-  interface).
+- Define and retrieve the ssh password of the centreonBI user, on the Central server (for the availability of the reports generated on the interface)
 
-To start installing the reporting server, install the MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
+#### Procedure
 
-Then perform the following procedure:
+1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+2. Then run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL 8" label="RHEL 8">
 
-First you need to install an EPEL repository:
+Enable codeready-builder repositories:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-The command should return results as follows:
+Then launch the installation:
 
 ```shell
-Installed:
-  epel-release-8-17.el8.noarch
-
-Complete!
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Then install the reporting server:
+In the case of an installation based on a blank distribution, install the GPG key:
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf config-manager --set-enabled 'powertools'
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+Enable codeready-builder repositories:
 
 ```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Then launch the installation:
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, install the GPG key:
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Alma 8" label="Alma 8">
+
+
+Enable powertools repositories:
+
+```shell
+dnf config-manager --set-enabled 'powertools'
+```
+
+Then launch the installation:
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, install the GPG key:
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Nothing to do.
-
-</TabItem>
-</Tabs>
-
-Install the standard repository:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+Install the prerequisite packages:
 
 ```shell
-dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then launch the installation:
+
+```shell
+apt update
+apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, install the GPG key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
 </TabItem>
@@ -386,51 +494,38 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 
 #### Java version requirement
   
-  > Ensure a version of Java 17 or later is installed before you start the procedure.
+> Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
-  - If you need to check the Java version, enter the following command:
+- If you need to check the Java version, enter the following command:
   
   ```shell
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
+- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
   ```shell
   sudo update-alternatives --config java
   ```
-
+  
 Now you can install the repository:
 
 ```shell
 yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
-</TabItem>
-</Tabs>
-
-Then execute the following command:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+Install MBI:
 
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, import the :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -442,19 +537,22 @@ Enable the cbis service:
 systemctl enable cbis
 ```
 
-### Reporting server configuration
+### Configure the reporting server
 
-#### MariaDB optimization
+#### MariaDB Optimizations
 
-Make sure you have installed the MariaDB configuration file provided in
-the pre-requisites before starting the MariaDB service [following file](../assets/reporting/installation/centreon.cnf)
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 /  RHEL 7 / CentOS 7">
+
+Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
+in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
 
 ```shell
 systemctl restart mariadb
 ```
 
-For installation, it is necessary to modify **LimitNOFILE** limitation.
-Setting this option in /etc/my.cnf will NOT work.
+It is necessary to change the limitation **LimitNOFILE**. Changing this
+option in `/etc/my.cnf` will NOT work.
 
 ```shell
 mkdir -p  /etc/systemd/system/mariadb.service.d/
@@ -463,64 +561,169 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-Then start the service MariaDB. If this service cannot start, remove the
-ib_log files before restarting MariaDB (be sure MariaDB is stopped):
+If the MariaDB service fails to start, remove the files *ib_logfile*
+(MariaDB must absolutely be stopped)and then restart MariaDB again:
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
 systemctl start mariadb
 ```
 
-If you are using a custom MariaDB socket file, modify the `/etc/my.cnf` file
-and in the [client] section, add the following variable:
+If you are using a specific socket file for MariaDB, modify the file `/etc/my.cnf` and
+in the [client] section, add :
 
 ```shell
 socket=$PATH_TO_SOCKET$
 ```
 
-### Start configuring
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-First check that the reporting MariaDB is running. Then launch the
-following command, answering the questions:
+Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf)
+provided in the requirements is present in `/etc/mysql/mariadb.conf.d/`.
+
+Rename the file to `80-centreon.cnf` :
+
+```shell
+mv centreon.cnf 80-centreon.cnf
+```
+
+MariaDB should listen to all interfaces instead of localhost/127.0.0.1, which is the default.
+Edit the following file:
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0** and restart MariaDB.
+
+```shell
+systemctl restart mariadb
+```
+
+It is necessary to change the **LimitNOFILE** limitation. Changing this option in `/etc/mysql/mariadb.cnf` will not work.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+If the MariaDB service fails at the time of starting, remove the files *ib_logfile*
+(MariaDB must absolutely be stopped)and then restart MariaDB again:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+If you are using a specific socket file for MariaDB, edit the
+file `/etc/mysql/mariadb.cnf` and in the [client] section, add :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+</Tabs>
+
+### Secure the database
+
+Since MariaDB 10.5, it is mandatory to secure the root access of the database before installing Centreon.
+If you use a local database, execute the following command on the central server, otherwise on the database server:
+
+```shell
+mysql_secure_installation
+```
+
+- Answer **yes** to all questions except "Disallow root login remotely?"
+- It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
+
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Start configuring
+
+Make sure the MariaDB reporting system is started and then run the commands below and answer the commands below and answer the questions:
 
 ```shell
 /usr/share/centreon-bi/config/install.sh
 ```
 
-The script handles the SSH exchange key between the monitoring and
-reporting servers and configures the default SFTP publication rule in
-order to publish reports on the Centreon web interface. Finally, it
-activates the backup and starts the CBIS service.
+The script manages the exchange of SSH keys between the monitoring server and the reporting server, and configures the default SFTP publishing rule
+in order to publish the reports on the Centreon web interface. Finally, it enables the backup and starts the CBIS service.
 
-Once installation is complete, go to the next chapter to configure the ETL.
+Once the installation is complete, continue to the next chapter to configure the ETL.
 
-### ETL: Configuration
+#### Problem with the SSH exchange key
 
-Centreon MBI integrates its own extract, transform, load (ETL)
-capabilities to:
+In some cases, SSH key exchange fails.
+To solve the problem, do the following manually:
 
-- Synchronize raw monitoring data with the reporting server.
-- Calculate availability and performance statistics on the reporting
-  server.
-- Manage data retention on the reporting server.
+**On the monitoring server**. To start, switch to the `bash` environment of `centreonBI` :
 
-Before following the next steps, you should have read
-[the best practice parts](./concepts.md#best-practices-for-monitoring) to
-ensure that the Centreon objects (e.g., groups and categories) are configured
-according to Centreon MBI requirements.
+```bash
+su - centreonBI
+```
 
-In the *Reporting > Business Intelligence > General Options > ETL options* menu
-of the Centreon server, specify the following options:
+Next, generate an SSH key to prepare the :
 
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+Then, **on the reporting server**, switch to the `bash` environment of `centreonBI` :
+
+```bash
+su - centreonBI
+```
+
+Generate the SSH key:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+```
+
+After executing these commands, copy the contents of the file that was displayed by the `cat` command and paste it into the **~/.ssh/authorized_keys** **file on the monitoring server**
+and then apply the correct permissions to the file (still as the `centreon` user) and then apply the correct permissions to the file (still as the `centreon` user):
+
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
+
+The key exchange must then be validated by a first connection that will accept the SSH server signature (always as the `centreonBI` user) **from the reporting server** :
+
+```bash
+ssh centreonBI@@MONITORING_SERVER@
+```
+
+Then exit the `centreonBI` session with `exit` or `Ctrl-D` on both servers.
+
+To continue, run the installation script (`/usr/share/centreon-bi/config/install.sh`) as above and answer **Yes** when asked to proceed with the SSH key exchange.
+You will get an error when creating the USER, because it already exists. This is not a blocking step.
+
+### ETL : Configuration
+
+Centreon MBI integrates an ETL that allows you to :
+
+- Synchronize the raw data from the supervision to the reporting server
+- Feed statistical data to the reporting server databases statistical data
+- Control the retention of data on the reporting server
+
+Before proceeding to the next steps, it is necessary to read the
+chapter on [best practices](concepts.md#best-practices-of-monitoring) to make sure that the configuration of
+the objects in Centreon (groups, categories...) is in accordance with the expectations of Centreon MBI.
+
+In the `Reporting > Monitoring Business Intelligence > General Options > ETL Options` tab, specify the following options the following options:
 
 | **Options**                                                                            | **Values**                                                                                                                                                                                                                            |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **General options**                                                                    |                                                                                                                                                                                                                                       |
 | Reporting engine uses a dedicated dedicated MariaDB server                             | Yes. You **must** use a reporting server                                                                                                                                                                                              |
-| Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0 | No (deprecated)                                                                                                                                                                                                                       |
 | Temporary file storage directory on reporting server                                   | Folder where dumps will be stored on the reporting server                                                                                                                                                                             |
 | Type of statistics to build                                                            | Select “Availability only” if you only use availability reports. Select “Performance and capacity only” if you only want to use capacity and performance reports. Select “All” to calculate the statistics for both types of reports. |
-| Use large memory tweaks (store MariaDB temporary tables in memory)                     | Activated only if your MariaDB configuration and allocated physical memory on the server permit.                                                                                                                                      |
+| Use large memory tweaks (store MariaDB temporary tables in memory)                     | Activated only if your MariaDB configuration and allocated physical memory on the server permits.                                                                                                                                     |
 | **Reporting perimeter selection**                                                      |                                                                                                                                                                                                                                       |
 | Hostgroups                                                                             | Select only host groups for which you want to aggregate data.                                                                                                                                                                         |
 | Hostcategories                                                                         | Select only host categories for which you want to aggregate data.                                                                                                                                                                     |
@@ -528,8 +731,8 @@ of the Centreon server, specify the following options:
 | **Availability statistic calculation**                                                 |                                                                                                                                                                                                                                       |
 | Live services for availability statistics calculation                                  | Select required time periods.                                                                                                                                                                                                         |
 | **Performance and capacity statistic calculation**                                     |                                                                                                                                                                                                                                       |
-| Granularity required for performance data statistics                                   | Select level of granularity required to run the desired performance reports (1).                                                                                                                                                      |
-| Live services for performance data statistics calculation                              | Select required time periods.                                                                                                                                                                                                         |
+| Granularity required for performance data statistics                                   | Select the level of granularity required to run the desired performance reports (1).                                                                                                                                                  |
+| Live services for performance data statistics calculation                              | Select the required time periods.                                                                                                                                                                                                     |
 | **Capacity statistic aggregated by month**                                             |                                                                                                                                                                                                                                       |
 | Live services for capacity statistics calculation                                      | Select the “24x7” time period.                                                                                                                                                                                                        |
 | Service categories related to capacity data monitoring                                 | Select the service categories that have been associated with capacity-type services.                                                                                                                                                  |
@@ -540,109 +743,125 @@ of the Centreon server, specify the following options:
 | First day of the week                                                                  | Select the first day of the week for Week aggregation.                                                                                                                                                                                |
 | Centile / Timeperiod combination                                                       | Create a new centile/timeperiod combination on which to perform the calculation.                                                                                                                                                      |
 
-**(1)** Reports requiring a precise value per hour of performance data
-are listed below. If you do not use the following reports, disable the
-statistics calculation per hour:
+**(1)** Reports requiring data granularity by the hour are listed below. 
+If you do not wish to use these reports, disable the calculation of hourly statistics:
 
 - Hostgroup-Host-details-1
+
 - Host-detail-v2
 - Hostgroup-traffic-Average-Usage-By-Interface
-- Hostgroup-traffic-by-Interface-And-Bandwith-Ranges.
+- Hostgroup-traffic-by-Interface-And-Bandwith-Ranges
 
 ### ETL: Data retention
 
-The reporting server contains statistics tables specific to Centreon MBI
-in the database "centreon_storage". The storage space used by these
-tables increases every day. It is possible to control the size of these
-tables by setting data retention rules.
+The reporting server contains tables of statistics specific to Centreon MBI in the "centreon_storage" database.
+The storage space used by these tables is increasing every day.
+It is possible to control the size of these tables by defining data retention rules.
 
-Under *Reporting > Monitoring Business Intelligence > General options > Data retention*,
-data retention can be managed by:
+Under **Reports > Monitoring Business Intelligence > General Options > Data Retention Options** menu,
+data retention can be managed by :
 
 - Type of data (availability, performance).
-- Precision of data (raw data, hourly, daily or monthly values).
+- Data granularity (raw data, hourly, daily or monthly values)
 
-> Before enabling the data retention options, check that the **Reporting
-> engine uses a dedicated MariaDB server** option is correctly set to
-> "Yes" in the *Reporting > Business Intelligence > General options ETL options* menu.
+> Before enabling the data retention options, make sure that the reporting engine
+> uses a dedicated MariaDB server, and the corresponding option is set to
+> **Yes** in the menu **Reporting > Business Intelligence > General Options ETL Options**.
 
-Enable data retention management by selecting "Yes", then set the
-options in the configuration (example below).
+Enable data retention management by selecting **Yes**, then set the configuration options (example below).
 
 ![image](../assets/reporting/installation/bi_retention.png)
 
-To activate automatic purge of old data, edit the cron file
-`/etc/cron.d/centreon-bi-purge` on the reporting server, then uncomment the following line:
+To enable automatic purging of old data, edit the cron file **/etc/cron.d/centreon-bi-purge**
+on the reporting server, then uncomment the following line:
 
 ```shell
 #0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
 ```
 
-Avoid periods scheduled for statistical calculations with Centreon MBI
-ETL and report generations.
+Avoid scheduled periods for statistical calculations with Centreon MBI ETL and report generation.
+You can run this cron daily or weekly, depending on the batch execution time and the load generated on the server.
 
-You can run this cron daily or weekly, depending on the execution time of the batch and the load generated on the server.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
-Then restart the service cron:
+Restart the cron service:
 
 ```shell
 systemctl restart crond
 ```
 
-**BEST PRACTICE**: Select different retention periods according to the
-granularity of the statistical data:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-- Hourly aggregated values are used to analyze a metric over a short period, they take a
-  lot of space on the disk. You may not need to keep these statistics more that two or three months.
-- Beyond five or six months, you may only need to view the trend for
-  availability or performance statistics. You could then keep the
-  daily aggregated data for a maximum of six months, for example, and
-  configure the retention of monthly aggregated data for a period of
-  several dozen months.
+Restart the cron service:
 
-Please go to the next chapter to continue the installation.
+```shell
+systemctl restart cron
+```
 
-### ETL: Execution
+</TabItem>
+</Tabs>
 
-> Before continuing, be sure that you have installed the MariaDB
-> configuration file as specified above in the prerequisites. Configure
-> and activate data retention so that only the required data is imported
-> and calculated.
+**BEST PRACTICES** : Select different retention periods depending on the granularity of the statistical data:
 
-#### Rebuilding statistics using historical data
+- Aggregated values per hour are used to analyze a metric over a short period of time, they take up a lot of disk space. You may not
+  need to keep these statistics for more than two or three months.
 
-Run the following command on the *REPORTING* server, it will:
+- Beyond five or six months, you may only need to view the trend for availability or performance statistics.
+  You could then retain daily aggregate data for up to six months, for example, and set up retention of monthly aggregate data for a period of several dozen months.
+
+Please proceed to the next section to continue the installation.
+
+### ETL : Execution
+
+> Before continuing, make sure you have installed the MariaDB configuration file as described above in the prerequisites. Configure 
+> and enable data retention so that only the required data is imported and calculated.
+
+#### Reconstruction of statistics from historical data
+
+Run the following command on the reporting server. This will:
 
 - Delete all existing data from the reporting server.
-- Import raw monitoring data from the monitoring server to the
-  reporting server (based on retention parameters).
-- Populate the tables containing the availability statistics for hosts
-  and services.
-- Populate the tables containing the performance and capacity
-  statistics.
+- Import raw monitoring data from the monitoring server to the reporting server (depending on retention settings).
+- Fill tables containing availability statistics for hosts and services.
+- Fill in tables containing performance and capacity statistics for hosts and services.
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -r
 ```
 
-#### Activating daily execution (of the script)
+#### Enable daily script execution
 
-Once the rebuild process is finished, you can activate the daily
-statistic calculation. On the reporting server, edit the file
-*/etc/cron.d/centreon-bi-engine* and uncomment the following line:
+Once the data rebuilding process is complete, you can enable the calculation of statistics.
+On the reporting server, edit the file **/etc/cron.d/centreon-bi-engine** and uncomment the following line:
 
 ```shell
 #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
 ```
 
-Restart the service cron:
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
+Restart the cron service on the reporting server:
 
 ```shell
 systemctl restart crond
 ```
 
-> Make sure that the batch *centreonBIETL* starts only once the batch
-> *eventReportBuilder* has finished on the monitoring server (see the cron
-> file \* /etc/cron.d/centreon\* on the monitoring server).
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability.md)
+Restart the cron service on the reporting server:
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+> Make sure that the **centreonBIETL** batch only starts after the **eventReportBuilder** 
+> batch has finished on the monitoring server (check the **/etc/cron.d/centreon** cron file on the monitoring server).
+
+The installation of Centreon MBI is now complete, see [the tutorial](../getting-started/analyze-resources-availability.md).

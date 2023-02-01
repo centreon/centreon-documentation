@@ -1,6 +1,6 @@
 ---
 id: upgrade
-title: Upgrade the extension
+title: Upgrading the extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -48,6 +48,15 @@ Run the following commands to upgrade your Centreon MAP server:
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
+> Install Centreon MAP repository, you can find it on the
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+2. Update Centreon MAP server:
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -55,17 +64,17 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-</TabItem>
-</Tabs>
-
 > Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP server:
 
     ```shell
     yum update centreon-map-server
     ```
+
+</TabItem>
+</Tabs>
 
 3. Enable and start `centreon-map` service:
 
@@ -74,7 +83,7 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
     systemctl start centreon-map
     ```
 
-5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
   * The old configuration file is renamed **centreon-map.conf.rpmsave**
   * The upgrade installs a new **centreon-map.conf** file.
@@ -89,9 +98,22 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 ## Step 2: Centreon MAP web interface
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-map-web-client
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-map-web-client
 ```
+
+</TabItem>
+</Tabs>
 
 Complete the upgrade: 
 1. Go to **Administration > Extensions > Manager**.
@@ -106,7 +128,13 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
-## Step 4: MariaDB database
+## Step 4: Update dialects in .properties files
+
+In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+
+> This configuration also works with a MySQL database.
+
+## Step 5: MariaDB database
 
 1. Stop the **centreon-map** service:
     ```shell

@@ -27,9 +27,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 When you upgrade from a previous major version to 22.10.x, you first need to update the repository on your Central & Reporting servers.
 
-You will find the new "Business" repository on the "Depots" tab in your Centreon Support account on https://support.centreon.com :
-
-![image](../assets/reporting/support_repos.png)
+You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ## Step 2: Upgrade the extension interface
 
@@ -47,7 +45,7 @@ AirUpdate button to update the extension and the widgets
 
 ### Java version requirement
   
-  > Ensure a version of Java 17 or later is installed before you start the procedure.
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -55,9 +53,9 @@ AirUpdate button to update the extension and the widgets
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
   ```shell
   sudo update-alternatives --config java
   ```
