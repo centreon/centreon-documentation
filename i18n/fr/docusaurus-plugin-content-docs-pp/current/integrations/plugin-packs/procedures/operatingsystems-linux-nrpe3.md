@@ -156,9 +156,12 @@ yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-
 ```shell
 # Ajout de l'utilisateur centreon-engine user
 useradd --create-home centreon-engine
+# Installation de gpg
+apt install gpg
 # Ajout du dépôt Centreon
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+wget -qO- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
 echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon.list
+apt update
 # Installation de centreon-nrpe3-daemon
 apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
 # Création du répertoire pour le cache du plugin
