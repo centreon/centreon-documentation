@@ -48,10 +48,7 @@ team](https://support.centreon.com/) to get and install your license key.
 
 #### Software
 
-- OS: CentOS 7 or Redhat 7 / 8
-- DBMS: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+See the [software requirements](../installation/prerequisites.md#software).
 
 #### Information required during configuration
 

@@ -46,10 +46,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-- OS : CentOS 7 ou Redhat 7 / 8
-- DBMS : MariaDB 10.5
-- Pare-feu : Désactivé
-- SELinux : Désactivé
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 #### Informations requises lors de la configuration
 
