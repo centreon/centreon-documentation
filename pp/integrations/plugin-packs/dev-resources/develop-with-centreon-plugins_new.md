@@ -2679,7 +2679,7 @@ There are also cli file for command line or tcp, etc.
 
 In our example case of tutoral it's an api case. 
 
-#### Create custom file 
+#### 7.1 Create custom file 
 
 First we need to create the custom file : api.pm
 
@@ -2687,7 +2687,7 @@ First we need to create the custom file : api.pm
 mkdir -p src/apps/myawesomeapp/api/custom/
 touch src/apps/myawesomeapp/api/custom/api.pm
 ```
-#### Change in pulgin.pm
+#### 7.2 Change in pulgin.pm
 
 First we need to change plugins script libraririe :
 ```perl
@@ -2710,7 +2710,7 @@ sub new {
     return $self;
 }
 ```
-#### Change in mode.pm
+#### 7.3 Change in mode.pm
 
 Custom mode allows to change the way to obtain input, thus all that concern input and the way to process it is push to the custom file. The mode file will contain all needed functions for processing input to give the output needed.
 
@@ -2770,7 +2770,7 @@ sub manage_selection {
 }
 ```
 
-#### New file : api.pm
+#### 7.4 New file : api.pm
 
 As explained in the previous section, the custom file will contain all needed functions about input and the way to process it.
 
@@ -2914,6 +2914,10 @@ sub request_api {
 }
 ```
 
+-----------
+-----------
+-----------
+
 TUTO 2020
 
 Premièrement, vous avez besoin de créer un dossier sur le git afin de stocker le nouveau plugin.
@@ -2927,6 +2931,10 @@ Vous avez également besoin de créer une répertoire "mode" pour les futurs mod
 ```shell
 $ mkdir os/linux/snmp/mode
 ```
+
+-----------
+-----------
+-----------
 
 <div id='guidelines'/>
 
