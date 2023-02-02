@@ -32,7 +32,6 @@ supervision, et utilisent des protocoles afin d'obtenir les statuts actuels des 
 
 
 
-
 <div id='architecture'/>
 
 ## II. Layout
@@ -2713,7 +2712,69 @@ sub new {
 ```
 #### Change in mode.pm
 
+Custom mode allows to change the way to obtain input, thus all that concern input and the way to process it is push to the custom file. The mode file will contain all needed functions for processing input to give the output needed.
+
+First the new constructor will change :
+```perl
+sub new {
+    my ($class, %options) = @_;
+    my $self = $class->SUPER::new(package => __PACKAGE__, %options, force_new_perfdata => 1);
+    bless $self, $class;
+    
+    $options{options}->add_options(arguments => {});
+    return $self;
+}
+```
+
+The check_options function is push into the custom file because it was usefull for the input formating
+
+The manage_selection function is update to remove all that concern the input management.
+
+```perl
+sub manage_selection {
+    my ($self, %options) = @_;
+    
+    #This line replace the input section previously available here
+    my $results = $options{custom}->request_api();
+    
+    # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
+    # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
+    $self->{health} = {
+        health => $results->{health}
+    };
+    
+    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>})
+    # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
+    $self->{queries} = {
+        select => $results->{db_queries}->{select},
+        update => $results->{db_queries}->{update},
+        delete => $results->{db_queries}->{delete}
+    };
+    
+    # Initialize an empty app_metrics counter.
+    $self->{app_metrics} = {};
+    # Loop in the connections array of hashes
+    foreach my $entry (@{ $results->{connections} }) {
+        # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value
+        # with a specific instance
+        $self->{app_metrics}->{ $entry->{component} }->{display} = $entry->{component};
+        $self->{app_metrics}->{ $entry->{component} }->{connections} = $entry->{value}
+    };
+    
+     # Exactly the same thing with errors
+    foreach my $entry (@{ $results->{errors} }) {
+        # Don't need to redefine the display key, just assign a value to the error key_value while
+        # keeping the $entry->{component} key to associate the value with the good instance
+        $self->{app_metrics}->{ $entry->{component} }->{errors} = $entry->{value};
+    };
+}
+```
+
 #### New file : api.pm
+
+As explained in the previous section, the custom file will contain all needed functions about input and the way to process it.
+
+
 
 TUTO 2020
 
