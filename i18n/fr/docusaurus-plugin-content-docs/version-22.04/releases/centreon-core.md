@@ -390,7 +390,7 @@ Release date: `February 1, 2023`
 - Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine.
 - Fixed a bug where deleted host groups and service groups weren’t available in the filter menu.
 - Fixed a deadlock issue due to new Broker stats engine.
-- Fixed a deadlock issue when a query fails while inserting a value out of range for the column type.
+- Fixed a deadlock issue when a query failed while inserting a value that was out of range for the column type.
 - Fixed an issue due to a data type mismatch that could block Broker.
 - Fixed the way Broker handled numbers with an out of range value for the column type.
 - Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
