@@ -39,16 +39,9 @@ sudo apt update centreon-map-engine centreon-map-web-client
 </TabItem>
 </Tabs>
 
-3. Purge the MAP database by connecting to the database and executing the following requests:
+3. Clear your browser cache.
  
-  ```shell
-  drop database centreon_map; create database centreon_map; grant all privileges on centreon_map.* to 'centreon_map'@'%' identified by 'centreon_map';
-  ```
-
-4. Clear your browser cache.
- 
-
-5. Restart the **centreon-map-engine** service using the following command:
+4. Restart the **centreon-map-engine** service using the following command:
  
   ```shell
   sudo systemctl start centreon-map-engine
