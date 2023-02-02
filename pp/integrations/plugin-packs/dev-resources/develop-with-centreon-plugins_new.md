@@ -2774,7 +2774,145 @@ sub manage_selection {
 
 As explained in the previous section, the custom file will contain all needed functions about input and the way to process it.
 
+This new file needs to contains the packages and libraries declarations :
+```perl
+package apps::myawesomeapp::api::custom::api;
 
+use strict;
+use warnings;
+
+use centreon::plugins::http;
+use centreon::plugins::templates::catalog_functions qw(catalog_status_threshold_ng);
+use JSON::XS;
+```
+
+It also contains the following functions :
+* new constructor : construct the object in the same way than in mode file previously
+* set_options
+* set_defaults
+* check_options
+* settings
+* request_api
+
+##### new constructor
+
+```perl
+sub new {
+    my ($class, %options) = @_;
+    my $self  = {};
+    bless $self, $class;
+
+    # Check if an output option is available
+    if (!defined($options{output})) {
+        print "Class Custom: Need to specify 'output' argument.\n";
+        exit 3;
+    }
+    # Check if options are avaliable
+    if (!defined($options{options})) {
+        $options{output}->add_option_msg(short_msg => "Class Custom: Need to specify 'options' argument.");
+        $options{output}->option_exit();
+    }
+
+    if (!defined($options{noptions})) {
+        $options{options}->add_options(arguments => {
+            'hostname:s'           => { name => 'hostname' },
+            'proto:s'              => { name => 'proto', default => 'https' },
+            'port:s'               => { name => 'port', default => 443 },
+            'timeout:s'            => { name => 'timeout' },
+            'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %{http_code} >= 300' },
+            'warning-status:s'     => { name => 'warning_status' },
+            'critical-status:s'    => { name => 'critical_status', default => '' }
+        });
+    }
+    
+    $options{options}->add_help(package => __PACKAGE__, sections => 'REST API OPTIONS', once => 1);
+
+    $self->{output} = $options{output};
+    $self->{http} = centreon::plugins::http->new(%options);
+
+    return $self;
+}
+```
+##### set_options
+
+```perl
+sub set_options {
+    my ($self, %options) = @_;
+
+    $self->{option_results} = $options{option_results};
+}
+```
+##### set_defaults
+
+```perl
+sub set_defaults {}
+```
+##### check_options
+
+```perl
+sub check_options {
+    my ($self, %options) = @_;
+
+    $self->{hostname} = (defined($self->{option_results}->{hostname})) ? $self->{option_results}->{hostname} : '';
+    $self->{proto} = (defined($self->{option_results}->{proto})) ? $self->{option_results}->{proto} : 'https';
+    $self->{port} = (defined($self->{option_results}->{port})) ? $self->{option_results}->{port} : 443;
+    $self->{timeout} = (defined($self->{option_results}->{timeout})) ? $self->{option_results}->{timeout} : 10;
+    $self->{unknown_status} = (defined($self->{option_results}->{unknown_status})) ? $self->{option_results}->{unknown_status} : '';
+    $self->{warning_status} = (defined($self->{option_results}->{warning_status})) ? $self->{option_results}->{warning_status} : '';
+    $self->{critical_status} = (defined($self->{option_results}->{critical_status})) ? $self->{option_results}->{critical_status} : '';
+
+    if (!defined($self->{hostname}) || $self->{hostname} eq '') {
+        $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
+        $self->{output}->option_exit();
+    }
+
+    return 0;
+}
+```
+##### settings
+
+```perl
+sub settings {
+    my ($self, %options) = @_;
+
+    $self->{option_results}->{hostname} = $self->{hostname};
+    $self->{option_results}->{proto} = $self->{proto};
+    $self->{option_results}->{port} = $self->{port};
+    $self->{option_results}->{timeout} = $self->{timeout};
+    $self->{option_results}->{unknown_status} = $self->{unknown_status};
+    $self->{option_results}->{warning_status} = $self->{warning_status};
+    $self->{option_results}->{critical_status} = $self->{critical_status};
+
+    $self->{http}->set_options(%{$self->{option_results}});
+}
+```
+##### request_api
+
+```perl
+sub request_api {
+    my ($self, %options) = @_;
+
+    $self->settings();
+
+    my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
+
+    if (!defined($content) || $content eq '') {
+        $self->{output}->add_option_msg(short_msg => "API returns empty content [code: '" . $self->{http}->get_code() . "'] [message: '" . $self->{http}->get_message() . "']");
+        $self->{output}->option_exit();
+    }
+
+    my $decoded;
+    eval {
+        $decoded = JSON::XS->new->decode($content);
+    };
+    if ($@) {
+        $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
+        $self->{output}->option_exit();
+    }
+
+    return $decoded;
+}
+```
 
 TUTO 2020
 
