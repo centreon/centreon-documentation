@@ -398,7 +398,7 @@ Release date: `February 1, 2023`
 - Fixed the compatibility issue between RRD rebuild and rrdcached.
 - Fixed a stability issue that could cause Broker to crash when a host was deleted.
 - Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
-- Fixed an issue where Broker displayed the expected warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
+- Fixed an issue where Broker displayed the warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
 - Fixed a defect in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.04.1
