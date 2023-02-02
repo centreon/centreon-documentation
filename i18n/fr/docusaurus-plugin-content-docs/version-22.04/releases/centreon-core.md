@@ -382,7 +382,7 @@ Release date: `February 1, 2023`
 
 - Improved Broker's behaviour when trying to insert negative values in unsigned columns of the storage database.
 - Improved network connection stability by sending a tcpkeepalive packet every 30s on TCP stream.
-- Improved the manner of sending bulk data with Broker on MariaDB databases.
+- Improved how bulk data is sent with Broker to MariaDB databases.
 - It is now possible to use empty strings for parameter values in stream connectors.
 
 ##### Bug fixes
