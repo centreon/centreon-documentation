@@ -394,7 +394,7 @@ Release date: `February 1, 2023`
 - Fixed an issue due to a data type mismatch that could block Broker.
 - Fixed the way Broker handled numbers with an out of range value for the column type.
 - Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
-- Fixed an issue in RRD rebuild that recreated the RRD files for every 24 hours of data, resulting in keeping only the last day's data.
+- Fixed an issue with RRD rebuild that recreated the RRD files for every 24 hours of data, resulting in keeping only the last day's data.
 - Fixed the compatibility issue between RRD rebuild and rrdcached.
 - Fixed a stability issue that could cause Broker to crash when a host was deleted.
 - Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
