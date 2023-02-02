@@ -31,23 +31,19 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 
 * Cmd-Generic : Check command returns
 * Connections-Generic : Check tcp/udp connections
-* Cpu-Detailed : Check average usage for each CPUs (User, Nice, System, Idle,
-Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
+* Cpu-Detailed : Check average usage for each CPUs (User, Nice, System, Idle, Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
 * Disk-Generic-Name : Check storage usage (single partition)
 * Disk-Global : Check storage usage (all partitions or filtered with regexp)
 * Disk-IO-Generic-Name : Check some disk io counters (single partition)
-* Disk-IO-Global : Check some disk io counters (all partitions or filtered with
-regexp)
+* Disk-IO-Global : Check some disk io counters (all partitions or filtered with regexp)
 * File-Date-Generic : Check time (modified, creation,...) of files/directories
 * File-Size-Generic : Check size of files/directories
 * Inodes-Generic-Name : Check Inodes space usage (single partition)
-* Inodes-Global : Check Inodes space usage (all partitions or filtered with
-regexp)
+* Inodes-Global : Check Inodes space usage (all partitions or filtered with regexp)
 * Is-File-Generic : Check the presence of a file
 * Is-Not-File-Generic : Check the absence of a file
 * Packet-Errors-Generic-Name : Check packet errors and discards on an interface
-* Packet-Errors-Global : Check packet errors and discards on interfaces (all
-interfaces or filtered with regexp)
+* Packet-Errors-Global : Check packet errors and discards on interfaces (all interfaces or filtered with regexp)
 * Process-Generic : Check linux processes
 * Systemd-Sc-Status : Check services managed by *systemd*
 * Traffic-Generic-Name : Check Traffic (single interface)
@@ -295,7 +291,7 @@ If the output of the command is:
 connect to address x.x.x.x port 5666: Connection refused
 ```
 
-It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon. 
+It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon.
 
 The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-configuration)).
 
