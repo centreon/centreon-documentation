@@ -143,7 +143,7 @@ The centreon directory is specific, it contains:
 * Project libraries/packages. This is all the code that will help you to develop faster by avoiding coding protocol-related things (SNMP, HTTPx, SSH...) or common things like options or cache management from scratch. You can read the perl modules if you're an experienced developer but there is very little chance that you would have to modify anything in it.
 * Common files shared by multiple plugins. This is to avoid duplicating code across the directory tree and ease the maintenance of the project.
 
-Une description plus en détail des différentes librairies communes est disponible [ici](#librairies)
+An more detailed desception of this libraries is availible [here](#librairies)
 
 #### 2.2 The snmp_standard/mode directory
 
@@ -184,8 +184,8 @@ Centreon librarie :
 use base qw(**centreon_library**);
 ```
 There are five kinds of centreon libraries here :
-* centreon::plugins::script_simple : General use case if no custom is needed
-* centreon::plugins::script_custom : Need custom directory - Can using both api or cli (command line)
+* centreon::plugins::script_simple : Previously the general use case if no custom is needed, more explainations [here]((#custom_mode_tuto) in this section.
+* centreon::plugins::script_custom : Need custom directory - More explainations [here]((#custom_mode_tuto) in this section.
 * centreon::plugins::script_snmp : If SNMP protocol is needed for this plugin
 * centreon::plugins::script_sql : If DB acess is needed for this plugin
 * centreon::plugins::script_wsman : Concern Windows specific protocols
@@ -1746,6 +1746,7 @@ Table of contents (4)
  4. [Create directories for a new plugin](#make_dir_tuto)
  5. [Create the plugin.pm file](#create_plugin_tuto)
  6. [Create the appmetrics.pm file](#create_mode_tuto)
+ 7. [Convert in custom mode](#custom_mode_tuto)
 *******
 
 All files showed in this tutorial can be found on the centreon-plugins GitHub in the 
@@ -2664,6 +2665,55 @@ Mode:
     --warning/critical-errors
             Warning and critical threshold for errors
 ```
+
+<div id='custom_mode_tuto'/>
+
+### 7.Convert in custom mode
+
+[Table of content (4)](#table_of_content_4)
+
+Custom mode is a well established type of plugin. Then it can be usefull to understand the way to build and use it.
+Custom is a mode thinking for when you may have different way to collect plugin input. More broadly, build plugins using custom mode afford flexibility if later you have to add a new way to give input in a plugin. This is the main reason why most of latest plugins are in custom mode baseline.
+
+Most of the time the way to collect input use api and this is the most common custom mode you will find in plugins.
+There are also cli file for command line or tcp, etc.
+
+In our example case of tutoral it's an api case. 
+
+#### Create custom file 
+
+First we need to create the custom file : api.pm
+
+```shell
+mkdir -p src/apps/myawesomeapp/api/custom/
+touch src/apps/myawesomeapp/api/custom/api.pm
+```
+#### Change in pulgin.pm
+
+First we need to change plugins script libraririe :
+```perl
+centreon::plugins::script_simple
+```
+replace by 
+```perl
+centreon::plugins::script_custom
+```
+Then in new constructor a new line calling for the custom is needed
+```perl
+sub new {
+    my ($class, %options) = @_;
+    my $self = $class->SUPER::new(package => __PACKAGE__, %options);
+@@ -42,6 +42,7 @@ sub new {
+        'app-metrics' => 'apps::myawesomeapp::api::mode::appmetrics'
+    };
+
+    $self->{custom_modes}->{api} = 'apps::myawesomeapp::api::custom::api';
+    return $self;
+}
+```
+#### Change in mode.pm
+
+#### New file : api.pm
 
 TUTO 2020
 
