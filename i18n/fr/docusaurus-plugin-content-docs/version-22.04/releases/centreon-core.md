@@ -369,7 +369,7 @@ Release date: `February 1, 2023`
 
 ##### Improvements
 
-- Improved network connection stability by sending tcpkeepalive packet every 30s on tcp stream.
+- Improved network connection stability by sending a tcpkeepalive packet every 30s on TCP stream.
 
 ##### Bug fixes
 
