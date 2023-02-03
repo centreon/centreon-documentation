@@ -46,3 +46,5 @@ sudo apt update centreon-map-engine centreon-map-web-client
   ```shell
   sudo systemctl start centreon-map-engine
   ```
+
+> Si vous constatez que les métriques ne sont plus mises à jour après la mise à jour de MAP, consultez cette section de [dépannage](./map-web-troubleshooting.md#les-données-métriques-ne-sont-plus-mises-à-jour-avec-le-serveur-map).

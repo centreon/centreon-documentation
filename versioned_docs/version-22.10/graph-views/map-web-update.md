@@ -14,30 +14,30 @@ Use the following procedure to update your MAP version:
   ```
 
 2. Update the packages by running this command on the machine(s) hosting the central service and the Centreon MAP service:
- 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-``` shell
-sudo dnf update centreon-map-engine centreon-map-web-client
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-``` shell
-sudo yum update centreon-map-engine centreon-map-web-client
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-``` shell
-sudo apt update centreon-map-engine centreon-map-web-client
-```
-
-</TabItem>
-</Tabs>
+  <Tabs groupId="sync">
+  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+  
+  ``` shell
+  sudo dnf update centreon-map-engine centreon-map-web-client
+  ```
+  
+  </TabItem>
+  <TabItem value="CentOS 7" label="CentOS 7">
+  
+  ``` shell
+  sudo yum update centreon-map-engine centreon-map-web-client
+  ```
+  
+  </TabItem>
+  <TabItem value="Debian 11" label="Debian 11">
+  
+  ``` shell
+  sudo apt update centreon-map-engine centreon-map-web-client
+  ```
+  
+  </TabItem>
+  </Tabs>
 
 3. Clear your browser cache.
  
@@ -46,3 +46,5 @@ sudo apt update centreon-map-engine centreon-map-web-client
   ```shell
   sudo systemctl start centreon-map-engine
   ```
+
+> If you notice that the metrics are no longer updating after the MAP update, see this [troubleshooting](./map-web-troubleshooting.md#metrics-data-are-no-longer-updated-with-the-map-server) section.

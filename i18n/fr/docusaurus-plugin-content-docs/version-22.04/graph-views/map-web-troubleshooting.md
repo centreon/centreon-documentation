@@ -7,17 +7,37 @@ import TabItem from '@theme/TabItem';
 
 Cette page présente quelques recommandations pour résoudre des incidents lors de l'installation de MAP.
 
+## Les données métriques ne sont plus mises à jour avec le serveur MAP
+
+#### Symptôme
+
+Après une mise à jour ou une montée de version de MAP, les métriques ne se mettent pas à jour pendant l'exécution de **centreon-map-engine**.
+
+#### Problème
+
+Un filtre de catégorie **storage** est manquant dans la configuration broker de MAP.
+
+#### Solution
+
+Suivez cette procédure pour ajouter le filtre de catégorie **storage** dans la configuration broker de MAP.
+
+1. Allez dans **Configuration > Pollers > Broker**.
+2. Ouvrez le formulaire **centreon-broker-master**.
+3. Dans l'onglet **Output**, ouvrez l'output **centreon-studio**.
+4. Dans le champ **Filter category**, ajoutez **Storage**. Sauvegardez les modifications.
+5. Vous devez maintenant [déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
 ## La configuration MAP ne fonctionne pas en HTTPS
 
-### Symptôme
+#### Symptôme
 
 La configuration du module MAP ne fonctionne pas. Ce problème se produit lorsque le module MAP est installé sur le serveur central Centreon alors que la plateforme MAP est sécurisée en HTTPS.
 
-### Problème
+#### Problème
 
 La configuration MAP n'est pas définie en TLS.
 
-### Solution
+#### Solution
 
 Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4. 
 
