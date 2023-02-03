@@ -32,6 +32,29 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
             }
+          ],
+          
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/releases/release-notes'
+        },
+        {
+          type: 'category',
+          label: 'Developers Center',
+          items: [
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/introduction'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
+            }
           ]
         }
       ]
@@ -2618,27 +2641,5 @@ module.exports = {
         }
       ]
     },
-    {
-      type: 'doc',
-      id: 'integrations/plugin-packs/releases/release-notes'
-    },
-    {
-      type: 'category',
-      label: 'Developers Center',
-      items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/introduction'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
-        }
-      ]
-    }
   ]
 };
