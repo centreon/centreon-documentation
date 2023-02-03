@@ -11,7 +11,7 @@ This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
 #### Symptom
 
-After a MAP update or upgrade, metrics are not updating during the execution of **centreon-map-engine**.
+Metrics are not updating during the execution of **centreon-map-engine**.
 
 #### Problem
 

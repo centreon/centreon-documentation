@@ -11,7 +11,7 @@ Cette page présente quelques recommandations pour résoudre des incidents lors 
 
 #### Symptôme
 
-Après une mise à jour ou une montée de version de MAP, les métriques ne se mettent pas à jour pendant l'exécution de **centreon-map-engine**.
+Les métriques ne se mettent pas à jour pendant l'exécution de **centreon-map-engine**.
 
 #### Problème
 
