@@ -17,6 +17,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.10
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue after upgrading to PHP 8.1
+
 ### 22.04.9
 
 Release date: `January 31, 2023`
