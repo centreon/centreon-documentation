@@ -2814,6 +2814,7 @@ sub new {
     }
 
     if (!defined($options{noptions})) {
+        # Adding options legacy from appsmetrics.pm in single mode
         $options{options}->add_options(arguments => {
             'hostname:s'           => { name => 'hostname' },
             'proto:s'              => { name => 'proto', default => 'https' },
@@ -2824,10 +2825,11 @@ sub new {
             'critical-status:s'    => { name => 'critical_status', default => '' }
         });
     }
-    
+    # Adding Help structure to the object
     $options{options}->add_help(package => __PACKAGE__, sections => 'REST API OPTIONS', once => 1);
-
+    # Adding output structure to the object
     $self->{output} = $options{output};
+    # Command line legacy from appsmetrics.pm in single mode
     $self->{http} = centreon::plugins::http->new(%options);
 
     return $self;
