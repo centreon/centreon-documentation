@@ -2702,7 +2702,6 @@ Then in new constructor a new line calling for the custom is needed
 sub new {
     my ($class, %options) = @_;
     my $self = $class->SUPER::new(package => __PACKAGE__, %options);
-@@ -42,6 +42,7 @@ sub new {
         'app-metrics' => 'apps::myawesomeapp::api::mode::appmetrics'
     };
 
