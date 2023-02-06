@@ -2837,6 +2837,8 @@ sub new {
 ```
 ##### set_options
 
+This function overwrite the set_options function in http module
+
 ```perl
 sub set_options {
     my ($self, %options) = @_;
@@ -2846,10 +2848,14 @@ sub set_options {
 ```
 ##### set_defaults
 
+This function is empty and is call remain unclear
+
 ```perl
 sub set_defaults {}
 ```
 ##### check_options
+
+
 
 ```perl
 sub check_options {
@@ -2872,6 +2878,8 @@ sub check_options {
 }
 ```
 ##### settings
+
+This function allows to build api object options ?
 
 ```perl
 sub settings {
