@@ -2861,6 +2861,7 @@ sub set_defaults {}
 sub check_options {
     my ($self, %options) = @_;
 
+    # Check if options are propely define
     $self->{hostname} = (defined($self->{option_results}->{hostname})) ? $self->{option_results}->{hostname} : '';
     $self->{proto} = (defined($self->{option_results}->{proto})) ? $self->{option_results}->{proto} : 'https';
     $self->{port} = (defined($self->{option_results}->{port})) ? $self->{option_results}->{port} : 443;
@@ -2869,6 +2870,7 @@ sub check_options {
     $self->{warning_status} = (defined($self->{option_results}->{warning_status})) ? $self->{option_results}->{warning_status} : '';
     $self->{critical_status} = (defined($self->{option_results}->{critical_status})) ? $self->{option_results}->{critical_status} : '';
 
+    # Check if the user provided a value for --hostname option. If not, display a message and exit
     if (!defined($self->{hostname}) || $self->{hostname} eq '') {
         $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
         $self->{output}->option_exit();
@@ -2879,12 +2881,13 @@ sub check_options {
 ```
 ##### settings
 
-This function allows to build api object options ?
+This function allows initialize api object options structure and feed it calling set_options
 
 ```perl
 sub settings {
     my ($self, %options) = @_;
 
+    # Initialize options structure
     $self->{option_results}->{hostname} = $self->{hostname};
     $self->{option_results}->{proto} = $self->{proto};
     $self->{option_results}->{port} = $self->{port};
@@ -2893,6 +2896,7 @@ sub settings {
     $self->{option_results}->{warning_status} = $self->{warning_status};
     $self->{option_results}->{critical_status} = $self->{critical_status};
 
+    # Feed options structure using set_options 
     $self->{http}->set_options(%{$self->{option_results}});
 }
 ```
@@ -2901,7 +2905,8 @@ sub settings {
 ```perl
 sub request_api {
     my ($self, %options) = @_;
-
+    
+    # Define APi options needed for request
     $self->settings();
 
     my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
