@@ -18,7 +18,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.10
 
-Release date: `soon`
+Release date: `February 6, 2023`
 
 #### Bug fixes
 

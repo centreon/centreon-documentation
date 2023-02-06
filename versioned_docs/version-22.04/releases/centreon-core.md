@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.10
 
-Release date: `soon`
+Release date: `February 6, 2023`
 
 #### Bug fixes
 
