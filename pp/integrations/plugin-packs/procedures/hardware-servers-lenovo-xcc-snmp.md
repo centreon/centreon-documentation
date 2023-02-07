@@ -50,7 +50,7 @@ It brings the following service template:
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Lenovo XCC SNMP**
-server. Please refer to the official documentation from XXX:
+server. Please refer to the official documentation from Lenovo:
 * [Lenovo XCC SNMP](https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.systems.management.xcc.doc%2FNN1ia_c_configuringSNMP.html)
 
 ### Network flow
