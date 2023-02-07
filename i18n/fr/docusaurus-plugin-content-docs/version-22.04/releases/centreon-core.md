@@ -367,10 +367,6 @@ Release date: `February 7, 2023`
 
 #### Centreon Engine
 
-##### Improvements
-
-- Improved network connection stability by sending a tcpkeepalive packet every 30s on TCP stream.
-
 ##### Bug fixes
 
 - Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
