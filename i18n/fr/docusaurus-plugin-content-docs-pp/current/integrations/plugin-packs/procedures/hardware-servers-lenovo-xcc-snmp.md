@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Lenovo développe, fabrique et vend du matériel et logiciels informatiques.
+Lenovo développe, fabrique et vend du matériel et des logiciels informatiques.
 
 ## Contenu du Pack
 
