@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.10
+
+Release date: `February 6, 2023`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
+
 ### 22.04.9
 
 Release date: `January 31, 2023`
@@ -360,6 +368,42 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.2
+
+Release date: `February 7, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
+- Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved Broker's behaviour when trying to insert negative values in unsigned columns of the storage database.
+- Improved network connection stability by sending a tcpkeepalive packet every 30s on TCP stream.
+- Improved how bulk data is sent by Broker to MariaDB databases.
+- It is now possible to use empty strings for parameter values in stream connectors.
+
+##### Bug fixes
+
+- Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine.
+- Fixed a bug where deleted host groups and service groups weren’t available in the filter menu.
+- Fixed a deadlock issue due to new Broker stats engine.
+- Fixed a deadlock issue when a query failed while inserting a value that was out of range for the column type.
+- Fixed an issue due to a data type mismatch that could block Broker.
+- Fixed the way Broker handled numbers with an out of range value for the column type.
+- Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
+- Fixed an issue with RRD rebuild that recreated the RRD files for every 24 hours of data, resulting in keeping only the last day's data.
+- Fixed the compatibility issue between RRD rebuild and rrdcached.
+- Fixed a stability issue that could cause Broker to crash when a host was deleted.
+- Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
+- Fixed an issue where Broker displayed the warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
+- Fixed a defect in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.04.1
 
