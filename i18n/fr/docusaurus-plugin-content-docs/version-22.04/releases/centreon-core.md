@@ -363,7 +363,7 @@ By:
 
 ### 22.04.2
 
-Release date: `February 1, 2023`
+Release date: `February 7, 2023`
 
 #### Centreon Engine
 
