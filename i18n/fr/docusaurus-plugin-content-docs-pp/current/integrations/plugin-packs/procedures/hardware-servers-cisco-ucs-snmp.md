@@ -6,178 +6,222 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+## Contenu du Pack
 
-Cisco Unified Computing System (UCS) est un ensemble de ressources pour Datacenter comprenant du matériel hardware, un support système de virtualisation, une matrice de commutation et un logiciel de gestion.
+### Modèles
 
-Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux ressources du serveur UCS.
+Le Plugin Pack Centreon **Cisco UCS** apporte un modèle d'hôte :
 
-## Contenu du Plugin Pack
+* HW-Server-Cisco-Ucs-SNMP-custom
 
-### Objets supervisés
+Il apporte les modèles de service suivants :
 
-* Les ressources du serveur UCS: Serveurs, Réseau, Disque,...
+| Alias           | Modèle de service                        | Description                            | Défaut |
+|:----------------|:-----------------------------------------|:---------------------------------------|:-------|
+| Audit-Logs      | HW-Server-Cisco-Ucs-Audit-Logs-SNMP      | Contrôle les journaux d'audit          | X      |
+| Equipment       | HW-Server-Cisco-Ucs-Equipment-SNMP       | Contrôle l'état du hardware            | X      |
+| Faults          | HW-Server-Cisco-Ucs-Faults-SNMP          | Contrôle les erreurs                   | X      |
+| Mgmt-Entities   | HW-Server-Cisco-Ucs-Mgmt-Entities-SNMP   | Contrôle les entités de management     |        |
+| Service-Profile | HW-Server-Cisco-Ucs-Service-Profile-SNMP | Contrôle le nombre de service profiles |        |
 
-### Métriques collectées
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Audit-Logs" label="Audit-Logs">
 
-| Metric name                  | Description                                | Unit  |
-| :--------------------------- | :----------------------------------------- | :---- |
-| audit.total.count            | Number of audit logs                       | count |
-| audit.cleared.count          | Number of cleared audit logs               | count |                          
-| audit.info.count             | Number of info audit logs                  | count |                      
-| audit.condition.count        | Number of condition audit logs             | count |                             
-| audit.warning.count          | Number of warning audit logs               | count |                            
-| audit.minor.count            | Number of minor audit logs                 | count |                          
-| audit.critical.count         | Number of critical audit logs              | count |                             
+| Métrique          | Unité |
+|:------------------|:------|
+| audit.            |       |
+| audit.total.count | count |
+| status            |       |
 
 </TabItem>
 <TabItem value="Equipment" label="Equipment">
 
-| Metric name | Description                                | Unit |
-| :---------- | :----------------------------------------- | :--- |
-| status      | Check Hardware status                      |      |
+Could not retrive metrics
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Metric name                   | Description                                | Unit  |
-| :---------------------------- | :----------------------------------------- | :---- |
-| faults.problems.current.count | Number of current faults                   | count |
-| faults.total.count            | Number of faults                           | count |
-| faults.cleared.count          | Number of cleared faults                   | count |
-| faults.info.count             | Number of info faults                      | count |
-| faults.condition.count        | Number of conditions faults                | count |
-| faults.warning.count          | Number of warning faults                   | count |
-| faults.minor.count            | Number of minor faults                     | count |
-| faults.major.count            | Number of major faults                     | count |
-| faults.critical.count         | Number of critical faults                  | count |
+| Métrique           | Unité |
+|:-------------------|:------|
+| faults.            |       |
+| faults.total.count | count |
+| status             |       |
 
 </TabItem>
 <TabItem value="Mgmt-Entities" label="Mgmt-Entities">
 
-| Metric name                     | Description                                | Unit  |
-| :------------------------------ | :----------------------------------------- | :---- |
-| management_entities.total.count | Number of management entities              | count |
+| Métrique      | Unité |
+|:--------------|:------|
+| total         |       |
+| *mgmt*#status |       |
 
 </TabItem>
 <TabItem value="Service-Profile" label="Service-Profile">
 
-| Metric name                   | Description                                | Unit  |
-| :---------------------------- | :----------------------------------------- | :---- |
-| serviceprofiles.total.count   | Number of service profiles                 | count |
-| serviceprofiles.online.count  | Number of online service profiles          | count |
-| serviceprofiles.offline.count | Number of offline service profiles         | count |
-
+| Métrique                      | Unité |
+|:------------------------------|:------|
+| serviceprofiles.offline.count | count |
+| serviceprofiles.online.count  | count |
+| serviceprofiles.total.count   | count |
+| *sp*#status                   |       |
 
 </TabItem>
 </Tabs>
 
-
 ## Prérequis
 
-La communauté SNMP doit être activée sur le serveur UCS en mode Read-only.
+### Configuration SNMP
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers les ressources UCS.
+Afin de superviser votre **Cisco UCS** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
+* [Cisco UCS](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/ucs-manager/GUI-User-Guides/System-Monitoring/3-1/b_UCSM_GUI_System_Monitoring_Guide_3_1/b_UCSM_GUI_System_Monitoring_Guide_3_1_chapter_0101.html)
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
 
-| Mandatory   | Nom              | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
 
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Pack de supervision
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs UCS:
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
+dnf install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
-
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des serveurs UCS:
-
-```bash
-yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
-```
-
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Cisco UCS* :
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-hardware-servers-cisco-ucs-snmp
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Cisco UCS**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-hardware-servers-cisco-ucs-snmp
+```
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"".
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur UCS
-* Appliquez le Modèle d'Hôte *HW-Server-Cisco-Ucs-custom*
+### Hôte
 
-## Comment tester le Plugin en ligne de commande et comment utiliser ses options ?
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Cisco UCS**.
+* Appliquez le modèle d'hôte **HW-Server-Cisco-Ucs-SNMP-custom**.
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
-*centreon-engine* :
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+
+| Obligatoire | Macro            | Description                                  |
+|:------------|:-----------------|:---------------------------------------------|
+|             | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_ucs.pl \
-    --plugin=hardware::server::cisco::ucs::plugin \
-    --mode=faults \ 
-    --hostname=10.30.2.11 \
+    --plugin=hardware::server::cisco::ucs::snmp::plugin \
+    --mode=service-profile \
+    --hostname='10.0.0.1' \
     --snmp-version='2c' \
-    --snmp-community='cisco_ucs' \ 
-    --filter-severity='critical|major=critical' \
-    --filter-severity='warning|minor=warning' \
-    --verbose
-               
+    --snmp-community='my-snmp-community' \
+    --warning-total='' \
+    --critical-total='' \
+    --warning-online='' \
+    --critical-online='' \
+    --warning-offline='' \
+    --critical-offline='' \
+    --warning-status='%{severity} =~ /minor|warning/' \
+    --critical-status='%{severity} =~ /major|critical/' \
+    --verbose \
+    --use-new-perfdata
 ```
 
-La commande ci-dessus contrôle les défauts sur un serveur UCS (``` --mode=faults ```). Les informations importantes sont l'adresse IP/FQDN 
+La commande devrait retourner un message de sortie similaire à :
 
-(``` --hostname=10.30.2.11 ```) et la communauté SNMP configurée sur l'équipement (``` --snmp-community='cisco_ucs' ```).
+```bash
+OK: total: %s online: %s offline: %s  | 'serviceprofiles.total.count'=9000;;;0; 'serviceprofiles.online.count'=9000;;;0; 'serviceprofiles.offline.count'=9000;;;0; 
+```
 
-Une alarme de type WARNING est déclenchée si un problème avec une gravité WARNING ou MINOR est détecté sur un composant du serveur UCS (``` --filter-severity='warning|minor=warning' ```).
-
-Une alarme CRITICAL est quant à elle déclenchée si un problème avec une gravité CRITICAL ou MAJOR est détecté sur un composant du serveur UCS (``` --filter-severity='critical|major=critical' ```).
-
-La liste de toutes les options complémentaires et leur signification peut être affichée en ajoutant le paramètre ``` --help ``` à la commande:
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_ucs.pl \
-    --plugin=hardware::server::cisco::ucs::plugin \
-    --mode=faults \
+    --plugin=hardware::server::cisco::ucs::snmp::plugin \
+    --mode=service-profile \
     --help
 ```
 
-Tous les modes disponibles peuvent être affichés via l'option ``` --list-mode ``` :
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_ucs.pl \
-    --plugin=hardware::server::cisco::ucs::plugin \
+    --plugin=hardware::server::cisco::ucs::snmp::plugin \
     --list-mode
 ```
 
-## Diagnostic des erreurs communes
+### Diagnostic des erreurs communes
 
-### UNKNOWN: SNMP GET Request : Timeout
-
-Si vous obtenez ce message, cela signifie que le collecteur Centreon ne parvient pas à contacter le serveur UCS sur le port UDP 161, ou alors que la communauté SNMP configurée n'est pas correcte.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. Ce dernier doit avoir accès à la branche entreprise SNMP Cisco UCS: .1.3.6.1.4.1.9.9.719
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
