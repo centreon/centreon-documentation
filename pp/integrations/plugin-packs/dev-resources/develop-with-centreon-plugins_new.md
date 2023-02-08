@@ -1,4 +1,9 @@
-# Pluggins / Connectors documentation
+---
+id: new_develop-with-centreon-plugins
+title: Develop with centreon-plugins
+---
+
+## Plugins / Connectors documentation
 
 <div id='table_of_content_1'/>
 
@@ -9,12 +14,12 @@ Table of contents (1)
  3. [List of shared libraries in centreon directory](#librairies)
  4. [Tutorial : How to create a plugin - Using API](#tutoriel)
  5. [Tutorial : How to create a plugin - Using SNMP](#tutoriel_2)
- 6. [Pluggins guidelines and good practices](#guidelines)
+ 6. [Plugins guidelines and good practices](#guidelines)
 *******
 
 <div id='introduction'/>
 
-## I. Pluggins introduction
+## I. Plugins introduction
 
 [Table of content (1)](#table_of_content_1)
 
