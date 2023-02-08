@@ -23,7 +23,7 @@ Il apporte les modèles de service suivants :
 | Interfaces      | Net-Alcatel-Omniswitch-Interfaces-SNMP      | Contrôle les interfaces                                   |        |
 | Memory          | Net-Alcatel-Omniswitch-Memory-SNMP          | Contrôle le taux d'utilisation de la mémoire              | X      |
 | Spanning-Tree   | Net-Alcatel-Omniswitch-SpanningTree-SNMP    | Contrôle l'état du spanning tree sur les interfaces       |        |
-| Virtual-Chassis | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP | Contrôle l'état des chassis virtuels                      |        |
+| Virtual-Chassis | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP | Contrôle l'état des châssis virtuels                      |        |
 
 ### Règles de découverte
 
