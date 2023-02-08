@@ -18,20 +18,16 @@ Table of contents (1)
 
 [Table of content (1)](#table_of_content_1)
 
+Centreon plugins are a free and open source way to monitor systems. The project can be used with Centreon and all monitoring softwares compatible with Nagios plugins.
+You can monitor many systems:
 
-
-
-
-A rédiger : Qu'est ce qu'un pluggin, à quoi ça sert, qu'est ce qu'il y a dedans ?
-
-
-Les sondes (ou les plugins) Centreon sont des exécutables qui permettent de récupérer l'état d'une ressource particulière. Il s'agit
-généralement d'un script, ou parfois d'un binaire, exécuté en ligne de commande.
-Les sondes permettent de récupérer le pourcentage d'utilisation de la CPU, l'espace disque non utilisé, le pourcentage de la bande
-passante utilisée par une interface réseau, ou encore l'utilisation de la mémoire vive. Elles exécutent donc toutes les fonctions de
-supervision, et utilisent des protocoles afin d'obtenir les statuts actuels des hôtes et de retourner un statut.
-
-
+* application: Apache, Asterisk, Elasticsearch, Github, Jenkins, Kafka, Nginx, Pfsense, Redis, Tomcat, Varnish,...
+* cloud: AWS, Azure, Docker, Office365, Nutanix, Prometheus,...
+* database: Firebird, Informix, MS SQL, MySQL, Oracle, Postgres, Cassandra
+* hardware: printers (rfc3805), UPS (Powerware, Mge, Standard), Sun Hardware, Cisco UCS, SensorIP, HP Proliant, HP Bladechassis, Dell Openmanage, Dell CMC, Raritan,...
+* network: Aruba, Brocade, Bluecoat, Brocade, Checkpoint, Cisco AP/IronPort/ASA/Standard, Extreme, Fortigate, H3C, Hirschmann, HP Procurve, F5 BIG-IP, Juniper, PaloAlto, Redback, Riverbed, Ruggedcom, Stonesoft,...
+* os: Linux (SNMP, NRPE), Freebsd (SNMP), AIX (SNMP), Solaris (SNMP)...
+* storage: EMC Clariion, Netapp, Nimble, HP MSA p2000, Dell EqualLogic, Qnap, Panzura, Synology...
 
 <div id='architecture'/>
 
