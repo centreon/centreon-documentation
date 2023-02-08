@@ -7,8 +7,9 @@ Table of contents (1)
  1. [Introduction](#introduction)
  2. [Layout](#architecture)
  3. [List of shared libraries in centreon directory](#librairies)
- 4. [Tutorial : How to create a plugin](#tutoriel)
- 5. [Pluggins guidelines and good practices](#guidelines)
+ 4. [Tutorial : How to create a plugin - Using API](#tutoriel)
+ 5. [Tutorial : How to create a plugin - Using SNMP](#tutoriel_2)
+ 6. [Pluggins guidelines and good practices](#guidelines)
 *******
 
 <div id='introduction'/>
@@ -1731,7 +1732,7 @@ Output displays Postgres databases.
 
 <div id='tutoriel'/>
 
-## IV. Tutoriel de création d'un pluggin
+## IV. Tutorial : How to create a plugin - Using API
 
 [Table of content (1)](#table_of_content_1)
 
@@ -2932,6 +2933,12 @@ sub request_api {
 -----------
 -----------
 
+<div id='tutoriel_2'/>
+
+## V. Tutorial : How to create a plugin - Using SNMP
+
+[Table of content (1)](#table_of_content_1)
+
 TUTO 2020
 
 Premièrement, vous avez besoin de créer un dossier sur le git afin de stocker le nouveau plugin.
@@ -2952,7 +2959,7 @@ $ mkdir os/linux/snmp/mode
 
 <div id='guidelines'/>
 
-## V. Pluggins guidelines
+## VI. Pluggins guidelines
 
 [Table of content (1)](#table_of_content_1)
 
