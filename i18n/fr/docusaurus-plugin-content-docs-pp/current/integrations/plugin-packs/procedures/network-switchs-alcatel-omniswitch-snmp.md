@@ -30,9 +30,9 @@ Il apporte les modèles de service suivants :
 <Tabs groupId="sync">
 <TabItem value="Service" label="Service">
 
-| Nom de la règle                            | Description                                                           |
-|:-------------------------------------------|:----------------------------------------------------------------------|
-| Net-Alcatel-Omniswitch-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization         |
+| Nom de la règle                            | Description                                                            |
+|:-------------------------------------------|:-----------------------------------------------------------------------|
+| Net-Alcatel-Omniswitch-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery#r%C3%A8gles-de-d%C3%A9couverte).
