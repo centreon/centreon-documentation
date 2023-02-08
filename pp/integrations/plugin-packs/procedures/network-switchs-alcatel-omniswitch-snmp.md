@@ -35,7 +35,7 @@ It brings the following service templates:
 | Net-Alcatel-Omniswitch-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+and in the [following chapter](/docs/monitoring/discovery/services-discovery#discovery-rules).
 
 </TabItem>
 </Tabs>
