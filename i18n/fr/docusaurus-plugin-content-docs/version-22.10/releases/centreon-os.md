@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.5
 
-Release date: `soon`
+Release date: `February 9, 2023`
 
 #### Bug fixes
 
