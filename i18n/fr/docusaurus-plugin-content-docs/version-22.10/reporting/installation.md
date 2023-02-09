@@ -499,18 +499,18 @@ add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 apt update
 ```
 
-Puis lancer l'installation :
-
-```shell
-apt update
-apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
 Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Puis lancer l'installation :
+
+```shell
+apt update
+apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>

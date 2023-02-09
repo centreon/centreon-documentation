@@ -132,7 +132,7 @@ yum update centreon-bi\*
 
 ```shell
 apt clean all
-apt update && apt upgrade centreon-bi\*
+apt update && apt upgrade centreon-bi-reporting-server
 ```
 
 </TabItem>
