@@ -25,7 +25,7 @@ Release date: ``
 
 #### Bug fixes
 
-- Fixed a PHP quote escaping issue after upgrading to PHP 8.1
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
 
 ### 22.10.4
 
