@@ -152,7 +152,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.1
 
-Release date: `soon`
+Release date: `February 9, 2023`
 
 - Fixed an issue that caused the interface to become stuck in a loading state.
 
