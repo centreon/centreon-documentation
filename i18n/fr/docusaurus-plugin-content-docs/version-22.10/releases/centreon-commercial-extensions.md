@@ -162,6 +162,12 @@ Release date: `October 26, 2022`
 
 ## Centreon Anomaly Detection
 
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+- Fixed an issue that caused the interface to become stuck in a loading state.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
