@@ -41,12 +41,6 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 </TabItem>
 </Tabs>
 
-## Prerequisites
-
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
-as possible here as it will save time to everybody.*
-
 ## Setup
 
 ### Monitoring Pack
@@ -132,11 +126,11 @@ apt install centreon-plugin-applications-jenkins
 
 | Mandatory   | Macro                  | Description        |
 |:------------|:-----------------------|:-------------------|
-|             | JENKINSAPIEXTRAOPTIONS | --insecure         |
-|             | JENKINSAPIPASSWORD     |                    |
+| X           | JENKINSAPIUSERNAME     |                    |
+| X           | JENKINSAPIPASSWORD     |                    |
 |             | JENKINSAPIPORT         | (Default: '443')   |
 |             | JENKINSAPIPROTO        | (Default: 'https') |
-|             | JENKINSAPIUSERNAME     |                    |
+|             | JENKINSAPIEXTRAOPTIONS | --insecure         |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -145,35 +139,32 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_jenkins.pl \
+/usr/lib/centreon/plugins/centreon_jenkins.pl \
     --plugin=apps::jenkins::plugin \
     --mode=jobs \
     --hostname='10.0.0.1' \
     --port='443' \
     --proto='https' \
-    --username='' \
-    --password='' \
-    --insecure \
-    --filter-job-name='' \
-    --warning-score='' \
-    --critical-score='' \
-    --warning-violations='' \
-    --critical-violations='' \
-    --verbose \
-    --use-new-perfdata
+    --username='myuser' \
+    --password='mytoken' \
+    --filter-job-name='centreon-plugins' \
+    --verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: score: %.2f %% violations: %s | 'job.score.percentage'=9000%;;;0;100 'job.violations.count'=9000;;;0; 
+OK: All jobs are ok | 'centreon-plugins-stable#job.score.percentage'=100.00%;;;0;100 'centreon-plugins-stable#job.violations.count'=0;;;0; 'centreon-plugins-testing#job.score.percentage'=100.00%;;;0;100 'centreon-plugins-testing#job.violations.count'=0;;;0; 'centreon-plugins/update-jenkinsfile-to-s3-alt-apt#job.score.percentage'=100.00%;;;0;100 'centreon-plugins/update-jenkinsfile-to-s3-alt-apt#job.violations.count'=0;;;0;
+Job 'centreon-plugins-stable' score: 100.00 %, violations: 0
+Job 'centreon-plugins-testing' score: 100.00 %, violations: 0
+Job 'centreon-plugins/update-jenkinsfile-to-s3-alt-apt' score: 100.00 %, violations: 0
 ```
 
 All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_jenkins.pl \
+/usr/lib/centreon/plugins/centreon_jenkins.pl \
     --plugin=apps::jenkins::plugin \
     --mode=jobs \
     --help
@@ -183,7 +174,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_jenkins.pl \
+/usr/lib/centreon/plugins/centreon_jenkins.pl \
     --plugin=apps::jenkins::plugin \
     --list-mode
 ```
