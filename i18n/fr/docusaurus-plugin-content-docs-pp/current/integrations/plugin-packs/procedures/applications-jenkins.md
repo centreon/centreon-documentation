@@ -1,54 +1,193 @@
 ---
 id: applications-jenkins
-title: Jenkins
+title: Jenkins API
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Contenu du Pack
 
-### Centreon Plugins
+### Modèles
 
-Install this plugin on each needed poller:
+Le Pack Centreon **Jenkins API** apporte un modèle d'hôte :
 
-``` shell
+* App-Jenkins-Api-custom
+
+Il apporte le modèle de service suivant :
+
+| Alias | Modèle de service    | Description              | Défaut | Découverte |
+|:------|:---------------------|:-------------------------|:-------|:-----------|
+| Jobs  | App-Jenkins-Jobs-Api | Contrôle l'état des jobs |        | X          |
+
+### Règles de découverte
+
+| Nom de la règle          | Description                              |
+|:-------------------------|:-----------------------------------------|
+| App-Jenkins-Api-Job-Name | Découvre les jobs et supervise le statut |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
+
+<Tabs groupId="sync">
+<TabItem value="Jobs" label="Jobs">
+
+| Métrique                        | Unité |
+|:--------------------------------|:------|
+| *job_name*#job.score.percentage | %     |
+| *job_name*#job.violations.count | count |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+*Specify prerequisites that are relevant. You may want to just provide a link
+to the manufacturer official documentation BUT you should try to be as complete
+as possible here as it will save time to everybody.*
+
+## Installation
+
+### Pack de supervision
+
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-jenkins
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-jenkins
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-jenkins
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Jenkins API**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Jenkins
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Applications-Jenkins
 ```
 
-## Create a host using the appropriate template
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+```bash
+apt install centreon-plugin-applications-jenkins
+```
 
-| Field                                   | Value                      |
-| :-------------------------------------- | :------------------------- |
-| Host name                               | *Name of the host*         |
-| Alias                                   | *Host description*         |
-| IP                                      | *Host IP Address*          |
-| Monitored from                          | *Monitoring Poller to use* |
-| Host Multiple Templates                 | App-Jenkins-custom         |
+</TabItem>
+</Tabs>
 
-Click on the *Save* button.
+## Configuration
 
-| Optionnal Service | Description        |
-| :---------------- | :----------------- |
-| job-state         | Monitor job status |
+### Hôte
 
-## Host Macro Configuration
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Jenkins**.
+* Appliquez le modèle d'hôte **App-Jenkins-Api-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-The following macros must be configured on host (\* means mandatory options):
+| Obligatoire | Macro                  | Description        |
+|:------------|:-----------------------|:-------------------|
+|             | JENKINSAPIEXTRAOPTIONS | --insecure         |
+|             | JENKINSAPIPASSWORD     |                    |
+|             | JENKINSAPIPORT         | (Défaut : '443')   |
+|             | JENKINSAPIPROTO        | (Défaut : 'https') |
+|             | JENKINSAPIUSERNAME     |                    |
 
-| Macro               | Description                               | Default value | Example |
-| :------------------ | :---------------------------------------- | :------------ | :------ |
-| JENKINSPROTO\*      | Protocol to connect to web interface      | http          | http    |
-| JENKINSPORT\*       | Port to connect to web interface          | 80            | 80      |
-| JENKINSEXTRAOPTIONS | Extra options to connect to web interface |               |         |
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-## Service Macro Configuration
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
-The following macros must be configured on service (\* means mandatory options):
+```bash
+/usr/lib/centreon/plugins//centreon_jenkins.pl \
+    --plugin=apps::jenkins::plugin \
+    --mode=jobs \
+    --hostname='10.0.0.1' \
+    --port='443' \
+    --proto='https' \
+    --username='' \
+    --password='' \
+    --insecure \
+    --filter-job-name='' \
+    --warning-score='' \
+    --critical-score='' \
+    --warning-violations='' \
+    --critical-violations='' \
+    --verbose \
+    --use-new-perfdata
+```
 
-| Macro    | Description                     | Default value | Example  |
-| :------- | :------------------------------ | :------------ | :------- |
-| URLPATH  | Path to connect to web inteface | /jenkins      | /jenkins |
-| JOBNAME  | the imap user's password        | IMAPPASSWORD  | bar      |
-| WARNING  | Warning Thresold                | 60:           | 60:      |
-| CRITICAL | Critical Thresold               | 30:           | 30:      |
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: score: %.2f %% violations: %s | 'job.score.percentage'=9000%;;;0;100 'job.violations.count'=9000;;;0; 
+```
+
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_jenkins.pl \
+    --plugin=apps::jenkins::plugin \
+    --mode=jobs \
+    --help
+```
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_jenkins.pl \
+    --plugin=apps::jenkins::plugin \
+    --list-mode
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
