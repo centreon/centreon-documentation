@@ -19,6 +19,7 @@ It brings the following service templates:
 | Alerts        | HW-Storage-Dell-Powerstore-Alerts-Restapi   | Check alerts   | X       |
 | Clusters      | HW-Storage-Dell-Powerstore-Clusters-Restapi | Check clusters | X       |
 | Hardware      | HW-Storage-Dell-Powerstore-Hardware-Restapi | Check hardware | X       |
+| Memory        | HW-Storage-Dell-Powerstore-Memory-Restapi   | Check memory   | X       |
 
 ### Collected metrics & status
 
@@ -79,6 +80,15 @@ It brings the following service templates:
 | io module status    |       |
 | power supply status |       |
 | sfp status          |       |
+
+</TabItem>
+<TabItem value="Clusters" label="Clusters">
+
+| Metric name                            | Unit  |
+| :------------------------------------- | :---- |
+| *appliance_id*#memory.usage.bytes      | B     |
+| *appliance_id*#memory.free.bytes       | B     |
+| *appliance_id*#memory.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
