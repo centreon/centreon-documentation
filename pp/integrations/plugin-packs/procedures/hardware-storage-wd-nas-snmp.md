@@ -56,9 +56,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **WD NAS**
-server. Please refer to the official documentation from XXX:
-* LINK
+To use this pack, the SNMP service must be properly configured on your **WD NAS** equipment.
 
 ### Network flow
 
