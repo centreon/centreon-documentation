@@ -113,7 +113,7 @@ Release date: `October 26, 2022`
 
 Release date: `February 9, 2023`
 
-- [ETL] Change the name of the scripts called by the ETL
+- [ETL] Fixed the name of the scripts called by the ETL.
 
 ### 22.10.0
 
