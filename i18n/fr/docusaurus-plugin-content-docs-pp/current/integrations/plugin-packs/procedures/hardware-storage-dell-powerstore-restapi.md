@@ -82,7 +82,7 @@ Il apporte les modèles de services suivants :
 | sfp status          |       |
 
 </TabItem>
-<TabItem value="Clusters" label="Clusters">
+<TabItem value="Memory" label="Memory">
 
 | Métrique                               | Unité |
 | :------------------------------------- | :---- |

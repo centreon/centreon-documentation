@@ -82,7 +82,7 @@ It brings the following service templates:
 | sfp status          |       |
 
 </TabItem>
-<TabItem value="Clusters" label="Clusters">
+<TabItem value="Memory" label="Memory">
 
 | Metric name                            | Unit  |
 | :------------------------------------- | :---- |
