@@ -100,6 +100,18 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed an issue where 0 as a value was not displayed in BA notification fields.
+
+#### Enhancements
+
+- It is now possible to use BAM notifications commands via CLAPI.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
