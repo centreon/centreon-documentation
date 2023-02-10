@@ -32,8 +32,7 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
             }
-          ],
-          
+          ]
         },
         {
           type: 'doc',
@@ -2440,6 +2439,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-violin-3000-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-wd-nas-snmp'
         }
       ]
     },
@@ -2640,6 +2643,6 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
         }
       ]
-    },
+    }
   ]
 };
