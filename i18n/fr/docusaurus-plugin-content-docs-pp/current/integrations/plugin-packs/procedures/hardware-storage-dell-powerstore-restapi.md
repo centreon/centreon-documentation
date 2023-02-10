@@ -19,13 +19,14 @@ Il apporte les modèles de services suivants :
 | Alerts   | HW-Storage-Dell-Powerstore-Alerts-Restapi   | Contrôle les alertes                   | X       |
 | Clusters | HW-Storage-Dell-Powerstore-Clusters-Restapi | Contrôle les performances des clusters | X       |
 | Hardware | HW-Storage-Dell-Powerstore-Hardware-Restapi | Contrôle l'état du matériel            | X       |
+| Memory   | HW-Storage-Dell-Powerstore-Memory-Restapi   | Contrôle la mémoire                    | X       |
 
 ### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Metric name                    | Unit  |
+| Métrique                       | Unité |
 | :----------------------------- | :---- |
 | alerts.severity.none.count     |       |
 | alerts.severity.info.count     |       |
@@ -36,7 +37,7 @@ Il apporte les modèles de services suivants :
 </TabItem>
 <TabItem value="Clusters" label="Clusters">
 
-| Metric name                                                | Unit  |
+| Métrique                                                   | Unité |
 | :--------------------------------------------------------- | :---- |
 | clusters.detected.count                                    |       |
 | *cluster_id*#cluster.io.read.latency.5m.milliseconds       | ms    |
@@ -67,7 +68,7 @@ Il apporte les modèles de services suivants :
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name         | Unit  |
+| Métrique            | Unité |
 | :------------------ | :---- |
 | appliance status    |       |
 | battery status      |       |
@@ -79,6 +80,15 @@ Il apporte les modèles de services suivants :
 | io module status    |       |
 | power supply status |       |
 | sfp status          |       |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Métrique                               | Unité |
+| :------------------------------------- | :---- |
+| *appliance_id*#memory.usage.bytes      | B     |
+| *appliance_id*#memory.free.bytes       | B     |
+| *appliance_id*#memory.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
