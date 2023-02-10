@@ -19,6 +19,14 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.5
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
+
 ### 22.10.4
 
 Release date: `January 10, 2023`
