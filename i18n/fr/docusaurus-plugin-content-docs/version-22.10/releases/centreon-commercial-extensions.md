@@ -120,6 +120,14 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- [ETL] Fixed the name of the scripts called by the ETL.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
