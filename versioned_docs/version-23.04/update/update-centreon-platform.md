@@ -242,7 +242,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  dnf update centreon\*
+  dnf update centreon-poller
   ```
 
 </TabItem>
@@ -257,7 +257,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  yum update centreon\*
+  yum update centreon-poller
   ```
 
 </TabItem>
@@ -273,7 +273,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt update centreon
+  apt update centreon-poller
   ```
 
 </TabItem>
