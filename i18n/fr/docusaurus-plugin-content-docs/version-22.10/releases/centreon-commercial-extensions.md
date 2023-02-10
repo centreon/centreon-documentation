@@ -114,7 +114,7 @@ Release date: `February 9, 2023`
 
 #### Bug fixes
 
-- [ETL] Change the name of the scripts called by the ETL
+- [ETL] Fixed the name of the scripts called by the ETL.
 
 ### 22.10.0
 
