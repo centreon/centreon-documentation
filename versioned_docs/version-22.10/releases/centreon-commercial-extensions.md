@@ -101,6 +101,18 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed an issue where 0 as a value was not displayed in BA notification fields.
+
+#### Enhancements
+
+- It is now possible to use BAM notifications commands via CLAPI.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -108,6 +120,12 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+- [ETL] Fixed the name of the scripts called by the ETL.
 
 ### 22.10.0
 
@@ -150,6 +168,12 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+- Fixed an issue that caused the interface to become stuck in a loading state.
 
 ### 22.10.0
 
