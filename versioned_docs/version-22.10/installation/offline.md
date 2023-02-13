@@ -47,8 +47,8 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 5. Synchronize the repositories:
 
    ```shell
-   reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
-   reposync -p /var/www/html/repos/centreon/ -r centreon-stable
+   reposync -p /var/www/html/repos/centreon/ --repo centreon-stable-noarch
+   reposync -p /var/www/html/repos/centreon/ --repo centreon-stable
    ```
 
 6. Create the repository:
