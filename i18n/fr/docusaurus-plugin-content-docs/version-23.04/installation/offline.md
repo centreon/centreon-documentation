@@ -41,7 +41,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 4. Installez les paquets nécessaires :
 
    ```shell
-   yum install reposync createrepo httpd
+   yum install yum-utils createrepo httpd
    ```
 
 5. Synchronisez les dépôts :
