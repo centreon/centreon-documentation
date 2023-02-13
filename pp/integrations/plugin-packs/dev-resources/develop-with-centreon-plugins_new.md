@@ -5,25 +5,9 @@ title: Develop with centreon-plugins
 
 ## Plugins / Connectors documentation
 
-<div id='table_of_content_1'/>
-
-*******
-Table of contents (1)
- 1. [Plugins introduction](#introduction)
- 2. [Layout](#architecture)
- 3. [List of shared libraries in centreon directory](#librairies)
- 4. [Tutorial : How to create a plugin - Using API](#tutoriel)
- 5. [Tutorial : How to create a plugin - Using SNMP](#tutoriel_2)
- 6. [Other examples](#examples)
- 7. [Code Style Guidelines](#code-style-guidelines)
- 8. [Plugins guidelines and good practices](#guidelines)
 *******
 
-<div id='introduction'/>
-
-## I. Plugins introduction
-
-[Table of content (1)](#table_of_content_1)
+## Plugins introduction
 
 Centreon plugins are a free and open source way to monitor systems. The project can be used with Centreon and all monitoring softwares compatible with Nagios plugins.
 You can monitor many systems:
@@ -43,31 +27,11 @@ But to avoid reinventing the wheel, you should first take a look at the “examp
 
 The lastest version is available on following git repository: https://github.com/centreon/centreon-plugins.git
 
-<div id='architecture'/>
+## Layout
 
-## II. Layout
+### Directories layout
 
-<div id='table_of_content_2'/>
-
-*******
-Table of contents (2)
- 1. [Directories layout](#architecture_dossier)
- 2. [Shared directories](#architecture_shared)
- 3. [Plugin.pm file](#architecture_plugin)
- 4. [Mode.pm file](#architecture_mode)
- 5. [Model Classes Usage](#architecture_model_class)
- 6. [Commit and push](#commit)
-*******
-
-[Table of content (1)](#table_of_content_1)
-
-<div id='architecture_dossier'/>
-
-### 1. Directories layout
-
-#### 1.1 Plugins directories layout
-
-[Table of content (2)](#table_of_content_2)
+#### Plugins directories layout
 
 The project content is made of a main binary (`centreon_plugins.pl`), and a logical
 directory structure allowing to separate plugins and modes files across the domain they
@@ -107,9 +71,7 @@ Root directories are organized by section:
 * Operating System  : os
 * Storage equipment : storage
 
-#### 1.2 Single plugin directory layout
-
-[Table of content (2)](#table_of_content_2)
+#### Single plugin directory layout
 
 According to the monitored object, it exists an organization which can use:
 
@@ -139,15 +101,11 @@ Now, let's see how these concepts combine to build a command line:
 perl centreon_plugins.pl --plugin=os::linux::local::plugin --mode=cpu
 ```
 
-<div id='architecture_shared'/>
-
-### 2. Shared directories
-
-[Table of content (2)](#table_of_content_2)
+### Shared directories
 
 Some specific directories are not related to a domain (os, cloud...) and are used across all plugins.
 
-#### 2.1 The centreon directory
+#### The centreon directory
 
 The centreon directory is specific, it contains:
 
@@ -156,15 +114,11 @@ The centreon directory is specific, it contains:
 
 An more detailed desception of this libraries is availible [here](#librairies)
 
-#### 2.2 The snmp_standard/mode directory
+#### The snmp_standard/mode directory
 
 The snmp_standard/mode exists since the beginning when SNMP monitoring was much more used than it is today. All the modes it contains use standard OIDs, which means that many plugins are relying on these when the manufacturer supports standard MIBs on their devices.
 
-<div id='architecture_plugin'/>
-
-### 3. Plugin.mp file
-
-[Table of content (2)](#table_of_content_2)
+### Plugin.mp
 
 This file must contain : 
 * license / copyright
@@ -248,11 +202,7 @@ __END__
 > **TIP** : You can copy-paste an other plugin.pm and adapt some lines (package, arguments...).
  The plugin has ".pm" extension because it's a Perl module. So don't forget to add 1; at the end of the file.
 
-<div id='architecture_mode'/>
-
-### 4. Mode.pm file
-
-[Table of content (2)](#table_of_content_2)
+### Mode.pm file
 
 Mode.pm as plugin.pm has also :
 * license / copyright
@@ -400,12 +350,7 @@ A description of the mode and its arguments is needed to generate the documentat
 
 ```
 
-<div id='architecture_model_class'/>
-
-### 5. Model Classes Usage
-
-[Table of content (2)](#table_of_content_2)
-
+### Model Classes Usage
 
 **Introduction**
 
@@ -446,11 +391,7 @@ TODO
 
 
 
-<div id='commit'/>
-
-### 6. Commit and push
-
-[Table of content (2)](#table_of_content_2)
+### Commit and push
 
 Before committing a plugin, you need to create an **enhancement ticket** on the centreon-plugins forge : http://forge.centreon.com/projects/centreon-plugins
 
@@ -464,35 +405,16 @@ Once plugin and modes are developed, you can commit (commit messages in english)
 
 <div id='librairies'/>
 
-## III. List of shared libraries in centreon directory
+## List of shared libraries in centreon directory
 
 This chapter describes Centreon libraries which you can use in your development.
 
-<div id='table_of_content_3'/>
-
-*******
-Table of content (3)
- 1. [Output](#lib_output)
- 2. [Perfdata](#lib_perfdata)
- 3. [SNMP](#lib_snmp)
- 4. [Misc](#lib_misc)
- 5. [Statefile](#lib_statefile)
- 6. [HTTP](#lib_http)
- 7. [DBI](#lib_dbi)
-*******
-
-[Table of content (1)](#table_of_content_1)
-
-<div id='lib_output'/>
-
-### 1. Output
-
-[Table of content (3)](#table_of_content_3)
+### Output
 
 This library allows you to build output of your plugin.
 
 --------------
-#### 1.1 output_add
+#### output_add
 --------------
 
 **Description**
@@ -529,7 +451,7 @@ CRITICAL - There is a critical problem
 Port 1 is disconnected
 ```
 --------------
-#### 1.2 perfdata_add
+#### perfdata_add
 --------------
 
 **Description**
@@ -573,16 +495,12 @@ Output displays :
 OK - Memory is ok | 'memory_used'=30000000B;80000000;90000000;0;100000000
 ```
 
-<div id='lib_perfdata'/>
-
-### 2. Perfdata
-
-[Table of content (3)](#table_of_content_3)
+### Perfdata
 
 This library allows you to manage performance data.
 
 --------------
-#### 2.1 get_perfdata_for_output
+#### get_perfdata_for_output
 --------------
 
 **Description**
@@ -620,7 +538,7 @@ $self->{output}->perfdata_add(label    => 'memory_used',
 Dans cet Example, au lieu d'afficher les seuils Dégradé et Critique en 'pourcentage', la fonction calculera et affichera ceux-ci en 'bytes'.
 
 --------------
-#### 2.2 threshold_validate
+#### threshold_validate
 --------------
 
 **Description**
@@ -649,7 +567,7 @@ if (($self->{perfdata}->threshold_validate(label => 'warning', value => $self->{
 Les bon formats de seuils sont consultables ici : https://nagios-plugins.org/doc/guidelines.html#THRESHOLDFORMAT
 
 --------------
-#### 2.3 threshold_check
+#### threshold_check
 --------------
 
 **Description**
@@ -685,7 +603,7 @@ Output displays :
   WARNING - Used memory is 85% |
 ```
 --------------
-#### 2.4 change_bytes
+#### change_bytes
 --------------
 
 **Description**
@@ -716,11 +634,7 @@ Output displays :
   100 KB
 ```
 
-<div id='lib_snmp'/>
-
-### 3. SNMP
-
-[Table of content (3)](#table_of_content_3)
+### SNMP
 
 This library allows you to use SNMP protocol in your plugin.
 To use it, add the following line at the beginning of your **plugin.pm**:
@@ -730,7 +644,7 @@ To use it, add the following line at the beginning of your **plugin.pm**:
 use base qw(centreon::plugins::script_snmp);
 ```
 --------------
-#### 3.1 get_leef
+#### get_leef
 --------------
 
 **Description**
@@ -754,7 +668,7 @@ print $result->{$oid_hrSystemUptime}."\n";
 print $result->{$oid_sysUpTime}."\n";
 ```
 --------------
-#### 3.2 load
+#### load
 --------------
 
 **Description**
@@ -804,7 +718,7 @@ use Data::Dumper;
 print Dumper($result2);
 ```
 --------------
-#### 3.3 get_table
+#### get_table
 --------------
 
 **Description**
@@ -836,7 +750,7 @@ use Data::Dumper;
 print Dumper($results);
 ```
 --------------
-#### 3.4 get_multiple_table
+#### get_multiple_table
 --------------
 
 **Description**
@@ -870,7 +784,7 @@ use Data::Dumper;
 print Dumper($results);
 ```
 --------------
-#### 3.5 get_hostname
+#### get_hostname
 --------------
 
 **Description**
@@ -889,7 +803,7 @@ This is an example of how to get hostname parameter:
 my $hostname = $self->{snmp}->get_hostname();
 ```
 --------------
-#### 3.6 get_port
+#### get_port
 --------------
 
 **Description**
@@ -909,7 +823,7 @@ This is an example of how to get port parameter:
 my $port = $self->{snmp}->get_port();
 ```
 --------------
-#### 3.7 oid_lex_sort
+#### oid_lex_sort
 --------------
 
 **Description**
@@ -932,11 +846,7 @@ foreach my $oid ($self->{snmp}->oid_lex_sort(keys %{$self->{results}->{$my_oid}}
 }
 ```
 
-<div id='lib_misc'/>
-
-### 4. Misc
-
-[Table of content (3)](#table_of_content_3)
+### Misc
 
 This library provides a set of miscellaneous methods.
 To use it, you can directly use the path of the method:
@@ -945,7 +855,7 @@ To use it, you can directly use the path of the method:
 centreon::plugins::misc::<my_method>;
 ```
 --------------
-#### 4.1 trim
+#### trim
 --------------
 
 **Description**
@@ -975,7 +885,7 @@ Output displays :
 Hello world !
 ```
 --------------
-#### 4.2 change_seconds
+#### change_seconds
 --------------
 
 **Description**
@@ -1004,7 +914,7 @@ Output displays :
 Human readable time : 1h 2m 30s
 ```
 --------------
-#### 4.3 backtick
+#### backtick
 --------------
 
 **Description**
@@ -1037,7 +947,7 @@ print $stdout."\n";
 Output displays files in '/home' directory.
 
 --------------
-#### 4.4 execute
+#### execute
 --------------
 
 **Description**
@@ -1071,7 +981,7 @@ my $stdout = centreon::plugins::misc::execute(output => $self->{output},
 Output displays files in /home using ssh on a remote host.
 
 --------------
-#### 4.5 windows_execute
+#### windows_execute
 ---------------
 
 **Description**
@@ -1102,12 +1012,7 @@ my $stdout = centreon::plugins::misc::windows_execute(output => $self->{output},
 ```
 Output displays IP configuration on a Windows host.
 
-<div id='lib_statefile'/>
-
-### 5.Statefile
-
-[Table of content (3)](#table_of_content_3)
-
+### Statefile
 
 This library provides a set of methods to use a cache file.
 To use it, add the following line at the beginning of your **mode**:
@@ -1117,7 +1022,7 @@ use centreon::plugins::statefile;
 ```
 
 --------------
-#### 5.1 read
+#### read
 --------------
 
 **Description**
@@ -1149,7 +1054,7 @@ print Dumper($self->{statefile_value});
 Output displays cache file and its parameters.
 
 --------------
-#### 5.2 get
+#### get
 --------------
 
 **Description**
@@ -1179,7 +1084,7 @@ print $value."\n";
 Output displays value for 'property1' of the cache file.
 
 --------------
-#### 5.3 write
+#### write
 --------------
 
 **Description**
@@ -1209,11 +1114,7 @@ $self->{statefile_value}->write(data => $new_datas);
 ```
 Then, you can read the result in '/var/lib/centreon/centplugins/my_cache_file', timestamp is written in it.
 
-<div id='lib_http'/>
-
-### 6. HTTP
-
-[Table of content (3)](#table_of_content_3)
+### HTTP
 
 This library provides a set of methodss to use HTTP protocol.
 To use it, add the following line at the beginning of your **mode**:
@@ -1237,7 +1138,7 @@ proxyurl     | String | Proxy to use.
 url_path     | String | URL to connect (start to '/').
 
 --------------
-#### 6.1 connect
+#### connect
 --------------
 
 **Description**
@@ -1267,11 +1168,7 @@ print $webcontent;
 ```
 Output displays content of the webpage '\http://google.com/'.
 
-<div id='lib_dbi'/>
-
-### 7. DBI
-
-[Table of content (3)](#table_of_content_3)
+### DBI
 
 This library allows you to connect to databases.
 To use it, add the following line at the beginning of your **plugin.pm**:
@@ -1281,7 +1178,7 @@ use base qw(centreon::plugins::script_sql);
 ```
 
 --------------
-#### 7.1 connect
+#### connect
 --------------
 
 **Description**
@@ -1320,7 +1217,7 @@ my ($exit, $msg_error) = $self->{sql}->connect(dontquit => 1);
 Then, you are connected to the MySQL database.
 
 --------------
-#### 7.2 query
+#### query
 --------------
 
 **Description**
@@ -1347,7 +1244,7 @@ print 'Value : '.$value."\n";
 Output displays count of MySQL slow queries.
 
 --------------
-#### 7.3 fetchrow_array
+#### fetchrow_array
 --------------
 
 **Description**
@@ -1371,7 +1268,7 @@ print 'Uptime : '.$result."\n";
 Output displays MySQL uptime.
 
 --------------
-#### 7.4 fetchall_arrayref
+#### fetchall_arrayref
 --------------
 
 **Description**
@@ -1406,7 +1303,7 @@ print $physical_reads."\n";
 Output displays physical reads on Oracle database.
 
 --------------
-#### 7.5 fetchrow_hashref
+#### fetchrow_hashref
 --------------
 
 **Description**
@@ -1432,24 +1329,7 @@ while ((my $row = $self->{sql}->fetchrow_hashref())) {
 ```
 Output displays Postgres databases.
 
-<div id='tutoriel'/>
-
-## IV. Tutorial : How to create a plugin - Using API
-
-[Table of content (1)](#table_of_content_1)
-
-<div id='table_of_content_4'/>
-
-*******
-Table of contents (4)
- 1. [Set up your environment](#set_up_tuto)
- 2. [Input](#input_tuto)
- 3. [Understand the data](#understand_data_tuto)
- 4. [Create directories for a new plugin](#make_dir_tuto)
- 5. [Create the plugin.pm file](#create_plugin_tuto)
- 6. [Create the appmetrics.pm file](#create_mode_tuto)
- 7. [Convert in custom mode](#custom_mode_tuto)
-*******
+## Tutorial : How to create a plugin - Using API
 
 All files showed in this tutorial can be found on the centreon-plugins GitHub in the 
 [tutorial](https://github.com/centreon/centreon-plugins/tree/develop/src/contrib/tutorial) **contrib** section.
@@ -1458,11 +1338,7 @@ All files showed in this tutorial can be found on the centreon-plugins GitHub in
 >
 > `cp -R src/contrib/tutorial/apps/* src/apps/`
 
-<div id='set_up_tuto'/>
-
-### 1.Set up your environment
-
-[Table of content (4)](#table_of_content_4)
+### Set up your environment
 
 To use the centreon-plugins framework, you'll need the following: 
 
@@ -1509,11 +1385,7 @@ dnf install 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Enc
     'perl-KeePass-Reader' 'perl(Storable)' 'perl(POSIX)' 'perl(Encode)'
 ```
 
-<div id='input_tuto'/>
-
-### 2.Input
-
-[Table of content (4)](#table_of_content_4)
+### Input
 
 **Context: simple JSON health API**
 
@@ -1556,11 +1428,7 @@ It returns the following output:
 }
 ```
 
-<div id='understand_data_tuto'/>
-
-### 3.Understand the data
-
-[Table of content (4)](#table_of_content_4)
+### Understand the data
 
 Understanding the data is very important as it will drive the way you will design
 the **mode** internals. This is the **first thing to do**, no matter what protocol you
@@ -1581,11 +1449,7 @@ In our example, the most common things are present. We can summarize it like tha
 
 Understanding this will be important to code it correctly.
 
-<div id='make_dir_tuto'/>
-
-### 4.Create directories for a new plugin
-
-[Table of content (4)](#table_of_content_4)
+### Create directories for a new plugin
 
 Create directories and files required for your **plugin** and **modes**. 
 
@@ -1600,11 +1464,7 @@ touch src/apps/myawesomeapp/api/plugin.pm
 touch src/apps/myawesomeapp/api/mode/appsmetrics.pm
 ```
 
-<div id='create_plugin_tuto'/>
-
-### 5.Create the plugin.pm file
-
-[Table of content (4)](#table_of_content_4)
+### Create the plugin.pm file
 
 The `plugin.pm` is the first thing to create, it contains:
 
@@ -1688,12 +1548,7 @@ Modes Available:
    app-metrics
 ```
 
-
-<div id='create_mode_tuto'/>
-
-### 6.Create the appmetrics.pm file
-
-[Table of content (4)](#table_of_content_4)
+### Create the appmetrics.pm file
 
 The `appmetrics.pm` file will contain your code, in other words, all the instructions to:
 
@@ -2368,11 +2223,7 @@ Mode:
             Warning and critical threshold for errors
 ```
 
-<div id='custom_mode_tuto'/>
-
-### 7.Convert in custom mode
-
-[Table of content (4)](#table_of_content_4)
+### Convert in custom mode
 
 Custom mode is a well established type of plugin. Then it can be usefull to understand the way to build and use it.
 Custom is a mode thinking for when you may have different way to collect plugin input. More broadly, build plugins using custom mode afford flexibility if later you have to add a new way to give input in a plugin. This is the main reason why most of latest plugins are in custom mode baseline.
@@ -2390,7 +2241,7 @@ First we need to create the custom file : api.pm
 mkdir -p src/apps/myawesomeapp/api/custom/
 touch src/apps/myawesomeapp/api/custom/api.pm
 ```
-#### 7.2 Change in pulgin.pm
+#### Change in pulgin.pm
 
 First we need to change plugins script libraririe :
 ```perl
@@ -2412,7 +2263,7 @@ sub new {
     return $self;
 }
 ```
-#### 7.3 Change in mode.pm
+#### Change in mode.pm
 
 Custom mode allows to change the way to obtain input, thus all that concern input and the way to process it is push to the custom file. The mode file will contain all needed functions for processing input to give the output needed.
 
@@ -2472,7 +2323,7 @@ sub manage_selection {
 }
 ```
 
-#### 7.4 New file : api.pm
+#### New file : api.pm
 
 As explained in the previous section, the custom file will contain all needed functions about input and the way to process it.
 
@@ -2557,8 +2408,6 @@ sub set_defaults {}
 ```
 ##### check_options
 
-
-
 ```perl
 sub check_options {
     my ($self, %options) = @_;
@@ -2631,11 +2480,7 @@ sub request_api {
 }
 ```
 
-<div id='tutoriel_2'/>
-
-## V. Tutorial : How to create a plugin - Using SNMP
-
-[Table of content (1)](#table_of_content_1)
+## Tutorial : How to create a plugin - Using SNMP
 
 **Description**
 
@@ -2643,7 +2488,7 @@ This example explains how to check a single SNMP value on a PfSense firewall (me
 We use cache file because it's a SNMP counter. So we need to get the value between 2 checks.
 We get the value and compare it to warning and critical thresholds.
 
-### 1. Plugin file
+### Plugin file
 
 First, create the plugin directory and the plugin file:
 
@@ -2726,7 +2571,7 @@ Add a description to the plugin:
 ```
 > **TIP** : This description is printed with '--help' option.
 
-### 2.Mode file
+### Mode file
 
 Then, create the mode directory and the mode file:
 
@@ -2925,7 +2770,7 @@ Add a description of the mode options:
   =cut
 ```
 
-### 3.Command line
+### Command line
 
 This is an example of command line:
 
@@ -2938,15 +2783,11 @@ Output may display:
   OK: Dropped packets due to memory limitations : 0.00 /s | dropped_packets_Per_Sec=0.00;0;;1;2
 ```
 
-<div id='example'/>
-
-## VI. Other examples 
-
-[Table of content (1)](#table_of_content_1)
+## Other examples 
 
 ---
 
-### 1. Example 1
+### Example 1
 
 We want to develop the following SNMP plugin:
 
@@ -3048,7 +2889,7 @@ As you can see, we create two arrays of hash tables in **set_counters** method. 
       * *label_extra_instance*: if we set the value to 1, perhaps we'll have a suffix concat with *label*.
       * *instance_use*: which value from *keys_values* to be used. To be used if *label_extra_instance* is 1.
 
-### 2. Example 2
+### Example 2
 
 We want to add the current number of sessions by virtual servers.
 
@@ -3159,7 +3000,7 @@ If we have at least 2 virtual servers:
   Virtual server 'foo2' current sessions : 13, current ssl sessions : 80
 ```
 
-### 3. Example 3
+### Example 3
 
 The model can also be used to check strings (not only counters). So we want to check the status of a virtualserver.
 
@@ -3255,17 +3096,13 @@ The following example show 4 new attributes:
 * *closure_custom_perfdata*: should be used to manage yourself the perfdata.
 * *closure_custom_threshold_check*: should be used to manage yourself the threshold check.
 
-<div id='code-style-guidelines'/>
-
-## VII. Code Style Guidelines
-
-[Table of content (1)](#table_of_content_1)
+## Code Style Guidelines
 
 **Introduction**
 
 Perl code from Pull-request must conform to the following style guidelines. If you find any code which doesn't conform, please fix it.
 
-### 1. Indentation
+### Indentation
 
 Space should be used to indent all code blocks. Tabs should never be used to indent code blocks. Mixing tabs and spaces results in misaligned code blocks for other developers who prefer different indentation settings.
 Please use 4 for indentation space width.
@@ -3281,7 +3118,7 @@ Please use 4 for indentation space width.
     }
 ```
 
-### 2. Comments
+### Comments
 
 There should always be at least 1 space between the # character and the beginning of the comment.  This makes it a little easier to read multi-line comments:
 
@@ -3290,7 +3127,7 @@ There should always be at least 1 space between the # character and the beginnin
     #Wrong comment
 ```
 
-### 3. Subroutine & Variable Names
+### Subroutine & Variable Names
 
 Whenever possible, use underscore to seperator words and don't use uppercase characters:
 
@@ -3304,7 +3141,7 @@ Keys of hash table should be used alphanumeric and underscore characters only (a
     $dogs->{meapolitan_mastiff} = 10;
 ```
 
-### 4. Curly Brackets, Parenthesis
+### Curly Brackets, Parenthesis
 
 There should be a space between every control/loop keyword and the opening parenthesis:
 
@@ -3317,7 +3154,7 @@ There should be a space between every control/loop keyword and the opening paren
     }
 ```
 
-###  5. If/Else Statements
+###  If/Else Statements
 
 'else', 'elsif' should be on the same line after the previous closing curly brace:
 
@@ -3334,33 +3171,15 @@ You can use single line if conditional:
     next if ($i == 1);
 ```
 
-<div id='guidelines'/>
-
-## VIII. Pluggins guidelines
-
-[Table of content (1)](#table_of_content_1)
-
-<div id='table_of_content_5'/>
-
-*******
-Table of contents (5)
- 1. [Outputs](#outputs)
- 2. [Options](#options)
- 3. [Discovery](#discovery)
- 4. [Performances](#performances)
- 5. [Security](#security)
- 6. [Help and documentation](#help_doc)
-*******
+## Pluggins guidelines
 
 A large part of these guidelines come from the [Monitoring Plugins project](https://www.monitoring-plugins.org/doc/guidelines.html). Indeed, some of these are outdated, not relevant anymore or related to a language you don’t use. We will focus on those that we consider as the most important, but this is still a great piece of content you should read.
 
 <div id='outputs'/>
 
-### 1. Outputs
+### Outputs
 
-[Table of content (5)](#table_of_content_5)
-
-#### 1.1 Formatting
+#### Formatting
 
 The output of a monitoring probe must always be:
 
@@ -3377,7 +3196,7 @@ Let’s identify and name its three main parts:
 * Performance data and Metrics: everything after the pipe (`|`)
 * Extended output: Everything after the first carriage return (`\n`), splitting each detail line is the best practice.
 
-#### 1.2 Short output
+#### Short output
 
 This part is the one users will more likely see in their monitoring tool or obtain as part of a push/alert message. The information should be straightforward and help identify what is going on quickly.
 
@@ -3470,7 +3289,7 @@ A **cloud metric**
 
 `%` is the legacy metric’s unit
 
-#### 1.4 Extended output
+#### Extended output
 
 The extended output's primary purpose is to display each bit of collected information separately on a single line. It will only print if the user adds a `--verbose` flag to its command.
 
@@ -3513,11 +3332,8 @@ Checking sensors
   sensor 'GigabitEthernet1/1/1 Transmit Power Sensor' status is 'ok' [instance: 1118] [value: -4.5 dBm]
   sensor 'GigabitEthernet1/1/1 Receive Power Sensor' status is 'ok' [instance: 1119] [value: -1.2 dBm]
 ```
-<div id='options'/>
 
-### 2. Options
-
-[Table of content (5)](#table_of_content_5)
+### Options
 
 Option management is a central piece of a successful plugin. You should:
 
@@ -3526,11 +3342,7 @@ Option management is a central piece of a successful plugin. You should:
 * Always **check** for values supplied by the user and print a **clear message** when they do not fit with plugin requirements
 * Set default option value when relevant
 
-<div id='discovery'/>
-
-###  3. Discovery
-
-[Table of content (5)](#table_of_content_5)
+###  Discovery
 
 This section describes how you should format your data to comply with the requirements of Centreon Discovery UI modules.
 
@@ -3541,7 +3353,7 @@ In a nutshell:
 
 There's no choice here; you should stick with the guidelines described hereafter if you want your code to be fully compliant with our modules.
 
-#### 3.1 Hosts
+#### Hosts
 
 The discovery plugin can be a specific script or a particular execution mode enabled with an option. In centreon-plugins, we do it through dedicated `discovery*.pm` modes.
 
@@ -3639,7 +3451,7 @@ Using these structures is convenient when you need to group object properties be
 On the users' side, it allows using these values to filter in or out some of the results or make a better choice 
 about the host template for a given discovered host.
 
-#### 3.2 Services
+#### Services
 
 Service discovery relies on XML to return information that will be parsed and used by the UI module to 
 create new services efficiently.
@@ -3686,11 +3498,7 @@ Executing exactly the same command, substituting `--disco-format` with `--disco-
 The result contains one line per interface and each line contains each set of properties as a `key="value"` pair. Note that even if
 no data is obtained for a given key, it still has to be displayed (e.g `total=""`).
 
-<div id='performances'/>
-
-### 4. Performances
-
-[Table of content (5)](#table_of_content_5)
+### Performances
 
 A monitoring plugin has to do one thing and do it right - it's important to code your plugin with the idea to make
 it as efficient as possible. Keep in mind that your Plugin might run every minute, against a large
@@ -3699,12 +3507,12 @@ number of devices, so a minor optimization can result in important benefits at s
 Also think about the 'thing' you're monitoring, it's important to always try to reduce the overhead of a check
 from the monitored object point of view.
 
-#### 4.1 Execution time
+#### Execution time
 
 The most basic way to bench a plugin performance is its execution time. Use the
 `time` command utility to run your check and measure over several runs how it behaves.
 
-#### 4.2 Cache
+#### Cache
 
 In some cases, it can be interesting to cache some information.
 
@@ -3715,30 +3523,26 @@ authentication endpoint when it's absolutely necessary.
 More generally, when an identifier, name or anything that would never change across different executions requires a
 request against the third-party system, cache it to optimize single-check processing time.
 
-#### 4.3 Algorithm
+#### Algorithm
 
 Optimizing the number of requests against a third-party system can also lie in the check algorithm. Prefer scraping
 the maximum of data in one check and then filter the results programmatically instead of issuing multiple very specific
 requests that would result in longer execution time and greater load on the target system.
 
-#### 4.3 Timeout
+#### Timeout
 
 A Plugin must always include a timeout to avoid never ending checks that might overload your monitoring
 system when something is broken and that, for any reason, the plugin cannot obtain the information.
 
-<div id='security'/>
+### Security
 
-### 5. Security
-
-[Table of content (5)](#table_of_content_5)
-
-#### 5.1 System commands
+#### System commands
 
 If the plugin requires to execute a command at the operating system level, and users can modify the command name or
 its parameters, make sure that nobody can leverage your plugin's capabilities to break the underlying
 system or access sensitive information.
 
-#### 5.2 Dependencies
+#### Dependencies
 
 There is no need to re-invent the wheel: standard centreon-plugins dependencies provide you with the most common
 external libraries that might be required to write a new plugin.
@@ -3746,15 +3550,9 @@ external libraries that might be required to write a new plugin.
 Don't overuse large libraries that might end being unsupported or where some governance modification might lead to
 security problems.
 
-<div id='help_doc'/>
-
-### 6. Help and documentation
-
-[Table of content (5)](#table_of_content_5)
+### Help and documentation
 
 For each plugin, the minimum documentation is the help, you have to explain to users what the plugin
 is doing and how they can use the built-in options to achieve their own alerting scenario.
 
 You can look at how we handle help at mode level with the centreon-plugins framework [here](develop-with-centreon-plugins.md).
-
-[Table of content (1)](#table_of_content_1)
