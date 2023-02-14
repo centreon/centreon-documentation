@@ -971,7 +971,7 @@ Tout d'abord, vérifiez les contraintes :
 pcs constraint
 ```
 
-La commande doit retourner un résultat similaire à ceci:
+La commande doit retourner un résultat similaire à ceci :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
