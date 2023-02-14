@@ -965,7 +965,7 @@ log: 'Error: connecting slave', last-rc-change='Tue Nov  8 17:27:21 2022', queue
 Si vous voulez passer au nœud primaire, vous devez effectuer un basculement.
 Donc, **avant de faire cela, vous devez vérifier le statut du cluster et de la réplication de la base de données**.
 
-Tout d'abord, vérifiez les contraintes
+Tout d'abord, vérifiez les contraintes :
 
 ```shell
 pcs constraint
