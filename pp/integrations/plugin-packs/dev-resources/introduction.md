@@ -12,7 +12,7 @@ of it.
 
 The recommended path is the following:
 
-- [Plugins global structure](../dev-resources/centreon-plugins-structure) - Introduction and overall description of plugins layout and structure.
+- [Plugins global structure](../dev-resources/centreon-plugins-structure.md) - Introduction and overall description of plugins layout and structure.
 - [Plugins guidelines](../dev-resources/plugins-guidelines.md) - Understand the major
 concepts and features you need to know before developing any plugins.
 - [Plugins quickstart guide](../dev-resources/develop-with-centreon-plugins.md) - Get the
