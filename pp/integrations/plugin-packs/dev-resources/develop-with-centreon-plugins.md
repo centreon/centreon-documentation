@@ -3,6 +3,9 @@ id: develop-with-centreon-plugins
 title: Develop with centreon-plugins
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Tutorial : How to create a plugin - Using API
 
 All files showed in this tutorial can be found on the centreon-plugins GitHub in the 
