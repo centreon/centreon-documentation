@@ -1007,7 +1007,7 @@ then check the database replication
 ```
 
 At this time, the cluster is in degraded mode with two slave nodes.
-In this particular case, it return the following information because of ms_mysql resource is stopped on @CENTRAL_MASTER_NAME@:
+In this particular case, it returns the following information because the ms_mysql resource is stopped on @CENTRAL_MASTER_NAME@:
 
 ```text
 Connection SLAVE Status '@CENTRAL_MASTER_NAME@' [KO]
