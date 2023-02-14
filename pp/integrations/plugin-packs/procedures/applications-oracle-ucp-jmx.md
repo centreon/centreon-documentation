@@ -44,7 +44,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ## Prerequisites
 
-Please install jolokia agent on your JVM [Jolokia download page](https://jolokia.org/download.html). Ask to your admin to deploy it and give you the URL.
+Please install the Jolokia agent on your JVM: [Jolokia download page](https://jolokia.org/download.html). Ask to your admin to deploy it and give you the URL.
 
 ## Setup
 
