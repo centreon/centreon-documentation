@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon **Oracle UCP JMX** apporte un modèle d'hôte :
+Le Pack Centreon **Oracle UCP JMX** apporte un modèle d'hôte pour la supervision d'**Oracle Universal Connection Pool** :
 
 * App-Oracle-Ucp-JMX-custom
 
