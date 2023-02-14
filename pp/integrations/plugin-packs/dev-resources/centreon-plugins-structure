@@ -3,6 +3,9 @@ id: centreon-plugins-structure
 title: Centreon-plugins structure
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Plugins / Connectors documentation
 
 *******
