@@ -1074,7 +1074,7 @@ Faites un "cleanup" pour effacer les erreurs et redémarrez la ressource ms_mysq
 pcs resource cleanup
 ```
 
-La situation est stabilisée, vous pouvez effectuer un failover en déplaçant la ressource Centreon.
+La situation est stabilisée, vous pouvez effectuer un failover en déplaçant la ressource **centreon**.
 
 ```shell
 pcs resource move centreon
