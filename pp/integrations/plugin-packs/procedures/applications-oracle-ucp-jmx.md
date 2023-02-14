@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack **Oracle UCP JMX** brings a host template:
+The Centreon Pack **Oracle UCP JMX** brings a host template to monitor **Oracle Universal Connection Pool**:
 
 * App-Oracle-Ucp-JMX-custom
 
