@@ -6,10 +6,6 @@ title: Centreon-plugins structure
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Plugins / Connectors documentation
-
-*******
-
 ## Plugins introduction
 
 Centreon plugins are a free and open source way to monitor systems. The project can be used with Centreon and all monitoring softwares compatible with Nagios plugins.
