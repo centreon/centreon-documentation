@@ -1006,7 +1006,7 @@ Maintenant, vérifiez le statut de réplication via la commande suivante :
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-En ce moment, le cluster est en mode dégradé avec deux nœuds esclaves.
+À ce moment, le cluster est en mode dégradé avec deux nœuds esclaves.
 Dans ce cas particulier, il retourne les informations suivantes car la ressource ms_mysql est arrêtée sur @CENTRAL_MASTER_NAME@:
 
 ```text
