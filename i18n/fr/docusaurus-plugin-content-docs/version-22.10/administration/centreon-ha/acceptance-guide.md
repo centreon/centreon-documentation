@@ -488,7 +488,7 @@ iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP
 iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 ```
 
-L'exécution de la commande `pcs status` sur le second noeud indique que les ressources sont arrêtées et que le noeud primaire est `offline`:
+L'exécution de la commande `pcs status` sur le second nœud indique que les ressources sont arrêtées et que le nœud primaire est `offline`:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
