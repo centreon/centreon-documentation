@@ -1000,7 +1000,7 @@ Ticket Constraints:
 </TabItem>
 </Tabs>
 
-Maintenant, vérifier le statut de réplication via la commande suivante:
+Maintenant, vérifiez le statut de réplication via la commande suivante :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
