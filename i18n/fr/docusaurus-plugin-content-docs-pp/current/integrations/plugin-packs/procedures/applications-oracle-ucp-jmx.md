@@ -45,7 +45,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 ## Prérequis
 
 Veuillez installer l'agent Jolokia sur votre JVM : [Jolokia download page](https://jolokia.org/download.html).
-Demander à votre administrateur de le déployer et de vous fournir l'URL.
+Demandez à votre administrateur de le déployer et de vous fournir l'URL.
 
 ## Installation
 
