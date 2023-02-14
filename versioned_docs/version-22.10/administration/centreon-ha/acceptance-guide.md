@@ -472,7 +472,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
+> If the synchronization is `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
 
 ## Simulate the loss of the secondary node
 
