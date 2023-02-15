@@ -51,6 +51,8 @@ Two simple rules apply on this kind of view:
 
 ## Load disabled resources (or not)
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 You can decide whether to load disabled resources into Centreon Map
 desktop client. If you do (which is the default configuration), all
 disabled resources will appear in the resource list. You will also be
@@ -248,6 +250,8 @@ If you need more tiles, you can upgrade your account
 ([pricing](https://www.mapbox.com/pricing/)).
 
 **Configuration on the Centreon MAP server**
+
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
 Insert the token in the file `/etc/centreon-studio/studio-config.properties`:
 

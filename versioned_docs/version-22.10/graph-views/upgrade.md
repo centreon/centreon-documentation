@@ -181,6 +181,8 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
 
 ## Step 5: MariaDB database
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 1. Stop the **centreon-map** service:
     ```shell
     systemctl stop centreon-map
