@@ -175,8 +175,8 @@ vgdisplay vg_data | grep -i free*
 
 #### Couche Interlogiciel et logiciel
 
-- OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
-- SGBD : MariaDB 10.5
+- OS : voir la compatibilité [ici](../installation/prerequisites.md#système-dexploitation)
+- SGBD : voir la compatibilité [ici](../installation/prerequisites.md#sgbd)
 - Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
 - SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
@@ -232,6 +232,18 @@ yum install centreon-bi-server
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
+Installez **gpg**:
+
+```shell
+apt install gpg
+```
+
+Importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
 
 Ajoutez le dépôt externe suivant (pour Java 8):
 
@@ -388,6 +400,12 @@ processus d'installation :
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
 Activer les dépôts codeready-builder :
 
 ```shell
@@ -411,6 +429,12 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
 Activer les dépôts codeready-builder :
 
 ```shell
@@ -433,6 +457,12 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Alma 8" label="Alma 8">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Activer les dépôts powertools :
 
@@ -471,18 +501,18 @@ add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 apt update
 ```
 
-Puis lancer l'installation :
-
-```shell
-apt update
-apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
 Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Puis lancer l'installation :
+
+```shell
+apt update
+apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>
@@ -526,10 +556,16 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 </Tabs>
 
-Activer le service cbis :
+Activez le service **cbis** :
 
 ```shell
 systemctl enable cbis
+```
+
+Démarrez et activez **gorgoned**:
+
+```shell
+systemctl start gorgoned & systemctl enable gorgoned
 ```
 
 ### Configurer le serveur de reporting
