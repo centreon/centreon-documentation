@@ -8,6 +8,31 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Février
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Oracle UCP JMX**](../procedures/applications-oracle-ucp-jmx.md) - applications-oracle-ucp-jmx - initial release - Status:stable - centreon-pack-applications-oracle-ucp-jmx-23.02.0-1
+- [**WD NAS SNMP**](../procedures/hardware-storage-wd-nas-snmp.md) - hardware-storage-wd-nas-snmp - initial release - Status:stable - centreon-pack-hardware-storage-wd-nas-snmp-23.02.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - network-switchs-alcatel-omniswitch-snmp - add interfaces service - Status:stable - centreon-pack-network-switchs-alcatel-omniswitch-snmp-23.02.0-1
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - cloud::azure::database::sqldatabase - add EXTRAOPTIONS on health template - Status:stable - centreon-pack-cloud-azure-database-sqldatabase-23.02.1-1
+- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - storage::dell::powerstore::restapi - add service memory - Status:stable - centreon-pack-hardware-storage-dell-powerstore-restapi-23.02.0-1
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - cloud-kubernetes-api - add --namespace option - Status:stable - centreon-pack-cloud-kubernetes-api-23.02.2-1
+- [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - hardware-pdu-raritan-snmp - add external-sensors mode - Status:stable - centreon-pack-hardware-pdu-raritan-snmp-23.02.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Jenkins API**](../procedures/applications-jenkins.md) - applications-jenkins - changed service name and options - Status:stable - centreon-pack-applications-jenkins-23.02.0-1
+
+</TabItem>
+</Tabs>
+
 ### Janvier
 
 <Tabs groupId="sync">
