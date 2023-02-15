@@ -5,6 +5,8 @@ title: Sécurisez votre plateforme MAP
 
 Ce chapitre décrit les procédures avancées permettant de sécuriser votre plateforme MAP Centreon.
 
+> Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
+
 ## Configurer HTTPS/TLS sur le serveur MAP
 
 ### Configurer HTTPS/TLS avec une clé reconnue
