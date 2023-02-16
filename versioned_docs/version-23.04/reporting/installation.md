@@ -71,8 +71,6 @@ reporting server for performance & isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](../installation/prerequisites.md#software).
-
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
 considerations.
@@ -81,14 +79,14 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 23.04
+- Centreon Web 22.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
-
+  
 #### Users and groups
 
 | User                 | Group                      |
@@ -99,14 +97,14 @@ considerations.
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-- Centreon Web 23.04
+- Centreon Web 22.10
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
-
+  
 #### Users and groups
 
 | User                 | Group                        |
@@ -117,7 +115,7 @@ considerations.
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-- Centreon Web 23.04
+- Centreon Web 22.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
 
   (same as the one returned by the `timedatectl status` command).
@@ -125,14 +123,14 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
-  
+
 #### Users and groups
 
 | User                 | Group                      |
 |----------------------|----------------------------|
 | centreonBI (new)     | apache,centreon,centreonBI |
 | apache (existing)    | centreonBI                 |
-
+  
 </TabItem>
 </Tabs>
 
@@ -213,8 +211,7 @@ Description of users, umask and user directory:
 
 The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-1. Install the Centreon MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/s/repositories).
 
 2. Then run the following command:
 
@@ -235,6 +232,18 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install **gpg**:
+
+```shell
+apt install gpg
+```
+
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
 Add the following external repository (for Java 8):
 
 ```shell
@@ -252,7 +261,7 @@ apt update && apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
-### Enable extension
+### Enable the extension
 
 The menu **Administration > Extension > Manager** allows you to install the different extensions detected by Centreon. Click on the **Centreon MBI** tile to install it.
 
@@ -319,8 +328,8 @@ file of the slave server or mariadb.cnf on Debian 11.
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 
-Then, create the views manually on the slave server by running the following command
-command line:
+Then, create the views manually on the slave server by running the following
+command:
 
 ```bash
 mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
@@ -386,15 +395,20 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
-1. To start installing the reporting server, install the MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/s/repositories).
 
-2. Then perform the following procedure:
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-Enable codeready-builder repositories:
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Enable the **codeready-builder** repository:
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
@@ -416,6 +430,12 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Enable codeready-builder repositories:
 
@@ -439,6 +459,12 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Alma 8" label="Alma 8">
+
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Enable powertools repositories:
 
@@ -493,6 +519,31 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+#### Java version requirement
+  
+> Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+- If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+Now you can install the repository:
+
+```shell
+yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+```
+
+Install MBI:
+
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
@@ -507,10 +558,16 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 </Tabs>
 
-Enable the cbis service:
+Enable the **cbis** service:
 
 ```shell
 systemctl enable cbis
+```
+
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned & systemctl enable gorgoned
 ```
 
 ### Configure the reporting server

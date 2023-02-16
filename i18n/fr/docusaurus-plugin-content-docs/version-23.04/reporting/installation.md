@@ -73,8 +73,6 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
-
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -87,13 +85,11 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
   - wait_timeout
   - interactive_timeout
   
-#### Utilisateurs et groupes
-
 | Utilisateur          | Groupe                     |
 |----------------------|----------------------------|
 | centreonBI (nouveau) | apache,centreon,centreonBI |
 | apache (existant)    | centreonBI                 |
-
+  
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -105,7 +101,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
-
+  
 #### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                       |
@@ -132,8 +128,10 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 |----------------------|----------------------------|
 | centreonBI (nouveau) | apache,centreon,centreonBI |
 | apache (existant)    | centreonBI                 |
+
 </TabItem>
 </Tabs>
+
 
 #### Description des utilisateurs, umask et répertoire personnel
 
@@ -175,8 +173,8 @@ vgdisplay vg_data | grep -i free*
 
 #### Couche Interlogiciel et logiciel
 
-- OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
-- SGBD : MariaDB 10.5
+- OS : voir la compatibilité [ici](../installation/prerequisites.md#système-dexploitation)
+- SGBD : voir la compatibilité [ici](../installation/prerequisites.md#sgbd)
 - Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
 - SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
@@ -212,8 +210,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le
-[portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/s/repositories).
 
 2. Puis lancez la commande suivante :
 
@@ -233,6 +230,18 @@ yum install centreon-bi-server
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
+Installez **gpg**:
+
+```shell
+apt install gpg
+```
+
+Importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
 
 Ajoutez le dépôt externe suivant (pour Java 8):
 
@@ -380,17 +389,20 @@ processus d'installation :
 - Accès (utilisateur/mot de passe) à la base de données de reporting
 - Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
 
-Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
-
 #### Procédure
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le
-[portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
-2. Puis suivez la procédure :
+2. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Activer les dépôts codeready-builder :
 
@@ -415,6 +427,12 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
 Activer les dépôts codeready-builder :
 
 ```shell
@@ -437,6 +455,12 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Alma 8" label="Alma 8">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
 
 Activer les dépôts powertools :
 
@@ -492,6 +516,30 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+#### Prérequis de la version Java
+
+> Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+- Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+
+  ```shell
+  java -version
+  ```
+
+- Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+- Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+Vous pouvez maintenant procéder à l'installation :
+
+```shell
+yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+```
+
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
@@ -506,10 +554,16 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 </Tabs>
 
-Activer le service cbis :
+Activez le service **cbis** :
 
 ```shell
 systemctl enable cbis
+```
+
+Démarrez et activez **gorgoned**:
+
+```shell
+systemctl start gorgoned & systemctl enable gorgoned
 ```
 
 ### Configurer le serveur de reporting
