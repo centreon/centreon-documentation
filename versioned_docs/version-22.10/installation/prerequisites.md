@@ -5,7 +5,7 @@ title: Prerequisites
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic gives you broad guidelines to determine the size of your platform. For more complex cases, here is a [workbook](../assets/files/Centreon_platform_sizing.xlsx) to calculate the size of your platform (number of servers, disk space, etc).
+This topic gives you broad guidelines to determine the size of your platform.
 
 ## Architecture
 
@@ -27,35 +27,38 @@ The following data is meant for:
 
 * An average of 10 services per host.
 * Data is collected every 5 minutes.
-* The retention period is 6 months.
-* Each service has 2 metrics.
+* The retention period is 12 months.
+* Each service has 8 metrics.
 
-You need to adapt the following figures to your actual values.
+You need to adapt the following figures to your actual values. Bear in mind that you may need to adjust the size of your platform as you add more hosts over time.
 
 <Tabs groupId="sync">
-<TabItem value="<200 hosts" label="<200 hosts">
+<TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 Standalone central server:
 
-* 4 CPU
+* 4 vCPU
 * RAM: 4 GB
 
 This is how your central server should be partitioned:
 
-| File system                | Description | Size                                                     |
-|----------------------------|-------------|----------------------------------------------------------|
-| swap                       | swap | 1 to 1.5 total size of RAM space                                |
-| /                          | system root            | at least 20 GB                                |
-| /var/log                   | contains all log files | at least 10 GB                                |
-| /var/lib/centreon-broker   | contains retention files | at least 5 GB                               |
-| /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| /var/lib/centreon          | contains mostly RRD files | 2 GB       |
-| /var/lib/mysql (only if the DBMS is on the central server)          | database | 5 GB        |
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon          | contains mostly RRD files | 34 GB |
+| vg_data | /var/lib/centreon-broker   | contains broker retention files | at least 5 GB                               |
+| vg_data | /var/lib/centreon-engine | contains engine retention files | 5 GB |
+| vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 106 GB        |
+| vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
+| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
 
 > Your system must use LVM to manage the file system.
 
 </TabItem>
-<TabItem value="200 to 2000 hosts" label="200 to 2000 hosts">
+<TabItem value="Up to 1000 hosts" label="Up to 1000 hosts">
 
 Distributed architecture:
 
@@ -64,74 +67,23 @@ Distributed architecture:
 
 ### Central server
 
-* 4 CPU
-* RAM: 4 GB
-
-This is how your central server should be partitioned:
-
-| File system                | Description | Size                                                     |
-|----------------------------|-------------|----------------------------------------------------------|
-| swap                       | swap | 1 to 1.5 total size of RAM space                                |
-| /                          | system root            | at least 20 GB                                |
-| /var/log                   | contains all log files | at least 10 GB                                |
-| /var/lib/centreon-broker   | contains retention files | at least 5 GB                               |
-| /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| /var/lib/centreon          | contains mostly RRD files | 2 to 5 GB       |
-| /var/lib/mysql (only if the DBMS is on the central server)          | database | 5 to 10 GB        |
-
-> Your system must use LVM to manage the file system.
-
-> At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
-> if you wish to use **snapshot LVM** as a backup method.
-
-### Pollers
-
-To handle up to 7000 services with checks every 5 minutes:
-
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 4 vCPU    |
-  | RAM                         | 4 GB      |
-
-This is how the pollers sould be partitioned:
-
-| File system                | Description | Size                                                     |
-|----------------------------|-------------|----------------------------------------------------------|
-| swap                       | swap | 1 to 1.5 total size of RAM space                                |
-| /                          | system root            | at least 20 GB                                |
-| /var/log                   | contains all log files | at least 10 GB                                |
-| /var/lib/centreon-broker   | contains retention files | at least 5 GB                               |
-
-> Your system must use LVM to manage the file system.
-
-> The number of
-> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
-> binary calls, you should add more vCPU.
-
-</TabItem>
-<TabItem value="2000 to 10000 hosts" label="2000 to 10000 hosts">
-
-Distributed architecture:
-
-* 1 central server
-* 1 poller for every 500 hosts
-
-### Central server
-
-* 8 CPU
+* 4 vCPU
 * RAM: 8 GB
 
 This is how your central server should be partitioned:
 
-| File system                | Description | Size                                                     |
-|----------------------------|-------------|----------------------------------------------------------|
-| swap                       | swap | 1 to 1.5 total size of RAM space                                |
-| /                          | system root            | at least 20 GB                                |
-| /var/log                   | contains all log files | at least 10 GB                                |
-| /var/lib/centreon-broker   | contains retention files | at least 5 GB                               |
-| /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| /var/lib/centreon          | contains mostly RRD files | 54 to 270 GB       |
-| /var/lib/mysql (only if the DBMS is on the central server)          | database | 186 to 930 GB        |
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon          | contains mostly RRD files | 68 GB |
+| vg_data | /var/lib/centreon-broker   | contains retention files | at least 10 GB                               |
+| vg_data | /var/lib/centreon-engine | | 5 GB |
+| vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 213 GB        |
+| vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
+| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
 
 > Your system must use LVM to manage the file system.
 
@@ -147,14 +99,15 @@ To handle up to 7000 services with checks every 5 minutes:
   | CPU  (logical core at 3Ghz) | 4 vCPU    |
   | RAM                         | 4 GB      |
 
-This is how the pollers sould be partitioned:
+This is how the pollers should be partitioned:
 
-| File system                | Description | Size                                                     |
-|----------------------------|-------------|----------------------------------------------------------|
-| swap                       | swap | 1 to 1.5 total size of RAM space                                |
-| /                          | system root            | at least 20 GB                                |
-| /var/log                   | contains all log files | at least 10 GB                                |
-| /var/lib/centreon-broker   | contains retention files | at least 5 GB                               |
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon-engine   |  | at least 5 GB                               |
 
 > Your system must use LVM to manage the file system.
 
@@ -163,9 +116,217 @@ This is how the pollers sould be partitioned:
 > binary calls, you should add more vCPU.
 
 </TabItem>
-<TabItem value=">10000 hosts" label=">10000 hosts">
+<TabItem value="Up to 2500 hosts" label="Up to 2500 hosts">
+
+Distributed architecture:
+
+* 1 central server
+* 1 poller for every 500 hosts
+
+### Central server
+
+* 4 vCPU
+* RAM: 8 GB
+
+This is how your central server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon          | contains mostly RRD files | 169 GB |
+| vg_data | /var/lib/centreon-broker   | contains retention files | at least 25 GB                               |
+| vg_data | /var/lib/centreon-engine | | 5 GB |
+| vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 538 GB        |
+| vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
+| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+
+> Your system must use LVM to manage the file system.
+
+> At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
+> if you wish to use **snapshot LVM** as a backup method.
+
+### Pollers
+
+To handle up to 7000 services with checks every 5 minutes:
+
+  | Element                     | Value     |
+  | ----------------------------| --------- |
+  | CPU  (logical core at 3Ghz) | 4 vCPU    |
+  | RAM                         | 4 GB      |
+
+This is how the pollers should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon-engine   |  | at least 5 GB                               |
+
+> Your system must use LVM to manage the file system.
+
+> The number of
+> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> binary calls, you should add more vCPU.
+
+</TabItem>
+<TabItem value="Up to 5000 hosts" label="Up to 5000 hosts">
+
+Distributed architecture:
+
+* 1 central server without a database
+* 1 database server
+* 1 poller for every 500 hosts
+
+### Central server
+
+* 4 vCPU
+* RAM: 8 GB
+
+This is how your central server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon          | contains mostly RRD files | 339 GB |
+| vg_data | /var/lib/centreon-broker   | contains retention files | at least 50 GB                               |
+| vg_data | /var/lib/centreon-engine | | 5 GB |
+
+### Database server
+
+* 4 vCPU
+* RAM: 8 GB
+
+This is how the database server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/mysql             | database | 1094 GB        |
+| vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
+| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+
+> Your system must use LVM to manage the file system.
+
+> At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
+> if you wish to use **snapshot LVM** as a backup method.
+
+### Pollers
+
+To handle up to 7000 services with checks every 5 minutes:
+
+  | Element                     | Value     |
+  | ----------------------------| --------- |
+  | CPU  (logical core at 3Ghz) | 4 vCPU    |
+  | RAM                         | 4 GB      |
+
+This is how the pollers should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon-engine   |  | at least 5 GB                               |
+
+> Your system must use LVM to manage the file system.
+
+> The number of
+> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> binary calls, you should add more vCPU.
+
+</TabItem>
+<TabItem value="Up to 10000 hosts" label="Up to 10000 hosts">
+
+Distributed architecture:
+
+* 1 central server without a database
+* 1 database server
+* 1 poller for every 500 hosts
+
+### Central server
+
+* 8 vCPU
+* RAM: 8 GB
+
+This is how your central server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon          | contains mostly RRD files | 677 GB |
+| vg_data | /var/lib/centreon-broker   | contains retention files | at least 50 GB                               |
+| vg_data | /var/lib/centreon-engine | | 5 GB |
+
+### Database server
+
+* 8 vCPU
+* RAM: 8 GB
+
+This is how the database server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+| - |----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+| vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/mysql             | database | 2257 GB        |
+| vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
+| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+
+> Your system must use LVM to manage the file system.
+
+> At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
+> if you wish to use **snapshot LVM** as a backup method.
+
+### Pollers
+
+To handle up to 7000 services with checks every 5 minutes:
+
+  | Element                     | Value     |
+  | ----------------------------| --------- |
+  | CPU  (logical core at 3Ghz) | 4 vCPU    |
+  | RAM                         | 4 GB      |
+
+This is how the pollers should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | at least 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | at least 10 GB                                |
+| vg_data | /var/lib/centreon-engine   |  | at least 5 GB                               |
+
+> Your system must use LVM to manage the file system.
+
+> The number of
+> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> binary calls, you should add more vCPU.
+
+</TabItem>
+<TabItem value="Over 10000 hosts" label="Over 10000 hosts">
 
 For very large amounts of data, contact your sales representative.
 
 </TabItem>
 </Tabs>
+
+## Network flows
+
+If you have firewalls or security equipments in place, check the [table of network flows](./technical.md#tables-of-network-flows).
