@@ -15,12 +15,12 @@ Le Pack Centreon **Raritan PDU** apporte un modèle d'hôte :
 
 Il apporte les modèles de service suivants :
 
-| Alias            | Modèle de service                    | Description                      | Défaut |
-|:-----------------|:-------------------------------------|:---------------------------------|:-------|
-| External-Sensors | HW-Pdu-Raritan-External-Sensors-SNMP | Contrôle les sondes externes     | X      |
-| Inlet-Sensors    | HW-Pdu-Raritan-InletSensors-SNMP     | ContrÃ                           | X      |
-| Ocprt-Sensors    | HW-Pdu-Raritan-Ocprt-Sensors-SNMP    | Contrôle les sondes OCPRT du PDU | X      |
-| Outlet-Sensors   | HW-Pdu-Raritan-OutletSensors-SNMP    | Contrôle les sorties PDU         | X      |
+| Alias            | Modèle de service                    | Description                    | Défaut |
+|:-----------------|:-------------------------------------|:-------------------------------|:-------|
+| External-Sensors | HW-Pdu-Raritan-External-Sensors-SNMP | Contrôle les sondes externes   | X      |
+| Inlet-Sensors    | HW-Pdu-Raritan-InletSensors-SNMP     | Contrôle les sondes en entrées | X      |
+| Ocprt-Sensors    | HW-Pdu-Raritan-Ocprt-Sensors-SNMP    | Contrôle les sondes OCPRT      | X      |
+| Outlet-Sensors   | HW-Pdu-Raritan-OutletSensors-SNMP    | Contrôle les sorties           | X      |
 
 ### Métriques & statuts collectés
 
