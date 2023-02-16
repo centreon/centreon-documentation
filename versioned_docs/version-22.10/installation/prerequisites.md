@@ -53,7 +53,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | contains engine retention files | 5 GB |
 | vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 106 GB        |
 | vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+| vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
 
@@ -83,7 +83,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 213 GB        |
 | vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+| vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
 
@@ -141,7 +141,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 538 GB        |
 | vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+| vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
 
@@ -214,7 +214,7 @@ This is how the database server should be partitioned:
 | vg_root | /var/log                   | contains all log files | at least 10 GB                                |
 | vg_data | /var/lib/mysql             | database | 1094 GB        |
 | vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+| vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
 
@@ -287,7 +287,7 @@ This is how the database server should be partitioned:
 | vg_root | /var/log                   | contains all log files | at least 10 GB                                |
 | vg_data | /var/lib/mysql             | database | 2257 GB        |
 | vg_data | /var/cache/centreon/backup | backup directory | at least 10 GB (export the backups and delete the exported data daily) |
-| vg_data |  | FREE SPACE for the BBD group volume | 5 GB |
+| vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
 

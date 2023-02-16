@@ -53,7 +53,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | au moins 5 Go                           |
 | vg_data | /var/lib/mysql (seulement si le SGBD est situé sur le serveur central)          | base de données | 106 Go        |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | au moins 10 Go (penser à exporter les sauvegardes de manière régulière puis supprimer les données exportées) |
-| vg_data || Espace libre pour le groupe de volumes BBD | 5 Go |
+| vg_data || Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
@@ -83,7 +83,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | au moins 5 Go                           |
 | vg_data | /var/lib/mysql (seulement si le SGBD est situé sur le serveur central)          | base de données | 213 Go        |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | au moins 10 Go (penser à exporter les sauvegardes de manière régulière puis supprimer les données exportées) |
-| vg_data | | Espace libre pour le groupe de volumes BBD | 5 Go |
+| vg_data | | Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
@@ -136,7 +136,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | au moins 5 Go                           |
 | vg_data | /var/lib/mysql (seulement si le SGBD est situé sur le serveur central)          | base de données | 538 Go        |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | au moins 10 Go (penser à exporter les sauvegardes de manière régulière puis supprimer les données exportées) |
-| vg_data | | Espace libre pour le groupe de volumes BBD | 5 Go |
+| vg_data | | Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
@@ -204,7 +204,7 @@ Votre serveur doit être partitionné de la manière suivante :
 | vg_root | /var/log                   | contient tous les fichiers de log | au moins 10 Go                              |
 | vg_data | /var/lib/mysql             | base de données | 1094 Go        |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | au moins 10 Go (penser à exporter les sauvegardes de manière régulière puis supprimer les données exportées) |
-| vg_data | | Espace libre pour le groupe de volumes BBD | 5 Go |
+| vg_data | | Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
@@ -274,7 +274,7 @@ Votre serveur doit être partitionné de la manière suivante :
 | vg_root | /var/log                   | contient tous les fichiers de log | au moins 10 Go                              |
 | vg_data | /var/lib/mysql             | base de données | 2257 Go        |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | au moins 10 Go (penser à exporter les sauvegardes de manière régulière puis supprimer les données exportées) |
-| vg_data | | Espace libre pour le groupe de volumes BBD | 5 Go |
+| vg_data | | Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
