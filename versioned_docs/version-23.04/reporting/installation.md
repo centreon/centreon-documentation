@@ -79,7 +79,7 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 22.10
+- Centreon Web 23.04
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
