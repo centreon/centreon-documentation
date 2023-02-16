@@ -115,7 +115,7 @@ considerations.
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-- Centreon Web 22.10
+- Centreon Web 23.04
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
 
   (same as the one returned by the `timedatectl status` command).
