@@ -51,6 +51,8 @@ Two simple rules apply on this kind of view:
 
 ## Load disabled resources (or not)
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 You can decide whether to load disabled resources into Centreon Map
 desktop client. If you do (which is the default configuration), all
 disabled resources will appear in the resource list. You will also be
@@ -219,6 +221,8 @@ Most of the time, the data layer configuration will consist in:
 ![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
 ## Create and link a Mapbox account
+
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
 If you want to be able to have a geographic background on standard views
 and/or use it as a tile service provider in GeoView, you need to have a

@@ -27,6 +27,8 @@ Be sure to read the release notes for an explanation of features, fixes
 A or B that changes) you need to contact our Support service to retrieve
 the new repository**.
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 ### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
