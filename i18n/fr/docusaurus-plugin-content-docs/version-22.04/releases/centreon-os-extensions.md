@@ -34,7 +34,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Provider] Fixed default iTop url
+- [Provider] Fixed default iTop url.
 
 ### 22.04.0
 
