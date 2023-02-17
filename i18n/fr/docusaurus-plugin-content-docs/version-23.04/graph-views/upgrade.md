@@ -102,6 +102,8 @@ Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et l
 
 ## Étape 4 : Base de données MariaDB
 
+> Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
+
 1. Arrêtez le service **centreon-map** :
 
     ```shell

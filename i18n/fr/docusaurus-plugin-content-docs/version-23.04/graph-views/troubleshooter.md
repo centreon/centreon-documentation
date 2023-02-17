@@ -162,6 +162,8 @@ Les images de Centreon web devraient alors apparaître sur votre client lourd da
 
 Si vous ne voyez toujours pas la liste des images, vérifiez votre fichier de configuration Centreon MAP.
 
+> Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
+
 Connectez-vous par SSH à votre serveur Centreon MAP. Ouvrez le fichier **studio-config.properties** :
 
 ```shell
