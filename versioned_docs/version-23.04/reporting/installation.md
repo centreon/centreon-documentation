@@ -128,7 +128,6 @@ considerations.
 |----------------------|----------------------------|
 | centreonBI (new)     | apache,centreon,centreonBI |
 | apache (existing)    | centreonBI                 |
-  
 </TabItem>
 </Tabs>
 
