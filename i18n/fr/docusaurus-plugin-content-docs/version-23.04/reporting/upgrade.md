@@ -147,7 +147,7 @@ apt update && apt upgrade centreon-bi\*
 4. Démarrez et activez **gorgoned**:
 
    ```shell
-   systemctl start gorgoned & systemctl enable gorgoned
+   systemctl start gorgoned && systemctl enable gorgoned
    ```
 
 ## Étape 4 : mise à jour de MariaDB
