@@ -37,6 +37,8 @@ Release date: `soon`
 - [ResourceStatus]Acknowledgement not visible in Resource status and Details after disacknowledge/ or service/host come back to OK/UP status
 - [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions
+- [Authentication] Added LDAP connection timeout to avoid infinite connection
+- [UX] Fixed visual incoherences in some menus
 
 #### Security
 

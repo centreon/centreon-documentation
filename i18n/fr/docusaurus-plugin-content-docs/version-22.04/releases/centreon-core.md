@@ -22,7 +22,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive
+- [UI]Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive
 - [Install] Removed app_key filed from configuration database
 - [Install] Added missing gettext dependency for Debian
 - [CLAPI] Removed mandatory password for LDAP users creation
@@ -36,6 +36,8 @@ Release date: `soon`
 - [ResourceStatus]Acknowledgement not visible in Resource status and Details after disacknowledge/ or service/host come back to OK/UP status
 - [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions
+- [Authentication] Added LDAP connection timeout to avoid infinite connection
+- [UX] Fixed visual incoherences in some menus
 
 #### Security
 
