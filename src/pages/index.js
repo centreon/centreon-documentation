@@ -32,24 +32,19 @@ const cards = [
       {
         label: "Getting started",
         href: "docs/getting-started/welcome"
-      },
-      {
+      },{
         label: "Installation",
         href: "docs/installation/introduction"
-      },
-      {
+      },{
         label: "Setting up the monitoring",
         href: "pp/integrations/plugin-packs/getting-started/introduction"
-      },
-      {
+      },{
         label: "BAM",
         href: "#"
-      },
-      {
+      },{
         label: "MAP",
         href: "#"
-      },
-      {
+      },{
         label: "MBI",
         href: "#"
       },
@@ -61,16 +56,13 @@ const cards = [
       {
         label: "Getting started",
         href: "docs/getting-started/welcome"
-      },
-      {
+      },{
         label: "Installing a poller",
         href: "#"
-      },
-      {
+      },{
         label: "BAM",
         href: "#"
-      },
-      {
+      },{
         label: "MAP",
         href: "#"
       },
