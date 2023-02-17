@@ -22,7 +22,7 @@ Four main steps are required to install Centreon MBI:
 
 ### A dedicated reporting server
 
-The architecture and these requirements apply to :
+The architecture and these requirements apply to:
 
 - test
 - pre-production
@@ -71,6 +71,8 @@ reporting server for performance & isolation reasons.
 
 #### Software requirements
 
+See the [software requirements](../installation/prerequisites.md#software).
+
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
 considerations.
@@ -86,6 +88,7 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+
 #### Users and groups
 
 | User                 | Group                      |
@@ -103,6 +106,7 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+
 #### Users and groups
 
 | User                 | Group                        |
@@ -128,6 +132,7 @@ considerations.
 |----------------------|----------------------------|
 | centreonBI (new)     | apache,centreon,centreonBI |
 | apache (existing)    | centreonBI                 |
+
 </TabItem>
 </Tabs>
 
@@ -208,7 +213,7 @@ Description of users, umask and user directory:
 
 The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/s/repositories).
+1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Then run the following command:
 
@@ -392,7 +397,7 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
-1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Then run the following command:
 
@@ -500,17 +505,17 @@ add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 apt update
 ```
 
-Then launch the installation:
-
-```shell
-apt update
-apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
 In the case of an installation based on a blank distribution, install the GPG key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Then launch the installation:
+
+```shell
+apt update
+apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>

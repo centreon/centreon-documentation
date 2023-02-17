@@ -73,6 +73,8 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -210,7 +212,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/s/repositories).
+1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante :
 
@@ -391,7 +393,7 @@ processus d'installation :
 
 #### Procédure
 
-1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante:
 
@@ -499,18 +501,18 @@ add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 apt update
 ```
 
-Puis lancer l'installation :
-
-```shell
-apt update
-apt install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
 Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Puis lancer l'installation :
+
+```shell
+apt update
+apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>
