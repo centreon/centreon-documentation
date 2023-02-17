@@ -147,7 +147,7 @@ apt update && apt upgrade centreon-bi\*
 4. Start and enable **gorgoned**:
 
    ```shell
-   systemctl start gorgoned & systemctl enable gorgoned
+   systemctl start gorgoned && systemctl enable gorgoned
    ```
 
 ## Step 4: Upgrade the MariaDB database
