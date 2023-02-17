@@ -41,6 +41,7 @@ html:root {
   --ifm-font-family-base: 'Red Hat Display', serif;
   --ifm-font-family-heading: 'Esphimere', serif;
   --ifm-heading-font-family: var(--ifm-font-family-heading);
+  --ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgba(0,0,0,1)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
   --ifm-menu-link-padding-vertical: 0.5rem;
   --ifm-navbar-padding-vertical: 26px;
   --ifm-menu-color-background-hover: transparent;
@@ -63,7 +64,6 @@ html[data-theme='dark']:root {
   --ifm-background-color: #00003D;
   --ifm-background-surface-color: #00003D;
   --docusaurus-collapse-button-bg: #2213E2;
-  --ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgba(0,0,0,1)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
   --ifm-color-content: #ffffff;
   --ifm-toc-border-color: #ffffff;
   --ifm-font-color-base: #ffffff;
