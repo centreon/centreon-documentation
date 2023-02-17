@@ -29,6 +29,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Open Tickets
 
+### 22.04.1
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Provider] Fixed default iTop url
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
