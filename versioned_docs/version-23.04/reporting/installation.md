@@ -79,7 +79,7 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 22.10
+- Centreon Web 23.04
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -97,7 +97,7 @@ considerations.
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-- Centreon Web 22.10
+- Centreon Web 23.04
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
@@ -115,7 +115,7 @@ considerations.
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-- Centreon Web 22.10
+- Centreon Web 23.04
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
 
   (same as the one returned by the `timedatectl status` command).
@@ -532,6 +532,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
 - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+
   ```shell
   sudo update-alternatives --config java
   ```
@@ -539,7 +540,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 Now you can install the repository:
 
 ```shell
-yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 Install MBI:
