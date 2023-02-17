@@ -83,6 +83,16 @@ html[data-theme='dark'] .searchForm_input img {
   height: 22px;
 }
 
+.searchForm .button.buttonBig {
+  display: none;
+}
+
+@media(min-width:576px) {
+  .searchForm .button.buttonBig {
+    display: flex;
+  }
+}
+
 .headingContainer {
   background-color: var(--ifm-background-color);
   padding-top: 76px;
@@ -97,8 +107,13 @@ html[data-theme='dark'] .searchForm_input img {
 
 .headingCards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+@media(min-width:768px) {
+  .headingCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .headingCard {
@@ -169,7 +184,15 @@ html[data-theme='dark'] .headingCardBody ul li a img {
   display: flex;
   align-items: center;
   padding: 20px 0;
-  gap: 42px;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media(min-width:991px) {
+  .bannerWrapper {
+    gap:42px;
+    justify-content:initial;
+  }
 }
 .bannerVersion {
   display:inline-block;
@@ -184,5 +207,11 @@ html[data-theme='dark'] .headingCardBody ul li a img {
   font-size: 25px;
   margin-bottom: 0;
   font-family: var(--ifm-font-family-heading);
-  flex-grow: 1;
+  text-align: center;
+}
+@media(min-width:991px) {
+  .bannerWrapper p {
+    flex-grow: 1;
+    text-align: left;
+  }
 }
