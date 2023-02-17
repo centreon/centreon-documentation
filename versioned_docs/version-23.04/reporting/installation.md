@@ -86,7 +86,6 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
-  
 #### Users and groups
 
 | User                 | Group                      |
