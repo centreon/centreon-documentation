@@ -26,17 +26,16 @@ Release date: `soon`
 - [Install] Removed app_key filed from configuration database
 - [Install] Added missing gettext dependency for Debian
 - [CLAPI] Removed mandatory password for LDAP users creation
--	Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template
+-	[Configuration] Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template
 - [Install] Fixed SQL request with MySQL 8
 -	[Core] Fixed SQL queries when databases names contain dash
 -	[Provider] Fixed a fatal PHP error on iTop rule form when group is not an array
 - [Configuration] Fixed error in installation when chrony package already installed
 - [Core] Removed deprecated DBMS option in default configuration provided by Centreon
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured
-- Acknowledgement not visible in Resource status and Details after disacknowledge/ or service/host come back to OK/UP status
-- Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+- [ResourceStatus]Acknowledgement not visible in Resource status and Details after disacknowledge/ or service/host come back to OK/UP status
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions
-
 
 #### Security
 
@@ -44,7 +43,6 @@ Release date: `soon`
 - [Security] Fixed SQLi and XXS on legacy service details page
 -	Fix XSS vulnerability reflected in service-monitoring widget
 - [Core] Fixed vulnerabilities in common functions
-
 
 ### 22.04.10
 
@@ -90,7 +88,7 @@ Release date: `January 16, 2023`
 - [ResourceStatus] Fixed the display of commands in the service details panel
 - Fixed an issue preventing a user to edit a recurrent downtime if the linked host group is disabled
 - [Monitoring] Removed obsolete code to export graphs in CSV
-- [Resources Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
+- [ResourcesStatus] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
 - Fixed an issue with "view contact notifications" window
 - [Administration] Fixed access to provider configuration endpoint using ACL
 - [API] Fixed API access when user doesn't have access to UI
@@ -113,7 +111,7 @@ Release date: `January 16, 2023`
 - [Core] Fixed vulnerabilities in pathway.php
 - [Core] Fixed vulnerabilities in color_picker_mb.php
 - [Core] Fixed vulnerabilities in rename.php
-- [Configuration] Fixed vulnerabilities in services listing	
+- [Configuration] Fixed vulnerabilities in services listing
 - [Configuration] Fixed vulnerabilities in host form
 
 ### 22.04.7
