@@ -23,7 +23,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive
+- [UI]Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive
 - [Install] Removed app_key filed from configuration database
 - [Install] Added missing gettext dependency for Debian
 - [CLAPI] Removed mandatory password for LDAP users creation
