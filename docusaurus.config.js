@@ -16,7 +16,7 @@ const config = {
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
   trailingSlash: true,
-  
+
   noIndex: false,
 
   i18n: {
@@ -90,7 +90,7 @@ const config = {
       defer: false,
     },
   ],
-  
+
   themes: [],
 
   plugins: [
@@ -178,7 +178,8 @@ const config = {
         title: '',
         logo: {
           alt: 'Logo Centreon Docs',
-          src: 'img/logo-centreon.png',
+          src: 'img/logoCentreonDark.png',
+          srcDark: 'img/logoCentreon.png',
           href: '/',
         },
         items: [
@@ -222,59 +223,37 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        // style: 'dark',
         links: [
           {
-            title: 'Documentation',
-            items: [
-              {
-                label: 'Getting Started',
-                to: '/docs/getting-started/welcome',
-              },
-              {
-                label: 'API References',
-                to: '/docs/api/introduction',
-              },
-              {
-                label: 'Releases',
-                to: '/docs/releases/introduction',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
             items: [
               {
                 label: 'Corporate Website',
                 href: 'https://www.centreon.com/en/',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'Blog',
                 href: 'https://www.centreon.com/en/blog/',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'Download',
                 href: 'https://download.centreon.com/',
               },
             ],
           },
-          {
-            title: 'Follow us',
-            items: [
-              {
-                label: 'Github',
-                href: 'https://github.com/centreon/centreon',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/Centreon',
-              },
-            ],
-          },
         ],
         logo: {
           alt: 'Centreon Open Source Logo',
-          src: 'img/logo-centreon.png',
+          src: 'img/LogoCentreonDark.png',
+          srcDark: 'img/logoCentreon.png',
         },
         copyright: `Copyright © 2005 - 2023 Centreon`,
       },

@@ -46,6 +46,7 @@ html:root {
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
   --ifm-navbar-height: 96px;
+  --ifm-footer-link-color: #00003D;
 }
 
 html[data-theme='dark']:root {
@@ -65,11 +66,35 @@ html[data-theme='dark']:root {
   --ifm-font-color-base: #ffffff;
   --prism-background-color: transparent;
   --ifm-menu-color: #fff;
+  --ifm-footer-link-color: #fff;
 }
 
 /* FOOTER */
-.footer--dark {
+.footer {
+  --ifm-footer-background-color: #fff;
+}
+html[data-theme='dark'] .footer {
   --ifm-footer-background-color: #00003D;
+}
+.footer > .container.container-fluid {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+.footer .footer__links {
+  flex-grow: 1;
+  max-width: 650px;
+}
+.footer .footer__links .footer__col {
+  text-align: center;
+}
+.footer .footer__links .footer__link-item {
+  font-family: var(--ifm-font-family-heading);
+  font-weight: 700;
+  font-size: 16px;
+}
+.footer .footer__links .footer__link-item svg {
+  display: none;
 }
 
 /* TOP MENU */
@@ -133,4 +158,3 @@ html[data-theme='dark'] .theme-code-block {
 .theme-doc-markdown.markdown a:hover {
   text-decoration: none;
 }
-
