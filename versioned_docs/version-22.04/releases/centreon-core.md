@@ -23,29 +23,29 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [UI]Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive
-- [Install] Removed app_key filed from configuration database
-- [Install] Added missing gettext dependency for Debian
-- [CLAPI] Removed mandatory password for LDAP users creation
--	[Configuration] Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template
-- [Install] Fixed SQL request with MySQL 8
--	[Core] Fixed SQL queries when databases names contain dash
--	[Provider] Fixed a fatal PHP error on iTop rule form when group is not an array
-- [Configuration] Fixed error in installation when chrony package already installed
-- [Core] Removed deprecated DBMS option in default configuration provided by Centreon
-- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured
-- [ResourceStatus]Acknowledgement not visible in Resource status and Details after disacknowledge/ or service/host come back to OK/UP status
-- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
-- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions
-- [Authentication] Added LDAP connection timeout to avoid infinite connection
-- [UX] Fixed visual incoherences in some menus
+- [UI]Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [Install] Removed app_key filed from configuration database.
+- [Install] Added missing gettext dependency for Debian.
+- [CLAPI] Removed mandatory password for LDAP users creation.
+-	[Configuration] Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Install] Fixed SQL request with MySQL 8.
+-	[Core] Fixed SQL queries when databases names contain dash.
+-	[Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
+- [Configuration] Fixed error in installation when chrony package already installed.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [ResourceStatus]Acknowledgement not visible in Resource status and Details after disacknowledge/ or service/host come back to OK/UP status.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated  pages.
+- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Added LDAP connection timeout to avoid infinite connection.
+- [UX] Fixed visual incoherences in some menus.
 
 #### Security
 
-- [Core] Fixed vulnerabilities in centreonAPI.class.php
-- [Security] Fixed SQLi and XXS on legacy service details page
--	Fix XSS vulnerability reflected in service-monitoring widget
-- [Core] Fixed vulnerabilities in common functions
+- [Core] Fixed vulnerabilities in centreonAPI.class.php.
+- [Security] Fixed SQLi and XXS on legacy service details page.
+-	Fix XSS vulnerability reflected in service-monitoring widget.
+- [Core] Fixed vulnerabilities in common functions.
 
 ### 22.04.10
 
