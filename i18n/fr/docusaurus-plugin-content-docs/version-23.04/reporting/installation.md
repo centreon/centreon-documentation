@@ -89,7 +89,7 @@ performances & d'isolation.
 |----------------------|----------------------------|
 | centreonBI (nouveau) | apache,centreon,centreonBI |
 | apache (existant)    | centreonBI                 |
-  
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -101,7 +101,7 @@ performances & d'isolation.
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
-  
+
 #### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                       |
