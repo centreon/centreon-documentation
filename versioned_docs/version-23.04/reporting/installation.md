@@ -565,7 +565,7 @@ systemctl enable cbis
 Start and enable **gorgoned**:
 
 ```shell
-systemctl start gorgoned & systemctl enable gorgoned
+systemctl start gorgoned && systemctl enable gorgoned
 ```
 
 ### Configure the reporting server
