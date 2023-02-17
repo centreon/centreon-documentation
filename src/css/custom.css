@@ -47,6 +47,9 @@ html:root {
   --ifm-menu-color-background-active: transparent;
   --ifm-navbar-height: 96px;
   --ifm-footer-link-color: #00003D;
+  --ifm-menu-color: #00003D;
+  --ifm-toc-link-color: #00003D;
+  --ifm-navbar-shadow: none;
 }
 
 html[data-theme='dark']:root {
@@ -67,6 +70,8 @@ html[data-theme='dark']:root {
   --prism-background-color: transparent;
   --ifm-menu-color: #fff;
   --ifm-footer-link-color: #fff;
+  --ifm-menu-color: #fff;
+  --ifm-toc-link-color: #fff;
 }
 
 /* FOOTER */
@@ -131,6 +136,9 @@ aside.theme-doc-sidebar-container button.button svg g {
   padding-top: 0;
   padding-bottom: 0;
   font-size: 14px;
+}
+.table-of-contents__link {
+  font-weight: 500;
 }
 
 /* CODE BLOCK */
