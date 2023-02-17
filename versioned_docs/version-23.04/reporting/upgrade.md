@@ -33,9 +33,7 @@ On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated re
 
 When you upgrade from a previous major version to 23.04.x, you first need to update the repository on your Central & Reporting servers.
 
-You will find the new "Business" repository on the "Depots" tab in your Centreon Support account on https://support.centreon.com :
-
-![image](../assets/reporting/support_repos.png)
+You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ## Step 2: Upgrade the extension interface
 
