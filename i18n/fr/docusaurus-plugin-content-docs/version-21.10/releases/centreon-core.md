@@ -415,6 +415,7 @@ Release date: `February 17, 2023`
 ##### Bug fixes
 
 - Fixed an issue where the Boolean Rules KPI's impact displayed the wrong percentage rate
+
 ### 21.10.4
 
 Release date: `January 17, 2023`
