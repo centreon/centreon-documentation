@@ -36,7 +36,7 @@ html:root {
   --ifm-color-primary-lighter: #3a2ced;
   --ifm-color-primary-lightest: #5a4ef0;
   --docusaurus-collapse-button-bg: #2213E2;
-  --ifm-toc-border-color: #07003F;
+  --ifm-toc-border-color: #00003D;
   --ifm-font-color-base: #00003D;
   --ifm-font-family-base: 'Red Hat Display', serif;
   --ifm-font-family-heading: 'Esphimere', serif;
@@ -51,6 +51,8 @@ html:root {
   --ifm-menu-color: #00003D;
   --ifm-toc-link-color: #00003D;
   --ifm-navbar-shadow: none;
+  --ifm-background-color-invert: #00003D;
+  --ifm-background-color: #fff;
 }
 
 html[data-theme='dark']:root {
@@ -62,6 +64,7 @@ html[data-theme='dark']:root {
   --ifm-color-primary-lighter: #58ddbc;
   --ifm-color-primary-lightest: #7ae4c9;
   --ifm-background-color: #00003D;
+  --ifm-background-color-invert: #fff;
   --ifm-background-surface-color: #00003D;
   --docusaurus-collapse-button-bg: #2213E2;
   --ifm-color-content: #ffffff;

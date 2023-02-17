@@ -25,6 +25,59 @@ const links = {
     'https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/',
 };
 
+const cards = [
+  {
+    title: "Centreon OnPrem",
+    links: [
+      {
+        label: "Getting started",
+        href: "#"
+      },
+      {
+        label: "Installation",
+        href: "#"
+      },
+      {
+        label: "Setting up the monitoring",
+        href: "#"
+      },
+      {
+        label: "BAM",
+        href: "#"
+      },
+      {
+        label: "MAP",
+        href: "#"
+      },
+      {
+        label: "MBI",
+        href: "#"
+      },
+    ]
+  },
+  {
+    title: "Centreon Cloud",
+    links: [
+      {
+        label: "Getting started",
+        href: "#"
+      },
+      {
+        label: "Installing a poller",
+        href: "#"
+      },
+      {
+        label: "BAM",
+        href: "#"
+      },
+      {
+        label: "MAP",
+        href: "#"
+      },
+    ]
+  }
+]
+
 const stringsAndParagraphs = {
   excellenceBlock: {
     title: `Welcome to Centreon documentation!`,
@@ -65,11 +118,12 @@ const Button = (props) => {
   return (
     <div>
       <a
-        className={clsx(styles.button, styles.buttonLink)}
+        className={clsx(styles.button)}
         href={props.href}
         target={props.target}
       >
         {props.label}
+        <img src="/img/homepage/Arrow.svg"/>
       </a>
     </div>
   );
@@ -285,6 +339,72 @@ function HeartOpenSourceBlock() {
   );
 }
 
+function SearchForm() {
+  function handleClick(e) {
+    e.preventDefault()
+    document.querySelector('.DocSearch').click()
+  }
+  return (
+    <form className={clsx(styles.searchForm)} onClick={handleClick}>
+      <div className={clsx(styles.searchForm_input)}>
+        <img src="/img/homepage/Search.svg"/>
+        <input type="search" placeholder="Search documentation" ></input>
+      </div>
+      <button className={clsx(styles.button, styles.buttonBig)}>
+        Search
+        <img src="/img/homepage/Arrow.svg"/>
+      </button>
+    </form>
+  )
+}
+
+function HeadingCard(props) {
+  console.log(props)
+  return(
+    <div className={clsx(styles.headingCard)}>
+      <div className={clsx(styles.headingCardHeader)}>
+        {props.card.title}
+      </div>
+      <div className={clsx(styles.headingCardBody)}>
+        <ul>
+          {props.card.links.map((link,index)=>{
+            return(
+              <li>
+                <a href={link.href}>
+                  <span>{link.label}</span>
+                  <img src="/img/homepage/ExternalLink.svg"/>
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+function HeadingCards(props){
+  return(
+    <div className={clsx(styles.headingCards)}>
+      {props.cards.map((card,index)=>{
+        return( <HeadingCard card={card}/> )
+      })}
+    </div>
+  )
+}
+
+function HeadingBlock() {
+  return (
+    <div className={clsx(styles.headingContainer)}>
+      <div className={clsx(styles.mainContainer)}>
+        <h1>Welcome to Centreon documentation!</h1>
+        <SearchForm/>
+        <HeadingCards cards={cards}/>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -293,13 +413,14 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <main>
-        <ExcellenceBlock />
+        {/* <ExcellenceBlock /> */}
+        <HeadingBlock />
         <SummitBlock />
-        <PrerequisiteBlock />
-        <InstallationBlock />
-        <MonitoringBlock />
-        <CommunityBlock />
-        <HeartOpenSourceBlock />
+        {/* <PrerequisiteBlock /> */}
+        {/* <InstallationBlock /> */}
+        {/* <MonitoringBlock /> */}
+        {/* <CommunityBlock /> */}
+        {/* <HeartOpenSourceBlock /> */}
       </main>
     </Layout>
   );

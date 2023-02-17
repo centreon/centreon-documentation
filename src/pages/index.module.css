@@ -18,21 +18,15 @@
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /**
 * Custom by Shonan
 */
 
-.mainContainer {
+/* .mainContainer {
   flex: 1 1 0%;
   max-width: 100%;
   padding: 60px 0;
-}
+} */
 
 .containerBlock {
   font-family: inherit;
@@ -109,26 +103,32 @@
 }
 
 .button {
-  border: 1px solid #23303a;
-  padding: 10px;
+  background-color: #2213e2;
+  color: #fff;
+  border-radius: 9999px;
+  padding: 11px 23px;
+  font-weight: 500;
+  font-family: var(--ifm-font-family-heading);
   text-decoration: none !important;
-  text-transform: uppercase;
+  display: inline-block;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  appearance: none;
+  border: none;
 }
 
-.buttonLink {
-  background-color: rgb(0, 114, 206);
-  width: 170px;
-  color: rgba(255, 255, 255, 1);
-  border-radius: 5px;
-  height: 40px;
-  margin-top: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 14px;
+.button:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.9;
 }
-.buttonLink:hover {
-  color: rgba(255, 255, 255, 1);
+
+.button.button_dark {
+  background-color: #00003D;
 }
 
 .containerBlockPrerequisite {
@@ -259,7 +259,7 @@
 
 .bannerCustom {
   padding: 0;
-  background: #0072ce;
+  background: #2213E2;
 }
 
 .bannerImage {
@@ -277,7 +277,7 @@ html[data-theme='dark'] .textOpenSource {
   color: #f5f6f7;
 }
 html[data-theme='dark'] .titleSectionCommunity {
-  color: #0072ce;
+  color: #2213E2;
 }
 html[data-theme='dark'] .containerBlockh1 {
   color: #f5f6f7;
@@ -351,4 +351,136 @@ html[data-theme='dark'] .bgDm img {
     margin: 0;
     text-align: center;
   }
+}
+
+
+
+.searchForm {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 67px;
+}
+
+.searchForm_input {
+  border-radius: 9999px;
+  padding: 20px 27px;
+  background-color: var(--ifm-background-color-invert);
+  flex-grow: 1;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+html[data-theme='dark'] .searchForm_input img {
+  filter: invert(1);
+}
+
+.searchForm_input input {
+  color: var(--ifm-background-color);
+  width: 100%;
+  font-size: 23px;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+
+.searchForm_input input:focus-visible {
+  outline: none;
+}
+
+.button.buttonBig {
+  padding: 17px 40px;
+  font-size: 23px;
+}
+
+.button.buttonBig img {
+  width: 24px;
+  height: 22px;
+}
+
+.mainContainer {
+  max-width: 1040px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headingContainer {
+  background-color: var(--ifm-background-color);
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+
+.headingContainer h1 {
+  font-family: var(--ifm-font-family-heading);
+  font-size: 42px;
+  margin-bottom: 42px;
+}
+
+.headingCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.headingCard {
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.headingCardHeader {
+  font-size: 25px;
+  font-family: var(--ifm-font-family-heading);
+  background-color: var(--ifm-background-color-invert);
+  color: var(--ifm-background-color);
+  padding: 18px 38px;
+}
+
+.headingCardBody {
+  background-color: rgba(181, 92, 247, 0.1);
+  padding: 25px 38px;
+  flex-grow: 1;
+  font-size: 18px;
+}
+
+.headingCardBody ul {
+  padding: 0;
+  margin: 0;
+}
+
+.headingCardBody ul li {
+  padding: 10px 0px;
+  list-style: none;
+}
+
+.headingCardBody ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 1, 61, 0.15)
+}
+
+html[data-theme='dark'] .headingCardBody ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(255,255,255, 0.15)
+}
+
+.headingCardBody ul li a {
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headingCardBody ul li a img {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.headingCardBody ul li a:hover img {
+  opacity: 1;
+}
+
+html[data-theme='dark'] .headingCardBody ul li a img {
+  filter: brightness(0) invert(1)
 }
