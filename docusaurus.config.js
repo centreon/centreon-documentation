@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  favicon: 'img/logo-centreon.png',
+  favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
   trailingSlash: true,
@@ -223,7 +223,6 @@ const config = {
         ],
       },
       footer: {
-        // style: 'dark',
         links: [
           {
             items: [

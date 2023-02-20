@@ -25,6 +25,12 @@
 
 :root {
   --ifm-code-font-size: 95%;
+  --ifm-color-pink: rgba(181, 92, 247, 0.1);
+  --ifm-color-pink-solid: #f7eefe;
+  --ifm-color-dark: #00003D;
+  --ifm-color-blue: #2213e2;
+  --ifm-color-green: #37d6ae;
+  --ifm-color-white: #ffffff;
 }
 
 html:root {

@@ -15,10 +15,22 @@ const links = {
     installation: 'docs/installation/introduction',
     monitoring: 'pp/integrations/plugin-packs/getting-started/introduction',
   },
-  github: 'https://github.com/centreon/centreon/',
+  social: [
+    {
+      href: 'https://github.com/centreon/centreon/',
+      image: '/img/homepage/social-network/github.png'
+    },{
+      href: 'https://twitter.com/Centreon',
+      image: '/img/homepage/social-network/twitter.png'
+    },{
+      href: 'https://www.linkedin.com/company/centreonsoftware',
+      image: '/img/homepage/social-network/linkedin.png'
+    },{
+      href: 'https://www.youtube.com/c/Centreon-Monitoring',
+      image: '/img/homepage/social-network/youtube.png'
+    }
+  ],
   thewatch: 'https://thewatch.centreon.com/',
-  twitter: 'https://twitter.com/Centreon',
-  linkedin: 'https://www.linkedin.com/company/centreonsoftware',
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
   banner:
@@ -78,16 +90,14 @@ const versionInfo = {
 
 const Button = (props) => {
   return (
-    <div>
-      <a
-        className={clsx(styles.button, {[styles.button_dark]: props.dark === "true"}) }
-        href={props.href}
-        target={props.target}
-      >
-        {props.label}
-        <img src="/img/homepage/Arrow.svg"/>
-      </a>
-    </div>
+    <a
+      className={clsx(styles.button, {[styles.button_dark]: props.dark === "true"}) }
+      href={props.href}
+      target={props.target}
+    >
+      {props.label}
+      <img src="/img/homepage/Arrow.svg"/>
+    </a>
   );
 };
 
@@ -96,7 +106,7 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          <span className={clsx(styles.bannerVersion)}>CENTREON {versionInfo.version}</span>
+          <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>
           <p>New software version available</p>
           <Button href={versionInfo.link} target={versionInfo.target} label="Learn more" dark="true"/>
         </div>
@@ -171,6 +181,52 @@ function HeadingBlock() {
   )
 }
 
+function CommunityBlock() {
+  return(
+    <div className={clsx(styles.socialBlock)}>
+      <span className={clsx(styles.badge)}>A strong community</span>
+      <div className={clsx(styles.watchWrapper)}>
+        <div>
+          <img src="img/homepage/social-network/thewatch.png"/>
+        </div>
+        <Button href={links.thewatch} target="_blank" label="Join the community"/>
+      </div>
+      <div className={clsx(styles.socialWrapper)}>
+        {links.social.map((link,index)=>{
+          return(
+            <div>
+              <a href={link.href}>
+                <img src={link.image}/>
+              </a>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function OpensourceBlock() {
+  return(
+    <div className={clsx(styles.socialBlock)}>
+      <span className={clsx(styles.badge)}>AN OPEN SOURCE CORE</span>
+      <p>Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.</p>
+      <Button href={links.contribute} target="_blank" label="Contribute to the Open Source project"/>
+    </div>
+  )
+}
+
+function SocialBlock() {
+  return (
+    <div className={clsx(styles.socialContainer)}>
+      <div className={clsx(styles.mainContainer)}>
+        <CommunityBlock/>
+        <OpensourceBlock/>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -181,6 +237,7 @@ export default function Home() {
       <main>
         <HeadingBlock />
         <BannerBlock />
+        <SocialBlock />
       </main>
     </Layout>
   );

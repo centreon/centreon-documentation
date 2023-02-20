@@ -27,6 +27,7 @@
   gap: 14px;
   appearance: none;
   border: none;
+  flex-shrink: 0;
 }
 
 .button:hover {
@@ -132,7 +133,7 @@ html[data-theme='dark'] .searchForm_input img {
 }
 
 .headingCardBody {
-  background-color: rgba(181, 92, 247, 0.1);
+  background-color: var(--ifm-color-pink);
   padding: 25px 38px;
   flex-grow: 1;
   font-size: 18px;
@@ -194,24 +195,114 @@ html[data-theme='dark'] .headingCardBody ul li a img {
     justify-content:initial;
   }
 }
-.bannerVersion {
+.badge {
   display:inline-block;
   background-color: white;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 16px;
   padding: 15px 30px;
   color: #00003D;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@media(min-width:576px) {
+  .badge {
+    font-size: 20px;
+  }
 }
 .bannerWrapper p {
   font-size: 25px;
   margin-bottom: 0;
   font-family: var(--ifm-font-family-heading);
   text-align: center;
+  color: var(--ifm-color-white);
 }
 @media(min-width:991px) {
   .bannerWrapper p {
     flex-grow: 1;
     text-align: left;
   }
+}
+
+/* COMMUNITY BLOCK */
+.socialContainer {
+  background-color: var(--ifm-color-pink-solid);
+}
+.socialContainer .mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media(min-width:991px) {
+  .socialContainer .mainContainer {
+    flex-wrap: nowrap;
+  }
+}
+.socialBlock {
+  margin-top: 73px;
+  margin-bottom: 0;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.socialBlock:last-child {
+  margin-bottom: 73px;
+}
+.socialBlock:not(:last-child) {
+  margin-bottom: 0;
+}
+@media(min-width:576px) {
+  .socialBlock {
+    text-align: left;
+  }
+}
+@media(min-width:991px) {
+  .socialBlock {
+    max-width:auto;
+    padding-left: 67px;
+    margin-bottom: 73px;
+  }
+  .socialBlock:not(:last-child) {
+    border-right: 1px solid rgba(34, 19, 226, 0.15);
+    padding-left: 0;
+    padding-right: 67px;
+  }
+}
+.socialBlock p {
+  color: var(--ifm-color-dark);
+  font-weight: 500;
+  margin-top: 38px;
+  margin-bottom: 38px;
+}
+.watchWrapper {
+  display:flex;
+  gap:12px;
+  align-items: center;
+  margin-top:12px;
+  margin-bottom:32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media(min-width:576px) {
+  .watchWrapper {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top:54px;
+    margin-bottom:54px;
+    gap:26px;
+  }
+}
+.socialWrapper {
+  display:flex;
+  align-items: center;
+  gap:26px;
+  justify-content: space-between;
+}
+.socialWrapper img {
+  max-width: 45px;
+  max-height: 45px;
 }
