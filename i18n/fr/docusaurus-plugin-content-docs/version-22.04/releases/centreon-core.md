@@ -46,7 +46,7 @@ Release date: `soon`
 #### Enhancements
 
 - Optimized queries used to display the services monitoring page.
-- Optimized the queries used to display the hosts monitoring page.
+- Optimized queries used to display the hosts monitoring page.
 - Optimized queries used to display the services grid monitoring page.
 - Improved performances of event logs page.
 
