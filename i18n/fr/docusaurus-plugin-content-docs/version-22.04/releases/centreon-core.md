@@ -34,7 +34,7 @@ Release date: `soon`
 - [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
 - [Install] Added missing gettext dependency for Debian.
 - [Install] Fixed an SQL error with MySQL 8.
-- [Install] Removed app_key filed from configuration database.
+- [Install] Removed app_key field from configuration database.
 - [LDAP] Fixed auto-import of users.
 - [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
 - [ResourceStatus] Fixed date picker causing duplicated dates.
