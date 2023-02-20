@@ -27,7 +27,7 @@ Release date: `soon`
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
 - [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
 - [CLAPI] Removed mandatory password for LDAP users creation.
-- [Configuration] Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed error in installation when chrony package already installed.
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
 - [Core] Fixed SQL queries when databases names contain dash.
