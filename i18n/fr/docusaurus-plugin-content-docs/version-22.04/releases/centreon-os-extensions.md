@@ -30,7 +30,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 22.04.1
 
-Release date: `soon`
+Release date: `February 20, 2023`
 
 #### Bug fixes
 
