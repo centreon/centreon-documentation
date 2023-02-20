@@ -16,6 +16,45 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.11
+
+Release date: `February 20, 2023`
+
+#### Bug fixes
+
+- [Authentication] Added LDAP connection timeout to avoid infinite connection.
+- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
+- [CLAPI] Removed mandatory password for LDAP users creation.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an installation error when the chrony package is already installed.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [Core] Fixed SQL queries when databases names contain dash.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
+- [Install] Added missing gettext dependency for Debian.
+- [Install] Fixed an SQL error with MySQL 8.
+- [Install] Removed app_key field from configuration database.
+- [LDAP] Fixed auto-import of users.
+- [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
+- [ResourceStatus] Fixed date picker causing duplicated dates.
+- [ResourceStatus] Fixed an issue that made the acknowledgement still active in Resource Status after a disacknowledgement or when service/host returned to OK/UP status.
+- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+- [UX] Fixed visual inconsistencies in some menus.
+
+#### Enhancements
+
+- Optimized queries used to display the services monitoring page.
+- Optimized queries used to display the hosts monitoring page.
+- Optimized queries used to display the services grid monitoring page.
+- Improved performances of event logs page.
+
+#### Security
+
+- [CLAPI] Fixed encoding issue.
+- Fixed XSS vulnerability reflected in service-monitoring widget.
+
 ### 22.04.10
 
 Release date: `February 6, 2023`
@@ -60,7 +99,7 @@ Release date: `January 16, 2023`
 - [ResourceStatus] Fixed the display of commands in the service details panel
 - Fixed an issue preventing a user to edit a recurrent downtime if the linked host group is disabled
 - [Monitoring] Removed obsolete code to export graphs in CSV
-- [Resources Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
+- [ResourcesStatus] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
 - Fixed an issue with "view contact notifications" window
 - [Administration] Fixed access to provider configuration endpoint using ACL
 - [API] Fixed API access when user doesn't have access to UI
@@ -83,7 +122,7 @@ Release date: `January 16, 2023`
 - [Core] Fixed vulnerabilities in pathway.php
 - [Core] Fixed vulnerabilities in color_picker_mb.php
 - [Core] Fixed vulnerabilities in rename.php
-- [Configuration] Fixed vulnerabilities in services listing	
+- [Configuration] Fixed vulnerabilities in services listing
 - [Configuration] Fixed vulnerabilities in host form
 
 ### 22.04.7
