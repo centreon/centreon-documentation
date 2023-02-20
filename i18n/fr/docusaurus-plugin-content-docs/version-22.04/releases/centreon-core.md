@@ -29,6 +29,7 @@ Release date: `soon`
 -	[Configuration] Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Install] Fixed SQL request with MySQL 8.
 -	[Core] Fixed SQL queries when databases names contain dash.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
 -	[Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
 - [Configuration] Fixed error in installation when chrony package already installed.
 - [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
@@ -38,12 +39,20 @@ Release date: `soon`
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
 - [Authentication] Added LDAP connection timeout to avoid infinite connection.
 - [UX] Fixed visual incoherences in some menus.
+- [Authentication] Improved Web SSO protocol.
+- [ResourceStatus] Fixed date picker causing duplicated dates.
+- [LDAP] fix user autoimport.
+
+#### Enhancements
+
+- Optimized queries used to display the services monitoring page.
+- Optimized the queries used to display the hosts monitoring page.
+- Optimized the queries used to display the services grid monitoring page.
+- Improved performances of event logs page.
 
 #### Security
 
-- [Core] Fixed vulnerabilities in centreonAPI.class.php.
-- [Security] Fixed SQLi and XXS on legacy service details page.
--	Fix XSS vulnerability reflected in service-monitoring widget.
+- [CLAPI] Fixed encoding issue.
 - [Core] Fixed vulnerabilities in common functions.
 
 ### 22.04.10
