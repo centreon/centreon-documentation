@@ -42,7 +42,7 @@ Release date: `soon`
 - [UX] Fixed visual incoherences in some menus.
 - [Authentication] Improved Web SSO protocol.
 - [ResourceStatus] Fixed date picker causing duplicated dates.
-- [LDAP] fix user autoimport.
+- [LDAP] Fixed auto-import of users.
 
 #### Enhancements
 
