@@ -54,7 +54,7 @@ Release date: `soon`
 #### Security
 
 - [CLAPI] Fixed encoding issue.
-- [Core] Fixed vulnerabilities in common functions.
+- Fix XSS vulnerability reflected in service-monitoring widget.
 
 ### 22.04.10
 
