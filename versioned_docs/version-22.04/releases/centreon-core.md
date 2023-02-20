@@ -41,7 +41,7 @@ Release date: `soon`
 - [ResourceStatus] Fixed date picker causing duplicated dates.
 - [ResourceStatus] Fixed an issue that made the acknowledgement still active in Resource Status after a disacknowledgement or when service/host returned to OK/UP status.
 - [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
-- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated  pages.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
 - [UX] Fixed visual incoherences in some menus.
 
 #### Enhancements
