@@ -24,7 +24,7 @@ Release date: `soon`
 
 - [Authentication] Added LDAP connection timeout to avoid infinite connection.
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
-- [Authentication] Improved Web SSO protocol.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
 - [CLAPI] Removed mandatory password for LDAP users creation.
 - [Configuration] Fixed bug that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed error in installation when chrony package already installed.
