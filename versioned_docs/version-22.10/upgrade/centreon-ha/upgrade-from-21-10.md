@@ -32,61 +32,11 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Upgrade process
 
-### Update the Centreon repository
+To perform the upgrade:
+For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step included**.
+For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step included only**.
 
-Run the following commands:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
-```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
-```
-
-</TabItem>
-</Tabs>
-
-> **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
-
-### Upgrade the Centreon solution
-
-> Please, make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
-
-Clean yum cache:
-
-```shell
-yum clean all --enablerepo=*
-```
-
-Then upgrade all the components with the following command:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\*
-```
-
-</TabItem>
-<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
-
-
-```shell
-yum update centreon\*
-```
-
-</TabItem>
-</Tabs>
-
-Only on the Central Servers:
+Then on the two central nodes:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
@@ -104,77 +54,17 @@ mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_c
 
 </TabItem>
 </Tabs>
-
-### Update your customized Apache configuration
-
-This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
-
-Run a diff between the old and the new Apache configuration files:
-
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-On the Central Servers:
-
-```shell
-diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
-```
-
-</TabItem>
-<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
-
-On the Central Servers:
-
-```shell
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
-```
-
-</TabItem>
-</Tabs>
-
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
-
-For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
-
-
-### Finalizing the upgrade
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-  
-```shell
-systemctl reload httpd24-httpd
-```
-
-</TabItem>
-</Tabs>
-
-Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md#finalizing-the-upgrade) Only on the **active central node**.
 
 On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the WUI in the event of a further exchange of roles.
 
 ```bash
-mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron jobs back in place on the Central and Databases servers. Remove them to avoid concurrent executions: 
+The RPM upgrade puts cron jobs back in place on the Central and Databases servers. Remove them to avoid concurrent executions on central and database nodes: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
@@ -183,7 +73,7 @@ rm -rf /etc/cron.d/centstorage
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permissions back in place on the **Central servers**. Change it using these commands:
+The RPM upgrade puts the permissions back in place on the two **Central servers**. Change it using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -208,7 +98,7 @@ Perform a backup of the cluster using:
 
 ```bash
 pcs config backup centreon_cluster
-pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
+pcs resource config --output-format=cmd | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
 
 Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
