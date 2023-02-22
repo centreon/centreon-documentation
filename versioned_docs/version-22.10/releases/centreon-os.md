@@ -44,7 +44,7 @@ Release date: `February 22, 2023`
 - [Install] Fixed an error which prevented access to the update wizard after packages update.
 - [LDAP] Fixed auto-import of users.
 - [ResourceStatus] Fixed an issue where the date picker displayed duplicated dates, resulting in day shifts.
-- [UI] Fixed an aesthetic issue in Resource Status table header
+- [UI] Fixed an aesthetic issue in Resource Status table header.
 - [UI] Fixed buttons and radio buttons in administration pages
 - [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
 - [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
