@@ -40,6 +40,7 @@ const links = {
 const cards = [
   {
     title: "Centreon OnPrem",
+    href: "/docs/getting-started/welcome/",
     links: [
       {
         label: "Getting started",
@@ -64,6 +65,7 @@ const cards = [
   },
   {
     title: "Centreon Cloud",
+    href: "/cloud/getting-started/architecture/",
     links: [
       {
         label: "Getting started",
@@ -138,9 +140,9 @@ function HeadingCard(props) {
   console.log(props)
   return(
     <div className={clsx(styles.headingCard)}>
-      <div className={clsx(styles.headingCardHeader)}>
+      <a href={props.card.href} className={clsx(styles.headingCardHeader)}>
         {props.card.title}
-      </div>
+      </a>
       <div className={clsx(styles.headingCardBody)}>
         <ul>
           {props.card.links.map((link,index)=>{

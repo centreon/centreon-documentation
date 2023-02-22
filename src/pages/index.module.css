@@ -131,6 +131,9 @@ html[data-theme='dark'] .searchForm_input img {
   color: var(--ifm-background-color);
   padding: 18px 38px;
 }
+.headingCardHeader:hover {
+  color: var(--ifm-background-color);
+}
 
 .headingCardBody {
   background-color: var(--ifm-color-pink);
