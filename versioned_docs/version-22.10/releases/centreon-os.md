@@ -57,10 +57,6 @@ Release date: `February 22, 2023`
 - Optimized queries used to display the services grid monitoring page.
 - Improved performances of event logs page.
 
-#### Security
-
-- [CLAPI] Fixed encoding issue.
-
 ### 22.10.5
 
 Release date: `February 9, 2023`
