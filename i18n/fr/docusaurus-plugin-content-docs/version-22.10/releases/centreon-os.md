@@ -36,7 +36,7 @@ Release date: `February 22, 2023`
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
 - [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
 - [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
-- [Install] Fixed an error indicating that the timezone was not initialized during debian package installation
+- [Install] Fixed an error indicating that the timezone was not initialized during Debian package installation.
 - [Install] Fixed an SQL error with MySQL 8.
 - [Install] Fixed app_key error during upgrade.
 - [Install] Fixed a PHP error when using API to perform an upgrade.
