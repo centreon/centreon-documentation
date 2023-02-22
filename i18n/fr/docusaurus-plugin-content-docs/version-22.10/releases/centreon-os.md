@@ -48,7 +48,6 @@ Release date: `February 22, 2023`
 - [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
 - [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
 
-
 #### Enhancements
 
 - [Administration] Added display of remaining disk free space where images are stored
