@@ -252,12 +252,16 @@ html[data-theme='dark'] .headingCardBody ul li a img {
 .socialBlock:last-child {
   margin-bottom: 73px;
 }
-.socialBlock:not(:last-child) {
+.socialBlock:first-child {
   margin-bottom: 0;
 }
 @media(min-width:576px) {
   .socialBlock {
     text-align: left;
+    margin-bottom: 73px;
+  }
+  .socialBlock:first-child {
+    margin-bottom: 0;
   }
 }
 @media(min-width:991px) {
@@ -266,7 +270,7 @@ html[data-theme='dark'] .headingCardBody ul li a img {
     padding-left: 67px;
     margin-bottom: 73px;
   }
-  .socialBlock:not(:last-child) {
+  .socialBlock:first-child {
     border-right: 1px solid rgba(34, 19, 226, 0.15);
     padding-left: 0;
     padding-right: 67px;
