@@ -39,7 +39,7 @@ Release date: `February 22, 2023`
 - [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
 - [Install] Fixed an error indicating that the timezone was not initialized during Debian package installation.
 - [Install] Fixed an SQL error with MySQL 8.
-- [Install] Fixed app_key error during upgrade.
+- [Install] Fixed an app_key error during upgrade.
 - [Install] Fixed a PHP error when using API to perform an upgrade.
 - [Install] Fixed an error which prevented access to the update wizard after packages update.
 - [LDAP] Fixed auto-import of users.
