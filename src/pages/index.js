@@ -4,17 +4,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 
-const basePathImg = './img/homepage/';
-
 const links = {
-  doc: {
-    cloud: 'cloud/getting-started/architecture',
-    gettingstarted: 'docs/getting-started/welcome',
-    pluginpacks: 'pp/integrations/plugin-packs/getting-started/introduction',
-    prerequisite: 'docs/installation/prerequisites',
-    installation: 'docs/installation/introduction',
-    monitoring: 'pp/integrations/plugin-packs/getting-started/introduction',
-  },
   social: [
     {
       href: 'https://github.com/centreon/centreon/',
@@ -33,14 +23,12 @@ const links = {
   thewatch: 'https://thewatch.centreon.com/',
   contribute:
     'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
-  banner:
-    'https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/',
 };
 
 const cards = [
   {
     title: "Centreon OnPrem",
-    href: "/docs/getting-started/welcome/",
+    href: "docs/getting-started/welcome/",
     links: [
       {
         label: "Getting started",
@@ -50,35 +38,35 @@ const cards = [
         href: "docs/installation/introduction"
       },{
         label: "Setting up the monitoring",
-        href: "pp/integrations/plugin-packs/getting-started/introduction"
+        href: "docs/category/setting-up-the-monitoring/"
       },{
         label: "BAM",
-        href: "#"
+        href: "docs/service-mapping/introduction/"
       },{
         label: "MAP",
-        href: "#"
+        href: "docs/graph-views/introduction-map/"
       },{
         label: "MBI",
-        href: "#"
+        href: "docs/reporting/introduction/"
       },
     ]
   },
   {
     title: "Centreon Cloud",
-    href: "/cloud/getting-started/architecture/",
+    href: "cloud/getting-started/architecture/",
     links: [
       {
         label: "Getting started",
         href: "docs/getting-started/welcome"
       },{
         label: "Installing a poller",
-        href: "#"
+        href: "cloud/installation/prerequisites/"
       },{
         label: "BAM",
-        href: "#"
+        href: "cloud/service-mapping/introduction/"
       },{
         label: "MAP",
-        href: "#"
+        href: "cloud/graph-views/introduction-map/"
       },
     ]
   }
