@@ -51,7 +51,7 @@ Release date: `February 22, 2023`
 
 #### Enhancements
 
-- [Administration] Added display of remaining disk free space where images are stored
+- [Administration] Added a display of remaining disk free space where images are stored.
 - Optimized queries used to display the services monitoring page.
 - Optimized queries used to display the hosts monitoring page.
 - Optimized queries used to display the services grid monitoring page.
