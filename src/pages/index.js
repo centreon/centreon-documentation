@@ -18,16 +18,16 @@ const links = {
   social: [
     {
       href: 'https://github.com/centreon/centreon/',
-      image: '/img/homepage/social-network/github.png'
+      image: '/img/homepage/social-network/GitHub-Emblem.png'
     },{
       href: 'https://twitter.com/Centreon',
-      image: '/img/homepage/social-network/twitter.png'
+      image: '/img/homepage/social-network/Twitter.png'
     },{
       href: 'https://www.linkedin.com/company/centreonsoftware',
-      image: '/img/homepage/social-network/linkedin.png'
+      image: '/img/homepage/social-network/Linkedin.png'
     },{
       href: 'https://www.youtube.com/c/Centreon-Monitoring',
-      image: '/img/homepage/social-network/youtube.png'
+      image: '/img/homepage/social-network/Youtube.png'
     }
   ],
   thewatch: 'https://thewatch.centreon.com/',
@@ -194,11 +194,9 @@ function CommunityBlock() {
       <div className={clsx(styles.socialWrapper)}>
         {links.social.map((link,index)=>{
           return(
-            <div>
-              <a href={link.href}>
-                <img src={link.image}/>
-              </a>
-            </div>
+            <a href={link.href}>
+              <img src={link.image}/>
+            </a>
           )
         })}
       </div>
