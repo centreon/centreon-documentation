@@ -277,6 +277,7 @@ html[data-theme='dark'] .headingCardBody ul li a img {
     border-right: 1px solid rgba(34, 19, 226, 0.15);
     padding-left: 0;
     padding-right: 67px;
+    margin-bottom: 73px;
   }
 }
 .socialBlock p {
