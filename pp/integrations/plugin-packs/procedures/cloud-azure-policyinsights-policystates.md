@@ -125,12 +125,6 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 These mandatory macros differ depending on the custom mode used.
 
-> Two methods can be used to set the macros:
-
->> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
-in **AZURERESOURCE**
-> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
-
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
@@ -145,16 +139,6 @@ in **AZURERESOURCE**
 |                | AZURETENANT        | Tenant ID                                    |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
-
-| Mandatory      | Macro              | Description                                  |
-|:---------------|:-------------------|:---------------------------------------------|
-|                | AZURECLICUSTOMMODE | Custom mode **azcli**                        |
-|                | AZURERESOURCE      | ID or name of the Azure resource             |
-|                | AZURERESOURCEGROUP | Resource group name if resource name is used |
-|                | AZURESUBSCRIPTION  | Subscription ID                              |
-
-</TabItem>
 </Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
@@ -164,14 +148,14 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure__policyinsights_policystates.pl \
+/usr/lib/centreon/plugins/centreon_azure_policyinsights_policystates.pl \
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --mode=compliance \
     --resource-group='' \
-    --subscription='' \
-    --tenant='' \
-    --client-id='' \
-    --client-secret='' \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
     --proxyurl='' \
     --api-version='' \
     --policy-states='' \
@@ -187,7 +171,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: Number of non compiant policies: %d  | 
+OK: Number of non compiant policies: 0 - All compliances states are ok | 'policies.non_compliant.count'=0;;;0;
 ```
 
 ### Available modes
@@ -196,7 +180,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure__policyinsights_policystates.pl \
+/usr/lib/centreon/plugins/centreon_azure_policyinsights_policystates.pl \
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --list-mode
 ```
@@ -293,7 +277,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure__policyinsights_policystates.pl \
+/usr/lib/centreon/plugins/centreon_azure_policyinsights_policystates.pl \
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --mode=compliance \
     --help

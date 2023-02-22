@@ -123,12 +123,6 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 * Appliquez le modèle d'hôte **Cloud-Azure-PolicyInsights-PolicyStates-custom**.
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
-> Deux méthodes peuvent être utilisées lors de l'assignation des macros :
-
->
-> * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro *AZURERESOURCE*.
-> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
-
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
@@ -143,16 +137,6 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 |                | AZURETENANT        | Tenant ID                                    |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
-
-| Obligatoire    | Macro              | Description                                  |
-|:---------------|:-------------------|:---------------------------------------------|
-|                | AZURECLICUSTOMMODE | Custom mode **azcli**                        |
-|                | AZURERESOURCE      | ID or name of the Azure resource             |
-|                | AZURERESOURCEGROUP | Resource group name if resource name is used |
-|                | AZURESUBSCRIPTION  | Subscription ID                              |
-
-</TabItem>
 </Tabs>
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
@@ -162,14 +146,14 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure__policyinsights_policystates.pl \
+/usr/lib/centreon/plugins/centreon_azure_policyinsights_policystates.pl \
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --mode=compliance \
     --resource-group='' \
-    --subscription='' \
-    --tenant='' \
-    --client-id='' \
-    --client-secret='' \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
     --proxyurl='' \
     --api-version='' \
     --policy-states='' \
@@ -185,7 +169,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Number of non compiant policies: %d  | 
+OK: Number of non compiant policies: 0 - All compliances states are ok | 'policies.non_compliant.count'=0;;;0;
 ```
 
 ### Modes disponibles
@@ -194,7 +178,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure__policyinsights_policystates.pl \
+/usr/lib/centreon/plugins/centreon_azure_policyinsights_policystates.pl \
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --list-mode
 ```
@@ -291,7 +275,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure__policyinsights_policystates.pl \
+/usr/lib/centreon/plugins/centreon_azure_policyinsights_policystates.pl \
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --mode=compliance \
     --help
