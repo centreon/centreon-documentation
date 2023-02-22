@@ -101,6 +101,20 @@ html[data-theme='dark'] .footer {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
+  gap: 16px;
+}
+@media (max-width: 575px) {
+  .footer .footer__bottom {
+    width: 220px;
+  }
+}
+@media (max-width:991px) {
+  .footer .footer__bottom {
+    width:50%;
+  }
+}
+.footer .footer__bottom img {
+  max-width: 100%;
 }
 .footer .footer__links {
   flex-grow: 1;
@@ -108,6 +122,11 @@ html[data-theme='dark'] .footer {
 }
 .footer .footer__links .footer__col {
   text-align: center;
+}
+@media (max-width: 996px) {
+  .footer__col {
+    margin-bottom: 0;
+  }
 }
 .footer .footer__links .footer__link-item {
   font-family: var(--ifm-font-family-heading);
