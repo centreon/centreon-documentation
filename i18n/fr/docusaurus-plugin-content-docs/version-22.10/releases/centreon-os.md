@@ -28,7 +28,7 @@ Release date: `February 22, 2023`
 - [Authentication] Added possibility to use token endpoint to get list of roles and groups for mapping.
 - [Authentication] Fixed an LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
 - [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
-- [Authentication] Fixed a PHP error in IDP response a string instead of an array for roles list.
+- [Authentication] Fixed a PHP error in IDP response with a string instead of an array for roles list.
 - [AnomalyDetection] Fixed an envelope computation error. 
 - [CLAPI] Removed mandatory password for LDAP users creation.
 - [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
