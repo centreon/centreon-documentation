@@ -646,8 +646,36 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Cloud',
+      label: 'cloud',
       items: [
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-billing'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-elb'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-health'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-lambda'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-transitgateway'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-vpn'
+        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-apigateway'
@@ -666,10 +694,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatchlogs'
         },
         {
@@ -682,11 +706,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-elasticache'
+          id: 'integrations/plugin-packs/procedures/cloud-aws-efs'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-efs'
+          id: 'integrations/plugin-packs/procedures/cloud-aws-elasticache'
         },
         {
           type: 'doc',
@@ -718,27 +742,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-billing'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-elb'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-health'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-lambda'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-transitgateway'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-vpn'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-apimanagement'
         },
         {
           type: 'doc',
@@ -746,7 +750,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-management-apimanagement'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appservice'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan'
         },
         {
           type: 'doc',
@@ -762,15 +770,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-management-costs'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appservice'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-cdn'
         },
         {
           type: 'doc',
@@ -778,15 +778,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-management-discover'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-database-elasticpool'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-datafactory-factories'
         },
         {
           type: 'doc',
@@ -795,6 +799,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-mysql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-discover'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-database-elasticpool'
         },
         {
           type: 'doc',
@@ -814,15 +826,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-aks'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-frontdoor'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-compute-functions'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-frontdoor'
         },
         {
           type: 'doc',
@@ -834,6 +842,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-aks'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer'
         },
         {
@@ -842,15 +854,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-costs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-management-monitor'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-cdn'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-networkinterface'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-networkinterface'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-policyinsights-policystates'
         },
         {
           type: 'doc',
@@ -866,14 +882,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-integration-servicebus'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-web-signalr'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase'
         },
         {
@@ -886,11 +894,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-integration-servicebus'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-web-signalr'
         },
         {
           type: 'doc',
@@ -906,7 +914,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-vpngateway'
         },
         {
           type: 'doc',
@@ -914,15 +922,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-vpngateway'
+          id: 'integrations/plugin-packs/procedures/cloud-cloudfoundry-api'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-datafactory-factories'
+          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
         },
         {
           type: 'doc',
@@ -942,22 +954,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-cadvisor-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-cloudfoundry-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ibm-softlayer-api'
         },
         {
@@ -971,6 +967,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-node-exporter-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
         },
         {
           type: 'doc',
@@ -1002,23 +1006,23 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-prometheus-node-exporter-api'
-        },
-        {
-           type: 'doc',
-           id: 'integrations/plugin-packs/procedures/cloud-talend-tmc-api'
+          id: 'integrations/plugin-packs/procedures/cloud-talend-tmc-api'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-cadvisor-api'
         }
       ]
     },
