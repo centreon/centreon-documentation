@@ -24,7 +24,7 @@ Release date: `February 22, 2023`
 
 #### Bug fixes
 
-- [Authentication] Added LDAP connection timeout to avoid infinite connection.
+- [Authentication] Added an LDAP connection timeout to avoid infinite connection.
 - [Authentication] Added possibility to use token endpoint to get list of roles and groups for mapping.
 - [Authentication] Fixed an LDAP authentication issue that made LDAP users unable to authenticate in certain conditions
 - [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
