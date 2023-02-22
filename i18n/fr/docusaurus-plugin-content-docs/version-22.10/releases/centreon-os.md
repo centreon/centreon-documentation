@@ -26,7 +26,7 @@ Release date: `February 22, 2023`
 
 - [Authentication] Added an LDAP connection timeout to avoid infinite connection.
 - [Authentication] Added possibility to use token endpoint to get list of roles and groups for mapping.
-- [Authentication] Fixed an LDAP authentication issue that made LDAP users unable to authenticate in certain conditions
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
 - [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
 - [Authentication] Fixed a PHP error in IDP response a string instead of an array for roles list.
 - [AnomalyDetection] Fixed an envelope computation error. 
