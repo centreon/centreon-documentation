@@ -101,7 +101,7 @@ Une période temporelle définit un intervalle de temps pour chacun des jours de
 
 - quand des [notifications](#notification) seront envoyées.
 
-**Voir aussi** : [Les périodes temporelles](../monitoring/basic-objects/timeperiods.md).
+**Voir aussi** : 
 
 ## Plage de maintenance
 
