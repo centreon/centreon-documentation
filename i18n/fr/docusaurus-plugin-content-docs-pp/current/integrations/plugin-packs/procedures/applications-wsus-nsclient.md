@@ -1,6 +1,6 @@
 ---
 id: applications-wsus-nsclient
-title: Microsoft WSUS
+title: Microsoft WSUS Server
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,30 +15,22 @@ Le Plugin Pack Centreon **Microsoft WSUS** apporte 2 modèles d'hôte différent
 * App-Wsus-NRPE-custom
 * App-Wsus-NSClient-05-Restapi-custom
 
-Ils apportent les modèles de service suivants: 
-
-<Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
+Il apporte les modèles de service suivants :
 
 | Alias                  | Modèle de service                                  | Description                                                                    | Défaut |
 |:-----------------------|:---------------------------------------------------|:-------------------------------------------------------------------------------|:-------|
-| Computers-Status       | App-Wsus-Computers-Status-NRPE                     | Contrôle le nombre d'ordinateurs dans chacun des statuts via NRPE              | X      |
-| Server-Statistics      | App-Wsus-Server-Statistics-NRPE                    | Contrôle plusieurs statistiques du serveur WSUS via NRPE                       | X      |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE               | Contrôle la synchronisation des mises à jour avec le serveur WSUS via NRPE     | X      |
-| Update-Status          | App-Wsus-Update-Status-NRPE                        | Contrôle le statut des mises à jour via NRPE                                   | X      |
+| Computers-Status       | App-Wsus-Computers-Status-NRPE                     | Contrôle le nombre d'ordinateurs dans chacun des statuts                       | X      |
+| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi       | Contrôle le nombre d'ordinateurs dans chacun des statuts                       | X      |
+| Server-Statistics      | App-Wsus-Server-Statistics-NRPE                    | Contrôle plusieurs statistiques du serveur WSUS                                | X      |
+| Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi      | Contrôle plusieurs statistiques du serveur WSUS                                | X      |
+| Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE               | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS | X      |
+| Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS | X      |
+| Update-Status          | App-Wsus-Update-Status-NRPE                        | Contrôle le statut des mises à jour                                            | X      |
+| Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi          | Contrôle le statut des mises à jour                                            | X      |
 
-</TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
 
-| Alias                  | Modèle de service                                  | Description                                                                    | Défaut |
-|:-----------------------|:---------------------------------------------------|:-------------------------------------------------------------------------------|:-------|
-| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi       | Contrôle le nombre d'ordinateurs dans chacun des statuts via l'API             | X      |
-| Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi      | Contrôle plusieurs statistiques du serveur WSUS via l'API                      | X      |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi | Contrôle la synchronisation des mises à jour avec le serveur WSUS via l'API    | X      |
-| Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi          | Contrôle le statut des mises à jour via l'API                                  | X      |
 
-</TabItem>
-</Tabs>
+> Les services par "Défaut" sont automatiquement liés au(x) modèle(s) d'hôte.
 
 ### Métriques & statuts collectés
 
@@ -95,21 +87,8 @@ Ils apportent les modèles de service suivants:
 
 ### Centreon NSClient++
 
-<Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
-
-Pour surveiller les ressources *WSUS Server* via NRPE, installez la version Centreon de l'agent NSClient++.
-Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que le **serveur NRPE**
-embarqué est correctement configuré.
-
-</TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
-
-Pour surveiller les ressources *WSUS Server* via NSClient++ API, installez la version Centreon de l'agent NSClient++.
+Pour surveiller les ressources *Windows* via NSClient++ API, installez la version Centreon de l'agent NSClient++.
 Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur Web / RestAPI** est correcte.
-
-</TabItem>
-</Tabs>
 
 ## Installation
 
@@ -118,10 +97,8 @@ Veuillez suivre notre [documentation officielle](../getting-started/how-to-guide
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
 
-> Si vous souhaitez utiliser le modèle d'hôte **NRPE**, installez le paquet centreon-nrpe3. 
-
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
 associé à sa distribution :
 
 <Tabs groupId="sync">
@@ -167,7 +144,6 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-nrpe3-plugin
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
@@ -175,7 +151,6 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 ```bash
 apt install centreon-nrpe3-plugin
-apt install centreon-plugin-operatingsystems-windows-restapi
 ```
 
 </TabItem>
@@ -186,48 +161,34 @@ apt install centreon-plugin-operatingsystems-windows-restapi
 ### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **WSUS Server**.
-* Appliquez le modèle d'hôte de votre choix: **App-Wsus-NRPE-custom** ou **App-Wsus-NSClient-05-Restapi-custom**. 
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+* Appliquez le modèle d'hôte **App-Wsus-NRPE-custom**.
+
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
+    * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-<Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
-
-| Obligatoire | Macro                     | Description                                                                            |
-|:------------|:--------------------------|:---------------------------------------------------------------------------------------|
-|             | NRPECLIENT                | (Défaut : 'check_centreon_nrpe')                                                       |
-|             | NRPEEXTRAOPTIONS          | Options spécifiques à NRPE (Défaut: -u -m 8192)                                        |
-|             | NRPEPORT                  | Port d'écoute du serveur NRPE (Défaut : '5666')                                        |
-|             | NRPETIMEOUT               | Timeout (Défaut : '55')                                                                |
-|     X       | WSUSPORT                  | Port d'écoute sur serveur WSUS                                                         |
-|     X       | WSUSSERVER                | Nom/FQDN du serveur WSUS                                                               |
-
-</TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
-
-| Obligatoire | Macro                     | Description                                                                            |
-|:------------|:--------------------------|:---------------------------------------------------------------------------------------|
-|             | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
-|             | NSCPRESTAPILEGACYPASSWORD | Mot de passe pour l'authentification basique de l'API                                  |
-|             | NSCPRESTAPIPORT           | Port d'écoute de l'API                                                                 |
-|             | NSCPRESTAPIPROTO          | Protocole de l'API                                                                     |
-|     X       | WSUSPORT                  | Port d'écoute sur serveur WSUS                                                         |
-|     X       | WSUSSERVER                | Nom/FQDN du serveur WSUS                                                               |
-
-</TabItem>
-</Tabs>
+    | Mandatory      | Macro                     | Description                                                                            |
+|:---------------|:--------------------------|:---------------------------------------------------------------------------------------|
+|                | NRPECLIENT                | (Défaut : 'check_centreon_nrpe')                                                       |
+|                | NRPEEXTRAOPTIONS          | -u -m 8192                                                                             |
+|                | NRPEPORT                  | (Défaut : '5666')                                                                      |
+|                | NRPETIMEOUT               | (Défaut : '55')                                                                        |
+|                | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à ajouter à l'ensemble des commandes de l'hôte (ex: --verbose) |
+|                | NSCPRESTAPILEGACYPASSWORD |                                                                                        |
+|                | NSCPRESTAPIPORT           |                                                                                        |
+|                | NSCPRESTAPIPROTO          |                                                                                        |
+|                | WSUSPORT                  |                                                                                        |
+|                | WSUSSERVER                |                                                                                        |
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
-
-> Les exemples suivants sont donnés pour le modèle RestAPI.
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --mode=query \
     --hostname=10.0.0.1 \
@@ -236,54 +197,182 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --legacy-password='' \
     --command=check_centreon_plugins \
     --arg='apps::microsoft::wsus::local::plugin' \
-    --arg='server-statistics' \
+    --arg='updates-status' \
     --arg=' \
-    --wsus-server="my.wsus.server.domain" \
-    --wsus-port="443" \
+    --wsus-server="" \
+    --wsus-port="" \
     --filter-counters="" \
-    --warning-computers="" \
-    --critical-computers="" \
-    --warning-computer-groups="" \
-    --critical-computer-groups="" \
-    --warning-updates="" \
-    --critical-updates="" \
-    --warning-approved-updates="" \
-    --critical-approved-updates="" \
-    --warning-declined-updates="" \
-    --critical-declined-updates=""\
-    --warning-not-approved-updates="" \
-    --critical-declined-updates="" \
-    --warning-stale-updates="" \
-    --critical-stale-updates="" \
-    --warning-expired-updates="" \
-    --critical-expired-updates="" \
+    --warning-with-client-errors="" \
+    --critical-with-client-errors="" \
+    --warning-with-server-errors="" \
+    --critical-with-server-errors="" \
+    --warning-needing-files="" \
+    --critical-needing-files="" \
+    --warning-needed-by-computers="" \
+    --critical-needed-by-computers="" \
+    --warning-up-to-date="" \
+    --critical-up-to-date="" \
     --verbose'\
-    --use-new-perfdata
+    
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Computers: 120 Computer Groups: 6 Updates: 19 Approved Updates: 3 Declined Updates: 14 Not Approved Updates: 22 Stale Updates: 1 Expired Updates: 5 | 
+OK: With Client Errors: 46 With Server Errors: 57 Needing Files: 11 Needed By Computers: 46 Up-to-date: %s | 
 ```
 
-La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
-
-```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-    --plugin=apps::nsclient::restapi::plugin \
-    --mode=query \
-    --help
-```
+### Modes disponibles
 
 Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+* computers-status
+* server-statistics
+* synchronisation-status
+* updates-status
+
+### Options complémentaires
+
+#### Options globales
+
+Les options globales aux modes sont listées ci-dessus :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Option type |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| --mode                                     |     Choose a mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Global      |
+| --dyn-mode                                 |     Specify a mode with the path (separated by '::').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Global      |
+| --list-mode                                |     List available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Global      |
+| --mode-version                             |     Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Global      |
+| --version                                  |     Display plugin version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Global      |
+| --pass-manager                             |     Use a password manager.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Global      |
+| --verbose                                  |     Display long output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output      |
+| --debug                                    |     Display also debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Output      |
+| --filter-perfdata                          |     Filter perfdata that match the regexp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Output      |
+| --filter-perfdata-adv                      |     Advanced perfdata filter.  Eg: --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output      |
+| --explode-perfdata-max                     |     Put max perfdata (if it exist) in a specific perfdata (without values: same with '\_max' suffix) (Multiple options)                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Output      |
+| --change-perfdata --extend-perfdata        |     Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Change storage free perfdata in used:     --change-perfdata=free,used,invert()      Change storage free perfdata in used:     --change-perfdata=used,free,invert()      Scale traffic values automaticaly:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()   | Output      |
+| --extend-perfdata-group                    |     Extend perfdata from multiple perfdatas (methods in target are: min, max, average, sum) Syntax: --extend-perfdata-group=searchlabel,newlabel,target\[,\[newuom\],\[m in\],\[max\]\]  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'                                               | Output      |
+| --change-short-output --change-long-output |     Change short/long output display: --change-short-output=pattern~replace~modifier                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output      |
+| --change-exit                              |     Change exit code: --change-exit=unknown=critical                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output      |
+| --range-perfdata                           |     Change perfdata range thresholds display: 1 = start value equals to '0' is removed, 2 = threshold range is not display.                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Output      |
+| --filter-uom                               |     Filter UOM that match the regexp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Output      |
+| --opt-exit                                 |     Optional exit code for an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc) (Default: unknown).                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output      |
+| --output-ignore-perfdata                   |     Remove perfdata from output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Output      |
+| --output-ignore-label                      |     Remove label status from output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output      |
+| --output-xml                               |     Display output in XML format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Output      |
+| --output-json                              |     Display output in JSON format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Output      |
+| --output-openmetrics                       |     Display metrics in OpenMetrics format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Output      |
+| --output-file                              |     Write output in file (can be used with json and xml options)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Output      |
+| --disco-format                             |     Display discovery arguments (if the mode manages it).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Output      |
+| --disco-show                               |     Display discovery values (if the mode manages it).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output      |
+| --float-precision                          |     Set the float precision for thresholds (Default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output      |
+| --source-encoding                          |     Set encoding of monitoring sources (In some case. Default: 'UTF-8').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output      |
+
+
+#### Options des modes
+
+Les options spécifiques aux modes sont listées ci-dessus :
+
+<Tabs groupId="sync">
+<TabItem value="Computers-Status" label="Computers-Status">
+
+| Option                   | Description                                                                                                                                | Option type |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| --timeout                |     Set timeout time for command execution (Default: 30 sec)                                                                               | Mode        |
+| --no-ps                  |     Don't encode powershell. To be used with --command and 'type'command.                                                                  | Mode        |
+| --command                |     Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option.   | Mode        |
+| --command-path           |     Command path (Default: none).                                                                                                          | Mode        |
+| --command-options        |     Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                | Mode        |
+| --ps-display             |     Display powershell script.                                                                                                             | Mode        |
+| --ps-exec-only           |     Print powershell output.                                                                                                               | Mode        |
+| --wsus-server            |     Set WSUS hostname/IP.                                                                                                                  | Mode        |
+| --wsus-port              |     Set WSUS port.                                                                                                                         | Mode        |
+| --not-updated-since      |     Time in days to count computers not updated since (Default: 30).                                                                       | Mode        |
+| --use-ssl                |     Set if WSUS use ssl.                                                                                                                   | Mode        |
+| --warning-* --critical-* |     Thresholds. Can be: 'needing-updates', 'with-update-errors', 'up-to-date', 'not-contacted', 'unassigned'                               | Mode        |
+| --filter-counters        |     Only display some counters (regexp can be used). Example: --filter-counters='errors'                                                   | Mode        |
+
+</TabItem>
+<TabItem value="Server-Statistics" label="Server-Statistics">
+
+| Option            | Description                                                                                                                                                                      | Option type |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| --timeout         |     Set timeout time for command execution (Default: 30 sec)                                                                                                                     | Mode        |
+| --no-ps           |     Don't encode powershell. To be used with --command and 'type'command.                                                                                                        | Mode        |
+| --command         |     Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option.                                         | Mode        |
+| --command-path    |     Command path (Default: none).                                                                                                                                                | Mode        |
+| --command-options |     Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                      | Mode        |
+| --ps-display      |     Display powershell script.                                                                                                                                                   | Mode        |
+| --ps-exec-only    |     Print powershell output.                                                                                                                                                     | Mode        |
+| --wsus-server     |     Set WSUS hostname/IP (Dafault: localhost).                                                                                                                                   | Mode        |
+| --wsus-port       |     Set WSUS port (Default: 8530).                                                                                                                                               | Mode        |
+| --use-ssl         |     Set if WSUS use ssl.                                                                                                                                                         | Mode        |
+| --warning-*       |     Warning thresholds. Can be: 'computers', 'computer-groups', 'updates', 'approved-updates', 'declined-updates', 'not-approved-updates', 'stale-updates', 'expired-updates'    | Mode        |
+| --critical-*      |     Critical thresholds. Can be: 'computers', 'computer-groups', 'updates', 'approved-updates', 'declined-updates', 'not-approved-updates', 'stale-updates', 'expired-updates'   | Mode        |
+| --filter-counters |     Only display some counters (regexp can be used). Example: --filter-counters='not'                                                                                            | Mode        |
+
+</TabItem>
+<TabItem value="Synchronisation-Status" label="Synchronisation-Status">
+
+| Option                                 | Description                                                                                                                                        | Option type |
+|:---------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| --timeout                              |     Set timeout time for command execution (Default: 30 sec)                                                                                       | Mode        |
+| --no-ps                                |     Don't encode powershell. To be used with --command and 'type'command.                                                                          | Mode        |
+| --command                              |     Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option.           | Mode        |
+| --command-path                         |     Command path (Default: none).                                                                                                                  | Mode        |
+| --command-options                      |     Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                        | Mode        |
+| --ps-display                           |     Display powershell script.                                                                                                                     | Mode        |
+| --ps-exec-only                         |     Print powershell output.                                                                                                                       | Mode        |
+| --wsus-server                          |     Set WSUS hostname/IP (Dafault: localhost).                                                                                                     | Mode        |
+| --wsus-port                            |     Set WSUS port (Default: 8530).                                                                                                                 | Mode        |
+| --use-ssl                              |     Set if WSUS use ssl.                                                                                                                           | Mode        |
+| --warning-synchronisation-status       |     Set warning threshold for current synchronisation status (Default: '') Can used special variables like: %{status}.                             | Mode        |
+| --critical-synchronisation-status      |     Set critical threshold for current synchronisation status (Default: ''). Can used special variables like: %{status}.                           | Mode        |
+| --warning-last-synchronisation-status  |     Set warning threshold for current synchronisation status (Default: '') Can used special variables like: %{status}.                             | Mode        |
+| --critical-last-synchronisation-status |     Set critical threshold for current synchronisation status (Default: '%{status} !~ /Succeeded/'). Can used special variables like: %{status}.   | Mode        |
+| --warning-* --critical-*               |     Thresholds. Can be: 'last-synchronisation-duration' (s), 'synchronisation-progress' (%).                                                       | Mode        |
+| --filter-counters                      |     Only display some counters (regexp can be used). Example: --filter-counters='status'                                                           | Mode        |
+
+</TabItem>
+<TabItem value="Update-Status" label="Update-Status">
+
+| Option            | Description                                                                                                                                | Option type |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------|
+| --timeout         |     Set timeout time for command execution (Default: 30 sec)                                                                               | Mode        |
+| --no-ps           |     Don't encode powershell. To be used with --command and 'type'command.                                                                  | Mode        |
+| --command         |     Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option.   | Mode        |
+| --command-path    |     Command path (Default: none).                                                                                                          | Mode        |
+| --command-options |     Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                | Mode        |
+| --ps-display      |     Display powershell script.                                                                                                             | Mode        |
+| --ps-exec-only    |     Print powershell output.                                                                                                               | Mode        |
+| --wsus-server     |     Set WSUS hostname/IP (Dafault: localhost).                                                                                             | Mode        |
+| --wsus-port       |     Set WSUS port (Default: 8530).                                                                                                         | Mode        |
+| --use-ssl         |     Set if WSUS use ssl.                                                                                                                   | Mode        |
+| --warning-*       |     Warning thresholds. Can be: 'with-client-errors', 'with-server-errors', 'needing-files', 'needed-by-computers', 'up-to-date'.          | Mode        |
+| --critical-*      |     Critical thresholds. Can be: 'with-client-errors', 'with-server-errors', 'needing-files', 'needed-by-computers', 'up-to-date'.         | Mode        |
+| --filter-counters |     Only display some counters (regexp can be used). Example: --filter-counters='errors'                                                   | Mode        |
+
+</TabItem>
+</Tabs>
+
+
+Pour un mode, la liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+    --plugin=apps::nsclient::restapi::plugin \
+    --mode=query \
+    --help
 ```
 
 ### Diagnostic des erreurs communes
