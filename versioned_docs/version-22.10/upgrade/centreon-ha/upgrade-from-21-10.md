@@ -32,8 +32,10 @@ When upgrading from an older version, you need to go through the [key rotation p
 ## Upgrade process
 
 To perform the upgrade:
-For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step included**.
-For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step included only. Do not proceed the "Finalizing the upgrade" step.**.
+
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step included**.
+
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step included only. Do not proceed the "Finalizing the upgrade" step.**.
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
