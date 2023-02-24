@@ -152,9 +152,9 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 
 Le plugin apporte les custom modes suivants :
 
+* tcp
 * opensslcli
 * file
-* tcp
 * https
 
 ### Modes disponibles

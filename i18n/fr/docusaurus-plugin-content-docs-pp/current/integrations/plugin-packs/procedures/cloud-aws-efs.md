@@ -29,7 +29,7 @@ Il apporte les modèles de service suivants :
 
 Ce pack propose une règle de découverte d'hôtes permettant de découvrir automatiquement des ressources Amazon EFS :
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-efs-provider.png)
+
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery).
 
@@ -223,7 +223,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=97;;;; 'efs.data.iobytes.write.bytes'=17B;;;; 'efs.metadata.iobytes.bytes'=97B;;;; 'efs.total.iobytes.bytes'=57B;;;; 'efs.creditbalance.burst.bytes'=49B;;;; 
+OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=25;;;; 'efs.data.iobytes.write.bytes'=71B;;;; 'efs.metadata.iobytes.bytes'=14B;;;; 'efs.total.iobytes.bytes'=4B;;;; 'efs.creditbalance.burst.bytes'=46B;;;; 
 ```
 
 ### Custom modes disponibles
@@ -239,8 +239,8 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 
 Le plugin apporte les custom modes suivants :
 
-* paws
 * awscli
+* paws
 
 ### Modes disponibles
 

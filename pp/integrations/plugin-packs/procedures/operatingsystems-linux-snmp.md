@@ -384,7 +384,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK:   Used : %.2f %% | 'swap.usage.bytes'=48B;;;0; 'swap.free.bytes'=52B;;;0; 'swap.usage.percentage'=9%;;;0;100 
+OK:   Used : %.2f %% | 'swap.usage.bytes'=11B;;;0; 'swap.free.bytes'=28B;;;0; 'swap.usage.percentage'=67%;;;0;100 
 ```
 
 ### Available modes

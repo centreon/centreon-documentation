@@ -212,16 +212,15 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
-* Appliquez le modèle d'hôte **Cloud-Azure-Network-AppGateway-V2**.
+* Appliquez le modèle d'hôte **Cloud-Azure-Network-AppGateway-V2-custom**.
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des macros :
-
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro *AZURERESOURCE*.
 > * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
 
--custom<Tabs groupId="sync">
+<Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Obligatoire    | Macro              | Description                                  |
@@ -245,6 +244,8 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 |                | AZURESUBSCRIPTION  | Subscription ID                              |
 
 </TabItem>
+</Tabs>
+
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
@@ -282,7 +283,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=24;;;0; 'appgateway.compute.units.count'=65;;;0; 'appgateway.billed.units.estimated.count'=69;;;0; 'appgateway.billable.units.fixed.count'=6;;;0; 
+OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=12;;;0; 'appgateway.compute.units.count'=86;;;0; 'appgateway.billed.units.estimated.count'=69;;;0; 'appgateway.billable.units.fixed.count'=20;;;0; 
 ```
 
 ### Custom modes disponibles

@@ -153,9 +153,9 @@ the command:
 
 The plugin brings the following custom modes:
 
+* tcp
 * opensslcli
 * file
-* tcp
 * https
 
 ### Available modes
