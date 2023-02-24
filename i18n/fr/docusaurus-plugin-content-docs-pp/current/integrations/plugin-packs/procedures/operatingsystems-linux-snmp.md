@@ -367,7 +367,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=swap \
     --hostname=10.0.0.1 \
@@ -381,7 +381,7 @@ usr/lib/centreon/plugins//centreon_linux_snmp.pl \
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:   Used : %.2f %% | 'swap.usage.bytes'=66B;;;0; 'swap.free.bytes'=38B;;;0; 'swap.usage.percentage'=84%;;;0;100 
+OK:   Used : %.2f %% | 'swap.usage.bytes'=48B;;;0; 'swap.free.bytes'=52B;;;0; 'swap.usage.percentage'=9%;;;0;100 
 ```
 
 ### Modes disponibles
@@ -390,7 +390,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --list-mode
 ```
@@ -1089,7 +1089,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=swap \
     --help

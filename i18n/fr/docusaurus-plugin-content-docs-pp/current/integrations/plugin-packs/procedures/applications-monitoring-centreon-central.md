@@ -262,7 +262,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-gins//centreon_linux_snmp.pl \
+entreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=processcount \
     --hostname=10.0.0.1 \
@@ -291,7 +291,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-gins//centreon_linux_snmp.pl \
+entreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --list-mode
 ```
@@ -1099,7 +1099,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-gins//centreon_linux_snmp.pl \
+entreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=processcount \
     --help

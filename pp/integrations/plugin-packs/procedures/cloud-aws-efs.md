@@ -193,7 +193,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --mode=datausage \
     --custommode='awscli' \
@@ -224,7 +224,7 @@ usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
 The expected command output is shown below:
 
 ```bash
-OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=44;;;; 'efs.data.iobytes.write.bytes'=79B;;;; 'efs.metadata.iobytes.bytes'=74B;;;; 'efs.total.iobytes.bytes'=43B;;;; 'efs.creditbalance.burst.bytes'=36B;;;; 
+OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=97;;;; 'efs.data.iobytes.write.bytes'=17B;;;; 'efs.metadata.iobytes.bytes'=97B;;;; 'efs.total.iobytes.bytes'=57B;;;; 'efs.creditbalance.burst.bytes'=49B;;;; 
 ```
 
 ### Available custom modes
@@ -233,7 +233,7 @@ All available custom modes can be displayed by adding the `--list-custommode` pa
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --list-custommode
 ```
@@ -249,7 +249,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --list-mode
 ```
@@ -377,7 +377,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --mode=datausage \
     --help

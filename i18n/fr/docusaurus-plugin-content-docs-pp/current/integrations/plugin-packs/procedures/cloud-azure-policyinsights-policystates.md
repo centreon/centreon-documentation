@@ -119,11 +119,17 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 ### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-* Appliquez le modèle d'hôte **Cloud-Azure-PolicyInsights-PolicyStates-custom**.
-* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+* Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
+* Appliquez le modèle d'hôte **Cloud-Azure-PolicyInsights-PolicyStates**.
+* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
-| Obligatoire    | Macro              | Description                                                                            |
+> Deux méthodes peuvent être utilisées lors de l'assignation des macros :
+
+>
+> * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro *AZURERESOURCE*.
+> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
+
+-custom| Obligatoire    | Macro              | Description                                                                            |
 |:---------------|:-------------------|:---------------------------------------------------------------------------------------|
 |                | AZURECLIENTID      |                                                                                        |
 |                | AZURECLIENTSECRET  |                                                                                        |
@@ -162,7 +168,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Number of non compiant policies: 43  | 'policies.non_compliant.count'=43;;;0; 
+OK: Number of non compiant policies: 9  | 'policies.non_compliant.count'=9;;;0; 
 ```
 
 ### Modes disponibles

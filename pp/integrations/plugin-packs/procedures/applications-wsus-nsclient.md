@@ -185,7 +185,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --mode=query \
     --hostname=10.0.0.1 \
@@ -216,7 +216,7 @@ usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
 The expected command output is shown below:
 
 ```bash
-OK: With Client Errors: 61 With Server Errors: 3 Needing Files: 70 Needed By Computers: 28 Up-to-date: %s | 
+OK: With Client Errors: 96 With Server Errors: 70 Needing Files: 60 Needed By Computers: 19 Up-to-date: %s | 
 ```
 
 ### Available modes
@@ -225,7 +225,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --list-mode
 ```
@@ -364,7 +364,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --mode=query \
     --help

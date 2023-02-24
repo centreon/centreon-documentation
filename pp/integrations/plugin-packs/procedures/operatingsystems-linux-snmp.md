@@ -370,7 +370,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=swap \
     --hostname=10.0.0.1 \
@@ -384,7 +384,7 @@ usr/lib/centreon/plugins//centreon_linux_snmp.pl \
 The expected command output is shown below:
 
 ```bash
-OK:   Used : %.2f %% | 'swap.usage.bytes'=66B;;;0; 'swap.free.bytes'=38B;;;0; 'swap.usage.percentage'=84%;;;0;100 
+OK:   Used : %.2f %% | 'swap.usage.bytes'=48B;;;0; 'swap.free.bytes'=52B;;;0; 'swap.usage.percentage'=9%;;;0;100 
 ```
 
 ### Available modes
@@ -393,7 +393,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --list-mode
 ```
@@ -1090,7 +1090,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=swap \
     --help

@@ -212,7 +212,7 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
-* Appliquez le modèle d'hôte **Cloud-Azure-Network-AppGateway-V2-custom**.
+* Appliquez le modèle d'hôte **Cloud-Azure-Network-AppGateway-V2**.
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des macros :
@@ -221,7 +221,7 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro *AZURERESOURCE*.
 > * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
 
-<Tabs groupId="sync">
+-custom<Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Obligatoire    | Macro              | Description                                  |
@@ -235,7 +235,7 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 |                | AZURETENANT        | Tenant ID                                    |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Obligatoire    | Macro              | Description                                  |
 |:---------------|:-------------------|:---------------------------------------------|
@@ -245,8 +245,6 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 |                | AZURESUBSCRIPTION  | Subscription ID                              |
 
 </TabItem>
-</Tabs>
-
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
@@ -254,7 +252,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --mode=units \
     --custommode='api' \
@@ -284,7 +282,7 @@ usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=11;;;0; 'appgateway.compute.units.count'=89;;;0; 'appgateway.billed.units.estimated.count'=26;;;0; 'appgateway.billable.units.fixed.count'=77;;;0; 
+OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=24;;;0; 'appgateway.compute.units.count'=65;;;0; 'appgateway.billed.units.estimated.count'=69;;;0; 'appgateway.billable.units.fixed.count'=6;;;0; 
 ```
 
 ### Custom modes disponibles
@@ -293,15 +291,15 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 `--list-custommode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --list-custommode
 ```
 
 Le plugin apporte les custom modes suivants :
 
-* api
 * azcli
+* api
 
 ### Modes disponibles
 
@@ -309,7 +307,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --list-mode
 ```
@@ -560,7 +558,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --mode=units \
     --help

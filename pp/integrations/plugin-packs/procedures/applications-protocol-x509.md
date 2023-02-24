@@ -123,7 +123,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --mode=certificate \
     --custommode='tcp' \
@@ -146,17 +146,17 @@ All available custom modes can be displayed by adding the `--list-custommode` pa
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --list-custommode
 ```
 
 The plugin brings the following custom modes:
 
-* tcp
-* file
-* https
 * opensslcli
+* file
+* tcp
+* https
 
 ### Available modes
 
@@ -164,7 +164,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --list-mode
 ```
@@ -294,7 +294,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --mode=certificate \
     --help

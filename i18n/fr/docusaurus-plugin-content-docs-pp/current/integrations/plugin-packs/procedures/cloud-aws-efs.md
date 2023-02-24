@@ -192,7 +192,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --mode=datausage \
     --custommode='awscli' \
@@ -223,7 +223,7 @@ usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=44;;;; 'efs.data.iobytes.write.bytes'=79B;;;; 'efs.metadata.iobytes.bytes'=74B;;;; 'efs.total.iobytes.bytes'=43B;;;; 'efs.creditbalance.burst.bytes'=36B;;;; 
+OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=97;;;; 'efs.data.iobytes.write.bytes'=17B;;;; 'efs.metadata.iobytes.bytes'=97B;;;; 'efs.total.iobytes.bytes'=57B;;;; 'efs.creditbalance.burst.bytes'=49B;;;; 
 ```
 
 ### Custom modes disponibles
@@ -232,7 +232,7 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 `--list-custommode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --list-custommode
 ```
@@ -248,7 +248,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --list-mode
 ```
@@ -378,7 +378,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
+/usr/lib/centreon/plugins/centreon_aws_efs_api.pl \
     --plugin=cloud::aws::efs::plugin \
     --mode=datausage \
     --help

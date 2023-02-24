@@ -185,7 +185,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --mode=query \
     --hostname=10.0.0.1 \
@@ -216,7 +216,7 @@ usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: With Client Errors: 61 With Server Errors: 3 Needing Files: 70 Needed By Computers: 28 Up-to-date: %s | 
+OK: With Client Errors: 96 With Server Errors: 70 Needing Files: 60 Needed By Computers: 19 Up-to-date: %s | 
 ```
 
 ### Modes disponibles
@@ -225,7 +225,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --list-mode
 ```
@@ -366,7 +366,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin \
     --mode=query \
     --help

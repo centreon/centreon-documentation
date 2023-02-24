@@ -120,11 +120,18 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 ### Host
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-* Apply the **Cloud-Azure-PolicyInsights-PolicyStates-custom** template to the host
+* In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+* Apply the **Cloud-Azure-PolicyInsights-PolicyStates** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+These mandatory macros differ depending on the custom mode used.
 
-| Mandatory      | Macro              | Description                                                                            |
+> Two methods can be used to set the macros:
+
+>> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+in **AZURERESOURCE**
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+
+-custom| Mandatory      | Macro              | Description                                                                            |
 |:---------------|:-------------------|:---------------------------------------------------------------------------------------|
 |                | AZURECLIENTID      |                                                                                        |
 |                | AZURECLIENTSECRET  |                                                                                        |
@@ -163,7 +170,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: Number of non compiant policies: 43  | 'policies.non_compliant.count'=43;;;0; 
+OK: Number of non compiant policies: 9  | 'policies.non_compliant.count'=9;;;0; 
 ```
 
 ### Available modes

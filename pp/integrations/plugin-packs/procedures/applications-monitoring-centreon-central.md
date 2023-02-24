@@ -263,7 +263,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-gins//centreon_linux_snmp.pl \
+entreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=processcount \
     --hostname=10.0.0.1 \
@@ -292,7 +292,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-gins//centreon_linux_snmp.pl \
+entreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --list-mode
 ```
@@ -1098,7 +1098,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-gins//centreon_linux_snmp.pl \
+entreon/plugins/centreon_linux_snmp.pl \
     --plugin=os::linux::snmp::plugin \
     --mode=processcount \
     --help

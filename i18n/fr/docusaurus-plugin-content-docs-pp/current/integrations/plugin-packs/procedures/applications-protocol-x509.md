@@ -122,7 +122,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --mode=certificate \
     --custommode='tcp' \
@@ -145,17 +145,17 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 `--list-custommode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --list-custommode
 ```
 
 Le plugin apporte les custom modes suivants :
 
-* tcp
-* file
-* https
 * opensslcli
+* file
+* tcp
+* https
 
 ### Modes disponibles
 
@@ -163,7 +163,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --list-mode
 ```
@@ -293,7 +293,7 @@ Pour un mode, la liste de toutes les options complémentaires et leur significat
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
     --plugin=apps::protocols::x509::plugin \
     --mode=certificate \
     --help

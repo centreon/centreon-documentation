@@ -211,7 +211,7 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
 * In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
-* Apply the **Cloud-Azure-Network-AppGateway-V2-custom** template to the host.
+* Apply the **Cloud-Azure-Network-AppGateway-V2** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 These mandatory macros differ depending on the custom mode used.
 
@@ -221,7 +221,7 @@ These mandatory macros differ depending on the custom mode used.
 in **AZURERESOURCE**
 > * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
-<Tabs groupId="sync">
+-custom<Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory      | Macro              | Description                                  |
@@ -235,7 +235,7 @@ in **AZURERESOURCE**
 |                | AZURETENANT        | Tenant ID                                    |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory      | Macro              | Description                                  |
 |:---------------|:-------------------|:---------------------------------------------|
@@ -245,8 +245,6 @@ in **AZURERESOURCE**
 |                | AZURESUBSCRIPTION  | Subscription ID                              |
 
 </TabItem>
-</Tabs>
-
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
@@ -254,7 +252,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --mode=units \
     --custommode='api' \
@@ -284,7 +282,7 @@ usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
 The expected command output is shown below:
 
 ```bash
-OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=11;;;0; 'appgateway.compute.units.count'=89;;;0; 'appgateway.billed.units.estimated.count'=26;;;0; 'appgateway.billable.units.fixed.count'=77;;;0; 
+OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=24;;;0; 'appgateway.compute.units.count'=65;;;0; 'appgateway.billed.units.estimated.count'=69;;;0; 'appgateway.billable.units.fixed.count'=6;;;0; 
 ```
 
 ### Available custom modes
@@ -293,15 +291,15 @@ All available custom modes can be displayed by adding the `--list-custommode` pa
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --list-custommode
 ```
 
 The plugin brings the following custom modes:
 
-* api
 * azcli
+* api
 
 ### Available modes
 
@@ -309,7 +307,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --list-mode
 ```
@@ -558,7 +556,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
     --plugin=cloud::azure::network::appgateway::plugin \
     --mode=units \
     --help
