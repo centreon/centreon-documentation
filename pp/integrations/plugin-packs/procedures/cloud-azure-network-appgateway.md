@@ -284,7 +284,7 @@ usr/lib/centreon/plugins//centreon_azure_network_appgateway_api.pl \
 The expected command output is shown below:
 
 ```bash
-OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=85;;;0; 'appgateway.compute.units.count'=74;;;0; 'appgateway.billed.units.estimated.count'=10;;;0; 'appgateway.billable.units.fixed.count'=72;;;0; 
+OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=11;;;0; 'appgateway.compute.units.count'=89;;;0; 'appgateway.billed.units.estimated.count'=26;;;0; 'appgateway.billable.units.fixed.count'=77;;;0; 
 ```
 
 ### Available custom modes

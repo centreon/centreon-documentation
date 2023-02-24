@@ -162,11 +162,10 @@ apt install centreon-nrpe3-plugin
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-* Apply the **App-Wsus-NRPE-custom** template to the host.
-
+* Apply the **App-Wsus-NRPE-custom** template to the host
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-    | Mandatory      | Macro                     | Description                                                                            |
+| Mandatory      | Macro                     | Description                                                                            |
 |:---------------|:--------------------------|:---------------------------------------------------------------------------------------|
 |                | NRPECLIENT                | (Default: 'check_centreon_nrpe')                                                       |
 |                | NRPEEXTRAOPTIONS          | -u -m 8192                                                                             |
@@ -217,7 +216,7 @@ usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
 The expected command output is shown below:
 
 ```bash
-OK: With Client Errors: 46 With Server Errors: 57 Needing Files: 11 Needed By Computers: 46 Up-to-date: %s | 
+OK: With Client Errors: 61 With Server Errors: 3 Needing Files: 70 Needed By Computers: 28 Up-to-date: %s | 
 ```
 
 ### Available modes

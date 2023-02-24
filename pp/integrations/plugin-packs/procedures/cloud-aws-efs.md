@@ -172,11 +172,10 @@ apt install centreon-plugin-cloud-aws-efs-api
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-* Apply the **Cloud-Aws-Efs-custom** template to the host.
-
+* Apply the **Cloud-Aws-Efs-custom** template to the host
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 
-    | Mandatory      | Macro           | Description                                                                            |
+| Mandatory      | Macro           | Description                                                                            |
 |:---------------|:----------------|:---------------------------------------------------------------------------------------|
 |                | AWSACCESSKEY    |                                                                                        |
 |                | AWSASSUMEROLE   |                                                                                        |
@@ -225,7 +224,7 @@ usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
 The expected command output is shown below:
 
 ```bash
-OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=36;;;; 'efs.data.iobytes.write.bytes'=74B;;;; 'efs.metadata.iobytes.bytes'=9B;;;; 'efs.total.iobytes.bytes'=35B;;;; 'efs.creditbalance.burst.bytes'=11B;;;; 
+OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=44;;;; 'efs.data.iobytes.write.bytes'=79B;;;; 'efs.metadata.iobytes.bytes'=74B;;;; 'efs.total.iobytes.bytes'=43B;;;; 'efs.creditbalance.burst.bytes'=36B;;;; 
 ```
 
 ### Available custom modes

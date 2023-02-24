@@ -356,11 +356,7 @@ apt install centreon-plugin-operatingsystems-linux-snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
-
-    * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
-
-    | Mandatory      | Macro            | Description                                  |
+| Obligatoire    | Macro            | Description                                  |
 |:---------------|:-----------------|:---------------------------------------------|
 |                | SNMPEXTRAOPTIONS | Configurer vos paramètres de sécurité SNMPv3 |
 
@@ -385,7 +381,7 @@ usr/lib/centreon/plugins//centreon_linux_snmp.pl \
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:   Used : %.2f %% | 'swap.usage.bytes'=54B;;;0; 'swap.free.bytes'=86B;;;0; 'swap.usage.percentage'=31%;;;0;100 
+OK:   Used : %.2f %% | 'swap.usage.bytes'=66B;;;0; 'swap.free.bytes'=38B;;;0; 'swap.usage.percentage'=84%;;;0;100 
 ```
 
 ### Modes disponibles

@@ -29,7 +29,7 @@ Il apporte les modèles de service suivants :
 
 Ce pack propose une règle de découverte d'hôtes permettant de découvrir automatiquement des ressources Amazon EFS :
 
-
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-efs-provider.png)
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery).
 
@@ -172,12 +172,9 @@ apt install centreon-plugin-cloud-aws-efs-api
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 * Appliquez le modèle d'hôte **Cloud-Aws-Efs-custom**.
-
 * Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-    * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
-
-    | Mandatory      | Macro           | Description                                                                            |
+| Obligatoire    | Macro           | Description                                                                            |
 |:---------------|:----------------|:---------------------------------------------------------------------------------------|
 |                | AWSACCESSKEY    |                                                                                        |
 |                | AWSASSUMEROLE   |                                                                                        |
@@ -226,7 +223,7 @@ usr/lib/centreon/plugins//centreon_aws_efs_api.pl \
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=36;;;; 'efs.data.iobytes.write.bytes'=74B;;;; 'efs.metadata.iobytes.bytes'=9B;;;; 'efs.total.iobytes.bytes'=35B;;;; 'efs.creditbalance.burst.bytes'=11B;;;; 
+OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=44;;;; 'efs.data.iobytes.write.bytes'=79B;;;; 'efs.metadata.iobytes.bytes'=74B;;;; 'efs.total.iobytes.bytes'=43B;;;; 'efs.creditbalance.burst.bytes'=36B;;;; 
 ```
 
 ### Custom modes disponibles

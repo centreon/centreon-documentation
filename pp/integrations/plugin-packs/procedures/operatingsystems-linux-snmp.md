@@ -384,7 +384,7 @@ usr/lib/centreon/plugins//centreon_linux_snmp.pl \
 The expected command output is shown below:
 
 ```bash
-OK:   Used : %.2f %% | 'swap.usage.bytes'=54B;;;0; 'swap.free.bytes'=86B;;;0; 'swap.usage.percentage'=31%;;;0;100 
+OK:   Used : %.2f %% | 'swap.usage.bytes'=66B;;;0; 'swap.free.bytes'=38B;;;0; 'swap.usage.percentage'=84%;;;0;100 
 ```
 
 ### Available modes

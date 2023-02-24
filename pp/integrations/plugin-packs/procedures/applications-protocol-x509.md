@@ -153,10 +153,10 @@ usr/lib/centreon/plugins//centreon_protocol_x509.pl \
 
 The plugin brings the following custom modes:
 
-* opensslcli
+* tcp
 * file
 * https
-* tcp
+* opensslcli
 
 ### Available modes
 
