@@ -126,8 +126,8 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 These mandatory macros differ depending on the custom mode used.
 
 > Two methods can be used to set the macros:
-
->> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
+>
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`)
 in **AZURERESOURCE**
 > * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
 
@@ -170,7 +170,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: Number of non compiant policies: 9  | 'policies.non_compliant.count'=9;;;0; 
+OK: Number of non compiant policies: 23  | 'policies.non_compliant.count'=23;;;0; 
 ```
 
 ### Available modes

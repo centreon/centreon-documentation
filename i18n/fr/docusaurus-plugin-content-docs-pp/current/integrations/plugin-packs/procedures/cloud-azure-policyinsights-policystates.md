@@ -124,7 +124,6 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 * Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des macros :
-
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro *AZURERESOURCE*.
 > * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
@@ -168,7 +167,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Number of non compiant policies: 9  | 'policies.non_compliant.count'=9;;;0; 
+OK: Number of non compiant policies: 23  | 'policies.non_compliant.count'=23;;;0; 
 ```
 
 ### Modes disponibles
