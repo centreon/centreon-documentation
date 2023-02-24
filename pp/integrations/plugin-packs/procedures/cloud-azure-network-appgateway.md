@@ -235,7 +235,7 @@ in **AZURERESOURCE**
 |                | AZURETENANT        | Tenant ID                                    |
 
 </TabItem>
-<<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Mandatory      | Macro              | Description                                  |
 |:---------------|:-------------------|:---------------------------------------------|
@@ -284,7 +284,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=12;;;0; 'appgateway.compute.units.count'=86;;;0; 'appgateway.billed.units.estimated.count'=69;;;0; 'appgateway.billable.units.fixed.count'=20;;;0; 
+OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=34;;;0; 'appgateway.compute.units.count'=99;;;0; 'appgateway.billed.units.estimated.count'=96;;;0; 'appgateway.billable.units.fixed.count'=8;;;0; 
 ```
 
 ### Available custom modes
@@ -300,8 +300,8 @@ the command:
 
 The plugin brings the following custom modes:
 
-* azcli
 * api
+* azcli
 
 ### Available modes
 

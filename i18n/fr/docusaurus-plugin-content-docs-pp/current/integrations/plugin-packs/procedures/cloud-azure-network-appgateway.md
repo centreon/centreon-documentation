@@ -234,7 +234,7 @@ apt install centreon-plugin-cloud-azure-network-appgateway-api
 |                | AZURETENANT        | Tenant ID                                    |
 
 </TabItem>
-<<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Obligatoire    | Macro              | Description                                  |
 |:---------------|:-------------------|:---------------------------------------------|
@@ -283,7 +283,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=12;;;0; 'appgateway.compute.units.count'=86;;;0; 'appgateway.billed.units.estimated.count'=69;;;0; 'appgateway.billable.units.fixed.count'=20;;;0; 
+OK: Capacity Units consumed Compute Units consumed Estimated Billed Capacity Units Fixed Billable Capacity Units | 'appgateway.capacity.units.count'=34;;;0; 'appgateway.compute.units.count'=99;;;0; 'appgateway.billed.units.estimated.count'=96;;;0; 'appgateway.billable.units.fixed.count'=8;;;0; 
 ```
 
 ### Custom modes disponibles
@@ -299,8 +299,8 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 
 Le plugin apporte les custom modes suivants :
 
-* azcli
 * api
+* azcli
 
 ### Modes disponibles
 

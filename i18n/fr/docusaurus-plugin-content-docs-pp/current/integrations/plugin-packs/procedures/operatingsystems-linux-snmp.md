@@ -381,7 +381,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:   Used : %.2f %% | 'swap.usage.bytes'=11B;;;0; 'swap.free.bytes'=28B;;;0; 'swap.usage.percentage'=67%;;;0;100 
+OK:   Used : %.2f %% | 'swap.usage.bytes'=93B;;;0; 'swap.free.bytes'=38B;;;0; 'swap.usage.percentage'=89%;;;0;100 
 ```
 
 ### Modes disponibles

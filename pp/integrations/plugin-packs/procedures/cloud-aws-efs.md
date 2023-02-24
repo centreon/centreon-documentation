@@ -224,7 +224,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=25;;;; 'efs.data.iobytes.write.bytes'=71B;;;; 'efs.metadata.iobytes.bytes'=14B;;;; 'efs.total.iobytes.bytes'=4B;;;; 'efs.creditbalance.burst.bytes'=46B;;;; 
+OK: Data Read IO Bytes Data Write IO Bytes MetaData IO Bytes Total IO Bytes Burst Credit Balance Bytes | 'efs.data.iobytes.read.bytes'=0;;;; 'efs.data.iobytes.write.bytes'=28B;;;; 'efs.metadata.iobytes.bytes'=34B;;;; 'efs.total.iobytes.bytes'=92B;;;; 'efs.creditbalance.burst.bytes'=13B;;;; 
 ```
 
 ### Available custom modes
@@ -240,8 +240,8 @@ the command:
 
 The plugin brings the following custom modes:
 
-* awscli
 * paws
+* awscli
 
 ### Available modes
 

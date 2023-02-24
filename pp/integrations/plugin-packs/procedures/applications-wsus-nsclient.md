@@ -216,7 +216,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK: With Client Errors: 40 With Server Errors: 45 Needing Files: 82 Needed By Computers: 81 Up-to-date: %s | 
+OK: With Client Errors: 6 With Server Errors: 44 Needing Files: 57 Needed By Computers: 25 Up-to-date: %s | 
 ```
 
 ### Available modes
