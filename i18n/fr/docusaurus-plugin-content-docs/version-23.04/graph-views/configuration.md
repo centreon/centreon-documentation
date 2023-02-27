@@ -44,6 +44,8 @@ Deux règles simples s'appliquent à ce type de vue :
 
 ## Charger les ressources désactivées (ou non)
 
+> Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
+
 Vous pouvez décider de charger ou non les ressources désactivées dans le client lourd Centreon MAP.
 Si vous le faites (ce qui est la configuration par défaut), toutes les ressources désactivées apparaîtront dans la liste des ressources.
 Vous pourrez également les utiliser dans vos vues.
@@ -173,6 +175,8 @@ La plupart du temps, configurer la couche de données consistera à :
 ![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
 ## Créer et lier un compte Mapbox
+
+> Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
 Si vous voulez avoir un arrière-plan géographique sur les vues standard et/ou l'utiliser comme fournisseur de services de tuiles dans GeoView, vous devez avoir un compte Mapbox et le lier à votre Centreon MAP.
 

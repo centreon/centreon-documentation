@@ -103,8 +103,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-> Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> Install Centreon MAP repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
@@ -180,6 +179,8 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
 > This configuration also works with a MySQL database.
 
 ## Step 5: MariaDB database
+
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
 1. Stop the **centreon-map** service:
     ```shell

@@ -97,10 +97,7 @@ children which must be included in the count.
 
 #### Software
 
-- OS: CentOS 7 or Redhat 7 / 8
-- DBMS: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+See the [software requirements](../installation/prerequisites.md#software).
 
 #### Information required during configuration
 
@@ -304,7 +301,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 > If the URL doesn't work, you can manually find this package in the folder.
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
 
@@ -463,7 +460,7 @@ the interface part of the extension.
 ### Central server
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:
 
