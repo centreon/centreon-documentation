@@ -52,6 +52,7 @@ dnf update
    rsync -avz /etc/centreon-broker root@<IP_NOUVEAU_CENTREON>:/etc
    rsync -avz /var/log/centreon-engine/archives/ root@<IP_NOUVEAU_CENTREON>:/var/log/centreon-engine
    rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
+   rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
    ```
 
   Si vous avez personnalisé le nom de votre fichier de clé privée, utilisez le format suivant (remplacez **id_rsa_custom** par le nom de votre fichier, et `<commande>` par les commandes ci-dessus):
