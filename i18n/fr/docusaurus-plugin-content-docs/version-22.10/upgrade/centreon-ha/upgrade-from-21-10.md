@@ -516,7 +516,7 @@ bash centreon_pcs_command.sh
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 ```
 
 </TabItem>
@@ -524,7 +524,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
-pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
+pcs constraint colocation add master "centreon" with "ms_mysql-master"
 ```
 
 </TabItem>
