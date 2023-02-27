@@ -35,7 +35,7 @@ Exemple d'architecture distribuée avec 3 serveurs distants et 6 collecteurs. No
 Votre serveur central peut avoir une base de données déportée. Une architecture avec base de données déportée consiste en :
 
 * Un serveur central qui permet de configurer la supervision, d'afficher les données collectées et d'agir dessus.
-* Un serveur de base de données chargée de stocker toutes les données collectées
+* Un serveur de base de données chargé de stocker toutes les données collectées
 * En option, un ou plusieurs serveurs distants/collecteurs qui collectent des données.
 
 ## De quel type d'architecture avez-vous besoin ?
