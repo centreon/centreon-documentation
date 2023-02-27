@@ -83,6 +83,10 @@ html[data-theme='dark']:root {
   --ifm-toc-link-color: #fff;
 }
 
+[stroke=currentColor] {
+  stroke: var(--ifm-color-primary);
+}
+
 /* MAIN CONTAINER */
 @media (min-width:1200px) {
   .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
