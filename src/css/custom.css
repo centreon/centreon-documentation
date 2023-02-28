@@ -59,6 +59,7 @@ html:root {
   --ifm-navbar-shadow: none;
   --ifm-background-color-invert: #00003D;
   --ifm-background-color: #fff;
+  --ifm-code-background: rgba(7, 0, 63, 0.1);
 }
 
 html[data-theme='dark']:root {
@@ -81,6 +82,7 @@ html[data-theme='dark']:root {
   --ifm-footer-link-color: #fff;
   --ifm-menu-color: #fff;
   --ifm-toc-link-color: #fff;
+  --ifm-code-background: rgba(255,255,255,0.15);
 }
 
 [stroke=currentColor] {
@@ -187,12 +189,9 @@ aside.theme-doc-sidebar-container button.button svg g {
 
 /* CODE BLOCK */
 html .codeBlock_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
-  --ifm-pre-background: rgba(7, 0, 63, 0.1);
+  --ifm-pre-background: var(--ifm-code-background);
 }
-html[data-theme='dark'] .codeBlock_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
-  --ifm-pre-background: rgba(255,255,255,0.15);
-}
-html[data-theme='dark'] .theme-code-block {
+html .theme-code-block {
   background-color: transparent !important;
 }
 
