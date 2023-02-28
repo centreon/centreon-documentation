@@ -4,20 +4,22 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 
+const basePathImg = './img/homepage/';
+
 const links = {
   social: [
     {
       href: 'https://github.com/centreon/centreon/',
-      image: './img/homepage/social-network/github.png'
+      image: basePathImg + 'social-network/github.png'
     },{
       href: 'https://twitter.com/Centreon',
-      image: './img/homepage/social-network/twitter.png'
+      image: basePathImg + 'social-network/twitter.png'
     },{
       href: 'https://www.linkedin.com/company/centreonsoftware',
-      image: './img/homepage/social-network/linkedin.png'
+      image: basePathImg + 'social-network/linkedin.png'
     },{
       href: 'https://www.youtube.com/c/Centreon-Monitoring',
-      image: './img/homepage/social-network/youtube.png'
+      image: basePathImg + 'social-network/youtube.png'
     }
   ],
   thewatch: 'https://thewatch.centreon.com/',
@@ -86,7 +88,7 @@ const Button = (props) => {
       target={props.target}
     >
       {props.label}
-      <img src="./img/homepage/Arrow.svg"/>
+      <img src={basePathImg + "Arrow.svg"}/>
     </a>
   );
 };
@@ -113,12 +115,12 @@ function SearchForm() {
   return (
     <form className={clsx(styles.searchForm)} onClick={handleClick}>
       <div className={clsx(styles.searchForm_input)}>
-        <img src="./img/homepage/Search.svg"/>
+        <img src={basePathImg + "search.svg"}/>
         <input type="search" placeholder="Search documentation" ></input>
       </div>
       <button className={clsx(styles.button, styles.buttonBig)}>
         Search
-        <img src="./img/homepage/Arrow.svg"/>
+        <img src={basePathImg + "arrow.svg"}/>
       </button>
     </form>
   )
@@ -138,7 +140,7 @@ function HeadingCard(props) {
               <li>
                 <a href={link.href}>
                   <span>{link.label}</span>
-                  <img src="./img/homepage/ExternalLink.svg"/>
+                  <img src={basePathImg + "external_link.svg"}/>
                 </a>
               </li>
             )
@@ -177,7 +179,7 @@ function CommunityBlock() {
       <span className={clsx(styles.badge)}>A strong community</span>
       <div className={clsx(styles.watchWrapper)}>
         <div>
-          <img src="img/homepage/social-network/thewatch.png"/>
+          <img src={basePathImg + "social-network/thewatch.png"}/>
         </div>
         <Button href={links.thewatch} target="_blank" label="Join the community"/>
       </div>
