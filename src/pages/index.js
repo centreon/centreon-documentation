@@ -8,16 +8,16 @@ const links = {
   social: [
     {
       href: 'https://github.com/centreon/centreon/',
-      image: './img/homepage/social-network/GitHub-Emblem.png'
+      image: './img/homepage/social-network/github.png'
     },{
       href: 'https://twitter.com/Centreon',
-      image: './img/homepage/social-network/Twitter.png'
+      image: './img/homepage/social-network/twitter.png'
     },{
       href: 'https://www.linkedin.com/company/centreonsoftware',
-      image: './img/homepage/social-network/Linkedin.png'
+      image: './img/homepage/social-network/linkedin.png'
     },{
       href: 'https://www.youtube.com/c/Centreon-Monitoring',
-      image: './img/homepage/social-network/Youtube.png'
+      image: './img/homepage/social-network/youtube.png'
     }
   ],
   thewatch: 'https://thewatch.centreon.com/',
