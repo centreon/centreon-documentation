@@ -85,7 +85,7 @@ html[data-theme='dark']:root {
   --ifm-code-background: rgba(255,255,255,0.15);
 }
 
-[stroke=currentColor] {
+#feedback [stroke=currentColor] {
   stroke: var(--ifm-color-primary);
 }
 

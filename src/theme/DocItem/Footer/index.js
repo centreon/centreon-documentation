@@ -34,7 +34,7 @@ function EditMetaRow({
       <div className="col">{editUrl && <EditThisPage editUrl={editUrl} /> }</div>
       <div>
 
-      <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <svg id="feedback" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	        viewBox="0 0 24 24"  xml:space="preserve" fill="none" style={{ height: '24px', width: '24px', verticalAlign:"text-top", marginRight: '4px' }} >
         <rect y="0" class="st0" width="24" height="24"/>
         <rect x="2" y="2" class="st0" width="20" height="20"/>
