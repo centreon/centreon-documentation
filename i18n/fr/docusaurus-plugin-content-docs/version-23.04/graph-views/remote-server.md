@@ -3,6 +3,10 @@ id: remote-server
 title: Installer MAP sur un serveur distant
 ---
 
+> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+- L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
+- Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
+
 ## Installation de Centreon MAP sur un serveur distant Centreon
 
 L'installation de l'extension **Centreon MAP** sur un **serveur distant Centreon** doit se faire exactement comme l'installation sur un serveur central, seules la configuration et la désinstallation sont différentes.
@@ -27,15 +31,15 @@ MariaDB [centreon]> update topology SET topology_show='1' where topology_name='I
 
 ## Configuration de Centreon Broker
 
-La configuration de **Centreon MAP** pour un serveur distant Centreon consiste à créer la configuration pour le Broker du serveur distant Centreon **à partir** du serveur central afin que, avec une sortie dédiée au Broker sur le serveur distant Centreon, Centreon MAP puisse recevoir des données en temps réel directement de son serveur distant.
+Pour pouvoir afficher les statuts en temps réel, **Centreon MAP** nécessite de recevoir ces données en provenance du Broker du serveur distant Centreon.
 
-Pour ce faire, vous devez modifier la configuration du **Centreon Broker Master** du serveur distant. Allez dans le menu **Configuration > Collecteurs > Configuration de Centreon Broker** et modifiez la configuration du serveur distant.
+Pour ce faire, vous devez vous connecter au serveur central et modifier la configuration de Centreon Broker Master du serveur distant Centreon. Allez dans le menu **Configuration > Collecteurs > Configuration de Centreon Broker** et modifiez la configuration du **serveur distant**.
 
-Dans l'onglet **Sortie**, créez une nouvelle sortie avec les paramètres suivants :
+Dans l'onglet **Output**, créez une nouvelle sortie avec les paramètres suivants :
 
 ![image](../assets/graph-views/output_broker.png)
 
-Pour terminer l'installation, générez, exportez la configuration et **redémarrez** Centreon Broker manuellement.
+Pour finir l'installation, générez et déployez la configuration du serveur distant Centreon en sélectionnant le mode **Redémarrer**.
 
 ## Désinstallation de Centreon MAP
 
