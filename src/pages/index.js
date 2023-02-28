@@ -127,7 +127,6 @@ function SearchForm() {
 }
 
 function HeadingCard(props) {
-  console.log(props)
   return(
     <div className={clsx(styles.headingCard)}>
       <a href={props.card.href} className={clsx(styles.headingCardHeader)}>
@@ -137,7 +136,7 @@ function HeadingCard(props) {
         <ul>
           {props.card.links.map((link,index)=>{
             return(
-              <li>
+              <li key={index}>
                 <a href={link.href}>
                   <span>{link.label}</span>
                   <img src={basePathImg + "external_link.svg"}/>
@@ -155,7 +154,7 @@ function HeadingCards(props){
   return(
     <div className={clsx(styles.headingCards)}>
       {props.cards.map((card,index)=>{
-        return( <HeadingCard card={card}/> )
+        return( <HeadingCard card={card} key={index}/> )
       })}
     </div>
   )
@@ -186,7 +185,7 @@ function CommunityBlock() {
       <div className={clsx(styles.socialWrapper)}>
         {links.social.map((link,index)=>{
           return(
-            <a href={link.href}>
+            <a href={link.href} key={index}>
               <img src={link.image}/>
             </a>
           )
