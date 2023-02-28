@@ -171,6 +171,10 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "version-22.10/installation/offline"
+        },
+        {
           "type": "category",
           "label": "Installation of Centreon HA",
           "items": [
