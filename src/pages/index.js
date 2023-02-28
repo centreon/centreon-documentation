@@ -88,7 +88,7 @@ const Button = (props) => {
       target={props.target}
     >
       {props.label}
-      <img src={basePathImg + "Arrow.svg"}/>
+      <img src={basePathImg + "arrow.svg"}/>
     </a>
   );
 };
