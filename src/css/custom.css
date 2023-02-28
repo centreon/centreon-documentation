@@ -209,3 +209,20 @@ html .theme-code-block {
 .theme-doc-markdown.markdown a:hover {
   text-decoration: underline;
 }
+
+ol ol,
+ol ol ol,
+ol ul ol,
+ul ol,
+ul ol ol,
+ul ul ol {
+  list-style-type: decimal;
+}
+img[src*="thumbnail1"] {
+  width: 24px!important;
+  margin-bottom: -4px!important;
+}
+img[src*="thumbnail2"] {
+  width: 36px!important;
+  margin-bottom: -6px!important;
+}
