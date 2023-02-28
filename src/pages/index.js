@@ -8,16 +8,16 @@ const links = {
   social: [
     {
       href: 'https://github.com/centreon/centreon/',
-      image: '/img/homepage/social-network/GitHub-Emblem.png'
+      image: './img/homepage/social-network/GitHub-Emblem.png'
     },{
       href: 'https://twitter.com/Centreon',
-      image: '/img/homepage/social-network/Twitter.png'
+      image: './img/homepage/social-network/Twitter.png'
     },{
       href: 'https://www.linkedin.com/company/centreonsoftware',
-      image: '/img/homepage/social-network/Linkedin.png'
+      image: './img/homepage/social-network/Linkedin.png'
     },{
       href: 'https://www.youtube.com/c/Centreon-Monitoring',
-      image: '/img/homepage/social-network/Youtube.png'
+      image: './img/homepage/social-network/Youtube.png'
     }
   ],
   thewatch: 'https://thewatch.centreon.com/',
@@ -86,7 +86,7 @@ const Button = (props) => {
       target={props.target}
     >
       {props.label}
-      <img src="/img/homepage/Arrow.svg"/>
+      <img src="./img/homepage/Arrow.svg"/>
     </a>
   );
 };
@@ -113,12 +113,12 @@ function SearchForm() {
   return (
     <form className={clsx(styles.searchForm)} onClick={handleClick}>
       <div className={clsx(styles.searchForm_input)}>
-        <img src="/img/homepage/Search.svg"/>
+        <img src="./img/homepage/Search.svg"/>
         <input type="search" placeholder="Search documentation" ></input>
       </div>
       <button className={clsx(styles.button, styles.buttonBig)}>
         Search
-        <img src="/img/homepage/Arrow.svg"/>
+        <img src="./img/homepage/Arrow.svg"/>
       </button>
     </form>
   )
@@ -138,7 +138,7 @@ function HeadingCard(props) {
               <li>
                 <a href={link.href}>
                   <span>{link.label}</span>
-                  <img src="/img/homepage/ExternalLink.svg"/>
+                  <img src="./img/homepage/ExternalLink.svg"/>
                 </a>
               </li>
             )
