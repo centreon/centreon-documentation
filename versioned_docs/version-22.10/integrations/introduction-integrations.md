@@ -9,8 +9,8 @@ a perfect integration within your IT ecosystem.
 Integrations rely on various modules and features to make Centreon compliant with 
 your data, alerts, events, or metrics management processes: 
 
-- [Centreon Stream Connector](https://github.com/centreon/centreon-stream-connector-scripts), 
-get the capability to send event and metrics to a third-party tool. They help you to get maximum 
+- [Centreon Stream Connectors](https://github.com/centreon/centreon-stream-connector-scripts):
+get the capability to send events and metrics to a third-party tool. They help you to get maximum 
 insights from your monitoring data while seamlessly integrating with your existing processes thanks 
 to advanced filtering and formatting capabilities.
 
