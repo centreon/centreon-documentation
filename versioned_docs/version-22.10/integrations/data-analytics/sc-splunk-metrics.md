@@ -144,6 +144,8 @@ The correct sourcetype for the stream connector is "_json". Other useful informa
    systemctl restart centengine
    ```
 
+   Splunk should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
+
 ### Filtering or adapting the data you want to send to Splunk
 
 All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Splunk equipment, to reformat the data, to define a proxy...
