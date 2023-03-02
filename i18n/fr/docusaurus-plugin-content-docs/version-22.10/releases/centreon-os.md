@@ -74,7 +74,6 @@ Release date: `February 22, 2023`
 - Optimized queries used to display the services monitoring page.
 - Optimized queries used to display the hosts monitoring page.
 - Optimized queries used to display the services grid monitoring page.
-- Improved performances of event logs page.
 
 ### 22.10.5
 
