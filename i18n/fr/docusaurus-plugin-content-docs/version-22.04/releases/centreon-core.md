@@ -26,7 +26,7 @@ Release date: `March AA, 2023`
 - [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
 - [Configuration] Fixed global configuration export button in banner with OIDC authentication.
 - [Core] Fixed a blank page issue after login.
-- [UI] Fixed an issue where a popup does not appear in legacy page graphs.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
 
 #### Vulnerabilities
 
