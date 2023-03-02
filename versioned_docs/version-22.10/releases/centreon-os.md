@@ -19,6 +19,27 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.7
+
+Release date: `March AA, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Improved authentication by not checking password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Configuration] Fixed escalation update.
+- [Configuration] Fixed service group update.
+- [Core] Fixed blank page after login.
+- [UI] Fixed an issue where a popup does not appear in legacy page graphs.
+- [UI] Fixed the issue where 99+ was displayed instead of the exact value on the top counter for values under 1000
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi legacy monitoring pages.
+
+
 ### 22.10.6
 
 Release date: `February 22, 2023`
@@ -55,7 +76,6 @@ Release date: `February 22, 2023`
 - Optimized queries used to display the services monitoring page.
 - Optimized queries used to display the hosts monitoring page.
 - Optimized queries used to display the services grid monitoring page.
-- Improved performances of event logs page.
 
 ### 22.10.5
 
