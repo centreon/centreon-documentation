@@ -27,7 +27,7 @@ Release date: `March AA, 2023`
 - [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
 - [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
 - [Configuration] Fixed global configuration export button in banner with OIDC authentication.
-- [Configuration] Fixed escalation update.
+- [Configuration] Fixed an issue preventing an escalation from being updated.
 - [Configuration] Fixed service group update.
 - [Core] Fixed blank page after login.
 - [UI] Fixed an issue where a popup does not appear in legacy page graphs.
