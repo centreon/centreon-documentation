@@ -505,7 +505,7 @@ bash centreon_pcs_command.sh
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-clone
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 ```
 
 </TabItem>
@@ -513,7 +513,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-master
+pcs constraint colocation add master "centreon" with "ms_mysql-master"
 ```
 
 </TabItem>
