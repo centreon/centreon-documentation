@@ -36,7 +36,7 @@ Release date: `March AA, 2023`
 #### Vulnerabilities
 
 - [Security] Fixed SQLi in Monitoring Servicegroups widget.
-- [Security] Fixed SQLi legacy monitoring pages.
+- [Security] Fixed SQLi in legacy monitoring pages.
 
 ### 22.10.6
 
