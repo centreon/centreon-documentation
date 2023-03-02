@@ -31,7 +31,7 @@ Release date: `March AA, 2023`
 - [Configuration] Fixed an issue preventing an escalation from being updated.
 - [Configuration] Fixed an issue preventing a service group from being updated.
 - [Core] Fixed a blank page issue after login.
-- [UI] Fixed an issue where a popup does not appear in legacy page graphs.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
 - [UI] Fixed the issue where 99+ was displayed instead of the exact value on the top counter for values under 1000.
 
 #### Vulnerabilities
