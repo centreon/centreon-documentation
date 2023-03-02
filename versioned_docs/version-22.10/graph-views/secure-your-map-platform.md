@@ -10,6 +10,8 @@ platform.
 
 > If you want to use MAP and MAP (Legacy) in HTTPS, you must both secure your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 ## Configure HTTPS/TLS on the MAP (or MAP Legacy) server
 
 ### HTTPS/TLS configuration with a recognized key

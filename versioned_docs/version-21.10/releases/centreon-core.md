@@ -407,6 +407,16 @@ By:
 
 ## Centreon Collect
 
+### 21.10.5
+
+Release date: `February 20, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a calculation error on BAM boolean rules impact.
+
 ### 21.10.4
 
 Release date: `January 17, 2023`

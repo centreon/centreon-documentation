@@ -183,6 +183,8 @@ systemctl start centreon-map
 
 ## Change Centreon MAP (Legacy) server port
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 By default, the Centreon MAP (Legacy) server is listening and sending information
 through the port 8080. If you set the SSL (see [HTTPS/TLS
 Configuration](secure-your-map-platform.md#configure-httpstls-on-the-web-server),
