@@ -52,7 +52,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron jobs back in place on the Central and Databases servers. Remove them to avoid concurrent executions on central and database nodes: 
+The RPM upgrade puts cron jobs back in place on the central and databases servers. Remove them to avoid concurrent executions on central and database nodes: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
