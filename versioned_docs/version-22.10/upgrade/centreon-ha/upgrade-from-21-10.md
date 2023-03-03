@@ -61,7 +61,7 @@ rm -rf /etc/cron.d/centstorage
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permissions back in place on the two **Central servers**. Change it using these commands:
+The RPM upgrade puts the permissions back in place on the two **central servers**. Change them using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
