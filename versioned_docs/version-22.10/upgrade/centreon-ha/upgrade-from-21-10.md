@@ -347,7 +347,7 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+> **WARNING:** the syntax of the following command depends on the Linux distribution you are using.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
