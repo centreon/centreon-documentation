@@ -76,7 +76,7 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 ## Cluster ugprade
 
 Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
-It's necessary to destroy completely the cluster and configure back again with the latest version of Centreon and MariaDB Replication mechanismes.
+It's necessary to destroy the cluster completely and configure it back again with the latest version of Centreon and MariaDB replication mechanisms.
 
 ### Maintenance mode and backup
 
