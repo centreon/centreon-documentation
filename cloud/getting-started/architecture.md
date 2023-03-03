@@ -3,7 +3,7 @@ id: architecture
 title: Architecture of Centreon Cloud
 ---
 
-Your Centreon platform consists of a central server provided by Centreon, and by pollers that you install in your infrastructure.
+Your Centreon Cloud platform consists of a central server provided by Centreon, and of pollers that you install in your infrastructure.
 
 * **Central server**:
   * The central server is provided to you by Centreon, ready to use.
