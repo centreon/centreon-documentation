@@ -186,7 +186,7 @@ pcs resource delete centreon --force
 
 ### Reconfigure MariaDB
 
-Il est nécessaire de modifier la configuration de mysql en éditant `/etc/my.cnf.d/server.cnf` :
+Il est nécessaire de modifier la configuration de MySQL en éditant `/etc/my.cnf.d/server.cnf` :
 
 > Sur les 2 serveurs centraux dans une HA 2 nœuds
 > Sur les 2 serveurs de base de données dans une HA 4 noeuds.
