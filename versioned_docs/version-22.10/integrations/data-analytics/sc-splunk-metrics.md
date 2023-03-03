@@ -230,7 +230,7 @@ This stream connector will send events with the following format.
 
 ### Custom event format
 
-You can't change the format of the event for metrics oriented stream connectors. In other words, you cannot send other Broker events that contains performance data.
+You can't change the format of the event for metrics oriented stream connectors. This means you cannot send other Broker events that contain performance data.
 
 ## Curl commands: testing the stream connector
 
