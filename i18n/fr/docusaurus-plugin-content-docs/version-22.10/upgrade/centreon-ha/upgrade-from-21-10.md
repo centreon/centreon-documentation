@@ -43,7 +43,7 @@ Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/cen
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-Sur le nœud central passif, déplacez le répertoire "install" pour éviter d'obtenir l'écran "upgrade" dans le WUI en cas de nouvel échange de rôles et recharger le cache Apache.
+Sur le nœud central passif, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
