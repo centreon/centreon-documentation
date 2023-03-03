@@ -224,7 +224,7 @@ systemctl restart mariadb
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like:
+This script's output is very verbose: to make sure it went well, focus on the last lines of its output, checking that it looks like:
 
 ```text
 Umount and Delete LVM snapshot
