@@ -19,15 +19,13 @@ L'installation de Centreon peut être effectuée à partir des sources (tar.gz)
 mais le travail est plus complexe. De plus l'installation ne sera supportée que par
 la communauté.
 
-Avant toute installation :
+Avant d'installer Centreon :
 
-1. Veillez à bien suivre les [prérequis
-   d'installation](prerequisites.md) et de dimensionnement
-   (ressources CPU, mémoire, disques, partitionnement, etc...)
-2. Prenez également soin de bien choisir le [type
-   d'architecture](architectures.md) qu'il convient d'utiliser pour vos besoins
-3. [Téléchargez Centreon](https://download.centreon.com/)
-4. Enfin, vous pourrez procéder à l'installation de la plateforme.
+1. Vérifiez la [compatibilité](compatibility.md) (OS supportés, SGBD).
+2. Choisissez [le type d'architecture](architectures.md) qui convient le mieux à vos besoins.
+3. Vérifiez les [prérequis](prerequisites.md) (ressources CPU, mémoire, disques, partitionnement, etc...).
+4. [Téléchargez Centreon](https://download.centreon.com/).
+5. Enfin, vous pourrez procéder à l'installation de la plateforme.
 
 ## Script "unattended"
 
