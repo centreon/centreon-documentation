@@ -92,11 +92,19 @@
         },
         {
           "type": "doc",
-          "id": "version-23.04/installation/prerequisites"
+          "id": "version-23.04/installation/compatibility"
         },
         {
           "type": "doc",
           "id": "version-23.04/installation/architectures"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/installation/prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/installation/technical"
         },
         {
           "type": "doc",
