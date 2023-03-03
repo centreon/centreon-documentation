@@ -80,7 +80,7 @@ Il est nécessaire de détruire complètement le cluster et de le configurer à 
 
 ### Mode maintenance et sauvegarde
 
-Réaliser une sauvegarde du cluster en exécutant les commandes suivantes :
+Réalisez une sauvegarde du cluster en exécutant les commandes suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
