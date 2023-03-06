@@ -211,7 +211,7 @@ apt upgrade centreon
 
 ### Mettre à jour une configuration Apache personnalisée
 
-Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

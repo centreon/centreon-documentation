@@ -212,7 +212,7 @@ apt upgrade centreon
 
 ### Update your customized Apache configuration
 
-This section only applies if you customized your Apache configuration. 
+This section only applies if you customized your Apache configuration.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
