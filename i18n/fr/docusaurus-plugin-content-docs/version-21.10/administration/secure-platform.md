@@ -786,6 +786,73 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
     Maintenant, récupérez le fichier du certificat x509 **ca_demo.crt** et importez-le dans le magasin de certificats de votre navigateur.
 
+10. Configuration API de Gorgone
+
+Éditez le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** en remplaçant **127.0.0.1** 
+par le FQDN de votre serveur central :
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+```
+
+Redémarrer le daemon Gorgone :
+
+```shell
+systemctl restart gorgoned
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status gorgoned
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● gorgoned.service - Centreon Gorgone
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2023-03-06 15:58:10 CET; 27min ago
+ Main PID: 1791096 (perl)
+    Tasks: 124 (limit: 23040)
+   Memory: 595.3M
+   CGroup: /system.slice/gorgoned.service
+           ├─1791096 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─1791109 gorgone-statistics
+           ├─1791112 gorgone-legacycmd
+           ├─1791117 gorgone-engine
+           ├─1791118 gorgone-audit
+           ├─1791125 gorgone-nodes
+           ├─1791138 gorgone-action
+           ├─1791151 gorgone-cron
+           ├─1791158 gorgone-dbcleaner
+           ├─1791159 gorgone-autodiscovery
+           ├─1791166 gorgone-httpserver
+           ├─1791180 gorgone-proxy
+           ├─1791181 gorgone-proxy
+           ├─1791182 gorgone-proxy
+           ├─1791189 gorgone-proxy
+           └─1791190 gorgone-proxy
+
+mars 06 15:58:10 ito-central systemd[1]: gorgoned.service: Succeeded.
+mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
+mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
+```
+
+Vous devriez voir les la ligne suivante dans les logs de Gorgone **/var/log/centreon-gorgone/gorgoned.log** :
+
+```text
+2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
+
 ## URI personnalisée
 
 Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.

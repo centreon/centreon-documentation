@@ -609,11 +609,19 @@ dnf install mod_ssl mod_security openssl
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
 
-```text
+```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+```
+
+Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
+(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run update-ca-trust command:
+
+```shell
+cp centreon7.crt /etc/pki/ca-trust/source/anchors
+update-ca-trust
 ```
 
 </TabItem>
@@ -625,11 +633,19 @@ yum install httpd24-mod_ssl httpd24-mod_security openssl
 
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
 
-```text
+```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+```
+
+Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
+(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run update-ca-trust command:
+
+```shell
+cp centreon7.crt /etc/pki/ca-trust/source/anchors
+update-ca-trust
 ```
 
 </TabItem>
@@ -646,11 +662,19 @@ systemctl restart apache2
 
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
 
-```text
+```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
+```
+
+Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
+(certificate signed by an internal authority) to the certificate trust store. Then run the **update-ca-certificates** command:
+
+```shell
+cp centreon7.crt /usr/local/share/ca-certificates/
+update-ca-certificates
 ```
 
 </TabItem>
@@ -1186,6 +1210,72 @@ Now you can access your platform with your browser in HTTPS mode.
 
 > Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
 > recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
+
+9. Gorgone API configuration
+
+Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file :
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+```
+
+Then restart the Gorgone daemon:
+
+```shell
+systemctl restart gorgoned
+```
+
+Then check its status:
+
+```shell
+systemctl status gorgoned
+```
+
+If everything is ok, you must have:
+
+```shell
+● gorgoned.service - Centreon Gorgone
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2023-03-06 15:58:10 CET; 27min ago
+ Main PID: 1791096 (perl)
+    Tasks: 124 (limit: 23040)
+   Memory: 595.3M
+   CGroup: /system.slice/gorgoned.service
+           ├─1791096 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─1791109 gorgone-statistics
+           ├─1791112 gorgone-legacycmd
+           ├─1791117 gorgone-engine
+           ├─1791118 gorgone-audit
+           ├─1791125 gorgone-nodes
+           ├─1791138 gorgone-action
+           ├─1791151 gorgone-cron
+           ├─1791158 gorgone-dbcleaner
+           ├─1791159 gorgone-autodiscovery
+           ├─1791166 gorgone-httpserver
+           ├─1791180 gorgone-proxy
+           ├─1791181 gorgone-proxy
+           ├─1791182 gorgone-proxy
+           ├─1791189 gorgone-proxy
+           └─1791190 gorgone-proxy
+
+mars 06 15:58:10 ito-central systemd[1]: gorgoned.service: Succeeded.
+mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
+mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
+```
+
+You should see the following line in the Gorgone daemon log file **/var/log/centreon-gorgone/gorgoned.log**:
+
+```text
+2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
 
 ## Custom URI
 
