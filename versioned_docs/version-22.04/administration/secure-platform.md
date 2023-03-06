@@ -617,7 +617,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run update-ca-trust command:
+(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run **update-ca-trust** command:
 
 ```shell
 cp centreon7.crt /etc/pki/ca-trust/source/anchors
@@ -641,7 +641,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run update-ca-trust command:
+(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run **update-ca-trust** command:
 
 ```shell
 cp centreon7.crt /etc/pki/ca-trust/source/anchors
@@ -1213,7 +1213,7 @@ Now you can access your platform with your browser in HTTPS mode.
 
 9. Gorgone API configuration
 
-Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file :
+Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
 
 ```text
 gorgone:

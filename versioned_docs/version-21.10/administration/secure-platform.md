@@ -772,7 +772,7 @@ Now, you will have to retrieve the certificate file x509 ca_demo.crt and import 
 
 10. Gorgone API configuration
 
-Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file :
+Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
 
 ```text
 gorgone:

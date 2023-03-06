@@ -1265,7 +1265,7 @@ mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
 mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
 ```
 
-Vous devriez voir les la ligne suivante dans les logs de Gorgone **/var/log/centreon-gorgone/gorgoned.log** :
+Vous devriez voir la ligne suivante dans les logs de Gorgone **/var/log/centreon-gorgone/gorgoned.log** :
 
 ```text
 2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started

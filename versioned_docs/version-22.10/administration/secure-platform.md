@@ -1213,7 +1213,7 @@ Now you can access your platform with your browser in HTTPS mode.
 
 9. Gorgone API configuration
 
-Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file :
+Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
 
 ```text
 gorgone:
