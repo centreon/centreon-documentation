@@ -617,7 +617,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run **update-ca-trust** command:
+(certificate signed by an internal authority) to the certificate trust store. Then the run **update-ca-trust** command:
 
 ```shell
 cp centreon7.crt /etc/pki/ca-trust/source/anchors
@@ -641,7 +641,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to /etc/pki/ca-trust/source/anchors/. Then the run **update-ca-trust** command:
+(certificate signed by an internal authority) to the certificate trust store. Then the run **update-ca-trust** command:
 
 ```shell
 cp centreon7.crt /etc/pki/ca-trust/source/anchors
