@@ -363,6 +363,28 @@ If it is your first installation, we advise you to use the standard mode (intera
   /etc/centreon-map/configure.sh
   ```
 
+The output should look like this:
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+This script generates the **map-config.properties** file.
+
+#### Custom URI 
+
+If you have customized the URI for your Centreon platform, you need to edit the **map-config.properties** file by adding:
+
+```shell
+centreon.path=/centreon-custom
+```
+
+Replace **/centreon** with your path name:
+
+```shell
+Define base_uri "/centreon"
+```
+
 Then restart the **centreon-map-engine** service:
 
 ```shell
