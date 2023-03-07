@@ -637,7 +637,7 @@ cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
 ```
 
-Copiez le certificat local (auto-signé, **centreon7.crt** dans note cas) ou le certificat CA racine  
+Copiez le certificat local (auto-signé, **centreon7.crt** dans notre cas) ou le certificat CA racine  
 (certificat validé par une autorité) dans le trust store. Lancez ensuite la commande **update-ca-trust** :
 
 ```shell
