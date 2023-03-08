@@ -384,9 +384,25 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
+
 1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Then run the following command:
+2. Ensure a version of Java 17 (or 18) is installed.
+       
+   - If you need to check the Java version, enter the following command:
+   
+   ```shell
+   java -version
+   ```
+   
+   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+   
+   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+   ```shell
+   sudo update-alternatives --config java
+   ```
+  
+3. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -489,25 +505,8 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-
-#### Java version requirement
   
-> Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-- If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-Now you can install MBI:
+Install MBI:
 
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client

@@ -37,30 +37,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 > and run the server in version 4.1.X before upgrading to the latest
 > version**.
 
-Run the following commands to upgrade your Centreon MAP server:
-
-1. Update Centreon & Centreon MAP repositories:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
-```
-
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-2. Update Centreon MAP server:
-
-    ```shell
-    dnf update centreon-map-server
-    ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Java version requirement
+### Java version requirement
   > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
@@ -84,16 +61,39 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 
   - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
-Now you can start the update process:
+### Procedure
+
+Follow this procedure to upgrade your Centreon MAP server:
+
+1. Update the **centreon-release** package:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+```
+
+2. Install Centreon MAP repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+3. Update Centreon MAP server:
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+2. Install Centreon MAP repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Update Centreon MAP server:
+3. Update Centreon MAP server:
 
     ```shell
     yum update centreon-map-server
@@ -102,14 +102,14 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-3. Enable and start `centreon-map` service:
+4. Enable and start `centreon-map` service:
 
     ```shell
     systemctl enable centreon-map
     systemctl start centreon-map
     ```
 
-4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
   * The old configuration file is renamed **centreon-map.conf.rpmsave**
   * The upgrade installs a new **centreon-map.conf** file.
