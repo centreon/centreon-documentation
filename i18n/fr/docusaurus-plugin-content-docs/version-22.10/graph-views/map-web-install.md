@@ -171,7 +171,7 @@ Pour implémenter correctement la mémoire dédiée :
 2. Redémarrez le service :
 
    ```shell
-   systemctl r
+   systemctl restart centreon-map-engine
    ```
 
 #### Informations requises lors de la configuration
