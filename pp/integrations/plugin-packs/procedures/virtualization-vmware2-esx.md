@@ -195,6 +195,11 @@ systemctl enable centreon_vmware
 Make sure that the daemon configuration works fine by looking for errors in
 "/var/log/centreon/centreon\_vmware.log".
 
+### Tags and Custom Attributes
+
+> To discover Tags and Custom Attributes, you must use version 3.2.5 of centreon-vmware-daemon and add --tags in the discovery extra options.
+
+
 ### Network flows
 
 The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the vCenter.

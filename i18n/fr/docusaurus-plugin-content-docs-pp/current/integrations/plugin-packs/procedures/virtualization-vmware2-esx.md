@@ -206,6 +206,10 @@ Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les
 
 ### Flux réseau
 
+> Pour découvrir les balises et les attributs personnalisés, vous devez utiliser la version 3.2.5 de centreon-vmware-daemon et ajouter --tags dans les options supplémentaires de découverte.
+
+### Flux réseau
+
 Le Collecteur Centreon avec le connecteur VMWare d'installé doit accéder en HTTPS (TCP/443) au vCenter.
 
 Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder en TCP/5700 au Collecteur avec le Connecteur VMWare.
