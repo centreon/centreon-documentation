@@ -613,14 +613,6 @@ cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
 ```
 
-Copiez le certificat local (auto-signé, **centreon7.crt** dans notre cas) ou le certificat CA racine  
-(certificat validé par une autorité) dans le trust store. Lancez ensuite la commande **update-ca-trust** :
-
-```shell
-cp centreon7.crt /etc/pki/ca-trust/source/anchors
-update-ca-trust
-```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -635,14 +627,6 @@ Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
-```
-
-Copiez le certificat local (auto-signé, **centreon7.crt** dans notre cas) ou le certificat CA racine  
-(certificat validé par une autorité) dans le trust store. Lancez ensuite la commande **update-ca-trust** :
-
-```shell
-cp centreon7.crt /etc/pki/ca-trust/source/anchors
-update-ca-trust
 ```
 
 </TabItem>
@@ -661,17 +645,9 @@ systemctl restart apache2
 
 Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
 
-```text
+```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
-```
-
-Copiez le certificat local (auto-signé, **centreon7.crt** in our example) ou le certificat CA racine  
-(certificat validé par une autorité) dans le trust store. Lancez ensuite la commande **update-ca-certificates** :
-
-```shell
-cp centreon7.crt /etc/pki/ca-trust/source/anchors
-update-ca-certificates
 ```
 
 </TabItem>

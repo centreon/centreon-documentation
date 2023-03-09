@@ -616,14 +616,6 @@ cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
 ```
 
-Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to the certificate trust store. Then run the **update-ca-trust** command:
-
-```shell
-cp centreon7.crt /etc/pki/ca-trust/source/anchors
-update-ca-trust
-```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -638,14 +630,6 @@ Install your certificates (**centreon7.key** and **centreon7.crt** in our exampl
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
-```
-
-Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to the certificate trust store. Then run the **update-ca-trust** command:
-
-```shell
-cp centreon7.crt /etc/pki/ca-trust/source/anchors
-update-ca-trust
 ```
 
 </TabItem>
@@ -667,14 +651,6 @@ Install your certificates (**centreon7.key** and **centreon7.crt** in our exampl
 ```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
-```
-
-Copy the local certificate (self-signed certificate, **centreon7.crt** in our example) or the CA root certificate 
-(certificate signed by an internal authority) to the certificate trust store. Then run the **update-ca-certificates** command:
-
-```shell
-cp centreon7.crt /usr/local/share/ca-certificates/
-update-ca-certificates
 ```
 
 </TabItem>
