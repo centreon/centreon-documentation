@@ -105,7 +105,7 @@ chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua
 You may need to configure your Splunk equipment so that it can receive data from Centreon. Please refer to Splunk's documentation.
 Make sure Splunk is able to receive data sent by Centreon: flows must not be blocked by Splunk's configuration or by a security equipment.
 
-The correct sourcetype for the stream connector is "_json". Other useful information may be for example "source": "http:my_index", "index": my_index", "host": "Central".
+The correct sourcetype for the stream connector is "_json". Other useful information may be for example "source": "http:my_index", "index": "my_index", "host": "Central". You can also add this information to your stream connector's configuration if you need to.
 
 ## Configuring the stream connector in Centreon
 
