@@ -155,7 +155,7 @@ Make sure that the daemon configuration works fine by looking for errors in
 
 > To discover Tags and Custom Attributes, you must use version 3.2.5 of centreon-vmware-daemon and add --tags in the discovery extra options.
 
-
+>Go to page **Configuration > Hosts > Discovery**, and at the 3rd step (**Define discovery parameters**), in section **Additional parameters**, in the **Extra Options** field, enter **--tags**.
 
 ### Network flows
 
