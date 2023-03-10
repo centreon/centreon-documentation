@@ -1011,6 +1011,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+            },
+            {
+              "type": "doc",
               "id": "version-22.10/upgrade/centreon-ha/upgrade-from-centreon-failover"
             },
             {
