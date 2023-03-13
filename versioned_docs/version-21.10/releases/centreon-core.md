@@ -60,7 +60,7 @@ Release date: `March before April, 2023`
 
 #### Others
 
-- [Monitoring] Removed obsolete code to export of graph in CSV
+- [Monitoring] Removed obsolete code for exporting a graph in CSV.
 
 ### 21.10.13
 
