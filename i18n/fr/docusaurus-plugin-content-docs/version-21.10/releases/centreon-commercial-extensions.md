@@ -191,6 +191,7 @@ Release date: `soon`
 - [Widget] bam-ba-tree BA/services links are broken.
 - Can't see the child BAs on a tree on the Remote Server.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- Fixed a bug in the BAM KPI configuration menu that could result in deleting a KPI when modifying it.
 
 ### 21.10.2
 
