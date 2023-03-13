@@ -258,6 +258,12 @@ Release date: `February 18, 2022`
 
 ## Centreon Auto Discovery
 
+### 21.10.4
+
+Release date: `soon`
+
+- For some host discovery providers where no credentials were actually required, the job creation wizard still demanded to enter credentials.
+
 ### 21.10.3
 
 Release date: `March 31, 2022`
