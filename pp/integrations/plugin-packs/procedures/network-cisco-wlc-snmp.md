@@ -20,7 +20,7 @@ It brings the following service templates:
 |:-------------------------------|:--------------------------------------------------|:-------------------------------------------------|:--------|:----------|
 | Ap-Channel-Interference-Global | Net-Cisco-Wlc-Ap-Channel-Interference-Global-SNMP | Check channel interferences of all access points |         |           |
 | Ap-Channel-Noise-Global        | Net-Cisco-Wlc-Ap-Channel-Noise-Global-SNMP        | Check channel noises of all access points        |         |           |
-| Ap-Status-Global               | Net-Cisco-Wlc-Ap-Status-Global-SNMP               | Check status of all access points                | X       |           |
+| Ap-Status-Global               | Net-Cisco-Wlc-Ap-Status-Global-SNMP               | Check status of all access points                | X       | X         |
 | Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP                       | Check total users of all access points           |         |           |
 | Cpu                            | Net-Cisco-Wlc-Cpu-SNMP                            | Check CPU usage                                  | X       |           |
 | Hardware-Global                | Net-Cisco-Wlc-Hardware-Global-SNMP                | Check all hardware                               | X       |           |
@@ -40,6 +40,7 @@ It brings the following service templates:
 | Rule Name                       | Description                                                   |
 |:--------------------------------|:--------------------------------------------------------------|
 | Net-Cisco-Wlc-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
+| Net-Cisco-Wlc-SNMP-AP-Name      |                                                               |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -49,50 +50,50 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 <Tabs groupId="sync">
 <TabItem value="Ap-Channel-Interference-*" label="Ap-Channel-Interference-*">
 
-| Metric Name                                                | Unit  |
-|:-----------------------------------------------------------|:------|
-| *channels*#accesspoint.interference.power.count            | count |
-| *channels*#accesspoint.interference.utilization.percentage | %     |
+| Metric Name                                                 | Unit  |
+|:------------------------------------------------------------|:------|
+| ap~channels#accesspoint.interference.power.count            | count |
+| ap~channels#accesspoint.interference.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="Ap-Channel-Noise-*" label="Ap-Channel-Noise-*">
 
-| Metric Name                            | Unit  |
-|:---------------------------------------|:------|
-| *channels*#accesspoint.noise.power.dbm | dBm   |
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| ap~channels#accesspoint.noise.power.dbm | dBm   |
 
 </TabItem>
 <TabItem value="Ap-Status-*" label="Ap-Status-*">
 
-| Metric Name                                                              | Unit  |
-|:-------------------------------------------------------------------------|:------|
-| accesspoints.total.count                                                 | count |
-| accesspoints.associated.count                                            | count |
-| accesspoints.disabled.count                                              | count |
-| accesspoints.disassociating.count                                        | count |
-| accesspoints.downloading.count                                           | count |
-| accesspoints.enabled.count                                               | count |
-| status                                                                   |       |
-| *interfaces*#accesspoint.radio.interface.channels.utilization.percentage | %     |
-| *interfaces*#radio-status                                                |       |
+| Metric Name                                                               | Unit  |
+|:--------------------------------------------------------------------------|:------|
+| accesspoints.total.count                                                  | count |
+| accesspoints.associated.count                                             | count |
+| accesspoints.disassociating.count                                         | count |
+| accesspoints.downloading.count                                            | count |
+| accesspoints.enabled.count                                                | count |
+| accesspoints.disabled.count                                               | count |
+| status                                                                    | N/A   |
+| ap~interfaces#radio-status                                                | N/A   |
+| ap~interfaces#accesspoint.radio.interface.channels.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="Ap-Users" label="Ap-Users">
 
-| Metric Name                        | Unit  |
-|:-----------------------------------|:------|
-| users.total.count                  | users |
-| users.aaapending.count             | users |
-| users.associated.count             | users |
-| users.authenticated.count          | users |
-| users.blacklisted.count            | users |
-| users.disassociated.count          | users |
-| users.idle.count                   | users |
-| users.powersave.count              | users |
-| users.probing.count                | users |
-| users.tobedeleted.count            | users |
-| *ssid*#ssid.users.total.count      | users |
-| *ap*#accesspoint.users.total.count | users |
+| Metric Name                      | Unit  |
+|:---------------------------------|:------|
+| users.total.count                | count |
+| users.idle.count                 | count |
+| users.aaapending.count           | count |
+| users.authenticated.count        | count |
+| users.associated.count           | count |
+| users.disassociated.count        | count |
+| users.powersave.count            | count |
+| users.tobedeleted.count          | count |
+| users.probing.count              | count |
+| users.blacklisted.count          | count |
+| ssid#ssid.users.total.count      | count |
+| ap#accesspoint.users.total.count | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -104,7 +105,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 </TabItem>
 <TabItem value="Hardware-*" label="Hardware-*">
 
-Could not retrive metrics
+Coming soon
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -118,26 +119,26 @@ Could not retrive metrics
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| int#interface.traffic.in.bitspersecond  | b/s   |
+| int#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| int#interface.traffic.in.bitspersecond  | b/s   |
+| int#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
+| Metric Name                             | Unit  |
+|:----------------------------------------|:------|
+| int#interface.traffic.in.bitspersecond  | b/s   |
+| int#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 </Tabs>
@@ -252,7 +253,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
+/usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
     --plugin=network::cisco::wlc::snmp::plugin \
     --mode=ap-status \
     --hostname=10.0.0.1 \
@@ -276,13 +277,13 @@ usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
     --critical-total-disabled='' \
     --warning-status='' \
     --critical-status='' \
-    --use-new-perfdata
+    
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: total: %s associated: %s disassociating: %s downloading: %s enabled: %s disabled: %s   channels utilization: %s %% | 'accesspoints.total.count'=39;;;0; 'accesspoints.associated.count'=88;;;0; 'accesspoints.disassociating.count'=91;;;0; 'accesspoints.downloading.count'=20;;;0; 'accesspoints.enabled.count'=17;;;0; 'accesspoints.disabled.count'=58;;;0; 'accesspoint.radio.interface.channels.utilization.percentage'=47%;;;0;100 
+OK:          | 'accesspoints.total.count'=14;;;0 ;  'accesspoints.associated.count'=62;;;0 ;  'accesspoints.disassociating.count'=92;;;0 ;  'accesspoints.downloading.count'=57;;;0 ;  'accesspoints.enabled.count'=9;;;0 ;  'accesspoints.disabled.count'=54;;;0 ;  'accesspoint.radio.interface.channels.utilization.percentage'=80%;;;0;100 
 ```
 
 ### Available modes
@@ -291,7 +292,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
+/usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
     --plugin=network::cisco::wlc::snmp::plugin \
     --list-mode
 ```
@@ -608,7 +609,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
+/usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
     --plugin=network::cisco::wlc::snmp::plugin \
     --mode=ap-status \
     --help
