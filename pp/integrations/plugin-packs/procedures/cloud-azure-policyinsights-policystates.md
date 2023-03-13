@@ -29,10 +29,10 @@ It brings the following service template:
 <Tabs groupId="sync">
 <TabItem value="Compliance" label="Compliance">
 
-| Metric Name                         | Unit  |
-|:------------------------------------|:------|
-| non-compliant-policies              |       |
-| *compliance_state*#compliance-state |       |
+| Metric Name                       | Unit  |
+|:----------------------------------|:------|
+| policies.non_compliant.count      | count |
+| compliance_state#compliance-state | N/A   |
 
 </TabItem>
 </Tabs>
@@ -121,12 +121,9 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 
 * Log into Centreon and add a new host through **Configuration > Hosts**.
 * In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
-* Apply the **Cloud-Azure-PolicyInsights-PolicyStates-custom** template to the host.
+* Apply the **Cloud-Azure-PolicyInsights-PolicyStates** template to the host.
 * Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 These mandatory macros differ depending on the custom mode used.
-
-<Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Mandatory      | Macro              | Description                                  |
 |:---------------|:-------------------|:---------------------------------------------|
@@ -137,9 +134,6 @@ These mandatory macros differ depending on the custom mode used.
 |                | AZURERESOURCEGROUP | Resource group name if resource name is used |
 |                | AZURESUBSCRIPTION  | Subscription ID                              |
 |                | AZURETENANT        | Tenant ID                                    |
-
-</TabItem>
-</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -152,26 +146,25 @@ running the following command:
     --plugin=cloud::azure::policyinsights::policystates::plugin \
     --mode=compliance \
     --resource-group='' \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
+    --subscription='' \
+    --tenant='' \
+    --client-id='' \
+    --client-secret='' \
     --proxyurl='' \
-    --api-version='' \
-    --policy-states='' \
+    --policy-states='default' \
     --resource-location='' \
     --resource-type='' \
     --warning-non-compliant-policies='' \
     --critical-non-compliant-policies='' \
     --warning-compliance-state='' \
-    --critical-compliance-state='' \
-    --use-new-perfdata
+    --critical-compliance-state='%{compliance_state} eq "NonCompliant"' \
+    
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Number of non compiant policies: 0 - All compliances states are ok | 'policies.non_compliant.count'=0;;;0;
+OK:   | 'policies.non_compliant.count'=76;;;0 ;  
 ```
 
 ### Available modes
