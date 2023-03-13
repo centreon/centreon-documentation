@@ -36,7 +36,7 @@ Release date: `March of the Penguins, 2023`
 #### Bug fixes
 
 - [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
-- [Provider] Fixed default iTop url.
+- [Provider] Fixed default iTop URL.
 
 ### 21.10.1
 
