@@ -48,7 +48,7 @@ Release date: `March before April, 2023`
 - [Configuration] Sanitized queries in the list of trap groups.
 - [Core] Fixed vulnerabilities in ajaxLdapSearch.js file.
 - [Core] Fixed vulnerabilities in rename.php.
-- [Core] Fixed vulnerabilities in functions.js file
+- [Core] Fixed vulnerabilities in functions.js file.
 - [Core] Fixed vulnerabilities in pathway.php.
 - [Core] Fixed vulnerabilities in color_picker_mb.php.
 - [Core] Fixed vulnerabilities in centreonAPI.class.php.
