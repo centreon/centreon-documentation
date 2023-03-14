@@ -97,6 +97,8 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 > Même avec un serveur correctement dimensionné, vous devez garder à l'esprit les meilleures pratiques et recommandations lors de la création de vues afin de ne pas rencontrer de problèmes de performance.
 
+> Si le serveur central est configuré en HTTPS, vous devez appliquer la configuration SSL sur le serveur MAP. Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser votre serveur MAP.
+
 ### Interface Web de Centreon MAP
 
 #### Licence
