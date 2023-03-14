@@ -501,3 +501,10 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   ```
 
 You can now use the MAP module by accessing the **Monitoring > Map** page.
+
+## Secure MAP in HTTPS
+
+If you want to use MAP in HTTPS, you must both secure your Centreon platform and MAP.
+
+- Follow this [procedure](../administration/secure-platform.md) to secure your Centreon platform.
+- Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure MAP.

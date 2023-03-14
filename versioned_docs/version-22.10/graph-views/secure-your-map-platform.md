@@ -64,6 +64,12 @@ centreon-map.keystore-pass=xxx
 >
 > Users will have to open the URL:
 >
+> - MAP:
+> ```shell
+> https://<MAP_IP>:9443/centreon-studio/api/beta/actuator/health.
+> ```
+>
+> - MAP (Legacy):
 > ```shell
 > https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 > ```
@@ -157,8 +163,9 @@ centreon-map.keystore-pass=xxx
 </Tabs>
 
 
-Centreon MAP server is now configured to respond to requests from HTTPS at
-port 8443.
+Centreon MAP server is now configured to respond to requests from HTTPS:
+- at port 9443 for MAP,
+- at port 8443 for MAP (Legacy).
 
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.md#change-centreon-map-server-port).
@@ -220,11 +227,13 @@ Then, set the following parameters in MAP server configuration at:
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
-`/etc/centreon-map/centreon-map.conf`
+
+**/etc/centreon-map/centreon-map.conf**
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
-`/etc/centreon-studio/studio-config.properties`
+
+**/etc/centreon-studio/studio-config.properties**
 
 </TabItem>
 </Tabs>
