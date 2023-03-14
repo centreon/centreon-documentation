@@ -646,7 +646,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'cloud',
+      label: 'Cloud',
       items: [
         {
           type: 'doc',
@@ -1102,7 +1102,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'hardware-server',
+      label: 'Hardware Server',
       items: [
         {
           type: 'doc',
