@@ -1853,7 +1853,7 @@ database:
 ```
 
 Ensuite, vous devez redémarrer les ressources gorgone et cbd_central_broker pour que les changements prennent effet.
-Le redémarrage de la ressource gorgone redémarre toutes les ressources suivantes, donc en utilisant la commande suivante :
+Utilisez la commande suivante pour redémarrer la ressource gorgone et toutes les ressources suivantes :
 
 ```bash
 pcs resource restart gorgone
