@@ -1854,7 +1854,7 @@ Use the following command to restart the gorgone resource and all subsequent res
 pcs resource restart gorgone
 ```
 
-And after resources are restarted, verify if all is OK with the command `crm_mon -fr`, the result should be like that:
+After resources are restarted, verify if all is OK using the command `crm_mon -fr`. The result should look like this:
 
 ```text
 Cluster Summary:
