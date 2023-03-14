@@ -79,7 +79,7 @@ Il apporte les modèles de service suivants :
 
 ### Configuration SNMP
 
-Afin de superviser votre **UPS Standard** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+Afin de superviser votre équipement **UPS Standard** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
 
 ### Flux réseau
 
