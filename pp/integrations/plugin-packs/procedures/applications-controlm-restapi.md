@@ -47,7 +47,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ## Prerequisites
 
-To monitor, a user with read privileges on the Automation API is required.
+To monitor, a user with read privileges on the Control-M [Automation API](https://docs.bmc.com/docs/automation-api/918/) is required.
 
 ## Setup
 

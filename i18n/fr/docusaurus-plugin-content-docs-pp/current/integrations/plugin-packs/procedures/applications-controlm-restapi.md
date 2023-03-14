@@ -47,7 +47,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ## Prérequis
 
-Pour la supervision, un utilisateur avec des droits de lecture sur l'Automation API est nécessaire.
+Pour la supervision, un utilisateur avec des droits de lecture sur l'[Automation API](https://docs.bmc.com/docs/automation-api/918/) Control-M est nécessaire.
 
 ## Installation
 
