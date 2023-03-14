@@ -69,7 +69,7 @@ Il apporte les modèles de service suivants :
 
 ### Configuration SNMP
 
-Afin de superviser votre **Riello UPS** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+Afin de superviser votre équipement **Riello UPS** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
 
 ### Flux réseau
 
