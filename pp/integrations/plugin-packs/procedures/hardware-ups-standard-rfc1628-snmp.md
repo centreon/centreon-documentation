@@ -17,7 +17,7 @@ It brings the following service templates:
 
 | Service Alias  | Service Template                            | Service Description                               | Default |
 |:---------------|:--------------------------------------------|:--------------------------------------------------|:--------|
-| Alarms         | HW-UPS-Standard-Rfc1628-Alarms-SNMP         | Check if alarms present                           | X       |
+| Alarms         | HW-UPS-Standard-Rfc1628-Alarms-SNMP         | Check if alarms are present                           | X       |
 | Battery-Status | HW-UPS-Standard-Rfc1628-Battery-Status-SNMP | Check battery status and battery charge remaining | X       |
 | Input-Lines    | HW-UPS-Standard-Rfc1628-Input-Lines-SNMP    | Check input lines metrics                         | X       |
 | Output-Lines   | HW-UPS-Standard-Rfc1628-Output-Lines-SNMP   | Check output lines metrics                        | X       |
