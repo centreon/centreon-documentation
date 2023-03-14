@@ -1773,7 +1773,7 @@ rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 
 ### Modification des 3 fichiers de configuration
 
-Après avoir modifié le output du broker, il nous faut modifier les fichiers de configuration de Centreon.
+Après avoir modifié l'output du broker, il nous faut modifier les fichiers de configuration de Centreon.
 Pour ce faire éditer tout d'abord le fichier `/etc/centreon/conf.pm` et remplacer @DATABASE_MASTER_IPADDR@ par l'adresse de la *vip-mysql* :
 
 ```bash
