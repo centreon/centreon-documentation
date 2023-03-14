@@ -158,7 +158,6 @@ apt install centreon-plugin-hardware-ups-riello-snmp
 * Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Riello UPS** server settings.
 * Apply the **HW-UPS-Riello-SNMP-custom** template to the host.
 
-If you are using SNMP Version 3, use the **SNMPEXTRAOPTIONS** macro to configure
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
