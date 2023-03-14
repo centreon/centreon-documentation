@@ -51,6 +51,7 @@ Release date: `March before April, 2023`
 - [Core] Fixed vulnerabilities in rename.php.
 - [Core] Fixed vulnerabilities in functions.js file.
 - [Core] Fixed vulnerabilities in pathway.php.
+- [Core] Fixed vulnerabilities in color_picker.php.
 - [Core] Fixed vulnerabilities in color_picker_mb.php.
 - [Core] Fixed vulnerabilities in centreonAPI.class.php.
 - [Security] Fixed SQLi in Monitoring Servicegroups widget.
