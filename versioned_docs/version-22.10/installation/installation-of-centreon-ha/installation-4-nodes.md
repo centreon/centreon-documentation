@@ -1895,7 +1895,7 @@ Full List of Resources:
 Migration Summary:
 ```
 
-If an error is found while your resources are running, try "cleaning" with this command:
+If an error is found while your resources are running, try doing some "cleaning" using this command:
 
 ```bash
 pcs resource cleanup
