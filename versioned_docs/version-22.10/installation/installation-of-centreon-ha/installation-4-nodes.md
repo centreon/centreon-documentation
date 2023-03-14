@@ -51,7 +51,7 @@ In order to keep the cluster safe from split-brain issues, a third server is man
 In order to adhere to best practices and be as resilient as possible, the Quorum server placement
 Quorum server should be at a different site than the two primary nodes, with independent network attachments.
 
-> **WARNING:** Be sure Selinux and Firewalld are disabled.
+> **WARNING:** Be sure SELinux and Firewalld are disabled.
 
 ### Defining hosts' names and addresses
 
