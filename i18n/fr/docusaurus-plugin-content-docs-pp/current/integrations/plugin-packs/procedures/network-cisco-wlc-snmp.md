@@ -280,7 +280,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:          | 'accesspoints.total.count'=14;;;0 ;  'accesspoints.associated.count'=62;;;0 ;  'accesspoints.disassociating.count'=92;;;0 ;  'accesspoints.downloading.count'=57;;;0 ;  'accesspoints.enabled.count'=9;;;0 ;  'accesspoints.disabled.count'=54;;;0 ;  'accesspoint.radio.interface.channels.utilization.percentage'=80%;;;0;100 
+OK: total: %s associated: %s disassociating: %s downloading: %s enabled: %s disabled: %s   channels utilization: %s %% | 'accesspoints.total.count'=14;;;0 ;  'accesspoints.associated.count'=62;;;0 ;  'accesspoints.disassociating.count'=92;;;0 ;  'accesspoints.downloading.count'=57;;;0 ;  'accesspoints.enabled.count'=9;;;0 ;  'accesspoints.disabled.count'=54;;;0 ;  'accesspoint.radio.interface.channels.utilization.percentage'=80%;;;0;100 
 ```
 
 ### Modes disponibles
