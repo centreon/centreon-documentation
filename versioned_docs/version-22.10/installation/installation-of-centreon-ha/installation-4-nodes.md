@@ -1847,7 +1847,7 @@ database:
     password: "@MARIADB_CENTREON_PASSWD@"
 ```
 
-And then you need to restart gorgone and cbd_central_broker resources to changes take effects.
+And then you need to restart the gorgone and cbd_central_broker resources for changes to take effect.
 Restarting gorgone resource will restart all resources below, so using the following command:
 
 ```bash
