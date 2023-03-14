@@ -28,7 +28,7 @@ Il apporte les modèles de service suivants :
 | Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP           | Contrôle le trafic réseau d'une interface réseau                   |        |            |
 | Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP                 | Contrôle le trafic réseau de plusieurs interfaces réseau           |        | X          |
 
-> Les services par **Défaut** sont créés automatiquement lorsque le modèle d'hôte est utilisé.
+> Les services par **Défaut** sont créés automatiquement lorsque le modèle d'hôte est appliqué.
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 

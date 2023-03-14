@@ -28,7 +28,7 @@ It brings the following service templates:
 | Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP           | Check traffic on a network interface            |         |           |
 | Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP                 | Check traffic on multiple network interfaces     |         | X         |
 
-> **Default** services are automatically created when the host template is used.
+> **Default** services are automatically created when the host template is applied.
 
 > If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
