@@ -1848,7 +1848,7 @@ database:
 ```
 
 And then you need to restart the gorgone and cbd_central_broker resources for changes to take effect.
-Restarting gorgone resource will restart all resources below, so using the following command:
+Use the following command to restart the gorgone resource and all subsequent resources:
 
 ```bash
 pcs resource restart gorgone
