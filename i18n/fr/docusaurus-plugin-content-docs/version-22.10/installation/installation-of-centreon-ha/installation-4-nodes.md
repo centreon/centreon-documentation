@@ -1859,7 +1859,7 @@ Le redémarrage de la ressource gorgone redémarre toutes les ressources suivant
 pcs resource restart gorgone
 ```
 
-Et après le redémarrage des ressources, vérifiez si tout est OK avec la commande `crm_mon -fr`, le résultat devrait être comme ceci :
+Et après le redémarrage des ressources, vérifiez si tout est OK avec la commande `crm_mon -fr`, le résultat devrait être similaire à ceci :
 
 ```text
 Cluster Summary:
