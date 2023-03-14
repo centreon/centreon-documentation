@@ -145,7 +145,7 @@ Coming soon
 ### Configuration SNMP
 
 Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [CISCO WLC](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/snmp.html)
 
 ### Flux réseau
 
@@ -314,7 +314,7 @@ Le plugin apporte les modes suivants :
 
 #### Options globales
 
-Les options globales aux modes sont listées ci-dessus :
+Les options globales aux modes sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Option type |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|
