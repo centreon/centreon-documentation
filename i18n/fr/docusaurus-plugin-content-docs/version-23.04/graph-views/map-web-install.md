@@ -481,3 +481,6 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.
+
+- Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
+- Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser MAP.
