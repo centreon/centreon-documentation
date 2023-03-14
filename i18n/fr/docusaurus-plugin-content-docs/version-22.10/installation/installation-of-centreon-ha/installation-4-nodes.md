@@ -51,7 +51,7 @@ Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de sp
 Afin de respecter les meilleures pratiques et de bénéficier d'une infrastructure aussi résiliente que possible, le placement du serveur
 Quorum doit être sur un site différent des deux nœuds principaux, avec des attachements réseaux indépendants.
 
-> **AVERTISSEMENT:** Assurez-vous que Selinux et Firewalld sont désactivés.
+> **AVERTISSEMENT:** Assurez-vous que SELinux et Firewalld sont désactivés.
 
 ### Définition des noms et adresses IP des serveurs
 
