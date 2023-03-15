@@ -289,12 +289,6 @@ Release date: `November 19, 2021`
 
 ## Centreon Anomaly Detection
 
-### 21.10.2
-
-Release date: `soon`
-
-- Send downtimes to Centreon SaaS platform for Anomaly Detection services.
-
 ### 21.10.1
 
 Release date: `December 24, 2021`
