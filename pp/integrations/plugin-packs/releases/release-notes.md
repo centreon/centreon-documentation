@@ -8,6 +8,34 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### March
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - initial release - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.03.1-1
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - applications-controlm-restapi - initial release - Status:stable - centreon-pack-applications-controlm-restapi-23.03.0-1
+- [**Riello UPS SNMP**](../procedures/hardware-ups-riello-snmp.md) - hardware-ups-riello-snmp - initial release - Status:stable - centreon-pack-hardware-ups-riello-snmp-23.03.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+Wide character in print at /root/bin/release_easy.pl line 342.
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - add missing packs for discovery - Status:stable - centreon-pack-cloud-azure-management-discover-23.03.0-1
+- [**CheckPoint firewall**](../procedures/network-firewalls-checkpoint-snmp.md) - network-firewalls-checkpoint-snmp - add disk service - Status:stable - centreon-pack-network-firewalls-checkpoint-snmp-23.03.0-1
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - add AP discovery - Status:stable - centreon-pack-network-cisco-wlc-snmp-23.03.2-1
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - hardware-ups-standard-rfc1628-snmp - add thresholds for alarm services - Status:stable - centreon-pack-hardware-ups-standard-rfc1628-snmp-23.03.0-1
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - new attributes and fixed types - Status:stable - centreon-pack-virtualization-vmware2-esx-23.03.2-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - centreon-sql-metrics - fix partitioning mode - Status:stable - centreon-pack-applications-monitoring-centreon-sql-metrics-23.03.0-1
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - cloud-kubernetes-api - fix node host discovery - Status:stable - centreon-pack-cloud-kubernetes-api-23.03.0-1
+
+</TabItem>
+</Tabs>
+
 ### February
 
 <Tabs groupId="sync">
