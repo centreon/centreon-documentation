@@ -13,7 +13,7 @@ VMWare is a software company based in the USA. VMWare provides cloud computing a
 The Centreon Plugins and Plugin Packs rely on the Centreon VMWare Connector to request the vCenter API.
 
 ## Plugin-Pack Assets
-	
+
 ### Monitored Objects
 
 * ESX or ESXi
@@ -37,7 +37,7 @@ The Centreon Plugins and Plugin Packs rely on the Centreon VMWare Connector to r
 
 </TabItem>
 </Tabs>
-	
+
 ## Monitored Metrics 
 
 <Tabs groupId="sync">
