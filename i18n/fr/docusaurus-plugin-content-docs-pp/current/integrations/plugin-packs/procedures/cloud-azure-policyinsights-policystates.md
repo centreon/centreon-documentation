@@ -120,7 +120,7 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
-3. Appliquez le modèle d'hôte **Cloud-Azure-PolicyInsights-PolicyStates**.
+3. Appliquez le modèle d'hôte **Cloud-Azure-PolicyInsights-PolicyStates-custom**.
 4. Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
 | Obligatoire | Macro              | Description                                  |
