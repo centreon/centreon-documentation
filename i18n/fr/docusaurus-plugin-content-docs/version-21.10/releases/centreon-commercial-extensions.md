@@ -19,15 +19,15 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `soon`
 
-#### Bug fixes
+#### Bug fix
 
-- Make viewer and editor rendering more consistent.
-- Fix an issue preventing to create MAP with API.	
+- Fixed an issue preventing the creation of maps with API.
 
 #### Enhancements
 
-- Aligned "Submit button" inside the Map configuration modal.	
-- Added spacing to the title inside Map configuration modal.	
+- The rendering between viewer and editor is now more consistent.
+- Aligned the "Submit" button in the MAP configuration modal.
+- Improved the spacing above the title for a better readability in the MAP configuration modal.
 
 ### 21.10.8
 
@@ -158,13 +158,15 @@ Release date: `December 16, 2021`
 
 Release date: `soon`
 
-- [BAM] Redirection in Monitoring -> BA -> monitoring not working	Actions.
-- [Banner] Fixed display of empty skeleton.
-- [Install] Fixed installation of module is 24x7 timeperiod is missing	Actions.
-- [Widget] bam-ba-tree BA/services links are broken.
-- Can't see the child BAs on a tree on the Remote Server.
+#### Bug fixes
+
+- Fixed a redirection issue when using actions in the Business Activity > Monitoring page.
+- Fixed a display issue in the top banner when BAM license is not active.
+- Fixed an issue where BAM module could not be installed if 24x7 timeperiod is not defined.
+- Fixed broken links when using “BAM - Live Business Activity Tree”.
+- Fixed an issue where BA's child is not visible in the tree impact in the case of a remote server.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
-- Fixed a bug in the BAM KPI configuration menu that could result in deleting a KPI when modifying it.
+- Fixed an issue in the BAM KPI configuration menu that could result in the KPI deletion when editing it.
 
 ### 21.10.2
 
@@ -187,6 +189,8 @@ Release date: `December 7, 2021`
 ### 21.10.3
 
 Release date: `soon`
+
+#### Bug fix
 
 - Replaced 'switch' with 'if' to better fit RHEL 8 deployment.
 
@@ -235,7 +239,9 @@ Release date: `February 18, 2022`
 
 Release date: `soon`
 
-- For some host discovery providers where no credentials were actually required, the job creation wizard still demanded to enter credentials.
+#### Bug fix
+
+- Fixed an issue where credentials were still required for some host discovery providers, while they are supposed to be optional.
 
 ### 21.10.3
 
