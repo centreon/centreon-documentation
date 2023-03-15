@@ -238,7 +238,7 @@ yum install centreon-pack-virtualization-vmware2-esx
 
 </TabItem>
 </Tabs>
-	
+
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
