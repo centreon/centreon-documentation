@@ -20,7 +20,6 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-Wide character in print at /root/bin/release_easy.pl line 342.
 - [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - add missing packs for discovery - Status:stable - centreon-pack-cloud-azure-management-discover-23.03.0-1
 - [**CheckPoint firewall**](../procedures/network-firewalls-checkpoint-snmp.md) - network-firewalls-checkpoint-snmp - add disk service - Status:stable - centreon-pack-network-firewalls-checkpoint-snmp-23.03.0-1
 - [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - add AP discovery - Status:stable - centreon-pack-network-cisco-wlc-snmp-23.03.2-1
