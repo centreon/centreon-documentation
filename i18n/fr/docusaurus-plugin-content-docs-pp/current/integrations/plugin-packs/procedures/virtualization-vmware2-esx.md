@@ -39,13 +39,13 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 
 </TabItem>
 </Tabs>
-	
-## Métriques Collectées
+
+### Métriques Collectées
 
 En plus des modes et des métriques détaillées ci-après, il est également possible de superviser les éléments suivants :
 
 * Alarms : contrôle les alarmes d'un ESX 
-* Datastores-Lateny : contrôle la latence pour accéder aux datastores
+* Datastores-Latency : contrôle la latence pour accéder aux datastores
 * Maintenance : contrôle si une maintenance est prévue
 * Time : contrôle la synchronisation temps
 * Traffic : Contrôle les interfaces et le trafic
@@ -138,7 +138,7 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 
 ### Configuration du connecteur Centreon VMWare
 
-Pour la supervision VMWare, centreon utlise un daemon pour se connecter et requêter le vCenter.
+Pour la supervision VMWare, centreon utilise un daemon pour se connecter et requêter le vCenter.
 
 Installer le daemon sur tous les pollers :
 
@@ -165,8 +165,8 @@ Pour configurer les accès à votre infrastructure, éditer le fichier
 
 Assurez vous d'avoir remplacé toutes les variables avec les informations nécessaires :
 
-- _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (Si il est en mode standalone),
-- _username_: utilisateur avec un accès "lecture seul" au vCenter ou à l'ESX (Vous pouvez utilisez un utilisateur du domaine),
+- _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (s'il est en mode standalone),
+- _username_: utilisateur avec un accès "lecture seule" au vCenter ou à l'ESX (vous pouvez utiliser un utilisateur du domaine),
 - _password_: le mot de passe de l'utilisateur.
 
 Vous pouvez configurer plusieurs connexions à différents vCenter ou ESX
@@ -201,14 +201,18 @@ systemctl start centreon_vmware
 systemctl enable centreon_vmware
 ```
 
-Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les journaux dans :
-"/var/log/centreon/centreon\_vmware.log".
+Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les journaux dans **/var/log/centreon/centreon\_vmware.log**.
+
+### Balises et Attributs personnalisés
+
+> Pour découvrir les balises et les attributs personnalisés, vous devez utiliser la version 3.2.5 de **centreon-vmware-daemon** et ajouter **--tags** dans les options supplémentaires de découverte.             
+>Allez à la page **Configuration > Hôtes > Découverte**, et à la 3ème étape (**Définir les paramètres de découverte**), dans la section **Paramètres supplémentaires**, dans le champ **Options supplémentaires**, saisissez **--tags**.
 
 ### Flux réseau
 
 Le Collecteur Centreon avec le connecteur VMWare d'installé doit accéder en HTTPS (TCP/443) au vCenter.
 
-Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder en TCP/5700 au Collecteur avec le Connecteur VMWare.
+Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doivent accéder en TCP/5700 au Collecteur avec le Connecteur VMWare.
 
 ## Installation
 
@@ -242,11 +246,11 @@ yum install centreon-pack-virtualization-vmware2-esx
 
 </TabItem>
 </Tabs>
-	
+
 ## Configuration
 
-* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
-* Appliquez le modèle "Virt-VMWare2-ESX-custom" et configurez toutes les macros :
+* Depuis l'interface Web de Centreon, ajoutez un nouvel hôte depuis la page **Configuration > Hôtes**.
+* Appliquez le modèle **Virt-VMWare2-ESX-custom** et configurez toutes les macros :
 
 | Mandatory   | Name                       | Description                                            |
 | :---------- | :------------------------- | :----------------------------------------------------- |
