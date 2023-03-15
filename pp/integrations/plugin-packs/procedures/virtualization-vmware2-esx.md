@@ -38,7 +38,7 @@ The Centreon Plugins and Plugin Packs rely on the Centreon VMWare Connector to r
 </TabItem>
 </Tabs>
 
-## Monitored Metrics 
+### Monitored Metrics 
 
 <Tabs groupId="sync">
 <TabItem value="Esx-Cpu" label="Esx-Cpu">
