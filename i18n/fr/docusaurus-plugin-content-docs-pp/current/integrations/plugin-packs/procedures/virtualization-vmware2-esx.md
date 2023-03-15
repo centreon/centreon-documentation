@@ -40,7 +40,7 @@ Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters
 </TabItem>
 </Tabs>
 
-## Métriques Collectées
+### Métriques Collectées
 
 En plus des modes et des métriques détaillées ci-après, il est également possible de superviser les éléments suivants :
 
