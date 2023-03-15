@@ -30,7 +30,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.2
 
-Release date: `March of the Penguins, 2023`
+Release date: `March 15, 2023`
 
 #### Bug fixes
 
