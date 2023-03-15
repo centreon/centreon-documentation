@@ -19,42 +19,10 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `soon`
 
-- [NG] Add a multi tab behaviour in the Map editor.
-- Adapt the Widget of Custom Views with new NG model.
-- Add metric list to MAP output widget.
-- Add step to Jenkins job process to check the rules on the FrontEnd side of the ESLint, Typescript type.
-- Add the display of only the supported shape at the double click on the editor.
-- adjust the release versions (21.10, 22.04, ...) on the centreon-drawio repo.
-- Change base of centreon-frontend align to the real repo version (on package.json).
-- change modal error to an alert component when server map is not launched.
-- Change the term "beta program" to "Beta".
-- Creating a map from a container.
-- Define and enforce Map naming policy.
-- Display real element size in MAP Editor.
-- Editor shortcuts keyboard.
-- Fetch and Delete more than 25 Maps.
-- Fix an issue preventing to create MAP with API.
-- Fix graph hiddenLine property.
-- fix issue for allow more than 25 maps to be migrated.
-- Fix NPE on map without image.
-- Fix startup on unfound configuration host..
-- Fixed an issue that caused the MAP api to return duplicated KPIs.
-- Fixed linechart properties that could cause it to look different after migrating from Map Legacy to Map Engine.
-- fixed opacity migration bug for migrated url.
-- Fixed resource default size properties in Map Legay that were different from Map Engine.
-- Fixed resource label not managed properly.
-- Fixed the bug that occurs when trying to modifying the shape of a straight link in editor.
-- Fixed the bug when a blank page is displayed given reaching MAP.
-- Fixed the bug when underlying resource id are not present when calling BA endpoint.
-- Give the user the possibility to edit container properties.
-- Image listing for containers is available.
-- Migrating Maps from legacy to ng.
-- Not possible to configure a pie chart with a Business Activity.
-- Populate links and gauges Min/Max with service Min/Max.
-- Remove size limit for outputs in bdd.
-- Set Privilege to MAP API.
-- The search element works well in all modals.
-- Update with the original repo of Drawio.
+- Make viewer and editor rendering more consistent.
+- Fix an issue preventing to create MAP with API.	
+- Aligned "Submit button" inside the Map configuration modal.	
+- Added spacing to the title inside Map configuration modal.	
 
 ### 21.10.8
 
