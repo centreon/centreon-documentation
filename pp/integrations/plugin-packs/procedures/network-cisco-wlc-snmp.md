@@ -145,7 +145,7 @@ Coming soon
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation from XXX:
+Please refer to the official documentation:
 * * [CISCO WLC](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/snmp.html)
 
 ### Network flow
