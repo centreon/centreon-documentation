@@ -218,7 +218,7 @@ Release date: `March 15, 2023`
 #### Centreon Broker
 
 ##### Bug fix
-- Fixed a defect in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
+- Fixed an issue in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.10.0
 
