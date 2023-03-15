@@ -125,15 +125,14 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 4. Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
 These mandatory macros differ depending on the custom mode used.
 
-| Mandatory      | Macro              | Description                                  |
-|:---------------|:-------------------|:---------------------------------------------|
-|                | AZUREAPICUSTOMMODE | Custom mode **api**                          |
-|                | AZURECLIENTID      | Client ID                                    |
-|                | AZURECLIENTSECRET  | Client secret                                |
-|                | AZURERESOURCE      | ID or name of the Azure resource             |
-|                | AZURERESOURCEGROUP | Resource group name if resource name is used |
-|                | AZURESUBSCRIPTION  | Subscription ID                              |
-|                | AZURETENANT        | Tenant ID                                    |
+| Mandatory | Macro              | Description                                  |
+|:----------|:-------------------|:---------------------------------------------|
+|           | AZUREAPICUSTOMMODE | Custom mode **api**                          |
+| X         | AZURECLIENTID      | Client ID                                    |
+| X         | AZURECLIENTSECRET  | Client secret                                |
+|           | AZURERESOURCEGROUP | Resource group name if resource name is used |
+| X         | AZURESUBSCRIPTION  | Subscription ID                              |
+| X         | AZURETENANT        | Tenant ID                                    |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -164,7 +163,7 @@ running the following command:
 The expected command output is shown below:
 
 ```bash
-OK:   | 'policies.non_compliant.count'=76;;;0 ;  
+OK: Number of non compliant policies: 0 - All compliances states are ok | 'policies.non_compliant.count'=0;;;0;
 ```
 
 ### Available modes

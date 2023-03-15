@@ -123,15 +123,14 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 3. Appliquez le modèle d'hôte **Cloud-Azure-PolicyInsights-PolicyStates**.
 4. Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
-| Obligatoire    | Macro              | Description                                  |
-|:---------------|:-------------------|:---------------------------------------------|
-|                | AZUREAPICUSTOMMODE | Custom mode **api**                          |
-|                | AZURECLIENTID      | Client ID                                    |
-|                | AZURECLIENTSECRET  | Client secret                                |
-|                | AZURERESOURCE      | ID or name of the Azure resource             |
-|                | AZURERESOURCEGROUP | Resource group name if resource name is used |
-|                | AZURESUBSCRIPTION  | Subscription ID                              |
-|                | AZURETENANT        | Tenant ID                                    |
+| Obligatoire | Macro              | Description                                  |
+|:------------|:-------------------|:---------------------------------------------|
+|             | AZUREAPICUSTOMMODE | Custom mode **api**                          |
+| X           | AZURECLIENTID      | Client ID                                    |
+| X           | AZURECLIENTSECRET  | Client secret                                |
+|             | AZURERESOURCEGROUP | Resource group name if resource name is used |
+| X           | AZURESUBSCRIPTION  | Subscription ID                              |
+| X           | AZURETENANT        | Tenant ID                                    |
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
@@ -162,7 +161,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:   | 'policies.non_compliant.count'=76;;;0 ;  
+OK: Number of non compliant policies: 0 - All compliances states are ok | 'policies.non_compliant.count'=0;;;0;
 ```
 
 ### Modes disponibles
