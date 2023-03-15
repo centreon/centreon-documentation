@@ -19,8 +19,13 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `soon`
 
+#### Bug fixes
+
 - Make viewer and editor rendering more consistent.
 - Fix an issue preventing to create MAP with API.	
+
+#### Enhancements
+
 - Aligned "Submit button" inside the Map configuration modal.	
 - Added spacing to the title inside Map configuration modal.	
 
