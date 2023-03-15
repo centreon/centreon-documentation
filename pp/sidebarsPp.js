@@ -2582,6 +2582,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-riello-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-pdu-schleifenbauer-gateway-snmp'
         },
         {
