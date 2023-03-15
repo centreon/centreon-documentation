@@ -20,8 +20,13 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `soon`
 
+#### Bug fixes
+
 - Make viewer and editor rendering more consistent.
 - Fix an issue preventing to create MAP with API.	
+
+#### Enhancements
+
 - Aligned "Submit button" inside the Map configuration modal.	
 - Added spacing to the title inside Map configuration modal.	
 
