@@ -110,6 +110,8 @@ ul.tabs {
   padding: 8px 10px;
   gap: 25px;
   font-weight: 500;
+  max-width: 100%;
+  overflow: scroll;
 }
 
 li.tabs__item {
