@@ -95,12 +95,22 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 **Collecteurs**
 
-Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
-| CPU (cœur logique à 3Ghz)   | 4 vCPU    |
-| RAM                         | 4 Go      |
+| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
+|
 
 Vos collecteurs doivent être partitionnés de la manière suivante :
 
@@ -150,12 +160,22 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 **Collecteurs**
 
-Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
-| CPU (cœur logique à 3Ghz)   | 4 vCPU    |
-| RAM                         | 4 Go      |
+| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
+
 
 Vos collecteurs doivent être partitionnés de la manière suivante :
 
@@ -222,12 +242,21 @@ Votre serveur doit être partitionné de la manière suivante :
 
 **Collecteurs**
 
-Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
-| CPU (cœur logique à 3Ghz)   | 4 vCPU    |
-| RAM                         | 4 Go      |
+| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
 
 Vos collecteurs doivent être partitionnés de la manière suivante :
 
@@ -296,12 +325,21 @@ Votre serveur doit être partitionné de la manière suivante :
 
 **Collecteurs**
 
-Pour traiter jusqu'à 7000 services avec des contrôles toutes les 5 minutes :
+* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
-| CPU (cœur logique à 3Ghz)   | 4 vCPU    |
-| RAM                         | 4 Go      |
+| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
 
 Vos collecteurs doivent être partitionnés de la manière suivante :
 
