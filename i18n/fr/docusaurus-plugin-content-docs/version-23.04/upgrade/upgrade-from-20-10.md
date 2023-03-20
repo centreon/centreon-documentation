@@ -15,7 +15,7 @@ Centreon depuis la version 20.10 vers la version 23.04.
 
 > Pour effectuer cette procédure, votre version de MariaDB doit être >= 10.3.22.
 > Si cela n'est pas le cas, merci de suivre avant le
-> [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.md#upgrade-mariadb-server)
+> [chapitre de mise à jour de MariaDB](./upgrade-mariadb.md)
 
 > Attention, suite à la correction d'un problème relatif au schéma de base de données, il sera nécessaire
 > d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées

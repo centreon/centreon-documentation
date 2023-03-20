@@ -16,7 +16,7 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
-> If not, please follow [this](./upgrade-from-19-10.md#upgrade-mariadb-server)
+> If not, please follow [this](./upgrade-mariadb.md)
 > procedure in order to update MariaDB before you can continue with the upgrade
 > from version 20.10 to version 21.04 as described by this document.
 

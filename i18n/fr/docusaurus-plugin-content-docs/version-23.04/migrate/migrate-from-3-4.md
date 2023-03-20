@@ -6,7 +6,7 @@ title: Migration depuis une plateforme Centreon 3.4
 ## Prérequis
 
 Cette procédure ne s'applique que pour une plate-forme **Centreon 3.4**,
-installé sur une distribution GNU/Linux 64 bits autre que CentOS ou Red Hat 7
+installée sur une distribution GNU/Linux 64 bits
 et disposant des prérequis suivants :
 
 | Composants      | Version |
@@ -15,9 +15,6 @@ et disposant des prérequis suivants :
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
 
-> Si votre plate-forme a été installé à partir de l'ISO Centreon ou des dépôts
-> Centreon 3.4 sur CentOS ou Red Hat en version 7, référez-vous à la documentation
-> de [montée de version](../upgrade/upgrade-from-3-4.md).
 
 ## Migration
 

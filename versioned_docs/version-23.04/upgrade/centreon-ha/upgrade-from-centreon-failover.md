@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding
 
-This procedure is reserved to advanced-users. Read it completely before starting any operation. 
+This procedure is reserved to advanced users. Read it completely before starting any operation. 
 Make sure to understand the whole thing as it helps to minimize service disruption when 
 the time to do it on production servers will come.
 
@@ -53,7 +53,7 @@ At this step, none of the processes managed by the cluster should run on any nod
 
 Centreon >= 22.04 comes with a compatibility with MariaDB 10.5.
 
-Upgrade of both database nodes following [official MariaDB upgrade procedure](../../upgrade/upgrade-from-19-10.md#Upgrade-the-MariaDB-server). 
+Upgrade of both database nodes following [official MariaDB upgrade procedure](../../upgrade/upgrade-mariadb.md). 
 
 Once both nodes are running the 10.5 MariaDB version, stop mysql/mariadb processes. 
 

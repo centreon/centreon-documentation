@@ -15,10 +15,6 @@ Here are the system requirements:
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
 
-> If your platform was installed from Centreon ISO or Centreon 3.4 repositories
-> running on CentOS or Red Hat version 7, refer to the
-> [upgrade](../upgrade/upgrade-from-3-4.md) documentation.
-
 ## Migrate
 
 > If your Centreon platform includes a Centreon redundancy system, please

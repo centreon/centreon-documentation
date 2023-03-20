@@ -53,7 +53,7 @@ pcs cluster destroy
 
 Centreon >= 21.10 est livré avec une compatibilité avec MariaDB 10.5.
 
-Mettez à niveau les deux nœuds de base de données en suivant la [procédure officielle de mise à niveau de MariaDB](../../upgrade/upgrade-from-19-10.md#Montée-de-version-du-serveur-MariaDB). 
+Mettez à niveau les deux nœuds de base de données en suivant la [procédure de mise à niveau de MariaDB](../../upgrade/upgrade-mariadb.md). 
 
 Une fois que les deux nœuds exécutent la version 10.5 de MariaDB, arrêtez les processus mysql/mariadb. 
 

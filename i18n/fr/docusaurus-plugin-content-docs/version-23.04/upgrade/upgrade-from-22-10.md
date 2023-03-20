@@ -1,5 +1,5 @@
 ---
-id: upgrade-from-22-04
+id: upgrade-from-22-10
 title: Montée de version depuis Centreon 22.10
 ---
 import Tabs from '@theme/Tabs';

@@ -16,9 +16,7 @@ désinstallez le module **centreon-poller-display-central**
     yum remove centreon-poller-display-central
     ```
 
-Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4.md)
-si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
-[procédure de migration](../migrate/migrate-from-3-4.md) d'un serveur Centreon
+Puis suivez la [procédure de migration](../migrate/migrate-from-3-4.md) d'un serveur Centreon
 Central vers 23.04.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
