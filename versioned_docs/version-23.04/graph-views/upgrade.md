@@ -42,7 +42,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
@@ -84,7 +84,7 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 Now you can start the update process:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
@@ -100,7 +100,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/23.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 > Install Centreon MAP repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
@@ -189,7 +189,7 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. If you have upgraded your Centreon platform to version 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
+3. If you have upgraded your Centreon platform from a version earlier than 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 
    ```text
    broker.pb.message.enabled=true

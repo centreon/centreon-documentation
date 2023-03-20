@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon provides RPM packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on CentOS 7, on Alma/RHEL/Oracle Linux 8 and on Debian 11.
+These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.
 
 You must run the installation procedure as a privileged user.
 
@@ -41,10 +41,27 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-``` shell
-yum update
+```shell
+dnf update
+```
+
+### Additional configuration
+
+If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Use the following command to check which languages are installed on your system:
+
+```shell
+locale -a
 ```
 
 </TabItem>
@@ -92,8 +109,7 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
 **enforcing** by **disabled**. You can also run the following command:
@@ -209,30 +225,27 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Redhat Software Collections repository
-
-To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat. It is required for installing apache 2.4.
-
-Install the Software Collections repository using this command:
-
-```shell
-yum install -y centos-release-scl
-```
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 #### Remi repository
 
-To install Centreon you will need to install the **remi** repository.
+To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
 
 Run the following commands:
 
 ```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php81
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf config-manager --set-enabled crb
+dnf install -y epel-release
+```
+
+Enable PHP 8.1 using the following commands:
+
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -275,10 +288,10 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -302,14 +315,14 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/23.04/el9/stable/noarch/RPMS/centreon-release-23.04-1.el9.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -318,7 +331,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 To install the Centreon repository, execute following command line:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/23.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
@@ -334,7 +347,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 This section describes how to install a Centreon Remote Server.
 
-It's possible to install this server with a local database on the server, or
+It is possible to install this server with a local database on the server, or
 a remote database on a dedicated server.
 
 ### With a local database
@@ -349,10 +362,10 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon
+dnf install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -374,10 +387,10 @@ You can now move on to the [next step](#step-3-configuration).
 
 ### With a remote database
 
-> If installing database on a dedicated server, this server should also have
-> the prerequired repositories.
+> If you are installing a database on a dedicated server, this server should also have
+> the required repositories.
 
-Run the following command on the Central server:
+Run the following command on the central server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -387,10 +400,10 @@ dnf install -y centreon-central
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon-central
+dnf install -y centreon-central
 ```
 
 </TabItem>
@@ -416,10 +429,10 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon-database
+dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -523,10 +536,28 @@ hostnamectl set-hostname remote1
 
 ### Set the PHP time zone
 
-You are required to set the PHP time zone. 
+You are required to set the PHP time zone.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Run the command:
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
+After saving the file, please do not forget to restart the PHP-FPM service:
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Run the command:
 
@@ -577,10 +608,12 @@ systemctl start crond
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable crond
+systemctl start crond
 ```
 
 </TabItem>
@@ -770,7 +803,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 22.10.
+> Your Centreon target version is invalid. It should be greater or equal to 23.04.
 
 ## Step 6: Extend local DBMS rights
 

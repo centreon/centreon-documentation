@@ -39,7 +39,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
 ```
 
 > Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
@@ -79,7 +79,7 @@ dnf install https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centr
 Vous pouvez maintenant procéder à la mise à jour :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 > Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
@@ -94,7 +94,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/23.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 > Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -185,7 +185,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
 
 2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.10, le nouveau protocole BBDO v3 est activé.
+3. Si vous avez mis à niveau votre plateforme Centreon depuis une version antérieure à 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.
 
    ```text

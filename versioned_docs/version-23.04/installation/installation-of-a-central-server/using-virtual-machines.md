@@ -42,7 +42,7 @@ The host machine must have the following characteristics:
 
     ![image](../../assets/installation/VMW1.png)
 
-2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will supervise. Here is an example of configuration in VSphere 6:
+2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is an example of configuration in VSphere 6:
 
     ![image](../../assets/installation/VMW_network_adapter.png)
 

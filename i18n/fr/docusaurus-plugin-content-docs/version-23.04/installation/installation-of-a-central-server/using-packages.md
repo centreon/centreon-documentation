@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Centreon fournit des paquets RPM pour ses produits via la version Centreon Open Source disponible gratuitement dans notre dépôt.
 
-Ces paquets peuvent être installés sur CentOS 7, sur Alma/RHEL/Oracle Linux 8 et sur Debian 11.
+Ces paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 et sur Debian 11.
 
 > Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
@@ -39,10 +39,10 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update
+dnf update
 ```
 
 </TabItem>
@@ -93,11 +93,17 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
 exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
 
 ```shell
 reboot
@@ -205,18 +211,7 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Dépôt Redhat Software Collections
-
-Pour installer Centreon, vous devrez configurer le dépôt officiel Software Collections
-pris en charge par RedHat. Il est nécessaire pour installer apache 2.4.
-
-Installez le dépôt Software Collections à l'aide de la commande suivante :
-
-```shell
-yum install -y centos-release-scl
-```
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 #### Dépôt Remi
 
@@ -225,10 +220,19 @@ Pour installer Centreon, vous devez installer le dépôt **remi**.
 Exécutez les commandes suivantes :
 
 ```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php81
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf config-manager --set-enabled 'powertools'
+dnf config-manager --set-enabled crb
+dnf install -y epel-release
+```
+
+Activez PHP 8.1 avec la commande suivante :
+
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -271,10 +275,10 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -298,21 +302,21 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y  https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y  https://yum.centreon.com/standard/23.04/el9/stable/noarch/RPMS/centreon-release-23.04-1.el9.centos.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/repository/23.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :
@@ -344,10 +348,10 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon
+dnf install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -381,10 +385,10 @@ dnf install -y centreon-central
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon-central
+dnf install -y centreon-central
 ```
 
 </TabItem>
@@ -410,10 +414,10 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon-database
+dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -497,7 +501,7 @@ DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
 > ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 > ```shell
 > $ cat /etc/my.cnf.d/centreon.cnf
@@ -596,6 +600,21 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Exécutez la commande suivante en tant que `root` :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 Editez le fichier **/etc/php/8.1/mods-available/centreon.ini** et contrôlez le fuseau horaire.
@@ -627,10 +646,12 @@ systemctl start crond
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl enable php-fpm httpd24-httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable crond
+systemctl start crond
 ```
 
 </TabItem>
@@ -677,10 +698,10 @@ systemctl start httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl start httpd24-httpd
+systemctl start https
 ```
 
 </TabItem>
