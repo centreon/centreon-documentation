@@ -238,16 +238,21 @@ systemctl start php-fpm
 
 ### Update your customized Apache configuration
 
-This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace tha old file. You must copy the changes manually to your customized configuration file.
+This section only applies if you customized your Apache configuration.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
+When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 Run a diff between the old and the new Apache configuration files:
 
-```
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+```shell
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade, e.g. the **authentication** string in the **LocationMatch** directive
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
 
@@ -258,6 +263,125 @@ In particular, make sure your customized Apache configuration contains the follo
     ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+apachectl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take in account the new configuration:
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+
+Run a diff between the old and the new Apache configuration files:
+
+```shell
+diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
+
+For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+
+In particular, make sure your customized Apache configuration contains the following directive (with **authentication**).
+```
+<LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+</LocationMatch>
+```
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+/opt/rh/httpd24/root/usr/sbin/apachectl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take in account the new configuration:
+
+```shell
+systemctl restart php-fpm httpd24-httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd24-httpd
+```
+
+If everything is ok, you must have:
+
+```shell
+● httpd24-httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
+  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
+ Main PID: 31786 (httpd)
+   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
+   CGroup: /system.slice/httpd24-httpd.service
+           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+```
+
+</TabItem>
+</Tabs>
 
 > If you were using OpenID or the Web SSO authentication, some extra configuration steps are required. Refer to the [release note](../releases/centreon-core.md#breaking-changes).
 
