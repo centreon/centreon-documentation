@@ -60,6 +60,11 @@ html:root {
   --ifm-background-color-invert: #00003D;
   --ifm-background-color: #fff;
   --ifm-code-background: rgba(7, 0, 63, 0.1);
+  --ifm-blockquote-border-left-width: 8px;
+  --ifm-blockquote-border-color: #2213E2;
+  --ifm-blockquote-background-color: rgba(34, 19, 226, 0.15);
+  --ifm-blockquote-padding-vertical: 16px;
+  --ifm-blockquote-padding-horizontal: 32px;
 }
 
 html[data-theme='dark']:root {
@@ -83,6 +88,14 @@ html[data-theme='dark']:root {
   --ifm-menu-color: #fff;
   --ifm-toc-link-color: #fff;
   --ifm-code-background: rgba(255,255,255,0.15);
+
+  --ifm-blockquote-border-color: rgba(34, 19, 226, 1);
+  --ifm-blockquote-background-color: rgba(34, 19, 226, 0.5);
+}
+
+blockquote {
+  background-color: var(--ifm-blockquote-background-color);
+  border-radius: 5px;
 }
 
 #feedback [stroke=currentColor] {
