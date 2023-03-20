@@ -43,13 +43,6 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-</TabItem>
 </Tabs>
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -114,23 +107,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Vous devez tout d'abord installer les dépôts **remi** :
-
-```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-
-Ensuite, vous devez activer le dépôt php 8.1 :
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 </Tabs>
 
 ### Montée de version de la solution Centreon
@@ -167,13 +143,6 @@ yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
 </Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -185,34 +154,6 @@ Exécutez les commandes suivantes :
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
-> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-
-Exécutez les commandes suivantes :
-```shell
-systemctl stop rh-php73-php-fpm
-systemctl disable rh-php73-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-Ou, si votre version de PHP est la 7.4 :
-
-```shell
-systemctl stop rh-php74-php-fpm
-systemctl disable rh-php74-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
 ```
 
 </TabItem>
@@ -262,14 +203,6 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-```shell
-systemctl reload httpd24-httpd
 ```
 
 </TabItem>
@@ -343,13 +276,6 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
