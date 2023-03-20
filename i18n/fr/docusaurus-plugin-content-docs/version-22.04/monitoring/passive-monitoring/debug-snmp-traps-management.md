@@ -26,7 +26,7 @@ permettre de valider la réception du flux de données sur le port UDP 162.
 
 Une fois la réception du flux validé, vérifiez l’état de fonctionnement du processus snmptrapd, qui doit être en cours
 d’exécution, ainsi que ses options de configuration. Il est possible d’activer la journalisation du processus. Pour
-cela modifiez le fichier **/etc/sysconfig/snmptrapd.option** et remplacez la ligne "OPTIONS" pour avoir :
+cela modifiez le fichier **/etc/sysconfig/snmptrapd** et remplacez la ligne "OPTIONS" pour avoir :
 
 ```shell
 # snmptrapd command line options
