@@ -42,8 +42,8 @@ html:root {
   --ifm-color-primary-lighter: #3a2ced;
   --ifm-color-primary-lightest: #5a4ef0;
   --docusaurus-collapse-button-bg: #2213E2;
-  --ifm-toc-border-color: #00003D;
-  --ifm-font-color-base: #00003D;
+  --ifm-toc-border-color: var(--ifm-color-dark);
+  --ifm-font-color-base: var(--ifm-color-dark);
   --ifm-font-family-base: 'Red Hat Display', serif;
   --ifm-font-family-heading: 'Esphimere', serif;
   --ifm-heading-font-family: var(--ifm-font-family-heading);
@@ -53,11 +53,11 @@ html:root {
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
   --ifm-navbar-height: 96px;
-  --ifm-footer-link-color: #00003D;
-  --ifm-menu-color: #00003D;
-  --ifm-toc-link-color: #00003D;
+  --ifm-footer-link-color: var(--ifm-color-dark);
+  --ifm-menu-color: var(--ifm-color-dark);
+  --ifm-toc-link-color: var(--ifm-color-dark);
   --ifm-navbar-shadow: none;
-  --ifm-background-color-invert: #00003D;
+  --ifm-background-color-invert: var(--ifm-color-dark);
   --ifm-background-color: #fff;
   --ifm-code-background: rgba(7, 0, 63, 0.1);
   --ifm-blockquote-border-left-width: 8px;
@@ -65,6 +65,7 @@ html:root {
   --ifm-blockquote-background-color: rgba(34, 19, 226, 0.15);
   --ifm-blockquote-padding-vertical: 16px;
   --ifm-blockquote-padding-horizontal: 32px;
+  --ifm-global-radius: 5px;
 }
 
 html[data-theme='dark']:root {
@@ -101,6 +102,34 @@ blockquote {
 #feedback [stroke=currentColor] {
   stroke: var(--ifm-color-primary);
 }
+
+ul.tabs {
+  background-color: rgba(7, 0, 63, 0.1);
+  border-radius: 5px;
+  display: inline-flex;
+  padding: 8px 10px;
+  gap: 25px;
+  font-weight: 500;
+}
+
+li.tabs__item {
+  padding: 5px 10px;
+  opacity: 0.5;
+}
+
+li.tabs__item.tabs__item--active {
+  border-bottom: none;
+  background-color: white;
+  border-bottom-left-radius: var(--ifm-global-radius);
+  border-bottom-right-radius: var(--ifm-global-radius);
+  color: var(--ifm-color-dark);
+  opacity: 1;
+}
+
+html[data-theme='dark'] ul.tabs {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 
 /* MAIN CONTAINER */
 @media (min-width:1200px) {
