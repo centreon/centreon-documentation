@@ -17,7 +17,7 @@ This procedure only applies if the following conditions are met:
 
 ### Step 1: Install the new server
 
-1. Install your new OS according to the [prerequisites](../installation/prerequisites.md).
+1. Install your new OS: check the [supported operating systems](../installation/compatibility.md#operating-systems).
 
 2. Install a new Centreon central server from [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon web interface.

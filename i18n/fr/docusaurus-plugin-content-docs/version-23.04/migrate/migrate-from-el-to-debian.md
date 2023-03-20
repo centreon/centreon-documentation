@@ -18,7 +18,7 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 
 ### Étape 1 : Installer le nouveau serveur
 
-1. Installez votre nouvel OS en suivant les [prérequis](../installation/prerequisites.md).
+1. Installez votre nouvel OS: voir la liste des [OS supportés](../installation/compatibility.md#système-dexploitation).
 
 2. Installez un nouveau serveur central Centreon à partir des [paquets](../installation/installation-of-a-central-server/using-packages.md)
    jusqu'à terminer le processus d'installation en vous connectant à l'interface web.

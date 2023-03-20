@@ -37,13 +37,6 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -64,13 +57,6 @@ apt update
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -116,15 +102,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-You need to enable the php 8.1 repository:
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -166,13 +143,6 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum clean all --enablerepo=*
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -189,14 +159,7 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -279,69 +242,6 @@ If everything is ok, you should have:
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
-
-Run a diff between the old and the new Apache configuration files:
-
-```shell
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
-```
-
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
-
-For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
-
-Check that Apache is configured properly by running the following command:
-
-```shell
-/opt/rh/httpd24/root/usr/sbin/apachectl configtest
-```
-
-The expected result is the following:
-
-```shell
-Syntax OK
-```
-
-Restart the Apache and PHP processes to take in account the new configuration:
-
-```shell
-systemctl restart php-fpm httpd24-httpd
-```
-
-Then check its status:
-
-```shell
-systemctl status httpd24-httpd
-```
-
-If everything is ok, you must have:
-
-```shell
-● httpd24-httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
-  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
- Main PID: 31786 (httpd)
-   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
-   CGroup: /system.slice/httpd24-httpd.service
-           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 Use the backup file you have created at the previous step to copy your customizations to file **/etc/apache2/sites-available/centreon.conf**.
@@ -421,13 +321,6 @@ following command:
 
 ```shell
 systemctl reload php-fpm httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-systemctl reload php-fpm httpd24-httpd
 ```
 
 </TabItem>
@@ -584,13 +477,6 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -613,13 +499,6 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum clean all --enablerepo=*
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -635,13 +514,6 @@ Then upgrade all the components with the following command:
 <Tabs groupId="sync">
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-yum update centreon\*
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum update centreon\*

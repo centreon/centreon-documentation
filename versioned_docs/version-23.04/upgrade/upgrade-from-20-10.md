@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 23.04.
 
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.04, as CentOS 7 is no longer supported: you need to migrate your platform to a supported OS.
+
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
@@ -53,13 +55,6 @@ Run the following commands:
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -127,23 +122,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-First, you need to install the **remi** repository:
-
-```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-
-Then, you need to enable the php 8.1 repository:
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 </Tabs>
 
 ### Upgrade the Centreon solution
@@ -180,13 +158,6 @@ yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
 </Tabs>
 > Accept new GPG keys from the repositories as needed.
 
@@ -197,33 +168,6 @@ Execute the following commands:
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-The PHP timezone should be set. Run the command:
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-Execute the following commands:
-```shell
-systemctl stop rh-php72-php-fpm
-systemctl disable rh-php72-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-Or, if you have PHP 7.4:
-```shell
-systemctl stop rh-php74-php-fpm
-systemctl disable rh-php74-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
 ```
 
 </TabItem>
@@ -286,13 +230,6 @@ Run the following command on the dedicated DBMS server:
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm 
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -383,15 +320,6 @@ systemctl reload httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd24-httpd
-```
-
-</TabItem>
 </Tabs>
 
 Then log on to the Centreon web interface to continue the upgrade process:
@@ -458,13 +386,6 @@ Run the following command:
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
