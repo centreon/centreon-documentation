@@ -322,13 +322,6 @@ systemctl reload php-fpm httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-systemctl reload php-fpm httpd24-httpd
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -482,13 +475,6 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -511,13 +497,6 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum clean all --enablerepo=*
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -533,13 +512,6 @@ Mettez à jour l'ensemble des composants :
 <Tabs groupId="sync">
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-yum update centreon\*
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum update centreon\*

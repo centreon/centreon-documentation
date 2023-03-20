@@ -58,13 +58,6 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-</TabItem>
 </Tabs>
 
 > Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -129,23 +122,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Vous devez tout d'abord installer les dépôts **remi** :
-
-```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-
-Ensuite, vous devez activer le dépôt php 8.1 :
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 </Tabs>
 
 ### Montée de version de la solution Centreon
@@ -182,13 +158,6 @@ yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
 </Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -203,57 +172,77 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
-> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-Exécutez les commandes suivantes :
-```shell
-systemctl stop rh-php72-php-fpm
-systemctl disable rh-php72-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-Ou, si votre version de PHP est la 7.4 :
-
-```shell
-systemctl stop rh-php74-php-fpm
-systemctl disable rh-php74-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-</TabItem>
 </Tabs>
 
 ### Mettre à jour une configuration Apache personnalisée
 
-Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
 Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 
 ```
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version, par exemple la chaîne **authentication** dans la directive **LocationMatch**
-* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version.
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il ne contient pas la configuration personnalisée.
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
-Notamment, assurez-vous que votre configuration Apache personnalisée contient la directive suivante (incluant **authentication**).
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
+
+```shell
+apachectl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```shell
+Syntax OK
+```
+
+Redémarrez Apache pour appliquer les modifications :
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status httpd
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
 
 ```
-<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-</LocationMatch>
-```
+
+</TabItem>
+</Tabs>
 
 #### Configuration Apache personnalisée : activer la compression du texte
 
@@ -290,13 +279,6 @@ Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -387,15 +369,6 @@ systemctl reload httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-
-```shell
-systemctl reload httpd24-httpd
-```
-
-</TabItem>
 </Tabs>
 
 Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
@@ -466,13 +439,6 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>

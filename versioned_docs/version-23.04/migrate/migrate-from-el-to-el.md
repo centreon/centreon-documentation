@@ -7,7 +7,7 @@ title: Migrate from an EL-type OS to another EL-type OS (from a Centreon 18.10 o
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 8.
+- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 8 or 9.
 - Your version of Centreon is 18.10 or newer.
 
 > If your Centreon platform includes a Centreon redundancy system, please
@@ -17,7 +17,7 @@ This procedure only applies if the following conditions are met:
 
 ### Step 1: Install the new server
 
-1. Install your new OS according to the [prerequisites](../installation/prerequisites.md).
+1. Install your new OS: check the [supported operating systems](../installation/compatibility.md#operating-systems).
 
 2. Install a new Centreon central server from [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon web interface.
