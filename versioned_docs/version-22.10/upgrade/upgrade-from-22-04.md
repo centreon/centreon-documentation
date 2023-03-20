@@ -658,15 +658,8 @@ apt upgrade centreon-poller
 
 > Accept new GPG keys from the repositories as needed.
 
-Start and enable **gorgoned**:
+Restart **centreon**:
 
 ```shell
-systemctl start gorgoned
-systemctl enable gorgoned
-```
-
-Restart **centengine**:
-
-```shell
-systemctl restart centengine
+systemctl restart centreon
 ```
