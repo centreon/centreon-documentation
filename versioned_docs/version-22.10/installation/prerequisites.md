@@ -96,14 +96,23 @@ This is how your central server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-**Pollers**
+#### Pollers
 
-To handle up to 7000 services with checks every 5 minutes:
+* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 4 vCPU    |
-  | RAM                         | 4 GB      |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* To handle production environments (up to 7000 services with checks every 5 minutes):
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
 
 This is how the pollers should be partitioned:
 
@@ -158,12 +167,21 @@ This is how your central server should be partitioned:
 
 **Pollers**
 
-To handle up to 7000 services with checks every 5 minutes:
+* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 4 vCPU    |
-  | RAM                         | 4 GB      |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* To handle production environments (up to 7000 services with checks every 5 minutes):
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
 
 This is how the pollers should be partitioned:
 
@@ -236,12 +254,21 @@ This is how the database server should be partitioned:
 
 **Pollers**
 
-To handle up to 7000 services with checks every 5 minutes:
+* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 4 vCPU    |
-  | RAM                         | 4 GB      |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* To handle production environments (up to 7000 services with checks every 5 minutes):
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
 
 This is how the pollers should be partitioned:
 
@@ -313,12 +340,21 @@ This is how the database server should be partitioned:
 
 **Pollers**
 
-To handle up to 7000 services with checks every 5 minutes:
+* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
-  | Element                     | Value     |
-  | ----------------------------| --------- |
-  | CPU  (logical core at 3Ghz) | 4 vCPU    |
-  | RAM                         | 4 GB      |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| RAM                         | 2 GB      |
+| HDD                         | 40 GB     |
+
+* To handle production environments (up to 7000 services with checks every 5 minutes):
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| RAM                         | 4 GB      |
+| HDD                         | 40 GB     |
 
 This is how the pollers should be partitioned:
 

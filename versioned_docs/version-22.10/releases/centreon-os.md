@@ -211,6 +211,15 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.1
+
+Release date: `March 16, 2023`
+
+#### Centreon Broker
+
+##### Bug fix
+- Fixed an issue in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
