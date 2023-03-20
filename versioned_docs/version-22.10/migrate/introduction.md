@@ -13,7 +13,7 @@ The following table describes various cases:
 | ---- | ---- | ---- |
 | CentOS 5 | 3.4 | migration |
 | CentOS 6 | 3.4 | migration |
-| CentOS 7 | 3.4 to 21.10 | upgrade |
-| CentOS 8 | 20.10 to 21.10 | migration |
-| RHEL 8 | 20.10 to 21.10 | upgrade |
-| OL 8 | 20.10 to 21.10 | upgrade |
+| CentOS 7 | 3.4 to 22.04 | upgrade |
+| CentOS 8 | 20.10 to 22.04 | migration |
+| RHEL 8 | 20.10 to 22.04 | upgrade |
+| OL 8 | 20.10 to 22.04 | upgrade |
