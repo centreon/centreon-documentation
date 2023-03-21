@@ -111,12 +111,13 @@ ul.tabs {
   gap: 25px;
   font-weight: 500;
   max-width: 100%;
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 li.tabs__item {
   padding: 5px 10px;
   opacity: 0.5;
+  white-space: nowrap;
 }
 
 li.tabs__item.tabs__item--active {
