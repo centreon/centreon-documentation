@@ -103,9 +103,7 @@ Une fois que les clés SSH de centreon et de mysql ont été échangées, vous p
 
 ### Finalisation de la mise à niveau
 
-Tout d'abord, effectuez les étapes de l'assistant Web pour terminer le processus de mise à niveau de Central :
-* Si vous effectuez une mise à niveau depuis la version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.md#Finalisation-de-la-mise-à-jour).
-* Si vous effectuez une mise à niveau depuis la version 19.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.md#Finalisation-de-la-mise-à-jour).
+Tout d'abord, effectuez les étapes de l'assistant Web pour terminer le processus de mise à niveau de Central.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">

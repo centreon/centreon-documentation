@@ -103,9 +103,7 @@ Once the centreon and mysql SSH keys have been exchanged, you might want to remo
 
 ### Finalizing the upgrade
 
-First, complete Web wizard steps to finish the Central upgrade process:
-* If you upgrade from the 19.10, follow this [chapter](../../upgrade/upgrade-from-19-10.md#finalizing-the-upgrade).
-* If you upgrade from the 19.04, follow this [chapter](../../upgrade/upgrade-from-19-04.md#finalizing-the-upgrade).
+First, complete Web wizard steps to finish the Central upgrade process.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">
