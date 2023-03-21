@@ -35,9 +35,7 @@ en exécutant la commande suivante :
   yum remove centreon-poller-display
   ```
 
-3. Si votre serveur est basé sur la distribution CentOS ou Red Hat en version
-7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4.md),
-sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4.md).
+Référez vous à [la procédure de migration](../migrate/migrate-from-3-4.md).
 
     > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
     > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers.
