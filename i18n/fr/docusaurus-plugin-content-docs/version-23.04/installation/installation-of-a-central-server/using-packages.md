@@ -46,6 +46,23 @@ locale -a
 dnf update
 ```
 
+### Configuration spécifique
+
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
