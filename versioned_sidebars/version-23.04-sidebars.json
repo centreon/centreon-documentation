@@ -999,10 +999,6 @@
             },
             {
               "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
-            },
-            {
-              "type": "doc",
               "id": "version-23.04/upgrade/upgrade-mariadb"
             }
           ]
