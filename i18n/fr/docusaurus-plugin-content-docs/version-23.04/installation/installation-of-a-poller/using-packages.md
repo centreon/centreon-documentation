@@ -26,12 +26,13 @@ dnf update
 
 ### Configuration spécifique
 
-Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
@@ -41,10 +42,27 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update
+dnf update
+```
+
+### Configuration spécifique
+
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
 ```
 
 </TabItem>
@@ -90,7 +108,7 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -195,17 +213,28 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-#### Dépôt Redhat Software Collections
+#### Dépôt Remi
 
-Pour installer Centreon, vous devrez configurer le référentiel officiel des collections
-de logiciels pris en charge par Redhat.
+Pour installer Centreon, vous devez installer le dépôt **remi**.
 
-Installez le référentiel de collections de logiciels à l'aide de cette commande :
+Exécutez les commandes suivantes :
 
 ```shell
-yum install -y centos-release-scl
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf config-manager --set-enabled 'powertools'
+dnf config-manager --set-enabled crb
+dnf install -y epel-release
+```
+
+Activez PHP 8.1 avec la commande suivante :
+
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
 ```
 
 </TabItem>
@@ -236,10 +265,10 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/23.04/el9/stable/noarch/RPMS/centreon-release-23.04-1.el9.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -272,7 +301,7 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 yum install -y centreon-poller
@@ -290,17 +319,20 @@ apt install -y centreon-poller
 </Tabs>
 
 Pour activer le démarrage automatique des services de supervision au démarrage
-du serveur, exécuter la commande suivant :
+du serveur, exécuter la commande suivante :
+
 ```shell
 systemctl enable centreon centengine centreontrapd snmptrapd
 ```
 
 Les services de supervision passive peuvent être démarrés :
+
 ```shell
 systemctl start centreontrapd snmptrapd
 ```
 
 Redémarrez Centreon Engine :
+
 ```shell
 systemctl restart centengine
 ```
