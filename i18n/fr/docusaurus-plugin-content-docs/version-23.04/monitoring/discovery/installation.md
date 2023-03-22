@@ -15,7 +15,7 @@ title: Installation
 droit d’installer des modules et rendez-vous dans le menu **Administration >
 Extensions > Gestionnaire**.
 
-3. Assurez-vous que les modules **License Manager** et **Plugin Packs Manager** sont à jour
+3. Assurez-vous que les modules **License Manager** et **Gestionnaire de connecteurs de supervision** sont à jour
  avant de procéder à l'installation du module **Auto Discovery**.
 
 4. Cliquez sur l’icône d’installation correspondant au module **Centreon Auto
@@ -23,5 +23,5 @@ Discovery**. Le module est maintenant installé :
 
   ![image](../../assets/monitoring/discovery/install-after.png)
 
-5. Rendez-vous dans le menu **Configuration > Packs de plugins** et [installez les plugin packs
+5. Rendez-vous dans le menu **Configuration > Packs de plugins** et [installez les connecteurs de supervision
 ](../pluginpacks.md#installation-du-pack) correspondant aux fournisseurs de découverte désirés.

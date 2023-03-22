@@ -216,7 +216,7 @@ From **Administration > Extensions > Manager**, update all extensions, starting
 with the following:
 
 - License Manager,
-- Plugin Packs Manager,
+- Monitoring Connectors Manager,
 - Auto Discovery.
 
 Then you can update all other commercial extensions.

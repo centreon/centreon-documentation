@@ -33,8 +33,8 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 ### Sur le serveur central
 
-La base de données sera supervisée à l'aide du [Plugin Pack **MySQL/MariaDB**](/pp/integrations/plugin-packs/procedures/applications-databases-mysql).
-Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
+La base de données sera supervisée à l'aide du [connecteur de supervision **MySQL/MariaDB**](/pp/integrations/plugin-packs/procedures/applications-databases-mysql).
+Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le connecteur de supervision **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 

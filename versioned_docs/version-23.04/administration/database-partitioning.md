@@ -146,9 +146,9 @@ DROP TABLE centreon_storage.data_bin_old;
 
 ## Monitoring of partitioning operation
 
-The **Centreon Database** Plugin Pack allows you to control that the number of
+The **Centreon Database** Monitoring Connector allows you to control that the number of
 partitions created in advance is sufficient. It is recommended to install and
-deploy this Plugin Pack.
+deploy this Monitoring Connector.
 
 It is also possible to view the partitioned tables and the consumption
 associated with each partition via the `Administration > Platform Status >

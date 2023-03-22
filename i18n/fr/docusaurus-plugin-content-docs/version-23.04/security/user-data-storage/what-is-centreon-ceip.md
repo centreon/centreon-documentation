@@ -32,7 +32,7 @@ La télémétrie collecte anonymement et automatiquement les données suivantes 
   - Le fuseau horaire du serveur Centreon
 
 Les statistiques avancées portent sur l'usage des composants additionnels tels que l'usage des widgets dans les vues
-personnalisées, la gestion des slots pour Centreon DSM, l'usage des Plugin Packs déployés, etc.
+personnalisées, la gestion des slots pour Centreon DSM, l'usage des connecteurs de supervision déployés, etc.
 
 L'usage des fonctionnalités au sein de l'interface utilisateur comprend l'accès aux différents menus de Centreon, ainsi
 que les actions réalisées par l'utilisateur au sein de l'interface (clics sur les boutons, focus sur un champ du

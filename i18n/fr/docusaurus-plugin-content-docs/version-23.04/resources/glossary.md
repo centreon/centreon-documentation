@@ -209,7 +209,7 @@ Les temps d'arrêts récurrents sont des temps d'arrêts qui reviennent de mani�
 
 Est appelé "plugin" une sonde de supervision, c'est-à-dire un binaire exécutable ou un script qui est appelé par le [moteur de supervision](#moteur-de-supervision) pour effectuer un contrôle sur un [hôte](#hôte) ou un [service](#service). Le plugin va déterminer le statut à renvoyer au moteur de supervision à partir des vérifications qu'il fait et des seuils qui ont été définis dans la configuration de l'hôte ou du service.
 
-## Plugin Pack
+## connecteur de supervision
 
 L'expression "Plugin pack" désigne un [plugin](#plugin) et son pack :
 
@@ -217,8 +217,8 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 
 **Voir aussi** :
 
-- [Utiliser des Plugin Packs](../monitoring/pluginpacks.md),
-- [Introduction aux Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
+- [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
+- [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Ressource
 

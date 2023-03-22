@@ -30,7 +30,7 @@ title: Administration
 droit d’installer des modules et rendez-vous dans le menu **Administration >
 Extensions > Gestionnaire**.
 
-3. Assurez-vous que les modules **License Manager** et **Plugin Packs Manager**
+3. Assurez-vous que les modules **License Manager** et **Gestionnaire de connecteurs de supervision**
   sont à jour avant de procéder à la mise à jour du module **Auto Discovery**
 
 3. Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery** :

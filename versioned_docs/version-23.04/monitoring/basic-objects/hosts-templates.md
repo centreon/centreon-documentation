@@ -11,7 +11,7 @@ certain objects to speed up the creation of similar objects.
 
 A template can inherit properties from another template.
 
-Templates from Plugin Packs make monitoring hosts easy, because they provide ready-to-use check [commands](commands.md).
+Templates from Monitoring Connectors make monitoring hosts easy, because they provide ready-to-use check [commands](commands.md).
 
 ## Inheritance
 

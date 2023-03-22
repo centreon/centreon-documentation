@@ -11,7 +11,7 @@ system.
 
 ## Monitoring your Centreon MAP server after installation
 
-Centreon provides a plugin pack and a plugin to monitor your Centreon MAP
+Centreon provides a Monitoring Connector and a plugin to monitor your Centreon MAP
 server.
 
 ### Install the Packs
@@ -22,7 +22,7 @@ On the Central server, install the required Packs with the following commands:
 yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
 ```
 
-From the Plugin Packs Manager, install the Packs.
+From the Monitoring Connectors Manager, install the Packs.
 
 ### Install the Plugins
 

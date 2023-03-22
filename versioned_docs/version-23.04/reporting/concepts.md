@@ -126,7 +126,7 @@ The plugin for monitoring this indicator must return the following output:
     any status information | $inboundTrafic=$value$unit;$warning_threshold;$critical_threshold;$min_value;$max_value $outBoundTrafic=...
 
 
-> Using the Centreon Plugin Packs guarantees the quality of your data.
+> Using the Centreon Monitoring Connectors guarantees the quality of your data.
 
 #### Default units
 
@@ -140,7 +140,7 @@ verifying that the plugins use these units:
 -   Memory/Swap: bytes
 
 
-> Using the Centreon Plugin Packs guarantees the quality of your data.
+> Using the Centreon Monitoring Connectors guarantees the quality of your data.
 
 ### Best practices for configuring Centreon objects
 
@@ -332,7 +332,7 @@ The ETL operates in **two modes**:
     chapters.
 
 
-> We advise you to monitor the reporting database using the dedicated plugin pack. If the ETL does
+> We advise you to monitor the reporting database using the dedicated Monitoring Connector. If the ETL does
 > not work for several days or the raw data is not up to date, you
 > must perform a rebuild for the missing days. The ETL **does not
 > automatically** reimport and calculate the missing days. Do not hesitate

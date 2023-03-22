@@ -482,7 +482,7 @@ From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
 
 - License Manager,
-- Plugin Packs Manager,
+- Monitoring Connectors Manager,
 - Auto Discovery.
 
 Then you can upgrade all other commercial extensions.

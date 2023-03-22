@@ -19,11 +19,11 @@ Vous pouvez :
 
     - Utilisez l'[autodécouverte d'hôtes](../discovery/hosts-discovery.md) : celle-ci crée automatiquement les services associés.
 
-    - [Créez un hôte manuellement](hosts.md) en utilisant un [Plugin Pack](../pluginpacks.md), et cochez la case **Créer aussi les services liés aux modèles** : les services associés à l'hôte sont créés automatiquement.
+    - [Créez un hôte manuellement](hosts.md) en utilisant un [connecteur de supervision](../pluginpacks.md), et cochez la case **Créer aussi les services liés aux modèles** : les services associés à l'hôte sont créés automatiquement.
 
     - Utilisez [l'autodécouverte de services](../discovery/services-discovery.md).
 
-    - Créez le [service manuellement](services.md) et dans le champ **Modèle**, sélectionnez un [modèle de service](services-templates.md) (issu ou non d'un Plugin Pack).
+    - Créez le [service manuellement](services.md) et dans le champ **Modèle**, sélectionnez un [modèle de service](services-templates.md) (issu ou non d'un connecteur de supervision).
 
     - Créez ou utilisez une [commande](commands.md) de vérification existante, et liez-la à un service [créé manuellement](services.md).
 

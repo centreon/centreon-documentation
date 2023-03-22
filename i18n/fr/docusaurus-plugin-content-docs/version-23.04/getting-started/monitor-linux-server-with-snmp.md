@@ -5,9 +5,9 @@ title: Superviser votre premier serveur Linux
 
 ## Superviser un serveur Linux avec SNMP
 
-Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit les Plugin Packs Centreon (votre [licence](../administration/licenses.md) est déjà en place).
+Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit les connecteurs de supervision Centreon (votre [licence](../administration/licenses.md) est déjà en place).
 
-Votre serveur sera supervisé à l'aide du Plugin Pack [Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+Votre serveur sera supervisé à l'aide du connecteur de supervision [Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp). (Plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -56,7 +56,7 @@ systemctl enable snmpd
 
 ### Sur le collecteur
 
-Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le Plugin Pack **Linux SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour plus d'informations) :
+Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le connecteur de supervision **Linux SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour plus d'informations) :
 
 ```shell
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
@@ -64,7 +64,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 ### Sur le serveur central
 
-Dans l'interface web, allez à la page **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
+Dans l'interface web, allez à la page **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **Linux SNMP** :
 
 ![image](../assets/getting-started/quick_start_linux_0.gif)
 

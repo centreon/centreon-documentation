@@ -3,7 +3,7 @@ id: monitor-printer-snmp
 title: Superviser une imprimante en SNMP
 ---
 
-Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **Printer Standard** :
+Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le connecteur de supervision **Printer Standard** :
 
 ![image](../assets/getting-started/quick_start_printer_0.gif)
 

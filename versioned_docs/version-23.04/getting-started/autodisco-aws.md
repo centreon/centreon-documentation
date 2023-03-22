@@ -17,7 +17,7 @@ You must have:
 
 2. [Install](../monitoring/discovery/installation.md) the autodiscovery module.
 
-3. Make the Plugin Packs available:
+3. Make the Monitoring Connectors available:
 
     - If you have an offline licence, in your central server's terminal, enter:
      
@@ -25,15 +25,15 @@ You must have:
         yum install centreon-pack-*
         ```
 
-    - If you have an online license, the Plugin Packs are already available in the interface.
+    - If you have an online license, the Monitoring Connectors are already available in the interface.
 
-4. To install the Amazon EC2 Plugin Pack, go to **Configuration > Plugin Packs**.
+4. To install the Amazon EC2 Monitoring Connector, go to **Configuration > Monitoring Connectors Manager**.
 
 5. In the **Keyword** field, type **Amazon EC2** and then click **Search**.
 
-6. Click on the `+` sign in the top right corner of the Plugin Pack. The Plugin Pack now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
+6. Click on the `+` sign in the top right corner of the Monitoring Connector. The Monitoring Connector now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
 
-7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
+7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Monitoring Connector. (You can also access the documentation for a Monitoring Connector by clicking on the `i`.)
 
     ![image](../assets/getting-started/aws-doc.png)
 

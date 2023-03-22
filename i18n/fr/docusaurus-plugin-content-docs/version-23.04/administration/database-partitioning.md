@@ -151,7 +151,7 @@ DROP TABLE centreon_storage.data_bin_old;
 
 ## Supervision du fonctionnement du partitionnement
 
-Le Plugin Pack **Centreon Database** permet de contrôler que le nombre de
+Le connecteur de supervision **Centreon Database** permet de contrôler que le nombre de
 partitions créées en avances est suffisant. Il est recommandé d'installer et de
 déployer ce dernier.
 

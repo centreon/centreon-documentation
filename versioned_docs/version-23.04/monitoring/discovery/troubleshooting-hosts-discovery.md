@@ -17,9 +17,9 @@ ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs 
 
 ### Solution
 
-> Do not remove the Plugin Pack then install it again!
+> Do not remove the Monitoring Connector then install it again!
 
-You need to reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
+You need to reinstall the corresponding Monitoring Connector using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
 
 ## Host scan remains stuck in a scheduled state
 
@@ -51,4 +51,4 @@ When clicking the **ADD** button in the **Configuration > Hosts > Discovery** pa
 
 - Check the Auto Discovery module is up to date in the **Administration > Extensions > Manager** page.
 
-- Reinstall the corresponding Plugin Pack using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
+- Reinstall the corresponding Monitoring Connector using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
