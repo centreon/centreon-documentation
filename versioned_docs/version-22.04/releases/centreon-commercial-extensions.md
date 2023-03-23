@@ -16,6 +16,50 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.5 ###
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
+- Fixed a bug that prevent the migration between MAP legacy and MAP.
+- Fixed bug when tooltip don't display for "old perfdata" plugin in the graph.
+- Fixed diagnostique.sh script to include storage event from broker output.
+- Fixed bug when tooltip don't display for "old perfdata" plugin in the graph.
+- Fixed scrollbar that was being reset when browsing images.
+- Fixed view edition when some links got corrupted bend points.
+- Make viewer and editor rendering more consistent.
+- [CEIP] Added more details for map NG telemetrie.
+- Fixed issue where users can't edit pie chart properties.
+- Fixed an issue that prevent the user to draw rectangles and ellipses.
+- Fixed some editor blocking cases.
+- Fixed bug who display a blank page when user click on host name inside a map.
+- Fixed the server startup error due to PF without virtual hosts.
+- [API] Create element in view break default icon.
+- Fixed an authentication issue when several session are o.
+- Fixed Insert an object in a link causes map save issue.
+- Manage view background colo.
+- Fixed share map has some issues.
+- Host and Service icons are not taken into account.
+- Add resource parent name in graph.
+- Fixed Colors for a "Text" type element is ignored by the viewer.
+- Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
+- Fixed bug when custom UR is set, some old media in map are not displayed correctly.
+- Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
+- Improve api response when server is starting up.
+- Fix migration issue with images that could stop migration process.
+- Fixed the background layout not fitting large map.
+- Fixed issue that made new hosts and services unavailable until restart.
+
+#### Enahncements
+
+- Add the display of only the supported shape at the double click on the editor.
+- API clean-up and documentation.
+- Aligned "Submit button" inside the Map configuration modal.
+- Added spacing to the title inside Map configuration modal.
+- Removed deprecated REST endpoints.
+
 ### 22.04.4
 
 Release date : `January 20, 2023`
