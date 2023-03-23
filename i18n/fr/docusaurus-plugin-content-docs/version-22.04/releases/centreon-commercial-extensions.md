@@ -24,7 +24,7 @@ Release date: `soon`
 - Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
 - Fixed an issue that prevented the migration between MAP legacy and MAP.
 - Fixed an issue that prevented the tooltip for the "old perfdata" plugin to be displayed in the graph.
-- Fixed diagnostic.sh script to include storage event from broker output.
+- Fixed the diagnostic.sh script to include storage event from Broker output.
 - Fixed an issue in shapes edition modal that caused scrollbar that was being reset when browsing images.
 - Fixed view edition with some links having corrupted bend points.
 - [CEIP] Added more details for map engine telemetry.
