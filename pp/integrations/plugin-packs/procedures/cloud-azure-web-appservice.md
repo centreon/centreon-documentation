@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Azure App Service is a solution that allows to easily build, deploy and scale
 web apps and APIs running on containers or in Windows or Linux.
 
-The Centreon Plugin-Pack *Azure App Service* can rely on Azure API or Azure CLI 
+The Centreon Monitoring Connector *Azure App Service* can rely on Azure API or Azure CLI 
 to collect the metrics related to the App Service service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -22,7 +22,7 @@ to collect the metrics related to the App Service service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure App Service* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure App Service* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure App Service**:
 

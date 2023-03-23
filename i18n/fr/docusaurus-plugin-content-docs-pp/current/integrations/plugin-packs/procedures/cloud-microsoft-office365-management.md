@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
 Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -137,7 +137,7 @@ Suivez le guide pratique pour obtenir une explication complète sur la façon d�
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
+2. Installer le connecteur de supervision depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 
@@ -149,7 +149,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-management 

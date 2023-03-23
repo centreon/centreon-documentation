@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack DenyAll SNMP collects metrics for:
+The Monitoring Connector DenyAll SNMP collects metrics for:
 * Cpu
 * Interfaces
 * Load
@@ -108,7 +108,7 @@ To control your DenyAll, the SNMP must be configured.
 yum install centreon-plugin-Network-Denyall-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DenyAll SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DenyAll SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -119,13 +119,13 @@ yum install centreon-plugin-Network-Denyall-Snmp
 yum install centreon-plugin-Network-Denyall-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-denyall-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DenyAll SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DenyAll SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

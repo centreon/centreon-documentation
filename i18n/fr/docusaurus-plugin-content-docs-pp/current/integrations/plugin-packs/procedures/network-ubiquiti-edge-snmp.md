@@ -93,7 +93,7 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -110,7 +110,7 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 yum install centreon-pack-network-ubiquiti-edge-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Ubiquiti Edge SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

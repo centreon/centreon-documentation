@@ -8,13 +8,13 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Poller plugin pack will help you set up monitoring for your pollers. To be the most accurate, the pollers should be monitored by the Central server. 
+The Centreon Poller Monitoring Connector will help you set up monitoring for your pollers. To be the most accurate, the pollers should be monitored by the Central server. 
 
 ## Pack Assets
 
 ### Templates
 
-The Centreon Plugin Pack Centreon Poller brings a host template:
+The Centreon Monitoring Connector Centreon Poller brings a host template:
 
 * App-Monitoring-Centreon-Poller-custom
 
@@ -104,30 +104,30 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on the Central Server:
+1. Install the Centreon package on the Central Server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Centreon Poller** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Centreon Poller** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on the Central Server:
+1. Install the Centreon package on the Central Server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Install the **Centreon Poller** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Centreon Poller** Centreon Monitoring Connector RPM on the Centreon Central server:
 
  ```bash
 yum install centreon-pack-applications-monitoring-centreon-poller
  ```
 
-3. On the Centreon Web interface, install the **Centreon Poller** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Centreon Poller** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -52,7 +52,7 @@ Demandez à votre administrateur de le déployer et de vous fournir l'URL.
 ### Pack de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
@@ -83,7 +83,7 @@ apt install centreon-pack-applications-oracle-ucp-jmx
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Oracle UCP JMX**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 

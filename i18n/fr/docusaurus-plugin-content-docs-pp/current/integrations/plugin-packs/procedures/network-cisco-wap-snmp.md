@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 Cisco est un fournisseur de solutions réseau.
 
-Le Plugin Pack *Cisco Wap SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux point d'accès de marque Cisco.
+Le connecteur de supervision *Cisco Wap SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux point d'accès de marque Cisco.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -102,7 +102,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Network-Cisco-Wap-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco Wap SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Wap SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,13 +113,13 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 yum install centreon-plugin-Network-Cisco-Wap-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Cisco Wap SNMP* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Cisco Wap SNMP* :
 
 ```bash
 yum install centreon-pack-network-cisco-wap-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco Wap SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Wap SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

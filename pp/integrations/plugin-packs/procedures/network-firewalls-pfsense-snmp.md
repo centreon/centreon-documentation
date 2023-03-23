@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 pfSense is an open source router and firewall software based on FreeBSD and
 entirely configurable throught a user-friendly web interface.
 
-The Centreon Plugin-Pack *pfSense* aims to collect the status of the interfaces 
+The Centreon Monitoring Connector *pfSense* aims to collect the status of the interfaces 
 and the several number of packets per second using with the SNMP protocol.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -95,30 +95,30 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a pfSense firewall:
+1. Install the Centreon package on every Centreon poller expected to monitor a pfSense firewall:
 
 ```bash
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 ```
 
-2. On the Centreon Web interface, install the *pfSense* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a pfSense firewall:
+1. Install the Centreon package on every Centreon poller expected to monitor a pfSense firewall:
 
 ```bash
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-firewalls-pfsense-snmp
 ```
 
-3. On the Centreon Web interface, install the *pfSense* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

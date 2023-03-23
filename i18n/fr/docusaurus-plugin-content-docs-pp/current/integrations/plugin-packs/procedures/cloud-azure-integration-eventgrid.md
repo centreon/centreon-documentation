@@ -14,11 +14,11 @@ quelle destination. Conçu pour offrir une haute disponibilité, des performance
 constantes et une mise à l’échelle dynamique, Event Grid permet de se concentrer
 sur la logique de vos applications plutôt que sur l’infrastructure.
 
-Le Plugin-Pack Centreon *Azure Event Grid* s'appuie sur les API Azure Monitor 
+Le connecteur de supervision Centreon *Azure Event Grid* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service Event Grid. Il est possible
 d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -26,7 +26,7 @@ d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Event Grid* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Event Grid**.
+Le connecteur de supervision Centreon *Azure Event Grid* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Event Grid**.
 Celui-ci permet de découvrir l'ensemble des instances *Event Grid* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid-provider.png)
@@ -79,7 +79,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Grid* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Grid* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -90,13 +90,13 @@ yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Event Grid*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Event Grid*:
 
 ```bash
 yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Grid* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Grid* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

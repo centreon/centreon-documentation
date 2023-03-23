@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le plugin pack Centreon Central permet de faciliter la mise en place de la supervision pour le serveur central. Pour être le plus pertinent possible, le serveur central doit être supervisé par un collecteur si votre architecture en dispose d'un.
+Le connecteur de supervision Centreon Central permet de faciliter la mise en place de la supervision pour le serveur central. Pour être le plus pertinent possible, le serveur central doit être supervisé par un collecteur si votre architecture en dispose d'un.
 
 ## Contenu du Pack
 
 ### Modèles
 
-Le Plugin Pack Centreon Centreon Central apporte un modèle d'hôte :
+Le connecteur de supervision Centreon Centreon Central apporte un modèle d'hôte :
 * App-Monitoring-Centreon-Central-custom
 
 Il apporte les Modèles de Service suivants :
@@ -182,7 +182,7 @@ Il faudra ensuite spécifier dans la configuration du service **Broker-Stats** q
 yum install centreon-plugin-Applications-Monitoring-Centreon-Central centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon Central** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Centreon Central** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
@@ -200,7 +200,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central centreon-pl
 yum install centreon-pack-applications-monitoring-centreon-central
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon Central** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Centreon Central** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 

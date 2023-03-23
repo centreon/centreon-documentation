@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 Graylog est une solution de gestion de log permettant stocker ces derniers et de
 les analyser en temps réél. 
 
-Le Plugin-Pack Centreon *Graylog* permet (par l'interrogation de l'API Rest)
+Le connecteur de supervision Centreon *Graylog* permet (par l'interrogation de l'API Rest)
 de récupérer le nombre de notifications système par sévérité ainsi que le nombre
 de résultats obtenu suite à une requête Lucène.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -64,7 +64,7 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
+2. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -75,13 +75,13 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Graylog* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Graylog* :
 
 ```bash
 yum install centreon-pack-applications-graylog-restapi
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
+3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
 
 </TabItem>
 </Tabs>

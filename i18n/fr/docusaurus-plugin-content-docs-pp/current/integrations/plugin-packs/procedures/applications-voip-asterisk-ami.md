@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Asterisk VoIP Server apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Asterisk VoIP Server apporte 1 modèle d'hôte :
 * App-VoIP-Asterisk-AMI-custom
 
 Il apporte les Modèles de Service suivants :
@@ -75,7 +75,7 @@ les droits de lecture doit être configurer dans le fichier
 yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -92,7 +92,7 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 yum install centreon-pack-applications-voip-asterisk-ami
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Asterisk VoIP Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

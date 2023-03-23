@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Apache ActiveMQ est un serveur de messagerie multi protocole Open Source développé en Java.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Éléments supervisés
 
@@ -80,7 +80,7 @@ Vous trouverez plus d'informations sur la documentation officielle d'ActiveMQ : 
 yum install centreon-plugin-Applications-ActiveMQ-Jmx
 ```
 
-2. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface Web de Centreon, installer le connecteur de supervision *ActiveMQ JMX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -91,7 +91,7 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 yum install centreon-plugin-Applications-ActiveMQ-Jmx
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 centreon-pack-applications-activemq-jmx.noarch
@@ -100,7 +100,7 @@ centreon-pack-applications-activemq-jmx.noarch
 </TabItem>
 </Tabs>
 
-3. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface Web de Centreon, installer le connecteur de supervision *ActiveMQ JMX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 ## Configuration
 

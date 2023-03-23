@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis. Il distribue des logiciels de gestion basés sur Internet et héberge des applications d'entreprises. L'entreprise est surtout connue au niveau international pour ses solutions en gestion de la relation client. 
 
-## Contenu du plugin-pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -43,7 +43,7 @@ Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.sal
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
+2. Installer le connecteur de supervision Salesforce via le menu **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -54,13 +54,13 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Installer le rpm du Plugin-Pack pour l'avoir à disposition dans l'interface Web: 
+2. Installer le rpm du connecteur de supervision pour l'avoir à disposition dans l'interface Web: 
 
 ```bash
 yum install centreon-pack-applications-salesforce-restapi
 ```
 
-3. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
+3. Installer le connecteur de supervision Salesforce via le menu **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 </Tabs>

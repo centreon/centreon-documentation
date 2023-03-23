@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Central plugin pack will help you set up monitoring for your Centreon Central server. To be the most accurate, the central server should be monitored by a poller if you have one. 
+The Centreon Central Monitoring Connector will help you set up monitoring for your Centreon Central server. To be the most accurate, the central server should be monitored by a poller if you have one. 
 
 ## Pack Assets
 
 ### Templates
 
-The Centreon Plugin Pack Centreon Central brings a host template:
+The Centreon Monitoring Connector Centreon Central brings a host template:
 * App-Monitoring-Centreon-Central-custom
 
 It brings the following Service Templates: 
@@ -176,31 +176,31 @@ You will then have to set the check to be performed remotely. To do so, after ap
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on a poller or directly on the central server if it monitors itself:
+1. Install the Centreon package on a poller or directly on the central server if it monitors itself:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-Central centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Centreon Central** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Centreon Central** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on a poller or directly on the central server if it monitors itself:
+1. Install the Centreon package on a poller or directly on the central server if it monitors itself:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-Central centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Install the **Centreon Central** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Centreon Central** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-central
 ```
 
-3. On the Centreon Web interface, install the **Centreon Central** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Centreon Central** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 

@@ -9,13 +9,13 @@ import TabItem from '@theme/TabItem';
 
 Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes managé en déléguant la charge opérationnelle à Azure. En tant que service Kubernetes hébergé, Azure gère des tâches critiques telles que l’analyse de l’intégrité et la maintenance.
 
-Le Plugin Pack Centreon *Azure Kubernetes Service* peut s'appuyer sur l'API d'Azure ou bien Azure CLI pour collecter les métriques relatives à AKS.
+Le connecteur de supervision Centreon *Azure Kubernetes Service* peut s'appuyer sur l'API d'Azure ou bien Azure CLI pour collecter les métriques relatives à AKS.
 
 ## Contenu du Pack
 
 ### Modèles
 
-Le Plugin Pack Centreon Azure Kubernetes Service apporte un modèle d'hôte :
+Le connecteur de supervision Centreon Azure Kubernetes Service apporte un modèle d'hôte :
 
 * Cloud-Azure-Compute-Aks-custom
 
@@ -32,7 +32,7 @@ Il apporte les Modèles de Service suivants :
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon **Azure Kubernetes Service** inclut un fournisseur de découverte d'Hôtes nommé **Microsoft Azure Kubernetes Services**. Celui-ci permet de découvrir l'ensemble des instances rattachées à une *souscription* Microsoft Azure donnée et les ajouter à la supervision :
+Le connecteur de supervision Centreon **Azure Kubernetes Service** inclut un fournisseur de découverte d'Hôtes nommé **Microsoft Azure Kubernetes Services**. Celui-ci permet de découvrir l'ensemble des instances rattachées à une *souscription* Microsoft Azure donnée et les ajouter à la supervision :
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-compute-aks-provider.png)
 
@@ -212,7 +212,7 @@ Vous avez désormais les informations stockées localement dans un fichier **acc
 yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Azure Kubernetes Service** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Azure Kubernetes Service** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -229,7 +229,7 @@ yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 yum install centreon-pack-cloud-azure-compute-aks
  ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Azure Kubernetes Service** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Azure Kubernetes Service** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

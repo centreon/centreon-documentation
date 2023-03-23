@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Google Stackdriver collects metrics:
+The Monitoring Connector Google Stackdriver collects metrics:
 * Get-metrics
 
 A description of all GCP metrics can be found here: https://cloud.google.com/monitoring/api/metrics_gcp
@@ -59,7 +59,7 @@ should be readable by centreon-engine poller.
 yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Stackdriver* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Stackdriver* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,13 +70,13 @@ yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-cloud-gcp-management-stackdriver
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Stackdriver* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Stackdriver* Monitoring Connector
 
 </TabItem>
 </Tabs>

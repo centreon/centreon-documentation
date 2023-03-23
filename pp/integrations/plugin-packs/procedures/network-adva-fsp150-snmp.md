@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Adva Optical Networking sells network equipment for data, storage, voice and video services.
 
-## Plugin-Pack assets 
+## Monitoring Connector assets 
 
 ### Monitored equipments
 
@@ -67,7 +67,7 @@ A regexp filter is available to target a specific interface identifier/ifName [`
 
 ### Adva FSP 150 device configuration 
 
-To use this Plugin-Pack, the SNMP service must be properly configured on your device.
+To use this Monitoring Connector, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
@@ -84,7 +84,7 @@ Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva d
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -95,13 +95,13 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Monitoring Connector RPM:
 
 ```bash
 yum install centreon-pack-network-adva-fsp150-snmp
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

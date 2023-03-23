@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure API Management (Gestion des API) permet de créer, gérer et publier des API pour
 des services back-ends existants. 
 
-Le Plugin Pack Centreon *Azure API Management* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure API Management* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 API Management. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
@@ -31,7 +31,7 @@ API Management. Il est possible d'utiliser les 2 modes proposés par Microsoft: 
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure API Management* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure API Management**.
+Le connecteur de supervision Centreon *Azure API Management* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure API Management**.
 Celui-ci permet de découvrir l'ensemble des instances *API Management* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-apimanagement-provider.png)
@@ -100,7 +100,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Management-ApiManagement-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure API Management* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure API Management* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,7 +117,7 @@ yum install centreon-plugin-Cloud-Azure-Management-ApiManagement-Api
 yum install centreon-pack-cloud-azure-management-apimanagement.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure API Management* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure API Management* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

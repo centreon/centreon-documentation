@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
-The Centreon Plugin-Pack *Rubrik Rest API* aims to collect (thanks to the Restful API) 
+The Centreon Monitoring Connector *Rubrik Rest API* aims to collect (thanks to the Restful API) 
 the execution status of the backup tasks and the health of the components supporting it 
 like Cluster, Nodes, Disks, etc.
 
@@ -84,32 +84,32 @@ Information about its configuration is available on github: https://github.com/r
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
 
 ```bash
 yum install centreon-plugin-Applications-Rubrik-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Plugin-Pack 
-on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Monitoring Connector 
+on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
 
 ```bash
 yum install centreon-plugin-Applications-Rubrik-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-rubrik-restapi
 ```
 
-3. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Plugin-Pack 
-on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Monitoring Connector 
+on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

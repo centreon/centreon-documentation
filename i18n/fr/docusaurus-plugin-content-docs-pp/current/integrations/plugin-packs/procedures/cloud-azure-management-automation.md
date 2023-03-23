@@ -16,12 +16,12 @@ fonctionnalités hétérogènes. Azure Automation vous offre un contrôle comple
 lors du déploiement, des opérations et de la désaffectation des charges de 
 travail et des ressources.
 
-Le Plugin-Pack Centreon *Azure Automation* s'appuie sur les API Azure Monitor 
+Le connecteur de supervision Centreon *Azure Automation* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
 Automation. Il est possible d'utiliser les 2 modes proposés par 
 Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -29,7 +29,7 @@ Microsoft: RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Automation* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Automation**.
+Le connecteur de supervision Centreon *Azure Automation* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Automation**.
 Celui-ci permet de découvrir l'ensemble des instances *Automation* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-automation-provider.png)
@@ -69,7 +69,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Automation* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,13 +80,13 @@ yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Automation*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Automation*:
 
 ```bash
 yum install centreon-pack-cloud-azure-management-automation.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Automation* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

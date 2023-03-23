@@ -12,7 +12,7 @@ Docker is a set of platform as a service (PaaS) products that uses OS-level virt
 
 The service has both free and premium tiers. The software that hosts the containers is called Docker Engine. It was first started in 2013 and is developed by Docker, Inc.
 
-## Plugin-pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -80,7 +80,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Install the "Docker-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the "Docker-Restapi" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -91,13 +91,13 @@ yum install centreon-plugin-Applications-Docker-Restapi
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on your central server:
+2. Install the Centreon Monitoring Connector RPM on your central server:
 
 ```bash
 yum install centreon-pack-applications-docker-restapi
 ```
 
-3. Install the "Docker-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the "Docker-Restapi" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

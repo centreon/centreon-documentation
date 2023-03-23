@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack includes monitoring the AIX system commands using SSH, such as:
+The Monitoring Connector includes monitoring the AIX system commands using SSH, such as:
 * Command return
 * Errpt messages
 * Inodes
@@ -104,7 +104,7 @@ After setting the Name, Alias, IP, and Host Template parameters, you need to set
 yum install centreon-plugin-Operatingsystems-Aix-Local
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *AIX SSH* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *AIX SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -115,13 +115,13 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 yum install centreon-plugin-Operatingsystems-Aix-Local
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-operatingsystems-aix-ssh
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *AIX SSH* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *AIX SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

@@ -12,7 +12,7 @@ know by making a PR or pinging us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 
+The Monitoring Connector *Veeam* works with the Centreon NSClient++ monitoring agent and 
 Powershell to check operating status of a Veeam Server.
 
 ## Pack assets
@@ -55,25 +55,25 @@ yum install centreon-nrpe-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Veeam* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Veeam*:
+1. Install the Centreon package on every Poller expected to monitor *Veeam*:
 
 ```bash
 yum install centreon-nrpe-plugin
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Central server:
+2. Install the Centreon connecteur de supervision RPM on the Central server:
 
 ```bash
 yum install centreon-pack-applications-veeam-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Veeam* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

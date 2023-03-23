@@ -15,11 +15,11 @@ Linux or UNIX, as well as Windows Phone, Symbian, iOS and Android mobile operati
 Configuration Manager provides remote control, patch management, software distribution, 
 operating system deployment, network access protection and hardware and software inventory.
 
-The Centreon Plugin-Pack allows to gather information and status about the SCCM 
+The Centreon Monitoring Connector allows to gather information and status about the SCCM 
 service using the centreon-nsclient agent. Both connection methods NRPE and RestAPI 
 are supported.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -62,7 +62,7 @@ of the agent can be found [here](../getting-started/how-to-guides/centreon-nscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
+1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon package on every Centreon
 Poller expected to monitor SCCM through *centreon-nsclient*:
 
 * NRPE
@@ -77,12 +77,12 @@ yum install centreon-nrpe-plugin
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
+1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon package on every Centreon
 Poller expected to monitor SCCM through *centreon-nsclient*:
 
 * NRPE
@@ -103,7 +103,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-applications-sccm-nsclient
 ```
 
-3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

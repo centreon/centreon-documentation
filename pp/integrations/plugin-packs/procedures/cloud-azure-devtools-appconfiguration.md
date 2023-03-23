@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Azure App Configuration helps manage application settings and control their 
 access centrally by storing their configuration in a universal hosted location. 
 
-The Centreon Plugin-Pack *Azure App Configuration* can rely on Azure API or Azure CLI 
+The Centreon Monitoring Connector *Azure App Configuration* can rely on Azure API or Azure CLI 
 to collect the metrics related to the App Configuration service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -22,7 +22,7 @@ to collect the metrics related to the App Configuration service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure App Configuration* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure App Configuration* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure App Configuration**:
 
@@ -56,30 +56,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure App Configuration resources:
+1.  Install the Centreon package on every Centreon poller expected to monitor Azure App Configuration resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure App Configuration* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure App Configuration* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure App Configuration resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure App Configuration resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-devtools-appconfiguration.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure App Configuration* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure App Configuration* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

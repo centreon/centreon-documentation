@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin-Pack IBM HMC SSH collecte les données pour:
+Le connecteur de supervision IBM HMC SSH collecte les données pour:
 * Hardware errors
 * Led status
 
@@ -48,7 +48,7 @@ doit avoir assez de privilèges pour executer les commandes ``lssvcevents``` et 
 yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *IBM HMC SSH* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *IBM HMC SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -59,20 +59,20 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *IBM HMC SSH* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *IBM HMC SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par IBM HMC.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par IBM HMC.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Server-IBM-Hmc-SSH-custom*. 
 
 <Tabs groupId="sync">

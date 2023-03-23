@@ -17,7 +17,7 @@ d'interroger ces dernières.
 
 ### Modèles
 
-Le Plugin Pack Centreon PVX apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon PVX apporte 1 modèle d'hôte :
 * App-Pvx-Application-Restapi-custom
 
 Il apporte les Modèles de Service suivants :
@@ -137,7 +137,7 @@ Dans cet exemple, la clé API est "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
 yum install centreon-plugin-Applications-Pvx-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **PVX** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **PVX** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -154,7 +154,7 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 yum install centreon-pack-applications-pvx-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **PVX** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **PVX** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

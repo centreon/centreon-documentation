@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le Plugin Pack Centreon Database permet une mise en place simple et rapide de la surveillance de la base de données de supervision.
+Le connecteur de supervision Centreon Database permet une mise en place simple et rapide de la surveillance de la base de données de supervision.
 
 ## Contenu du Pack
 
 ### Modèles
 
-Le Plugin Pack Centreon Centreon Database apporte un modèle d'hôte :
+Le connecteur de supervision Centreon Centreon Database apporte un modèle d'hôte :
 * App-Monitoring-Centreon-Database-custom
 
 Il apporte les templates de services suivants : 
@@ -178,7 +178,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-p
 
 ```
 
-2. Sur l'interface Web de Centreon, installez le Plugin Pack **Centreon Databse** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installez le connecteur de supervision **Centreon Databse** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 
@@ -198,7 +198,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-p
 yum install centreon-pack-applications-monitoring-centreon-database
 ```
 
-3. Sur l'interface Web de Centreon, installez le Plugin Pack **Centreon Databse** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installez le connecteur de supervision **Centreon Databse** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 

@@ -5,5 +5,5 @@ title: Microsoft IIS Server NSClient API (Deprecated)
 
 ## **WARNING** This Pack has been deprecated
 
-This Plugin Pack has been deprecated and replaced by `Microsoft IIS Server Restapi`. 
+This Monitoring Connector has been deprecated and replaced by `Microsoft IIS Server Restapi`. 
 Refer to [this procedure](applications-webservers-iis-restapi.md)

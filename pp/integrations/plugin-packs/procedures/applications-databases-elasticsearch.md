@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Elasticsearch is a distributed, open source search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).
 
-## Plugin-Pack assests
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -119,7 +119,7 @@ In order to be able to communicate with the Elasticsearch node's API, the Centre
 yum install centreon-plugin-Applications-Databases-Elasticsearch
 ```
 
-2. Install the Plugin-Pack 'Elasticsearch' in the " Configuration  >  Plugin Packs"  page of the Web Centreon interface
+2. Install the Monitoring Connector 'Elasticsearch' in the **Configuration > Monitoring Connectors Manager**  page of the Web Centreon interface
 
 </TabItem>
 <TabItem value="Offline Licenses" label="Offline Licenses">
@@ -130,13 +130,13 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 yum install centreon-plugin-Applications-Databases-Elasticsearch
 ```
 
-2. Install the Plugin-Pack RPM on the Centreon server **Central**:
+2. Install the Monitoring Connector RPM on the Centreon server **Central**:
 
 ```bash
 yum install centreon-pack-applications-databases-elasticsearch
 ```
 
-3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, install the Plugin-Pack 'Elasticsearch'
+3. In the **Configuration > Monitoring Connectors Manager**  page of the Web Centreon interface, install the Monitoring Connector 'Elasticsearch'
 
 </TabItem>
 </Tabs>

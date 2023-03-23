@@ -28,30 +28,30 @@ or by setting your unique user and password directly in the Host Macros.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *ClamAV* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Clamav-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *ClamAV* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *ClamAV* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Clamav-Ssh
 ```
 
-2. Install the *Antivirus ClamAV* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Antivirus ClamAV* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
-3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

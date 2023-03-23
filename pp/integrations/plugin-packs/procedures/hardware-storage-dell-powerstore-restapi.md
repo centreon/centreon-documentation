@@ -103,18 +103,18 @@ E.g: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell PowerStore** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Dell PowerStore** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 ```
 
-2. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell PowerStore** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Dell PowerStore** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
@@ -126,7 +126,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 ```
 
-3. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

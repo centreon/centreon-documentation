@@ -12,7 +12,7 @@ Ruckus ICX switches work to simplify network set-up and management, enhance secu
 They seamlessly work together with Ruckus Wi-Fi access points, Ruckus SmartZone network controllers and Ruckus Cloud to deliver
 the most performance and cost effective unified wired and wireless access solutions.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -87,7 +87,7 @@ The Centreon poller should be able to reach the UDP SNMP port 161 of the Ruckus 
 yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 ```
 
-2. Install the *Ruckus ICX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the *Ruckus ICX* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,13 +98,13 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-switch-ruckus-icx-snmp
 ```
 
-3. Install the *Ruckus ICX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the *Ruckus ICX* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

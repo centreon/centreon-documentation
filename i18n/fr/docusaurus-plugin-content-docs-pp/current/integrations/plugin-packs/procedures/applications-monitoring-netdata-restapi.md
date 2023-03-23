@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 Netdata est un outil open source pour visualiser et surveiller les mesures en temps réel, optimisé pour accumuler tous les types de données, 
 tels que l'utilisation du processeur, l'activité du disque, les requêtes SQL, les visites sur un site Web, etc.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Éléments supervisés
 
-Le Plugin-Pack Netdata RestAPI permet de superviser l'ensemble des données d'un serveur accessibles au travers de l'API de l'agent Netdata.
+Le connecteur de supervision Netdata RestAPI permet de superviser l'ensemble des données d'un serveur accessibles au travers de l'API de l'agent Netdata.
 L'agent est quant à lui compatible avec les OS suivants:
 
 * Linux (Debian, Ubuntu, RedHat, CentOS, Fedora, Arch...)
@@ -26,7 +26,7 @@ L'agent est quant à lui compatible avec les OS suivants:
 
 ### Points de contrôle disponibles
 
-Le Plugin-Pack dans sa version actuelle permet la supervision des points de contrôle suivants:
+Le connecteur de supervision dans sa version actuelle permet la supervision des points de contrôle suivants:
 
 * Alarmes Netdata
 * CPU
@@ -121,7 +121,7 @@ Les métriques collectées par le Plugin sont les suivantes:
 
 ### Installation de l'agent Netdata
 
-L'agent Netdata doit être installé et opérationnel sur le serveur cible afin de pouvoir utiliser le Plugin-Pack Centreon Netdata.
+L'agent Netdata doit être installé et opérationnel sur le serveur cible afin de pouvoir utiliser le connecteur de supervision Centreon Netdata.
 
 Vous trouverez plus d'informations sur comment installer et configurer l'agent Netdata en suivant la documentation officielle:
 https://learn.netdata.cloud/docs/agent/packaging/installer
@@ -137,7 +137,7 @@ https://learn.netdata.cloud/docs/agent/packaging/installer
 yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Netdata RestAPI* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Netdata RestAPI* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -148,13 +148,13 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netdata RestAPI* depuis la page "Configuration > Plugin Packs > Manager"
+3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netdata RestAPI* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

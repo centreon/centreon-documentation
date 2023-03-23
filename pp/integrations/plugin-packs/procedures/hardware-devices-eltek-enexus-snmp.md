@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Eltek is a global electric power conversion specialist that develops and markets systems for telecommunications and industrial applications.
 
-## Plugin-Pack assets 
+## Monitoring Connector assets 
 
 ### Monitored equipments
 
@@ -87,7 +87,7 @@ The Centreon Poller must be able to reach the SNMP port (UDP/161) of the Eltek e
 yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,13 +98,13 @@ yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Monitoring Connector RPM:
 
 ```bash
 yum install hardware-devices-eltek-enexus-snmp
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The plugin-pack includes monitoring of Query.
+The Monitoring Connector includes monitoring of Query.
 
 ### Collected Metrics
 
@@ -46,7 +46,7 @@ The plugin support query with:
 yum install centreon-plugin-Applications-Databases-Rrdtool
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *RRDtool* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *RRDtool* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -57,13 +57,13 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 yum install centreon-plugin-Applications-Databases-Rrdtool
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-databases-rrdtool
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *RRDtool* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *RRDtool* Monitoring Connector
 
 </TabItem>
 </Tabs>
