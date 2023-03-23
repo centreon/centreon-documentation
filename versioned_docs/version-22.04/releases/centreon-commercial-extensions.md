@@ -262,6 +262,15 @@ Release date: `August 10, 2022`
 
 ## Centreon Anomaly Detection
 
+### 22.04.1
+
+Release date: `soon`
+
+#### Bugfixes
+
+- Send downtimes to Centreon SaaS platform for Anomaly Detection services.
+- [Core] Fixed SQL queries when databases names contain dash.
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
