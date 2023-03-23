@@ -20,6 +20,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 Release date: `April 26, 2023`
 
+- [UI] Ajout de la nouvelle image de marque Centreon
+
 ## Centreon Collect
 
 ### 23.04.0

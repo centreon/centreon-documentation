@@ -46,7 +46,7 @@ Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
 
-## Centreon MOnitoring Connectors Manager
+## Centreon Monitoring Connectors Manager
 
 ### 23.04.0
 
@@ -69,3 +69,18 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
+
+## Centreon IT & Business Extension
+
+Release date: `April 26, 2023`
+
+- Added SAML authentication
+  - Possibility to use conditions to access to Centreon
+  - Possibility to import automatically users
+  - Possibility to manage manually or automatically groups
+  - Possibility to manage manually or automatically roles
+- Added the possibility to customize the login page and the banner
+  - Possibility to change login page background
+  - Possibility to change login page logo
+  - Possibility to display custom text
+  - Possibility to name the platform, visible on the login page and the banner

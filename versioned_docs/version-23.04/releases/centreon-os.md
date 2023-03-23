@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 Release date: `April 26, 2023`
 
+- [UI] Added new Centreon branding
+
 ## Centreon Collect
 
 ### 23.04.0
