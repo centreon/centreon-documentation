@@ -33,7 +33,7 @@ Release date: `soon`
 - Fixed an issue with links in the editor that prevent the user from saving a view.
 - Fixed an issue with link properties that cause the link to not be visible in editor.
 - Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
-- Fixed an issue with the server startup error caused by PF without virtual hosts.
+- Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [API] Fixed an issue with create element in view that could break default icon.
 - Fixed an issue with authentication when several session are active.
 - Fixed an issue with Insert an object in a link causes map save issue.
