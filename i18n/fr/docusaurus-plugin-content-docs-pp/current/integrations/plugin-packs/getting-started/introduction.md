@@ -3,6 +3,8 @@ id: introduction
 title: Introduction aux connecteurs de supervision
 ---
 
+> À partir d'avril 2023, nous changeons le nom de certains objets Centreon. "Connecteurs de supervision" est désormais le nouveau nom des Plugin Packs. Nous procédons à ce changement car les utilisateurs confondaient souvent deux termes similaires, Plugins et Plugin Packs, utilisant parfois l'un à la place de l'autre. Nous ne changeons que le nom ! Les fonctionnalités et les capacités restent les mêmes.
+
 > Pour savoir comment installer un connecteur de supervision, vous pouvez vous rendre sur la documentation dédiée: 
 > [installation des connecteurs de supervision](/docs/monitoring/pluginpacks).
 
@@ -32,18 +34,13 @@ supplémentaires (ex : volumes disques ou interfaces Ethernet sur un serveur).
 Les connecteurs de supervision de votre plateforme Centreon sont gérés à travers l’IHM Plugin
 Pack Manager. Les connecteurs de supervision sont susceptibles d’être mis à jour, ou de
 nouveaux connecteurs de supervision sont susceptibles d’être ajouté à la bibliothèque en
-ligne Centreon chaque semaine. Ils sont tous accessibles depuis l’IHM Plugin
-Pack Manager.
-
-Pour en savoir plus sur le téléchargement et la mise en oeuvre des Plugin
-Packs, référez-vous au chapitre Monitoring/connecteurs de supervision de cette documentation.
+ligne Centreon chaque semaine. Ils sont tous accessibles depuis l’IHM Gestionnaire de connecteurs de supervision.
 
 Le chapitre ci-dessous est la liste à jour de tous les connecteurs de supervision disponibles
 avec leur procédure de mise en supervision associée. Ils sont répartis en 14
 catégories (Applications, Centreon, Cloud, Database, Hardware, Network,
 Operating System, Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU,
-Virtualization) puis listés par ordre alphabétique : mais la fonction de
-recherche de votre navigateur est là pour vous aider !
+Virtualization) puis listés par ordre alphabétique.
 
 Vous trouverez ici une liste des connecteurs de supervision fréquemment utilisés :
 

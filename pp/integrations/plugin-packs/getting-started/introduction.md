@@ -3,6 +3,8 @@ id: introduction
 title: Introduction to Monitoring Connectors
 ---
 
+> As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
+
 > To know how to install Monitoring Connectors, you can go to the dedicated part: 
 > [Monitoring Connectors installation](/docs/monitoring/pluginpacks).
 
@@ -31,14 +33,11 @@ user interface. Monitoring Connectors may be updated or new Monitoring Connector
 the Centreon online library on a weekly basis. These are accessed from the
 Monitoring Connector Manager.
 
-To learn more about how to use Monitoring Connectors, refer to the Monitoring/Plugin
-Packs chapter of the documentation.
-
 This chapter contains an up-to-date list of all Monitoring Connectors with their
 respective monitoring procedure. They are organized in 14 categories
 (Applications, Centreon, Cloud, Database, Hardware, Network, Operating System,
 Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU, Virtualization) and then listed
-alphabetically. The search function of your browser is your friend\!
+alphabetically.
 
 Here is a list of commonly used Monitoring Connectors:
 
