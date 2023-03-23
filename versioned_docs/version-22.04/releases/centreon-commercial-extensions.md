@@ -154,6 +154,7 @@ Release date: `soon`
 #### Bug fixes
 
 - Various issues incurred with the Business Platform.
+- Fixed an issue that cause the BA top counter to not load properly.
 - [BAM] Redirection in Monitoring -> BA -> monitoring not working.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Can't see the child BAs on a tree on the Remote Server.
@@ -191,7 +192,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Various issues incurred with the Business Platform.
+- Fixed an issue that caused MBI pages to not be displayed even with the module and license installed.
 - Improve time for daily ETL calculation.
 - Fixed the bug when report can't be sent by email with O365.
 

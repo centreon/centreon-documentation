@@ -189,7 +189,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Various issues incurred with the Business Platform.
+- Fixed an issue that caused MBI pages to not be displayed even with the module and license installed.
 - Improve time for daily ETL calculation.
 - Fixed the bug when report can't be sent by email with O365.
 
