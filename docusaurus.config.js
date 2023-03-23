@@ -196,7 +196,7 @@ const config = {
           },
           {
             to: '/pp/integrations/plugin-packs/getting-started/introduction',
-            label: 'Plugin Packs',
+            label: 'Monitoring Connectors',
             position: 'left',
             activeBaseRegex: '/pp/',
           },
