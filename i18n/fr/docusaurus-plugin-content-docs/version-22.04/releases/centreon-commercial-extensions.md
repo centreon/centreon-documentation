@@ -183,6 +183,16 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.4
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Various issues incurred with the Business Platform.
+- Improve time for daily ETL calculation.
+- Fixed the bug when report can't be sent by email with O365.
+
 ### 22.04.3
 
 Release date: `October 25, 2022`
