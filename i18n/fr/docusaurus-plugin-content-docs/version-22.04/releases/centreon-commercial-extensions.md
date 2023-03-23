@@ -27,7 +27,7 @@ Release date: `soon`
 - Fixed the diagnostic.sh script to include storage event from Broker output.
 - Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - Fixed view edition with some links having corrupted bend points.
-- [CEIP] Added more details for map engine telemetry.
+- [CEIP] Added more details for MAP engine telemetry.
 - Fixed an issue where users could not edit pie chart properties.
 - Fixed an issue that prevented users to draw rectangles and ellipses.
 - Fixed an issue with links in the editor that prevent the user from saving a view.
