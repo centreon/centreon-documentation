@@ -147,10 +147,25 @@ Release date: `July 13, 2022`
 
 ## Centreon BAM
 
+### 22.04.3
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Various issues incurred with the Business Platform.
+- [BAM] Redirection in Monitoring -> BA -> monitoring not working.
+- Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- Can't see the child BAs on a tree on the Remote Server.
+- Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
+- [Widget] bam-ba-tree BA/services links are broken.
+- Fixed an issue that made BA tree not visible if dark mode was used.
+- Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+
 ### 22.04.2
 
 Release date: `September 14, 2022`
- 
+
 - [Install] Fixed installation of module if 24x7 timeperiod is missing
 - [Banner] Fixed display of empty skeleton
 - [UI] Fixed header and skeleton UI instability
