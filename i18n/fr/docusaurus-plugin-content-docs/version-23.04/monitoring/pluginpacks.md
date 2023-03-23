@@ -3,6 +3,8 @@ id: pluginpacks
 title: Utiliser des connecteurs de supervision
 ---
 
+> À partir d'avril 2023, nous changeons le nom de certains objets Centreon. "Connecteurs de supervision" est désormais le nouveau nom des Plugin Packs. Nous procédons à ce changement car les utilisateurs confondaient souvent deux termes similaires, Plugins et Plugin Packs, utilisant parfois l'un à la place de l'autre. Nous ne changeons que le nom ! Les fonctionnalités et les capacités restent les mêmes.
+
 Un connecteur de supervision est un jeu téléchargeable
 de modèles de configuration qui permet un déploiement rapide de la supervision de votre infrastructure IT. Les connecteurs de supervision sont le moyen le plus simple de mettre un hôte en supervision.
 

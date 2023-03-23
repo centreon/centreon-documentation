@@ -3,6 +3,8 @@ id: pluginpacks
 title: Monitoring Connectors
 ---
 
+> As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
+
 A Monitoring Connector is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
 Applying a template from a Monitoring Connector is the easiest way to monitor a host.
