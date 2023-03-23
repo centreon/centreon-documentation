@@ -57,7 +57,7 @@ Release date: `soon`
 - Removed deprecated REST endpoints.
 - Made viewer and editor rendering more consistent.
 - Manage view background color.
-- Add resource parent name in graph.
+- Added resource parent name in graph.
 - Improve api response when server is starting up.
 
 ### 22.04.4
