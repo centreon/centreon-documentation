@@ -22,34 +22,30 @@ Release date: `soon`
 #### Bug fixes
 
 - Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
-- Fixed a bug that prevent the migration between MAP legacy and MAP.
-- Fixed bug when tooltip don't display for "old perfdata" plugin in the graph.
-- Fixed diagnostique.sh script to include storage event from broker output.
-- Fixed bug when tooltip don't display for "old perfdata" plugin in the graph.
-- Fixed scrollbar that was being reset when browsing images.
-- Fixed view edition when some links got corrupted bend points.
-- Make viewer and editor rendering more consistent.
-- [CEIP] Added more details for map NG telemetrie.
-- Fixed issue where users can't edit pie chart properties.
-- Fixed an issue that prevent the user to draw rectangles and ellipses.
-- Fixed some editor blocking cases.
-- Fixed bug who display a blank page when user click on host name inside a map.
-- Fixed the server startup error due to PF without virtual hosts.
-- [API] Create element in view break default icon.
-- Fixed an authentication issue when several session are o.
-- Fixed Insert an object in a link causes map save issue.
-- Manage view background colo.
-- Fixed share map has some issues.
-- Host and Service icons are not taken into account.
-- Add resource parent name in graph.
-- Fixed Colors for a "Text" type element is ignored by the viewer.
-- Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
-- Fixed bug when custom UR is set, some old media in map are not displayed correctly.
+- Fixed an issue ug that prevented the migration between MAP legacy and MAP.
+- Fixed an issue that caused tooltip to not be displayed for "old perfdata" plugin in the graph.
+- Fixed diagnostic.sh script to include storage event from broker output.
+- Fixed an issue in shapes edition modal that caused scrollbar that was being reset when browsing images.
+- Fixed view edition with some links having corrupted bend points.
+- [CEIP] Added more details for map engine telemetry.
+- Fixed an issue where users could not edit pie chart properties.
+- Fixed an issue that prevented users to draw rectangles and ellipses.
+- Fixed an issue with links in the editor that prevent the user from saving a view.
+- Fixed an issue with link properties that cause the link to not be visible in editor.
+- Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
+- Fixed an issue with the server startup error caused by PF without virtual hosts.
+- [API] Fixed an issue with create element in view that could break default icon.
+- Fixed an issue with authentication when several session are active.
+- Fixed an issue with Insert an object in a link causes map save issue.
+- Fixed an issue with map sharing.
+- Fixed an issue with Host and Service icons configuration that were not handled properly.
+- Fixed an issue with Colors for a "Text" type element that was ignored by the viewer.
+- Fixed an issue when Dark Theme is not applied on tooltip in Geo Views or Standard Views.
+- Fixed an issue when custom URL is set that caused some old media in map are not displayed correctly.
 - Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
-- Improve api response when server is starting up.
-- Fix migration issue with images that could stop migration process.
+- Fixed an issue with migration and images that could cause migration process to stop.
 - Fixed the background layout not fitting large map.
-- Fixed issue that made new hosts and services unavailable until restart.
+- Fixed an issue that made new hosts and services unavailable until restart.
 
 #### Enahncements
 
@@ -58,6 +54,11 @@ Release date: `soon`
 - Aligned "Submit button" inside the Map configuration modal.
 - Added spacing to the title inside Map configuration modal.
 - Removed deprecated REST endpoints.
+- Made viewer and editor rendering more consistent.
+- Manage view background color.
+- Add resource parent name in graph.
+- Improve api response when server is starting up.
+
 
 ### 22.04.4
 
