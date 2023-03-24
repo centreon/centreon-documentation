@@ -13,7 +13,7 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
 
-## Centreon MAP
+## Centreon MAP Legacy
 
 ### 21.10.9
 
