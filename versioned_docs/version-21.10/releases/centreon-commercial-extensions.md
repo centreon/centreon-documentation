@@ -24,12 +24,6 @@ Release date: `soon`
 
 - Fixed an issue preventing the creation of maps with API.
 
-#### Enhancements
-
-- The rendering between viewer and editor is now more consistent.
-- Aligned the "Submit" button in the MAP configuration modal.
-- Improved the spacing above the title for a better readability in the MAP configuration modal.
-
 ### 21.10.8
 
 Release date: `December 28, 2022`
