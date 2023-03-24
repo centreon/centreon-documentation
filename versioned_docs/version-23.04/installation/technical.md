@@ -87,9 +87,6 @@ import TabItem from '@theme/TabItem';
 
 ## Users and groups
 
-> This information pertains to the Red Hat / CentOS system. Names of users, groups and services can change according to
-> the GNU/Linux distribution.
-
 Description of software and linked users:
 
 <Tabs groupId="sync">

@@ -29,7 +29,7 @@ Avant d'installer Centreon :
 
 ## Script "unattended"
 
-Pour tester rapidement Centreon et installer un serveur central sur CentOS 7 ou AlmaLinux 8 / Oracle Linux 8 / RHEL 8, vous pouvez utiliser un script.
+Pour tester rapidement Centreon et installer un serveur central sur AlmaLinux / Oracle Linux / RHEL 8 ou 9, vous pouvez utiliser un script.
 
 1. Mettez votre système à jour :
 
@@ -52,13 +52,14 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="RHEL / Alma / Oracle Linux 9" label="RHEL / Alma / Oracle Linux 9">
 
 ```shell
-yum update
+dnf update
 ```
 
 </TabItem>
+
 </Tabs>
 
 2. Exécutez la commande suivante en **root** :

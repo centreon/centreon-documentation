@@ -35,7 +35,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -97,19 +97,21 @@ Si vous avez des extensions Business installées, mettez à jour le dépôt busi
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
+
 ```shell
 systemctl stop cbd
 ```
 
 Supprimer les fichiers de rétention présents :
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Videz le cache de yum :
+Videz le cache :
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Mettez à jour l'ensemble des composants :
@@ -118,7 +120,7 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -289,7 +291,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -297,16 +299,16 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 
 ### Montée de version de la solution Centreon
 
-Videz le cache de yum :
+Videz le cache :
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.

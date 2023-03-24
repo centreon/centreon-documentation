@@ -33,7 +33,7 @@ Run the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -133,7 +133,7 @@ Delete existing retention files:
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean yum cache:
+Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -159,7 +159,7 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -473,7 +473,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -489,7 +489,7 @@ apt update
 
 ### Upgrade the Centreon solution
 
-Clean yum cache:
+Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -516,7 +516,7 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 </TabItem>

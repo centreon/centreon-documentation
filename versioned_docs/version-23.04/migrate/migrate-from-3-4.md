@@ -6,7 +6,7 @@ title: Migrate from a Centreon 3.4 platform
 ## Prerequisites
 
 The following procedure only applies to migration from a Centreon 3.4 platform
-installed on a 64-bit GNU/Linux distribution other than CentOS / Oracle Linux / RHEL 8.
+installed on a 64-bit GNU/Linux distribution other than Oracle Linux / RHEL 8.
 Here are the system requirements:
 
 | Components      | Version |
@@ -35,9 +35,29 @@ interface.
 
 2. Perform software and system updates:
 
-    ```shell
-    yum update
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 > It is advisable to set the same password for the *centreon* user during the web
 > installation process.

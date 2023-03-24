@@ -8,10 +8,12 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.10 vers la version 23.04.
 
+Vous ne pouvez pas simplement monter de version depuis une version antérieure à Centreon 20.10 et vers une version 23.04, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../migrate/introduction.md).
+
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
+> / RHEL 8 ou 9, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
 
 > Pour effectuer cette procédure, votre version de MariaDB doit être >= 10.3.22.
 > Si cela n'est pas le cas, merci de suivre avant le
@@ -54,7 +56,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -142,10 +144,10 @@ Supprimez les fichiers de rétention présents :
 rm /var/lib/centreon-broker/* -f
 ```
 
-Videz le cache de yum :
+Videz le cache :
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Mettez à jour l'ensemble des composants :
@@ -154,7 +156,7 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -166,6 +168,7 @@ yum update centreon\* php-pecl-gnupg
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Exécutez les commandes suivantes :
+
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
@@ -278,7 +281,7 @@ Exécutez la commande suivante sur le serveur de base de données dédié :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -319,7 +322,7 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 3. Installez la version 10.5 :
 
     ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
     ```
 
 4. Démarrer le service mariadb :
@@ -438,7 +441,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -446,16 +449,16 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 
 ### Montée de version de la solution Centreon
 
-Videz le cache de yum :
+Videz le cache :
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.

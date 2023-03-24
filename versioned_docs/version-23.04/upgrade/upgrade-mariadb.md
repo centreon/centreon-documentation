@@ -45,15 +45,15 @@ rpm -qa |grep MariaDB
 The results should look like this:
 
 ```shell
-MariaDB-client-10.5.8-1.el7.centos.x86_64
-MariaDB-server-10.5.8-1.el7.centos.x86_64
-MariaDB-common-10.5.8-1.el7.centos.x86_64
-MariaDB-shared-10.5.8-1.el7.centos.x86_64
-MariaDB-compat-10.5.8-1.el7.centos.x86_64
+MariaDB-client-10.5.8-1.el8.centos.x86_64
+MariaDB-server-10.5.8-1.el8.centos.x86_64
+MariaDB-common-10.5.8-1.el8.centos.x86_64
+MariaDB-shared-10.5.8-1.el8.centos.x86_64
+MariaDB-compat-10.5.8-1.el8.centos.x86_64
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 rpm -qa |grep MariaDB
@@ -62,11 +62,11 @@ rpm -qa |grep MariaDB
 The results should look like this:
 
 ```shell
-MariaDB-client-10.5.8-1.el7.centos.x86_64
-MariaDB-server-10.5.8-1.el7.centos.x86_64
-MariaDB-common-10.5.8-1.el7.centos.x86_64
-MariaDB-shared-10.5.8-1.el7.centos.x86_64
-MariaDB-compat-10.5.8-1.el7.centos.x86_64
+MariaDB-client-10.5.8-1.el9.centos.x86_64
+MariaDB-server-10.5.8-1.el9.centos.x86_64
+MariaDB-common-10.5.8-1.el9.centos.x86_64
+MariaDB-shared-10.5.8-1.el9.centos.x86_64
+MariaDB-compat-10.5.8-1.el9.centos.x86_64
 ```
 
 </TabItem>
@@ -113,7 +113,7 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
@@ -129,21 +129,17 @@ dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-co
 </TabItem>
 </Tabs>
 
-    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+> During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+>
+> For instance, you get the following error message:
+>
+> `package MariaDB-compat is not installed`
+>
+> As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
+>
+> `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
 
-    For instance, you get the following error message:
-
-    ```shell
-    package MariaDB-compat is not installed
-    ```
-
-    As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
-    ```
-
-  > Make sure you have [installed the official MariaDB repository](upgrade-from-22-04.md#install-the-mariadb-repository) before you continue the procedure.
+> Make sure you have [installed the official MariaDB repository](upgrade-from-22-04.md#install-the-mariadb-repository) before you continue the procedure.
 
 3. Install the 10.5 version:
 
@@ -155,10 +151,10 @@ dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* Ma
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
 ```
 
 </TabItem>
@@ -237,13 +233,33 @@ max_allowed_packet = 8M
 
 ## Upgrading between minor versions of MariaDB
 
-Follow these steps to upgrade between minor versions of MariaDBB (for example, to switch from version 10.3.2 to version 10.3.5) :
+Follow these steps to upgrade between minor versions of MariaDB (for example, to switch from version 10.3.2 to version 10.3.5) :
 
 1. Update MariaDB :
 
-    ```shell
-    yum update MariaDB-*
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update MariaDB-*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update MariaDB-*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update MariaDB-*
+```
+
+</TabItem>
+</Tabs>
 
 2. Restart MariaDB :
 

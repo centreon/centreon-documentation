@@ -32,9 +32,29 @@ Packs. It is installed by default. We recommend that you keep this module regula
 
 To update this module, run the following command:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon-pp-manager
+dnf update centreon-pp-manager
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-pp-manager
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update centreon-pp-manager
+```
+
+</TabItem>
+</Tabs>
 
 ### License
 
@@ -64,21 +84,57 @@ Installing a plugin pack is a 4-step process:
 
 ### Accessing the Plugin Packs catalog
 
-* If you have an online [license](../administration/licenses.md), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
+#### Online license
 
-* If you have an offline license:
-    - install the Plugin Packs repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
-    - install or update the Plugin Packs catalog from your Centreon Central server:
+If you have an online [license](../administration/licenses.md), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
 
-      ```shell
-      yum install centreon-pack-*
-      ```
+#### Offline license
 
-      or:
+If you have an offline license:
 
-      ```shell
-      yum update centreon-pack-*
-      ```
+- install the Plugin Packs repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
+- install or update the Plugin Packs catalog from your Centreon Central server:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-pack-*
+```
+
+or:
+
+```shell
+dnf update centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-pack-*
+```
+
+or:
+
+```shell
+dnf update centreon-pack-*
+```
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-pack-*
+```
+
+or:
+
+```shell
+apt update centreon-pack-*
+```
+
+</TabItem>
+</Tabs>
 
 > Please note that although this command is called `install`, it only makes Plugin Packs available in the Centreon interface. It will not install the Plugin Packs themselves. Please follow the rest of the procedure.
 
@@ -140,17 +196,54 @@ The monitoring procedure contains an **Installation** section that explains how 
 
 The installation command looks like this:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum install centreon-plugin-$PLUGIN-PACK$
+dnf install centreon-plugin-$PLUGIN-PACK$
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-plugin-$PLUGIN-PACK$
+```
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-$PLUGIN-PACK$
+```
+
+</TabItem>
+</Tabs>
 
 Where ``$PLUGIN-PACK$`` is the name of the pack. Example:
 
-```
-yum install centreon-plugin-Cloud-Aws-Ec2-Api
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-> Bear in mind that the `yum` command is case-sensitive.
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-plugin-Cloud-Aws-Ec2-Api
+```
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-Cloud-Aws-Ec2-Api
+```
+
+</TabItem>
+</Tabs>
 
 ## Using plugin packs
 
@@ -203,9 +296,29 @@ If **Automatic installation of plugins** is set to **OFF**, use the following co
 
 1. Execute the following command on all pollers:
 
-  ```shell
-  yum update centreon-plugin\*
-  ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-plugin\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-plugin\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update centreon-plugin\*
+```
+
+</TabItem>
+</Tabs>
 
 2. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md) for all pollers. The **Restart Monitoring Engine** 
 option must be set to **Restart**.

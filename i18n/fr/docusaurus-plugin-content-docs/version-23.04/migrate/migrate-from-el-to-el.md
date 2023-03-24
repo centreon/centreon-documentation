@@ -27,9 +27,29 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 
 3. Réalisez les mises à jour logicielle et système :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
 dnf update
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 ### Étape 2 : Synchroniser les données
 
@@ -137,9 +157,29 @@ dnf update
 
 Si vous n'utilisez que des plugins Centreon, réinstallez-les sur le nouveau serveur:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum install centreon-plugin-\*
+dnf install centreon-plugin-\*
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-plugin-\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-\*
+```
+
+</TabItem>
+</Tabs>
 
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.
 

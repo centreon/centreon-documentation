@@ -38,7 +38,7 @@ Run the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -117,19 +117,21 @@ If you have installed Business extensions, update the Business repository to ver
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
+
 ```shell
 systemctl stop cbd
 ```
 
 Delete existing retention files:
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean yum cache:
+Clean the cache:
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Then upgrade all the components with the following command:
@@ -138,7 +140,7 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -150,6 +152,7 @@ yum update centreon\* php-pecl-gnupg
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Execute the following commands:
+
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
@@ -255,6 +258,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
+
 ```shell
 systemctl reload httpd
 ```
@@ -285,7 +289,7 @@ page:
 
 ![image](../assets/upgrade/web_update_5.png)
 
-> As the interface layout has changed in version 23.04, you need to clear your browser cache to display the new theme.
+> As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
 
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.md).
@@ -325,7 +329,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -333,16 +337,16 @@ dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/ce
 
 ### Upgrade the Centreon solution
 
-Clean yum cache:
+Clean the cache:
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.

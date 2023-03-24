@@ -35,7 +35,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -123,11 +123,13 @@ Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categ
 Si votre OS est Debian 11 et que vous avez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
 
 Arrêtez le processus Centreon Broker :
+
 ```shell
 systemctl stop cbd
 ```
 
 Supprimez les fichiers de rétention présents :
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -158,7 +160,7 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -471,7 +473,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -514,7 +516,7 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 </TabItem>

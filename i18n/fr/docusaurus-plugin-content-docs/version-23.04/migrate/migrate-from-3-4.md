@@ -36,9 +36,29 @@ web.
 
 2. Réalisez les mises à jour logicielle et système :
 
-    ```shell
-    yum update
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 > Il est préférable de saisir le même mot de passe pour l'utilisateur 'centreon'
 > lors du processus d'installation web.
