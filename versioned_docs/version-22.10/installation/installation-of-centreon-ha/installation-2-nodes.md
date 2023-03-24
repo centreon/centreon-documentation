@@ -1532,7 +1532,7 @@ Location Constraints:
 Ordering Constraints:
   stop centreon then demote ms_mysql-master
 Colocation Constraints:
-  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
