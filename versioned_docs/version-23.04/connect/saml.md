@@ -39,7 +39,7 @@ Configure Identity Provider information:
 ### Step 3: Configure authentication conditions
 
 * You can define conditions according to which users will be allowed to log in or not, based on the data received by a particular endpoint.
-   - Activate **Enable conditions on Identity Provider**.
+   - Activate **Enable conditions on identity provider**.
    - Define which attribute from which endpoint will be used to validate the conditions.
    - In **Define authorized conditions values**, define which will be the authorized values returned by this endpoint. If you enter several values, all will have to be met for the condition to be validated. All users that try to connect with another value will be unable to log in.
 
