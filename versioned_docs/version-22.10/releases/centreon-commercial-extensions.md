@@ -18,6 +18,45 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.5
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.	
+- Fixed an issue that prevent the migration between MAP legacy and MAP.
+- Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
+- Fixed diagnostique.sh script to include storage event from broker output.
+- Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
+- Fixed an issue that prevented the migration between MAP legacy and MAP.
+- Fixed an issue that prevented the tooltip for the "old perfdata" plugin to be displayed in the graph.
+- Fixed issues and improved the map display (visibility, background and breadcrumb color).
+- Fixed an issue to allow more than 25 maps to be migrated.
+- [CEIP] Added more details for MAP engine telemetry.
+- Fixed bug who display a blank page when user click on host name inside a map.
+- Fixed the server startup error due to PF without virtual hosts.
+- Fixed an issue with insert an object in a link prevented the map from being saved.
+- Fixed an issue with authentication when several sessions are active.
+- [API] Fixed an issue with create element in view that could break default icon.
+- Fixed an issue with map sharing.
+- Fixed an issue with Host and Service icons configuration that were not handled properly.
+- Fixed Colors for a "Text" type element is ignored by the viewer. 
+- Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
+- Fixed bug when custom UR is set, some old media in map are not displayed correctly.
+- Fix migration issue with images that could stop migration process.
+- Fixed the background layout not fitting large map.
+- Fixed an issue when updating a resource that did not display the new resource name.
+- Fixed issue that made new hosts and services unavailable until restart. 
+
+#### Enhancements
+
+- Managed view background color.
+- Manage font properties in editor.
+- Added resource parent name in graph.
+- Improve api response when server is starting up.
+
 ### 22.10.4
 
 Release date : `January 17, 2023`
