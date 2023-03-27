@@ -32,7 +32,7 @@ Configure Identity Provider information:
   must be used to authenticate users. For example, **email**. (mandatory).
 - Logout from:
   * **Centreon UI Only**: users will only be logged out from Centreon.
-  * **Both Identity Provider and Centreon UI**:  users will be logout both from Centreon and the Identity Provider.
+  * **Both Identity Provider and Centreon UI**:  users will be logged out both from Centreon and the identity provider.
     > In this case, the definition of the **Logout URL** is mandatory.
 
 
