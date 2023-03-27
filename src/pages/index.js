@@ -42,13 +42,13 @@ const cards = [
         label: "Setting up the monitoring",
         href: "docs/category/setting-up-the-monitoring/"
       },{
-        label: "BAM",
+        label: "Service mapping",
         href: "docs/service-mapping/introduction/"
       },{
-        label: "MAP",
+        label: "Graphical views",
         href: "docs/graph-views/introduction-map/"
       },{
-        label: "MBI",
+        label: "Reporting",
         href: "docs/reporting/introduction/"
       },
     ]
@@ -64,10 +64,10 @@ const cards = [
         label: "Installing a poller",
         href: "cloud/installation/prerequisites/"
       },{
-        label: "BAM",
+        label: "Service mapping",
         href: "cloud/service-mapping/introduction/"
       },{
-        label: "MAP",
+        label: "Graphical views",
         href: "cloud/graph-views/introduction-map/"
       },
     ]

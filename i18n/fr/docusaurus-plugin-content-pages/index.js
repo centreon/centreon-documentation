@@ -42,13 +42,13 @@ const cards = [
         label: "Mettre des ressources en supervision",
         href: "/fr/docs/category/setting-up-the-monitoring/"
       },{
-        label: "BAM",
+        label: "Service mapping",
         href: "/fr/docs/service-mapping/introduction/"
       },{
-        label: "MAP",
+        label: "Vues graphiques",
         href: "/fr/docs/graph-views/introduction-map/"
       },{
-        label: "MBI",
+        label: "Reporting",
         href: "/fr/docs/reporting/introduction/"
       },
     ]
@@ -64,10 +64,10 @@ const cards = [
         label: "Installer un collecteur",
         href: "/fr/cloud/installation/prerequisites/"
       },{
-        label: "BAM",
+        label: "Service mapping",
         href: "/fr/cloud/service-mapping/introduction/"
       },{
-        label: "MAP",
+        label: "Vues graphiques",
         href: "/fr/cloud/graph-views/introduction-map/"
       },
     ]
