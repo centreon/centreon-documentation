@@ -43,11 +43,12 @@ Release date: `soon`
 - Fixed an issue with Host and Service icons configuration that were not handled properly.
 - Fixed Colors for a "Text" type element is ignored by the viewer. 
 - Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
-- Fixed bug when custom UR is set, some old media in map are not displayed correctly.
+- Fixed bug when custom URI is set, some old media in map are not displayed correctly.
 - Fix migration issue with images that could stop migration process.
 - Fixed the background layout not fitting large map.
 - Fixed an issue when updating a resource that did not display the new resource name.
 - Fixed issue that made new hosts and services unavailable until restart. 
+- Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
 
 #### Enhancements
 
@@ -55,6 +56,7 @@ Release date: `soon`
 - Manage font properties in editor.
 - Added resource parent name in graph.
 - Improve api response when server is starting up.
+- Removed deprecated REST endpoints.
 
 ### 22.10.4
 
