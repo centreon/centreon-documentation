@@ -109,7 +109,7 @@ If you turn on **Enable automatic management**, users that log in to Centreon wi
 [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
 
 - Define which attribute from the identity provider will be used to retrieve values to create relationships with access groups.
-- Match the attributes retrieved from the Identity Provider with the contact groups you want the user to belong to.
+- Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
 
 > Each time the user logs in, groups management is reinitialized to take into account any new information from the identity provider.
 
