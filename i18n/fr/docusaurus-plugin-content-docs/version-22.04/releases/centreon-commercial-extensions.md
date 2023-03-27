@@ -154,7 +154,7 @@ Release date: `soon`
 #### Bug fixes
 
 - Various issues incurred with the Business Platform.
-- [BAM] Redirection in Monitoring -> BA -> monitoring not working.
+- [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Can't see the child BAs on a tree on the Remote Server.
 - Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
