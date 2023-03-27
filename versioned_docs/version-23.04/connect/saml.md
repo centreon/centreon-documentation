@@ -43,9 +43,6 @@ Configure Identity Provider information:
    - Define which attribute from which endpoint will be used to validate the conditions.
    - In **Define authorized conditions values**, define which will be the authorized values returned by this endpoint. If you enter several values, all will have to be met for the condition to be validated. All users that try to connect with another value will be unable to log in.
 
-   In the example below, the **Conditions attribute path** is **status** and **Define authorized conditions values** is **activated**. If the **Introspection endpoint** gives you the following response, then the user is allowed to log in:
-
-
 ### Step 4: Manage user creation
 
 <Tabs groupId="sync">
