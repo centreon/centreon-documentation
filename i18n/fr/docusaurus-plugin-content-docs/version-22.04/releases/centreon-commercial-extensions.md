@@ -161,6 +161,7 @@ Release date: `soon`
 - [Widget] bam-ba-tree BA/services links are broken.
 - Fixed an issue that made BA tree not visible if dark mode was used.
 - Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- Fixed an issue that prevented Business Activities top counter from loading.
 
 ### 22.04.2
 
