@@ -142,6 +142,17 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.2
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
+- Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- Fixed a cosmetic issue in Bam & Autodiscovery table header.
+
 ### 22.10.1
 
 Release date: `February 9, 2023`
