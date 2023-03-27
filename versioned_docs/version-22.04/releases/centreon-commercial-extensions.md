@@ -153,7 +153,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Various issues incurred with the Business Platform.
+- Fixed an issue that prevented Business Activities top counter from loading.
 - Fixed an issue that cause the BA top counter to not load properly.
 - [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
