@@ -29,7 +29,7 @@ Configure Identity Provider information:
 - **Issuer (Entity ID) URL**: defines the URL representing the unique name for a SAML entity (mandatory).
 - **Copy/paste x509 certificate**: add here the x509 certificate of the identity provider (mandatory).
 - **User ID (login) attribute for Centreon user**: defines which of the variables returned by the Identity Provider
-  must be used to authenticate users. For example email. (mandatory).
+  must be used to authenticate users. For example, **email**. (mandatory).
 - Logout from:
   * **Centreon UI Only**: users will only be logout from Centreon.
   * **Both Identity Provider and Centreon UI**:  users will be logout both from Centreon and the Identity Provider.
