@@ -36,29 +36,29 @@ Release date: `soon`
 - Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
 - Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [API] Fixed an issue with create element in view that could break default icon.
-- Fixed an issue with authentication when several session are active.
-- Fixed an issue with Insert an object in a link causes map save issue.
+- Fixed an issue with authentication when several sessions are active.
+- Fixed an issue with insert an object in a link prevented the map from being saved.
 - Fixed an issue with map sharing.
 - Fixed an issue with Host and Service icons configuration that were not handled properly.
-- Fixed an issue with Colors for a "Text" type element that was ignored by the viewer.
-- Fixed an issue when Dark Theme is not applied on tooltip in Geo Views or Standard Views.
-- Fixed an issue when custom URL is set that caused some old media in map are not displayed correctly.
+- Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
+- Fixed an issue when dark theme is not applied on tooltips in Geo views or Standard views.
+- Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
 - Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
 - Fixed an issue with migration and images that could cause migration process to stop.
 - Fixed the background layout not fitting large map.
 - Fixed an issue that made new hosts and services unavailable until restart.
 
-#### Enahncements
+#### Enhancements
 
-- Add the display of only the supported shape at the double click on the editor.
-- API clean-up and documentation.
-- Aligned "Submit button" inside the Map configuration modal.
+- Added the display of supported shapes only at the double-click on the editor.
+- Added documentation and sanitization of the API.
+- Aligned "Submit button" inside the MAP configuration modal.
 - Added spacing to the title inside Map configuration modal.
 - Removed deprecated REST endpoints.
 - Made viewer and editor rendering more consistent.
-- Manage view background color.
+- Managed view background color.
 - Added resource parent name in graph.
-- Improve api response when server is starting up.
+- Improved API response when server is starting up.
 
 ### 22.04.4
 
@@ -155,7 +155,7 @@ Release date: `soon`
 
 - Various issues incurred with the Business Platform.
 - Fixed an issue that cause the BA top counter to not load properly.
-- [BAM] Redirection in Monitoring -> BA -> monitoring not working.
+- [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Can't see the child BAs on a tree on the Remote Server.
 - Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
