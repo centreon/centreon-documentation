@@ -127,7 +127,7 @@ If you turn off **Enable automatic management**, you have to manage manually rel
 Configure your Identity Provider to add the Centreon application to use the SAML protocol to authenticate your users:
 * **Client ID**: defines the URL to access to Centreon.
   > For example: https://<Centreon_IP_address>
-* **Assertion Consumer Service POST Binding URL**: AML POST Binding URL for the client's assertion consumer service (login responses). You can leave this blank if you do not have a URL for this binding.
+* **Assertion Consumer Service POST Binding URL**: defines the SAML POST Binding URL for the client's assertion consumer service (login responses).
   > For example: https://<Centreon_IP_address>/centreon/api/latest/saml/acs
-* **Logout Service Redirect Binding URL**: SAML Redirect Binding URL for the client's single logout service. You can leave this blank if you are using a different binding.
+* **Logout Service Redirect Binding URL**: defines the SAML Redirect Binding URL for the client's single logout service.
   > For example: https://<Centreon_IP_address>/centreon/api/latest/saml/sls
