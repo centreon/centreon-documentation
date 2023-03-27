@@ -35,7 +35,7 @@ Release date: `soon`
 - Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
 - Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [API] Fixed an issue with create element in view that could break default icon.
-- Fixed an issue with authentication when several session are active.
+- Fixed an issue with authentication when several sessions are active.
 - Fixed an issue with Insert an object in a link causes map save issue.
 - Fixed an issue with map sharing.
 - Fixed an issue with Host and Service icons configuration that were not handled properly.
