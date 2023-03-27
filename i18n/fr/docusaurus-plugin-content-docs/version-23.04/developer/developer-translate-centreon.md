@@ -2,6 +2,8 @@
 id: developer-translate-centreon  
 title: Comment traduire Centreon
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Si vous voulez contribuer à traduire Centreon, ce tutoriel est pour vous ! Découvrez comment traduire l’interface web de Centreon et comment nous aider à ajouter de nouvelles langues dans Centreon.
 
@@ -86,6 +88,7 @@ sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MES
 
 Redémarrez Apache :
 
+<Tabs groupId="sync">
 <TabItem value="Alma/ RHEL / Oracle Linux 8" label="Alma/ RHEL / Oracle Linux 8">
 
 Restart Apache:
