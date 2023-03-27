@@ -61,7 +61,7 @@ configuration. (Turning the option on does not import automatically all users in
   [notifications](../alerts-notifications/notif-configuration.md).
 - **Email attribute path**: defines which of the variables returned by the identity provider must be used to get the
   user's email address.
-- **Fullname attribute path**: defines which of the variables returned he Identity Provider must be used to get the
+- **Fullname attribute path**: defines which of the variables returned by the identity provider must be used to get the
   user's full name.
 
 </TabItem>
