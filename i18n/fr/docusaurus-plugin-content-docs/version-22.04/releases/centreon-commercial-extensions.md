@@ -157,7 +157,7 @@ Release date: `soon`
 - [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
-- Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
+- Fixed an export issue that prevented Remote Servers from displaying BAM reporting statistics.
 - [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
 - Fixed an issue that made BA tree not visible if dark mode was used.
 - Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
@@ -192,6 +192,7 @@ Release date: `soon`
 
 - Fixed an issue that prevented MBI pages from being displayed even when module and license are installed.
 - Fixed an issue where report could not be sent by email with Microsoft Office 365.
+
 #### Enhancements
 
 - Improved time for daily ETL calculation.
@@ -267,10 +268,12 @@ Release date: `August 10, 2022`
 
 Release date: `soon`
 
-#### Bugfixes
+#### Bug fix
 
-- Send downtimes to Centreon SaaS platform for Anomaly Detection services.
 - [Core] Fixed SQL queries when databases names contain dash.
+#### Enhancement
+
+- Downtimes are now also sent to Centreon SaaS platform for Anomaly Detection services.
 
 ### 22.04.0
 
