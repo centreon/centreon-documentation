@@ -121,6 +121,7 @@ or:
 dnf update centreon-pack-*
 ```
 
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
