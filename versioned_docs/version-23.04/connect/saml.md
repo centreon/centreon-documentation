@@ -127,4 +127,4 @@ Configure your Identity Provider to add the Centreon application to use the SAML
 * **Assertion Consumer Service POST Binding URL**: defines the SAML POST Binding URL for the client's assertion consumer service (login responses).
   > For example: https://<Centreon_IP_address>/centreon/api/latest/saml/acs
 * **Logout Service Redirect Binding URL**: defines the SAML Redirect Binding URL for the client's single logout service.
-  > For example: https://<Centreon_IP_address>/centreon/api/latest/saml/sls
+  Example: https://<Centreon_IP_address>/centreon/api/latest/saml/sls
