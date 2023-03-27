@@ -57,7 +57,7 @@ Release date: `soon`
 - Made viewer and editor rendering more consistent.
 - Managed view background color.
 - Added resource parent name in graph.
-- Improve api response when server is starting up.
+- Improved API response when server is starting up.
 
 
 ### 22.04.4
