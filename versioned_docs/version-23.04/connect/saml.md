@@ -89,7 +89,7 @@ If you turn on **Enable automatic management**, users that log in to Centreon wi
 - Match the attributes retrieved from the Identity Provider with the contact groups you want the user to belong to.
 
 > Each time the user logs in, authorization management is reinitialized to take into account any new information from the
-> Identity Provider.
+> identity provider.
 
 </TabItem>
 <TabItem value="Role manual management" label="Manual management">
