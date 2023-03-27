@@ -36,7 +36,7 @@ Release date: `soon`
 - Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [API] Fixed an issue with create element in view that could break default icon.
 - Fixed an issue with authentication when several sessions are active.
-- Fixed an issue with Insert an object in a link causes map save issue.
+- Fixed an issue with insert an object in a link prevented the map from being saved.
 - Fixed an issue with map sharing.
 - Fixed an issue with Host and Service icons configuration that were not handled properly.
 - Fixed an issue with Colors for a "Text" type element that was ignored by the viewer.
