@@ -471,7 +471,7 @@ Par défaut, Centreon installe un serveur web en mode HTTP. Il est fortement rec
 
 Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
-1. Préparer la configuration OpenSSL :
+1. Préparez la configuration OpenSSL :
   
   En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
   
@@ -517,7 +517,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
   subjectAltName = @alt_names
   ```
   
-2. Créer une clé privée pour le serveur :
+2. Créez une clé privée pour le serveur :
 
 Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'elle puisse être utilisée par le service Apache.
 ```text
@@ -529,21 +529,21 @@ Protégez le fichier en modifiant ses droits :
 chmod 400 centreon7.key
 ```
 
-3. Créer un fichier CSR :
+3. Créez un fichier CSR :
 
 Avec la clé que vous venez de créer, créez un fichier CSR (Certificate Signing Request). Remplissez les champs avec les informations propres à votre entreprise. Le champ **Common Name** doit être identique au hostname de votre serveur Apache (dans notre cas, **centreon7.localdomain**).
 ```text
 openssl req -new -key centreon7.key -out centreon7.csr
 ```
 
-4. Créer une clé privée pour le certificat de l'autorité de certification :
+4. Créez une clé privée pour le certificat de l'autorité de certification :
 
 Créez une clé privée pour cette autorité : **ca_demo.key** dans notre cas. Ajoutez l'option **-aes256** pour chiffrer la clé produite et y appliquer un mot de passe. Ce mot de passe sera demandé chaque fois que la clé sera utilisée.
 ```text
 openssl genrsa -aes256 2048 > ca_demo.key
 ```
 
-5. Créer un certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
+5. Créez un certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
 
 Créez un certificat x509 qui sera valide pendant un an : **ca_demo.crt** dans notre cas.
 
@@ -554,7 +554,7 @@ openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
 
 Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat du serveur.
 
-6. Créer un certificat pour le serveur :
+6. Créez un certificat pour le serveur :
 
 Créez votre certificat pour le serveur en utilisant le certificat x509 (**ca_demo.crt**) pour le signer.
 
@@ -595,7 +595,7 @@ Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la pro
 
 ### Activer le mode HTTPS sur le serveur web
 
-1. Installer le module SSL pour Apache :
+1. Installez le module SSL pour Apache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -604,7 +604,7 @@ Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la pro
 dnf install mod_ssl mod_security openssl
 ```
 
-2. Installer les certificats :
+2. Installez les certificats :
 
 Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
 
@@ -620,7 +620,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
 
-2. Installer les certificats :
+2. Installez les certificats :
 
 Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
 
@@ -641,7 +641,7 @@ a2enmod security2
 systemctl restart apache2
 ```
 
-2. Installer les certificats :
+2. Installez les certificats :
 
 Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
 
@@ -653,7 +653,7 @@ cp centreon7.crt /etc/ssl/certs/
 </TabItem>
 </Tabs>
 
-3. Sauvegarder la configuration actuelle du serveur Apache pour Centreon :
+3. Sauvegardez la configuration actuelle du serveur Apache pour Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -922,7 +922,7 @@ ServerTokens Prod
 </TabItem>
 </Tabs>
 
-5. Activer les flags HttpOnly / Secure et cacher la signature du serveur Apache :
+5. Activez les flags HttpOnly / Secure et cacher la signature du serveur Apache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -984,7 +984,7 @@ TraceEnable Off
 </TabItem>
 </Tabs>
 
-6. Cacher le répertoire par défaut **/icons** :
+6. Cachez le répertoire par défaut **/icons** :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1060,7 +1060,7 @@ Syntax OK
 </TabItem>
 </Tabs>
 
-8. Redémarrer le serveur web Apache et PHP pour prendre la configuration en compte :
+8. Redémarrez le serveur web Apache et PHP pour prendre la configuration en compte :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1325,7 +1325,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 
 1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
 
-2. Installer le module nghttp2:
+2. Installez le module nghttp2:
 
 ```shell
 dnf install nghttp2
@@ -1342,7 +1342,7 @@ dnf install nghttp2
 ...
 ```
 
-4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
+4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -1352,7 +1352,7 @@ dnf install nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration :
+5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
 
 ```shell
 systemctl restart httpd
@@ -1363,7 +1363,7 @@ systemctl restart httpd
 
 1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
 
-2. Installer le module nghttp2:
+2. Installez le module nghttp2:
 
 ```shell
 yum install httpd24-nghttp2
@@ -1380,7 +1380,7 @@ yum install httpd24-nghttp2
 ...
 ```
 
-4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf** :
+4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf** :
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -1390,7 +1390,7 @@ yum install httpd24-nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration :
+5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
 
 ```shell
 systemctl restart httpd24-httpd
@@ -1402,7 +1402,7 @@ systemctl restart httpd24-httpd
 
 1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
 
-2. Installer le module nghttp2:
+2. Installez le module nghttp2:
 
 ```shell
 apt install nghttp2
@@ -1419,7 +1419,7 @@ apt install nghttp2
 ...
 ```
 
-4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/etc/apache2/sites-available/00-mpm.conf** :
+4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/apache2/sites-available/00-mpm.conf** :
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -1429,7 +1429,7 @@ apt install nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration :
+5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
 
 ```shell
 systemctl restart apache2
