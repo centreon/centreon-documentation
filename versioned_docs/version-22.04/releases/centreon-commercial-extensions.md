@@ -157,9 +157,9 @@ Release date: `soon`
 - Fixed an issue that cause the BA top counter to not load properly.
 - [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
-- Can't see the child BAs on a tree on the Remote Server.
+- Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
 - Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
-- [Widget] bam-ba-tree BA/services links are broken.
+- [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
 - Fixed an issue that made BA tree not visible if dark mode was used.
 - Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
 
