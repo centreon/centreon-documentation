@@ -158,7 +158,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/23.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/artifactory/apt-23.04-stable/$(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :

@@ -150,10 +150,11 @@ apt update && apt upgrade
 
 Si vous n'utilisez que des plugins Centreon, réinstallez-les sur le nouveau serveur:
 
+1. Installez le dépôt des connecteurs de supervision (vous trouverez son adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts)).
+
+2. Exécutez les commandes suivante :
+
 ```shell
-apt update
-echo "deb https://apt.centreon.com/repository/23.04-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 apt install centreon-pack*
 apt install centreon-plugin-\*

@@ -283,7 +283,7 @@ dnf update
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/23.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://apt.centreon.com/artifactory/apt-23.04-stable/$(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Puis importez la clé du dépôt :

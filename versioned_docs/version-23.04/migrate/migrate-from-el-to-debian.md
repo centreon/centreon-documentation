@@ -149,12 +149,13 @@ create them again::
 
 ### Step 4: Synchronize the plugins
 
-If you only use Centreon plugins, reinstall them on the new server:
+If you only use Centreon plugins, reinstall them on the new server.
+
+1. Install the Monitoring Connectors repository (you can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories)).
+
+2. Run the following commands:
 
 ```shell
-apt update
-echo "deb https://apt.centreon.com/repository/22.10-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 apt install centreon-pack*
 apt install centreon-plugin-\*
