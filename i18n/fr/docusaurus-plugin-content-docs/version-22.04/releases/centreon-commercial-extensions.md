@@ -271,6 +271,7 @@ Release date: `soon`
 #### Bug fix
 
 - [Core] Fixed SQL queries when databases names contain dash.
+
 #### Enhancement
 
 - Downtimes are now also sent to Centreon SaaS platform for Anomaly Detection services.
