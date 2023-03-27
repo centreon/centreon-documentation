@@ -1197,7 +1197,7 @@ gorgone:
       password: "bpltc4aY"
 ```
 
-Redémarrer le daemon Gorgone :
+Redémarrez le daemon Gorgone :
 
 ```shell
 systemctl restart gorgoned
