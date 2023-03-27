@@ -50,7 +50,7 @@ Release date: `soon`
 #### Enhancements
 
 - Added the display of supported shapes only at the double-click on the editor.
-- API clean-up and documentation.
+- Added documentation and sanitization of the API.
 - Aligned "Submit button" inside the Map configuration modal.
 - Added spacing to the title inside Map configuration modal.
 - Removed deprecated REST endpoints.
