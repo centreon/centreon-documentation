@@ -81,7 +81,7 @@ that will log on to Centreon using SAML.
 If you turn on **Enable automatic management**, users that log in to Centreon will be automatically
   [granted rights](../administration/access-control-lists.md), as they will be linked to
   [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
-- **Apply only first role**: If several roles are found for a specific user in the Identity Provider's information, then
+- **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then
   only the first role will be applied. If the option is turned off, all roles will be applied.
 
 
