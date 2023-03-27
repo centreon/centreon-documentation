@@ -27,7 +27,7 @@ Configure Identity Provider information:
 
 - **Remote login URL**: defines the identity provider's login URL to identify users (mandatory).
 - **Issuer (Entity ID) URL**: defines the URL representing the unique name for a SAML entity (mandatory).
-- **Copy/paste x509 certificate**: add here the x509 certificate of the Identity Provider (mandatory).
+- **Copy/paste x509 certificate**: add here the x509 certificate of the identity provider (mandatory).
 - **User ID (login) attribute for Centreon user**: defines which of the variables returned by the Identity Provider
   must be used to authenticate users. For example email. (mandatory).
 - Logout from:
