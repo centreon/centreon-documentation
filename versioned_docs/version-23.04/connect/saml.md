@@ -59,7 +59,7 @@ configuration. (Turning the option on does not import automatically all users in
 - **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be
   applied to newly imported users. This allows in particular to manage the default configuration of the
   [notifications](../alerts-notifications/notif-configuration.md).
-- **Email attribute path**: defines which of the variables returned by the Identity Provider must be used to get the
+- **Email attribute path**: defines which of the variables returned by the identity provider must be used to get the
   user's email address.
 - **Fullname attribute path**: defines which of the variables returned he Identity Provider must be used to get the
   user's full name.
