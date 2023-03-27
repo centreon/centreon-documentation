@@ -2,6 +2,8 @@
 id: pluginpacks
 title: Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.

@@ -2,6 +2,8 @@
 id: pluginpacks
 title: Utiliser des Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Un Plugin Pack est un jeu téléchargeable
 de modèles de configuration qui permet un déploiement rapide de la supervision de votre infrastructure IT. Les Plugin Packs sont le moyen le plus simple de mettre un hôte en supervision.
