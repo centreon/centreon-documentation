@@ -221,6 +221,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Anomaly Detection
 
+### 22.10.2
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed an packaging issue that prevented anomaly detection from being installed.
+
 ### 22.10.1
 
 Release date: `February 9, 2023`
