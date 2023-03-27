@@ -33,7 +33,7 @@ Configure Identity Provider information:
 - Logout from:
   * **Centreon UI Only**: users will only be logged out from Centreon.
   * **Both Identity Provider and Centreon UI**:  users will be logged out both from Centreon and the identity provider.
-    > In this case, the definition of the **Logout URL** is mandatory.
+    > If you select **Both Identity Provider and Centreon UI**, you need to define a **Logout URL**. This is the URL of the page that will be displayed to the user once he has logged out.
 
 
 ### Step 3: Configure authentication conditions
