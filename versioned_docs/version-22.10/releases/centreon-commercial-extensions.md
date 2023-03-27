@@ -151,7 +151,7 @@ Release date: `soon`
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
 - Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
-- Fixed a cosmetic issue in Bam & Autodiscovery table header.
+- Fixed a cosmetic issue in Bam table header.
 
 ### 22.10.1
 
@@ -191,6 +191,12 @@ Release date: `October 26, 2022`
 - Move to Java 17
 
 ## Centreon Auto Discovery
+
+### 22.10.1
+
+Release date: `soon`
+
+- Fixed a cosmetic issue in Bam & Autodiscovery table header
 
 ### 22.10.0
 
