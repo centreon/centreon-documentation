@@ -39,7 +39,7 @@ Release date: `soon`
 - Fixed an issue with insert an object in a link prevented the map from being saved.
 - Fixed an issue with map sharing.
 - Fixed an issue with Host and Service icons configuration that were not handled properly.
-- Fixed an issue with Colors for a "Text" type element that was ignored by the viewer.
+- Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
 - Fixed an issue when Dark Theme is not applied on tooltip in Geo Views or Standard Views.
 - Fixed an issue when custom URL is set that caused some old media in map are not displayed correctly.
 - Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
