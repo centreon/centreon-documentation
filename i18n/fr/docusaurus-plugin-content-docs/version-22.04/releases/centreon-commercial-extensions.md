@@ -52,7 +52,7 @@ Release date: `soon`
 - Added the display of supported shapes only at the double-click on the editor.
 - Added documentation and sanitization of the API.
 - Aligned "Submit button" inside the Map configuration modal.
-- Added spacing to the title inside Map configuration modal.
+- Added spacing to the title inside MAP configuration modal.
 - Removed deprecated REST endpoints.
 - Made viewer and editor rendering more consistent.
 - Manage view background color.
