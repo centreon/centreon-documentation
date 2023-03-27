@@ -49,7 +49,7 @@ Release date: `soon`
 
 #### Enhancements
 
-- Add the display of only the supported shape at the double click on the editor.
+- Added the display of supported shapes only at the double-click on the editor.
 - API clean-up and documentation.
 - Aligned "Submit button" inside the Map configuration modal.
 - Added spacing to the title inside Map configuration modal.
