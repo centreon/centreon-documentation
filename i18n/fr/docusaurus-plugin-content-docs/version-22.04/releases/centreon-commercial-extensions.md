@@ -55,7 +55,7 @@ Release date: `soon`
 - Added spacing to the title inside MAP configuration modal.
 - Removed deprecated REST endpoints.
 - Made viewer and editor rendering more consistent.
-- Manage view background color.
+- Managed view background color.
 - Add resource parent name in graph.
 - Improve api response when server is starting up.
 
