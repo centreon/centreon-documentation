@@ -47,7 +47,7 @@ Release date: `soon`
 - Fixed the background layout not fitting large map.
 - Fixed an issue that made new hosts and services unavailable until restart.
 
-#### Enahncements
+#### Enhancements
 
 - Add the display of only the supported shape at the double click on the editor.
 - API clean-up and documentation.
