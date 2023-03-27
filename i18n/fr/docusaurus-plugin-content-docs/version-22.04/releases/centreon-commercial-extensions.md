@@ -41,7 +41,7 @@ Release date: `soon`
 - Fixed an issue with Host and Service icons configuration that were not handled properly.
 - Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
 - Fixed an issue when dark theme is not applied on tooltips in Geo views or Standard views.
-- Fixed an issue when custom URL is set that caused some old media in map are not displayed correctly.
+- Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
 - Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
 - Fixed an issue with migration and images that could cause migration process to stop.
 - Fixed the background layout not fitting large map.
