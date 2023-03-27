@@ -85,7 +85,7 @@ If you turn on **Enable automatic management**, users that log in to Centreon wi
   only the first role will be applied. If the option is turned off, all roles will be applied.
 
 - Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
-- Match the attributes retrieved from the Identity Provider with the contact groups you want the user to belong to.
+- Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
 
 > Each time the user logs in, authorization management is reinitialized to take into account any new information from the
 > identity provider.
