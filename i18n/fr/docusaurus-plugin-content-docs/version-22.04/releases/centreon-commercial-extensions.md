@@ -31,7 +31,7 @@ Release date: `soon`
 - Fixed an issue where users could not edit pie chart properties.
 - Fixed an issue that prevented users from drawing rectangles and ellipses.
 - Fixed an issue with links in the editor that prevented the user from saving a view.
-- Fixed an issue with link properties that prevented the link to be visible in editor.
+- Fixed an issue with link properties that prevented the link from being visible in the editor.
 - Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
 - Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [API] Fixed an issue with create element in view that could break default icon.
@@ -51,8 +51,8 @@ Release date: `soon`
 
 - Added the display of supported shapes only at the double-click on the editor.
 - Added documentation and sanitization of the API.
-- Aligned "Submit button" inside the Map configuration modal.
-- Added spacing to the title inside MAP configuration modal.
+- Aligned "Submit button" inside the MAP configuration modal.
+- Added spacing to the title inside the MAP configuration modal.
 - Removed deprecated REST endpoints.
 - Made viewer and editor rendering more consistent.
 - Managed view background color.
@@ -190,9 +190,11 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue that caused MBI pages to not be displayed even with the module and license installed.
-- Improve time for daily ETL calculation.
-- Fixed the bug when report can't be sent by email with O365.
+- Fixed an issue that prevented MBI pages from being displayed even when module and license are installed.
+- Fixed an issue where report could not be sent by email with Microsoft Office 365.
+#### Enhancements
+
+- Improved time for daily ETL calculation.
 
 ### 22.04.3
 
