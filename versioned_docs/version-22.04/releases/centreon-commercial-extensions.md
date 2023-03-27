@@ -194,6 +194,7 @@ Release date: `soon`
 
 - Fixed an issue that prevented MBI pages from being displayed even when module and license are installed.
 - Fixed an issue where report could not be sent by email with Microsoft Office 365.
+
 #### Enhancements
 
 - Improved time for daily ETL calculation.
@@ -269,10 +270,12 @@ Release date: `August 10, 2022`
 
 Release date: `soon`
 
-#### Bugfixes
+#### Bug fix
 
-- Send downtimes to Centreon SaaS platform for Anomaly Detection services.
 - [Core] Fixed SQL queries when databases names contain dash.
+#### Enhancement
+
+- Downtimes are now also sent to Centreon SaaS platform for Anomaly Detection services.
 
 ### 22.04.0
 
