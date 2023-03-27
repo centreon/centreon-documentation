@@ -116,7 +116,7 @@ If you turn on **Enable automatic management**, users that log in to Centreon wi
 </TabItem>
 <TabItem value="Groups manual management" label="Manual management">
 
-If you turn off **Enable automatic management**, you have to manage manually relation between contact and
+If you turn off **Enable automatic management**, you have to manage manually the relation between contact and
 [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups).
 
 </TabItem>
