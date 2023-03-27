@@ -153,7 +153,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Various issues incurred with the Business Platform.
+- Fixed an issue that prevented Business Activities top counter from loading.
 - [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Can't see the child BAs on a tree on the Remote Server.
@@ -161,7 +161,6 @@ Release date: `soon`
 - [Widget] bam-ba-tree BA/services links are broken.
 - Fixed an issue that made BA tree not visible if dark mode was used.
 - Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
-- Fixed an issue that prevented Business Activities top counter from loading.
 
 ### 22.04.2
 
