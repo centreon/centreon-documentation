@@ -31,7 +31,7 @@ Release date: `soon`
 - [CEIP] Added more details for MAP engine telemetry.
 - Fixed an issue where users could not edit pie chart properties.
 - Fixed an issue that prevented users from drawing rectangles and ellipses.
-- Fixed an issue with links in the editor that prevent the user from saving a view.
+- Fixed an issue with links in the editor that prevented the user from saving a view.
 - Fixed an issue with link properties that cause the link to not be visible in editor.
 - Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
 - Fixed an issue with the server startup error caused by platform without virtual hosts.
