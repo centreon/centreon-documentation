@@ -211,6 +211,7 @@ dnf install centreon-plugin-$PLUGIN-PACK$
 dnf install centreon-plugin-$PLUGIN-PACK$
 ```
 
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -237,6 +238,7 @@ dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
