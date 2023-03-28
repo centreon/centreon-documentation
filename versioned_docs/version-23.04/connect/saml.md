@@ -121,10 +121,11 @@ If you turn off **Enable automatic management**, you have to manage manually the
 
 ### Step 7: Configure your Identity Provider (IdP)
 
-Configure your identity provider so that the Centreon application can use the SAML protocol to authenticate your users. Here is an example of fields you may have to fill in:
-* **Client ID**: defines the URL to your Centreon platform.
-   Example: https://<Centreon_IP_address>
-* **Assertion Consumer Service POST Binding URL**: defines the SAML POST Binding URL for the client's assertion consumer service (login responses).
-  Example: https://<Centreon_IP_address>/centreon/api/latest/saml/acs
-* **Logout Service Redirect Binding URL**: defines the SAML Redirect Binding URL for the client's single logout service.
-  Example: https://<Centreon_IP_address>/centreon/api/latest/saml/sls
+Configure your identity provider so that the Centreon application can use the SAML protocol to authenticate your
+users. Here is an example of fields you may have to fill in:
+
+| IdP option                           | Centreon value                                                 |
+|--------------------------------------|----------------------------------------------------------------|
+| Client ID                            | https:// < Centreon_IP_address >                               |
+| Assertion Consumer Service (ACS) URL | https:// < Centreon_IP_address > /centreon/api/latest/saml/acs |
+| Redirect Binding URLs for SLO        | https:// < Centreon_IP_address > /centreon/api/latest/saml/sls |
