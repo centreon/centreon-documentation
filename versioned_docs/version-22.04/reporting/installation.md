@@ -321,7 +321,11 @@ Then, create the views manually on the slave server by running the following com
 command line:
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
+
+```bash
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Debian 11 specific configuration
