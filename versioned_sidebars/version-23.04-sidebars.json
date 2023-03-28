@@ -862,6 +862,10 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "version-23.04/administration/customize-centreon"
+        },
+        {
           "type": "category",
           "label": "Configuring the connection to Centreon",
           "items": [
