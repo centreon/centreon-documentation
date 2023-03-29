@@ -523,7 +523,7 @@ expose_php = Off
 </TabItem>
 </Tabs>
 
-6. Cacher le répertoire par défaut /icons
+6. Cachez le répertoire par défaut /icons
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
@@ -626,7 +626,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
-1. Préparer la configuration openssl :
+1. Préparez la configuration OpenSSL :
 
     En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration openssl.
 
@@ -643,7 +643,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     subjectAltName = @alt_names
     ```
 
-2. Créer une clé privée pour le serveur :
+2. Créez une clé privée pour le serveur :
 
     Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'elle puisse être utilisée par le service apache.
 
@@ -657,7 +657,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     chmod 400 centreon7.key
     ```
 
-3. Créer un fichier CSR : 
+3. Créez un fichier CSR : 
 
     Avec la clé que vous venez de créer, créez un fichier CSR (Certificate Signing Request). Remplissez les champs avec les informations propres à votre entreprise.
     Le champ **Common Name** doit être identique au hostname de votre serveur Apache (dans notre cas, **centreon7.localdomain**).
@@ -666,7 +666,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     openssl req -new -key centreon7.key -out centreon7.csr
     ```
 
-4. Créer une clé privée pour le certificat de l'autorité de certification :
+4. Créez une clé privée pour le certificat de l'autorité de certification :
 
     En premier lieu, créez une clé privée pour cette autorité. Ajoutez l'option -aes256 pour chiffrer la clé produite et y appliquer un mot de passe. Ce mot de passe sera demandé chaque fois que la clé sera utilisée.
 
@@ -674,7 +674,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     openssl genrsa -aes256 2048 > ca_demo.key
     ```
 
-5. Créer le certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
+5. Créez le certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
 
     Ensuite, créez un certificat x509 qui sera valide pendant un an.
 
@@ -686,7 +686,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
     Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat du serveur.
 
-6. Créer un certificat pour le serveur :
+6. Créez un certificat pour le serveur :
 
     Utilisez le certificat x509 pour signer votre certificat pour le serveur :
 
@@ -702,7 +702,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     less centreon7.crt
     ```
 
-7. Copier les fichiers dans la configuration Apache :
+7. Copiez les fichiers dans la configuration Apache :
 
     Copiez la clé privée du serveur et le certificat du serveur que vous avez signé.
 
@@ -782,9 +782,76 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
         </Directory>
     </VirtualHost>
     ```
-9. Copier le certificat x509 sur le navigateur client :
+9. Copiez le certificat x509 sur le navigateur client :
 
     Maintenant, récupérez le fichier du certificat x509 **ca_demo.crt** et importez-le dans le magasin de certificats de votre navigateur.
+
+10. Configuration API de Gorgone
+
+Éditez le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** en remplaçant **127.0.0.1** 
+par le FQDN de votre serveur central :
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+```
+
+Redémarrez le daemon Gorgone :
+
+```shell
+systemctl restart gorgoned
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status gorgoned
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● gorgoned.service - Centreon Gorgone
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2023-03-06 15:58:10 CET; 27min ago
+ Main PID: 1791096 (perl)
+    Tasks: 124 (limit: 23040)
+   Memory: 595.3M
+   CGroup: /system.slice/gorgoned.service
+           ├─1791096 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─1791109 gorgone-statistics
+           ├─1791112 gorgone-legacycmd
+           ├─1791117 gorgone-engine
+           ├─1791118 gorgone-audit
+           ├─1791125 gorgone-nodes
+           ├─1791138 gorgone-action
+           ├─1791151 gorgone-cron
+           ├─1791158 gorgone-dbcleaner
+           ├─1791159 gorgone-autodiscovery
+           ├─1791166 gorgone-httpserver
+           ├─1791180 gorgone-proxy
+           ├─1791181 gorgone-proxy
+           ├─1791182 gorgone-proxy
+           ├─1791189 gorgone-proxy
+           └─1791190 gorgone-proxy
+
+mars 06 15:58:10 ito-central systemd[1]: gorgoned.service: Succeeded.
+mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
+mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
+```
+
+Vous devriez voir la ligne suivante dans les logs de Gorgone **/var/log/centreon-gorgone/gorgoned.log** :
+
+```text
+2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
 
 ## URI personnalisée
 
@@ -830,7 +897,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 
 1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
-2. Installer le module nghttp2:
+2. Installez le module nghttp2:
 
 ```shell
 dnf install nghttp2
@@ -847,7 +914,7 @@ dnf install nghttp2
 ...
 ```
 
-4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
+4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -857,7 +924,7 @@ dnf install nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration:
+5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration:
 
 ```shell
 systemctl restart httpd
@@ -868,7 +935,7 @@ systemctl restart httpd
 
 1. [Configurer le https pour Centreon](#passez-le-serveur-web-en-https)
 
-2. Installer le module nghttp2:
+2. Installez le module nghttp2:
 
 ```shell
 yum install httpd24-nghttp2
@@ -885,7 +952,7 @@ yum install httpd24-nghttp2
 ...
 ```
 
-4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
+4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -895,7 +962,7 @@ yum install httpd24-nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration:
+5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration:
 
 ```shell
 systemctl restart httpd24-httpd
