@@ -160,7 +160,7 @@ Release date: `soon`
 - Fixed an export issue that prevented Remote Servers from displaying BAM reporting statistics.
 - [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
 - Fixed an issue that made BA tree not visible if dark mode was used.
-- Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
 
 ### 22.04.2
 
@@ -190,7 +190,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue that prevented MBI pages from being displayed even when module and license are installed.
+- Fixed an issue that prevented MBI pages from being displayed even when module and license were installed.
 - Fixed an issue where report could not be sent by email with Microsoft Office 365.
 
 #### Enhancements
