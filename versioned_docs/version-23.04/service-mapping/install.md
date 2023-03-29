@@ -1,6 +1,6 @@
 ---
 id: install
-title: Install Centreon BAM extension
+title: Install the Centreon BAM extension
 ---
 
 import Tabs from '@theme/Tabs';
