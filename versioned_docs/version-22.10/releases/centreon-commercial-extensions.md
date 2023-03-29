@@ -24,6 +24,7 @@ Release date: `soon`
 
 #### Bug fixes
 
+- Fixed view edition with some links having corrupted bend points.
 - Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.	
 - Fixed an issue that prevent the migration between MAP legacy and MAP.
