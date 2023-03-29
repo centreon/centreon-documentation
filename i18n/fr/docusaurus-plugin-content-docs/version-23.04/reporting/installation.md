@@ -93,6 +93,23 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 | apache (existant)    | centreonBI                 |
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+- Centreon Web 23.04
+- Vérifiez que `date.timezone` est correctement configurée dans le fichier
+  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
+  `timedatectl status`)
+- Evitez l'utilisation des variables ci-dessous dans le fichier de
+  configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
+  - wait_timeout
+  - interactive_timeout
+  
+| Utilisateur          | Groupe                     |
+|----------------------|----------------------------|
+| centreonBI (nouveau) | apache,centreon,centreonBI |
+| apache (existant)    | centreonBI                 |
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 - Centreon Web 23.04
@@ -112,28 +129,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 | apache (existant)    | centreonBI                   |
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-- Centreon Web 23.04
-- Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
-
-  `timedatectl status`)
-- Evitez l'utilisation des variables ci dessous dans le fichier de
-  configuration MariaDB `/etc/my.cnf`: Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
-  - wait_timeout
-  - interactive_timeout
-
-#### Utilisateurs et groupes
-
-| Utilisateur          | Groupe                     |
-|----------------------|----------------------------|
-| centreonBI (nouveau) | apache,centreon,centreonBI |
-| apache (existant)    | centreonBI                 |
-
-</TabItem>
 </Tabs>
-
 
 #### Description des utilisateurs, umask et répertoire personnel
 
@@ -212,7 +208,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+1. Installez le dépôt Business : vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante :
 
@@ -224,10 +220,10 @@ dnf install centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-bi-server
+dnf install centreon-bi-server
 ```
 
 </TabItem>
@@ -272,13 +268,13 @@ Par la suite, téléchargez la licence envoyée par l'équipe Centreon pour pouv
 ### Configurer l'extension
 
 Renseignez les valeurs suivantes dans les options générales de Centreon
-MBI, menu *Rapports > Monitoring Business Intelligence > Options Générales* :
+MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** :
 
 | Onglet                                                                                 | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Options de  l'ordonnanceur                                                             | Hôte de CBIS               | Adresse IP du serveur de reporting                                                   |
-| Options de l'ETL Une base de données MariaDB dédiée au reporting a été  mise en place. | Oui                        |                                                                                      |
-| Widgets de reporting*                                                                  | Reporting MariaDB database | Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting) |
+| Options de l'ETL | Une base de données MySQL dédiée au reporting a été mise en place | Oui                        |                                                                                      |
+| Widgets de reporting*                                                                  | Reporting MySQL database | Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting) |
 
 \* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
 
@@ -393,9 +389,35 @@ processus d'installation :
 
 #### Procédure
 
-1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+1. Pour commencer l'installation du serveur de reporting, installez le dépôt Business. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-2. Puis lancez la commande suivante:
+2. Installez le dépôt MariaDB :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+</Tabs>
+
+3. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -485,6 +507,93 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Activer les dépôts codeready-builder :
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+Puis lancer l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Activer les dépôts codeready-builder :
+
+```shell
+dnf config-manager --set-enabled ol9_codeready_builder
+```
+
+Puis lancer l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Alma 9" label="Alma 9">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Exécutez la commande suivante :
+
+```shell
+dnf config-manager --set-enabled 'crb' 
+```
+
+Puis lancer l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 Installez les paquets prérequis :
@@ -516,44 +625,6 @@ apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Prérequis de la version Java
-
-> Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
-  
-- Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-
-  ```shell
-  java -version
-  ```
-
-- Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-
-- Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-
-  ```shell
-  sudo update-alternatives --config java
-  ```
-
-Vous pouvez maintenant procéder à l'installation :
-
-```shell
-yum install https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-```shell
-yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, importez la clé du dépôt :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
-
-</TabItem>
 </Tabs>
 
 Activez le service **cbis** :
@@ -573,7 +644,44 @@ systemctl start gorgoned && systemctl enable gorgoned
 #### Optimisations MariaDB
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 /  RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
+optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
+le service MariaDB :
+
+```shell
+systemctl restart mariadb
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
+option dans `/etc/my.cnf` NE fonctionnera PAS.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
+*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
+nouveau MariaDB:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
+fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
