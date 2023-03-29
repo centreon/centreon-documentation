@@ -40,13 +40,13 @@ dnf update centreon-bam-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update centreon-bam-server
+dnf update centreon-bam-server
 ```
 
-</TabItem>
+</TabItem>>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
