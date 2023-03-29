@@ -154,7 +154,6 @@ Release date: `soon`
 #### Bug fixes
 
 - Fixed an issue that prevented Business Activities top counter from loading.
-- Fixed an issue that cause the BA top counter to not load properly.
 - [BAM] Fixed an issue in the BA monitoring redirection.
 - Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
@@ -192,7 +191,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue that prevented MBI pages from being displayed even when module and license are installed.
+- Fixed an issue that prevented MBI pages from being displayed even when module and license were installed.
 - Fixed an issue where report could not be sent by email with Microsoft Office 365.
 
 #### Enhancements
