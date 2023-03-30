@@ -666,10 +666,10 @@ systemctl start httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl start httpd24-httpd
+systemctl start httpd
 ```
 
 </TabItem>
