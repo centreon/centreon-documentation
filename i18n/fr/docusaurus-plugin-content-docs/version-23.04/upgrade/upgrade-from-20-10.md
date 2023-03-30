@@ -25,6 +25,8 @@ Vous ne pouvez pas simplement monter de version depuis une version antérieure �
 
 ## Prérequis
 
+> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+
 ### Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance

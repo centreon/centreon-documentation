@@ -25,6 +25,8 @@ servers:
 
 ## Upgrade the Centreon Central server
 
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+
 ### Update the Centreon repository
 
 Run the following commands:

@@ -11,6 +11,8 @@ Ces paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 et sur De
 
 > Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
+> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+
 ## Prérequis
 
 Après avoir installé votre serveur, mettez à jour votre système d'exploitation à l'aide de la commande suivante :

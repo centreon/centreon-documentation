@@ -26,6 +26,8 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 
 ## Prerequisites
 
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+
 ### Perform a backup
 
 Be sure that you have fully backed up your environment for the following

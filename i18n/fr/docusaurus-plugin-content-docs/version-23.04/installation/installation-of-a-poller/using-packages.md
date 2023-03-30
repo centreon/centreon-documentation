@@ -12,6 +12,8 @@ Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 ou D
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
+> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+
 ## Prérequis
 
 Après avoir installé votre serveur, réalisez la mise à jour de votre système

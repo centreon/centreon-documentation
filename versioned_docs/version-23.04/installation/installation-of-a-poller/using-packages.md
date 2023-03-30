@@ -12,6 +12,8 @@ These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 
 
 You must run the installation procedure as a privileged user.
 
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+
 ## Prerequisites
 
 After installing your server, update your operating system using the following
