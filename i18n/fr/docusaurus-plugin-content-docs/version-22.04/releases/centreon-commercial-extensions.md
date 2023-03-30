@@ -21,6 +21,7 @@ Release date: `soon`
 
 #### Bug fixes
 
+- Fixed an issue that caused server to crash on corrupted metrics.
 - Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - Fixed an issue that prevented the migration between MAP Legacy and MAP.
 - Fixed an issue that prevented the tooltip for the "old perfdata" plugin from being displayed in the graph.
