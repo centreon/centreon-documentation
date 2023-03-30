@@ -279,7 +279,11 @@
             {
               "type": "doc",
               "id": "version-23.04/monitoring/basic-objects/hosts-templates"
-            }
+            },
+	    {
+	      "type": "doc",
+	      "id": "version-23.04/monitoring/basic-objects/hosts-switch-poller"
+	    }
           ]
         },
         {
