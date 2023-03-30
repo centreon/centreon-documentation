@@ -24,9 +24,7 @@ for Azure to set templates and proper monitoring indicators for each type of res
 
 The Centreon Plugin Pack *Azure Discover* includes a Host Discovery *provider* to automatically discover all of the Azure resources
 of a given subscription and add them to the Centreon configuration using the dedicated Host Templates.
-This provider is named **Microsoft Azure Management Discover**:
-
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-provider.png)
+This provider is named **Microsoft Azure Management Discover**.
 
 > This discovery feature is only compatible with the 'api' custom mode.
 
