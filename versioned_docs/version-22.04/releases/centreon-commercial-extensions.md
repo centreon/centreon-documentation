@@ -193,7 +193,6 @@ Release date: `soon`
 #### Bug fixes
 
 - Fixed an issue that prevented MBI pages from being displayed even when module and license were installed.
-- Fixed an issue where report could not be sent by email with Microsoft Office 365.
 
 #### Enhancements
 
