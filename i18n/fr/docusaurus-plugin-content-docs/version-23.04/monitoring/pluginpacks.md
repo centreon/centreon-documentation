@@ -40,7 +40,7 @@ dnf update centreon-pp-manager
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update centreon-pp-manager
