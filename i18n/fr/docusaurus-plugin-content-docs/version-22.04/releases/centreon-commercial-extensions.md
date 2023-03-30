@@ -21,45 +21,44 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue that caused server to crash on corrupted metrics.
-- Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
-- Fixed an issue that prevented the migration between MAP Legacy and MAP.
-- Fixed an issue that prevented the tooltip for the "old perfdata" plugin from being displayed in the graph.
-- Fixed the **diagnostic.sh** script to include storage event from Broker output.
-- Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
-- Fixed view edition with some links having corrupted bend points.
+- [Server] Fixed an issue that caused server to crash on corrupted metrics.
+- [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
+- [Server] Fixed an issue that prevented the migration between MAP Legacy and MAP.
+- [Viewer] Fixed an issue that prevented the tooltip for the "old perfdata" plugin from being displayed in the graph.
+- [Install] Fixed the **diagnostic.sh** script to include storage event from Broker output.
+- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Viewer] Fixed view edition with some links having corrupted bend points.
 - [CEIP] Added more details for MAP engine telemetry.
-- Fixed an issue where users could not edit pie chart properties.
-- Fixed an issue that prevented users from drawing rectangles and ellipses.
-- Fixed an issue with links in the editor that prevented the user from saving a view.
-- Fixed an issue with link properties that prevented the link from being visible in the editor.
-- Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
-- Fixed an issue with the server startup error caused by platform without virtual hosts.
+- [Editor] Fixed an issue where users could not edit pie chart properties.
+- [Editor] Fixed an issue that prevented users from drawing rectangles and ellipses.
+- [Editor] Fixed an issue with links in the editor that prevented the user from saving a view.
+- [Editor] Fixed an issue with link properties that prevented the link from being visible in the editor.
+- [Viewer] Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
+- [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [API] Fixed an issue with create element in view that could break default icon.
-- Fixed an issue with authentication when several sessions are active.
-- Fixed an issue with insert an object in a link prevented the map from being saved.
-- Fixed an issue with map sharing.
-- Fixed an issue with Host and Service icons configuration that were not handled properly.
-- Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
-- Fixed an issue when dark theme is not applied on tooltips in Geo views or Standard views.
-- Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
-- Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
-- Fixed an issue with migration and images that could cause migration process to stop.
-- Fixed the background layout not fitting large map.
-- Fixed an issue that made new hosts and services unavailable until restart.
+- [Authentication] Fixed an issue with authentication when several sessions are active.
+- [Editor] Fixed an issue with insert an object in a link prevented the map from being saved.
+- [Editor] Fixed an issue with map sharing.
+- [Editor] Fixed an issue with Host and Service icons configuration that were not handled properly.
+- [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
+- [Viewer] Fixed an issue when dark theme is not applied on tooltips in Geo views or Standard views.
+- [Viewer] Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
+- [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
+- [Server] Fixed an issue with migration and images that could cause migration process to stop.
+- [Viewer] Fixed the background layout not fitting large map.
+- [Server] Fixed an issue that made new hosts and services unavailable until restart.
 
 #### Enhancements
 
-- Added the display of supported shapes only at the double-click on the editor.
-- Added documentation and sanitization of the API.
-- Aligned "Submit button" inside the MAP configuration modal.
-- Added spacing to the title inside the MAP configuration modal.
-- Removed deprecated REST endpoints.
-- Made viewer and editor rendering more consistent.
-- Managed view background color.
-- Added resource parent name in graph.
-- Improved API response when server is starting up.
-
+- [Editor] Added the display of supported shapes only at the double-click on the editor.
+- [API] Added documentation and sanitization of the API.
+- [Editor] Aligned "Submit button" inside the MAP configuration modal.
+- [Editor] Added spacing to the title inside the MAP configuration modal.
+- [API] Removed deprecated REST endpoints.
+- [Viewer] Made viewer and editor rendering more consistent.
+- [Editor] Managed view background color.
+- [Editor] Added resource parent name in graph.
+- [API] Improved API response when server is starting up.
 
 ### 22.04.4
 
