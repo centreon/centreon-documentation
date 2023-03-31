@@ -12,7 +12,7 @@ IBM develops, manufactures and sells hardware, middleware, software and other
 services and products. Created in 2002, IBM BladeCenter was IBM's blade server
 architecture. 
 
-## Plugin-Pack assests
+## Plugin-Pack assets
 
 ### Monitored objects
 
