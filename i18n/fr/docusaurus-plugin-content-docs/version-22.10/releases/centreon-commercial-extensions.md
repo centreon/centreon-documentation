@@ -22,7 +22,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 Release date: `soon`
 
 #### Bug fixes
-
+- Fixed an issue that prevented access to MAP in HTTPS.
 - Fixed an issue that caused server to crash on corrupted metrics.
 - Fixed view edition with some links having corrupted bend points.
 - Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
