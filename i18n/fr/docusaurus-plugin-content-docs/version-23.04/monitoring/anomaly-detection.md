@@ -52,28 +52,30 @@ Pour utiliser **Anomaly Detection**, vous aurez besoin des éléments suivants :
 
 ### Étape 1 : Installation des paquets
 
-1. Ajoutez un dépôt supplémentaire:
+Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Rien à faire.
+```shell
+dnf install centreon-anomaly-detection
+```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y epel-release
+dnf install centreon-anomaly-detection
+```
+
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt install centreon-anomaly-detection
 ```
 
 </TabItem>
 </Tabs>
-
-2. Exécutez la commande suivante :
-
-  ```shell
-  yum install centreon-anomaly-detection
-  ```
 
 ### Étape 2 : Installation via l'interface
 
