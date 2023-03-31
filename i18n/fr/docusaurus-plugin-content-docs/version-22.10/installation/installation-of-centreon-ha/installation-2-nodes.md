@@ -1353,16 +1353,16 @@ Pour indiquer au cluster que les ressources Centreon doivent être démarrées s
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
 
 ```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
 <TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
@@ -1535,8 +1535,8 @@ En temps normal, seules les contraintes de colocation doivent être actives sur 
 ```bash
 Location Constraints:
 Ordering Constraints:
-  pcs constraint order stop centreon then demote ms_mysql-clone
 Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1547,8 +1547,8 @@ Ticket Constraints:
 ```bash
 Location Constraints:
 Ordering Constraints:
-  pcs constraint order stop centreon then demote ms_mysql-master
 Colocation Constraints:
+  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
