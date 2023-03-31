@@ -20,6 +20,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `March 31, 2023`
 
+> You need to execute the configure.sh script in order to apply some fixes provided by this release.
+
 #### Bug fixes
 
 - [API] Fixed an issue with create element in view that could break default icon.
