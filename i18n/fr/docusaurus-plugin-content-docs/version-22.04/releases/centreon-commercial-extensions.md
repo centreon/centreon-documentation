@@ -24,6 +24,7 @@ Release date: `March 31, 2023`
 - [API] Fixed an issue with create element in view that could break default icon.
 - [Authentication] Fixed an issue with authentication when several sessions are active.
 - [CEIP] Added more details for MAP engine telemetry.
+- [Editor] Fixed edition of specific views after migration	
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed an issue that prevented users from drawing rectangles and ellipses.
 - [Editor] Fixed an issue where users could not edit pie chart properties.
