@@ -279,7 +279,7 @@ Release date: `March 31, 2023`
 
 #### Enhancement
 
-- Downtimes are now also sent to Centreon SaaS platform for Anomaly Detection services.
+- [Monitoring] Downtimes are now also sent to Centreon SaaS platform for Anomaly Detection services.
 
 ### 22.04.0
 
