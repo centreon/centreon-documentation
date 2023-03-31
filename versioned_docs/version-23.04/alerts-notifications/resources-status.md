@@ -36,13 +36,13 @@ your team that the problem is handled. You can do that in two ways:
 
 When a resource is acknowledged:
 
-- The alert is not visible anymore in the **Unhandled problems** filter
+- The alert is not visible anymore in the **Unhandled alerts** filter
 - [Notifications](notif-configuration.md) for this resource are stopped
 - The color of the line for acknowledged resources is changed
 to yellow.
 
 The acknowledgement can also be cancelled, in which case the event will be included again in the list 
-of **Unhandled Problems** and its notifications will resume: in the **More actions** menu, select **Disacknowledge**.
+of **Unhandled alerts** and its notifications will resume: in the **More actions** menu, select **Disacknowledge**.
 
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
@@ -57,7 +57,7 @@ When a maintenance is planned on one or multiple resources, you can set a
     above the table.
 
 When a resource is in planned downtime, the alert is not visible anymore in the
-**Unhandled problems** filter and notifications for this resource are stopped. The
+**Unhandled alerts** filter and notifications for this resource are stopped. The
 color of lines for resources with a planned downtime is changed to light purple.
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
@@ -89,18 +89,17 @@ The various filters are added using an AND criterion: results will match all cri
 
 ### Pre-defined filters
 
-When you open the **Resource status** page, the default filter is **Unhandled
-problems**. This filter quickly shows all problems/alerts that are not yet
-handled so you can focus on choosing the most relevant alerts to take
-care of. You can choose two other filters that are **Resources problems**
+When you open the **Resource status** page, the default filter is **Unhandled alerts**. This filter quickly shows all alerts that are not 
+yet handled so you can focus on choosing the most relevant ones to take
+care of. You can choose two other filters that are **All alerts**
 and **All**.
 
 The following rules apply:
 
-- **Unhandled problems**: resource status is **Warning** or **Critical** or
+- **Unhandled alerts**: resource status is **Warning** or **Critical** or
     **Unknown** or **Down** AND the resource is not acknowledged nor in planned
     downtime
-- **Resource problems**: resource status is **Warning** or **Critical** or **Unknown**
+- **All alerts**: resource status is **Warning** or **Critical** or **Unknown**
     or **Down** (whether or not the resource has been acknowleged/a downtime has been set)
 - **All**: All resources.
 
