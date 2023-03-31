@@ -2,26 +2,36 @@
 id: administration
 title: Administration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Update
 
-> When upgrading from an earlier version than version 20.04, all data of the
-> **Host Discovery** feature will be lost:
->
-> - Discovery tasks,
-> - Saved parameters/credentials.
->
-> This is due to the new hardened way credentials are stored in this version.
->
-> Discovered hosts through those tasks will remain.
->
-> Upgrading to 22.10 will keep all data stored since 20.04.
-
 1. To update the module, run the following command:
 
-    ``` shell
-    yum update -y centreon-auto-discovery-server
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf update -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf update -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt update centreon-auto-discovery-server
+```
+
+</TabItem>
+</Tabs>
 
 2. Connect to the Centreon web interface using an account allowed to install
 products and go to the **Administration > Extensions > Manager** page.
