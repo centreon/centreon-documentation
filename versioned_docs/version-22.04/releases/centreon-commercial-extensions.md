@@ -160,14 +160,14 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue that prevented Business Activities top counter from loading.
-- [BAM] Fixed an issue in the BA monitoring redirection.
-- Fixed an error message in boolean rules when a host name was longer than 15 characters.
-- Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
-- Fixed an export issue that prevented Remote Servers from displaying BAM reporting statistics.
+- [Configuration] Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- [Server] Fixed an export issue that prevented Remote Servers from displaying BAM reporting statistics.
+- [Server] Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
+- [UI] Fixed an issue in the BA monitoring redirection.
+- [UI] Fixed an issue that made BA tree not visible if dark mode was used.
+- [UI] Fixed an issue that prevented Business Activities top counter from loading.
 - [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
-- Fixed an issue that made BA tree not visible if dark mode was used.
-- Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
 
 ### 22.04.2
 
@@ -198,11 +198,11 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an issue that prevented MBI pages from being displayed even when module and license were installed.
+- [Server] Fixed an issue that prevented MBI pages from being displayed even when module and license were installed.
 
 #### Enhancements
 
-- Improved time for daily ETL calculation.
+- [ETL] Improved time for daily ETL calculation.
 
 ### 22.04.3
 
