@@ -70,6 +70,7 @@ dnf install centreon-anomaly-detection
 dnf install centreon-anomaly-detection
 ```
 
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ``` shell
