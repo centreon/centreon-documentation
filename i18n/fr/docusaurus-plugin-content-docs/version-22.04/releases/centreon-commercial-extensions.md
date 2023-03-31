@@ -43,7 +43,7 @@ Release date: `soon`
 - [Viewer] Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
 - [Viewer] Fixed an issue that prevented the tooltip for the "old perfdata" plugin from being displayed in the graph.
 - [Viewer] Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
-- [Viewer] Fixed an issue when dark theme is not applied on tooltips in Geo views or Standard views.
+- [Viewer] Fixed an issue when dark theme was not applied on tooltips in Geo views or Standard views.
 - [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
 - [Viewer] Fixed the background layout not fitting large map.
 - [Viewer] Fixed view edition with some links having corrupted bend points.
