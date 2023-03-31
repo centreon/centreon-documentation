@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.5 ###
 
-Release date: `soon`
+Release date: `March 31, 2023`
 
 #### Bug fixes
 
@@ -96,7 +96,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.5
 
-Release date : `soon`
+Release date: `March 31, 2023`
 
 - No change.
 
@@ -155,7 +155,7 @@ Release date: `July 13, 2022`
 
 ### 22.04.3
 
-Release date: `soon`
+Release date: `March 31, 2023`
 
 #### Bug fixes
 
@@ -192,7 +192,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.4
 
-Release date: `soon`
+Release date: `March 31, 2023`
 
 #### Bug fixes
 
@@ -271,7 +271,7 @@ Release date: `August 10, 2022`
 
 ### 22.04.1
 
-Release date: `soon`
+Release date: `March 31, 2023`
 
 #### Bug fix
 
