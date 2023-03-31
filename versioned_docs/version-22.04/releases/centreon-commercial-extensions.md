@@ -95,6 +95,12 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.5
+
+Release date : `soon`
+
+- No change.
+
 ### 22.04.4
 
 Release date : `January 20, 2023`
