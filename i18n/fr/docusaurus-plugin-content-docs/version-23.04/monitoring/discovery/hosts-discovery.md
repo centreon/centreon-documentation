@@ -18,6 +18,8 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
 3. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**. 
 Un assistant s'ouvre.
 
+Vous pouvez dupliquer des tâches de découverte : survolez la tâche désirée puis cliquez sur **Dupliquer**.
+
 ## Assistant de création de tâche de découverte
 
 ### Étape 1 : Choisir un fournisseur

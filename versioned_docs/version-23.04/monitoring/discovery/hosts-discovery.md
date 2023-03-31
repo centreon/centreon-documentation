@@ -17,6 +17,8 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
 
+You can duplicate discovery jobs: hover over the job and then click **Duplicate**.
+
 ## Job discovery wizard
 
 ### Step 1: Choose a provider
