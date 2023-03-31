@@ -25,7 +25,7 @@ Release date: `March 31, 2023`
 - [Authentication] Fixed an issue with authentication when several sessions are active.
 - [CEIP] Added more details for MAP engine telemetry.
 - [Editor] Fixed edition of specific views after migration.
-- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed an issue in map creation and shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed an issue that prevented users from drawing rectangles and ellipses.
 - [Editor] Fixed an issue where users could not edit pie chart properties.
 - [Editor] Fixed an issue with Host and Service icons configuration that were not handled properly.
@@ -33,6 +33,7 @@ Release date: `March 31, 2023`
 - [Editor] Fixed an issue with link properties that prevented the link from being visible in the editor.
 - [Editor] Fixed an issue with links in the editor that prevented the user from saving a view.
 - [Editor] Fixed an issue with map sharing.
+- [Editor] Fixed multiple errors in icons and images management.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - [Install] Fixed the **configure.sh** script to include storage event from Broker output.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
@@ -41,6 +42,7 @@ Release date: `March 31, 2023`
 - [Server] Fixed an issue that prevented the migration between MAP Legacy and MAP.
 - [Server] Fixed an issue with migration and images that could cause migration process to stop.
 - [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
+- [Viewer] Fixed an issue that caused the unit not matching the axis on graph widget.
 - [Viewer] Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
 - [Viewer] Fixed an issue that prevented to display all metrics in tooltips grpahs.
 - [Viewer] Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
@@ -59,6 +61,7 @@ Release date: `March 31, 2023`
 - [Editor] Added the display of supported shapes only at the double-click on the editor.
 - [Editor] Aligned "Submit button" inside the MAP configuration modal.
 - [Editor] Managed view background color.
+- [UI] Update draw.io library.
 - [Viewer] Made viewer and editor rendering more consistent.
 
 ### 22.04.4
