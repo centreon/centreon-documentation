@@ -115,9 +115,9 @@ La commande devrait renvoyer ceci :
 ```text
 Location Constraints:
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -127,9 +127,9 @@ Ticket Constraints:
 ```text
 Location Constraints:
 Ordering Constraints:
-  stop centreon then demote ms_mysql-master (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -979,9 +979,9 @@ La commande doit retourner un résultat similaire à ceci :
 ```text
 Location Constraints:
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -991,9 +991,9 @@ Ticket Constraints:
 ```text
 Location Constraints:
 Ordering Constraints:
-  stop centreon then demote ms_mysql-master (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -1257,8 +1257,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1281,8 +1281,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-master (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
