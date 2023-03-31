@@ -34,7 +34,7 @@ Release date: `March 31, 2023`
 - [Editor] Fixed an issue with links in the editor that prevented the user from saving a view.
 - [Editor] Fixed an issue with map sharing.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
-- [Install] Fixed the **diagnostic.sh** script to include storage event from Broker output.
+- [Install] Fixed the **configure.sh** script to include storage event from Broker output.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
 - [Server] Fixed an issue that caused server to crash on corrupted metrics.
 - [Server] Fixed an issue that made new hosts and services unavailable until restart.
