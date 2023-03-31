@@ -1483,16 +1483,16 @@ Exécuter les commandes suivantes pour indiquer au Cluster que les ressources vi
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
 
 ```bash
+pcs constraint colocation add master "vip_mysql" with "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
-pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
+pcs constraint colocation add master "vip_mysql" with "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
-pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
@@ -1708,8 +1708,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -1732,8 +1732,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-master (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
