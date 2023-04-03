@@ -100,7 +100,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.5
 
-Release date: `March 31, 2023`
+Release date: `April 3, 2023`
 
 - No change.
 
