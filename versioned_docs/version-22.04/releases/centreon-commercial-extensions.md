@@ -276,7 +276,7 @@ Release date: `August 10, 2022`
 
 ### 22.04.1
 
-Release date: `March 31, 2023`
+Release date: `April 3, 2023`
 
 #### Bug fix
 
