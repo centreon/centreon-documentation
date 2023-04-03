@@ -234,8 +234,6 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Install Centreon MBI extension :
-
 ```shell
 apt update && apt install centreon-bi-server
 ```

@@ -233,28 +233,6 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Installez **gpg**:
-
-```shell
-apt install gpg
-```
-
-Importez la clé du dépôt :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Ajoutez le dépôt externe suivant (pour Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Puis installez Centreon MBI:
-
 ```shell
 apt update && apt install centreon-bi-server
 ```
@@ -266,6 +244,8 @@ apt update && apt install centreon-bi-server
 
 Le menu **Administration > Extension > Gestionnaire** vous permet
 d'installer les différentes extensions détectées par Centreon. Cliquez sur la tuile  **Centreon MBI** pour l'installer.
+
+![image](../assets/reporting/installation/install_MBI_extension_FR.png)
 
 Par la suite, téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
