@@ -433,12 +433,14 @@ Release date: `April 3, 2023`
 
 ##### Bug fixes
 
-- Fixed an issue with configuration objects for tags and severities. 
+- [Configuration] Fixed an issue with configuration objects for tags and severities. 
 
 #### Centreon Broker
 
-- Fixed a stability issue related to metric cache.
-- Fixed memory allocation issues.
+##### Bug fixes
+
+- [Performance] Fixed a stability issue related to metric cache.
+- [Performance] Fixed memory allocation issues.
 
 ### 22.04.2
 
