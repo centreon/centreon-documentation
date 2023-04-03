@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-names-and-IP-addresses-of-servers)
+> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-hosts-names-and-addresses)
 
 ## Requirements of the tests
 
@@ -1116,7 +1116,7 @@ Migration Summary:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-4-nodes.md#defining-names-and-IP-addresses-of-servers)
+> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-4-nodes.md#defining-hosts-names-and-addresses)
 
 ## Requirements of the tests
 
