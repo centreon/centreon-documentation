@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [les macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Définition-des-noms-et-adresses-IP-des-serveurs)
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [les macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ### Conditions requises pour les tests
 
@@ -1118,7 +1118,7 @@ Migration Summary:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Définition-des-noms-et-adresses-IP-des-serveurs)
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [les macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ### Conditions requises pour les tests
 
