@@ -102,7 +102,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 Release date: `April 3, 2023`
 
-- No change.
+- [Server] Fixed spring persistence issue on sign in.
 
 ### 22.04.4
 
