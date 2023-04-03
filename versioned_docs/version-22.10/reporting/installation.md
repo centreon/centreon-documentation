@@ -234,27 +234,7 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Install **gpg**:
-
-```shell
-apt install gpg
-```
-
-Import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Then install Centreon MBI:
+Install Centreon MBI extension :
 
 ```shell
 apt update && apt install centreon-bi-server
@@ -266,6 +246,8 @@ apt update && apt install centreon-bi-server
 ### Enable the extension
 
 The menu **Administration > Extension > Manager** allows you to install the different extensions detected by Centreon. Click on the **Centreon MBI** tile to install it.
+
+![image](../assets/reporting/installation/install_MBI_extension_EN.png)
 
 Then, download the license sent by the Centreon team to start configuring the general options.
 
