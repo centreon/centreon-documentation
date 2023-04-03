@@ -46,7 +46,7 @@ Release date: `March 31, 2023`
 - [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
 - [Viewer] Fixed an issue that caused the unit not matching the axis on graph widget.
 - [Viewer] Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
-- [Viewer] Fixed an issue that prevented to display all metrics in tooltips grpahs.
+- [Viewer] Fixed an issue that prevented to display all metrics in tooltips graphs.
 - [Viewer] Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
 - [Viewer] Fixed an issue when dark theme was not applied on tooltips in Geo views or Standard views.
 - [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
