@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.5 ###
 
-Release date: `March 31, 2023`
+Release date: `April 3, 2023`
 
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#step-6--execute-the-configuresh-script) in order to apply some fixes provided by this release.
 
