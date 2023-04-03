@@ -1,11 +1,11 @@
 ---
-id: upgrade-centreon-ha-from-21-10
-title: Upgrade Centreon HA from Centreon 21.10
+id: upgrade-centreon-ha-from-22-04
+title: Upgrade Centreon HA from Centreon 22.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 21.10 to version 22.10.
+This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 22.10.
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 To perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
@@ -183,74 +183,6 @@ pcs resource delete centreon --force
 
 </TabItem>
 </Tabs>
-
-### Reconfigure MariaDB
-
-It's necessary to modify the mysql configuration by editing the file `/etc/my.cnf.d/server.cnf`:
-
-> On the 2 Central servers in HA 2 nodes
-> On the 2 Database servers in HA 4 nodes.
-
-```shell
-[server]
-...
-skip-slave-start
-log-slave-updates
-gtid_strict_mode=ON
-expire_logs_days=7
-ignore-db-dir=lost+found
-...
-```
-
-### Launch GTID replication
-
-Run this command **on the secondary database node**:
-
-```bash
-mysqladmin -p shutdown
-```
-
-It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
-
-```bash
-ps -ef | grep mariadb[d]
-```
-
-Once the service is stopped **on the secondary database node**, you will run the synchronization script **from the primary database node**:
-
-```bash
-mysqladmin -p shutdown
-systemctl restart mariadb
-/usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
-```
-
-This script's output is very verbose: to make sure it went well, focus on the last lines of its output, checking that it looks like:
-
-```text
-Umount and Delete LVM snapshot
-  Logical volume "dbbackupdatadir" successfully removed
-Start MySQL Slave
-Start Replication
-Id	User	Host	db	Command	Time	State	Info	Progress
-[variable number of lines]
-```
-
-The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and that no errors follow it.
-
-In addition, the output of this command must display only `OK` results:
-
-```bash
-/usr/share/centreon-ha/bin/mysql-check-status.sh
-```
-
-The expected output is:
-
-```text
-Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
-Slave Thread Status [OK]
-Position Status [OK]
-```
 
 ### Restart Centreon process
 
