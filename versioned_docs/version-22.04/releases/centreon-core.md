@@ -428,7 +428,7 @@ By:
 
 ### 22.04.3
 
-Release date: `March 31, 2023`
+Release date: `April 3, 2023`
 
 #### Centreon Engine
 
