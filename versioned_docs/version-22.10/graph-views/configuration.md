@@ -1,24 +1,24 @@
 ---
 id: configuration
-title: Configure
+title: Configuring rights
 ---
 
 ## Administrate users rights
 
-There is two kinds of administrators, Centreon admins and Map admins.
+There is two kinds of administrators, Centreon admins and Map (Legacy) admins.
 
 On fresh install, only Centreon admins exist.
 
-Centreon admins may grant Map admins privileges through ACL groups defined in
+Centreon admins may grant Map (Legacy) admins privileges through ACL groups defined in
 Centreon.
 
-Any user contained in that group then become a Map administrator.
+Any user contained in that group then become a Map (Legacy) administrator.
 
-### Manage Map administrators
+### Manage Map (Legacy) administrators
 
-To grant Map administrator privileges on an ACL group:
+To grant Map (Legacy) administrator privileges on an ACL group:
 
-Go to **Preferences > Preferences** then select *Admin* tab.
+Go to **Preferences > Preferences** then select **Admin** tab.
 
 ![image](../assets/graph-views/admin_preference_page.png)
 
@@ -33,7 +33,7 @@ of users through ACL groups.
 ACL groups may be allowed to visualize, create, modify and delete one or
 more views independently.
 
-Go into **Preferences > Preferences** and then select *Views > ACLs* tab.
+Go into **Preferences > Preferences** and then select **Views > ACLs** tab.
 
 ![image](../assets/graph-views/acl_views_preference_page.png)
 
@@ -45,13 +45,15 @@ each view, define the specific rights to attribute.
 Two simple rules apply on this kind of view:
 
 - Any user accessing the **Monitoring > Map** page will be able to see all the
-  created geographic views
-- Users that have "Creation" privilege (through ACL group on Centreon Map
-  desktop client) have all privileges on geographic views
+  created geographic views.
+- Users that have "Creation" privilege (through ACL group on Centreon Map (Legacy)
+  desktop client) have all privileges on geographic views.
 
 ## Load disabled resources (or not)
 
-You can decide whether to load disabled resources into Centreon Map
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
+You can decide whether to load disabled resources into Centreon Map (Legacy)
 desktop client. If you do (which is the default configuration), all
 disabled resources will appear in the resource list. You will also be
 able to use them into your views.
@@ -61,14 +63,14 @@ They will have no status and appear as shown in the following screenshot:
 ![image](../assets/graph-views/disabled-resources.png)
 
 You may change this configuration by opening the file
-`/etc/centreon-studio/studio-config.properties` and adding the following
+**/etc/centreon-studio/studio-config.properties** and adding the following
 line:
 
 ```text
 resource.load.enabled.only=true
 ```
 
-Then restart the Centreon MAP server:
+Then restart the Centreon MAP (Legacy) server:
 
 ```shell
 systemctl restart centreon-map
@@ -76,7 +78,7 @@ systemctl restart centreon-map
 
 ## Define views & status computation parameters
 
-Centreon Map server gives you the possibility to customize how this
+Centreon Map (Legacy) server gives you the possibility to customize how this
 inherited status is computed & rendered in views. You may use the
 following parameters to adapt the behavior of inherited status
 computation to your use case.
@@ -89,10 +91,9 @@ computation to your use case.
 | drilldown.ignoreSeveritySuperior    | integer        | 0             | Do not propagate status for resources having severity superior to this value                 |
 | gate.useResourcesAccess             | true or false  | true          | Should Centreon Map consider resources ACL when calculating inherited status of view content |
 
-The following parameters can be configured in
-`/etc/centreon-studio/studio-config.properties`.
+The following parameters can be configured in **/etc/centreon-studio/studio-config.properties**.
 
-If you add, remove or update a parameter, make sure to restart centreon-map.
+If you add, remove or update a parameter, make sure to restart **centreon-map**.
 
 **What's an inherited status ?**
 
@@ -111,7 +112,7 @@ rules:
 
 **Inherited status customization**
 
-Centreon Map server gives you the possibility to customize how this
+Centreon Map (Legacy) server gives you the possibility to customize how this
 inherited status is computed & rendered in views. You may use the
 following parameters to adapt the behavior of inherited status
 computation to your use case:
@@ -121,14 +122,14 @@ Specificity of **gate.useResourcesAccess**: Settings this parameter to
 
 - gate.useResourcesAccess = false: all users see the same status & same
   resources in views, no matter the ACL ressources they have, they're ignored.
-  In that case, be careful who you're giving access to views
+  In that case, be careful who you're giving access to views.
 - gate.useResourcesAccess = true: users see different status & views regarding
   resources ACLs (decrease performance because you need to have one instance
-  of each view for each users)
+  of each view for each users).
 
 To configure these parameters you need to edit the following Centreon
-MAP server configuration file (modify or add missing parameters), then
-restart centreon-map:
+MAP (Legacy) server configuration file (modify or add missing parameters), then
+restart **centreon-map**:
 
 ```shell
 vim /etc/centreon-studio/studio-config.properties
@@ -150,7 +151,7 @@ associated with the link.
 
 Each time you make changes to Centreon's configuration and push the
 configuration to any poller, the configuration is scanned and updated on
-Centreon MAP.
+Centreon MAP (Legacy).
 
 However, if you make any changes (add/delete/update) to Centreon's
 resources and want these changes to be immediately synchronized on your
@@ -170,13 +171,12 @@ synchronization is complete.
 
 You can change the size of elements according to their status as a way
 of highlighting a problem. This only works when elements are expressed
-in the *geometric style*.
+in the "geometric style".
 
 ![image](../assets/graph-views/guide_object_ratio_example.png)
 
-To use this feature, edit the Status size properties in the desktop
-Preferences. Go to **Status > Status size** to configure it globally or to
-`Views > Status > Status size` to configure it at the view level.
+To use this feature, edit the **Status size properties** in the desktop
+**Preferences**. Go to **Status > Status size** to configure it globally.
 
 ![image](../assets/graph-views/guide_ratio_preferences.png)
 
@@ -185,8 +185,8 @@ Preferences. Go to **Status > Status size** to configure it globally or to
 ### Configure tiles provider
 
 You can choose the tile service provider or even add your own provider
-in **Administration > Extension > Map | Options**. By default, Centreon Map
-geoviews comes Open Street Map & Mapbox.
+in **Administration > Extension > Map | Options**. By default, Centreon Map (Legacy)
+geoviews comes Open Street Map and Mapbox.
 
 Please refer to [this
 link](https://operations.osmfoundation.org/policies/tiles/) to understand Open
@@ -198,7 +198,7 @@ To change the tile provider, select one in the list and click save.
 
 If you want to use your own Tile service provider, if for example you
 have an internal Open Street Map server, go to the
-`Administration > Extension > Map | Options` and choose the "Custom" style.
+**Administration > Extension > Map | Options** and choose the **Custom** style.
 
 Define the parameters needed and then save.
 
@@ -207,49 +207,51 @@ Define the parameters needed and then save.
 ### Configure data layers
 
 You can add any external data layer to Centreon GeoView by going to
-`Administration > Extension > Map`. The layer mechanism is the same that the
-tiles provider: we're compatible with tiles map (TMS).
+**Administration > Extension > Map**. The layer mechanism is the same that the
+tiles provider: it is compatible with tiles map (TMS).
 
 Most of the time, the data layer configuration will consist in:
 
-- Defining the URL,
-- Setting your token,
+- Defining the URL.
+- Setting your token.
 - Adding any extra parameters in a JSON format.
 
 ![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
 ## Create and link a Mapbox account
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 If you want to be able to have a geographic background on standard views
 and/or use it as a tile service provider in GeoView, you need to have a
-Mapbox account & link it to your Centreon Map.
+Mapbox account & link it to your Centreon Map (Legacy).
 
 **Create an account**
 
 Mapbox is a service that generates attractive and customizable maps. You
-can use Mapbox with Centreon MAP for free by:
+can use Mapbox with Centreon MAP (Legacy) for free by:
 
 1. Creating an account [on Mapbox](https://www.mapbox.com/).
 2. [Retrieving a private
    token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
-   from your Mapbox account and add it to the configuration of the Centreon MAP
+   from your Mapbox account and add it to the configuration of the Centreon MAP (Legacy)
    Server (or during the installation).
 
 During the token creation, you're asked to select properties, select:
 
-- Public scopes: *styles:read* and *styles:tiles*
-- Secret scopes: *styles:list*
+- Public scopes: **styles:read** and **styles:tiles**
+- Secret scopes: **styles:list**
 
 Your account allows free limited use of the service up to 50k tiles/month.
 
-*A tile is an image used to compose the geographic view.*
+**A tile is an image used to compose the geographic view.**
 
 If you need more tiles, you can upgrade your account
 ([pricing](https://www.mapbox.com/pricing/)).
 
-**Configuration on the Centreon MAP server**
+**Configuration on the Centreon MAP (Legacy) server**
 
-Insert the token in the file `/etc/centreon-studio/studio-config.properties`:
+Insert the token in the file **/etc/centreon-studio/studio-config.properties**:
 
 ```text
 ##### GEO

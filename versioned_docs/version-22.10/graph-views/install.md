@@ -1,16 +1,19 @@
 ---
 id: install
-title: Install Centreon MAP extension
+title: Installing Centreon MAP extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> As MAP (Legacy) will not evolve anymore, we suggest you install [Centreon MAP](introduction-map.md) instead. MAP has significant advantages compared to MAP (Legacy) including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
 
-> Centreon MAP requires a valid license key. To purchase one and retrieve the
+> Centreon MAP (Legacy) requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
-This chapter describes how to install Centreon MAP. The server must be
-installed on a dedicated machine to allow Centreon MAP to operate with
+This chapter describes how to install Centreon MAP (Legacy). The server must be
+installed on a dedicated machine to allow Centreon MAP (Legacy) to operate with
 its own database and avoid any potential conflict with the Centreon
 central server.
 
@@ -20,12 +23,12 @@ of architecture to suit your needs.
 
 ## Architecture
 
-Centreon MAP consists of three components:
+Centreon MAP (Legacy) consists of three components:
 
-- Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
-- Centreon MAP Web interface, developed in Javascript, based on
+- Centreon MAP (Legacy) Server, developed in Java, using SpringBoot, Hibernate and CXF
+- Centreon MAP (Legacy) Web interface, developed in Javascript, based on
   [Backbone.js](http://backbonejs.org/)
-- Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
+- Centreon MAP (Legacy) Desktop Client, developed in Java, based on [Eclipse RCP
   4](https://wiki.eclipse.org/Eclipse4/RCP).
 
 The diagram below summarizes the architecture:
@@ -52,9 +55,9 @@ The diagram below summarizes the architecture:
 
 ### Centreon
 
-The central server and Centreon MAP must be installed in the same major versions (i.e. both in 22.10.x).
+The central server and Centreon MAP (Legacy) must be installed in the same major versions (i.e. both in 22.10.x).
 
-### Centreon MAP Server
+### Centreon MAP (Legacy) Server
 
 #### License
 
@@ -64,7 +67,7 @@ team](https://support.centreon.com/) to get & install your license key.
 
 #### Hardware
 
-Hardware requirements for your dedicated Centreon MAP server are as follows:
+Hardware requirements for your dedicated Centreon MAP (Legacy) server are as follows:
 
 | *Monitored services*     | < 10 000                | < 20 000             |  < 40 000            |  > 40 000            |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
@@ -73,7 +76,7 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 | *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
 
 To correctly implement the dedicated memory, you have to edit the
-*JAVA\_OPTS* parameter in the Centreon Map configurations file
+*JAVA\_OPTS* parameter in the Centreon Map (Legacy) configurations file
 `/etc/centreon-studio/centreon-map.conf` and restart the service:
 
 ```text
@@ -88,29 +91,26 @@ Then restart the service:
 systemctl restart centreon-map
 ```
 
-The space used by Centreon MAP server is directly determined by the
+The space used by Centreon MAP (Legacy) server is directly determined by the
 number of elements you add into your views. An element is any graphical
-object in Centreon MAP. Most elements (like hosts, groups, etc.) have
+object in Centreon MAP (Legacy). Most elements (like hosts, groups, etc.) have
 children which must be included in the count.
 
-> These values are applied after optimization of Centreon MAP tables.
+> These values are applied after optimization of Centreon MAP (Legacy) tables.
 
 #### Software
 
-- OS: CentOS 7 or Redhat 7 / 8
-- DBMS: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+See the [software requirements](../installation/prerequisites.md#software).
 
 #### Information required during configuration
 
 - Centreon Web login with admin rights.
 
 > Even with a correctly sized server, you should have in mind the best
-> practices & recommandations when creating views so you don't face
+> practices & recommendations when creating views so you don't face
 > performance issues.
 
-### Centreon MAP Web interface
+### Centreon MAP (Legacy) Web interface
 
 #### License
 
@@ -120,7 +120,7 @@ team](https://support.centreon.com/) to get & install your license key.
 
 #### Compatibility
 
-The Centreon MAP Web interface is compatible with the following web browsers:
+The Centreon MAP (Legacy) Web interface is compatible with the following web browsers:
 
 * Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
 * Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
@@ -131,7 +131,7 @@ If an update to those supported browsers was to cause an incompatibility, Centre
 
 Your screen resolution must be at least 1280 x 768.
 
-### Centreon MAP Desktop Client
+### Centreon MAP (Legacy) Desktop Client
 
 - 4 GB of RAM minimum, 8 GB advised (mandatory for 10,000 or more services)
 - **Java 64 bits version 8**
@@ -172,30 +172,30 @@ And add the following lines at the end of the file, on a new line:
 
 ### Network requirements
 
-Centreon MAP Server machine must access:
+Centreon MAP (Legacy) Server machine must access:
 
 - Centreon Central broker, usually on Centreon Central machine, using TCP
   port 5758
 - Centreon Database, usually on Centreon Central machine, using TCP port 3306
-- Centreon MAP database, usually on localhost, using TCP port 3306.
+- Centreon MAP (Legacy) database, usually on localhost, using TCP port 3306.
 
 All the ports above are default values and can be changed if needed.
 
 - Centreon Web Central, using HTTP port 80 or HTTPS port 443
 
-Centreon MAP Desktop Client machines must access:
+Centreon MAP (Legacy) Desktop Client machines must access:
 
-- Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
+- Centreon MAP (Legacy) Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
 - Internet with or without proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other
+Ports 8080 and 8443 are recommended default values, but other
 configurations are possible.
 
 ## Server installation
 
 ### Centreon Web interface
 
-You must provide to Centreon MAP server a dedicated user
+You must provide to Centreon MAP (Legacy) server a dedicated user
 **who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
@@ -222,9 +222,9 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 The INSERT privilege will only be used during the installation process
 in order to create new Centreon Broker output. It will be revoked later.
 
-### Centreon MAP server
+### Centreon MAP (Legacy) server
 
-If you installed your Centreon MAP server from a "fresh CentOS installation"
+If you installed your Centreon MAP (Legacy) server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
 <Tabs groupId="sync">
@@ -255,7 +255,7 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 <TabItem value="CentOS 7" label="CentOS 7">
 
 #### Java version requirement
-  > Ensure a version of Java 17 or later is installed before you start the procedure.
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -263,14 +263,14 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or later), go to the [Oracle official download](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) page.
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or later) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
   ```shell
   sudo update-alternatives --config java
   ```
   
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 Now you can install the **centreon-release** package:
 
@@ -304,9 +304,9 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 > If the URL doesn't work, you can manually find this package in the folder.
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-Then install Centreon MAP server using the following command:
+Then install Centreon MAP (Legacy) server using the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -333,7 +333,7 @@ apt install centreon-map-server
 </TabItem>
 </Tabs>
 
-When installing Centreon MAP server, it will automatically install java
+When installing Centreon MAP (Legacy) server, it will automatically install java
 (OpenJDK 11) if needed.
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
@@ -345,21 +345,21 @@ To install MariaDB, execute the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mariadb-client mariadb-server
+dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install mariadb-client mariadb-server
+yum install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install mariadb-client mariadb-server
+apt install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
@@ -404,18 +404,11 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode
+If it's your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
 /etc/centreon-studio/configure.sh
-```
-
-If you have just installed Centreon 22.10, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-map/map-config.properties**
-
-```text
-broker.pb.message.enabled=true
 ```
 
 Then restart the **centreon-map** service:
@@ -470,7 +463,7 @@ the interface part of the extension.
 ### Central server
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:
 
@@ -555,7 +548,7 @@ Mac and Linux platforms (Debian and Ubuntu).
 You can find the installers in **Monitoring > Map > Desktop Client** or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=22.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
+> For performance considerations, we highly recommend to have less than 5, 10
 > users maximum connected at the same time manipulating views.
 
 ### Installation

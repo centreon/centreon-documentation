@@ -60,7 +60,7 @@ Dans l'interface web, allez à la page **Configuration > Plugin Packs** et insta
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
+1. Allez à la page **Configuration > Hôtes > Hôtes (simplifiés)** et cliquez sur **Ajouter** :
 
    ![image](../assets/getting-started/quick_start_linux_1.gif)
 

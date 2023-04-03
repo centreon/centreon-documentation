@@ -1,6 +1,6 @@
 ---
 id: troubleshooter
-title: Troubleshooting MAP
+title: MAP (Legacy) troubleshooting
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -176,6 +176,8 @@ client under the Media tab panel in the Centreon folder.
 
 If you still cannot see the list of images check your Centreon MAP
 configuration file.
+
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
 Connect through SSH to your Centreon MAP server. Open the
 studio-config.properties file:

@@ -24,7 +24,7 @@ and routers) or software tcpdump/wireshark on the poller may help you to confirm
 
 After validation of the connection, check the operating status of snmptrapd process (which must be running) and its
 configuration options. It is possible to enable logging of the process. To do this change the
-**/etc/sysconfig/snmptrapd.options** file and replace the "OPTIONS" line:
+**/etc/sysconfig/snmptrapd** file and replace the "OPTIONS" line:
 
 ``` shell
 # snmptrapd command line options
@@ -77,6 +77,24 @@ To check its operation, you should check the centreontrapd configuration setting
 
 You can check the proper functioning of binary centreontrapd by checking the configuration part of
 *[centreontrapd](enable-snmp-traps.md#centreontrapd)*.
+
+You can set up debug mode for the **centreontrapd** service. Edit the following file:
+
+```shell
+vi /etc/sysconfig/centreontrapd
+```
+
+Then modify option **severity** to **debug**:
+
+```shell
+OPTIONS="--logfile=/var/log/centreon/centreontrapd.log --severity=debug --config=/etc/centreon/conf.pm  --config-extra=/etc/centreon/centreontrapd.pm"
+```
+
+Then restart **centreontrapd**:
+
+```shell
+systemctl restart centreontrapd
+```
 
 ### Centreon Gorgone
 

@@ -1019,11 +1019,12 @@ Ensuite, définissez les valeurs pour chaque macros nécessaire :
 
 Ensuite, définissez les valeurs pour chaque macros nécessaire :
 
-| Macro          | Description                                        | Valeur par défaut |
-|----------------|----------------------------------------------------|-------------------|
-| `PROXYURL`     | URL du proxy (si nécessaire)                       | aucune            |
-| `TIMEOUT`      | Temps en secondes avant l'expiration de la requête | `10`              |
-| `EXTRAOPTIONS` | Options supplémentaires (si nécessaire)            | aucune            |
+| Macro                    | Description                                        | Valeur par défaut |
+|--------------------------|----------------------------------------------------|-------------------|
+| `PROXYURL`               | URL du proxy (si nécessaire)                       | aucune            |
+| `TIMEOUT`                | Temps en secondes avant l'expiration de la requête | `10`              |
+| `EXTRAOPTIONS`           | Options supplémentaires (si nécessaire)            | aucune            |
+| `KUBERNETESAPINAMESPACE` | Filtre namespace                                   | aucune            |
 
 Si vous choisissez `Cloud-Kubernetes-Api`, l'hôte sera ajouté avec tous les
 services pour vérifier chaque unité Kubernetes (scénario 1).

@@ -67,7 +67,7 @@ Remote Server on the Centreon platform.
 
    1. Go to **Configuration > Pollers > Broker configuration**.
    2. Select the broker service for the remote server you want.
-   3. On the **Output** tab, in section **Output 1 - Unified SQL**, update the name of the database in the **DB name** field (the default name is **centreon_storage**), then click **Save**.
+   3. On the **Output** tab, in section **Output 1 - Broker SQL database**, update the name of the database in the **DB name** field (the default name is **centreon_storage**), then click **Save**.
    4. [Export the configuration](deploying-a-configuration.md) of the remote server.
    5. Restart cbd:
 

@@ -27,6 +27,8 @@ Be sure to read the release notes for an explanation of features, fixes
 A or B that changes) you need to contact our Support service to retrieve
 the new repository**.
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 ### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
@@ -66,7 +68,7 @@ yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centr
 </Tabs>
 
 > Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 3. Update Centreon MAP server:
 
@@ -122,7 +124,13 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
-## Step 4: MariaDB database
+## Step 4: Update dialects in .properties files
+
+In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+
+> This configuration also works with a MySQL database.
+
+## Step 5: MariaDB database
 
 1. Stop the **centreon-map** service:
     ```shell

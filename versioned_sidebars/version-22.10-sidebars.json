@@ -92,11 +92,19 @@
         },
         {
           "type": "doc",
-          "id": "version-22.10/installation/prerequisites"
+          "id": "version-22.10/installation/compatibility"
         },
         {
           "type": "doc",
           "id": "version-22.10/installation/architectures"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/installation/prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/installation/technical"
         },
         {
           "type": "doc",
@@ -169,6 +177,10 @@
               "id": "version-22.10/monitoring/monitoring-servers/advanced-configuration"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/installation/offline"
         },
         {
           "type": "category",
@@ -623,40 +635,79 @@
     {
       "type": "category",
       "label": "Graphical views",
+      "link": {
+        "type": "generated-index",
+        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
+      },
+      "collapsed": true,
+         "items": [
+                {
+          "type": "category",
+        "label": "Centreon MAP",
+        "items": [
+          {
+            "type": "doc",
+            "id": "version-22.10/graph-views/introduction-map"
+          }, 
+          {
+      "type": "doc",
+      "id": "version-22.10/graph-views/map-web-install"
+      },
+      {
+        "type": "doc",
+        "id": "version-22.10/graph-views/map-web-install-remote"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/graph-views/map-web-update"
+          },
+      {
+          "type": "doc",
+          "id": "version-22.10/graph-views/import-into-map-web"
+          },
+          {
+            "type": "doc",
+            "id": "version-22.10/graph-views/map-web-access"
+            },
+                            {
+                  "type": "doc",
+                  "id": "version-22.10/graph-views/map-web-manage"
+                },
+                {
+                "type": "doc",
+                "id": "version-22.10/graph-views/map-web-create-standard-map"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.10/graph-views/map-web-create-geoview"
+              },
+              {
+                "type": "doc",
+                "id": "version-22.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-22.10/graph-views/map-web-troubleshooting"
+                  }
+              ]
+            }
+          ,
+            {
+        "type": "category",
+      "label": "Centreon MAP (Legacy)",
       "items": [
         {
           "type": "doc",
           "id": "version-22.10/graph-views/introduction"
         },
-        {
-          "type": "category",
-          "label": "Guide",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-22.10/graph-views/create-standard-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/graph-views/create-geo-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/graph-views/display-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/graph-views/share-view"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Administrate",
-          "items": [
+        
             {
               "type": "doc",
               "id": "version-22.10/graph-views/install"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/graph-views/remote-server"
             },
             {
               "type": "doc",
@@ -674,14 +725,26 @@
               "type": "doc",
               "id": "version-22.10/graph-views/configuration"
             },
-            {
-              "type": "doc",
-              "id": "version-22.10/graph-views/remote-server"
-            },
-            {
+                        {
               "type": "doc",
               "id": "version-22.10/graph-views/advanced-configuration"
             },
+            {
+              "type": "doc",
+    "id": "version-22.10/graph-views/create-standard-view"
+  },
+  {
+    "type": "doc",
+    "id": "version-22.10/graph-views/create-geo-view"
+  },
+  {
+    "type": "doc",
+    "id": "version-22.10/graph-views/display-view"
+  },
+  {
+    "type": "doc",
+    "id": "version-22.10/graph-views/share-view"
+  },
             {
               "type": "doc",
               "id": "version-22.10/graph-views/known-issues"
@@ -690,11 +753,11 @@
               "type": "doc",
               "id": "version-22.10/graph-views/troubleshooter"
             }
-          ]
-        }
       ]
+    }
+  ]
     },
-    {
+         {
       "type": "category",
       "label": "Reporting",
       "items": [
@@ -957,6 +1020,10 @@
             {
               "type": "doc",
               "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
             },
             {
               "type": "doc",
@@ -1398,6 +1465,10 @@
         {
           "type": "doc",
           "id": "version-22.10/resources/glossary"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/resources/contribute"
         }
       ]
     }

@@ -46,10 +46,8 @@ between the dedicated BI server, the Centreon server and the databases:
 | **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
 |-----------------|--------------------------|--------------------------------------|----------|--------------|
 | ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
-| SSH             | Reporting server         |  Centreon Server                    | 22       | TCP          |
-
-| CBIS            | Reporting server         | Centreon Server                     | 80       | HTTP*        |
-
+| SSH             | Reporting server         |  Centreon Server                     | 22       | TCP          |
+| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
 | CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
 | Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
@@ -73,22 +71,30 @@ reporting server for performance & isolation reasons.
 
 #### Software requirements
 
+See the [software requirements](../installation/prerequisites.md#software).
+
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
 considerations.
-
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 22.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.d/php.ini`
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+  
+#### Users and groups
 
+| User                 | Group                      |
+|----------------------|----------------------------|
+| centreonBI (new)     | apache,centreon,centreonBI |
+| apache (existing)    | centreonBI                 |
+  
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -99,12 +105,19 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+  
+#### Users and groups
 
+| User                 | Group                        |
+|----------------------|------------------------------|
+| centreonBI (new)     | www-data,centreon,centreonBI |
+| apache (existing)    | centreonBI                   |
+  
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 - Centreon Web 22.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.ini`  file
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
 
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -112,15 +125,15 @@ considerations.
   - wait_timeout
   - interactive_timeout
 
-</TabItem>
-</Tabs>
-
 #### Users and groups
 
 | User                 | Group                      |
 |----------------------|----------------------------|
 | centreonBI (new)     | apache,centreon,centreonBI |
 | apache (existing)    | centreonBI                 |
+  
+</TabItem>
+</Tabs>
 
 #### Description of users, umask and home directory
 
@@ -199,9 +212,9 @@ Description of users, umask and user directory:
 
 The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/s/repositories).
+1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-Then run the following command:
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -237,7 +250,7 @@ apt update && apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
-### Enable extension
+### Enable the extension
 
 The menu **Administration > Extension > Manager** allows you to install the different extensions detected by Centreon. Click on the **Centreon MBI** tile to install it.
 
@@ -369,9 +382,11 @@ You must have the following information before proceeding with the installation 
 - Access (user/password) to the reporting database
 - Define and retrieve the ssh password of the centreonBI user, on the Central server (for the availability of the reports generated on the interface)
 
-To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/s/repositories).
+#### Procedure
 
-Then run the following command:
+1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+2. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -474,6 +489,25 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
+#### Java version requirement
+  
+> Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+- If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+Now you can install MBI:
 
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client

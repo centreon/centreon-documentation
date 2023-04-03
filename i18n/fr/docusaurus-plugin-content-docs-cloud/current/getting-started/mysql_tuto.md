@@ -32,7 +32,7 @@ Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Pl
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
+1. Allez à la page **Configuration > Hôtes > Hôtes (simplifiés)** et cliquez sur le bouton **Ajouter** :
 
   ![image](../assets/getting-started/quick_start_mysql_1a.gif)
 

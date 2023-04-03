@@ -1,6 +1,6 @@
 ---
 id: troubleshooter
-title: Dépannage
+title: Dépannage de MAP (Legacy)
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -161,6 +161,8 @@ Les images de Centreon web devraient alors apparaître sur votre client lourd da
 ![image](../assets/graph-views/centreon_media_part.png)
 
 Si vous ne voyez toujours pas la liste des images, vérifiez votre fichier de configuration Centreon MAP.
+
+> Les erreurs de modification des fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
 Connectez-vous par SSH à votre serveur Centreon MAP. Ouvrez le fichier **studio-config.properties** :
 

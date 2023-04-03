@@ -5,7 +5,6 @@ title: NetApp Ontap Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Vue d'ensemble
 
 ONTAP ou Data ONTAP ou Clustered Data ONTAP (cDOT) ou Data ONTAP 7-Mode est un système d'exploitation proriétaire NetApp utilisé sur le stockage de données.
@@ -16,9 +15,11 @@ ONTAP ou Data ONTAP ou Clustered Data ONTAP (cDOT) ou Data ONTAP 7-Mode est un s
 
 Le Plugin-Pack permet de superviser les ressources:
 
+* Aggregates
 * Cluster
 * Hardware
 * Luns
+* Quotas 
 * Snapmirrors
 * Volumes
 
@@ -27,54 +28,86 @@ Le Plugin-Pack permet de superviser les ressources:
 Les métriques collectées sont les suivantes:
 
 <Tabs groupId="sync">
+<TabItem value="Aggregates" label="Aggregates">
+
+| Métrique                                                 | Unité |
+|:---------------------------------------------------------|:------|
+| *aggregate_name*#aggregate.space.usage.bytes             | B     |
+| *aggregate_name*#aggregate.space.free.bytes              | B     |
+| *aggregate_name*#aggregate.space.usage.percentage        | %     |
+| *aggregate_name*#aggregate.io.read.usage.bytespersecond  | B/s   |
+| *aggregate_name*#aggregate.io.write.usage.bytespersecond | B/s   |
+| *aggregate_name*#aggregate.io.other.usage.bytespersecond | B/s   |
+| *aggregate_name*#aggregate.io.total.usage.bytespersecond | B/s   |
+| *aggregate_name*#aggregate.io.read.usage.iops            | iops  |
+| *aggregate_name*#aggregate.io.write.usage.iops           | iops  |
+| *aggregate_name*#aggregate.io.other.usage.iops           | iops  |
+| *aggregate_name*#aggregate.io.total.usage.iops           | iops  |
+| *aggregate_name*#aggregate.io.read.latency.microseconds  | µs    |
+| *aggregate_name*#aggregate.io.write.latency.microseconds | µs    |
+| *aggregate_name*#aggregate.io.other.latency.microseconds | µs    |
+| *aggregate_name*#aggregate.io.total.latency.microseconds | µs    |
+
+</TabItem>
 <TabItem value="Cluster" label="Cluster">
 
-| Metric name                           | Description                                                                                    |
-| :------------------------------------ | :--------------------------------------------------------------------------------------------- |
-| node_status                           | The node status                                                                                |
-| cluster.io.read.usage.bytespersecond  | I/O read. Unit: B/s                                                                            |
-| cluster.io.write.usage.bytespersecond | I/O written. Unit: B/s                                                                         |
-| cluster.io.read.usage.iops            | I/O read per seconds. Unit: iops                                                               |
-| cluster.io.write.usage.iops           | I/O written per seconds. Unit: iops                                                            |
-| cluster.io.read.latency.milliseconds  | I/O read latency. Unit: ms                                                                     |
-| cluster.io.write.latency.milliseconds | I/O written latency. Unit: ms                                                                  |
+| Métrique                                             | Unité |
+| :----------------------------------------------------| :-----|
+| node_status                                          |       |
+| *cluster_name*#cluster.io.read.usage.bytespersecond  | B/s   |
+| *cluster_name*#cluster.io.write.usage.bytespersecond | B/s   |
+| *cluster_name*#cluster.io.read.usage.iops            | iops  |
+| *cluster_name*#cluster.io.write.usage.iops           | iops  |
+| *cluster_name*#cluster.io.read.latency.milliseconds  | ms    |
+| *cluster_name*#cluster.io.write.latency.milliseconds | ms    |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                         | Description                                                                 |
-| :---------------------------------- | :---------------------------------------------------------------------------|
-| status                              | Check components operational status: bay, fru, shelf. Unit: count           |
+| Métrique     | Unité |
+| :------------| :-----|
+| bay status   |       |
+| fru status   |       |
+| shelf status |       |
 
 </TabItem>
 <TabItem value="Luns" label="Luns">
 
-| Metric name                         | Description                                                                 |
-| :---------------------------------- | :---------------------------------------------------------------------------|
-| status                              | The LUN status                                                              |
+| Métrique   | Unité |
+| :----------| :-----|
+| lun status |       |
+
+</TabItem>
+<TabItem value="Quotas" label="Quotas">
+
+| Métrique                                                       | Unité  |
+| :--------------------------------------------------------------| :------|
+| *svm_name~volume_name~qtree_name*#quota.space.usage.bytes      | B      |
+| *svm_name~volume_name~qtree_name*#quota.space.free.bytes       | B      |
+| *svm_name~volume_name~qtree_name*#quota.space.usage.percentage | %      |
 
 </TabItem>
 <TabItem value="Snapmirrors" label="Snapmirrors">
 
-| Metric name                         | Description                                                                 |
-| :---------------------------------- | :---------------------------------------------------------------------------|
-| status                              | The snapmirror status                                                       |
+| Métrique          | Unité |
+| :-----------------| :-----|
+| snapmirror status |       |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
 
-| Metric name                          | Description                                                                                    |
-| :----------------------------------- | :--------------------------------------------------------------------------------------------- |
-| status                               | The volume status                                                                              |
-| volume.space.usage.bytes             | Volume space usage. Unit: B. By instances (```volume_name```)                                  |
-| volume.space.usage.percentage        | Volume space percentage usage. Unit: %. By instances (```volume_name```)                       |
-| volume.space.free.bytes              | Volume free space. Unit: B. By instances (```volume_name```)                                   |
-| volume.io.read.usage.bytespersecond  | Volume I/O read. Unit: B/s. By instances (```volume_name```)                                   |
-| volume.io.write.usage.bytespersecond | Volume I/O written. Unit: B/s. By instances (```volume_name```)                                |
-| volume.io.read.usage.iops            | Volume I/O read per seconds. Unit: iops. By instances (```volume_name```)                      |
-| volume.io.write.usage.iops           | Volume I/O written per seconds. Unit: iops. By instances (```volume_name```)                   |
-| volume.io.read.latency.milliseconds  | Volume I/O read latency. Unit: ms. By instances (```volume_name```)                            |
-| volume.io.write.latency.milliseconds | Volume I/O written latency. Unit: ms. By instances (```volume_name```)                         |
+| Métrique                                                    | Unité |
+| :-----------------------------------------------------------| :-----|
+| volume status                                               |       |
+| *svm_name:volume_name*#volume.space.usage.bytes             | B     |
+| *svm_name:volume_name*#volume.space.usage.percentage        | %     |
+| *svm_name:volume_name*#volume.space.free.bytes              | B     |
+| *svm_name:volume_name*#volume.io.read.usage.bytespersecond  | B/s   |
+| *svm_name:volume_name*#volume.io.write.usage.bytespersecond | B/s   |
+| *svm_name:volume_name*#volume.io.read.usage.iops            | iops  |
+| *svm_name:volume_name*#volume.io.write.usage.iops           | iops  |
+| *svm_name:volume_name*#volume.io.read.latency.milliseconds  | ms    |
+| *svm_name:volume_name*#volume.io.write.latency.milliseconds | ms    |
 
 </TabItem>
 </Tabs>

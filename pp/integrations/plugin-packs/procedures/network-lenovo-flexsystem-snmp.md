@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Lenovo develops, manufactures and sells computer hardware and software. Flex
 System is Lenovo's blade server architecture.
 
-## Plugin-Pack assests
+## Plugin-Pack assets
 
 ### Monitored objects
 

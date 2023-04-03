@@ -52,6 +52,7 @@ dnf update
    rsync -avz /etc/centreon-broker root@<IP_NOUVEAU_CENTREON>:/etc
    rsync -avz /var/log/centreon-engine/archives/ root@<IP_NOUVEAU_CENTREON>:/var/log/centreon-engine
    rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
+   rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
    ```
 
   Si vous avez personnalisé le nom de votre fichier de clé privée, utilisez le format suivant (remplacez **id_rsa_custom** par le nom de votre fichier, et `<commande>` par les commandes ci-dessus):
@@ -219,4 +220,4 @@ Pour migrer un collecteur :
 1. Effectuez les étapes 1 et 4 de la procédure de migration d'un serveur central (c'est-à-dire [installer le nouveau serveur](#étape-1--installer-le-nouveau-serveur) et [synchronisez les plugins](#étape-4--synchroniser-les-plugins)).
 2. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
 3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-4. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1055).
+4. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).

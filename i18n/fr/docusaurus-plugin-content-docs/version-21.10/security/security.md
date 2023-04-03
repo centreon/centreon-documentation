@@ -35,10 +35,10 @@ publics dits « unstable ».
 ### Opensource
 
 Centreon distribue le cœur de sa plateforme sous licences GPLv2 et Apache Open Source, ce qui
-permet aux [contributeurs](https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md) d'étendre les fonctionnalités. Toute personne souhaitant contribuer et
-participer au développement du projet doit respecter le [Code de Conduite](https://github.com/centreon/centreon/blob/master/CODE_OF_CONDUCT.md) de Centreon.
+permet aux [contributeurs](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) d'étendre les fonctionnalités. Toute personne souhaitant contribuer et
+participer au développement du projet doit respecter le [Code de Conduite](https://github.com/centreon/.github/blob/master/CODE_OF_CONDUCT.md) de Centreon.
 
-Toute contribution est proposée sous forme de « pull request » et livrée avec des [informations](https://github.com/centreon/centreon/blob/master/.github/PULL_REQUEST_TEMPLATE.md) qui
+Toute contribution est proposée sous forme de « pull request » et livrée avec des [informations](https://github.com/centreon/.github/blob/master/PULL_REQUEST_TEMPLATE.md) qui
 facilitent le processus de révision par Centreon. L'examen comprend la qualité du code, les tests
 fonctionnels, la documentation ainsi que la sécurité et détermine si la contribution est acceptée ou
 rejetée.
@@ -79,12 +79,12 @@ de la remédiation :
 ### Signaler une vulnérabilité
 
 Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler comme décrit dans le
-[processus de signalement](https://github.com/centreon/centreon/blob/master/SECURITY.md).
+[processus de signalement](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 Veuillez ne pas exposer les vulnérabilités de sécurité via le signalement GitHub de bogue dit « Issue ».
 
 Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, chiffrez votre message avec 
-la [clé PGP](https://github.com/centreon/centreon/blob/master/SECURITY.md#pgp-information)
+la [clé PGP](https://github.com/centreon/centreon/security/policy#pgp-information)
 fournie.
 
 Vous devriez recevoir une réponse dans les 48 heures. Si, pour une raison quelconque ce n’est pas le
@@ -94,8 +94,8 @@ cas, n'hésitez pas à nous relancer par e-mail pour vous assurer que nous avons
 
 ### Configuration sécurisée
 
-La documentation Centreon inclut les bonnes pratiques pour sécuriser les [composants de supervision](https://docs.centreon.com/fr/docs/administration/secure-platform)
-ainsi que la [plateforme MAP](https://docs.centreon.com/fr/docs/graph-views/secure-your-map-platform). Centreon recommande aux administrateurs de lire attentivement ces
+La documentation Centreon inclut les bonnes pratiques pour sécuriser les [composants de supervision](../administration/secure-platform.md)
+ainsi que la [plateforme MAP](../graph-views/secure-your-map-platform.md). Centreon recommande aux administrateurs de lire attentivement ces
 pages lors de la planification d'une installation et de partager ces directives avec leurs équipes de
 sécurité internes.
 

@@ -5,19 +5,54 @@ title: Oracle Database
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-##  Vue d'ensemble
+## Contenu du Pack
 
-Oracle est un système de gestion de bases de données fourni par Oracle Corporation.
+### Modèles
 
-Le plugin Centreon associé **Oracle Database** permet d'interroger l'API Rest afin de récupérer le statut de diverses métriques sur le serveur Oracle.
+Le Plugin Pack Centreon **Oracle Database** apporte un modèle d'hôte :
 
-## Contenu du Plugin Pack
+* App-DB-Oracle-custom
 
-###  Objet supervisé
+Il apporte les modèles de service suivants :
 
-* Serveur Oracle
+| Alias                            | Modèle de service                              | Description                                                                                                 | Défaut | Découverte |
+|:---------------------------------|:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------|:-------|:-----------|
+| ASM-Diskgroup-Usage-Generic-Name | App-DB-Oracle-ASM-Diskgroup-Usage-Generic-Name | Contrôle permettant de vérifier l'utilisation et le statut des groupes de disques ASM sur un serveur Oracle |        |            |
+| ASM-Diskgroup-Usage-Global       | App-DB-Oracle-ASM-Diskgroup-Usage-Global       | Contrôle permettant de vérifier l'utilisation et le statut des groupes de disques ASM sur un serveur Oracle |        | X          |
+| Connection-Number                | App-DB-Oracle-Connection-Number                | Contrôle permettant de vérifier le nombre de connexions au serveur Oracle                                   | X      |            |
+| Connection-Time                  | App-DB-Oracle-Connection-Time                  | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes            | X      |            |
+| Corrupted-Blocks                 | App-DB-Oracle-Corrupted-Blocks                 | Contrôle permettant de vérifier le nombre de blocks corrompus du serveur.                                   | X      |            |
+| Data-Files-Status                | App-DB-Oracle-Data-Files-Status                | Contrôle permettant de vérifier le statut des fichiers de données Oracle                                    |        |            |
+| Datacache-Hitratio               | App-DB-Oracle-Datacache-Hitratio               | Contrôle permettant de vérifier le 'Data Buffer Cache Hit Ratio' du serveur. Aucunes alertes par défaut     | X      |            |
+| Dictionary-Cache-Usage           | App-DB-Oracle-Dictionary-Cache-Usage           | Contrôle permettant de vérifier le 'dictionary cache'                                                       |        |            |
+| Event-Waits-Usage                | App-DB-Oracle-Event-Waits-Usage                | Contrôle permettant de vérifier l'utilisation des 'event waits'.                                            |        |            |
+| Fra-Usage                        | App-DB-Oracle-Fra-Usage                        | Contrôle permettant de vérifier le 'fast recovery area space'                                               |        |            |
+| Invalid-Object                   | App-DB-Oracle-Invalid-Object                   | Contrôle permettant de vérifier l'utilisation des objets invalides.                                         |        |            |
+| Library-Cache-Usage              | App-DB-Oracle-Library-Cache-Usage              | Contrôle permettant de vérifier le 'library cache'                                                          |        |            |
+| Long-Queries                     | App-DB-Oracle-Long-Queries                     | Contrôle permettant de vérifier les longues requêtes.                                                       |        |            |
+| Process-Usage                    | App-DB-Oracle-Process-Usage                    | Contrôle permettant de vérifier l'utilisation des 'process' Oracle                                          | X      |            |
+| Redolog-Usage                    | App-DB-Oracle-Redolog-Usage                    | Contrôle permettant de vérifier le 'redo log'                                                               |        |            |
+| Rman-Backup-Age                  | App-DB-Oracle-Rman-Backup-Age                  | Contrôle permettant de vérifier l'ancienneté des sauvegardes 'RMAN'                                         |        |            |
+| Rman-Backup-Online-Age           | App-DB-Oracle-Rman-Backup-Online-Age           | Contrôle permettant de vérifier l'ancienneté des sauvegardes 'RMAN' en mode online                          |        |            |
+| Rman-Backup-Problems             | App-DB-Oracle-Rman-Backup-Problems             | Contrôle permettant de vérifier les erreurs de sauvegarde 'RMAN' du serveur durant les 3 derniers jours     | X      |            |
+| Rollback-Segment-Usage           | App-DB-Oracle-Rollback-Segment-Usage           | Contrôle permettant de vérifier l'utilisation des 'rollback segment'.                                       |        |            |
+| Session-Usage                    | App-DB-Oracle-Session-Usage                    | Contrôle permettant de vérifier l'utilisation des sessions                                                  | X      |            |
+| Sql                              | App-DB-Oracle-Sql-Statement-Generic            | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                 |        |            |
+| Sql-String                       | App-DB-Oracle-Sql-Statement-String-Generic     | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères             |        |            |
+| Tablespace-Usage-Global          | App-DB-Oracle-Tablespace-Usage-Global          | Contrôle permettant de vérifier l'utilisation des 'tablespaces' du serveur                                  | X      | X          |
+| Tnsping                          | App-DB-Oracle-Tnsping                          | Contrôle permettant de vérifier la connexion à un 'listener' distant                                        | X      |            |
 
-### Métriques collectées
+### Règles de découverte
+
+| Nom de la règle                        | Description                                               |
+|:---------------------------------------|:----------------------------------------------------------|
+| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Discover the disk partitions and monitor space occupation |
+| App-DB-Oracle-Tablespaces-Usage-Name   |                                                           |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
 
 <Tabs groupId="sync">
 <TabItem value="Connection-Time" label="Connection-Time">
@@ -89,18 +124,39 @@ Le plugin Centreon associé **Oracle Database** permet d'interroger l'API Rest a
 
 ## Prérequis
 
-### RPM
+### Dépendances
 
-Pour utiliser le Plugin Pack Oracle, il est nécessaire d'installer l'outil de ligne de commande `wget` et la collection de compilateurs GNU (`gcc`).
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install -y gcc wget
+dnf install gcc wget
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install gcc wget
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install wget gcc make unzip libaio1 libdbi-perl
+```
+
+</TabItem>
+</Tabs>
 
 ###  Oracle instant client
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
 Se connecter sur [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html).
-Choisir le groupe de paquets correspondant au système d'exploitation du collecteur et télécharger les paquets suivants :
+Choisir le groupe de paquets correspondant au système d'exploitation du collecteur et télécharger les paquets (RPM) suivants :
 
   - oracle-instantclient-basic
   - oracle-instantclient-sqlplus
@@ -112,17 +168,39 @@ Installer les paquets avec la commande suivante :
 rpm -ivh oracle-*.rpm
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Se connecter sur [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html).
+Choisir le groupe de paquets correspondant au système d'exploitation du collecteur et télécharger les paquets (ZIP) suivants :
+
+  - oracle-instantclient-basic
+  - oracle-instantclient-sqlplus
+  - oracle-instantclientdevel
+
+Installer les paquets avec les commandes suivantes :
+
+```bash
+mkdir /opt/oracle
+cd /opt/oracle
+unzip 'instantclient-*.zip'
+```
+
+</TabItem>
+</Tabs>
+
 ### Bibliothèque Perl pour Oracle
 
-> Remplacer 21.1 par la version d'instantclient installée.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
 En tant que **root**, exécuter :
 
 ```bash
 cd /usr/local/src 
-wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.80.tar.gz 
-tar xzf DBD-Oracle-1.80.tar.gz 
-cd DBD-Oracle-1.80 
+wget https://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.83.tar.gz 
+tar xzf DBD-Oracle-1.83.tar.gz 
+cd DBD-Oracle-1.83 
 export ORACLE_HOME=/usr/lib/oracle/21/client64
 export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib 
 export PATH=$ORACLE_HOME:$PATH
@@ -132,11 +210,49 @@ perl Makefile.PL -m /usr/share/oracle/21/client64/demo/demo.mk
 Le message suivant devrait apparaître :
 
 ```text
-LD_RUN_PATH=/usr/lib/oracle/21/client64/lib*
-Using DBD::Oracle 1.80.
-Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
+LD_RUN_PATH=/usr/lib/oracle/21/client64/lib
+Using DBD::Oracle 1.83.
+Using DBD::Oracle 1.83.
+Using DBI 1.641 (for perl 5.026003 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/auto/DBI/
+Generating a Unix-style Makefile
 Writing Makefile for DBD::Oracle
 ```
+
+Si vous rencontrez une erreur durant l'étape du **Makefile.PL**, essayez de spécifier explicitement une version d'Oracle 
+fonctionnelle pour la compilation (cela n'aura pas d'impact sur le fonctionnement): `perl Makefile.PL -V 12.1.0 -m /usr/share/oracle/21/client64/demo/demo.mk`
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+En tant que **root**, exécuter :
+
+```bash
+cd /usr/local/src
+wget https://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.83.tar.gz
+tar xzf DBD-Oracle-1.83.tar.gz
+cd DBD-Oracle-1.83
+export ORACLE_HOME=/opt/oracle/instantclient_21_8/
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_8/
+export PATH=$ORACLE_HOME:$PATH
+perl Makefile.PL -m /opt/oracle/instantclient_21_8/sdk/demo/demo.mk
+```
+
+Le message suivant devrait apparaître :
+
+```text
+LD_RUN_PATH=/opt/oracle/instantclient_21_8
+Using DBD::Oracle 1.83.
+Using DBD::Oracle 1.83.
+Using DBI 1.643 (for perl 5.032001 on x86_64-linux-gnu-thread-multi) installed in /usr/lib/x86_64-linux-gnu/perl5/5.32/auto/DBI/
+Generating a Unix-style Makefile
+Writing Makefile for DBD::Oracle
+```
+
+Si vous rencontrez une erreur durant l'étape du **Makefile.PL**, essayez de spécifier explicitement une version d'Oracle 
+fonctionnelle pour la compilation (cela n'aura pas d'impact sur le fonctionnement): `perl Makefile.PL -V 12.1.0 -m /opt/oracle/instantclient_21_8/sdk/demo/demo.mk`
+
+</TabItem>
+</Tabs>
 
 Compiler la bibliothèque :
 
@@ -150,6 +266,9 @@ Puis l'installer :
 make install
 ```
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+
 Puis créer le fichier : **/etc/ld.so.conf.d/oracle.conf**. Éditer et ajouter un lien vers la bibliothèque Perl d’Oracle :
 
 ```bash
@@ -158,10 +277,22 @@ cat > /etc/ld.so.conf.d/oracle.conf <<EOF
 EOF
 ```
 
-Parcourir le fichier et exécuter la commande définie ci-dessous :
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Puis créer le fichier : **/etc/ld.so.conf.d/oracle-instantclient.conf**. Éditer et ajouter un lien vers la bibliothèque Perl d’Oracle :
 
 ```bash
-cd /usr/lib/oracle/21/client64/lib/
+cat > /etc/ld.so.conf.d/oracle-instantclient.conf <<EOF
+/opt/oracle/instantclient_21_8/
+EOF
+```
+</TabItem>
+</Tabs>
+
+Mettez à jour le cache avec la commande suivante :
+
+```bash
 /sbin/ldconfig
 ```
 
@@ -213,56 +344,100 @@ Ce compte utilisateur doit avoir la permission de lecture/READ (Oracle 12+) ou d
   
 ## Installation
 
-<Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+### Pack de supervision
 
-1. Installer le plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
+Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Databases-Oracle
+dnf install centreon-pack-applications-databases-oracle
 ```
-
-2. Sur l'interface web de Centreon, installer le Plugin Pack **Oracle Database** depuis la page **Configuration > Plugin packs > Manager**.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
-```
-
-2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM :
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-databases-oracle
 ```
 
-3.  Sur l'interface web de Centreon, installer le Plugin Pack **Oracle Database** depuis la page **Configuration > Plugin packs > Manager**.
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-databases-oracle
+```
+
+</TabItem>
+</Tabs>
+
+Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Oracle Database**
+depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Databases-Oracle
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Databases-Oracle
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-applications-databases-oracle
+```
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Toujours dans l'interface web Centreon, aller à la page **Configuration > Hôtes** et cliquer sur **Ajouter**. Remplir les champs du formulaire. 
-Dans le champ **Modèles** cliquer sur **+ Ajouter une nouvelle entrée** puis sélectionner **App-DB-Oracle-custom**.
+### Hôte
 
-Une fois celui-ci configuré, certaines macros doivent être renseignées :
+* Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre base de données **Oracle**.
+* Appliquez le modèle d'hôte **App-DB-Oracle-custom**.
+* Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-| Mandatory   | Name                       | Description                                            |
-| :---------- | :------------------------- | :----------------------------------------------------- |
-| X           | ORACLEPASSWORD             | The oracle user's password 			    |
-| X           | ORACLEPORT                 | By default: 1521					    |
-| X           | ORACLESID                  | The name of the oracle instance                        |
-| X           | ORACLEUSERNAME             | The oracle user name                                   |
-|             | ORACLESERVICENAME          | The oracle service name                                |
+| Obligatoire   | Name                       | Description                                   |
+| :------------ | :------------------------- | :-------------------------------------------- |
+| X             | ORACLEPASSWORD             | Mot de passe de l'utilisateur Oracle          |
+| X             | ORACLEPORT                 | Port de l'instance Oracle (par défaut: 1521)  |
+| X             | ORACLESID                  | Nom de l'instance Oracle                      |
+| X             | ORACLEUSERNAME             | Nom de l'utilsateur Oracle                    |
+|               | ORACLESERVICENAME          | Nom du service Oracle                         |
 
 ## FAQ
 ### Comment tester un contrôle en ligne de commandes et que signifient les options principales ?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne de commandes depuis votre collecteur Centreon avec l'utilisateur **centreon-engine**:
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
@@ -311,7 +486,10 @@ Tous les modes fournis avec le plugin peuvent être consultés avec le paramètr
 	--list-mode
 ```
 
-### J'obtiens le message d'erreur suivant :   
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon. 
 
 #### ```UNKNOWN: Cannot connect: (no error string) |```
 

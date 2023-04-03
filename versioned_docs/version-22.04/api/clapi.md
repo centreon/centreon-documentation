@@ -2407,6 +2407,8 @@ Parameters that you can change are the following:
 | autologin\_key        | Used for auto login                                                                  |
 | template              | Name of the template to apply to the contact                                         |
 | timezone              | Timezone                                                                             |
+| reach_api             | **1** if the user has access to the API configuration, **0** otherwise                                                             |
+| reach_api_rt          | **1** if the user has access to the API realtime, **0** otherwise                                                                 |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
@@ -5414,7 +5416,6 @@ Parameters that you may change are:
 | friday    | Time Period definition for Friday                                                                                 |
 | saturday  | Time Period definition for Saturday                                                                               |
 | include   | example: \[...\] -v "Timeperiod\_Test;include;workhours"; Use delimiter &#124; for multiple inclusion definitions |
-| exclude   | example: \[...\] -v "Timeperiod\_Test;exclude;weekend" use delimiter &#124; for multiple exclusion definitions    |
 
 #### Getexception
 

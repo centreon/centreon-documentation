@@ -64,20 +64,6 @@ L'autologin n'est actuellement pas géré pour les pages suivantes :
 
 Il n'existe actuellement pas de contournement.
 
-### Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
-
-#### Contournement
-
-Vous devez installer les langues sur votre système d'exploitation avec la commande suivante :
-```shell
-yum install -y glibc-all-langpacks
-```
-
-Puis redémarrer PHP à l'aide de la commande suivante :
-```shell
-systemctl restart php-fpm
-```
-
 ## Anomaly Detection
 
 ### Impossible de superviser un service de détection d'anomalies lié à un métaservice
@@ -89,6 +75,22 @@ Lorsque vous créez un métaservice auquel est lié un service de détection des
 Il n'existe actuellement pas de contournement.
 
 ## Centreon MBI
+
+### Erreur lors de l'exécution du script ETL
+
+Cet incident est dû à des changements apportés sur les paquets et renvoie une erreur similaire à celle-ci :
+
+```shell
+Can't open perl script "/usr/share/centreon-bi/etl/perfdataStatisticsBuilder_legacy.pl": No such file or folder
+```
+
+#### Contournement
+
+Exécutez la commande suivante en tant qu'utilisateur ``root`` ou ``centreonBI`` :
+
+```shell
+sed -i 's/_legacy//g' /usr/share/centreon-bi/bin/centreonBIETL
+```
 
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 

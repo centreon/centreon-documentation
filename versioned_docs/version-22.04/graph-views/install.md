@@ -1,10 +1,13 @@
 ---
 id: install
-title: Install Centreon MAP extension
+title: Installing Centreon MAP extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> As MAP (Legacy) will not evolve anymore, we suggest you install [Centreon MAP](introduction-map.md) instead. MAP has significant advantages compared to MAP (Legacy) including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -97,10 +100,7 @@ children which must be included in the count.
 
 #### Software
 
-- OS: CentOS 7 or Redhat 7 / 8
-- DBMS: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+See the [software requirements](../installation/prerequisites.md#software).
 
 #### Information required during configuration
 
@@ -222,7 +222,7 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 The INSERT privilege will only be used during the installation process
 in order to create new Centreon Broker output. It will be revoked later.
 
-### Centreon MAP server
+### Centreon MAP (Legacy) server
 
 If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
@@ -236,6 +236,26 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
+
+#### Java version requirement
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+
+Now you can install the **centreon-release** package:
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
@@ -268,7 +288,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 > If the URL doesn't work, you can manualy find this package in the folder.
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
 
@@ -309,21 +329,21 @@ To install MariaDB, execute the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mariadb-client mariadb-server
+dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install mariadb-client mariadb-server
+yum install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install mariadb-client mariadb-server
+apt install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
@@ -368,18 +388,11 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode
+If it's your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
 /etc/centreon-studio/configure.sh
-```
-
-If you have just installed Centreon 22.04, be aware that the platform now uses the new BBDO v3 protocol. For MAP to work properly,
-edit the following file: **/etc/centreon-studio/studio-config.properties**
-
-```text
-broker.pb.message.enabled=true
 ```
 
 Then restart the **centreon-map** service:
@@ -434,7 +447,7 @@ the interface part of the extension.
 ### Central server
 
 Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:
 

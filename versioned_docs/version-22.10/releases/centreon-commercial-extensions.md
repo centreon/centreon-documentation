@@ -18,6 +18,77 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.4
+
+Release date : `January 17, 2023`
+
+#### Bug fixes
+
+- Fixed an issue preventing users to create a map with the API.
+- Fixed an issue that caused server to fail to start when trying to load empty output.
+- Fixed links where empty bendpoints caused maps to become not editable.
+- Resource name properties are now used for links when saving maps.
+- Fixed an issue that caused metric links in the same views to display the same value after the first refresh.
+
+### 22.10.3
+
+Release date: `December 16, 2022`
+
+#### Bug fixes
+
+- Added more fixes for server startup error due to duplicate key.
+
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+#### Bug fixes
+
+- Fixed server startup error due to duplicate key.
+
+### 22.10.1
+
+- First release: `November 29, 2022`
+
+The new MAP extension is now available in a full web version with a new server, under the name of MAP. The former version, including desktop client and associated server, becomes MAP Legacy.
+
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
+- Migration process: Integrated migration process of your legacy views.
+
+## Centreon MAP Legacy
+
+### 22.10.4
+
+Release date : `January 17, 2023`
+
+- No change.
+
+### 22.10.3
+
+Release date: `December 16, 2022`
+
+- No change.
+
+### 22.10.2
+
+Release date: `December 9, 2022`
+
+- No change.
+
+### 22.10.1
+
+Release date: `November 29, 2022`
+
+#### Security fixes
+
+- Actuator endpoints are now disabled by default, except for health and metrics.
+- Fixed the security issue CVE-2022-42889 (Text4shell).
+
+#### Bug fixes
+
+- Fixed an issue where resources' tooltips in the MAP legacy widget could not be displayed properly.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -30,6 +101,18 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed an issue where 0 as a value was not displayed in BA notification fields.
+
+#### Enhancements
+
+- It is now possible to use BAM notifications commands via CLAPI.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -37,6 +120,12 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+- [ETL] Fixed the name of the scripts called by the ETL.
 
 ### 22.10.0
 
@@ -79,6 +168,12 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+- Fixed an issue that caused the interface to become stuck in a loading state.
 
 ### 22.10.0
 

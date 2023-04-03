@@ -14,7 +14,7 @@ Kaspersky, Natalya Kaspersky and Alexey De-Monderik.
 The Centreon Plugin-Pack *Kaspersky* aims to collect the condition of the 
 Administration Server and managed products with the SNMP protocol.
 
-## Plugin-Pack assests
+## Plugin-Pack assets
 
 ### Monitored objects
 

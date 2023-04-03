@@ -17,6 +17,132 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.12
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
+### 22.04.11
+
+Release date: `February 20, 2023`
+
+#### Bug fixes
+
+- [Authentication] Added LDAP connection timeout to avoid infinite connection.
+- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
+- [CLAPI] Removed mandatory password for LDAP users creation.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an installation error when the chrony package is already installed.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [Core] Fixed SQL queries when databases names contain dash.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
+- [Install] Added missing gettext dependency for Debian.
+- [Install] Fixed an SQL error with MySQL 8.
+- [Install] Removed app_key field from configuration database.
+- [LDAP] Fixed auto-import of users.
+- [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
+- [ResourceStatus] Fixed date picker causing duplicated dates.
+- [ResourceStatus] Fixed an issue that made the acknowledgement still active in Resource Status after a disacknowledgement or when service/host returned to OK/UP status.
+- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+- [UX] Fixed visual inconsistencies in some menus.
+
+#### Enhancements
+
+- Optimized queries used to display the services monitoring page.
+- Optimized queries used to display the hosts monitoring page.
+- Optimized queries used to display the services grid monitoring page.
+
+#### Security
+
+- [CLAPI] Fixed encoding issue.
+- Fixed XSS vulnerability reflected in service-monitoring widget.
+
+### 22.04.10
+
+Release date: `February 6, 2023`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
+
+### 22.04.9
+
+Release date: `January 31, 2023`
+
+#### Bug fixes
+
+- [Install] Fixed app_key error during upgrade
+
+### 22.04.8
+
+Release date: `January 16, 2023`
+
+#### Enhancements
+
+- A new API endpoint is now available to update a Centreon platform. This allows updates to take place without having to go through the Centreon Update Web Wizard.
+- [CEIP] Improved telemetry to know configured authentication options
+
+#### Bug fixes
+
+- [Administration] Access group fields can now be empty for OpenID Connect configuration
+- Fixed a bug that blocked exporting multiple poller configurations at the same time with a shared severity
+- [ResourceStatus] Fixed an issue that made users unable to disacknowledge services
+- [Authentication] Fixed authentication with complete URL for token endpoint
+- Fixed an ACL issue with user modification permissions
+- Fixed an issue causing acknowledgement/downtimes to fail without returning an error when the character case for the resource was wrong
+- Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
+- [Authentication] Fixed user theme retrieval via OpenID Connect login
+- [Core] The v2 API now handles React pages.
+- Fixed an issue that caused months to be missing from the calendar selection
+- Fixed an issue where trying to log in to push the web upgrade/update does not return the expected error message anymore.
+- Fixed an issue where graphs could not be exported on the performance page.
+- [Configuration] Fixed possibility to disable contact/contact group additive inheritance if not yet configured
+- Fixed an issue causing the service icons on the widgets to not be visible
+- [Resources Status] Fixed the display of commands in the service details panel
+- Fixed an issue preventing a user to edit a recurrent downtime if the linked host group was disabled
+- [Monitoring] Removed obsolete code to export graphs in CSV
+- [Resources Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
+- Fixed an issue with "view contact notifications" window
+- [Administration] Fixed access to provider configuration endpoint using ACL
+- [API] Fixed API access when user doesn't have access to UI
+- [Install] Fixed app_key error during upgrade
+
+#### Security fixes
+
+- [Core] Fixed vulnerabilities in functions.js file
+- [Configuration] Sanitized queries when displaying logos
+- [Configuration] Sanitized queries in the list of services by host group
+- [Configuration] Sanitized queries in service categories
+- [Configuration] Sanitized queries in the list of meta services
+- [Configuration] Sanitized queries in the list of host categories
+- [Configuration] Sanitized queries in the list of commands
+- [Configuration] Sanitized queries in the list of trap groups
+- [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
+- [Configuration] Sanitized queries in the list of Broker configurations
+- [Configuration] Sanitized queries in the list of service groups
+- [Core] Fixed vulnerabilities in color_picker.php
+- [Core] Fixed vulnerabilities in pathway.php
+- [Core] Fixed vulnerabilities in color_picker_mb.php
+- [Core] Fixed vulnerabilities in rename.php
+- [Configuration] Fixed vulnerabilities in services listing	
+- [Configuration] Fixed vulnerabilities in host form
+
 ### 22.04.7
 
 Release date: `October 12, 2022`
@@ -299,6 +425,42 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.2
+
+Release date: `February 7, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
+- Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved Broker's behaviour when trying to insert negative values in unsigned columns of the storage database.
+- Improved network connection stability by sending tcpkeepalive packet every 30s on tcp stream.
+- Improved the manner of sending bulk data by Broker on MariaDB databases.
+- It is now possible to use empty strings for parameter values in stream connectors.
+
+##### Bug fixes
+
+- Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine.
+- Fixed a bug where deleted host groups and service groups weren’t available in the filter menu.
+- Fixed a deadlock issue due to new Broker stats engine.
+- Fixed a deadlock issue when a query fails while inserting a value out of range for the column type.
+- Fixed an issue due to a data type mismatch that could block Broker.
+- Fixed the way Broker handled numbers with an out of range value for the column type.
+- Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
+- Fixed an issue in RRD rebuild that recreated the RRD files for every 24 hours of data, resulting in keeping only the last day's data.
+- Fixed the issue with RRD rebuild compatibility with rrdcached.
+- Fixed a stability issue that could cause Broker to crash when a host was deleted.
+- Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
+- Fixed an issue where Broker displayed the expected warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
+- Fixed a defect in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.04.1
 

@@ -5416,7 +5416,6 @@ Parameters that you may change are:
 | friday    | Time Period definition for Friday                                                                                 |
 | saturday  | Time Period definition for Saturday                                                                               |
 | include   | example: \[...\] -v "Timeperiod\_Test;include;workhours"; Use delimiter &#124; for multiple inclusion definitions |
-| exclude   | example: \[...\] -v "Timeperiod\_Test;exclude;weekend" use delimiter &#124; for multiple exclusion definitions    |
 
 #### Getexception
 

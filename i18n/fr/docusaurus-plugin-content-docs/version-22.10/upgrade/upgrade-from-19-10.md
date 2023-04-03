@@ -23,11 +23,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
-
-### Mise à jour vers la dernière version mineure
-
-Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 19.10.
+> Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Montée de version du serveur Centreon Central
 
@@ -55,7 +51,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
-> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/s/repositories).
+> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ### Installer le dépôt MariaDB
 
@@ -63,7 +59,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
-sed -ri 's/10\../10.5/' /etc/yum.repos.d/mariadb.repo
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
 
@@ -88,7 +84,7 @@ yum-config-manager --enable remi-php81
 > la procédure de mise à jour.
 
 Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.10.
-Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
 ```shell

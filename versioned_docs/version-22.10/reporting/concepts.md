@@ -18,36 +18,30 @@ analyzing Centreon MBI reports.
 
 #### Hosts
 
-A host is considered available when its state is "Up".
-
-To calculate the availability rate the formula is: "Up" duration /
+- A host is considered available when its state is "Up".
+- To calculate the availability rate the formula is: "Up" duration /
 ("Up" + "Down" durations)
 
 Additional rules:
 
--   Time spent in the "Unreachable" state is not considered in the
-    calculation of availability.
--   Time spent in "Planned Downtime" is not considered in the
-    calculation of availability.
+- Time spent in the "Unreachable" state is not considered in the calculation of availability.
+- Time spent in "Planned Downtime" is not considered in the calculation of availability.
 
-Example: For a report covering one day, if a host is available 23 hours
+Example: for a report covering one day, if a host is available 23 hours
 and unavailable 1 hour out of a 24 hour-period, its availability will be
 23 hours / (23 + 1) ~ 95.8%.
 
 #### Services
 
-A service is considered available when its state is "OK" or
+- A service is considered available when its state is "OK" or
 "Warning".
-
-To calculate the availability rate the formula is: ("OK" + "Warning"
+- To calculate the availability rate the formula is: ("OK" + "Warning"
 durations) / ("OK" + "Warning" + "Critical" durations)
 
-Additional rules :
+Additional rules:
 
--   Time spent in the "Unknown" state is not considered in the
-    calculation of the availability.
--   Time spent in "Planned Downtime" is not considered in the
-    calculation of availability.
+- Time spent in the "Unknown" state is not considered in the calculation of the availability.
+- Time spent in "Planned Downtime" is not considered in the calculation of availability.
 
 ### Events
 
@@ -56,27 +50,25 @@ This corresponds to the "HARD" state in Centreon.
 
 In the reports, several message types correspond to different states:
 
--   Exception: Denotes a "Down" state for a host and a "Critical"
-    state for a service.
--   Warning: Denotes a "Warning" state for the services, but there is
-    no equivalent for hosts.
--   Information: Any other state.
+- **Exception:** denotes a "Down" state for a host and a "Critical state for a service.
+- **Warning:** denotes a "Warning" state for the services, but there is no equivalent for hosts.
+- **Information:** any other state.
 
 An event on a host or service is characterized by three values:
 
--   A start date
--   A end date
--   A state.
+- A start date.
+- An end date.
+- A state.
 
 ### Additional indicators
 
--   MTRS (Mean Time To Restore Service) pertains to maintainability:
-    Average duration of the failure. This indicator should be as low as
+- **MTRS (Mean Time To Restore Service)** pertains to maintainability:
+    average duration of the failure. This indicator should be as low as
     possible.
--   MTBF (Mean Time Between Failure) pertains to reliability: Average
+- **MTBF (Mean Time Between Failure)** pertains to reliability: average
     time between the end of an incident and the beginning of the next.
     This indicator should be as high as possible.
--   MTBSI (Mean Time Between Service Incident): Average time between the
+- **MTBSI (Mean Time Between Service Incident)**: average time between the
     beginning of two incidents. This indicator should be as high as
     possible.
 
@@ -94,14 +86,13 @@ To obtain reporting on performance data using default Centreon MBI
 reports, you should monitor at least some basic performance indicators
 (metrics):
 
--   CPU -- Should return a percentage value, using one or more metrics
-    (cpu_total, cpu_sys, cpu_1, etc.), with 100 as the maximum value.
--   Memory should return at least one metric with this information:
-
-  -   Memory usage: the value expressed in bytes only
-  -   Memory usage warning threshold
-  -   Memory usage critical threshold
-  -   Total allocated memory in Bytes.
+- **CPU** should return a percentage value, using one or more metrics
+    (cpu_total, cpu_sys, cpu_1, etc.) with 100 as the maximum value.
+- **Memory** should return at least one metric with this information:
+  - Memory usage: the value expressed in bytes only.
+  - Memory usage warning threshold.
+  - Memory usage critical threshold.
+  - Total allocated memory in Bytes.
 
 The plugin for monitoring this indicator must return the following output:
 
@@ -450,12 +441,12 @@ changes, replace the **-r** by **-d**::
 
 You may require this procedure when the monitoring plugin of your
 reporting server returns a state other than "OK". This may appear
-during daily processing (e.g., data is not up to date, there is
+during daily processing (e.g. data is not up to date, there is
 insufficient space on the reporting server, or processing was manually
 interrupted).
 
 The plugin may return a message that your database is not up to date, as
-in the following example: :
+in the following example:
 
     # /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
     [Table mod_bam_reporting, last entry: 2020-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2020-07-01 00:00:00] [Table hoststateevents, last entry: 2020-07-01 00:00:00]
@@ -464,20 +455,18 @@ in the following example: :
     [Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
     [Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
 
--   When only the `mod_bi` tables appear, there is an incident
+- When only the `mod_bi` tables appear, there is an incident
     with aggregated data and not the Centreon data.
 
     In this case, **skip the "Import Missing data" section** below.
 
--   If the following tables appear, a problem has occurred with the raw
-    data imported from Centreon:
+- If the following tables appear, a problem has occurred with the raw data imported from Centreon:
+  - hoststatevents
+  - servicestateevents
+  - All the mod_bam_reporting* tables
+  - data_bin.
 
--   hoststatevents
--   servicestateevents
--   All the mod_bam_reporting* tables
--   data_bin.
-
-First resolve any incidents on the Centreon side before executing the
+> You need first to resolve any incidents on the Centreon side before executing the
 procedure below.
 
 #### Prerequisites
@@ -485,17 +474,17 @@ procedure below.
 Before running the commands in the procedure below, check that:
 
 -   The Centreon platform is up and running, and data is up to date.
--   The daily cron centreonBIETL is not enabled (it should be commented
+-   The daily cron `centreonBIETL` is not enabled (it should be commented
     out) on the reporting server in the file
-    /etc/cron.d/centreon-bi-engine. It must be enabled at the end of the
+    **/etc/cron.d/centreon-bi-engine**. It must be enabled at the end of the
     procedure.
--   The script dataRetentionManager.pl is not enabled (also commented
+-   The script `dataRetentionManager.pl` is not enabled (also commented
     out) on the reporting server in the file
-    /etc/cron.d/centreon-bi-purge. It must be enabled at the end of the
+    **/etc/cron.d/centreon-bi-purge**. It must be enabled at the end of the
     procedure.
 -   Retention is enabled on the interface.
 -   Retention is configured for no more than 1024 days.
--   The scripts in `/etc/cron.d/centreon-bi-backup-reporting-server` are not enabled
+-   The scripts in **/etc/cron.d/centreon-bi-backup-reporting-server** are not enabled
     (commented out). They must be enabled at the end of the procedure.
 
 
@@ -577,14 +566,14 @@ Before running the commands in the procedure below, check that:
     Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
     `/etc/cron.d/centreon-bi-purge` and restart the cron service:
 
-        systemctl restart crond restart
+        systemctl restart crond
 
 -   Case 2 : **The rebuild finishes the next day**
 
     -   Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
      `/etc/cron.d/centreon-bi-purge` and restart the cron service:
 
-            systemctl restart crond restart
+            systemctl restart crond
 
     -   Manually execute the daily script:
 
@@ -598,19 +587,25 @@ Before running the commands in the procedure below, check that:
 
 ### Centreon BAM statistics
 
-If you recently updated your Centreon BAM module to 3.0 or rebuilt the
-Centreon BAM statistics, you must reimport the BAM data on the reporting
-server by running the following command:
+- Follow this procedure if you rebuilt the Centreon BAM statistics.
 
-    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  - Reimport the BAM data from the central server to the reporting server by running the following command:
+  
+  ```shell
+  /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  ```
+  This will import all Centreon BAM reporting tables.
 
-This will import all Centreon BAM reporting tables.
+- If statistics are not up to date, follow this procedure:
 
-If statistics are not up to date, first execute the following command to rebuild statistics &
-then import them using the previous command
-
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
-
+  1. You need first to execute the following command to rebuild statistics on the central server:
+  ```shell
+  /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+  ```
+  2. Then import them using this command on the reporting server:
+  ```shell
+  /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+  ```
 
 ### How to rebuild only Centile statistics
 

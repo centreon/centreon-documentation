@@ -5,6 +5,10 @@ title: Installer l'extension MAP de Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+- L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
+- Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
+
 > Centreon MAP nécessite une clé de licence valide. Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
 Ce chapitre décrit comment installer Centreon MAP.
@@ -85,10 +89,7 @@ Un élément est tout objet graphique dans Centreon MAP. La plupart des élémen
 
 #### Logiciel
 
-- OS : CentOS 7 or Redhat 7 / 8
-- DBMS : MariaDB 10.5
-- Pare-feu : Désactivé
-- SELinux : Désactivé
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 #### Informations requises lors de la configuration
 
@@ -214,6 +215,26 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
+#### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  
+Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
+
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
@@ -244,7 +265,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
-Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Installez ensuite le serveur Centreon MAP à l'aide de la commande suivante :
 
@@ -283,21 +304,21 @@ Pour installer MariaDB, exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mariadb-client mariadb-server
+dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install mariadb-client mariadb-server
+yum install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install mariadb-client mariadb-server
+apt install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
@@ -342,13 +363,6 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 
 ```shell
 /etc/centreon-studio/configure.sh
-```
-
-Si vous venez d'installer Centreon 22.04, sachez que la plate-forme utilise désormais le nouveau protocole BBDO v3.
-Pour que MAP fonctionne correctement, modifiez le fichier suivant : **/etc/centreon-studio/studio-config.properties**.
-
-```text
-broker.pb.message.enabled=true
 ```
 
 Puis redémarrez le service **centreon-map** :
@@ -399,7 +413,7 @@ Le serveur Centreon MAP est maintenant démarré et activé : installons la part
 
 ### Serveur central
 
-Installez le dépôt Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Installez le dépôt Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Ensuite, exécutez la commande suivante :
 

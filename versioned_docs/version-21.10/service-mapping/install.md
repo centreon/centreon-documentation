@@ -9,14 +9,16 @@ title: Install Centreon BAM extension
 
 ## Prerequisites
 
-The central server and Centreon BAM must be installed in the same major versions (i.e. both in 21.10.x).
+Install BAM on the central server.
+The central server and Centreon BAM must be installed in the same major versions (i.e. both in 22.10.x).
+If you want to be able to view the Business activities monitored by a remote server, install BAM on the remote server too. When BAM is installed on a remote server, the Business activities will only include the resources monitored by the remote server.
 
 ## Installation
 
 ### Install the package
 
 Add the Centreon BAM repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 And install the package using the following command:
 

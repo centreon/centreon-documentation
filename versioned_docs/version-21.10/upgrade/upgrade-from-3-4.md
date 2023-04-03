@@ -24,11 +24,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
-
-### Update to the latest minor version
-
-Update your platform to the latest available minor version of Centreon 3.4 (Centreon Web 2.8).
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade the Centreon central server
 
@@ -72,7 +68,7 @@ yum-config-manager --enable remi-php80
 ### Upgrade the Centreon solution
 
 If you have installed Business extensions, update the Business repository to version 21.10.
-Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell

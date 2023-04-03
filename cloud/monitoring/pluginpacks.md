@@ -33,7 +33,7 @@ to understand the contents of the pack and to find out about any prerequisites. 
 
 ### Installing the pack
 
-You now have access to the Plugin Packs catalog, on page **Configuration > Plugin Packs**:
+You can access the Plugin Packs catalog on page **Configuration > Plugin Packs**:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -65,7 +65,7 @@ this one is only available for Centreon in 18.10.x version:
 
 ## How do I use a Plugin Pack?
 
-Apply a plugin pack to a host or service to start monitoring them:
+Apply a template from a plugin pack to a host or service to start monitoring them:
 
 1. Create the host/the service, and in the **Template(s)** field, choose the template for the Plugin Pack you want.
 

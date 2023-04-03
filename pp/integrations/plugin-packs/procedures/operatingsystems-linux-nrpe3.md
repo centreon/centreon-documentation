@@ -31,23 +31,19 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 
 * Cmd-Generic : Check command returns
 * Connections-Generic : Check tcp/udp connections
-* Cpu-Detailed : Check average usage for each CPUs (User, Nice, System, Idle,
-Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
+* Cpu-Detailed : Check average usage for each CPUs (User, Nice, System, Idle, Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
 * Disk-Generic-Name : Check storage usage (single partition)
 * Disk-Global : Check storage usage (all partitions or filtered with regexp)
 * Disk-IO-Generic-Name : Check some disk io counters (single partition)
-* Disk-IO-Global : Check some disk io counters (all partitions or filtered with
-regexp)
+* Disk-IO-Global : Check some disk io counters (all partitions or filtered with regexp)
 * File-Date-Generic : Check time (modified, creation,...) of files/directories
 * File-Size-Generic : Check size of files/directories
 * Inodes-Generic-Name : Check Inodes space usage (single partition)
-* Inodes-Global : Check Inodes space usage (all partitions or filtered with
-regexp)
+* Inodes-Global : Check Inodes space usage (all partitions or filtered with regexp)
 * Is-File-Generic : Check the presence of a file
 * Is-Not-File-Generic : Check the absence of a file
 * Packet-Errors-Generic-Name : Check packet errors and discards on an interface
-* Packet-Errors-Global : Check packet errors and discards on interfaces (all
-interfaces or filtered with regexp)
+* Packet-Errors-Global : Check packet errors and discards on interfaces (all interfaces or filtered with regexp)
 * Process-Generic : Check linux processes
 * Systemd-Sc-Status : Check services managed by *systemd*
 * Traffic-Generic-Name : Check Traffic (single interface)
@@ -128,22 +124,45 @@ To install them, run the commands below:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
+
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el8.noarch.rpm` and `https://yum.centreon.com/standard/22.10/el8/stable/x86_64/RPMS/centreon-nrpe3-plugin-4.0.3-0.el8.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el7.centos.noarch.rpm` and `https://yum.centreon.com/standard/22.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+# Add centreon-engine user
+useradd --create-home centreon-engine
+# Install gpg
+apt install gpg
+# Add Centreon repo
+wget -qO- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon.list
+apt update
+# Install centreon-nrpe3-daemon
+apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
+# Create directory for the plugin cache
+mkdir -p /var/lib/centreon/centplugins/
+chown centreon-engine: /var/lib/centreon/centplugins/
+```
+
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-plugin-operatingsystems-linux-local%2Fcentreon-plugin-operatingsystems-linux-local_20221215-102705-bullseye_amd64.deb` and `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-nrpe3-daemon%2Fcentreon-nrpe3-daemon_4.0.3-1_amd64.deb` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `apt update` command, so it is not recommended**.
+
 </TabItem>
 </Tabs>
-
-> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` and `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
 
 #### NRPE daemon configuration
 
@@ -209,7 +228,7 @@ If everything is fine, this command:
 should produce this output:
 
 ```text
-NRPE v3.2.1
+NRPE v4.0.3
 ```
 
 Otherwise please refer to the [troubleshooting](#troubleshooting) section.
@@ -272,7 +291,7 @@ If the output of the command is:
 connect to address x.x.x.x port 5666: Connection refused
 ```
 
-It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon. 
+It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon.
 
 The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-configuration)).
 

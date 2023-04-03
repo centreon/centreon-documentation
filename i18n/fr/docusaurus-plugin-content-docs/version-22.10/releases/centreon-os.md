@@ -18,6 +18,131 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.7
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Configuration] Fixed an issue preventing an escalation from being updated.
+- [Configuration] Fixed an issue preventing a service group from being updated.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+- [UI] Fixed the issue where 99+ was displayed instead of the exact value on the top counter for values under 1000.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
+### 22.10.6
+
+Release date: `February 22, 2023`
+
+#### Bug fixes
+
+- [Authentication] Added an LDAP connection timeout to avoid infinite connection.
+- [Authentication] Added possibility to use token endpoint to get list of roles and groups for mapping.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
+- [Authentication] Fixed a PHP error in IDP response with a string instead of an array for roles list.
+- [AnomalyDetection] Fixed an envelope computation error. 
+- [CLAPI] Removed mandatory password for LDAP users creation.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an installation error when the chrony package is already installed.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
+- [Install] Fixed an error indicating that the timezone was not initialized during Debian package installation.
+- [Install] Fixed an SQL error with MySQL 8.
+- [Install] Fixed an app_key error during upgrade.
+- [Install] Fixed a PHP error when using API to perform an upgrade.
+- [Install] Fixed an error which prevented access to the update wizard after packages update.
+- [LDAP] Fixed auto-import of users.
+- [ResourceStatus] Fixed an issue where the date picker displayed duplicated dates, resulting in day shifts.
+- [UI] Fixed an aesthetic issue in Resource Status table header.
+- [UI] Fixed buttons and radio buttons in administration pages.
+- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+
+#### Enhancements
+
+- [Administration] Added a display of remaining disk free space where images are stored.
+- Optimized queries used to display the services monitoring page.
+- Optimized queries used to display the hosts monitoring page.
+- Optimized queries used to display the services grid monitoring page.
+
+### 22.10.5
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
+
+### 22.10.4
+
+Release date: `January 10, 2023`
+
+#### Bug fixes
+
+- [Core] Fixed update scripts that could cause an error during poller configuration export after update from 22.10.2 to 22.10.3
+
+### 22.10.3
+
+Release date: `January 9, 2023`
+
+#### Enhancements
+
+- [APIv2] Added vault configuration endpoint
+
+#### Bug fixes
+
+- Fixed a bug that blocked exporting multiple pollers' configuration at the same time with a shared severity
+- [Authentication] Fixed authentication with complete URL for token endpoint
+- Fixed bug where it's impossible to filter on hosts and/or services in Centreon 22.10.
+- Fixed an ACL bug allowing users to modify users even when they had read-only permissions
+- Acknowledgement/downtimes failed without returning an error when the character case for the resource was wrong
+- Fixed a bug linked to forbidden characters in Engine object names that could strip the '0', '3' and '9' digits from host names
+- Allow users to configure Broker's global maximum retention
+- Fixed an issue that caused months to be missing from the calendar selection
+- Fixed bug with pagination on event log page
+- Fixed recurrent downtime editing issues with disabled objects
+- [Resources Status] Fixed an issue causing ACL action "Display executed command by monitoring engine" to not be applied on the Resources Status page
+- Fixed "view contact notifications" window
+- [API] Fixed API access when user doesn't have access to UI
+- Fixed an issue where the pagination was not displayed in all legacy pages
+- [Install] Fixed app_key error during upgrade
+
+#### Security fixes
+
+- [Core] Fixed vulnerabilities in functions.js file
+- [Configuration] Sanitized queries in the list of services by host group
+- [Configuration] Sanitized queries in the list of host categories
+- [Configuration] Sanitized queries in the list of commands
+- [Core] Fixed vulnerabilities in ajaxLdapSearch.js file
+- [Configuration] Sanitized queries in the list of Broker configurations
+- [Core] Fixed vulnerabilities in color_picker.php
+- [Core] Fixed vulnerabilities in pathway.php
+- [Core] Fixed vulnerabilities in color_picker_mb.php
+- [Core] Fixed vulnerabilities in rename.php
+- [Configuration] Fixed vulnerabilities in services listing
+- [Configuration] Fixed vulnerabilities in host form
+- Fixed an issue with how users' roles were retrieved.
+
+### 22.10.2
+
+Release date: `December 7, 2022`
+
+#### Bug fixes
+
+- Fixed an issue with large SQL queries that caused the Centreon interface to become unavailable
+- [Install] Added missing update scripts
+
 ### 22.10.1
 
 Release date: `November 4, 2022`
@@ -83,6 +208,15 @@ Release date: `October 26, 2022`
 > In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
 ## Centreon Collect
+
+### 22.10.1
+
+Release date: `March 16, 2023`
+
+#### Centreon Broker
+
+##### Bug fix
+- Fixed an issue in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.10.0
 

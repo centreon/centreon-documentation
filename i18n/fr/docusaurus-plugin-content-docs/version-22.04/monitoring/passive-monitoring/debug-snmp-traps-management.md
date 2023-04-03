@@ -26,7 +26,7 @@ permettre de valider la réception du flux de données sur le port UDP 162.
 
 Une fois la réception du flux validé, vérifiez l’état de fonctionnement du processus snmptrapd, qui doit être en cours
 d’exécution, ainsi que ses options de configuration. Il est possible d’activer la journalisation du processus. Pour
-cela modifiez le fichier **/etc/sysconfig/snmptrapd.option** et remplacez la ligne "OPTIONS" pour avoir :
+cela modifiez le fichier **/etc/sysconfig/snmptrapd** et remplacez la ligne "OPTIONS" pour avoir :
 
 ```shell
 # snmptrapd command line options
@@ -81,6 +81,24 @@ son fonctionnement, il convient de vérifier les paramètres de configuration de
 
 Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitre de configuration de
 *[centreontrapd](enable-snmp-traps.md#centreontrapd)*.
+
+Vous pouvez activer le mode debug pour le service **centreontrapd**. Éditez le fichier suivant :
+
+```shell
+vi /etc/sysconfig/centreontrapd
+```
+
+Puis modifiez l'option **severity** en **debug** :
+
+```shell
+OPTIONS="--logfile=/var/log/centreon/centreontrapd.log --severity=debug --config=/etc/centreon/conf.pm  --config-extra=/etc/centreon/centreontrapd.pm"
+```
+
+Puis redémarrez **centreontrapd** :
+
+```shell
+systemctl restart centreontrapd
+```
 
 ### Centeon Gorgone
 

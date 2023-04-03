@@ -6,6 +6,8 @@ title: Secure your MAP platform
 This chapter describes advanced procedures to secure your Centreon MAP
 platform.
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 ## Configure HTTPS/TLS on the MAP server
 
 ### HTTPS/TLS configuration with a recognized key

@@ -577,14 +577,14 @@ Before running the commands in the procedure below, check that:
     Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
     `/etc/cron.d/centreon-bi-purge` and restart the cron service:
 
-        systemctl restart crond restart
+        systemctl restart crond
 
 -   Case 2 : **The rebuild finishes the next day**
 
     -   Uncomment the lines in `/etc/cron.d/centreon-bi-engine` and
      `/etc/cron.d/centreon-bi-purge` and restart the cron service:
 
-            systemctl restart crond restart
+            systemctl restart crond
 
     -   Manually execute the daily script:
 

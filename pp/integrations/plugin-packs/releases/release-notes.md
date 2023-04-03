@@ -6,7 +6,172 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2023
+
+### March
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - initial release - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.03.1-1
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - applications-controlm-restapi - initial release - Status:stable - centreon-pack-applications-controlm-restapi-23.03.0-1
+- [**Riello UPS SNMP**](../procedures/hardware-ups-riello-snmp.md) - hardware-ups-riello-snmp - initial release - Status:stable - centreon-pack-hardware-ups-riello-snmp-23.03.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - add missing packs for discovery - Status:stable - centreon-pack-cloud-azure-management-discover-23.03.0-1
+- [**CheckPoint firewall**](../procedures/network-firewalls-checkpoint-snmp.md) - network-firewalls-checkpoint-snmp - add disk service - Status:stable - centreon-pack-network-firewalls-checkpoint-snmp-23.03.0-1
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - add AP discovery - Status:stable - centreon-pack-network-cisco-wlc-snmp-23.03.2-1
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - hardware-ups-standard-rfc1628-snmp - add thresholds for alarm services - Status:stable - centreon-pack-hardware-ups-standard-rfc1628-snmp-23.03.0-1
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - new attributes and fixed types - Status:stable - centreon-pack-virtualization-vmware2-esx-23.03.2-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - centreon-sql-metrics - fix partitioning mode - Status:stable - centreon-pack-applications-monitoring-centreon-sql-metrics-23.03.0-1
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - cloud-kubernetes-api - fix node host discovery - Status:stable - centreon-pack-cloud-kubernetes-api-23.03.0-1
+
+</TabItem>
+</Tabs>
+
+### February
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Oracle UCP JMX**](../procedures/applications-oracle-ucp-jmx.md) - applications-oracle-ucp-jmx - initial release - Status:stable - centreon-pack-applications-oracle-ucp-jmx-23.02.0-1
+- [**WD NAS SNMP**](../procedures/hardware-storage-wd-nas-snmp.md) - hardware-storage-wd-nas-snmp - initial release - Status:stable - centreon-pack-hardware-storage-wd-nas-snmp-23.02.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - network-switchs-alcatel-omniswitch-snmp - add interfaces service - Status:stable - centreon-pack-network-switchs-alcatel-omniswitch-snmp-23.02.0-1
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - cloud::azure::database::sqldatabase - add EXTRAOPTIONS on health template - Status:stable - centreon-pack-cloud-azure-database-sqldatabase-23.02.1-1
+- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - storage::dell::powerstore::restapi - add service memory - Status:stable - centreon-pack-hardware-storage-dell-powerstore-restapi-23.02.0-1
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - cloud-kubernetes-api - add --namespace option - Status:stable - centreon-pack-cloud-kubernetes-api-23.02.2-1
+- [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - hardware-pdu-raritan-snmp - add external-sensors mode - Status:stable - centreon-pack-hardware-pdu-raritan-snmp-23.02.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Jenkins API**](../procedures/applications-jenkins.md) - applications-jenkins - change service name and options - Status:stable - centreon-pack-applications-jenkins-23.02.0-1
+
+</TabItem>
+</Tabs>
+
+### January
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Talend TMC API**](../procedures/cloud-talend-tmc-api.md) - cloud-talend-tmc-api - initial release - Status:stable - centreon-pack-cloud-talend-tmc-api-23.01.0-1
+- [**Vectra Rest API**](../procedures/network-vectra-restapi.md) - network-vectra-restapi - initial release - Status:stable - centreon-pack-network-vectra-restapi-23.01.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Pure Storage FlashArray Legacy Rest API**](../procedures/hardware-storage-purestorage-flasharray-legacy-restapi.md) - refactoring purestorage rest api - Status:stable - centreon-pack-hardware-storage-purestorage-flasharray-legacy-restapi-23.01.0-1
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - refactoring purestorage rest api - Status:stable - centreon-pack-hardware-storage-purestorage-flasharray-v2-restapi-23.01.0-1
+- [**Pure Storage FlashBlade Rest API v2**](../procedures/hardware-storage-purestorage-flashblade-v2-restapi.md) - refactoring purestorage rest api - Status:stable - centreon-pack-hardware-storage-purestorage-flashblade-v2-restapi-23.01.0-1
+- [**Pure Storage RestAPI**](../procedures/hardware-storage-purestorage-restapi.md) - refactoring purestorage rest api - Status:deprecated - centreon-pack-hardware-storage-purestorage-restapi-23.01.0-1
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - operatingsystems-linux-nrpe3 - update diskio command options - Status:stable - centreon-pack-operatingsystems-linux-nrpe3-23.01.0-1
+- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - enh (cloud-aws-elasticache): Add discovery mode/rule for AWS ElastiCache - Status:stable - centreon-pack-cloud-aws-elasticache-23.01.2-1
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - fix (sql-metrics): add poller delay - Status:stable - centreon-pack-applications-monitoring-centreon-sql-metrics-23.01.5-1
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - enh (cloud-aws-cloudfront): Add discovery mode/rule for AWS CloudFront - Status:stable - centreon-pack-cloud-aws-cloudfront-23.01.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - fix typo cloud-aws-rds instance-status mode - Status:stable - centreon-pack-cloud-aws-rds-23.01.0-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-cloud-aws-billing-23.01.0-1
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-network-cisco-meraki-restapi-23.01.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - fix(kadiska): fix the discovery commands and arguments  - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.01.2-1
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - fix(pp): increased release number - Status:stable - centreon-pack-applications-nmap-cli-23.01.0-1
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters - Status:stable - centreon-pack-virtualization-proxmox-ve-restapi-23.01.0-1
+- [**RabbitMQ RestAPI**](../procedures/applications-rabbitmq-restapi.md) - FIX(pack): RabbitMQ - Update MACROS values - Status:stable - centreon-pack-applications-rabbitmq-restapi-23.02.0-1
+
+</TabItem>
+</Tabs>
+
 ## 2022
+
+### December
+
+<Tabs groupId="sync">
+
+<TabItem value="New connectors" label="New connectors">
+
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - network-stormshield-api - initial release - Status:stable - centreon-pack-network-stormshield-api-22.12.0-1
+- [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Add Patton Snmp plugin pack - Status:stable - centreon-pack-network-patton-smartnode-snmp-22.12.0-1
+- [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - hardware-sensors-apc-snmp - initial release - Status:stable - centreon-pack-hardware-sensors-apc-snmp-22.12.0-1
+
+</TabItem>
+
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - hardware-storage-netapp-ontap-restapi - add service quotas - Status:stable - centreon-pack-hardware-storage-netapp-ontap-restapi-22.12.0-1
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - applications-thales-mistral-vs9-restapi - add service clusters - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-22.12.0-1
+- [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - cloud-microsoft-office365-management - add subscriptions service - Status:stable - centreon-pack-cloud-microsoft-office365-management-22.12.0-1
+- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - hardware-storage-hitachi-hnas-snmp - add service virtual-volumes-quotas - Status:stable - centreon-pack-hardware-storage-hitachi-hnas-snmp-22.12.0-1
+
+</TabItem>
+
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Informix DB**](../procedures/applications-databases-informix.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-informix-22.12.0-1
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-mssql-22.12.0-1
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-mysql-22.12.0-1
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-oracle-22.12.0-1
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-postgresql-22.12.0-1
+- [**Sybase**](../procedures/applications-databases-sybase.md) - multiple database packs - change sql-statement option protection - Status:stable - centreon-pack-applications-databases-sybase-22.12.0-1
+- [**Antivirus ClamAV**](../procedures/applications-antivirus-clamav-ssh.md) - applications-antivirus-clamav-ssh - use new ssh backend - Status:stable - centreon-pack-applications-antivirus-clamav-ssh-22.12.0-1
+
+</TabItem>
+
+</Tabs>
+
+### November
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Himoinsa UPS**](../procedures/hardware-ups-himoinsa-snmp.md) - Adding Himoinsa Plugin pack - Status:stable - centreon-pack-hardware-ups-himoinsa-snmp-22.11.0-1
+- [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - New monitoring pack - Status:stable - centreon-pack-cloud-azure-datafactory-factories-22.11.2-1
+- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-22.11.0-1
+- [**Enterasys SNMP**](../procedures/network-enterasys-snmp.md) - New monitoring pack - Status:stable - centreon-pack-network-enterasys-snmp-22.11.0-1
+- [**Avaya CM SNMP**](../procedures/hardware-telephony-avaya-cm-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-telephony-avaya-cm-snmp-22.11.0-1
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Adding Pica8 PICOS plugin pack - Status:stable - centreon-pack-operatingsystems-picos-snmp-22.11.0-1
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - New monitoring pack - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-22.11.0-1
+- [**PineApp Mail Secure**](../procedures/applications-pineapp-securemail-snmp.md) - Add new Pineapp Secure mail Pack - Status:stable - centreon-pack-applications-pineapp-securemail-snmp-22.11.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Add four new modes - Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance - Status:stable - centreon-pack-cloud-azure-management-costs-22.11.2-1
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - New SNMP Host discovery for IP protocol (rfc4293) - Status:stable - centreon-pack-applications-protocol-snmp-22.11.0-1
+- [**Huawei OceanStor SNMP**](../procedures/hardware-storage-huawei-oceanstor-snmp.md) - Add new service to check luns - Status:stable - centreon-pack-hardware-storage-huawei-oceanstor-snmp-22.11.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Ansible**](../procedures/applications-ansible-cli.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-applications-ansible-cli-22.11.0-1
+- [**EMC RecoveryPoint**](../procedures/applications-backup-emc-recoverypoint-ssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-applications-backup-emc-recoverypoint-ssh-22.11.0-1
+- [**Sun SFxxK**](../procedures/hardware-servers-sun-sfxxk-pssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-hardware-servers-sun-sfxxk-pssh-22.11.0-1
+- [**Cisco Standard SSH**](../procedures/network-cisco-standard-ssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-network-cisco-standard-ssh-22.11.0-1
+- [**Stormshield SSH**](../procedures/network-stormshield-ssh.md) - Migrate and secure the underlying modes - Status:stable - centreon-pack-network-stormshield-ssh-22.11.0-1
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Replace a standard command by dedicated ones - Status:stable - centreon-pack-applications-databases-mssql-22.11.1-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Ontap Restapi - Adding Aggregates service template - Status:stable - centreon-pack-hardware-storage-netapp-ontap-restapi-22.11.0-1
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fix PASSWORD and FILTER macros attributes - Status:stable - centreon-pack-applications-monitoring-iplabel-ekara-restapi-22.11.0-1
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fix erroneous mode name in Updates command - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-22.11.0-1
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Remove wrong options from the uptime command - Status:stable - centreon-pack-network-mikrotik-snmp-22.11.0-1
+
+</TabItem>
+</Tabs>
 
 ### October
 

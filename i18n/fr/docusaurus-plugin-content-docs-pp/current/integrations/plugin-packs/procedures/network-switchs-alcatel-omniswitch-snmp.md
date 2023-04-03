@@ -5,7 +5,6 @@ title: Alcatel Omniswitch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Contenu du Pack
 
 ### Modèles
@@ -16,34 +15,27 @@ Le Pack Centreon **Alcatel Omniswitch** apporte un modèle d'hôte :
 
 Il apporte les modèles de service suivants :
 
-| Alias                      | Modèle de service                                      | Description                                               | Défaut |
-|:---------------------------|:-------------------------------------------------------|:----------------------------------------------------------|:-------|
-| Traffic-Global             | Net-Alcatel-Omniswitc-Traffic-Global-SNMP              | Contrôle le traffic réseau de plusieurs interfaces réseau |        |
-| Cpu                        | Net-Alcatel-Omniswitch-Cpu-SNMP                        | Contrôle le taux d'utilisation du CPU                     | X      |
-| Flash-Memory               | Net-Alcatel-Omniswitch-Flash-Memory-SNMP               | Contrôle le taux d'utilisation de la mémoire Flash        | X      |
-| Hardware                   | Net-Alcatel-Omniswitch-Hardware-SNMP                   | Contrôle l'état du hardware                               | X      |
-| Memory                     | Net-Alcatel-Omniswitch-Memory-SNMP                     | Contrôle le taux d'utilisation de la mémoire              | X      |
-| Packet-Errors-Generic-Id   | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Id-SNMP   | Contrôle le pourcentage de paquets en erreur              |        |
-| Packet-Errors-Generic-Name | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Name-SNMP | Contrôle le pourcentage de paquets en erreur              |        |
-| Packet-Errors-Global       | Net-Alcatel-Omniswitch-Packet-Errors-Global-SNMP       | Contrôle le pourcentage de paquets en erreur              |        |
-| Spanning-Tree              | Net-Alcatel-Omniswitch-SpanningTree-SNMP               | Contrôle l'état du spanning tree sur les interfaces       |        |
-| Traffic-Generic-Id         | Net-Alcatel-Omniswitch-Traffic-Generic-Id-SNMP         | Contrôle le traffic réseau d'une interface réseau         |        |
-| Traffic-Generic-Name       | Net-Alcatel-Omniswitch-Traffic-Generic-Name-SNMP       | Contrôle le traffic réseau d'une interface réseau         |        |
-| Traffic-Global             | Net-Alcatel-Omniswitch-Traffic-Global-SNMP             | Contrôle le traffic réseau d'une interface réseau         |        |
-| Virtual-Chassis            | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP            | Contrôle l'état des chassis virtuels                      |         |
+| Alias           | Modèle de service                           | Description                                               | Défaut |
+|:----------------|:--------------------------------------------|:----------------------------------------------------------|:-------|
+| Cpu             | Net-Alcatel-Omniswitch-Cpu-SNMP             | Contrôle le taux d'utilisation du CPU                     | X      |
+| Flash-Memory    | Net-Alcatel-Omniswitch-Flash-Memory-SNMP    | Contrôle le taux d'utilisation de la mémoire Flash        | X      |
+| Hardware        | Net-Alcatel-Omniswitch-Hardware-SNMP        | Contrôle l'état du hardware                               | X      |
+| Interfaces      | Net-Alcatel-Omniswitch-Interfaces-SNMP      | Contrôle les interfaces                                   |        |
+| Memory          | Net-Alcatel-Omniswitch-Memory-SNMP          | Contrôle le taux d'utilisation de la mémoire              | X      |
+| Spanning-Tree   | Net-Alcatel-Omniswitch-SpanningTree-SNMP    | Contrôle l'état du spanning tree sur les interfaces       |        |
+| Virtual-Chassis | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP | Contrôle l'état des châssis virtuels                      |        |
 
 ### Règles de découverte
 
 <Tabs groupId="sync">
 <TabItem value="Service" label="Service">
 
-| Nom de la règle                                | Description                                                           |
-|:-----------------------------------------------|:----------------------------------------------------------------------|
-| Net-Alcatel-Omniswitch-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
-| Net-Alcatel-Omniswitch-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Nom de la règle                            | Description                                                            |
+|:-------------------------------------------|:-----------------------------------------------------------------------|
+| Net-Alcatel-Omniswitch-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>
 </Tabs>
@@ -73,34 +65,17 @@ Could not retrieve metrics
 Could not retrieve metrics
 
 </TabItem>
-<TabItem value="Packet-Errors-Generic-Id" label="Packet-Errors-Generic-Id">
+<TabItem value="Interfaces" label="Interfaces">
 
-| Métrique                                       | Unité |
-|:-----------------------------------------------|:------|
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
-
-</TabItem>
-<TabItem value="Packet-Errors-Generic-Name" label="Packet-Errors-Generic-Name">
-
-| Métrique                                       | Unité |
-|:-----------------------------------------------|:------|
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
-
-</TabItem>
-<TabItem value="Packet-Errors-Global" label="Packet-Errors-Global">
-
-| Métrique                                       | Unité |
-|:-----------------------------------------------|:------|
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
+| Métrique                                                  | Unité |
+|:--------------------------------------------------------- |:----- |
+| status                                                    |       |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
@@ -108,30 +83,6 @@ Could not retrieve metrics
 | Métrique               | Unité |
 |:-----------------------|:------|
 | *spanningtrees*#status |       |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
-
-| Métrique                                  | Unité |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
-
-| Métrique                                  | Unité |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
-
-</TabItem>
-<TabItem value="Traffic-Global" label="Traffic-Global">
-
-| Métrique                                  | Unité |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 <TabItem value="Virtual-Chassis" label="Virtual-Chassis">
