@@ -195,18 +195,6 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
-### 22.04.4
-
-Release date: `April 3, 2023`
-
-#### Bug fixes
-
-- [Server] Fixed an issue that prevented MBI pages from being displayed even when module and license were installed.
-
-#### Enhancements
-
-- [ETL] Improved time for daily ETL calculation.
-
 ### 22.04.3
 
 Release date: `October 25, 2022`
