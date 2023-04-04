@@ -210,6 +210,7 @@ diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rp
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
 Notamment, assurez-vous que votre configuration Apache personnalisée contient la directive suivante (incluant **authentication**).
+
 ```
 <LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
@@ -278,9 +279,14 @@ diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/r
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
-	@@ -238,6 +314,56 @@ Notamment, assurez-vous que votre configuration Apache personnalisée contient l
+Notamment, assurez-vous que votre configuration Apache personnalisée contient la directive suivante (incluant **authentication**) :
+
+```shell
+<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
 ```
+
 Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
 ```shell
 /opt/rh/httpd24/root/usr/sbin/apachectl configtest
