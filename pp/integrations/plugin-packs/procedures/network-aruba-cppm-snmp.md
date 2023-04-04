@@ -20,7 +20,7 @@ It brings the following service templates:
 | Cpu           | Net-Aruba-Cppm-Cpu-SNMP          | Check CPU                                  | X       |           |
 | Disks         | Net-Aruba-Cppm-Disks-SNMP        | Check disks                                | X       |           |
 | Interfaces    | Net-Aruba-Cppm-Interfaces-SNMP   | Check interfaces                           |         | X         |
-| Memory        | Net-Aruba-Cppm-Memory-SNMP       | Check memories                             | X       |           |
+| Memory        | Net-Aruba-Cppm-Memory-SNMP       | Check memory                            | X       |           |
 | Radius        | Net-Aruba-Cppm-Radius-SNMP       | Check radius statistics                    |         |           |
 | Repositories  | Net-Aruba-Cppm-Repositories-SNMP | Check authentication repository statistics |         |           |
 | Tacacs        | Net-Aruba-Cppm-Tacacs-SNMP       | Check TACACS                               |         |           |
