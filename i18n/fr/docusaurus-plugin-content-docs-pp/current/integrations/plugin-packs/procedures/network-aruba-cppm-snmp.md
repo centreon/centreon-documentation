@@ -115,8 +115,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Configuration SNMP
 
-Afin de superviser votre **Aruba CPPM** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+Afin de superviser votre **Aruba CPPM** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
 
 ### Flux réseau
 

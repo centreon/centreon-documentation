@@ -116,8 +116,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery#dis
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your **Aruba CPPM**
-server. Please refer to the official documentation from XXX:
-* LINK
+equipment.
 
 ### Network flow
 
