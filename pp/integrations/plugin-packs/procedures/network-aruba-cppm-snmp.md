@@ -17,7 +17,7 @@ It brings the following service templates:
 
 | Service Alias | Service Template                 | Service Description                        | Default | Discovery |
 |:--------------|:---------------------------------|:-------------------------------------------|:--------|:----------|
-| Cpu           | Net-Aruba-Cppm-Cpu-SNMP          | Check cpu                                  | X       |           |
+| Cpu           | Net-Aruba-Cppm-Cpu-SNMP          | Check CPU                                  | X       |           |
 | Disks         | Net-Aruba-Cppm-Disks-SNMP        | Check disks                                | X       |           |
 | Interfaces    | Net-Aruba-Cppm-Interfaces-SNMP   | Check interfaces                           |         | X         |
 | Memory        | Net-Aruba-Cppm-Memory-SNMP       | Check memories                             | X       |           |
