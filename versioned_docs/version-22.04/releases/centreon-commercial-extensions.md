@@ -16,6 +16,54 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.5 ###
+
+Release date: `April 3, 2023`
+
+> You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#step-6--execute-the-configuresh-script) in order to apply some fixes provided by this release.
+
+#### Bug fixes
+
+- [API] Fixed an issue with create element in view that could break default icon.
+- [Authentication] Fixed an issue with authentication when several sessions are active.
+- [CEIP] Added more details for MAP engine telemetry.
+- [Editor] Fixed edition of specific views after migration.
+- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed an issue that prevented users from drawing rectangles and ellipses.
+- [Editor] Fixed an issue where users could not edit pie chart properties.
+- [Editor] Fixed an issue with Host and Service icons configuration that were not handled properly.
+- [Editor] Fixed an issue with insert an object in a link prevented the map from being saved.
+- [Editor] Fixed an issue with link properties that prevented the link from being visible in the editor.
+- [Editor] Fixed an issue with links in the editor that prevented the user from saving a view.
+- [Editor] Fixed an issue with map sharing.
+- [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
+- [Install] Fixed the **configure.sh** script to include storage event from Broker output.
+- [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
+- [Server] Fixed an issue that caused server to crash on corrupted metrics.
+- [Server] Fixed an issue that made new hosts and services unavailable until restart.
+- [Server] Fixed an issue that prevented the migration between MAP Legacy and MAP.
+- [Server] Fixed an issue with migration and images that could cause migration process to stop.
+- [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
+- [Viewer] Fixed an issue that could cause a blank page to be displayed when user clicked on host name link inside a map.
+- [Viewer] Fixed an issue that prevented to display all metrics in tooltips graphs.
+- [Viewer] Fixed an issue when custom URL was set and prevented some old media in maps from being displayed correctly.
+- [Viewer] Fixed an issue when dark theme was not applied on tooltips in Geo views or Standard views.
+- [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
+- [Viewer] Fixed the background layout not fitting large map.
+- [Viewer] Fixed view edition with some links having corrupted bend points.
+
+#### Enhancements
+
+- [API] Added documentation and sanitization of the API.
+- [API] Improved API response when server is starting up.
+- [API] Removed deprecated REST endpoints.
+- [Editor] Added resource parent name in graph.
+- [Editor] Added spacing to the title inside the MAP configuration modal.
+- [Editor] Added the display of supported shapes only at the double-click on the editor.
+- [Editor] Aligned "Submit button" inside the MAP configuration modal.
+- [Editor] Managed view background color.
+- [Viewer] Made viewer and editor rendering more consistent.
+
 ### 22.04.4
 
 Release date : `January 20, 2023`
@@ -50,6 +98,12 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.5
+
+Release date: `April 3, 2023`
+
+- [Server] Fixed Spring persistence issue on sign in.
+
 ### 22.04.4
 
 Release date : `January 20, 2023`
@@ -59,7 +113,7 @@ Release date : `January 20, 2023`
 ### 22.04.3
 
 - No change.
- 
+
 ### 22.04.2
 
 Release date: `December 16, 2022`
@@ -103,10 +157,25 @@ Release date: `July 13, 2022`
 
 ## Centreon BAM
 
+### 22.04.3
+
+Release date: `April 3, 2023`
+
+#### Bug fixes
+
+- [Configuration] Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- [Server] Fixed an export issue that prevented Remote Servers from displaying BAM reporting statistics.
+- [Server] Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
+- [UI] Fixed an issue in the BA monitoring redirection.
+- [UI] Fixed an issue that made BA tree not visible if dark mode was used.
+- [UI] Fixed an issue that prevented Business Activities top counter from loading.
+- [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
+
 ### 22.04.2
 
 Release date: `September 14, 2022`
- 
+
 - [Install] Fixed installation of module if 24x7 timeperiod is missing
 - [Banner] Fixed display of empty skeleton
 - [UI] Fixed header and skeleton UI instability
@@ -192,6 +261,18 @@ Release date: `August 10, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon Anomaly Detection
+
+### 22.04.1
+
+Release date: `April 3, 2023`
+
+#### Bug fix
+
+- [Core] Fixed SQL queries when databases names contain dash.
+
+#### Enhancement
+
+- [Monitoring] Downtimes are now also sent to Centreon SaaS platform for Anomaly Detection services.
 
 ### 22.04.0
 

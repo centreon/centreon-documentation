@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Elasticsearch is a distributed, open source search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).
 
-## Plugin-Pack assests
+## Plugin-Pack assets
 
 ### Monitored objects
 
