@@ -24,7 +24,7 @@ The diagram below summarizes the MAP architecture.
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
 
-**Table of network flow**
+**Table of network flows**
 
 | Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
 |----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
@@ -49,6 +49,132 @@ team](https://support.centreon.com/) to get and install your license key.
 #### Software
 
 See the [software requirements](../installation/prerequisites.md#software).
+
+#### Hardware
+
+<Tabs groupId="sync">
+<TabItem value="Up to 500 hosts" label="Up to 500 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 2 vCPU    |
+| RAM                         | 4 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+
+</TabItem>
+<TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 4 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+
+</TabItem>
+<TabItem value="Up to 2,500 hosts" label="Up to 2,500 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 10 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Up to 5,000 hosts" label="Up to 5,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 18 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Up to 10,000 hosts" label="Up to 10,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 6 vCPU    |
+| RAM                         | 18 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+
+For very large amounts of data, contact your sales representative.
+
+</TabItem>
+</Tabs>
+
+#### Memory for Java
+
+To correctly implement the dedicated memory:
+
+1. Edit the *JAVA\_OPTS* parameter in the Centreon Map configuration file
+`/etc/centreon-map/centreon-map.conf`:
+
+   ```text
+   JAVA_OPTS="-Xms512m -Xmx4G"
+   ```
+
+   > The Xmx value depends on the amount of memory indicated in the tables in the [Hardware](#hardware) section.
+
+2. Restart the service:
+
+   ```shell
+   systemctl restart centreon-map-engine
+   ```
 
 #### Information required during configuration
 
