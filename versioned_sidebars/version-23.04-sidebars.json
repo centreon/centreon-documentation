@@ -971,6 +971,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/upgrade/upgrade-from-22-10"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/upgrade/upgrade-from-22-04"
             },
             {
