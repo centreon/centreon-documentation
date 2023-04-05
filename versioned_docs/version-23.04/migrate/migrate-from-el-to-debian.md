@@ -2,6 +2,8 @@
 id: migrate-from-el-to-debian
 title: Migrate from an EL-type OS to Debian 11
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 

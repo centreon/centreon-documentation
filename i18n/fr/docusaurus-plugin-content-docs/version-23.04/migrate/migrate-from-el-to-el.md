@@ -2,6 +2,8 @@
 id: migrate-from-el-to-el
 title: Migrer depuis un OS de type EL vers un autre OS de type EL (depuis un Centreon 18.10 ou plus récent)
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
