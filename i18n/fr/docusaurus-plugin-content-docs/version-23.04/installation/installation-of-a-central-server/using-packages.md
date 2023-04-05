@@ -323,7 +323,6 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 
 ```shell
 dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon.repo
-dnf config-manager --set-enabled 'centreon*'
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -333,7 +332,6 @@ dnf update
 
 ```shell
 dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el9/centreon.repo
-dnf config-manager --set-enabled 'centreon*'
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -349,6 +347,7 @@ Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>

@@ -318,8 +318,7 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon.repo
-dnf config-manager --set-enabled 'centreon*'
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -328,8 +327,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el9/centreon.repo
-dnf config-manager --set-enabled 'centreon*'
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el9/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -337,7 +335,7 @@ dnf update
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-To install the Centreon repository, execute following command line:
+To install the Centreon repository, execute following command:
 
 ```shell
 echo "deb https://apt.centreon.com/artifactory/apt-23.04-stable/$(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -347,6 +345,7 @@ Then import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>
