@@ -149,7 +149,7 @@ Follow this procedure to set a default page:
 
   1. Go to the **Configuration > Users > Contact Templates** page.
 
-  2. Click the **Add** button to fill in the **Add a User Template** form.
+  2. Select an existing template or click the **Add** button to fill in the **Add a User Template** form.
       
   3. In the **Default page** field, select the page name in the dropdown list. Then save your changes.
   
@@ -165,7 +165,7 @@ Follow this procedure to set a default page:
 1. From your terminal, connect to **MariaDB** and run the following command:
   
   ```shell
-  Use centreon ;
+  use centreon ;
   ```
   
 2. Get the "topology page" number for the Resource Status page:

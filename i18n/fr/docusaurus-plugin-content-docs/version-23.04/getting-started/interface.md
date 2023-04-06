@@ -150,7 +150,7 @@ Suivez cette procédure pour définir une page par défaut :
 
  1. Allez à la page **Configuration > Utilisateurs > Modèles de contact**.
 
-  2. Cliquez sur le bouton **Ajouter** pour remplir le formulaire **Ajouter un modèle utilisateur**.
+  2. Sélectionnez un modèle ou cliquez sur le bouton **Ajouter** pour remplir le formulaire **Ajouter un modèle utilisateur**.
       
   3. Dans le champ **Page par défaut**, sélectionnez le nom de la page dans la liste déroulante. Puis enregistrez vos modifications.
   
@@ -166,7 +166,7 @@ Suivez cette procédure pour définir une page par défaut :
 1. Depuis votre terminal, connectez-vous à **MariaDB** et exécutez la commande suivante :
   
   ```shell
-  Use centreon ;
+  use centreon ;
   ```
   
 2. Récupérez le numéro de la "page topologique" pour la page Statut des ressources :
