@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 20.04
-to version 22.04.
+to version 23.04.
 
 ## Prerequisites
 

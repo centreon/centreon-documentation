@@ -945,26 +945,6 @@
             },
             {
               "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
-            },
-            {
-              "type": "doc",
               "id": "version-23.04/upgrade/upgrade-mariadb"
             }
           ]
@@ -1299,15 +1279,15 @@
     {
       "type": "category",
       "label": "Centreon HA",
+      "link": {
+        "type": "doc",
+        "id": "version-23.04/installation/installation-of-centreon-ha/overview"
+      },
       "items": [
         {
           "type": "category",
-          "label": "Installation of Centreon HA",
+          "label": "Installing Centreon HA",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/overview"
-            },
             {
               "type": "doc",
               "id": "version-23.04/installation/installation-of-centreon-ha/installation-2-nodes"
@@ -1324,7 +1304,7 @@
         },
         {
           "type": "category",
-          "label": "Installation of a manual Centreon HA",
+          "label": "Installing a manual Centreon HA",
           "items": [
             {
               "type": "doc",
@@ -1342,7 +1322,7 @@
         },
         {
           "type": "category",
-          "label": "Operation of Centreon HA",
+          "label": "Operating Centreon HA",
           "items": [
             {
               "type": "doc",
@@ -1361,7 +1341,33 @@
               "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "Upgrading Centreon HA",
+          "items": [
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
         }
+      ]
+    }       
       ]
     },
     {

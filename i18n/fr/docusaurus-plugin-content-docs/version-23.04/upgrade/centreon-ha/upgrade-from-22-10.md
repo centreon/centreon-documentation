@@ -1,16 +1,16 @@
 ---
-id: upgrade-centreon-ha-from-20-10
-title: Montée de version de Centreon HA depuis Centreon 20.10
+id: upgrade-centreon-ha-from-22-10
+title: Montée de version de Centreon HA depuis Centreon 22.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 20.10
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.10
 vers la version 23.04.
 
 ## Prérequis
 
-### Suspension de la gestion des resources par le cluster
+### Suspendre la gestion des ressources du cluster
 
 Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
 
@@ -20,15 +20,14 @@ pcs property set maintenance-mode=true
 
 ### Sauvegarde
 
-Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
-des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
+Avant toute chose, il est préférable de s’assurer de l’état et de la consistance des sauvegardes de l’ensemble des serveurs centraux de votre plateforme :
 
-- Serveur Centreon Central,
-- Serveur de base de données.
+- Serveur Centreon Central
+- Serveur de Base de données
 
 ### Mettre à jour la clé de signature RPM
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#existing-installation), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Processus de mise à jour
 
@@ -38,34 +37,29 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 
 Exécutez la commande suivante :
 
+<Tabs groupId="sync">
+<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
+
+```bash
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```bash
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
+</TabItem>
+</Tabs>
+
 > **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
-
-### Mise à jour PHP
-
-Centreon 22.04 utilise PHP en version 8.1.
-
-Vous devez tout d'abord installer les dépôts **remi** :
-
-```bash
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-
-Ensuite, vous devez activer le dépôt php 8.1
-
-```bash
-yum-config-manager --enable remi-php81
-```
 
 ### Montée de version de la solution Centreon
 
-> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
-> la procédure de mise à jour.
+> Assurez-vous que tous les utilisateurs sont déconnectés de l'interface web Centreon.
+> avant de commencer la procédure de mise à niveau.
 
 Videz le cache de yum :
 
@@ -73,57 +67,62 @@ Videz le cache de yum :
 yum clean all --enablerepo=*
 ```
 
-Mettez à jour l'ensemble des composants :
+Puis, mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
-<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
-yum remove centreon-ha
-yum update centreon\*
-yum install centreon-ha-web centreon-ha-common
-mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
-mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
+dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
-Sur les serveurs Centraux:
-
-```bash
-yum remove centreon-ha
-yum update centreon\*
-yum install centreon-ha-web centreon-ha-common
-mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
-```
-
-Sur les serveurs de base de données :
 
 ```bash
-yum remove centreon-ha
 yum update centreon\*
-yum install centreon-ha-common
-mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 </TabItem>
 </Tabs>
 
-> Acceptez les nouvelles clés GPG des dépôts si nécessaire.
+Uniquement sur les serveurs Centraux
 
-Le fuseau horaire par défaut de PHP 8 doit être configuré. Executez la commande suivante :
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
-> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+</TabItem>
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
+
+```bash
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
+```
+
+</TabItem>
+</Tabs>
+
+### Mettre à jour une configuration Apache personnalisée
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
 Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
+On the Central Servers:
+
+```
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+</TabItem>
+<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
 On the Central Servers:
 
@@ -131,18 +130,36 @@ On the Central Servers:
 diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
+</TabItem>
+</Tabs>
+
 * **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la version 21.10, par exemple la chaîne **authentication** dans la directive **LocationMatch**
 * **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
+### Finalisation de la mise à jour
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 
 ```bash
-systemctl stop rh-php72-php-fpm
-systemctl start php-fpm
+systemctl reload httpd
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+
+```bash
 systemctl reload httpd24-httpd
 ```
+
+</TabItem>
+</Tabs>
 
 Ensuite, pour effectuer la mise à jour de l'interface Web, veuillez [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md#finalizing-the-upgrade) Uniquement sur le **nœud Central Actif**.
 
@@ -155,16 +172,16 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Suppression des crons
 
-Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les sur les deux nœuds centraux afin d'éviter les executions concurrentes.
+La mise à jour RPM remet en place les crons sur les serveurs Central et Bases de données. Supprimez-les pour éviter les exécutions simultanées : 
 
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
 ```
 
-### Changez les permissions pour la resource centreon_central_sync
+### Réinitialiser les autorisations de la ressource centreon_central_sync
 
-La mise à jour des RPMs à modifié les permissions sur certains fichiers synchronisés par _centreon\_central\_sync_. Il est nécesssaire de les modifier :
+L'upgrade RPM remet les permissions en place sur les serveurs centraux. Modifiez-les en utilisant ces commandes :
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -233,11 +250,11 @@ Ces commandes ne doivent être exécutées que sur le nœud central actif :
 pcs resource delete ms_mysql --force
 pcs resource delete vip_mysql --force
 pcs resource delete cbd_rrd --force
-pcs resource delete php7 --force
+pcs resource delete php --force
 pcs resource delete centreon --force
 ```
 
-### Reconfigurer MariaDB
+### Reconfigure MariaDB
 
 Il est nécessaire de modifier la configuration de mysql en éditant `/etc/my.cnf.d/server.cnf` :
 
@@ -254,60 +271,6 @@ expire_logs_days=7
 ignore-db-dir=lost+found
 ...
 ```
-
-### Montée de version du serveur MariaDB
-
-Les composants MariaDB peuvent maintenant être mis à jour.
-
-> La mise à jour MariaDB doit d'abord être executée sur le serveur primaire
-> puis sur le serveur secondaire.
-> Dans le cas d'une HA 4 nœeuds, la mise à jour doit être fait uniquement sur
-> les serveurs de base de données.
-
-1. Arrêtez le service mariadb :
-
-    ```bash
-    mysqladmin -p shutdown 
-    ```
-
-2. Désinstallez la version actuelle :
-
-    ```bash
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
-    ```
-
-3. Installez la version 10.5 :
-
-    ```bash
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
-
-4. Écrasez la configuration mariadbd:
-
-   ```bash
-   mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
-   ```
-
-5. Démarrez le service mariadb :
-
-    ```bash
-    systemctl start mariadb
-    ```
-
-6. Lancez le processus de mise à jour MariaDB :
-
-   ```bash
-    mysql_upgrade -u <utilisateur_admin_bdd> -p
-    ```
-
-    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
-
-    ```
-    mysql_upgrade -u root -p
-    ```
-
-    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 ### Lancer la réplication GTID
 
@@ -326,6 +289,8 @@ ps -ef | grep mariadb[d]
 Une fois le service arrêté **sur le nœud de base de données secondaire**, vous allez exécuter le script de synchronisation **depuis le nœud de base de données primaire** :
 
 ```bash
+mysqladmin -p shutdown
+systemctl restart mariadb
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
@@ -358,6 +323,32 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
+### Redémarrer les processus de Centreon
+
+Puis de redémarrer tous les processus sur le **nœud central actif** :
+
+```bash
+systemctl restart cbd-sql cbd gorgoned centengine centreontrapd 
+```
+
+Et sur le **nœud central passif** :
+
+```bash
+systemctl restart cbd
+```
+
+### Nettoyer les fichiers de mémoire de broker
+
+> **WARNING:** exécuter cette commande uniquement sur le noeud central passif.
+
+Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
+
+```bash
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+```
+
 ### Recréer les ressources du cluster
 
 À exécuter **seulement sur un nœud central** :
@@ -368,6 +359,25 @@ Position Status [OK]
 @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
 <Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mariadb-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host'
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -411,8 +421,20 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-#### HA 2 nodes
 <Tabs groupId="sync">
+<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -436,9 +458,37 @@ pcs resource meta ms_mysql-master \
 ```
 </TabItem>
 </Tabs>
-
-#### HA 4 nodes
+</TabItem>
+<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+Adresse VIP des serveurs de bases de données
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
+```
+
+</TabItem>
 <TabItem value="RHEL 7" label="RHEL 7">
 
 ```bash
@@ -449,6 +499,8 @@ pcs resource master ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
+Adresse VIP des serveurs de bases de données
 
 ```bash
 pcs resource create vip_mysql \
@@ -492,8 +544,10 @@ pcs resource create vip_mysql \
 ```
 </TabItem>
 </Tabs>
+</TabItem>
+</Tabs>
 
-#### Ressource PHP
+#### PHP ressource
 
 ```bash
 pcs resource create "php" \
@@ -527,6 +581,16 @@ bash centreon_pcs_command.sh
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint order stop centreon then demote ms_mysql-clone
+```
+
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
@@ -534,16 +598,45 @@ pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
+</Tabs>
+</TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
 Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
 ```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
-pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
+pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
+```
+
+</TabItem>
+</Tabs>
+
 Recréez ensuite les contraintes qui empêchent les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -552,6 +645,8 @@ pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DA
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 

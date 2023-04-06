@@ -1,6 +1,6 @@
 ---
 id: overview
-title: Centreon-HA Overview
+title: Centreon HA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
