@@ -181,46 +181,6 @@
         {
           "type": "doc",
           "id": "version-23.04/installation/offline"
-        },
-        {
-          "type": "category",
-          "label": "Installation of Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/overview"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/installation-2-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/installation-4-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/integrating-pollers"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Installation of a manual Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
-            }
-          ]
         }
       ]
     },
@@ -888,28 +848,6 @@
           ]
         },
         {
-          "type": "category",
-          "label": "Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/acceptance-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/monitoring-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/operating-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
-            }
-          ]
-        },
-        {
           "type": "doc",
           "id": "version-23.04/administration/extensions"
         },
@@ -1360,15 +1298,51 @@
     },
     {
       "type": "category",
-      "label": "Monitoring your platform",
+      "label": "Centreon HA",
       "items": [
         {
-          "type": "doc",
-          "id": "version-23.04/health/centreon-agent"
+          "type": "category",
+          "label": "Installation of Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/integrating-pollers"
+            }
+          ]
         },
         {
           "type": "category",
-          "label": "Centreon HA",
+          "label": "Installation of a manual Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operation of Centreon HA",
           "items": [
             {
               "type": "doc",
@@ -1387,6 +1361,16 @@
               "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Monitoring your platform",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-23.04/health/centreon-agent"
         }
       ]
     },
