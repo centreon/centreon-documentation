@@ -13,11 +13,10 @@ L'authentification se paramètre à la page **Administration > Authentification 
 
 Activez l'authentification SAML :
 
-- **Activer l'authentification SAML** : active/désactive l'authentification SAML.
-- **Mode d'authentification**: indicates if the authentication should be done using only SAML or using local
-  authentication as well (**Mixed**) : indique si l'authentification doit se faire uniquement par SAML ou en utilisant
+- **Activer l'authentification SAMLv2** : active/désactive l'authentification SAML.
+- **Mode d'authentification**: indique si l'authentification doit se faire uniquement par SAML ou en utilisant
   également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans Centreon
-  (et nonidentifiés par SAML) pourront également se connecter.
+  (et non identifiés par SAML) pourront également se connecter.
 
 > Lors du paramétrage, il est recommandé d'activer le mode "mixte". Cela vous permettra de garder l'accès au compte local
 > `admin` en cas de configuration erronée.
@@ -26,107 +25,114 @@ Activez l'authentification SAML :
 
 Renseignez les informations du fournisseur d'identité :
 
-- **Remote login URL**: defines the identity provider's login URL to identify users (mandatory).
-- **Issuer (Entity ID) URL**: defines the URL representing the unique name for a SAML entity (mandatory).
-- **Copy/paste x509 certificate**: add here the x509 certificate of the identity provider (mandatory).
-- **User ID (login) attribute for Centreon user**: defines which of the variables returned by the identity provider
-  must be used to authenticate users. For example, **email**. (mandatory).
-- Logout from:
-  * **Centreon UI Only**: users will only be logged out from Centreon.
-  * **Both Identity Provider and Centreon UI**:  users will be logged out both from Centreon and the identity provider.
-    > If you select **Both Identity Provider and Centreon UI**, you need to define a **Logout URL**. This is the URL of the page that will be displayed to the user once he has logged out.
+- **URL de connexion distante**: définit l'URL de connexion du fournisseur d'identité pour identifier les utilisateurs
+  (obligatoire).
+- **URL de l'émetteur (Entity ID)**: définit l'URL représentant le nom unique d'une entité SAML (obligatoire).
+- **Copier/coller le certificat x509**: ajoutez ici le certificat x509 du fournisseur d'identité (obligatoire).
+- **Attribut de l'identifiant utilisateur (login) pour l'utilisateur Centreon**: définit quelle variable renvoyée par
+  le fournisseur d'identité doit être utilisée pour authentifier les utilisateurs. Par exemple, **email**. (obligatoire).
+- Se déconnecter de:
+  * **Interface Centreon uniquement**: les utilisateurs seront uniquement déconnectés de Centreon.
+  * **Both Identity Provider and Centreon UI**:  les utilisateurs seront déconnectés à la fois de Centreon et du fournisseur
+    d'identité.
+    > Si vous sélectionnez **Both Identity Provider and Centreon UI**, vous devez définir une **URL de déconnexion**.
 
+### Étape 3 : Configurer les conditions d'authentification
 
-### Step 3: Configure authentication conditions
+Vous pouvez définir des conditions selon lesquelles les utilisateurs seront autorisés à se connecter ou non, en
+fonction des données reçues par un endpoint particulier:
+  - Activer **Activer les conditions sur le fournisseur d'identité**.
+  - Définir quel attribut sera utilisé pour valider les conditions.
+  - **Définir les valeurs des conditions autorisées**: définir quelles seront les valeurs autorisées renvoyées. Si vous
+    entrez plusieurs valeurs, toutes devront être remplies pour que la condition soit validée. Tous les utilisateurs qui
+    tentent de se connecter avec une autre valeur ne pourront pas se connecter.
 
-* You can define conditions according to which users will be allowed to log in or not, based on the data received by a particular endpoint.
-   - Activate **Enable conditions on identity provider**.
-   - Define which attribute from which endpoint will be used to validate the conditions.
-   - In **Define authorized conditions values**, define which will be the authorized values returned by this endpoint. If you enter several values, all will have to be met for the condition to be validated. All users that try to connect with another value will be unable to log in.
-
-### Step 4: Manage user creation
+### Étape 4 : Gérer la création d'utilisateurs
 
 <Tabs groupId="sync">
-<TabItem value="Users automatic management" label="Automatic management">
+<TabItem value="Users automatic management" label="Gestion automatique">
 
-If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon
-configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+Si vous activez **Activer l'importation automatique**, les utilisateurs qui se connectent pour la première fois à Centreon
+seront créés dans la configuration de Centreon. (L'activation de l'option n'importe pas automatiquement tous les utilisateur
+ de votre infrastructure.)
 
-- **Enable auto import**: enables or disables automatic users import.  If auto import is disabled, you will have to
-  [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
-- **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be
-  applied to newly imported users. This allows in particular to manage the default configuration of the
-  [notifications](../alerts-notifications/notif-configuration.md).
-- **Email attribute path**: defines which of the variables returned by the identity provider must be used to get the
-  user's email address.
-- **Fullname attribute path**: defines which of the variables returned by the identity provider must be used to get the
-  user's full name.
+- **Activer l'importation automatique** : active/désactive l'import automatique des utilisateurs. Si l'import automatique desutilisateurs
+  est désactivé, vous devrez [créer chaque utilisateur manuellement](../monitoring/basic-objects/contacts-create.md) avant que celui-ci ne se connecte.
+- **Modèle de contact** : sélectionnez un [modèle de contact](../monitoring/basic-objects/contacts-templates.md) qui sera appliqué aux
+  nouveaux utilisateurs importés.
+  Cela permet notamment de gérer le paramétrage par défaut des [notifications](../alerts-notifications/notif-configuration.md).
+- **Attribut de mail** : définit quelle variable sera utilisée pour récupérer l'adresse email de l'utilisateur.
+- **Attribut du nom complet** : définit quelle variable sera utilisée pour récupérer le nom complet de l'utilisateur.
 
 </TabItem>
-<TabItem value="Users manual management" label="Manual management">
+<TabItem value="Users manual management" label="Gestion manuelle">
 
-On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md)
-that will log on to Centreon using SAML.
+À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez les utilisateurs](../monitoring/basic-objects/contacts-create.md)
+qui se connecteront à Centreon avec SAML.
 
 </TabItem>
 </Tabs>
 
-### Step 5: Manage Authorizations
+### Étape 5 : Gérer les autorisations
 
 <Tabs groupId="sync">
-<TabItem value="Role automatic management" label="Automatic management">
+<TabItem value="Role automatic management" label="Gestion automatique">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be automatically
-  [granted rights](../administration/access-control-lists.md), as they will be linked to
-  [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
+Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon se verront
+automatiquement accorder des [droits](../administration/access-control-lists.md), car ils seront liés à des
+[groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès) selon les règles que vous avez définies.
   
-- **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then
-  only the first role will be applied. If the option is turned off, all roles will be applied.
+- Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin d'appliquer des relations
+  avec des groupes d'accès.
+- **Appliquer uniquement le premier rôle**: si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
+  d'identité, alors seul le premier rôle sera appliqué. Si l'option est désactivée, tous les rôles seront appliqués.
+- Faites correspondre un attribut extrait du fournisseur d'identité avec le groupe d'accès auquel vous souhaitez que l'utilisateur
+  appartienne.
 
-- Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
-- Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
-
-> Each time the user logs in, authorization management is reinitialized to take into account any new information from the
-> identity provider.
+> À chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour prendre en compte toute nouvelle
+> information en provenance du fournisseur d'identité.
 
 </TabItem>
-<TabItem value="Role manual management" label="Manual management">
+<TabItem value="Role manual management" label="Gestion manuelle">
 
-If you turn off **Enable automatic management**, you have to [grant users rights](../administration/access-control-lists.md)
-manually by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
+Si vous désactivez l'option **Activer la gestion automatique**, vous devrez [attribuer des droits](../administration/access-control-lists.md)
+à vos utilisateurs manuellement en liant ceux-ci à des [groupes d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès).
 
 </TabItem>
 </Tabs>
 
-### Step 6: Manage Contact groups
+### Étape 6 : Gérer les groupes de contacts
 
 <Tabs groupId="sync">
-<TabItem value="Groups automatic management" label="Automatic management">
+<TabItem value="Groups automatic management" label="Gestion automatique">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the
-[contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
+Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon seront rattachés
+aux [groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts) que vous avez définis.
 
-- Define which attribute from the identity provider will be used to retrieve values to create relationships with access groups.
-- Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
+- Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin de créer des relations avec
+  des groupes d'accès.
+- Faites correspondre les attributs extraits du fournisseur d'identité avec les groupes de contacts auxquels vous souhaitez
+  que l'utilisateur appartienne.
 
-> Each time the user logs in, groups management is reinitialized to take into account any new information from the identity provider.
+> À chaque connexion de l'utilisateur, la gestion des groupes est réinitialisée pour prendre en compte toute nouvelle
+> information en provenance du fournisseur d'identité.
 
 </TabItem>
-<TabItem value="Groups manual management" label="Manual management">
+<TabItem value="Groups manual management" label="Gestion manuelle">
 
-If you turn off **Enable automatic management**, you have to manage manually the relation between contact and
-[contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups).
+Si vous désactivez l'otion **Activer la gestion automatique**, vous devrez gérer manuellement les relations entre contacts et
+[groupes de contacts](../monitoring/basic-objects/contacts-groups.md#créer-un-groupe-de-contacts).
 
 </TabItem>
 </Tabs>
 
-### Step 7: Configure your Identity Provider (IdP)
+### Étape 7 : Configurer le fournisseur d'identité
 
-Configure your identity provider so that the Centreon application can use the SAML protocol to authenticate your
-users. Here is an example of fields you may have to fill in:
+Configurez votre fournisseur d'identité afin que l'application Centreon puisse utiliser le protocole SAML pour authentifier
+vos utilisateurs. Voici un exemple de champs que vous devrez peut-être remplir :
 
-| IdP option                           | Centreon value                                                 |
+| Option fournisseur d'identité        | Valeur Centreon                                                |
 |--------------------------------------|----------------------------------------------------------------|
-| Client ID                            | https:// < Centreon_IP_address >                               |
-| Assertion Consumer Service (ACS) URL | https:// < Centreon_IP_address > /centreon/api/latest/saml/acs |
-| Redirect Binding URLs for SLO        | https:// < Centreon_IP_address > /centreon/api/latest/saml/sls |
+| Client ID                            | https://<Centreon_IP_address>                                  |
+| Assertion Consumer Service (ACS) URL | https://<Centreon_IP_address>/centreon/api/latest/saml/acs     |
+| Redirect Binding URLs for SLO        | https://<Centreon_IP_address>/centreon/api/latest/saml/sls     |
