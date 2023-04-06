@@ -37,7 +37,7 @@ servers:
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-### Update the Centreon repository
+### Install the new Centreon repository
 
 Run the following commands:
 
@@ -45,7 +45,7 @@ Run the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -485,7 +485,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>

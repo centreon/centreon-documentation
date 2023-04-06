@@ -41,9 +41,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-### Mise à jour des dépôts
-
-Il est nécessaire de mettre à jour le dépôt Centreon.
+### Installation du nouveau dépôt Centreon
 
 Exécutez la commande suivante :
 
@@ -51,7 +49,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
@@ -338,7 +336,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm/standard/23.04/el8/centreon-connectors.repo
+dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-connectors.repo
 ```
 
 </TabItem>
