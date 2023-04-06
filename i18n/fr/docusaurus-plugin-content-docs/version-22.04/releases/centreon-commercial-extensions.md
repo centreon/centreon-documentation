@@ -15,6 +15,14 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.6 ###
+
+Release date: `April 6, 2023`
+
+#### Bug fixes
+
+- [Install] Fixed an issue that could prevent centreon-map-engine from installing on centos 7.
+
 ### 22.04.5 ###
 
 Release date: `April 3, 2023`
@@ -99,6 +107,12 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.04.6 ###
+
+Release date: `April 6, 2023`
+
+- No change.
 
 ### 22.04.5
 
