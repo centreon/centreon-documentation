@@ -180,9 +180,9 @@ To correctly implement the dedicated memory:
 
 - Centreon web login with administration rights.
 
-> Even with a correctly sized server, you should have in mind the best
-> practices and recommendations when creating views so you do not face
-> performance issues.
+> Even with a correctly sized server, you should have in mind the best practices and recommendations when creating views so you do not face performance issues.
+
+> If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
 ### Centreon MAP web client
 
