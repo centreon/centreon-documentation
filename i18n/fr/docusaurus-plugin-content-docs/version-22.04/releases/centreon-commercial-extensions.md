@@ -19,7 +19,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 Release date: `April 6, 2023`
 
-#### Bug fixes
+#### Bug fix
 
 - [Install] Fixed an issue that could prevent centreon-map-engine from installing on centos 7.
 
