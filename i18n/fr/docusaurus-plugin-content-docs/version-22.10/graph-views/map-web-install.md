@@ -48,6 +48,132 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
+#### Matériel
+
+<Tabs groupId="sync">
+<TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 2 vCPU    |
+| RAM                         | 4 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+</TabItem>
+<TabItem value="Jusqu'à 1 000 hôtes" label="Jusqu'à 1 000 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 4 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+
+</TabItem>
+<TabItem value="Jusqu'à 2 500 hôtes" label="Jusqu'à 2 500 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 10 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+
+</TabItem>
+<TabItem value="Jusqu'à 5 000 hôtes" label="Jusqu'à 5 000 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 18 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+</TabItem>
+<TabItem value="Jusqu'à 10 000 hôtes" label="Jusqu'à 10 000 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 6 vCPU    |
+| RAM                         | 18 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+</TabItem>
+<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+
+Pour de grosses volumétries de données, contactez votre commercial Centreon.
+
+</TabItem>
+</Tabs>
+
+#### Mémoire pour Java
+
+Pour implémenter correctement la mémoire dédiée :
+
+1. Modifiez le paramètre **JAVA_OPTS** dans le fichier de configuration Centreon MAP
+`/etc/centreon-map/centreon-map.conf`:
+
+   ```text
+   JAVA_OPTS="-Xms512m -Xmx4G"
+   ```
+
+   > La valeur Xmx dépend de la quantité de mémoire indiquée dans les tableaux dans la section [Matériel](#matériel).
+
+2. Redémarrez le service :
+
+   ```shell
+   systemctl restart centreon-map-engine
+   ```
+
 #### Informations requises lors de la configuration
 
 - Connexion à Centreon Web avec des droits d'administrateur.
