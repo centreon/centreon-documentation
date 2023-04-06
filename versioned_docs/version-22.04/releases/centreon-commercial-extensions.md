@@ -20,9 +20,9 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `April 6, 2023`
 
-#### Bug fixes
+#### Bug fix
 
-- [Install] Fixed an issue that could prevent centreon-map-engine from installing on centos 7.
+- [Install] Fixed an issue that could prevent **centreon-map-engine** from installing on CentOS 7.
 
 ### 22.04.5 ###
 
