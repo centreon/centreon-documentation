@@ -45,8 +45,8 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
 ```
 
-> Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> Install the Centreon Business repository, you can find it on the
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
@@ -87,10 +87,10 @@ Now you can start the update process:
 yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
 ```
 
-> Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> Install the Centreon Business repository, you can find it on the
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Update Centreon MAP (Legacy) server:
+2. Update the Centreon MAP (Legacy) server:
 
     ```shell
     yum update centreon-map-server
@@ -103,7 +103,7 @@ yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/ce
 echo "deb https://apt.centreon.com/artifactory/apt-23.04-stable/$(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-> Install Centreon MAP repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> Install the Centreon Business repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
