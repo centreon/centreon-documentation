@@ -236,7 +236,7 @@ yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centr
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
-Installez le dépôt MAP de Centreon, que vous trouverez sur
+Installez le dépôt Business de Centreon, que vous trouverez sur
 le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
@@ -337,7 +337,7 @@ Le serveur Centreon Map est maintenant démarré et activé : installons la part
 
 ### Serveur Central
 
-Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+Installez le dépôt Business de Centreon. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Ensuite, exécutez la commande suivante :
 
