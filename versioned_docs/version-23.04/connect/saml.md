@@ -33,15 +33,17 @@ Configure Identity Provider information:
 - Logout from:
   * **Centreon UI Only**: users will only be logged out from Centreon.
   * **Both Identity Provider and Centreon UI**:  users will be logged out both from Centreon and the identity provider.
-    > If you select **Both Identity Provider and Centreon UI**, you need to define a **Logout URL**. This is the URL of the page that will be displayed to the user once he has logged out.
-
+    > If you select **Both Identity Provider and Centreon UI**, you need to define a **Logout URL**.
 
 ### Step 3: Configure authentication conditions
 
-* You can define conditions according to which users will be allowed to log in or not, based on the data received by a particular endpoint.
-   - Activate **Enable conditions on identity provider**.
-   - Define which attribute from which endpoint will be used to validate the conditions.
-   - In **Define authorized conditions values**, define which will be the authorized values returned by this endpoint. If you enter several values, all will have to be met for the condition to be validated. All users that try to connect with another value will be unable to log in.
+You can define conditions according to which users will be allowed to log in or not, based on the data received by a
+particular endpoint:
+  - Activate **Enable conditions on identity provider**.
+  - Define which attribute will be used to validate the conditions.
+  - In **Define authorized conditions values**, define which will be the authorized values returned.
+    If you enter several values, all will have to be met for the condition to be validated. All users that try to connect
+    with another value will be unable to log in.
 
 ### Step 4: Manage user creation
 
@@ -81,7 +83,6 @@ If you turn on **Enable automatic management**, users that log in to Centreon wi
   
 - **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then
   only the first role will be applied. If the option is turned off, all roles will be applied.
-
 - Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
 - Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
 
