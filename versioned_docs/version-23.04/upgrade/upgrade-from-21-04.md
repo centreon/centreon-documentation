@@ -32,6 +32,16 @@ servers:
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
+### Update your version of Centreon
+
+1. Update your Centreon 21.04 to the latest minor version.
+
+2. Remove the **centreon.repo** file:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
 ### Update the Centreon repository
 
 Run the following commands:

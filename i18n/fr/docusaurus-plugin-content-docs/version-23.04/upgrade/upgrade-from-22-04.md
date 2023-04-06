@@ -27,6 +27,16 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 > Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
+### Mise à jour de l'ancienne version de Centreon
+
+1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
+
+2. Supprimez le fichier **centreon.repo** :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
 ### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.

@@ -48,6 +48,16 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 >
 > MariaDB sera mis à jour après.
 
+### Mise à jour de l'ancienne version de Centreon
+
+1. Mettez à jour votre Centreon 20.10 jusqu'à la dernière version mineure.
+
+2. Supprimez le fichier **centreon.repo** :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
 ### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.

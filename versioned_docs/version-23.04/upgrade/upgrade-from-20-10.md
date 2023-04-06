@@ -48,6 +48,16 @@ servers:
 >
 > MariaDB will be upgraded afterwards.
 
+### Update your version of Centreon
+
+1. Update your Centreon 20.10 to the latest minor version.
+
+2. Remove the **centreon.repo** file:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
 ### Update the Centreon repository
 
 Run the following commands:
