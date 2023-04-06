@@ -106,9 +106,9 @@ See the [software requirements](../installation/prerequisites.md#software).
 
 - Centreon Web login with admin rights.
 
-> Even with a correctly sized server, you should have in mind the best
-> practices & recommendations when creating views so you don't face
-> performance issues.
+> Even with a correctly sized server, you should have in mind the best practices & recommendations when creating views so you don't face performance issues.
+
+> If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
 ### Centreon MAP (Legacy) Web interface
 
@@ -224,6 +224,26 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP (Legacy) server
 
+#### Java version requirement
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+
+#### Procedure
+
 If you installed your Centreon MAP (Legacy) server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
@@ -245,7 +265,7 @@ Installed:
 Complete!
 ```
 
-Then install the **centreon-release** package:
+Now you can install the **centreon-release** package:
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
@@ -254,34 +274,12 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-#### Java version requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
-
-Now you can install the **centreon-release** package:
-
 ```shell
 yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-Install the following dependencies:
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
