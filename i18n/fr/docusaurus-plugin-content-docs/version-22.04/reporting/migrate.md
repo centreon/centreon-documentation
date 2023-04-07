@@ -12,7 +12,7 @@ La migration de l'interface se fait en même temps que la migration du serveur C
 ## Installer le nouveau serveur de reporting
 
 Installer le nouveau serveur de reporting sur le nouvel OS, installer
-les dépôts Centreon MBI et utiliser la documentation d'[installation](installation.md).
+les dépôts Centreon Business et utiliser la documentation d'[installation](installation.md).
 
 ## Synchroniser les données
 
