@@ -255,8 +255,8 @@
     "message": "Tutoriels des modules Business",
     "description": "The label for category Tutorials for Business modules in sidebar docs"
   },
-  "sidebar.docs.link.Plugin Packs": {
-    "message": "Plugin Packs",
+  "sidebar.docs.link.Monitoring Connectors": {
+    "message": "Connecteurs de supervision",
     "description": "The label for link Plugin Packs in sidebar docs, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   },
   "sidebar.docs.category.Graphical views.link.generated-index.description": {
