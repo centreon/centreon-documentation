@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [les macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#d%C3%A9finition-des-noms-et-adresses-ip-des-serveurs)
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via [les macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#définition-des-noms-et-adresses-ip-des-serveurs).
 
 ### Conditions requises pour les tests
 
@@ -97,7 +97,7 @@ Active resources:
 </TabItem>
 </Tabs>
 
-> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](troubleshooting-guide.md).
+> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](./troubleshooting-guide.md).
 
 ### Vérifier les contraintes
 
@@ -153,7 +153,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](./operating-guide.md).
 
 ## Basculement des ressources du Centreon
 
