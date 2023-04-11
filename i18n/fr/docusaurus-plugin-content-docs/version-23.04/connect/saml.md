@@ -33,9 +33,9 @@ Renseignez les informations du fournisseur d'identité :
   le fournisseur d'identité doit être utilisée pour authentifier les utilisateurs. Par exemple, **email**. (obligatoire).
 - Se déconnecter de:
   * **Interface Centreon uniquement**: les utilisateurs seront uniquement déconnectés de Centreon.
-  * **Both Identity Provider and Centreon UI**:  les utilisateurs seront déconnectés à la fois de Centreon et du fournisseur
+  * **Fournisseur d'identité et interface Centreon**:  les utilisateurs seront déconnectés à la fois de Centreon et du fournisseur
     d'identité.
-    > Si vous sélectionnez **Both Identity Provider and Centreon UI**, vous devez définir une **URL de déconnexion**.
+    > Si vous sélectionnez **Fournisseur d'identité et interface Centreon**, vous devez définir une **URL de déconnexion**.
 
 ### Étape 3 : Configurer les conditions d'authentification
 
@@ -62,7 +62,7 @@ seront créés dans la configuration de Centreon. (L'activation de l'option n'im
   nouveaux utilisateurs importés.
   Cela permet notamment de gérer le paramétrage par défaut des [notifications](../alerts-notifications/notif-configuration.md).
 - **Attribut de mail** : définit quelle variable sera utilisée pour récupérer l'adresse email de l'utilisateur.
-- **Attribut du nom complet** : définit quelle variable sera utilisée pour récupérer le nom complet de l'utilisateur.
+- **Attribut de nom complet** : définit quelle variable sera utilisée pour récupérer le nom complet de l'utilisateur.
 
 </TabItem>
 <TabItem value="Users manual management" label="Gestion manuelle">
