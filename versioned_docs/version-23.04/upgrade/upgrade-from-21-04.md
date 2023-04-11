@@ -32,7 +32,10 @@ servers:
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-### Update your version of Centreon
+### Install the new repositories
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Update your Centreon 21.04 to the latest minor version.
 
@@ -42,21 +45,20 @@ servers:
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-### Install the new Centreon repository
-
-Run the following commands:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+3. Install the new repository:
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-connectors.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
 </Tabs>
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+>
+> If you have a Business edition, do the same with the Business repository.
+>
+> You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Install the MariaDB repository
 
@@ -341,7 +343,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://centreon.jfrog.io/artifactory/rpm-standard/23.04/el8/centreon-connectors.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
