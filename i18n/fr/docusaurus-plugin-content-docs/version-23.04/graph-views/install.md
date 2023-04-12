@@ -227,33 +227,31 @@ Complete!
 Ensuite installez le paquet **centreon-release** :
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-#### Prérequis de la version Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
-  
-  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-  
-  ```shell
-  java -version
-  ```
-  
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+Vous devez d'abord installer le dépôt EPEL :
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-  ```shell
-  sudo update-alternatives --config java
-  ```
-
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
-  
-Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+La commande doit retourner des résultats comme suit :
+
+```shell
+Installed:
+  epel-release-9-2.el9.noarch
+
+Complete!
+```
+
+Ensuite installez le paquet **centreon-release** :
+
+```shell
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -268,7 +266,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :
@@ -294,10 +292,10 @@ dnf install centreon-map-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-map-server
+dnf install centreon-map-server
 ```
 
 </TabItem>
@@ -325,10 +323,10 @@ dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install MariaDB-client MariaDB-server
+dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
@@ -442,10 +440,10 @@ dnf install centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-map-web-client
+dnf install centreon-map-web-client
 ```
 
 </TabItem>

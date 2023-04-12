@@ -30,11 +30,11 @@ systemctl start centreon-map
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
 systemctl stop centreon-map
-yum update centreon-map-server
+dnf update centreon-map-server
 systemctl start centreon-map
 ```
 
@@ -75,10 +75,10 @@ dnf update centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update centreon-map-web-client
+dnf update centreon-map-web-client
 ```
 
 </TabItem>
@@ -91,9 +91,7 @@ apt update && apt upgrade centreon-map-web-client
 </TabItem>
 </Tabs>
 
-Terminez la mise à niveau en allant dans **Administration > Extensions > Gestionnaire** (parties module et widget) :
-
-![image](../assets/graph-views/update-web-client.png)
+Terminez la mise à niveau en allant dans **Administration > Extensions > Gestionnaire** (parties module et widget).
 
 ## Client lourd Centreon MAP
 

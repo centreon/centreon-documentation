@@ -128,34 +128,31 @@ Complete!
 Then install the **centreon-release** package:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-#### Java version requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
-
-Now you can install the **centreon-release** package:
+First you need to install an EPEL repository:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+The command should return results as follows:
+
+```shell
+Installed:
+  epel-release-9-2.el9.noarch
+
+Complete!
+```
+
+Then install the **centreon-release** package:
+
+```shell
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -170,7 +167,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
@@ -197,10 +194,10 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-map-engine
+dnf install centreon-map-engine
 ```
 
 </TabItem>
@@ -229,10 +226,10 @@ dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install MariaDB-client MariaDB-server
+dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
@@ -279,7 +276,40 @@ mysql_secure_installation
 This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Make a backup of the **/etc/my.cnf.d/map.cnf** file:
+
+  ```shell
+  cp map.cnf map.cnf.bk
+  ```
+
+2. Execute the Centreon MAP Engine server configuration script.
+
+  Two modes are available:
+   - Interactive (no option/default mode): several questions will be asked to interactively fill in the installation variables.
+   - Automatic (--automatic or -a): the installation will be done automatically from the values set in **/etc/centreon-map/vars.sh** file.
+  
+  If it is your first installation, we advise you to use the standard mode (interactive) and choose **No** when asked for advanced installation mode:
+    
+   ```shell
+   /etc/centreon-map/configure.sh
+  ```
+
+3. Retrieve the configuration file backup:
+  
+  ```shell
+  cp map.cnf.bk map.cnf
+  ```
+  
+  Answer **Y** when prompted. Then restart MySQL:
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Make a backup of the **/etc/my.cnf.d/map.cnf** file:
 
@@ -431,10 +461,10 @@ Install the Centreon MAP repository, you can find it on the
   ```
 
   </TabItem>
-  <TabItem value="CentOS 7" label="CentOS 7">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
-  sudo yum install centreon-map-web-client
+  sudo dnf install centreon-map-web-client
   ```
 
   </TabItem>

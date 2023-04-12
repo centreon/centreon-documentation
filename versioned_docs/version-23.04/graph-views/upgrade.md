@@ -42,7 +42,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
@@ -55,36 +55,10 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
     ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Java version requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  Then restart the service:
-  
-  ```shell
-  systemctl restart centreon-map
-  ```
-
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
-
-Now you can start the update process:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
@@ -93,14 +67,14 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 2. Update Centreon MAP (Legacy) server:
 
     ```shell
-    yum update centreon-map-server
+    dnf update centreon-map-server
     ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 > Install Centreon MAP repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
@@ -143,10 +117,10 @@ echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | 
 dnf update centreon-map-web-client
 ```
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update centreon-map-web-client
+dnf update centreon-map-web-client
 ```
 
 </TabItem>

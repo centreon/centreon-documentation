@@ -245,34 +245,31 @@ Complete!
 Then install the `centreon-release` package:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-#### Java version requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
-
-Now you can install the **centreon-release** package:
+First you need to install an EPEL repository:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+The command should return results as follows:
+
+```shell
+Installed:
+  epel-release-9-2.el9.noarch
+
+Complete!
+```
+
+Then install the `centreon-release` package:
+
+```shell
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -287,7 +284,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
@@ -313,10 +310,10 @@ dnf install centreon-map-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-map-server
+dnf install centreon-map-server
 ```
 
 </TabItem>
@@ -346,10 +343,10 @@ dnf install mariadb-client mariadb-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install mariadb-client mariadb-server
+dnf install mariadb-client mariadb-server
 ```
 
 </TabItem>
@@ -472,10 +469,10 @@ dnf install centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-map-web-client
+dnf install centreon-map-web-client
 ```
 
 </TabItem>
