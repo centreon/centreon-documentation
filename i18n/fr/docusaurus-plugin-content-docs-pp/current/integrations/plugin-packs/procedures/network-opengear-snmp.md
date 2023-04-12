@@ -21,7 +21,7 @@ Il apporte les modèles de service suivants :
 | Interfaces   | Net-Opengear-Interfaces-SNMP   | Contrôle les interfaces                                   |        | X          |
 | Load         | Net-Opengear-Load-SNMP         | Contrôle de la charge serveur                             | X      |            |
 | Memory       | Net-Opengear-Memory-SNMP       | Contrôle du taux d'utilisation de la mémoire vive         | X      |            |
-| Serial-Ports | Net-Opengear-Serial-Ports-SNMP | Contrôle les ports séries                                 |        | X          |
+| Serial-Ports | Net-Opengear-Serial-Ports-SNMP | Contrôle les ports série                                 |        | X          |
 | Uptime       | Net-Opengear-Uptime-SNMP       | Durée depuis laquelle le serveur tourne sans interruption | X      |            |
 
 ### Règles de découverte
