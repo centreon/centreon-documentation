@@ -151,8 +151,10 @@ Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les
 
 ### Balises et Attributs personnalisés
 
-> Pour découvrir les balises et les attributs personnalisés, vous devez utiliser la version 3.2.5 de centreon-vmware-daemon et ajouter --tags dans les options supplémentaires de découverte.                  
->Allez à la page **Configuration > Hôtes > Découverte**, et à la 3ème étape (**Définir les paramètres de découverte**), dans la section **Paramètres supplémentaires**, dans le champ **Options supplémentaires**, saisissez **--tags**.
+Pour découvrir les balises et les attributs personnalisés, vous devez : 
+
+* utiliser la version **3.2.5** de **centreon-vmware-daemon**
+* ajouter **--tags** dans les options supplémentaires de découverte : allez à la page **Configuration > Hôtes > Découverte**, et à la 3ème étape (**Définir les paramètres de découverte**), dans la section **Paramètres supplémentaires**, dans le champ **Options supplémentaires**, saisissez **--tags**.
 
 ### Flux réseau
 
