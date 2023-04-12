@@ -415,14 +415,14 @@ Fail2ban est un framework de prévention contre les intrusions, écrit en Python
 Installez le module inotify:
 
 <Tabs groupId="sync">
-<TabItem value="Alma 8 / RHEL / Oracle Linux 8" label="Alma 8 / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf install python3-inotify
 ```
 
 </TabItem>
-<TabItem value="Alma 8 / RHEL / Oracle Linux 9" label="Alma 8 / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install python3-inotify
@@ -704,7 +704,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install mod_ssl mod_security openssl
