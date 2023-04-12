@@ -109,7 +109,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Configuration SNMP
 
-Afin de superviser votre **Opengear** en SNMP,  il est nécessaire de configurer l'agent sur l'équipement.
+Afin de superviser votre **Opengear** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
 
 ### Flux réseau
 
