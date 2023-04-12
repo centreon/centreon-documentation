@@ -200,7 +200,7 @@ apt install centreon-plugin-network-aruba-cppm-snmp
 ### Hôte
 
 * Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Aruba CPPM**.
+* Remplissez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur **Aruba CPPM**.
 * Appliquez le modèle d'hôte **Net-Aruba-Cppm-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
