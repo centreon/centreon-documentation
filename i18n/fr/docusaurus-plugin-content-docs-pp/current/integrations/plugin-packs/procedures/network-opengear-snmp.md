@@ -28,7 +28,7 @@ Il apporte les modèles de service suivants :
 
 | Nom de la règle                    | Description                                                             |
 |:-----------------------------------|:------------------------------------------------------------------------|
-| Net-Opengear-SNMP-Interface-Name   | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Opengear-SNMP-Interface-Name   | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 | Net-Opengear-SNMP-Serial-Port-Name | Découvre les ports sfp et supervise l'utilisation                       |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
