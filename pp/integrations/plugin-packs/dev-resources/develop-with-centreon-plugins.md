@@ -141,7 +141,7 @@ touch src/apps/myawesomeapp/api/plugin.pm
 touch src/apps/myawesomeapp/api/mode/appsmetrics.pm
 ```
 
-### Create the plugin.pm file
+### Create the plugin.pm
 
 The `plugin.pm` is the first thing to create, it contains:
 
@@ -225,7 +225,7 @@ Modes Available:
    app-metrics
 ```
 
-### Create the appmetrics.pm file
+### Create the appmetrics.pm
 
 The `appmetrics.pm` file will contain your code, in other words, all the instructions to:
 
