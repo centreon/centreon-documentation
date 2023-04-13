@@ -22,43 +22,40 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 Release date: `soon`
 
 #### Bug fixes
-- Fixed an issue that prevented access to MAP in HTTPS.
-- Fixed an issue that caused server to crash on corrupted metrics.
-- Fixed view edition with some links having corrupted bend points.
-- Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
-- Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.	
-- Fixed an issue that prevent the migration between MAP legacy and MAP.
-- Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
-- Fixed diagnostique.sh script to include storage event from broker output.
-- Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
-- Fixed an issue that prevented the migration between MAP legacy and MAP.
-- Fixed an issue that prevented the tooltip for the "old perfdata" plugin to be displayed in the graph.
-- Fixed issues and improved the map display (visibility, background and breadcrumb color).
-- Fixed an issue to allow more than 25 maps to be migrated.
-- [CEIP] Added more details for MAP engine telemetry.
-- Fixed bug who display a blank page when user click on host name inside a map.
-- Fixed the server startup error due to PF without virtual hosts.
-- Fixed an issue with insert an object in a link prevented the map from being saved.
-- Fixed an issue with authentication when several sessions are active.
 - [API] Fixed an issue with create element in view that could break default icon.
-- Fixed an issue with map sharing.
-- Fixed an issue with Host and Service icons configuration that were not handled properly.
-- Fixed Colors for a "Text" type element is ignored by the viewer. 
-- Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
-- Fixed bug when custom URI is set, some old media in map are not displayed correctly.
-- Fix migration issue with images that could stop migration process.
-- Fixed the background layout not fitting large map.
-- Fixed an issue when updating a resource that did not display the new resource name.
-- Fixed issue that made new hosts and services unavailable until restart. 
-- Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
+- [CEIP] Added more details for MAP engine telemetry.
+- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed view edition with some links having corrupted bend points.
+- [Install] Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.	
+- [Monitoring] Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
+- [Server] Fix migration issue with images that could stop migration process.
+- [Server] Fixed an issue that caused server to crash on corrupted metrics.
+- [Server] Fixed an issue that prevent the migration between MAP legacy and MAP.
+- [Server] Fixed an issue that prevented access to MAP in HTTPS.
+- [Server] Fixed an issue to allow more than 25 maps to be migrated.
+- [Server] Fixed an issue with authentication when several sessions are active.
+- [Server] Fixed an issue with insert an object in a link prevented the map from being saved.
+- [Server] Fixed an issue with map sharing.
+- [Server] Fixed diagnostic.sh script to include storage event from broker output.
+- [Server] Fixed issue that made new hosts and services unavailable until restart. 
+- [Server] Fixed the server startup error due to PF without virtual hosts.
+- [UI] Fixed Colors for a "Text" type element is ignored by the viewer. 
+- [UI] Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
+- [UI] Fixed an issue when updating a resource that did not display the new resource name.
+- [UI] Fixed an issue with Host and Service icons configuration that were not handled properly.
+- [UI] Fixed bug when custom URI is set, some old media in map are not displayed correctly.
+- [UI] Fixed bug who display a blank page when user click on host name inside a map.
+- [UI] Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
+- [UI] Fixed issues and improved the map display (visibility, background and breadcrumb color).
+- [UI] Fixed the background layout not fitting large map.
 
 #### Enhancements
 
-- Managed view background color.
-- Manage font properties in editor.
-- Added resource parent name in graph.
-- Improve api response when server is starting up.
-- Removed deprecated REST endpoints.
+- [API] Improve api response when server is starting up.
+- [API] Removed deprecated REST endpoints.
+- [Editor] Manage font properties in editor.
+- [Editor] Manage view background color.
+- [UI] Added resource parent name in graph.
 
 ### 22.10.4
 
