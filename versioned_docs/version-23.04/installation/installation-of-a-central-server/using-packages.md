@@ -5,7 +5,7 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon provides RPM packages for its products through the Centreon Open
+Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
 These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.
@@ -268,7 +268,7 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
 dnf config-manager --set-enabled crb
-dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 dnf install -y epel-release
 ```
 

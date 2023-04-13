@@ -5,7 +5,7 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon provides RPM packages for its products through the Centreon Open
+Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
 These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.

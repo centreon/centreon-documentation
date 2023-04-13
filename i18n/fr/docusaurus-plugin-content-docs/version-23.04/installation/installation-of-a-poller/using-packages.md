@@ -5,10 +5,10 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon fournit des RPM pour ses produits au travers de la solution
+Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 ou Debian 11.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 

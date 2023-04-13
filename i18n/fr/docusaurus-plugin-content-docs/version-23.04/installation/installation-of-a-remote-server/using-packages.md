@@ -5,10 +5,10 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon fournit des RPM pour ses produits au travers de la solution
+Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 et Debian 11.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9, et Debian 11.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
@@ -194,6 +194,7 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
 Activez PHP 8.1 en utilisant les commandes suivantes :
@@ -228,7 +229,7 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 #### Dépôt Remi
 
@@ -242,6 +243,32 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
 dnf config-manager --set-enabled 'powertools'
 dnf config-manager --set-enabled crb
+dnf install -y epel-release
+```
+
+Activez PHP 8.1 avec la commande suivante :
+
+```shell
+dnf module reset php
+dnf module install php:remi-8.1
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+#### Dépôt Remi
+
+Pour installer Centreon, vous devez installer le dépôt **remi**.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf config-manager --set-enabled 'powertools'
+dnf config-manager --set-enabled crb
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 dnf install -y epel-release
 ```
 
