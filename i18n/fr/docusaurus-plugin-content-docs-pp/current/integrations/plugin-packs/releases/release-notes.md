@@ -8,6 +8,29 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Avril
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - network-aruba-cppm-snmp - initial release - Status:stable - centreon-pack-network-aruba-cppm-snmp-23.04.0-1
+- [**Opengear SNMP**](../procedures/network-opengear-snmp.md) - network-opengear-snmp - initial release - Status:stable - centreon-pack-network-opengear-snmp-23.04.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - applications-controlm-restapi - service jobs add option --job-name - Status:stable - centreon-pack-applications-controlm-restapi-23.04.0-1
+- [**Fortinet Fortigate**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - added default value for CRITICALSTATUS macro in Traffic-Global - Status:stable - centreon-pack-network-firewalls-fortinet-fortigate-snmp-23.04.0-1
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - added `ip_vmanagement` and `ip_vmotion` to Host Discovery attributes - Status:stable - centreon-pack-virtualization-vmware2-vm-23.04.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - added various improvements - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.04.0-1
+
+</TabItem>
+</Tabs>
+
 ### Mars
 
 <Tabs groupId="sync">
