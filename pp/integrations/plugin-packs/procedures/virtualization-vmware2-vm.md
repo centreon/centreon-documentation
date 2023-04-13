@@ -153,7 +153,7 @@ Make sure that the daemon configuration works fine by looking for errors in
 
 ### Tags and Custom Attributes
 
-> To discover Tags and Custom Attributes, you must : 
+To discover Tags and Custom Attributes, you must : 
 
 * use version **3.2.5** of **centreon-vmware-daemon**
 * add **--tags** in the additional discovery options: go to the **Configuration > Hosts > Discovery** page, and to the 3rd step (**Set discovery parameters**), in the section **Additional parameters**, in the **Additional options** field, type **--tags**.
