@@ -2,6 +2,8 @@
 id: migrate
 title: Migrate the extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 > If you're updating to a new major or minor version (i.e:A.B.x with A
 > or B that changes) you need to contact our Support service to retrieve

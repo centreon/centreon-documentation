@@ -2,6 +2,8 @@
 id: migrate
 title: Migrer l'extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 > Si vous mettez à jour d'une version inférieure à 18.10 vers une version
 > supérieure à 18.10, une nouvelle licence doit être récupérée auprès du
