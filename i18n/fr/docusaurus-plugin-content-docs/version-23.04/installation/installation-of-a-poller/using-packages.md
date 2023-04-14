@@ -216,54 +216,36 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
-
-#### Dépôt Remi
-
-Pour installer Centreon, vous devez installer le dépôt **remi**.
+<TabItem value="Alma 9" label="Alma 9">
 
 Exécutez les commandes suivantes :
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf config-manager --set-enabled 'powertools'
+dnf install dnf-plugins-core
+dnf install epel-release
 dnf config-manager --set-enabled crb
-dnf install -y epel-release
-```
-
-Activez PHP 8.1 avec la commande suivante :
-
-```shell
-dnf module reset php
-dnf module install php:remi-8.1
 ```
 
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
-#### Dépôt Remi
+Exécutez les commandes suivantes :
 
-Pour installer Centreon, vous devez installer le dépôt **remi**.
+```shell
+dnf install dnf-plugins-core
+dnf install epel-release
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
 
 Exécutez les commandes suivantes :
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf config-manager --set-enabled 'powertools'
-dnf config-manager --set-enabled crb
-dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
-dnf install -y epel-release
-```
-
-Activez PHP 8.1 avec la commande suivante :
-
-```shell
-dnf module reset php
-dnf module install php:remi-8.1
+dnf install dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
