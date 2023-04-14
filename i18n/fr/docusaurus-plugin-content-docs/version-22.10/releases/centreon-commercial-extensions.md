@@ -109,7 +109,7 @@ Release date: `January 17, 2023`
 
 - No change.
 .
-### 22.10.3 
+### 22.10.3
 
 Release date:  `December 16, 2022`
 

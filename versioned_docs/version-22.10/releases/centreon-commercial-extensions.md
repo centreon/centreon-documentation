@@ -58,6 +58,16 @@ Release date: `soon`
 - [Editor] Manage view background color.
 - [UI] Added resource parent name in graph.
 
+### 22.10.4
+
+Release date : `January 17, 2023`
+#### Bug fixes
+- Fixed an issue preventing users to create a map with the API.
+- Fixed an issue that caused server to fail to start when trying to load empty output.
+- Fixed links where empty bendpoints caused maps to become not editable.
+- Resource name properties are now used for links when saving maps.
+- Fixed an issue that caused metric links in the same views to display the same value after the first refresh.
+
 ### 22.10.3
 
 Release date: `December 16, 2022`
