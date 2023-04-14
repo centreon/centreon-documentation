@@ -86,5 +86,5 @@ Use [variables](https://grafana.com/docs/grafana/latest/variables/) to select a 
 
 You can customize how the labels for the curves are displayed: go to **Time Series > Standard options**, then use [the **Display name** field](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-standard-options/#display-name).
 
-* If you enter **${__field.labels}**, the label includes all possible label customizations (host, service, metric_name).
-* For instance, if you enter **${__field.labels.host}: ${__field.labels.service}**, the label for a curve would be displayed like this: **10.11.12.13: cpu**.
+* For instance, if you enter **${__field.labels}**, the label includes all possible label customizations (host, service, metric_name).
+* If you enter **${__field.labels.host}: ${__field.labels.service}**, the label for a curve would be displayed like this: **10.11.12.13: cpu**.
