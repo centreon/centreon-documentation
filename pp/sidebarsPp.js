@@ -978,6 +978,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-outscale'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api'
         },
         {
