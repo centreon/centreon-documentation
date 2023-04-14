@@ -570,7 +570,7 @@ hostnamectl set-hostname remote1
 
 ### Fuseau horaire PHP
 
-La timezone par défaut de PHP doit être configurée. 
+La timezone par défaut de PHP doit être configurée.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -611,7 +611,11 @@ systemctl restart php-fpm
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Editez le fichier **/etc/php/8.1/mods-available/centreon.ini** et contrôlez le fuseau horaire.
+Exécutez la commande suivante :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php/8.1/mods-available/centreon.ini
+```
 
 > Celui-ci a été défini durant le processus d'installation en récupérant le fuseau horaire configuré sur le
 > système d'exploitation.
