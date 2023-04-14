@@ -86,6 +86,12 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.5
+
+Release date: `soon`
+
+- No change.
+
 ### 22.10.4
 
 Release date : `January 17, 2023`
@@ -135,10 +141,10 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an error message in boolean rules when a host name was longer than 15 characters.
-- Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
-- Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
-- Fixed a cosmetic issue in Bam table header.
+- [KPI] Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- [Reporting] Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
+- [Rules] Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- [UI] Fixed a cosmetic issue in Bam table header.
 
 ### 22.10.1
 
