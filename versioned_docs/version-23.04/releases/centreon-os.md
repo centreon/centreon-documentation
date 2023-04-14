@@ -26,7 +26,10 @@ Release date: `April 26, 2023`
   - Possibility to import automatically users
   - Possibility to manage manually or automatically groups
   - Possibility to manage manually or automatically roles
+- [Install] Removed Enterprise Linux version 7 and added version 9
+- [UX] Added German translation
 - [UI] Added new Centreon branding
+- [Widgets] Added the possibility to select a Meta-Service in the graph monitoring widget 
 
 ## Centreon Collect
 

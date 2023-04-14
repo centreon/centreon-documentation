@@ -20,12 +20,15 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 Release date: `April 26, 2023`
 
-- [authentification] Ajout de l'authentification SAML
+- [Authentication] Ajout de l'authentification SAML
   - Possibilité d'utiliser des conditions pour accéder à Centreon
   - Possibilité d'importer automatiquement des utilisateurs
   - Possibilité de gérer les groupes manuellement ou automatiquement
   - Possibilité de gérer les rôles manuellement ou automatiquement
+- [Install] Suppression de la version 7 d'Enterprise Linux et ajout de la version 9
 - [UI] Ajout de la nouvelle image de marque Centreon
+- [UI] Ajout de la traduction allemande
+- [Widgets] Ajout de la possibilité de sélectionner un Meta-Service dans le widget de suivi des graphiques
 
 ## Centreon Collect
 
