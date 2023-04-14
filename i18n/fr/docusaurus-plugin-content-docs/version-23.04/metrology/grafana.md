@@ -83,3 +83,5 @@ Un même tableau de bord Grafana peut contenir divers panneaux. Chaque panneau p
 Utilisez des [variables](https://grafana.com/docs/grafana/latest/variables/) pour sélectionner une liste de ressources correspondant à des filtres (par exemple tous les hôtes qui correspondent au groupe d'hôtes **Linux**). Dans le tableau de bord, des filtres vous proposeront automatiquement les variables correspondantes.
 
 ![image](../assets/metrology/grafana_variables.png)
+
+Vous pouvez personnaliser l'affichage des libellés des courbes : dans la section **Time Series > Standard options**, utilisez [le champ **Display name**](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-standard-options/#display-name). Par exemple, si vous entrez **${__field.labels.host}: ${__field.labels.service}**, le libellé d'une courbe pourrait être affiché de cette manière : **10.11.12.13: cpu**.

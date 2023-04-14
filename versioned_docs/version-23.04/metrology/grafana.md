@@ -83,3 +83,5 @@ A Grafana dashboard can contain a number of panels. Each panel can display data 
 Use [variables](https://grafana.com/docs/grafana/latest/variables/) to select a list of resources that match filters (e.g. all hosts in the **Linux** host group). In the dashboard, filters will automatically display the corresponding variables.
 
 ![image](../assets/metrology/grafana_variables.png)
+
+You can customize how the labels for the curves are displayed: go to **Time Series > Standard options**, then use [the **Display name** field](https://grafana.com/docs/grafana/latest/panels-visualizations/configure-standard-options/#display-name). For instance, if you enter **${__field.labels.host}: ${__field.labels.service}**, the label for a curve may be displayed like this: **10.11.12.13: cpu**.
