@@ -7,6 +7,12 @@ Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
 
+## Anomaly Detection
+
+### La fonctionnalité d'exclusion de données n'est pas encore disponible
+
+La fonctionnalité qui vous permet d'exclure des données de calcul du modèle de détection des anomalies apparaît dans l'interface mais n'est pas encore implémentée. Vous obtenez le message "Not implemented yet" lorsque vous essayez d'utiliser cette fonctionnalité.
+
 ## Centreon Web
 
 ### Environment variable not found: "hostCentreon"
