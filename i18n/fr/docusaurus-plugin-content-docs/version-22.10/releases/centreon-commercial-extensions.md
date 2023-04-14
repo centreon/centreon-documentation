@@ -21,12 +21,15 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 Release date: `soon`
 
+> You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
+
 #### Bug fixes
 - [API] Fixed an issue with create element in view that could break default icon.
 - [CEIP] Added more details for MAP engine telemetry.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
-- [Install] Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.	
+- [Editor] Update draw.io library.
+- [Install] Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
 - [Server] Fix migration issue with images that could stop migration process.
 - [Server] Fixed an issue that caused server to crash on corrupted metrics.
@@ -36,10 +39,10 @@ Release date: `soon`
 - [Server] Fixed an issue with authentication when several sessions are active.
 - [Server] Fixed an issue with insert an object in a link prevented the map from being saved.
 - [Server] Fixed an issue with map sharing.
-- [Server] Fixed diagnostic.sh script to include storage event from broker output.
-- [Server] Fixed issue that made new hosts and services unavailable until restart. 
+- [Server] Fixed configure.sh script to include storage event from broker output.
+- [Server] Fixed issue that made new hosts and services unavailable until restart.
 - [Server] Fixed the server startup error due to PF without virtual hosts.
-- [UI] Fixed Colors for a "Text" type element is ignored by the viewer. 
+- [UI] Fixed Colors for a "Text" type element is ignored by the viewer.
 - [UI] Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
 - [UI] Fixed an issue when updating a resource that did not display the new resource name.
 - [UI] Fixed an issue with Host and Service icons configuration that were not handled properly.
@@ -48,11 +51,11 @@ Release date: `soon`
 - [UI] Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
 - [UI] Fixed issues and improved the map display (visibility, background and breadcrumb color).
 - [UI] Fixed the background layout not fitting large map.
+- [Viewer] Fixed an issue that caused the unit not matching the axis on graph widget.
 
 #### Enhancements
 
 - [API] Improve api response when server is starting up.
-- [API] Removed deprecated REST endpoints.
 - [Editor] Manage font properties in editor.
 - [Editor] Manage view background color.
 - [UI] Added resource parent name in graph.
