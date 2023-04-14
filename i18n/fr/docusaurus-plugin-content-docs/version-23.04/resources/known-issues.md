@@ -13,6 +13,10 @@ Nous appliquons des correctifs lorsque cela est nécessaire et améliorons conti
 
 La fonctionnalité qui vous permet d'exclure des données de calcul du modèle de détection des anomalies apparaît dans l'interface mais n'est pas encore implémentée. Vous obtenez le message "Not implemented yet" lorsque vous essayez d'utiliser cette fonctionnalité.
 
+#### Contournement
+
+Il n'existe actuellement pas de contournement.
+
 ## Centreon Web
 
 ### Environment variable not found: "hostCentreon"
