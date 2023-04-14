@@ -73,11 +73,6 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
-- Ajout de l'authentification SAML
-  - Possibilité d'utiliser des conditions pour accéder à Centreon
-  - Possibilité d'importer automatiquement des utilisateurs
-  - Possibilité de gérer les groupes manuellement ou automatiquement
-  - Possibilité de gérer les rôles manuellement ou automatiquement
 - Ajout de la possibilité de personnaliser la page de connexion et le bandeau
   - Possibilité de changer le fond de la page de connexion
   - Possibilité de changer le logo de la page de connexion

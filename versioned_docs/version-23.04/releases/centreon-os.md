@@ -21,6 +21,11 @@ If you have feature requests or want to report a bug, please go to our
 
 Release date: `April 26, 2023`
 
+- [Authentication] Added SAML authentication
+  - Possibility to use conditions to access to Centreon
+  - Possibility to import automatically users
+  - Possibility to manage manually or automatically groups
+  - Possibility to manage manually or automatically roles
 - [UI] Added new Centreon branding
 
 ## Centreon Collect
