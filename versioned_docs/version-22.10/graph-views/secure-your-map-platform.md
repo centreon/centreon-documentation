@@ -66,12 +66,12 @@ centreon-map.keystore-pass=xxx
 >
 > - MAP:
 > ```shell
-> https://<MAP_IP>:9443/centreon-studio/api/beta/actuator/health.
+> https://IP-MAP:9443/centreon-map/api/beta/actuator/health
 > ```
 >
 > - MAP (Legacy):
 > ```shell
-> https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+> https://IP-MAP:8443/centreon-studio/api/beta/actuator/health
 > ```
 >
 > *The solution we recommend is to use a recognized key method, as explained
@@ -161,7 +161,6 @@ centreon-map.keystore-pass=xxx
 
 </TabItem>
 </Tabs>
-
 
 Centreon MAP server is now configured to respond to requests from HTTPS:
 - at port 9443 for MAP,
