@@ -57,12 +57,12 @@ centreon-map.keystore-pass=xxx
 >
 > - MAP :
 > ```shell
-> https://<MAP_IP>:9443/centreon-studio/api/beta/actuator/health.
+> https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
 > ```
 >
 > - MAP (Legacy) :
 > ```shell
-> https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+> https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 > ```
 >
 > *La solution que nous recommandons est d'utiliser une méthode de clé reconnue, comme expliqué ci-dessus.*
