@@ -15,7 +15,7 @@ La fonctionnalité qui vous permet d'exclure des données de calcul du modèle d
 
 #### Contournement
 
-Il n'existe actuellement pas de contournement.
+Il n'existe pas de contournement mais la fonctionnalité sera disponible dans une prochaine version.
 
 ## Centreon Web
 

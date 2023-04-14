@@ -16,7 +16,7 @@ The feature that allows you to exclude some data from Anomaly Detection's model 
 
 ### Workaround
 
-There is currently no workaround.
+There is no workaround but the feature will be available in a coming version.
 
 ## Centreon Web
 
