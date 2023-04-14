@@ -202,7 +202,7 @@ Release date: `October 26, 2022`
 
 Release date: `soon`
 
-- Fixed a cosmetic issue in Bam & Autodiscovery table header
+- [UI] Fixed a cosmetic issue in Bam & Autodiscovery table header
 
 ### 22.10.0
 
@@ -239,7 +239,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed an packaging issue that prevented anomaly detection from being installed.
+- [Install] Fixed an packaging issue that prevented anomaly detection from being installed.
 
 ### 22.10.1
 
