@@ -246,6 +246,8 @@ Une fois un service de type Anomaly Detection créé, vous pouvez le visualiser 
 > aura un impact important sur les performances de la base de données et
 > pourrait ralentir globalement la plateforme de supervision.
 
+Pour être en mesure d'envoyer les données d'un service Anomaly Detection, un premier contrôle doit avoir été effectué. Vous pouvez [exécuter un contrôle sur le service depuis la page **Statut des ressources**](../alerts-notifications/resources-status.md#relancer-un-contrôle).
+
 Pour envoyer l'historique des données d'un service d'anomalie à notre plateforme SaaS, connectez-vous à
 votre serveur Centreon Central et accédez à l'utilisateur **centreon**:
 
