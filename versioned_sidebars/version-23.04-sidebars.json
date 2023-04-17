@@ -883,6 +883,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/connect/saml"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/connect/autologin"
             }
           ]
