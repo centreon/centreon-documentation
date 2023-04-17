@@ -240,6 +240,8 @@ Once you have created an Anomaly Detection service, you can see it in the follow
 > database can take several tens of minutes. This will strongly impact the
 > performance of the database and may slow down the monitoring platform as a whole.
 
+To be able to send data from an Anomaly Detection service, a first check must have been made. You can [run a check on the service from the Resources Status page](../alerts-notifications/resources-status.md#refresh-a-status).
+
 To send the history of data of an anomaly service to our SaaS platform, connect to your Centreon
 Central server and access the **centreon** user:
 
