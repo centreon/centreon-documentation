@@ -137,17 +137,18 @@ appliquée.
 
 Vous pouvez lier ces types d'indicateurs à une activité métier:
 
--   Services
--   D'autres activités métier
--   Meta-services
--   Règles booléennes
+- Services
+- D'autres activités métier
+- Meta-services
+- Règles booléennes
+- Services de type [Anomaly Detection](../monitoring/anomaly-detection.md)
 
 **Méthode de calcul**
 
 Vous pouvez choisir parmi les 4 méthodes suivantes:
 
 -   Best status
--   Wors status
+-   Worst status
 -   Ratio
 -   Impact
 
@@ -261,13 +262,14 @@ lignes
 
 Un indicateur est un point de contrôle présent dans le système de
 supervision qui est associé à une BA. Un BA peut avoir 1 à n indicateurs
-et ces indicateurs peuvent être de quatre types :
+et ces indicateurs peuvent être de cinq types :
 
--   Indicateur "Service" (les services déployés par groupes **ne sont
+- Indicateurs "Service" (les services déployés par groupes **ne sont
     pas** disponibles)
--   Indicateur "Meta Service"
--   Indicateur "Booléen"
--   Indicateur "Activité métier"
+- Indicateurs "Meta Service"
+- Indicateurs "Booléen"
+- Indicateurs "Activité métier"
+- Indicateurs basés sur des services de type [Anomaly Detection](../monitoring/anomaly-detection.md)
 
 Un indicateur impacte uniquement sa BA parente lorsque le statut de la
 ressource qui lui est rattachée est en état confirmé ("hard") dans la

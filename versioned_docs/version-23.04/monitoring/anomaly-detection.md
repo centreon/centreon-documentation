@@ -231,6 +231,7 @@ Once you have created an Anomaly Detection service, you can see it in the follow
 - The **Monitoring > Performances > Graphs** menu.
 - The **Monitoring > Event Logs > Event Logs** menu.
 - The **service-monitoring** widget in the **Home > Custom Views** menu.
+- You can use an Anomaly Detection service as an indicator in [Centreon BAM](../service-mapping/ba-management.md).
 - And all menus where you can operate on services.
 
 ## Forward history of data

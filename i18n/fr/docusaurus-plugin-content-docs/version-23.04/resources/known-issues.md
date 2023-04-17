@@ -9,6 +9,18 @@ Nous appliquons des correctifs lorsque cela est nécessaire et améliorons conti
 
 ## Anomaly Detection
 
+### Limitations des services Anomaly Detection utilisés en tant qu'indicateurs dans BAM
+
+Lorsqu'ils sont utilisés en tant qu'indicateurs dans [BAM](../service-mapping/introduction.md), les services Anomaly Detection :
+
+1. Ne sont ni pris en charge par [CLAPI](../api/clapi.md) ni par [l'API V1](../api/rest-api-v1.md).
+2 Ne peuvent pas être configurés via la page **Configuration > Activités métier > Indicateurs**. Il faut d'abord créer une activité métier via la page **Configuration > Activités métier > Activités métier**, puis utiliser le service Anomaly Detection dans l'activité métier.
+
+#### Contournement
+
+1. Utilisez l'API v2.
+2. Créez d'abord l'activité métier, puis utilisez le service Anomaly Detecion en tant qu'indicateur dans celle-ci (voir ci-dessus).
+
 ### La fonctionnalité d'exclusion de données n'est pas encore disponible
 
 La fonctionnalité qui vous permet d'exclure des données de calcul du modèle de détection des anomalies apparaît dans l'interface mais n'est pas encore implémentée. Vous obtenez le message "Not implemented yet" lorsque vous essayez d'utiliser cette fonctionnalité.

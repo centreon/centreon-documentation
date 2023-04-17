@@ -138,14 +138,15 @@ This section is the most important section for a business activity: this
 is where you define the way the status will be calculated by attaching
 resources to the business activity and setting the calculation method.
 
-The type of indicator you can use are :
+The type of indicators you can use are :
 
--   Services
--   Other business activities: that is really important to understand
-    that you can create “infinite” multi-level BA to model simple to
-    highly complex IT services or App.
--   Meta services
--   Boolean rules: a combination of services with AND/OR/XOR rules
+- Services
+- Other business activities: that is really important to understand
+  that you can create “infinite” multi-level BAs to model simple to
+  highly complex IT services or apps.
+- Meta services
+- Boolean rules: a combination of services with AND/OR/XOR rules
+- [Anomaly detection services](../monitoring/anomaly-detection.md).
 
 **Calculation methods**
 
@@ -270,13 +271,14 @@ enable/disable the BA and massively change thresholds.
 ### Definition
 
 An indicator is a resources in the monitoring system that is linked to a
-BA. A BA may have multiple indicators & sub-indicators. There are four
+BA. A BA may have multiple indicators & sub-indicators. There are five
 types of indicators:
 
--   *Service* (Service by hostgroups are **NOT** usable as indicators)
--   *Meta service*
--   *Boolean*
--   *Another business activity*
+- Service (Service by hostgroups are **NOT** usable as indicators)
+- Meta service
+- Boolean
+- Another business activity
+- [Anomaly Detection services](../monitoring/anomaly-detection.md)
 
 An indicator can only impact a BA when status of its object (e.g., a
 service) is *Hard* (validated).
