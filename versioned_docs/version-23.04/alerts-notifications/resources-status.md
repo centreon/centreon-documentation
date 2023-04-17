@@ -64,15 +64,17 @@ color of lines for resources with a planned downtime is changed to light purple.
 
 ### Refresh a status
 
-In many situations, you need to quickly re-check one or multiple services
-to refresh their status. This can be achieved in two ways:
+In many situations, you need to quickly re-check one or multiple resources
+to refresh their status.
 
-- By directly clicking on the **Check** button on the line when the
-    mouse is over
-- By selecting multiple lines and clicking on the **Check** button,
-    above the table.
+Two types of check action are available:
+- The **Check** action: a regular check that you perform only during the configured check period.
+- The **Forced check** action: a check that you can perform at any time (in or out the configured check period).
 
-![image](../assets/alerts/resources-status/resources-status-check.gif)
+Check your resources and refresh their status in two ways:
+
+- By directly clicking on the button on the line when the mouse is over (**Forced check** only).
+- By selecting one or multiple lines and clicking on the **Check** or **Forced check** button above the table.
 
 ### Submit a status
 
