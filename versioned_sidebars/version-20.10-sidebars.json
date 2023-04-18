@@ -833,10 +833,6 @@
             {
               "type": "doc",
               "id": "version-20.10/integrations/event-management/sc-service-now-em-events"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/integrations/event-management/sc-servicenow-mid-server"
             }
           ]
         },
