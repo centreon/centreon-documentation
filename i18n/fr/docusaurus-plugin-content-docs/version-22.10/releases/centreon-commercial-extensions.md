@@ -28,6 +28,7 @@ Release date: `April 18, 2023`
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
+- [Install] Fixed the **configure.sh** script to include storage event from Broker output.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
 - [Server] Fixed a migration issue with images that could stop the migration process.
 - [Server] Fixed an issue that caused server to crash on corrupted metrics.
@@ -37,10 +38,8 @@ Release date: `April 18, 2023`
 - [Server] Fixed an issue with authentication when several sessions are active.
 - [Server] Fixed an issue with insert an object in a link prevented the map from being saved.
 - [Server] Fixed an issue with map sharing.
-- [Install] Fixed the **configure.sh** script to include storage event from Broker output.
 - [Server] Fixed an issue that made new hosts and services unavailable until restart.
 - [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
-- [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
 - [UI] Fixed an issue where tooltips were not displayed for "old perfdata" plugin in the graph.
 - [UI] Fixed an issue where updating a resource was not displaying the new resource name.
 - [UI] Fixed an issue where Host and Service icons configuration was not handled properly.
@@ -50,6 +49,7 @@ Release date: `April 18, 2023`
 - [UI] Fixed issues and improved the map display (visibility, background and breadcrumb color).
 - [UI] Fixed the background layout that was not fitting large maps.
 - [Viewer] Fixed an issue that caused the unit not matching the axis on graph widget.
+- [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
 
 #### Enhancements
 
