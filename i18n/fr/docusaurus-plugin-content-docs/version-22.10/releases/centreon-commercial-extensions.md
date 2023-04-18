@@ -25,7 +25,6 @@ Release date: `soon`
 
 #### Bug fixes
 - [API] Fixed an issue with create element in view that could break default icon.
-- [CEIP] Added more details for MAP engine telemetry.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
@@ -111,7 +110,7 @@ Release date: `soon`
 Release date: `January 17, 2023`
 
 - No change.
-.
+
 ### 22.10.3
 
 Release date:  `December 16, 2022`
