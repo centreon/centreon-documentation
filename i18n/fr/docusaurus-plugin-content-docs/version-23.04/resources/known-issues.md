@@ -14,7 +14,7 @@ Nous appliquons des correctifs lorsque cela est nécessaire et améliorons conti
 Lorsqu'ils sont utilisés en tant qu'indicateurs dans [BAM](../service-mapping/introduction.md), les services Anomaly Detection :
 
 1. Ne sont ni pris en charge par [CLAPI](../api/clapi.md) ni par [l'API V1](../api/rest-api-v1.md).
-2 Ne peuvent pas être configurés via la page **Configuration > Activités métier > Indicateurs**. Il faut d'abord créer une activité métier via la page **Configuration > Activités métier > Activités métier**, puis utiliser le service Anomaly Detection dans l'activité métier.
+2. Ne peuvent pas être configurés via la page **Configuration > Activités métier > Indicateurs**. Il faut d'abord créer une activité métier via la page **Configuration > Activités métier > Activités métier**, puis utiliser le service Anomaly Detection dans l'activité métier.
 
 #### Contournement
 

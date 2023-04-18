@@ -15,7 +15,7 @@ issues for future releases.
 When used as indicators in [BAM](../service-mapping/introduction.md), Anomaly Detection services:
 
 1. Are not supported by [CLAPI](../api/clapi.md) or by [the v1 API](../api/rest-api-v1.md).
-2. Cannot be confiured using the **Configuration > Business activities > Indicators** page. You must first create a Business activity on page **Configuration > Business activities > Business activities**, then use the Anomaly Detection service in the business activity.
+2. Cannot be configured using the **Configuration > Business activities > Indicators** page. You must first create a Business activity on page **Configuration > Business activities > Business activities**, then use the Anomaly Detection service in the business activity.
 
 #### Workarounds
 
