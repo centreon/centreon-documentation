@@ -2,25 +2,35 @@
 id: customize-centreon
 title: Customize Centreon
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-This part covers customizing the login page and adding a name for your platform visible in the banner.
+You can customize some elements of your Centreon platform:
 
-The Customization of the login page in Centreon relies on the **Centreon IT Edition Extensions**.
+- the login page: you can change the background and the logo, and add a text.
+- you can define a name for your platform (e.g. **Test**, **Production**...), that will be displayed in the banner once you are logged in.
 
-> Centreon IT Edition Extensions is a Centreon **extension** that requires a valid [license](../administration/licenses.md).
+To be able to customize your Centreon platform, you need to install the **Centreon IT Edition Extensions** extension.
+
+> **Centreon IT Edition Extensions** is a Centreon extension that requires a valid [license](../administration/licenses.md).
 > To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 ## Installation
 
-### Install the package
-
-Add the Centreon Business repository, you can find it on the
+1. Install the Centreon Business repository. You can find its address on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-And install the package using the following command:
+2. Install the package using the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 or 9" label="Alma / RHEL / Oracle Linux">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-it-edition-extensions
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
 dnf install centreon-it-edition-extensions
@@ -36,21 +46,19 @@ apt update && apt install centreon-it-edition-extensions
 </TabItem>
 </Tabs>
 
-### Install the interface
+3. Go to **Administration > Extensions > Manager** and click on the install button for the following modules:
 
-Go to the **Administration > Extension > Manager** menu and click on the install button for the following modules:
-
-- License Manager (if not yet installed)
-- IT Edition Extensions
+   - **License Manager** (if not yet installed)
+   - **IT Edition Extensions**
 
 ## Configuration
 
-Go to **Administration > Customize Centreon**.
+Go to **Administration > Customize Centreon**. The different options are:
 
-The different options are:
+- **Platform name**: define a name for your platform, e.g. **Test**, **Production**... This name will be visible both on the login page (next to the logo), and in the banner once you are logged in.
+- **Select a logo**: replace the Centreon logo on the login page (but not in the top left corner once you are logged in). Before you can select a logo in this field, you need to add the file to your platform's [media](./parameters/medias.md).
+- **Select a background**: replace the default background. Before you can select a background in this field, you need to add the file to your platform's [media](./parameters/medias.md).
+- **Insert your presentation text**: enter a text to be displayed in the login area.
+- **Your text position**: define where the custom text will be displayed, if defined (above the word **Login** or below the **Connect** button).
 
-- **Platform name**: defines the name of the platform. This one will be visible both on the login page and in the banner.
-- **Select a logo**: offers the possibility to select an [existing media](./parameters/medias.md) in order to replace **Centreon** default logo.
-- **Select a background**: offers the possibility to select an [existing media](./parameters/medias.md) in order to replace **Centreon** default background.
-- **Your text position**: defines where the custom text will be displayed, if defined.
-- **Preview**: Allows you to preview the result before saving the settings.
+Check what your login page will look like in the **Preview**. When you're happy with it, click **Save**.

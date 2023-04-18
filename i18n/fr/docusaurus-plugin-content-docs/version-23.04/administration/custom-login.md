@@ -2,25 +2,34 @@
 id: customize-centreon
 title: Personnaliser Centreon
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Cette partie couvre la personnalisation de la page de connexion et l'ajout d'un nom pour votre plateforme visible dans le bandeau.
+Vous pouvez personnaliser certains éléments de votre plateforme Centreon :
 
-La fonctionnalité de "Personnalisation de Centreon" se base sur l'extension appellée **Centreon IT Edition Extensions**.
+- la page de connexion : vous pouvez changer l'arrière-plan et le logo, ainsi qu'ajouter un texte.
+- vous pouvez définir un nom pour votre plateforme (par exemple **Test**, **Production**...). Celui-ci sera affiché dans le bandeau lorsque vous serez connectés.
 
-> Centreon  IT Edition Extensions est une extension Centreon qui requiert [license](../administration/licenses.md) valide.
-> Pour plus d'information, contactez [Centreon](mailto:sales@centreon.com).
+Pour pouvoir personnaliser votre plateforme Centreon, vous devez installer l'extension **Centreon IT Edition Extensions**.
+
+> **Centreon IT Edition Extensions** est une extension Centreon qui requiert une [licence](../administration/licenses.md) valide.
+> Pour plus d'informations, contactez [Centreon](mailto:sales@centreon.com).
 
 ## Installation
 
-### Installation du paquet
+1. Installez le dépôt Centreon Business. Vous trouverez son adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-Ajouter le dépôt Centreon Business repository, vous pouvez le trouver sur le
-[portal support](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-Et installer le paquet en exécutant la commande ci-dessous :
+2. Installez le paquet en exécutant la commande ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 or 9" label="Alma / RHEL / Oracle Linux">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-it-edition-extensions
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
 dnf install centreon-it-edition-extensions
@@ -36,22 +45,19 @@ apt update && apt install centreon-it-edition-extensions
 </TabItem>
 </Tabs>
 
-### Installation sur l'interface
+3. À la page **Administration > Extensions > Gestionnaire**, cliquez sur le bouton d'installation des modules suivants :
 
-Se rendre dans le menu **Administration > Extensions > Gestionnaire** et cliquez sur le bouton d'installation des modules suivantes :
-
-- License Manager (si celui-ci n'est pas déjà installé)
-- IT Edition Extensions
+   - **License Manager** (si celui-ci n'est pas déjà installé)
+   - **IT Edition Extensions**
 
 ## Configuration
 
-Depuis le menu **Administration > Personnaliser Centreon**.
+Allez à la page **Administration > Personnaliser Centreon**. Les différentes options sont :
 
-Les différentes options sont :
-- **Nom de la plate-forme**: définit le nom de la plateforme. Celui-ci sera visible à la fois sur la page de connexion et dans le bandeau.
-- **Sélectionnez un logo**: offre la possibilité de sélectionner un [média existant](./parameters/medias.md)
-  afin de remplacer le logo **Centreon** par défaut.
-- **Sélectionnez un fond d'écran**: offre la possibilité de sélectionner un [média existant](./parameters/medias.md)
-  afin de remplacer l'arrière-plan par défaut de **Centreon**.
-- **Position de votre texte**: définit où le texte personnalisé sera affiché, s'il est défini.
-- **Aperçu**: permet de prévisualiser le résultat avant d'enregistrer les paramètres.
+- **Nom de la plateforme** : définissez un nom pour la plateforme, par exemple **Test**, **Production**... Ce nom sera visible à la fois sur la page de connexion (à côté du logo) et dans le bandeau une fois que vous serez connectés.
+- **Sélectionnez un logo** : remplacez le logo Centreon sur la page de connexion (mais pas dans le coin supérieur gauche une fois connecté). Avant de pouvoir sélectionner un logo dans ce champ, vous devez ajouter le fichier aux [médias](./parameters/medias.md) de la plateforme.
+- **Sélectionnez un fond d'écran** : remplacez l'arrière-plan par défaut. Avant de pouvoir sélectionner un arrière-plan dans ce champ, vous devez ajouter le fichier aux [médias](./parameters/medias.md) de la plateforme.
+- **Insérez votre texte de présentation** : entrez un texte à afficher dans la zone de connexion.
+- **Position de votre texte** : définissez où le texte personnalisé sera affiché, s'il est défini (en-dessous du mot **Connexion** ou sous le bouton **Connexion**).
+
+Vérifiez l'aspect de votre page de connexion dans le champ **Aperçu**. Lorsque celui-ci vous convient, cliquez sur **Sauvegarder**.
