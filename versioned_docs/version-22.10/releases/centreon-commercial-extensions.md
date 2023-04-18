@@ -29,7 +29,7 @@ Release date: `soon`
 - [CEIP] Added more details for MAP engine telemetry.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
-- [Install] Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
+- [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
 - [Server] Fix migration issue with images that could stop migration process.
 - [Server] Fixed an issue that caused server to crash on corrupted metrics.
