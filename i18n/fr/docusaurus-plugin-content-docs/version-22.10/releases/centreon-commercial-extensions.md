@@ -29,35 +29,35 @@ Release date: `soon`
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
 - [Editor] Update draw.io library.
-- [Install] Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
-- [Monitoring] Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
-- [Server] Fix migration issue with images that could stop migration process.
+- [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
+- [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
+- [Server] Fixed a migration issue with images that could stop the migration process.
 - [Server] Fixed an issue that caused server to crash on corrupted metrics.
-- [Server] Fixed an issue that prevent the migration between MAP legacy and MAP.
+- [Server] Fixed an issue that prevented the migration between MAP Legacy and MAP.
 - [Server] Fixed an issue that prevented access to MAP in HTTPS.
 - [Server] Fixed an issue to allow more than 25 maps to be migrated.
 - [Server] Fixed an issue with authentication when several sessions are active.
 - [Server] Fixed an issue with insert an object in a link prevented the map from being saved.
 - [Server] Fixed an issue with map sharing.
-- [Server] Fixed configure.sh script to include storage event from broker output.
-- [Server] Fixed issue that made new hosts and services unavailable until restart.
-- [Server] Fixed the server startup error due to PF without virtual hosts.
-- [UI] Fixed Colors for a "Text" type element is ignored by the viewer.
-- [UI] Fixed an issue when tooltip don't display for "old perfdata" plugin in the graph.
-- [UI] Fixed an issue when updating a resource that did not display the new resource name.
-- [UI] Fixed an issue with Host and Service icons configuration that were not handled properly.
-- [UI] Fixed bug when custom URI is set, some old media in map are not displayed correctly.
-- [UI] Fixed bug who display a blank page when user click on host name inside a map.
-- [UI] Fixed issue when Dark Theme is not apply on tooltip in Geo Views / MAP ENGINE.
+- [Install] Fixed the **configure.sh** script to include storage event from Broker output.
+- [Server] Fixed an issue that made new hosts and services unavailable until restart.
+- [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
+- [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
+- [UI] Fixed an issue where tooltips were not displayed for "old perfdata" plugin in the graph.
+- [UI] Fixed an issue where updating a resource was not displaying the new resource name.
+- [UI] Fixed an issue where Host and Service icons configuration was not handled properly.
+- [UI] Fixed an issue where some old media in maps were not displayed correctly, when custom URI is set.
+- [UI] Fixed an issue where a blank page was displayed when the user clicked on a host name inside a map.
+- [UI] Fixed an issue where dark theme was not applied on tooltips in Geo views.
 - [UI] Fixed issues and improved the map display (visibility, background and breadcrumb color).
-- [UI] Fixed the background layout not fitting large map.
+- [UI] Fixed the background layout that was not fitting large maps.
 - [Viewer] Fixed an issue that caused the unit not matching the axis on graph widget.
 
 #### Enhancements
 
-- [API] Improve api response when server is starting up.
-- [Editor] Manage font properties in editor.
-- [Editor] Manage view background color.
+- [API] Improved the API response when server is starting up.
+- [Editor] You can now manage font properties in the editor.
+- [Editor] You can now manage the view background color.
 - [UI] Added resource parent name in graph.
 
 ### 22.10.4
@@ -158,7 +158,7 @@ Release date: `soon`
 - [KPI] Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
 - [Reporting] Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
 - [Rules] Fixed an error message in boolean rules when a host name was longer than 15 characters.
-- [UI] Fixed a cosmetic issue in Bam table header.
+- [UI] Fixed a cosmetic issue in BAM table header.
 
 ### 22.10.1
 
@@ -205,7 +205,7 @@ Release date: `October 26, 2022`
 
 Release date: `soon`
 
-- [UI] Fixed a cosmetic issue in Bam & Autodiscovery table header
+- [UI] Fixed a cosmetic issue in BAM and Autodiscovery table header.
 
 ### 22.10.0
 
@@ -242,7 +242,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Install] Fixed an packaging issue that prevented anomaly detection from being installed.
+- [Install] Fixed a packaging issue that prevented Anomaly Detection from being installed.
 
 ### 22.10.1
 
