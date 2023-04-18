@@ -28,7 +28,6 @@ Release date: `soon`
 - [CEIP] Added more details for MAP engine telemetry.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
-- [Editor] Update draw.io library.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
 - [Server] Fixed a migration issue with images that could stop the migration process.
@@ -58,6 +57,7 @@ Release date: `soon`
 - [API] Improved the API response when server is starting up.
 - [Editor] You can now manage font properties in the editor.
 - [Editor] You can now manage the view background color.
+- [Editor] Updated dependencies to avoid security issues.
 - [UI] Added resource parent name in graph.
 
 ### 22.10.4

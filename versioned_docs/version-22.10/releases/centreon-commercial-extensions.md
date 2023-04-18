@@ -22,8 +22,6 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 Release date: `soon`
 
-Release date: `soon`
-
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
 
 #### Bug fixes
@@ -31,7 +29,6 @@ Release date: `soon`
 - [CEIP] Added more details for MAP engine telemetry.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
-- [Editor] Update draw.io library.
 - [Install] Fixed an issue preventing the installation of centreon-map-engine on the same machine as centreon-map-server.
 - [Monitoring] Fixed an issue where MAP was not supporting performance data returned  by Cisco ASA plugin.
 - [Server] Fix migration issue with images that could stop migration process.
@@ -61,6 +58,7 @@ Release date: `soon`
 - [API] Improve api response when server is starting up.
 - [Editor] Manage font properties in editor.
 - [Editor] Manage view background color.
+- [Editor] Updated dependencies to avoid security issues.
 - [UI] Added resource parent name in graph.
 
 ### 22.10.4
