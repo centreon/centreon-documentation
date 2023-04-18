@@ -119,7 +119,7 @@ To use it in all the requests, edit the collection.
 ![image](../assets/api/postman-collection-edit.png)
 
 In the **Authorization** tab, choose *API Key* type and fill the *Key* field
-with `X-AUTH-TOKEN` and *Value* field with `{{token}}`.
+with `X-AUTH-TOKEN` and *Value* field with `{{token}}` or `{{apiKey}}` (depending on downloaded schema).
 
 ![image](../assets/api/postman-collection-edit-authorization.png)
 
