@@ -5,6 +5,7 @@ title: Problèmes connus dans MAP
 
 Cette page répertorie les incidents connus sur lesquels l'équipe Centreon travaille actuellement :
 
+- Vous ne pouvez pas encore utiliser les services de détection des anomalies dans les cartes.
 - L'indicateur de statut s'affiche pour les groupes d'hôtes et de services alors que ceux-ci n'ont pas de statut propre.
 - La redirection vers les pages de supervision dans le menu contextuel (par le clic-droit) du viewer ne fonctionne pas.
 - Dans l'éditeur MAP, vous ne pouvez pas définir de propriétés sur les graphiques.
