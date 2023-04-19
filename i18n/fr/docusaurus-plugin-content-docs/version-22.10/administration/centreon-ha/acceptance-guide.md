@@ -354,7 +354,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](./operating-guide.md).
 
 ### Retour à la situation nominale
 
@@ -472,7 +472,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation est `KO`, vous devez la corriger en suivant [le guide d'exploitation](operating-guide.md).
+> Si la synchronisation est `KO`, vous devez la corriger en suivant [le guide d'exploitation](./operating-guide.md).
 
 ## Simuler la perte du noeud secondaire
 
