@@ -1118,7 +1118,7 @@ Migration Summary:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [les macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#d%C3%A9finition-des-noms-et-adresses-ip-des-serveurs)
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via [les macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#définition-des-noms-et-adresses-ip-des-serveurs).
 
 ### Conditions requises pour les tests
 
@@ -1227,7 +1227,7 @@ Daemon Status:
 </TabItem>
 </Tabs>
 
-> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](troubleshooting-guide.md).
+> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](./troubleshooting-guide.md).
 
 ### Vérifier les contraintes
 
@@ -1307,7 +1307,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](./operating-guide.md).
 
 ## Basculement des ressources du Centreon
 
@@ -1548,7 +1548,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](./operating-guide.md).
 
 ### Retour à la situation nominale
 
