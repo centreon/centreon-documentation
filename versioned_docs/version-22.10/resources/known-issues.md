@@ -152,3 +152,13 @@ If you have a very large infrastructure, it is possible that the `servicemetric_
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
+
+## Centreon BAM
+
+### New Business Activities configuration issue
+
+Default levels for impact and ratio calculation methods are not set by default in new Business Activities configuration.
+
+#### Workaround
+
+There is currently no workaround.

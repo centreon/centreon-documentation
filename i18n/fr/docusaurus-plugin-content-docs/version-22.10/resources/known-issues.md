@@ -151,3 +151,13 @@ Si vous possédez une très large infrastructure, il est possible que la taille 
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
+
+## Centreon BAM
+
+### Problème de configuration des nouvelles Activités métier
+
+Les niveaux par défaut des méthodes de calcul impact et ratio ne sont pas reportés par défaut dans la configuration des nouvelles activités métier.
+
+#### Contournement
+
+Il n'existe actuellement pas de contournement.
