@@ -50,7 +50,13 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-sed -i -E 's|[0-9]{2}\.[0-9]{2}|23.04|g' /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Ensuite, importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 ```
 
