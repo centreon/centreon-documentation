@@ -150,8 +150,8 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_huawei_ibmc_snmp.pl \
-    --plugin=hardware::server::huawei::ibmc::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_xfusion_ibmc_snmp.pl \
+    --plugin=hardware::server::xfusion::ibmc::snmp::plugin \
     --mode=hardware \
     --hostname=10.0.0.1 \
     --snmp-version='2c' \
@@ -224,8 +224,8 @@ La liste de toutes les options complémentaires et leur signification peut être
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_huawei_ibmc_snmp.pl \
-    --plugin=hardware::server::huawei::ibmc::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_xfusion_ibmc_snmp.pl \
+    --plugin=hardware::server::xfusion::ibmc::snmp::plugin \
     --mode=hardware \
     --help
 ```
@@ -234,8 +234,8 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_huawei_ibmc_snmp.pl \
-    --plugin=hardware::server::huawei::ibmc::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_xfusion_ibmc_snmp.pl \
+    --plugin=hardware::server::xfusion::ibmc::snmp::plugin \
     --list-mode
 ```
 
