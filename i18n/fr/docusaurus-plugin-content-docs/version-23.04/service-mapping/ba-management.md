@@ -384,21 +384,6 @@ massivement les seuils:
 | Impact critique | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
 | Impact inconnu  | Poids d'impact en cas d'état "Unknown" ou inconnu,dans la supervision temps réel    |
 
-#### Charger fichier SSV
-
-Pour ajouter plusieurs KPI à la fois en chargeant un fichier de type
-.ssv, cliquer sur le lien "Load .ssv file" qui dirige vers un
-formulaire de saisie.
-
-![image](../assets/service-mapping/guide/ssv.png)
-
-| Colonne            | Description                                                                    |
-|--------------------|--------------------------------------------------------------------------------|
-| Fichier .ssv       | Ouvrir l'explorateur de fichiers                                               |
-| Type de KPI        | Type de KPI à charger                                                          |
-| Format             | Aide sur le format du fichier SSV à utiliser en fonction du type de KPI choisi |
-| Remplissage manuel | Possibilité de compléter ce champ plutôt que de charger un fichier             |
-
 ### Indicateur booléen
 
 Dans le menu **Configuration > Activités métiers > Règles booléennes**.
