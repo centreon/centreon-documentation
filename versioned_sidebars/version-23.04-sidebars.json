@@ -1165,10 +1165,6 @@
             {
               "type": "doc",
               "id": "version-23.04/integrations/event-management/sc-signl4-events"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/integrations/event-management/sc-servicenow-mid-server"
             }
           ]
         },
