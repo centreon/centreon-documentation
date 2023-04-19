@@ -153,7 +153,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](./operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [Guide d'exploitation du cluster](./operating-guide.md).
 
 ## Basculement des ressources du Centreon
 
