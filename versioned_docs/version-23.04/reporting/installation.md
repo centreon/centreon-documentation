@@ -146,28 +146,113 @@ considerations.
 
 #### Hardware layer
 
-| Number of services supervised | Minimum CPU          | RAM           |
-|-------------------------------|----------------------|---------------|
-| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
-| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
-| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
-| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                     | > Contact Centreon   |               |
+<Tabs groupId="sync">
+<TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
-#### Storage space
-Use [the following file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 GB      |
 
-#### Partitioning
+This is how your MBI server should be partitioned:
 
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 233 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
 
+</TabItem>
+<TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
 
-| File system                    | Size                                                                                         |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| /                              | 5GB minimum                                                                                  |
-| /var (containing MariaDB data) | Use the result of the above disk space simulation file                                       |
-| MariaDB temporary folder       | Strongly recommended to place it in /var                                                     |
-| Volume group*                  | 5G minimum free space on the **Volume group** hosting the MariaDB **data**.                  |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 GB      |
 
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 465 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 2,500 hosts" label="Up to 2,500 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 24 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 1163 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 5,000 hosts" label="Up to 5,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 24 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 2326 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 10,000 hosts" label="Up to 10,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 12 vCPU    |
+| RAM                         | 32 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 4651 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+
+For very large amounts of data, contact your sales representative.
+
+</TabItem>
+</Tabs>
 
 To check the free space, use the following command by replacing **vg_data** with the name of the group volume:
 
