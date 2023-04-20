@@ -15,7 +15,7 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
     > le [catalogue des Plugin
     > Packs](/pp/integrations/plugin-packs/getting-started/introduction).
     >
-    > Si, à la page **Configuration > Gestionnaire de connecteurs de supervision**, vous avez réglé **Installation automatique des plugins** sur **ON**, le plugin de découverte sera installé automatiqumeent lorsque la tâche de dévouverte sera exécutée.
+    > Si, à la page **Configuration > Gestionnaire de connecteurs de supervision**, vous avez réglé **Installation automatique des plugins** sur **ON**, le plugin de découverte sera installé automatiquement lorsque la tâche de découverte sera exécutée.
 
 3. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**. 
 Un assistant s'ouvre.
