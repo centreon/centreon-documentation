@@ -307,6 +307,28 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 </TabItem>
 </Tabs>
 
+### TagInfo (BBDO v3 only)
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+nécessite BBDO V3
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+| Property  | Type             | Description                                         |
+| --------- | ---------------- | --------------------------------------------------- |
+| id        | entier non signé | identifiant unique du tag                           |
+| action    | Action           | ADD DELETE MODIFY                                   |
+| type      | TagType          | SERVICEGROUP HOSTGROUP SERVICECATEGORY HOSTCATEGORY |
+| name      | chaîne           | nom                                                 |
+| poller_id | entier non signé | identifiant du poller                               |
+
+</TabItem>
+</Tabs>
+
 ### Host
 
 <Tabs groupId="sync">
@@ -397,87 +419,88 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété                         | Type             | Description | Version |
-| --------------------------------- | ---------------- | ----------- | ------- |
-| acknowledged                      | booléen          |             |
-| acknowledgement\_type             | entier court     |             |
-| action\_url                       | chaîne           |             |
-| active\_checks\_enabled           | booléen          |             |
-| address                           | chaîne           |             |
-| alias                             | chaîne           |             |
-| check\_freshness                  | booléen          |             |
-| check\_interval                   | réel             |             |
-| check\_period                     | chaîne           |             |
-| check\_type                       | entier court     |             |
-| current\_check\_attempt           | entier court     |             |
-| current\_state                    | entier court     |             |
-| default\_active\_checks\_enabled  | booléen          |             |
-| default\_event\_handler\_enabled  | booléen          |             |
-| default\_flap\_detection\_enabled | booléen          |             |
-| default\_notifications\_enabled   | booléen          |             |
-| default\_passive\_checks\_enabled | booléen          |             |
-| downtime\_depth                   | entier court     |             |
-| display\_name                     | chaîne           |             |
-| enabled                           | booléen          |             |
-| event\_handler                    | chaîne           |             |
-| event\_handler\_enabled           | booléen          |             |
-| execution\_time                   | réel             |             |
-| first\_notification\_delay        | réel             |             |
-| flap\_detection\_enabled          | booléen          |             |
-| flap\_detection\_on\_down         | booléen          |             |
-| flap\_detection\_on\_unreachable  | booléen          |             |
-| flap\_detection\_on\_up           | booléen          |             |
-| freshness\_threshold              | réel             |             |
-| has\_been\_checked                | booléen          |             |
-| high\_flap\_threshold             | réel             |             |
-| host\_name                        | chaîne           |             |
-| host\_id                          | entier non signé |             |
-| icon\_image                       | chaîne           |             |
-| icon\_image\_alt                  | chaîne           |             |
-| instance\_id                      | entier non signé |             |
-| is\_flapping                      | booléen          |             |
-| last\_check                       | temps            |             |
-| last\_hard\_state                 | entier court     |             |
-| last\_hard\_state\_change         | temps            |             |
-| last\_notification                | temps            |             |
-| last\_state\_change               | temps            |             |
-| last\_time\_down                  | temps            |             |
-| last\_time\_unreachable           | temps            |             |
-| last\_time\_up                    | temps            |             |
-| last\_update                      | temps            |             |
-| latency                           | réel             |             |
-| low\_flap\_threshold              | réel             |             |
-| max\_check\_attempts              | entier court     |             |
-| next\_check                       | temps            |             |
-| next\_notification                | temps            |             |
-| no\_more\_notifications           | booléen          |             |
-| notes                             | chaîne           |             |
-| notes\_url                        | chaîne           |             |
-| notification\_interval            | réel             |             |
-| notification\_number              | entier court     |             |
-| notification\_period              | chaîne           |             |
-| notifications\_enabled            | booléen          |             |
-| notify\_on\_down                  | booléen          |             |
-| notify\_on\_downtime              | booléen          |             |
-| notify\_on\_flapping              | booléen          |             |
-| notify\_on\_recovery              | booléen          |             |
-| notify\_on\_unreachable           | booléen          |             |
-| obsess\_over                      | booléen          |             |
-| passive\_checks\_enabled          | booléen          |             |
-| percent\_state\_change            | réel             |             |
-| retry\_interval                   | réel             |             |
-| should\_be\_scheduled             | booléen          |             |
-| stalk\_on\_down                   | booléen          |             |
-| stalk\_on\_unreachable            | booléen          |             |
-| stalk\_on\_up                     | booléen          |             |
-| statusmap\_image                  | chaîne           |             |
-| state\_type                       | entier court     |             |
-| check\_command                    | chaîne           |             |
-| output                            | chaîne           |             |
-| perf\_data                        | chaîne           |             |
-| retain\_nonstatus\_information    | booléen          |             |
-| retain\_status\_information       | booléen          |             |
-| timezone                          | chaîne           |             |
+| Property                         | Type             | Description                                                                                                     | Version                              |
+| -------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| acknowledged                     | booléen          | vrai si le problème a été acquitté                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| acknowledgement\_type            | AckType          | NONE, NORMAL, STICKY                                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| action\_url                      | chaîne           | url ou on peut obtenir des informations sur le hôte                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| active\_checks                   | booléen          | check actif                                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| address                          | chaîne           | adresse IP de l'hôte                                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| alias                            | chaîne           | alias                                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_attempt                   | entier court     | nombre de checks en échec                                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_command                   | chaîne           | commande à exécuter                                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_freshness                 | booléen          | test de péremption du résultat de check passif                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_interval                  | réel             | intervalle en unité de temps (généralement 60s) entre 2 checks                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_period                    | chaîne           | time period durant laquelle le check est autorisé                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_type                      | CheckType        | ACTIVE PASSIVE                                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| checked                          | booléen          | l'hôte a été testé au moins une fois                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_active\_checks          | booléen          | idem active\_checks\_enabled                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_event\_handler\_enabled | booléen          | idem event\_handler\_enabled                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_flap\_detection         | booléen          | idem flap\_detection\_enabled                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_notify                  | booléen          | idem notify                                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_passive\_checks         | booléen          | idem passive\_checks\_enabled                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| display\_name                    | chaîne           | nom affiché dans l'interface                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| enabled                          | booléen          | test sur l'hôte activé                                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| event\_handler                   | chaîne           | commande exécutée au changement d'état                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| event\_handler\_enabled          | booléen          | event\_handler activée                                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| execution\_time                  | réel             | durée d'exéctution du dernier check                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| first\_notification\_delay       | réel             | delai avant notification en unités de temps (généralement 60s)                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection                  | booléen          | activation de la détection de bagôt                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_down        | booléen          | l'état down est pris en compte dans la détection de bagôt                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_unreachable | booléen          | l'état unreachable est pris en compte dans la détection de bagôt                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_up          | booléen          | l'état up est pris en compte dans la détection de bagôt                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| flapping                         | booléen          | l'hôte bagotte                                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| freshness\_threshold             | réel             | delai après lequel le résultat d'un check passif est considéré périmé                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| high\_flap\_threshold            | réel             | si percent\_state\_change est supérieur à cette limit, l'hôte est considéré bagottant                           | depuis la version 22.04 (bbdo 3.0.0) |
+| host\_id                         | entier non signé | identifiant de l'hôte                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| icon\_image                      | chaîne           | icone affiché dans l'interface                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| icon\_image\_alt                 | chaîne           | texte alternatif pour icon\_image                                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| instance\_id                     | entier non signé | identifiant du poller qui vérifie l'hôte                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_check                      | time             | instant du dernier check                                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state                | State            | dernier état définitif                                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state\_change        | time             | instant du dernier changement d'état définitif                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_notification               | time             | instant de la dernère notification                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_state\_change              | time             | instant du dernier changement d'état définitif ou provisoire                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_down                 | time             | instant du dernier check échoué                                                                                 | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_unreachable          | time             | instant du dernier check échoué alors que tous les hôtes parents sont dans l'état down                          | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_up                   | time             | instant du dernier check ok                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_update                     | time             | instant de la création de cet évènement                                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| latency                          | réel             | délai entre l'instant programmé du dernier check et l'instant de son exécution                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| low\_flap\_threshold             | réel             | si percent\_state\_change est inférieur à cette limite, l'hôte n'est plus considéré bagottant                   | depuis la version 22.04 (bbdo 3.0.0) |
+| max\_check\_attempts             | entier court     | nombre de checks échoués après lesquels l'état définitf de l'hôte passe à DOWN                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| name                             | chaîne           | nom de l'hôte                                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_check                      | time             | instant du prochain check                                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_host\_notification         | time             | instant de la prochaine notification                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| no\_more\_notifications          | booléen          | aucune autre notification sera envoyée                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| notes                            | chaîne           | tooltip affichée dans la page resources                                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| notes\_url                       | chaîne           | url clikable affichée dans la page resources                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_interval           | réel             | intervalle entre deux notifications                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_number             | entier court     | nombre de notifications envoyées depuis le début du problème                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_period             | chaîne           | time period durant laquelle l'envoi des notifications est autorisé                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| notify                           | booléen          | notifications autorisées                                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_down                 | booléen          | une notification est envoyée si l'état de l'hôte passe à down                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_downtime             | booléen          | une notification est envoyée si on entre dans une période de downtime                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_flapping             | booléen          | une notification est envoyée si l'hôte bagotte                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_recovery             | booléen          | une notification est envoyée si l'état de l'hôte passe à up                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_unreachable          | booléen          | une notification est envoyée si l'état de l'hôte passe à down et que l'état de ses parents vaut aussi down      | depuis la version 22.04 (bbdo 3.0.0) |
+| obsess\_over\_host               | booléen          | une commande ocsp est exécutée après chaque check ou envoi de notification                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| output                           | chaîne           | sortie de la commande de check                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| passive\_checks                  | booléen          | check passif                                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| percent\_state\_change           | réel             | pourcentage de changement d'état comparé à low\_flap\_threshold et high\_flap\_threshold                        | depuis la version 22.04 (bbdo 3.0.0) |
+| perf\_data                       | chaîne           | données de performance extraites de la sortie de la commande de check                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| retain\_nonstatus\_information   | booléen          | pas utilisé                                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| retain\_status\_information      | booléen          | pas utilisé                                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| retry\_interval                  | réel             | intervalle en unité de temps (généralement 60s) entre 2 checks en échec lorsque l'état de l'hôte est provisoire | depuis la version 22.04 (bbdo 3.0.0) |
+| scheduled_downtime\_depth        | entier court     | nombre de downtimes actifs                                                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| should\_be\_scheduled            | booléen          | un prochain check doit être programmé                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_down                  | booléen          | loggue la sortie du check si elle change alors que l'état de l'hôte est down                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_unreachable           | booléen          | loggue la sortie du check si elle change alors que l'état de l'hôte est unreachable                             | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_up                    | booléen          | loggue la sortie du check si elle change alors que l'état de l'hôte est up                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| state                            | State            | UP DOWN UNREACHABLE                                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| state\_type                      | StateType        | SOFT (provsoire) HARD (défintif)                                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| statusmap\_image                 | chaîne           | icone affichée dans map                                                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| tags                             | TagInfo          | tags de l'hôte (voir TagInfo)                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| timezone                         | chaîne           | fuseau horaire                                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -490,7 +513,7 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 | Propriété               | Type             | Description                                           | Version |
 | ----------------------- | ---------------- | ----------------------------------------------------- | ------- |
 | active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur l’hôte. |
-| check\_type             | entier court     |                                                       |
+| check\_type             | entier court     | 0 actif, 1 passif                                     |
 | host\_id                | entier non signé | ID de l’hôte.                                         |
 | next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.      |
 | command\_line           | chaîne           | Ligne de commande du contrôle.                        |
@@ -503,7 +526,7 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 | Propriété               | Type             | Description                                           | Version |
 | ----------------------- | ---------------- | ----------------------------------------------------- | ------- |
 | active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur l’hôte. |
-| check\_type             | entier court     |                                                       |
+| check\_type             | entier court     | 0 actif, 1 passif                                     |
 | host\_id                | entier non signé | ID de l’hôte.                                         |
 | next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.      |
 | command\_line           | chaîne           | Ligne de commande du contrôle.                        |
@@ -674,50 +697,37 @@ Les événements de statut de variable personnalisée sont générés lorsqu’u
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété                 | Type             | Description | Version |
-| ------------------------- | ---------------- | ----------- | ------- |
-| acknowledged              | booléen          |             |
-| acknowledgement\_type     | entier court     |             |
-| active\_checks\_enabled   | booléen          |             |
-| check\_interval           | réel             |             |
-| check\_period             | chaîne           |             |
-| check\_type               | entier court     |             |
-| current\_check\_attempt   | entier court     |             |
-| current\_state            | entier court     |             |
-| downtime\_depth           | entier court     |             |
-| enabled                   | booléen          |             |
-| event\_handler            | chaîne           |             |
-| event\_handler\_enabled   | booléen          |             |
-| execution\_time           | réel             |             |
-| flap\_detection\_enabled  | booléen          |             |
-| has\_been\_checked        | booléen          |             |
-| host\_id                  | entier non signé |             |
-| is\_flapping              | booléen          |             |
-| last\_check               | temps            |             |
-| last\_hard\_state         | entier court     |             |
-| last\_hard\_state\_change | temps            |             |
-| last\_notification        | temps            |             |
-| last\_state\_change       | temps            |             |
-| last\_time\_down          | temps            |             |
-| last\_time\_unreachable   | temps            |             |
-| last\_time\_up            | temps            |             |
-| last\_update              | temps            |             |
-| latency                   | réel             |             |
-| max\_check\_attempts      | entier court     |             |
-| next\_check               | temps            |             |
-| next\_host\_notification  | temps            |             |
-| no\_more\_notifications   | booléen          |             |
-| notification\_number      | entier court     |             |
-| notifications\_enabled    | booléen          |             |
-| obsess\_over              | booléen          |             |
-| passive\_checks\_enabled  | booléen          |             |
-| percent\_state\_change    | réel             |             |
-| retry\_interval           | réel             |             |
-| should\_be\_scheduled     | booléen          |             |
-| state\_type               | entier court     |             |
-| check\_command            | chaîne           |             |
-| output                    | chaîne           |             |
-| perf\_data                | chaîne           |             |
+| Propriété                 | Type             | Description                                                                                                     | Version                              |
+| ------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| acknowledgement\_type     | AckType          | NONE, NORMAL, STICKY                                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| checked                   | booléen          | l'hôte a été testé au moins une fois                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_type               | CheckType        | ACTIVE PASSIVE                                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_attempt            | entier court     | nombre de checks en échec                                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| execution\_time           | réel             | durée d'exéctution du dernier check                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| flapping                  | booléen          | l'hôte bagotte                                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| host\_id                  | entier non signé | identifiant de l'hôte                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_check               | time             | instant du dernier check                                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state         | State            | dernier état définitif                                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state\_change | time             | instant du dernier changement d'état définitif                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_notification        | time             | instant de la dernère notification                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_state\_change       | time             | instant du dernier changement d'état définitif ou provisoire                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_down          | time             | instant du dernier check échoué                                                                                 | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_unreachable   | time             | instant du dernier check échoué alors que tous les hôtes parents sont dans l'état down                          | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_up            | time             | instant du dernier check ok                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| latency                   | réel             | délai entre l'instant programmé du dernier check et l'instant de son exécution                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| long\_output              | chaîne           | sortie du check sur plusieurs lignes                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_check               | time             | instant du prochain check                                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_host\_notification  | time             | instant de la prochaine notification                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| no\_more\_notifications   | booléen          | aucune autre notification sera envoyée                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_number      | entier court     | nombre de notifications envoyées depuis le début du problème                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| output                    | chaîne           | sortie de la commande de check                                                                                  | depuis la version 22.04 (bbdo 3.0.0) |
+| percent\_state\_change    | réel             | pourcentage de changement d'état comparé à low\_flap\_threshold et high\_flap\_threshold                        | depuis la version 22.04 (bbdo 3.0.0) |
+| perf\_data                | chaîne           | données de performance extraites de la sortie de la commande de check                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| retry\_interval           | réel             | intervalle en unité de temps (généralement 60s) entre 2 checks en échec lorsque l'état de l'hôte est provisoire | depuis la version 22.04 (bbdo 3.0.0) |
+| scheduled_downtime\_depth | entier court     | nombre de downtimes actifs                                                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| should\_be\_scheduled     | booléen          | un prochain check doit être programmé                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| state                     | State            | UP DOWN UNREACHABLE                                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| state\_type               | StateType        | SOFT (provsoire) HARD (défintif)                                                                                | depuis la version 22.04 (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -971,90 +981,95 @@ Les événements relatifs aux modules sont générés lors du chargement ou du d
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété                         | Type             | Description | Version |
-| --------------------------------- | ---------------- | ----------- | ------- |
-| acknowledged                      | booléen          |             |
-| acknowledged\_type                | entier court     |             |
-| action\_url                       | chaîne           |             |
-| active\_checks\_enabled           | booléen          |             |
-| check\_freshness                  | booléen          |             |
-| check\_interval                   | réel             |             |
-| check\_period                     | chaîne           |             |
-| check\_type                       | entier court     |             |
-| current\_check\_attempt           | entier court     |             |
-| current\_state                    | entier court     |             |
-| default\_active\_checks\_enabled  | booléen          |             |
-| default\_event\_handler\_enabled  | booléen          |             |
-| default\_flap\_detection\_enabled | booléen          |             |
-| default\_notifications\_enabled   | booléen          |             |
-| default\_passive\_checks\_enabled | booléen          |             |
-| dowtine\_depth                    | entier court     |             |
-| display\_name                     | chaîne           |             |
-| enabled                           | booléen          |             |
-| event\_handler                    | chaîne           |             |
-| event\_handler\_enabled           | booléen          |             |
-| execution\_time                   | réel             |             |
-| first\_notification\_delay        | réel             |             |
-| flap\_detection\_enabled          | booléen          |             |
-| flap\_detection\_on\_critical     | booléen          |             |
-| flap\_detection\_on\_ok           | booléen          |             |
-| flap\_detection\_on\_unknown      | booléen          |             |
-| flap\_detection\_on\_warning      | booléen          |             |
-| freshness\_threshold              | réel             |             |
-| has\_been\_checked                | booléen          |             |
-| high\_flap\_threshold             | réel             |             |
-| host\_id                          | entier non signé |             |
-| host\_name                        | chaîne           |             |
-| icon\_image                       | chaîne           |             |
-| icon\_image\_alt                  | chaîne           |             |
-| service\_id                       | entier non signé |             |
-| is\_flapping                      | booléen          |             |
-| is\_volatile                      | booléen          |             |
-| last\_check                       | temps            |             |
-| last\_hard\_state                 | entier court     |             |
-| last\_hard\_state\_change         | temps            |             |
-| last\_notification                | temps            |             |
-| last\_state\_change               | temps            |             |
-| last\_time\_critical              | temps            |             |
-| last\_time\_ok                    | temps            |             |
-| last\_time\_unknown               | temps            |             |
-| last\_time\_warning               | temps            |             |
-| last\_update                      | temps            |             |
-| latency                           | réel             |             |
-| low\_flap\_threshold              | réel             |             |
-| max\_check\_attempts              | entier court     |             |
-| next\_check                       | temps            |             |
-| next\_notification                | temps            |             |
-| no\_more\_notifications           | booléen          |             |
-| notes                             | chaîne           |             |
-| notes\_url                        | chaîne           |             |
-| notification\_interval            | réel             |             |
-| notification\_number              | entier court     |             |
-| notification\_period              | chaîne           |             |
-| notifications\_enabled            | booléen          |             |
-| notify\_on\_critical              | booléen          |             |
-| notify\_on\_downtime              | booléen          |             |
-| notify\_on\_flapping              | booléen          |             |
-| notify\_on\_recovery              | booléen          |             |
-| notify\_on\_unknown               | booléen          |             |
-| notify\_on\_warning               | booléen          |             |
-| obsess\_over                      | booléen          |             |
-| passive\_checks\_enabled          | booléen          |             |
-| percent\_state\_change            | réel             |             |
-| retry\_interval                   | réel             |             |
-| scheduled\_downtime\_depth        | entier court     |             |
-| service\_description              | chaîne           |             |
-| should\_be\_scheduled             | booléen          |             |
-| stalk\_on\_critical               | booléen          |             |
-| stalk\_on\_ok                     | booléen          |             |
-| stalk\_on\_unknown                | booléen          |             |
-| stalk\_on\_warning                | booléen          |             |
-| state\_type                       | entier court     |             |
-| check\_command                    | chaîne           |             |
-| output                            | chaîne           |             |
-| perf\_data                        | chaîne           |             |
-| retain\_nonstatus\_information    | booléen          |             |
-| retain\_status\_information       | booléen          |             |
+| Propriété                        | Type             | Description                                                                                                      | Version                              |
+| -------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| acknowledged                     | booléen          | vrai si le problème a été acquitté                                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| acknowledgement\_type            | AckType          | NONE, NORMAL, STICKY                                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| action\_url                      | chaîne           | url ou on peut obtenir des informations sur le service                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| active\_checks                   | booléen          | check actif                                                                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_attempt                   | entier court     | nombre de checks en échec                                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_command                   | chaîne           | commande à exécuter                                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| checked                          | booléen          | le service a été testé au moins une fois                                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_freshness                 | booléen          | test de péremption du résultat de check passif                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_interval                  | réel             | intervalle en unité de temps (généralement 60s) entre 2 checks                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_period                    | chaîne           | time period durant laquelle le check est autorisé                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_type                      | CheckType        | ACTIVE PASSIVE                                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_active\_checks          | booléen          | idem active\_checks\_enabled                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_event\_handler\_enabled | booléen          | idem event\_handler\_enabled                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_flap\_detection         | booléen          | idem flap\_detection\_enabled                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_notify                  | booléen          | idem notify                                                                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| default\_passive\_checks         | booléen          | idem passive\_checks\_enabled                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| service\_description             | chaîne           | nom du service                                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| display\_name                    | chaîne           | nom affiché dans l'interface                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| enabled                          | booléen          | test sur le service activé                                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| event\_handler                   | chaîne           | commande exécutée au changement d'état                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| event\_handler\_enabled          | booléen          | event\_handler activée                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| execution\_time                  | réel             | durée d'exécution du dernier check                                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| first\_notification\_delay       | réel             | delai avant notification en unités de temps (généralement 60s)                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection                  | booléen          | activation de la détection de bagôt                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_critical    | booléen          | l'état critical est pris en compte dans la détection de bagôt                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_ok          | booléen          | l'état ok est pris en compte dans la détection de bagôt                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_unknown     | booléen          | l'état unknown est pris en compte dans la détection de bagôt                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| flap\_detection\_on\_warning     | booléen          | l'état warning est pris en compte dans la détection de bagôt                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| flapping                         | booléen          | le service bagotte                                                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| freshness\_threshold             | réel             | delai après lequel le résultat d'un check passif est considéré périmé                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| high\_flap\_threshold            | réel             | si percent\_state\_change est supérieur à cette limit, l'hôte est considéré bagottant                            | depuis la version 22.04 (bbdo 3.0.0) |
+| host\_id                         | entier non signé | identifiant de l'hôte                                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| host\_name                       | chaîne           | nom de l'hôte                                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| icon\_id                         | entier non signé | identifiant de l'icone                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| icon\_image                      | chaîne           | icone affiché dans l'interface                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| icon\_image\_alt                 | chaîne           | texte alternatif pour icon\_image                                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| internal\_id                     | entier non signé | identifiant interne utilisé par les BAs et les metaservices                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| is\_volatile                     | booléen          | le service est volatile                                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_check                      | time             | instant du dernier check                                                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state                | State            | dernier état définitif                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state\_change        | time             | instant du dernier changement d'état définitif                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_notification               | time             | instant de la dernère notification                                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_state\_change              | time             | instant du dernier changement d'état définitif ou provisoire                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_critical             | time             | instant du dernier check ayant retourné un status critical                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_ok                   | time             | instant du dernier check ayant retourné un status ok                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_unknown              | time             | instant du dernier check ayant retourné un status unknown                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_warning              | time             | instant du dernier check ayant retourné un status warning                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_update                     | time             | instant de la création de ce message                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| latency                          | réel             | délai entre l'instant programmé du dernier check et l'instant de son exécution                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| long\_output                     | chaîne           | sortie du check sur plusieurs lignes                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| low\_flap\_threshold             | réel             | si percent\_state\_change est inférieur à cette limite, l'hôte n'est plus considéré bagottant                    | depuis la version 22.04 (bbdo 3.0.0) |
+| max\_check\_attempts             | entier court     | nombre de checks échoués après lesquels l'état définitf de l'hôte passe à DOWN                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_check                      | time             | instant du prochain check                                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_notification               | time             | instant de la prochaine notification                                                                             | depuis la version 22.04 (bbdo 3.0.0) |
+| no\_more\_notifications          | booléen          | aucune autre notification sera envoyée                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| notes                            | chaîne           | tooltip affichée dans la page resources                                                                          | depuis la version 22.04 (bbdo 3.0.0) |
+| notes\_url                       | chaîne           | url clikable affichée dans la page resources                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_interval           | réel             | intervalle entre deux notifications                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_number             | entier court     | nombre de notifications envoyées depuis le début du problème                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_period             | chaîne           | time period durant laquelle l'envoi des notifications est autorisé                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| notify                           | booléen          | notifications autorisées                                                                                         | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_critical             | booléen          | une notification est envoyée si l'état du service passe à critical                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_downtime             | booléen          | une notification est envoyée si on entre dans une période de downtime                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_flapping             | booléen          | une notification est envoyée si le service bagotte                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_recovery             | booléen          | une notification est envoyée si l'état du service passe à  ok                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_unknown              | booléen          | une notification est envoyée si l'état du service passe à  unknown                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| notify\_on\_warning              | booléen          | une notification est envoyée si l'état du service passe à  warning                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| obsess\_over\_service            | booléen          | une commande ocsp est exécutée après chaque check ou envoi de notification                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| output                           | chaîne           | sortie de la commande de check                                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| passive\_checks                  | booléen          | check passif                                                                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| percent\_state\_change           | réel             | pourcentage de changement d'état comparé à low\_flap\_threshold et high\_flap\_threshold                         | depuis la version 22.04 (bbdo 3.0.0) |
+| perf\_data                       | chaîne           | données de performance extraites de la sortie de la commande de check                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| retain\_nonstatus\_information   | booléen          | pas utilisé                                                                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| retain\_status\_information      | booléen          | pas utilisé                                                                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| retry\_interval                  | réel             | intervalle en unité de temps (généralement 60s) entre 2 checks en échec lorsque l'état du service est provisoire | depuis la version 22.04 (bbdo 3.0.0) |
+| scheduled\_downtime\_depth       | entier court     | nombre de downtimes actifs                                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| service\_id                      | entier non signé | identifiant du service                                                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| severity\_id                     | entier non signé | identifiant de la sévérité associée au service                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| should\_be\_scheduled            | booléen          | un prochain check doit être programmé                                                                            | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_critical              | booléen          | loggue la sortie du check si elle change alors que l'état du service est critical                                | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_ok                    | booléen          | loggue la sortie du check si elle change alors que l'état du service est ok                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_unknown               | booléen          | loggue la sortie du check si elle change alors que l'état du service est unknown                                 | depuis la version 22.04 (bbdo 3.0.0) |
+| stalk\_on\_warning               | booléen          | loggue la sortie du check si elle change alors que l'état du service est warning                                 | depuis la version 22.04 (bbdo 3.0.0) |
+| state                            | State            | OK WARNING CRITICAL UNKNOWN PENDING                                                                              | depuis la version 22.04 (bbdo 3.0.0) |
+| state\_type                      | StateType        | SOFT HARD                                                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
+| tags                             | TagInfo          | tags du service (see TagInfo)                                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| type                             | ServiceType      | SERVICE METASERVICE BA ANOMALY\_DETECTION                                                                        | depuis la version 22.04 (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -1235,55 +1250,40 @@ Les événements relatifs aux modules sont générés lors du chargement ou du d
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété                 | Type             | Description | Version |
-| ------------------------- | ---------------- | ----------- | ------- |
-| acknowledged              | booléen          |             |
-| acknowledgement\_type     | entier court     |             |
-| active\_checks\_enabled   | booléen          |             |
-| check\_interval           | réel             |             |
-| check\_period             | chaîne           |             |
-| check\_type               | entier court     |             |
-| current\_check\_attempt   | entier court     |             |
-| current\_state            | entier court     |             |
-| downtime\_depth           | entier court     |             |
-| enabled                   | booléen          |             |
-| event\_handler            | chaîne           |             |
-| event\_handler\_enabled   | booléen          |             |
-| execution\_time           | réel             |             |
-| flap\_detection\_enabled  | booléen          |             |
-| has\_been\_checked        | booléen          |             |
-| host\_id                  | entier non signé |             |
-| host\_name                | chaîne           |             |
-| is\_flapping              | booléen          |             |
-| last\_check               | temps            |             |
-| last\_hard\_state         | entier court     |             |
-| last\_hard\_state\_change | temps            |             |
-| last\_notification        | temps            |             |
-| last\_state\_change       | temps            |             |
-| last\_time\_critical      | temps            |             |
-| last\_time\_ok            | temps            |             |
-| last\_time\_unknown       | temps            |             |
-| last\_time\_warning       | temps            |             |
-| last\_update              | temps            |             |
-| latency                   | réel             |             |
-| max\_check\_attempts      | entier court     |             |
-| modified\_attributes      | entier non signé |             |
-| next\_check               | temps            |             |
-| next\_notification        | temps            |             |
-| no\_more\_notifications   | booléen          |             |
-| notification\_number      | entier court     |             |
-| notifications\_enabled    | booléen          |             |
-| obsess\_over              | booléen          |             |
-| passive\_checks\_enabled  | booléen          |             |
-| percent\_state\_change    | réel             |             |
-| retry\_interval           | réel             |             |
-| service\_description      | chaîne           |             |
-| service\_id               | entier non signé |             |
-| should\_be\_scheduled     | booléen          |             |
-| state\_type               | entier court     |             |
-| check\_command            | chaîne           |             |
-| output                    | chaîne           |             |
-| perf\_data                | chaîne           |             |
+| Propriété                  | Type             | Description                                                                              | Version                              |
+| -------------------------- | ---------------- | ---------------------------------------------------------------------------------------- | ------------------------------------ |
+| acknowledgement\_type      | AckType          | NONE NORMAL STICKY                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| check\_attempt             | entier court     | nombre de checks en échec                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| checked                    | booléen          | le service a été testé au moins une fois                                                 | depuis la version 22.04 (bbdo 3.0.0) |
+| execution\_time            | réel             | durée d'exécution du dernier check                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| flapping                   | booléen          | le service bagotte                                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| host\_id                   | entier non signé | identifiant de l'hôte                                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| internal\_id               | entier non signé | identifiant interne utilisé par les BAs et les metaservices                              | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_check                | time             | instant du dernier check                                                                 | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state          | State            | dernier état définitif                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_hard\_state\_change  | time             | instant du dernier changement d'état définitif                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_notification         | time             | instant de la dernère notification                                                       | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_state\_change        | time             | instant du dernier changement d'état définitif ou provisoire                             | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_critical       | time             | instant du dernier check ayant retourné un status critical                               | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_ok             | time             | instant du dernier check ayant retourné un status ok                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_unknown        | time             | instant du dernier check ayant retourné un status unknown                                | depuis la version 22.04 (bbdo 3.0.0) |
+| last\_time\_warning        | time             | instant du dernier check ayant retourné un status warning                                | depuis la version 22.04 (bbdo 3.0.0) |
+| latency                    | réel             | délai entre l'instant programmé du dernier check et l'instant de son exécution           | depuis la version 22.04 (bbdo 3.0.0) |
+| long\_output               | chaîne           | sortie du check sur plusieurs lignes                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_check                | time             | instant du prochain check                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| next\_notification         | time             | instant de la prochaine notification                                                     | depuis la version 22.04 (bbdo 3.0.0) |
+| no\_more\_notifications    | booléen          | aucune autre notification sera envoyée                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| notification\_number       | entier court     | nombre de notifications envoyées depuis le début du problème                             | depuis la version 22.04 (bbdo 3.0.0) |
+| output                     | chaîne           | sortie de la commande de check                                                           | depuis la version 22.04 (bbdo 3.0.0) |
+| percent\_state\_change     | réel             | pourcentage de changement d'état comparé à low\_flap\_threshold et high\_flap\_threshold | depuis la version 22.04 (bbdo 3.0.0) |
+| perfdata                   | chaîne           | données de performance extraites de la sortie de la commande de check                    | depuis la version 22.04 (bbdo 3.0.0) |
+| scheduled\_downtime\_depth | entier court     | nombre de downtimes actifs                                                               | depuis la version 22.04 (bbdo 3.0.0) |
+| service\_id                | entier non signé | identifiant du service                                                                   | depuis la version 22.04 (bbdo 3.0.0) |
+| should\_be\_scheduled      | booléen          | un prochain check doit être programmé                                                    | depuis la version 22.04 (bbdo 3.0.0) |
+| state                      | State            | OK WARNING CRITICAL UNKNOWN PENDING                                                      | depuis la version 22.04 (bbdo 3.0.0) |
+| state\_type                | StateType        | SOFT HARD                                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| state\_type                | StateType        | SOFT HARD                                                                                | depuis la version 22.04 (bbdo 3.0.0) |
+| type                       | ServiceType      | SERVICE METASERVICE BA ANOMALY\_DETECTION                                                | depuis la version 22.04 (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
