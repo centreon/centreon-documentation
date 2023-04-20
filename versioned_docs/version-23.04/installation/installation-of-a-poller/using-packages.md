@@ -256,7 +256,7 @@ Run the following commands:
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf config-manager --set-enabled crb
+dnf config-manager --set-enabled ol9_codeready_builder
 dnf install -y epel-release
 ```
 
