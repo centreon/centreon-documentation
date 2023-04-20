@@ -51,6 +51,22 @@ dnf update
 ```
 
 </TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+```shell
+dnf update
+subscription-manager register --username my_username --password my_password --auto-attach --force
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
 </Tabs>
 
 2. Run the following command as **root**:
