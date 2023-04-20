@@ -338,13 +338,13 @@ Pour activer le démarrage automatique des services de supervision au démarrage
 du serveur, exécuter la commande suivante :
 
 ```shell
-systemctl enable centreon centengine centreontrapd snmptrapd
+systemctl enable centreon centengine centreontrapd snmptrapd gorgoned
 ```
 
 Les services de supervision passive peuvent être démarrés :
 
 ```shell
-systemctl start centreontrapd snmptrapd
+systemctl start centreontrapd snmptrapd gorgoned
 ```
 
 Redémarrez Centreon Engine :

@@ -348,12 +348,12 @@ apt install -y centreon-poller
 To make services start automatically during system bootup, run the following
 command:
 ``` shell
-systemctl enable centreon centengine centreontrapd snmptrapd
+systemctl enable centreon centengine centreontrapd snmptrapd gorgoned
 ```
 
 Passive monitoring services can be started:
 ```shell
-systemctl start centreontrapd snmptrapd
+systemctl start centreontrapd snmptrapd gorgoned
 ```
 
 Restart Centreon Engine:

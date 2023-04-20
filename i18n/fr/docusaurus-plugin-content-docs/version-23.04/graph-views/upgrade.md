@@ -29,6 +29,31 @@ Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous d
 
 ## Étape 1 : serveur Centreon MAP
 
+### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Puis redémarrez le service :
+  ```shell
+  systemctl restart centreon-map
+  ```
+
+### Procédure
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+
 > Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
 Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
@@ -52,31 +77,6 @@ dnf install https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centr
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-
-#### Prérequis de la version Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
-  
-  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-  
-  ```shell
-  java -version
-  ```
-  
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  Puis redémarrez le service :
-  ```shell
-  systemctl restart centreon-map
-  ```
-
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
-  
-Vous pouvez maintenant procéder à la mise à jour :
 
 ```shell
 yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm

@@ -8,6 +8,16 @@ We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
 
+## Anomaly Detection
+
+### The data exclusion feature is not yet available
+
+The feature that allows you to exclude some data from Anomaly Detection's model computation appears in the interface but is not implemented yet. You get the message "Not implemented yet" when trying to use the feature.
+
+### Workaround
+
+There is no workaround but the feature will be available in a coming version.
+
 ## Centreon Web
 
 ### Environment variable not found: "hostCentreon"
