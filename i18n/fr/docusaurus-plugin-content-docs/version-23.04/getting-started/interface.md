@@ -82,15 +82,6 @@ Dans le bandeau supérieur, cliquez sur l'icône profil et utilisez le bouton po
 
 ![image](../assets/getting-started/dark_mode_switch.png)
 
-Vous pouvez aussi passer en mode sombre en modifiant le thème de l'interface dans les paramètres du compte.
-
-Allez dans **Administration > Paramètres > Mon compte** et sélectionnez l'onglet **Informations générales**. 
-Sélectionnez **Light** ou **Dark** dans le champ **Front-end Theme**.
-
-![image](../assets/getting-started/front-end_theme_mode.png)
-
-Puis cliquez sur **Sauvegarder**. Le thème de l'interface est maintenant dans le mode que vous avez choisi.
-
 ## Changer la langue de l'interface utilisateur
 
 Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Editer Le Profil**:
