@@ -14,6 +14,8 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
     > Amazon AWS, VMware, etc.). To know the complete list, please go to
     > the [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction)
     > catalog.
+    >
+    > If, on page **Configuration > Monitoring Connectors Manager** you have set **Automatic installation of plugins** to **ON**, the discovery plugin will be installed automatically when you run the discovery job.
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
 
