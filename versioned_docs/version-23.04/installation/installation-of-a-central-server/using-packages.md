@@ -258,9 +258,9 @@ To install Centreon you will need to install the **CodeReady Builder** repositor
 Run the following commands:
 
 ```shell
-dnf install dnf-plugins-core
-dnf install epel-release
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
 Enable PHP 8.1 using the following commands:
