@@ -19,7 +19,7 @@ and then [deploy that configuration](monitoring-servers/deploying-a-configuratio
 
 Once hosts and services are monitored, they have a [status](../alerts-notifications/concepts.md) in Centreon (e.g. **OK**, **Warning**, **Critical**...). You can keep track of any changes using the [Resources Status](../alerts-notifications/resources-status.md) page.
 
-If a problem occurs (not-OK/not-UP status), [contacts](basic-objects/contacts.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set [time periods](basic-objects/timeperiods.md).
+If an alert occurs (not-OK/not-UP status), [contacts](basic-objects/contacts.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set [time periods](basic-objects/timeperiods.md).
 
 In Centreon, monitoring is made easy by the following elements:
 
