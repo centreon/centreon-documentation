@@ -418,7 +418,11 @@ Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
 ligne de commande suivante :
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
+
+```bash
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Configuration spécifique à Debian 11
