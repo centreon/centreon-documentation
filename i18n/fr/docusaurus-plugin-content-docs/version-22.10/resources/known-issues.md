@@ -66,6 +66,10 @@ Il n'existe actuellement pas de contournement.
 
 ## Anomaly Detection
 
+### Problème de filtre dans Statut des ressources
+
+Dans la vue Statut des ressources, vous ne pouvez pas sauvegarder de nouveau filtre de type Anomaly Detection.
+
 ### Impossible de superviser un service de détection d'anomalies lié à un métaservice
 
 Lorsque vous créez un métaservice auquel est lié un service de détection des anomalies, il se peut que vous ne receviez pas de données pour les graphiques et les prédictions.

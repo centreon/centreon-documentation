@@ -67,6 +67,10 @@ There is currently no workaround.
 
 ## Anomaly Detection
 
+### Filter in Resource Status issue
+
+In the Resource Status view, you are not able to save a new filter of the Anomaly Detection type.
+
 ### Cannot monitor an Anomaly Detection service linked to a metaservice
 
 When you create a metaservice with an Anomaly Detection service linked to it, you may not receive data for graphs and predictions.
