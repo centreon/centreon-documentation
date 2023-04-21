@@ -55,25 +55,25 @@ Si vous avez besoin d'aide avec cette intégration, selon votre utilisation de C
 
 Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
 
-Dans le cas où votre serveur Centreon central doit utiliser un proxy pour sortir sur Internet, vous devrez exporter la variable d'environnement `https_proxy` et configurer `yum` pour être capable d'installer le nécessaire.
+Lancer la commande adaptée à votre système :
 
-```bash
-export https_proxy=http://my.proxy.server:3128
-echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
+<Tabs groupId="sync">
+<TabItem value="Redhat 8/9" label="Redhat 8_9">
+
+```shell
+dnf install centreon-stream-connector-opsgenie
 ```
 
-Maintenant que votre serveur Centreon cetral est capable de sortir sur internet vous pouvez exécuter les commandes suivantes :
+</TabItem>
 
-```bash
-yum install -y lua-curl epel-release
+<TabItem value="Debian 11" label="Debian_11">
+
+```shell
+apt install centreon-stream-connector-opsgenie
 ```
 
-Ces paquets sont nécessaires pour que le script marche. Maintenant, il faut le télécharger :
-
-```bash
-wget -O /usr/share/centreon-broker/lua/opsgenie.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/opsgenie/opsgenie-apiv1.lua
-chmod 644 /usr/share/centreon-broker/lua/opsgenie.lua
-```
+</TabItem>
+</Tabs>
 
 Le Stream Connector Opsgenie est maintenant installé sur votre serveur Centreon central !
 
