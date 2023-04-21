@@ -239,6 +239,7 @@ Une fois un service de type Anomaly Detection créé, vous pouvez le visualiser 
 - À la page **Supervision > Informations de performance > Graphiques**.
 - À la page **Supervision > Journaux d'évènements**.
 - Dans le widget **service-monitoring** via le menu **Accueil > Vues personnalisées**.
+- Vous pouvez utiliser des services Anomaly Detection comme indicateurs dans [Centreon BAM](../service-mapping/ba-management.md).
 - Et tous les menus où vous pouvez opérer sur les services.
 
 ## Transférer l'historique des données
