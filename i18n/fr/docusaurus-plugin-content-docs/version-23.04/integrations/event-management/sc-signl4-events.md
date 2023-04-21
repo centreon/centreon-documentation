@@ -5,7 +5,6 @@ title: Signl4 Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 > Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
 ## Before starting
@@ -21,7 +20,15 @@ Connectez vous en tant que `root` sur le serveur Centreon central en utilisant v
 Lancer la commande adaptée à votre système :
 
 <Tabs groupId="sync">
-<TabItem value="Redhat 8/9" label="Redhat 8_9">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-signl4
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install centreon-stream-connector-signl4

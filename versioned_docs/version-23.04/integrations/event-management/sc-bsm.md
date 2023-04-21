@@ -34,7 +34,15 @@ Run the command according on your system:
 
 
 <Tabs groupId="sync">
-<TabItem value="Redhat 8/9" label="Redhat 8_9">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-bsm
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install centreon-stream-connector-bsm

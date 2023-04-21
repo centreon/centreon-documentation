@@ -37,7 +37,15 @@ Connectez vous en tant que `root` sur le serveur Centreon central en utilisant v
 Lancer la commande adaptée à votre système :
 
 <Tabs groupId="sync">
-<TabItem value="Redhat 8/9" label="Redhat 8_9">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-pagerduty
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install centreon-stream-connector-pagerduty
