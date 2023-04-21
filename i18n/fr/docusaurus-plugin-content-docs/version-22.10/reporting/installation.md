@@ -143,31 +143,116 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 ### Serveur de reporting dédié
 
-#### Couche Matériel
+<Tabs groupId="sync">
+<TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
-| Nombre de services supervisés | CPU minimum          | Mémoire Vive  |
-|-------------------------------|----------------------|---------------|
-| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
-| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
-| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
-| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                     | > Contacter Centreon |               |
+| Élément                     | Valeur     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 Go      |
 
-#### Espace de stockage
+Votre serveur MBI doit être partitionné de la manière suivante :
 
-Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 233 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
 
-#### Partition
+</TabItem>
+<TabItem value="Jusqu'à 1 000 hôtes" label="Jusqu'à 1 000 hôtes">
 
-| File system                    | Taille                                                                                       |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| /                              | 5GB minimum                                                                                  |
-| /var (containing MariaDB data) | utiliser le résultat du fichier de simulation de l'espace disque ci-dessus                   |
-| Dossier temporaire de MariaDB  | Fortement recommandé de le positionner dans /var                                             |
-| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB.       |
+| Élément                     | Valeur     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 Go      |
 
-Pour controler l'espace libre, utiliser la commande suivante en remplaçant
-**vg_data** par le nom du volume groupe:
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 465 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 2 500 hôtes" label="Jusqu'à 2 500 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 24 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 1163 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 5 000 hôtes" label="Jusqu'à 5 000 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 24 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 2326 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 10 000 hôtes" label="Jusqu'à 10 000 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 12 vCPU    |
+| RAM                         | 32 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 4651 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+
+Pour de grosses volumétries de données, contactez votre commercial Centreon.
+
+</TabItem>
+</Tabs>
+
+Pour contrôler l'espace libre, utilisez la commande suivante en remplaçant
+**vg_data** par le nom du groupe de volumes :
 
 ```shell
 vgdisplay vg_data | grep -i free*
