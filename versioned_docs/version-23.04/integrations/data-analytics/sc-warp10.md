@@ -2,6 +2,8 @@
 id: sc-warp10
 title: Warp10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## How it works
 

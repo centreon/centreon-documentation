@@ -2,6 +2,8 @@
 id: sc-elastic-metrics
 title: Elastic metrics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## How it works
 
