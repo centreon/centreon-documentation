@@ -862,6 +862,10 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "version-23.04/administration/customize-centreon"
+        },
+        {
           "type": "category",
           "label": "Configuring the connection to Centreon",
           "items": [
@@ -880,6 +884,10 @@
             {
               "type": "doc",
               "id": "version-23.04/connect/openid"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/connect/saml"
             },
             {
               "type": "doc",
@@ -1161,10 +1169,6 @@
             {
               "type": "doc",
               "id": "version-23.04/integrations/event-management/sc-signl4-events"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/integrations/event-management/sc-servicenow-mid-server"
             }
           ]
         },

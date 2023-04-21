@@ -34,6 +34,32 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 > If you are still running version **4.0.X**, you **must first install and run the server in version 4.1.X before upgrading to the latest version**.
 
+### Java version requirement
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Then restart the service:
+  
+  ```shell
+  systemctl restart centreon-map
+  ```
+
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+
+### Procedure
+
 Run the following commands to upgrade your Centreon MAP (Legacy) server:
 
 1. Update Centreon and Centreon MAP (Legacy) repositories:

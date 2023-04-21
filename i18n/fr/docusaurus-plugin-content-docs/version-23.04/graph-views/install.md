@@ -97,6 +97,8 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 > Même avec un serveur correctement dimensionné, vous devez garder à l'esprit les meilleures pratiques et recommandations lors de la création de vues afin de ne pas rencontrer de problèmes de performance.
 
+> Si le serveur central est configuré en HTTPS, vous devez appliquer la configuration SSL sur le serveur MAP. Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser votre serveur MAP.
+
 ### Interface Web de Centreon MAP
 
 #### Licence
@@ -203,6 +205,26 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 Le privilège INSERT ne sera utilisé que pendant le processus d'installation afin de créer une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
 ### Serveur MAP Centreon
+
+#### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+
+#### Procédure
 
 Si vous avez installé votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet `centreon-release` :
 

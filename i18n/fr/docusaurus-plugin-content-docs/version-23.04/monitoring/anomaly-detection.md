@@ -52,28 +52,31 @@ Pour utiliser **Anomaly Detection**, vous aurez besoin des éléments suivants :
 
 ### Étape 1 : Installation des paquets
 
-1. Ajoutez un dépôt supplémentaire:
+Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Rien à faire.
+```shell
+dnf install centreon-anomaly-detection
+```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y epel-release
+dnf install centreon-anomaly-detection
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt install centreon-anomaly-detection
 ```
 
 </TabItem>
 </Tabs>
-
-2. Exécutez la commande suivante :
-
-  ```shell
-  yum install centreon-anomaly-detection
-  ```
 
 ### Étape 2 : Installation via l'interface
 
@@ -236,6 +239,7 @@ Une fois un service de type Anomaly Detection créé, vous pouvez le visualiser 
 - À la page **Supervision > Informations de performance > Graphiques**.
 - À la page **Supervision > Journaux d'évènements**.
 - Dans le widget **service-monitoring** via le menu **Accueil > Vues personnalisées**.
+- Vous pouvez utiliser des services Anomaly Detection comme indicateurs dans [Centreon BAM](../service-mapping/ba-management.md).
 - Et tous les menus où vous pouvez opérer sur les services.
 
 ## Transférer l'historique des données
@@ -245,6 +249,8 @@ Une fois un service de type Anomaly Detection créé, vous pouvez le visualiser 
 > données **centreon\_storage** peut prendre plusieurs dizaines de minutes. Cela
 > aura un impact important sur les performances de la base de données et
 > pourrait ralentir globalement la plateforme de supervision.
+
+Pour être en mesure d'envoyer les données d'un service Anomaly Detection, un premier contrôle doit avoir été effectué. Vous pouvez [exécuter un contrôle sur le service depuis la page **Statut des ressources**](../alerts-notifications/resources-status.md#relancer-un-contrôle).
 
 Pour envoyer l'historique des données d'un service d'anomalie à notre plateforme SaaS, connectez-vous à
 votre serveur Centreon Central et accédez à l'utilisateur **centreon**:
