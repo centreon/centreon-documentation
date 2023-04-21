@@ -8,11 +8,41 @@ title: Warp10
 Warp10 stream connector sends data to Warp10 using centreon neb events as a
 source
 
-![architecture]<!--(../../assets/integrations/stream-connectors/sc-warp10-architecture.png)-->
-
 ## Compatibility
 
 **to be determined**
+
+## Installation
+
+Login as `root` on the Centreon central server using your favorite SSH client.
+
+Run the command according on your system:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-warp10
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-stream-connector-warp10
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian_11">
+
+```shell
+apt install centreon-stream-connector-warp10
+```
+
+</TabItem>
+</Tabs>
 
 ## Requirements and configuration
 
@@ -33,6 +63,3 @@ This stream connector needs the following configuration:
 | port      | number | yyyyy            |
 | token     | string | xxxxxxxxxxxxxxx  |
 | max\_size | number | 100              |
-
-you also need to install lua-curl library on your centreon central server
-`luarocks install lua-curl`

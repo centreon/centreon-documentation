@@ -2,6 +2,8 @@
 id: sc-opsgenie
 title: Opsgenie integration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Opsgenie + Centreon Integration Benefits
 
@@ -15,8 +17,6 @@ title: Opsgenie integration
 * Every time a service, a host or a BA state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
 * State changes can occur in case of an anomaly detection.
 * An alias is generated for each alert to make use of Opsgenie deduplication:
-
-![architecture](../../assets/integrations/external/sc-opsgenie.png)
 
 ## Requirements
 

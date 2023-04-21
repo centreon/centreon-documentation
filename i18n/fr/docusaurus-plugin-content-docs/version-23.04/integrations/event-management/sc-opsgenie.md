@@ -2,6 +2,8 @@
 id: sc-opsgenie
 title: Opsgenie integration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Avantages de l'intégration Opsgenie + Centreon
 
@@ -15,8 +17,6 @@ title: Opsgenie integration
 * A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector puor envoyer ce changement d'état.
 * Un changement d'état peut survenir en cas de détection d'anomalie
 * Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie
-
-![architecture](../../assets/integrations/external/sc-opsgenie.png)
 
 ## Prérequis
 

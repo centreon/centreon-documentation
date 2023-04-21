@@ -2,6 +2,8 @@
 id: sc-hp-bsm
 title: BSM
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Ce qu'apporte l'intégration de BSM + Centreon 
 

@@ -5,7 +5,6 @@ title: Signl4 Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.

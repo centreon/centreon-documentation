@@ -19,8 +19,6 @@ import TabItem from '@theme/TabItem';
 * Once the check point is back to normal, a resolve event will be sent to the PagerDuty service to resolve the alert.
 * You can choose from where the stream connector is sending data. Pick the implementation which best meets your needs:
 
-![architecture](../../assets/integrations/external/sc-pagerduty-centreon.png)
-
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.

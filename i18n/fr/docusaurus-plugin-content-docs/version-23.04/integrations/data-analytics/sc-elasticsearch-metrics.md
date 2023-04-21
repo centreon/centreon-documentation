@@ -8,11 +8,41 @@ title: Elastic metrics
 Elasticsearch metrics stream connector sends metrics related data to
 Elasticsearch
 
-<!--![architecture](../../assets/integrations/stream-connectors/sc-elasticsearch-metrics-architecture.png)-->
-
 ## Compatibility
 
 **to be determined**
+
+## Installation
+
+Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
+
+Lancer la commande adaptée à votre système :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-elasticsearch
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-stream-connector-elasticsearch
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian_11">
+
+```shell
+apt install centreon-stream-connector-elasticsearch
+```
+
+</TabItem>
+</Tabs>
 
 ## Requirements and configuration
 
