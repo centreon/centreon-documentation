@@ -66,9 +66,9 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
 Assurez-vous que votre plateforme Centreon est autorisée à accéder à internet :
 
-- En vérifiant que la machine peut accéder à cette URL : https://api.imp.centreon.com
+- Vérifier que la machine peut accéder à cette URL : https://api.imp.centreon.com
 
-- En effectuant la vérification suivante :
+- Ajouter un serveur proxy si besoin :
   - Allez à la page **Administration > Paramètres > Centreon UI**, puis **Options de proxy**.
   - Cliquez sur **Tester la connexion Internet**. Le message "Connexion réussie" doit apparaître.
 

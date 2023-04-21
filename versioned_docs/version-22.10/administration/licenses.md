@@ -66,9 +66,9 @@ To use an online license, your Centreon platform must be connected to the intern
 
 Make sure your Centreon platform is allowed to reach the internet:
 
-- By checking that the machine can access this URL: https://api.imp.centreon.com
+- Check that the machine can access this URL: https://api.imp.centreon.com
 
-- By performing the following check:
+- If needed, set a proxy server:
   - Go to the **Administration > Parameters > Centreon UI** page, then **Proxy options** section.
   - Click on **Test Internet Connection**. The "Connection Successful" message should appear.
 
