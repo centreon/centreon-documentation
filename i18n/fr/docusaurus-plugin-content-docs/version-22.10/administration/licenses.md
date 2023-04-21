@@ -58,7 +58,21 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 </TabItem>
 <TabItem value="Licences en ligne" label="Licences en ligne">
 
+> Consultez les [tableaux des flux réseau](../installation/technical.md#tableaux-des-flux-réseau) pour l'intégration de votre plateforme de supervision.
+
 Pour utiliser une licence en ligne, votre plateforme Centreon doit être connectée à internet.
+
+#### Vérifier la connexion à internet
+
+Assurez-vous que votre plateforme Centreon est autorisée à accéder à internet :
+
+- En vérifiant que la machine peut accéder à cette URL : https://api.imp.centreon.com
+
+- En effectuant la vérification suivante :
+  - Allez à la page **Administration > Paramètres > Centreon UI**, puis **Options de proxy**.
+  - Cliquez sur **Tester la connexion Internet**. Le message "Connexion réussie" doit apparaître.
+
+#### Ajouter votre licence
 
 1. Munissez-vous de votre jeton de licence (fourni par notre équipe support).
 

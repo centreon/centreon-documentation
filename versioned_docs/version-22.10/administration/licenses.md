@@ -58,7 +58,21 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 </TabItem>
 <TabItem value="Online licenses" label="Online licenses">
 
+> Refer to the [tables of network flows](../installation/technical.md#tables-of-network-flows) to integrate your monitoring platform.
+
 To use an online license, your Centreon platform must be connected to the internet.
+
+#### Check the connection to internet
+
+Make sure your Centreon platform is allowed to reach the internet:
+
+- By checking that the machine can access this URL: https://api.imp.centreon.com
+
+- By performing the following check:
+  - Go to the **Administration > Parameters > Centreon UI** page, then **Proxy options** section.
+  - Click on **Test Internet Connection**. The "Connection Successful" message should appear.
+
+#### Add your license
 
 1. Make sure you have your license token (provided by our support team).
 
