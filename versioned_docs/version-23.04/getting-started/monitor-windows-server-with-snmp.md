@@ -94,9 +94,30 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Plugin Pack](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) for more information):
 
-```shell
-yum install centreon-plugin-Operatingsystems-Windows-Snmp
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Windows-Snmp
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Windows-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-Operatingsystems-Windows-Snmp
+```
+
+</TabItem>
+
+</Tabs>
 
 ### On the central server
 
