@@ -2,6 +2,8 @@
 id: sc-hp-bsm
 title: BSM
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## BSM + Centreon Integration Benefits
 
@@ -30,27 +32,34 @@ If you need help with this integration, depending on how you are using Centreon,
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 
-In case your Centreon central server must use a proxy server to reach the Internet, you will have to export the `https_proxy` environment variable and configure `yum` to be able to install everything.
+Run the command according on your system:
 
-```bash
-export https_proxy=http://my.proxy.server:3128
-echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-bsm
 ```
 
-Now that your Centreon central server is able to reach the Internet, you can run:
+</TabItem>
 
-```bash
-yum install -y lua-curl epel-release
-yum install -y luarocks
-luarocks install luaxml
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-stream-connector-bsm
 ```
 
-This package is necessary for the script to run. Now let's download the script:
+</TabItem>
 
-```bash
-wget -O /usr/share/centreon-broker/lua/bsm_connector.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/bsm/bsm_connector-apiv1.lua
-chmod 644 /usr/share/centreon-broker/lua/bsm_connector.lua
+<TabItem value="Debian 11" label="Debian_11">
+
+```shell
+apt install centreon-stream-connector-bsm
 ```
+
+</TabItem>
+</Tabs>
 
 The BSM StreamConnnector is now installed on your Centreon central server!
 

@@ -2,6 +2,8 @@
 id: sc-opsgenie
 title: Opsgenie integration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Opsgenie + Centreon Integration Benefits
 
@@ -15,8 +17,6 @@ title: Opsgenie integration
 * Every time a service, a host or a BA state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
 * State changes can occur in case of an anomaly detection.
 * An alias is generated for each alert to make use of Opsgenie deduplication:
-
-![architecture](../../assets/integrations/external/sc-opsgenie.png)
 
 ## Requirements
 
@@ -55,25 +55,33 @@ If you need help with this integration, depending on how you are using Centreon,
 
 Login as `root` on the Centreon central server using your favorite SSH client.
 
-In case your Centreon central server must use a proxy server to reach the Internet, you will have to export the `https_proxy` environment variable and configure `yum` to be able to install everything.
+Run the command according on your system:
 
-```bash
-export https_proxy=http://my.proxy.server:3128
-echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-stream-connector-opsgenie
 ```
 
-Now that your Centreon central server is able to reach the Internet, you can run:
+</TabItem>
 
-```bash
-yum install -y lua-curl epel-release
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-stream-connector-opsgenie
 ```
 
-These packages are necessary for the script to run. Now let's download the script:
+</TabItem>
 
-```bash
-wget -O /usr/share/centreon-broker/lua/opsgenie.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/opsgenie/opsgenie-apiv1.lua
-chmod 644 /usr/share/centreon-broker/lua/opsgenie.lua
+<TabItem value="Debian 11" label="Debian_11">
+
+```shell
+apt install centreon-stream-connector-opsgenie
 ```
+
+</TabItem>
+</Tabs>
 
 The Opsgenie Stream Connnector is now installed on your Centreon central server!
 

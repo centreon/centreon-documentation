@@ -5,7 +5,6 @@ title: Signl4 Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 > Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
 ## Before starting
@@ -16,115 +15,35 @@ import TabItem from '@theme/TabItem';
 
 ## Installation
 
-### Dependencies
+Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
+
+Lancer la commande adaptée à votre système :
 
 <Tabs groupId="sync">
-<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
-
-Install **Epel** repository.
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum -y install epel-release
-```
-
-Install dependencies.
-
-```shell
-yum install luarocks make gcc lua-curl lua-devel
+dnf install centreon-stream-connector-signl4
 ```
 
 </TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
 
-Install dnf plugins package.
-
-```shell
-dnf -y install dnf-plugins-core
-```
-
-Install **Powertools** repository.
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --set-enabled powertools
-```
-
-Install **Epel** repository.
-
-```shell
-dnf -y install epel-release
-```
-
-Install dependencies.
-
-```shell
-dnf install make gcc libcurl-devel lua-devel luarocks
+dnf install centreon-stream-connector-signl4
 ```
 
 </TabItem>
-<TabItem value="RedHat 8" label="RedHat 8">
 
-Install dnf plugins package.
-
-```shell
-dnf -y install dnf-plugins-core
-```
-
-Install **Epel** repository.
+<TabItem value="Debian 11" label="Debian_11">
 
 ```shell
-dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Enable **Codeready** repository.
-
-```shell
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Install dependencies.
-
-```shell
-dnf install make gcc libcurl-devel lua-devel luarocks
+apt install centreon-stream-connector-signl4
 ```
 
 </TabItem>
 </Tabs>
-
-### Lua modules
-
-<Tabs groupId="sync">
-<TabItem value="CentOS/Redhat 7" label="CentOS/Redhat 7">
-
-Install Centreon lua modules.
-
-```shell
-luarocks install centreon-stream-connectors-lib
-```
-
-</TabItem>
-<TabItem value="CentOS/Redhat 8" label="CentOS/Redhat 8">
-
-Install **lua-curl**.
-
-```shell
-luarocks install Lua-cURL
-```
-
-Install Centreon lua modules.
-
-```shell
-luarocks install centreon-stream-connectors-lib
-```
-
-</TabItem>
-</Tabs>
-
-### Download Splunk events stream connector
-
-```shell
-wget -O /usr/share/centreon-broker/lua/signl4-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/signl4/signl4-events-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/signl4-events-apiv2.lua
-```
 
 ## Configuration
 
