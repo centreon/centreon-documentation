@@ -137,6 +137,7 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 ```shell
 dnf update centreon-map-web-client
 ```
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
