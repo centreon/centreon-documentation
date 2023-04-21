@@ -232,6 +232,7 @@ dnf config-manager --set-enabled crb
 Exécutez les commandes suivantes :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
