@@ -49,7 +49,7 @@ dnf install centreon-plugin-Network-Cisco-Standard-Snmp
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install centreon-plugin-Network-Cisco-Standard-Snmp
+apt install centreon-plugin-network-cisco-standard-snmp
 ```
 
 </TabItem>
