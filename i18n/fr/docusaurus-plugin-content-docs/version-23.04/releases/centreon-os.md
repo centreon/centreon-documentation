@@ -21,6 +21,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 Release date: `April 26, 2023`
 
 - [UI] Ajout de la nouvelle image de marque Centreon
+- [API]Configuration REST API: we have started extending Centreon's REST API. The first endpoints available in this release allow managing:
+    - Time periods
+    - Host groups
+    - Host categories
+    - Host severities
+    - Service groups
+    - Service categories
+    - Service severities
 
 ## Centreon Collect
 
@@ -31,6 +39,8 @@ Release date: `April 26, 2023`
 #### Centreon Engine
 
 #### Centreon Broker
+
+- Convert all BBDO messages to Protobuf: BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
 
 ## Centreon Gorgone
 

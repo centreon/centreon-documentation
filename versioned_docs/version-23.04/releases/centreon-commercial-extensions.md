@@ -46,6 +46,18 @@ Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
 
+- Plugins automatic installation
+
+Plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
+
+- Job duplication
+
+Host Discovery jobs can now be duplicated to avoid repetitive work.
+
+- Mapper duplication
+
+Host Discovery Mappers can now be duplicated inside a job.
+
 ## Centreon Monitoring Connectors Manager
 
 ### 23.04.0
