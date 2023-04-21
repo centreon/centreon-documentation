@@ -266,7 +266,7 @@ dnf install -y epel-release
 Install the following dependencies:
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
 </TabItem>
