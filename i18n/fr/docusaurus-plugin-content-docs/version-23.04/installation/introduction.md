@@ -82,7 +82,7 @@ Le script installera un serveur central avec la version 23.04, depuis le dépôt
 En cas de problèmes à l'exécution du script, exécutez-le à nouveau en utilisant la commande suivante :
 
 ```shell
-sh -x unattended.sh install -t central -v 23.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended$(date +"%m-%d-%Y-%H%M%S").log
+sh -x unattended.sh install -t central -v 22.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 Vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire tmp, fichier nommé unattended(date).log.

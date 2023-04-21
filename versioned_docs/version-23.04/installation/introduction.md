@@ -80,7 +80,7 @@ dnf update
   In case of problems when running the script, execute it again using the following command:
 
   ```shell
-  sh -x unattended.sh install -t central -v 23.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended$(date +"%m-%d-%Y-%H%M%S").log
+  sh -x unattended.sh install -t central -v 22.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
   ```
 
   You will get a full log file with all errors in your tmp folder, named unattended(date).log.
