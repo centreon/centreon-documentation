@@ -12,12 +12,25 @@ exchanged. This page list properties available for each event type.
 
 ### Acknowledgement
 
+The acknowledgement of an incident means that the problem has been taken into
+account by a user of the monitoring. When the user acknowledges the problem,
+Centreon Engine emits an /acknowledgement/ event. This event differs
+between BBDO v2 and BBDO v3.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::acknowledgement
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       1 | 65537 |
+
+The content of the message is serialized as follows:
+
 | Property                                     | Type             | Description                                                              |
-|----------------------------------------------|------------------|--------------------------------------------------------------------------|
-| acknowledgement\_type                        | short integer    | Host acknowledgement when 0, service acknowledgement when 1.             |
+| -------------------------------------------- | ---------------- | ------------------------------------------------------------------------ |
+| acknowledgement\_type                        | short integer    | 0 for a host acknowledgement, 1 for a service acknowledgement.           |
 | author                                       | string           | Acknowledgement author.                                                  |
 | comment                                      | string           | Comment associated to the acknowledgement.                               |
 | deletion\_time                               | time             | Time at which the acknowledgement was deleted. If 0, it was not deleted. |
@@ -34,32 +47,58 @@ exchanged. This page list properties available for each event type.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                                     | Type             | Description                                                              |
-|----------------------------------------------|------------------|--------------------------------------------------------------------------|
-| acknowledgement\_type                        | short integer    | Host acknowledgement when 0, service acknowledgement when 1.             |
-| author                                       | string           | Acknowledgement author.                                                  |
-| comment                                      | string           | Comment associated to the acknowledgement.                               |
-| deletion\_time                               | time             | Time at which the acknowledgement was deleted. If 0, it was not deleted. |
-| entry\_time                                  | time             | Time at which the acknowledgement was created.                           |
-| host\_id                                     | unsigned integer | Host ID.                                                                 |
-| instance\_id                                 | unsigned integer | Instance ID.                                                             |
-| is\_sticky                                   | boolean          | Sticky flag.                                                             |
-| notify\_contacts                             | boolean          | Notification flag.                                                       |
-| persistent\_comment                          | boolean          | True if the comment is persistent.                                       |
-| service\_id                                  | unsigned integer | Service ID. 0 for a host acknowledgement.                                |
-| state                                        | short integer    | Host / service state.                                                    |
-| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already ack.                   |
+#### NEB::PbAcknowledgement
+
+| category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      45 | 65581 |
+
+The Protobuf message for this event is:
+
+```cpp
+message Acknowledgement {
+  uint64 host_id = 1;                // Host ID.
+  uint64 service_id = 2;             // Service ID or 0 for a host acknowledgement.
+  uint64 instance_id = 3;            // Instance ID.
+  enum AcknowledgementType {
+    NONE = 0;
+    NORMAL = 1;
+    STICKY = 2;
+  }
+  AcknowledgementType type = 4;      // Type of the acknowledgement based on the previous enum.
+  string author = 5;                 // Acknowledgement author.
+  string comment_data = 6;           // Comment associated to the acknowledgement.
+  bool sticky = 7;                   // Sticky flag.
+  bool notify_contacts = 8;          // Notification flag.
+  uint64 entry_time = 9;             // Time at which the acknowledgement was created.
+  uint64 deletion_time = 10;         // Time at which the acknowledgement was deleted.
+  bool persistent_comment = 11;      // True if the comment is persistent.
+  int32 state = 12;                  // The host / service state.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Comment
 
+In several situations, the user has to enter a comment in the Centreon
+interface. When he validates it, Centreon Engine emits a /comment/ event. This
+event differs between BBDO v2 and BBDO v3.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::comment
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       2 | 65538 |
+
+The content of the message is serialized as follows:
+
 | Property       | Type             | Description                                                                                                                               |
-|----------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | author         | string           | Comment author.                                                                                                                           |
 | comment\_type  | short integer    | 1 for a host comment, 2 for a service comment.                                                                                            |
 | data           | string           | Comment data (text).                                                                                                                      |
@@ -78,38 +117,86 @@ exchanged. This page list properties available for each event type.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property       | Type             | Description                                                                                                                               |
-|----------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| author         | string           | Comment author.                                                                                                                           |
-| comment\_type  | short integer    | 1 for a host comment, 2 for a service comment.                                                                                            |
-| data           | string           | Comment data (text).                                                                                                                      |
-| deletion\_time | time             | Time at which the comment was deleted. 0 if the comment was not deleted (yet).                                                            |
-| entry\_time    | time             | Time at which the comment was created.                                                                                                    |
-| entry\_type    | short integer    | 1 for a user comment (through external command), 2 for a downtime comment, 3 for a flapping comment and 4 for an acknowledgement comment. |
-| expire\_time   | time             | Comment expiration time. 0 if no expiration time.                                                                                         |
-| expires        | bool             | True if the comment expires.                                                                                                              |
-| host\_id       | unsigned integer | Host ID.                                                                                                                                  |
-| internal\_id   | unsigned integer | Internal monitoring engine ID of the comment.                                                                                             |
-| persistent     | boolean          | True if the comment is persistent.                                                                                                        |
-| instance\_id   | unsigned integer | Instance ID.                                                                                                                              |
-| service\_id    | unsigned integer | Service ID. 0 if this is a host comment.                                                                                                  |
-| source         | short integer    | 0 when the comment originates from the monitoring engine (internal) or 1 when the comment comes from another source (external).           |
+#### NEB::PbComment
+
+| category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      35 | 65571 |
+
+The Protobuf message for this event is given by:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+message Comment {
+  BBDOHeader header = 1;     // Not currently used.
+
+  enum Src {
+    INTERNAL = 0;            // The comment originates from the monitoring engine.
+    EXTERNAL = 1;            // The comment comes from another source.
+  }
+
+  enum Type {
+    NO_TYPE = 0;
+    HOST = 1;
+    SERVICE = 2;
+  }
+
+  enum EntryType {
+    NO_ENTRY_TYPE = 0;
+    USER = 1;
+    DOWNTIME = 2;
+    FLAPPING = 3;
+    ACKNOWLEDGMENT = 4;
+  }
+
+  string author = 2;         // Comment author.
+  Type type = 3;             // The comment type following the Type enum.
+  string data = 4;           // The content of the comment.
+  uint64 deletion_time = 5;  // Time a which the comment was deleted or 0 if the comment was not deleted (yet).
+  uint64 entry_time = 6;     // Time at which the comment was created.
+  EntryType entry_type = 7;  // Entry type following the EntryType enum.
+  uint64 expire_time = 8;    // Comment expiration time or 0 if no expiration time.
+  bool expires = 9;          // True if the comment expired.
+  uint64 host_id = 10;       // Host ID.
+  uint64 internal_id = 11;   // Internal monitoring engine ID of the comment.
+  bool persistent = 12;      // True if the comment is persistent.
+  uint64 instance_id = 13;   // Instance ID.
+  uint64 service_id = 14;    // Service ID or 0 for a host comment.
+  Src source = 15;           // Source of the comment following the Src enum.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Custom variable
 
+A _custom variable_ is essentially a variable with a _name_ and a _value_. It
+often comes from Centreon Engine macros. For Centreon to work correctly, these
+custom variables must be sent to Centreon Broker. Each one is sent thanks to
+a _custom variable_ event. This event differs between BBDO v2 and BBDO v3.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::customvariable
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       3 | 65539 |
+
+The content of the message is serialized as follows:
+
 | Property       | Type             | Description                                                    |
-|----------------|------------------|----------------------------------------------------------------|
+| -------------- | ---------------- | -------------------------------------------------------------- |
 | enabled        | boolean          | True if the custom variable is enabled.                        |
 | host\_id       | unsigned integer | Host ID.                                                       |
 | modified       | boolean          | True if the variable was modified.                             |
 | name           | string           | Variable name.                                                 |
-| service\_id    | unsigned integer | Service ID. 0 if this is a host custom variable.               |
+| service\_id    | unsigned integer | Service ID or 0 if this is a host custom variable.             |
 | update\_time   | time             | Last time at which the variable was updated.                   |
 | var\_type      | short integer    | 0 for a host custom variable, 1 for a service custom variable. |
 | value          | string           | Variable value.                                                |
@@ -118,17 +205,38 @@ exchanged. This page list properties available for each event type.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property       | Type             | Description                                                    |
-|----------------|------------------|----------------------------------------------------------------|
-| enabled        | boolean          | True if the custom variable is enabled.                        |
-| host\_id       | unsigned integer | Host ID.                                                       |
-| modified       | boolean          | True if the variable was modified.                             |
-| name           | string           | Variable name.                                                 |
-| service\_id    | unsigned integer | Service ID. 0 if this is a host custom variable.               |
-| update\_time   | time             | Last time at which the variable was updated.                   |
-| var\_type      | short integer    | 0 for a host custom variable, 1 for a service custom variable. |
-| value          | string           | Variable value.                                                |
-| default\_value | string           | The default value of the custom var.                           |
+#### NEB::PbCustomVariable
+
+| category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      37 | 65573 |
+
+The Protobuf message for this event is given by:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+message CustomVariable {
+  enum VarType {
+    HOST = 0;
+    SERVICE = 1;
+  }
+
+  BBDOHeader header = 1;     // Not used
+  uint64 host_id = 2;        // Host ID.
+  uint64 service_id = 3;     // Service ID or 0 for a host custom variable.
+  bool modified = 4;         // True if the variable was modified.
+  string name = 5;           // Variable name.
+  uint64 update_time = 6;    // Last time at which the variable was updated.
+  string value = 7;          // Variable value.
+  string default_value = 8;  // The default value of the custom variable.
+  bool enabled = 9;          // True if the custom variable is enabled.
+  bool password = 10;        // True if the value must be hidden.
+  VarType type = 11;         // One of the values of the VarType enum.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -142,7 +250,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property     | Type             | Description                                      |
-|--------------|------------------|--------------------------------------------------|
+| ------------ | ---------------- | ------------------------------------------------ |
 | host\_id     | unsigned integer | Host ID.                                         |
 | modified     | boolean          | True if the variable was modified.               |
 | name         | string           | Variable name.                                   |
@@ -154,7 +262,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property     | Type             | Description                                      |
-|--------------|------------------|--------------------------------------------------|
+| ------------ | ---------------- | ------------------------------------------------ |
 | host\_id     | unsigned integer | Host ID.                                         |
 | modified     | boolean          | True if the variable was modified.               |
 | name         | string           | Variable name.                                   |
@@ -171,7 +279,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property            | Type             | Description                                                |
-|---------------------|------------------|------------------------------------------------------------|
+| ------------------- | ---------------- | ---------------------------------------------------------- |
 | actual\_end\_time   | time             | Actual time at which the downtime ended.                   |
 | actual\_start\_time | time             | Actual time at which the downtime started.                 |
 | author              | string           | Downtime creator.                                          |
@@ -198,7 +306,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property            | Type             | Description                                                |
-|---------------------|------------------|------------------------------------------------------------|
+| ------------------- | ---------------- | ---------------------------------------------------------- |
 | actual\_end\_time   | time             | Actual time at which the downtime ended.                   |
 | actual\_start\_time | time             | Actual time at which the downtime started.                 |
 | author              | string           | Downtime creator.                                          |
@@ -230,7 +338,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property        | Type             | Description                                                                                                                                      |
-|-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | early\_timeout  | boolean          | True if the event handler timed out.                                                                                                             |
 | end\_time       | time             | Time at which the event handler execution ended.                                                                                                 |
 | execution\_time | real             | Execution time in seconds.                                                                                                                       |
@@ -252,7 +360,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property        | Type             | Description                                                                                                                                      |
-|-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | early\_timeout  | boolean          | True if the event handler timed out.                                                                                                             |
 | end\_time       | time             | Time at which the event handler execution ended.                                                                                                 |
 | execution\_time | real             | Execution time in seconds.                                                                                                                       |
@@ -278,32 +386,54 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property               | Type             | Description                                     |
-|------------------------|------------------|-------------------------------------------------|
-| event\_time            | time             |                                                 |
-| event\_type            | integer          |                                                 |
-| flapping\_type         | short integer    |                                                 |
-| high\_threshold        | real             | High flapping threshold.                        |
-| host\_id               | unsigned integer | Host ID.                                        |
-| low\_threshold         | real             | Low flapping threshold.                         |
-| percent\_state\_change | real             |                                                 |
-| reason\_type           | short integer    |                                                 |
-| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry. |
+| Property               | Type             | Description                                       |
+| ---------------------- | ---------------- | ------------------------------------------------- |
+| event\_time            | time             | Time at witch the flapping event has been occured |
+| event\_type            | integer          | 1000 for start, 1001 stop                         |
+| flapping\_type         | short integer    | 0 for host, 1 for service                         |
+| high\_threshold        | real             | High flapping threshold.                          |
+| host\_id               | unsigned integer | Host ID.                                          |
+| low\_threshold         | real             | Low flapping threshold.                           |
+| percent\_state\_change | real             | percent of state change                           |
+| reason\_type           | short integer    | not used                                          |
+| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry.   |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property               | Type             | Description                                     |
-|------------------------|------------------|-------------------------------------------------|
-| event\_time            | time             |                                                 |
-| event\_type            | integer          |                                                 |
-| flapping\_type         | short integer    |                                                 |
-| high\_threshold        | real             | High flapping threshold.                        |
-| host\_id               | unsigned integer | Host ID.                                        |
-| low\_threshold         | real             | Low flapping threshold.                         |
-| percent\_state\_change | real             |                                                 |
-| reason\_type           | short integer    |                                                 |
-| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry. |
+| Property               | Type             | Description                                       |
+| ---------------------- | ---------------- | ------------------------------------------------- |
+| event\_time            | time             | Time at witch the flapping event has been occured |
+| event\_type            | integer          | 1000 for start, 1001 stop                         |
+| flapping\_type         | short integer    | 0 for host, 1 for service                         |
+| high\_threshold        | real             | High flapping threshold.                          |
+| host\_id               | unsigned integer | Host ID.                                          |
+| low\_threshold         | real             | Low flapping threshold.                           |
+| percent\_state\_change | real             | percent of state change                           |
+| reason\_type           | short integer    | not used                                          |
+| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry.   |
+
+</TabItem>
+</Tabs>
+
+### TagInfo (BBDO v3 only)
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+Only BBDO v3
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+| Property  | Type             | Description                                         |
+| --------- | ---------------- | --------------------------------------------------- |
+| id        | unsigned integer | unique id of the tag                                |
+| action    | Action           | ADD DELETE MODIFY                                   |
+| type      | TagType          | SERVICEGROUP HOSTGROUP SERVICECATEGORY HOSTCATEGORY |
+| name      | string           | name                                                |
+| poller_id | unsigned integer | id of the poller                                    |
 
 </TabItem>
 </Tabs>
@@ -313,172 +443,173 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                          | Type             | Description | Version |
-|-----------------------------------|------------------|-------------|---------|
-| acknowledged                      | boolean          |             |         |
-| acknowledgement\_type             | short integer    |             |         |
-| action\_url                       | string           |             |         |
-| active\_checks\_enabled           | boolean          |             |         |
-| address                           | string           |             |         |
-| alias                             | string           |             |         |
-| check\_freshness                  | boolean          |             |         |
-| check\_interval                   | real             |             |         |
-| check\_period                     | string           |             |         |
-| check\_type                       | short integer    |             |         |
-| current\_check\_attempt           | short integer    |             |         |
-| current\_state                    | short integer    |             |         |
-| default\_active\_checks\_enabled  | boolean          |             |         |
-| default\_event\_handler\_enabled  | boolean          |             |         |
-| default\_flap\_detection\_enabled | boolean          |             |         |
-| default\_notifications\_enabled   | boolean          |             |         |
-| default\_passive\_checks\_enabled | boolean          |             |         |
-| downtime\_depth                   | short integer    |             |         |
-| display\_name                     | string           |             |         |
-| enabled                           | boolean          |             |         |
-| event\_handler                    | string           |             |         |
-| event\_handler\_enabled           | boolean          |             |         |
-| execution\_time                   | real             |             |         |
-| first\_notification\_delay        | real             |             |         |
-| flap\_detection\_enabled          | boolean          |             |         |
-| flap\_detection\_on\_down         | boolean          |             |         |
-| flap\_detection\_on\_unreachable  | boolean          |             |         |
-| flap\_detection\_on\_up           | boolean          |             |         |
-| freshness\_threshold              | real             |             |         |
-| has\_been\_checked                | boolean          |             |         |
-| high\_flap\_threshold             | real             |             |         |
-| host\_name                        | string           |             |         |
-| host\_id                          | unsigned integer |             |         |
-| icon\_image                       | string           |             |         |
-| icon\_image\_alt                  | string           |             |         |
-| instance\_id                      | unsigned integer |             |         |
-| is\_flapping                      | boolean          |             |         |
-| last\_check                       | time             |             |         |
-| last\_hard\_state                 | short integer    |             |         |
-| last\_hard\_state\_change         | time             |             |         |
-| last\_notification                | time             |             |         |
-| last\_state\_change               | time             |             |         |
-| last\_time\_down                  | time             |             |         |
-| last\_time\_unreachable           | time             |             |         |
-| last\_time\_up                    | time             |             |         |
-| last\_update                      | time             |             |         |
-| latency                           | real             |             |         |
-| low\_flap\_threshold              | real             |             |         |
-| max\_check\_attempts              | short integer    |             |         |
-| next\_check                       | time             |             |         |
-| next\_notification                | time             |             |         |
-| no\_more\_notifications           | boolean          |             |         |
-| notes                             | string           |             |         |
-| notes\_url                        | string           |             |         |
-| notification\_interval            | real             |             |         |
-| notification\_number              | short integer    |             |         |
-| notification\_period              | string           |             |         |
-| notifications\_enabled            | boolean          |             |         |
-| notify\_on\_down                  | boolean          |             |         |
-| notify\_on\_downtime              | boolean          |             |         |
-| notify\_on\_flapping              | boolean          |             |         |
-| notify\_on\_recovery              | boolean          |             |         |
-| notify\_on\_unreachable           | boolean          |             |         |
-| obsess\_over                      | boolean          |             |         |
-| passive\_checks\_enabled          | boolean          |             |         |
-| percent\_state\_change            | real             |             |         |
-| retry\_interval                   | real             |             |         |
-| should\_be\_scheduled             | boolean          |             |         |
-| stalk\_on\_down                   | boolean          |             |         |
-| stalk\_on\_unreachable            | boolean          |             |         |
-| stalk\_on\_up                     | boolean          |             |         |
-| statusmap\_image                  | string           |             |         |
-| state\_type                       | short integer    |             |         |
-| check\_command                    | string           |             |         |
-| output                            | string           |             |         |
-| perf\_data                        | string           |             |         |
-| retain\_nonstatus\_information    | boolean          |             |         |
-| retain\_status\_information       | boolean          |             |         |
-| timezone                          | string           |             |         |
+| Property                          | Type             | Description                                                                   |
+| --------------------------------- | ---------------- | ----------------------------------------------------------------------------- |
+| acknowledged                      | boolean          | true if the problem has been acknowledged                                     |
+| acknowledgement\_type             | short integer    | 0 none, 1 normal, 2 sticky                                                    |
+| action\_url                       | string           | url to obtain information about host                                          |
+| active\_checks\_enabled           | boolean          | active check                                                                  |
+| address                           | string           | IP of the host                                                                |
+| alias                             | string           | alias                                                                         |
+| check\_freshness                  | boolean          | passive freshness check activated                                             |
+| check\_interval                   | real             | interval in units (usually 60s) between 2 checks                              |
+| check\_period                     | string           | time period when checks are authorized                                        |
+| check\_type                       | short integer    | 0 active, 1 passive                                                           |
+| current\_check\_attempt           | short integer    | number of failed checks                                                       |
+| current\_state                    | short integer    | 0 up, 1 down, 2 unreachable                                                   |
+| default\_active\_checks\_enabled  | boolean          | same as active\_checks\_enabled                                               |
+| default\_event\_handler\_enabled  | boolean          | same as event\_handler\_enabled                                               |
+| default\_flap\_detection\_enabled | boolean          | same as flap\_detection\_enabled                                              |
+| default\_notifications\_enabled   | boolean          | same as notifications\_enabled                                                |
+| default\_passive\_checks\_enabled | boolean          | same as passive\_checks\_enabled                                              |
+| downtime\_depth                   | short integer    | number of active downtimes                                                    |
+| display\_name                     | string           | name displayed in UI                                                          |
+| enabled                           | boolean          | enabled                                                                       |
+| event\_handler                    | string           | command executed when state changes                                           |
+| event\_handler\_enabled           | boolean          | event\_handler enabled                                                        |
+| execution\_time                   | real             | duration of last check                                                        |
+| first\_notification\_delay        | real             | delay before notify in units (usually 60s)                                    |
+| flap\_detection\_enabled          | boolean          | flap detection enabled                                                        |
+| flap\_detection\_on\_down         | boolean          | down state is taken into account for flap detection                           |
+| flap\_detection\_on\_unreachable  | boolean          | unreachable state is taken into account for flap detection                    |
+| flap\_detection\_on\_up           | boolean          | up state is taken into account for flap detection                             |
+| freshness\_threshold              | real             | delay after check result is stale                                             |
+| has\_been\_checked                | boolean          | check has been executed at least once                                         |
+| high\_flap\_threshold             | real             | if percent state change is higher than this, host is considered flapping      |
+| host\_id                          | unsigned integer | id of the host                                                                |
+| host\_name                        | string           | name of the host                                                              |
+| icon\_image                       | string           | icon displayed in the UI for the host                                         |
+| icon\_image\_alt                  | string           | alternate string for icon\_image                                              |
+| instance\_id                      | unsigned integer | id of the poller that checks host                                             |
+| is\_flapping                      | boolean          | host is flapping                                                              |
+| last\_check                       | time             | time of last check                                                            |
+| last\_hard\_state                 | short integer    | last hard state                                                               |
+| last\_hard\_state\_change         | time             | time of last hard state change                                                |
+| last\_notification                | time             | time of last notification sent                                                |
+| last\_state\_change               | time             | time of last state change                                                     |
+| last\_time\_down                  | time             | time of the last failed check                                                 |
+| last\_time\_unreachable           | time             | time of the last failed check with all parent hosts down                      |
+| last\_time\_up                    | time             | time of the last successful check                                             |
+| last\_update                      | time             | time of message create                                                        |
+| latency                           | real             | delay between scheduled check time and real check time                        |
+| low\_flap\_threshold              | real             | if percent state change is lower than this, host is not considered flapping   |
+| max\_check\_attempts              | short integer    | number of failed check after witch host state become a hard fail state        |
+| next\_check                       | time             | next scheduled check time                                                     |
+| next\_notification                | time             | next renotification time                                                      |
+| no\_more\_notifications           | boolean          | no other notification will be sent                                            |
+| notes                             | string           | tooltip in resources status page                                              |
+| notes\_url                        | string           | clickable url in resources status page                                        |
+| notification\_interval            | real             | interval between two notifications                                            |
+| notification\_number              | short integer    | number of notifications sent since the start of the problem                   |
+| notification\_period              | string           | time period during witch notifications are allowed                            |
+| notifications\_enabled            | boolean          | notifications allowed                                                         |
+| notify\_on\_down                  | boolean          | users are notified if host becomes down                                       |
+| notify\_on\_downtime              | boolean          | users are notified if host enters in downtime                                 |
+| notify\_on\_flapping              | boolean          | users are notified if host is flapping                                        |
+| notify\_on\_recovery              | boolean          | users are notified if host becomes up                                         |
+| notify\_on\_unreachable           | boolean          | users are notified if host becomes down and parents are down                  |
+| obsess\_over                      | boolean          | true if ocsp command if executed after check or notification command          |
+| passive\_checks\_enabled          | boolean          | passive check                                                                 |
+| percent\_state\_change            | real             | used by flapping and compared with high and low flap thresholds               |
+| retry\_interval                   | real             | interval between two check when host isn't in up state and state type is soft |
+| should\_be\_scheduled             | boolean          | no next check should be scheduled                                             |
+| stalk\_on\_down                   | boolean          | logs check output event changes if state is down                              |
+| stalk\_on\_unreachable            | boolean          | logs check output event if state is unreachable                               |
+| stalk\_on\_up                     | boolean          | logs check output event if state is up                                        |
+| statusmap\_image                  | string           | image displayed in map                                                        |
+| state\_type                       | short integer    | state soft 0 or hard 1                                                        |
+| check\_command                    | string           | command executed                                                              |
+| output                            | string           | output of the command                                                         |
+| perf\_data                        | string           | perfdata extracted from the command's output                                  |
+| retain\_nonstatus\_information    | boolean          | unused                                                                        |
+| retain\_status\_information       | boolean          | unused                                                                        |
+| timezone                          | string           | time zone of the host                                                         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                          | Type             | Description | Version |
-|-----------------------------------|------------------|-------------|---------|
-| acknowledged                      | boolean          |             |         |
-| acknowledgement\_type             | short integer    |             |         |
-| action\_url                       | string           |             |         |
-| active\_checks\_enabled           | boolean          |             |         |
-| address                           | string           |             |         |
-| alias                             | string           |             |         |
-| check\_freshness                  | boolean          |             |         |
-| check\_interval                   | real             |             |         |
-| check\_period                     | string           |             |         |
-| check\_type                       | short integer    |             |         |
-| current\_check\_attempt           | short integer    |             |         |
-| current\_state                    | short integer    |             |         |
-| default\_active\_checks\_enabled  | boolean          |             |         |
-| default\_event\_handler\_enabled  | boolean          |             |         |
-| default\_flap\_detection\_enabled | boolean          |             |         |
-| default\_notifications\_enabled   | boolean          |             |         |
-| default\_passive\_checks\_enabled | boolean          |             |         |
-| downtime\_depth                   | short integer    |             |         |
-| display\_name                     | string           |             |         |
-| enabled                           | boolean          |             |         |
-| event\_handler                    | string           |             |         |
-| event\_handler\_enabled           | boolean          |             |         |
-| execution\_time                   | real             |             |         |
-| first\_notification\_delay        | real             |             |         |
-| flap\_detection\_enabled          | boolean          |             |         |
-| flap\_detection\_on\_down         | boolean          |             |         |
-| flap\_detection\_on\_unreachable  | boolean          |             |         |
-| flap\_detection\_on\_up           | boolean          |             |         |
-| freshness\_threshold              | real             |             |         |
-| has\_been\_checked                | boolean          |             |         |
-| high\_flap\_threshold             | real             |             |         |
-| host\_name                        | string           |             |         |
-| host\_id                          | unsigned integer |             |         |
-| icon\_image                       | string           |             |         |
-| icon\_image\_alt                  | string           |             |         |
-| instance\_id                      | unsigned integer |             |         |
-| is\_flapping                      | boolean          |             |         |
-| last\_check                       | time             |             |         |
-| last\_hard\_state                 | short integer    |             |         |
-| last\_hard\_state\_change         | time             |             |         |
-| last\_notification                | time             |             |         |
-| last\_state\_change               | time             |             |         |
-| last\_time\_down                  | time             |             |         |
-| last\_time\_unreachable           | time             |             |         |
-| last\_time\_up                    | time             |             |         |
-| last\_update                      | time             |             |         |
-| latency                           | real             |             |         |
-| low\_flap\_threshold              | real             |             |         |
-| max\_check\_attempts              | short integer    |             |         |
-| next\_check                       | time             |             |         |
-| next\_notification                | time             |             |         |
-| no\_more\_notifications           | boolean          |             |         |
-| notes                             | string           |             |         |
-| notes\_url                        | string           |             |         |
-| notification\_interval            | real             |             |         |
-| notification\_number              | short integer    |             |         |
-| notification\_period              | string           |             |         |
-| notifications\_enabled            | boolean          |             |         |
-| notify\_on\_down                  | boolean          |             |         |
-| notify\_on\_downtime              | boolean          |             |         |
-| notify\_on\_flapping              | boolean          |             |         |
-| notify\_on\_recovery              | boolean          |             |         |
-| notify\_on\_unreachable           | boolean          |             |         |
-| obsess\_over                      | boolean          |             |         |
-| passive\_checks\_enabled          | boolean          |             |         |
-| percent\_state\_change            | real             |             |         |
-| retry\_interval                   | real             |             |         |
-| should\_be\_scheduled             | boolean          |             |         |
-| stalk\_on\_down                   | boolean          |             |         |
-| stalk\_on\_unreachable            | boolean          |             |         |
-| stalk\_on\_up                     | boolean          |             |         |
-| statusmap\_image                  | string           |             |         |
-| state\_type                       | short integer    |             |         |
-| check\_command                    | string           |             |         |
-| output                            | string           |             |         |
-| perf\_data                        | string           |             |         |
-| retain\_nonstatus\_information    | boolean          |             |         |
-| retain\_status\_information       | boolean          |             |         |
-| timezone                          | string           |             |         |
+| Property                         | Type             | Description                                                                   | Version                         |
+| -------------------------------- | ---------------- | ----------------------------------------------------------------------------- | ------------------------------- |
+| acknowledged                     | boolean          | true if the problem has been acknowledged                                     | From 22.04 version (bbdo 3.0.0) |
+| acknowledgement\_type            | AckType          | NONE, NORMAL, STICKY                                                          | From 22.04 version (bbdo 3.0.0) |
+| action\_url                      | string           | url to obtain information about host                                          | From 22.04 version (bbdo 3.0.0) |
+| active\_checks                   | boolean          | active check                                                                  | From 22.04 version (bbdo 3.0.0) |
+| address                          | string           | IP of the host                                                                | From 22.04 version (bbdo 3.0.0) |
+| alias                            | string           | alias                                                                         | From 22.04 version (bbdo 3.0.0) |
+| check\_attempt                   | short integer    | number of failed checks                                                       | From 22.04 version (bbdo 3.0.0) |
+| check\_command                   | string           | command to execute                                                            | From 22.04 version (bbdo 3.0.0) |
+| check\_freshness                 | boolean          | passive freshness check activated                                             | From 22.04 version (bbdo 3.0.0) |
+| check\_interval                  | real             | interval in units (usually 60s) between 2 checks                              | From 22.04 version (bbdo 3.0.0) |
+| check\_period                    | string           | time period when checks are authorized                                        | From 22.04 version (bbdo 3.0.0) |
+| check\_type                      | CheckType        | ACTIVE PASSIVE                                                                | From 22.04 version (bbdo 3.0.0) |
+| checked                          | boolean          | check has been executed at least once                                         | From 22.04 version (bbdo 3.0.0) |
+| default\_active\_checks          | boolean          | same as active\_checks\_enabled                                               | From 22.04 version (bbdo 3.0.0) |
+| default\_event\_handler\_enabled | boolean          | same as event\_handler\_enabled                                               | From 22.04 version (bbdo 3.0.0) |
+| default\_flap\_detection         | boolean          | same as flap\_detection\_enabled                                              | From 22.04 version (bbdo 3.0.0) |
+| default\_notify                  | boolean          | same as notify                                                                | From 22.04 version (bbdo 3.0.0) |
+| default\_passive\_checks         | boolean          | same as passive\_checks\_enabled                                              | From 22.04 version (bbdo 3.0.0) |
+| display\_name                    | string           | name displayed in UI                                                          | From 22.04 version (bbdo 3.0.0) |
+| enabled                          | boolean          | enabled                                                                       | From 22.04 version (bbdo 3.0.0) |
+| event\_handler                   | string           | command executed when state changes                                           | From 22.04 version (bbdo 3.0.0) |
+| event\_handler\_enabled          | boolean          | event\_handler enabled                                                        | From 22.04 version (bbdo 3.0.0) |
+| execution\_time                  | real             | duration of last check                                                        | From 22.04 version (bbdo 3.0.0) |
+| first\_notification\_delay       | real             | delay before notify in units (usually 60s)                                    | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection                  | boolean          | flap detection enabled                                                        | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_down        | boolean          | down state is taken into account for flap detection                           | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_unreachable | boolean          | unreachable state is taken into account for flap detection                    | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_up          | boolean          | up state is taken into account for flap detection                             | From 22.04 version (bbdo 3.0.0) |
+| flapping                         | boolean          | host is flapping                                                              | From 22.04 version (bbdo 3.0.0) |
+| freshness\_threshold             | real             | delay after check result is stale                                             | From 22.04 version (bbdo 3.0.0) |
+| high\_flap\_threshold            | real             | if percent\_state\_change is higher than this, host is considered flapping    | From 22.04 version (bbdo 3.0.0) |
+| host\_id                         | unsigned integer | id of the host                                                                | From 22.04 version (bbdo 3.0.0) |
+| icon\_image                      | string           | icon displayed in the UI for the host                                         | From 22.04 version (bbdo 3.0.0) |
+| icon\_image\_alt                 | string           | alternate string for icon\_image                                              | From 22.04 version (bbdo 3.0.0) |
+| instance\_id                     | unsigned integer | id of the poller that checks host                                             | From 22.04 version (bbdo 3.0.0) |
+| last\_check                      | time             | time of last check                                                            | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state                | State            | last hard state                                                               | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state\_change        | time             | time of last hard state change                                                | From 22.04 version (bbdo 3.0.0) |
+| last\_notification               | time             | time of last notification sent                                                | From 22.04 version (bbdo 3.0.0) |
+| last\_state\_change              | time             | time of last state change                                                     | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_down                 | time             | time of the last failed check                                                 | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_unreachable          | time             | time of the last failed check with all parent hosts down                      | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_up                   | time             | time of the last successful check                                             | From 22.04 version (bbdo 3.0.0) |
+| last\_update                     | time             | time of message create                                                        | From 22.04 version (bbdo 3.0.0) |
+| latency                          | real             | delay between scheduled check time and real check time                        | From 22.04 version (bbdo 3.0.0) |
+| low\_flap\_threshold             | real             | if percent\_state\_change is lower than this, host is not considered flapping | From 22.04 version (bbdo 3.0.0) |
+| max\_check\_attempts             | short integer    | number of failed check after witch host state become a hard fail state        | From 22.04 version (bbdo 3.0.0) |
+| name                             | string           | name of the host                                                              | From 22.04 version (bbdo 3.0.0) |
+| next\_check                      | time             | next scheduled check time                                                     | From 22.04 version (bbdo 3.0.0) |
+| next\_host\_notification         | time             | next renotification time                                                      | From 22.04 version (bbdo 3.0.0) |
+| no\_more\_notifications          | boolean          | no other notification will be sent                                            | From 22.04 version (bbdo 3.0.0) |
+| notes                            | string           | tooltip in resources status page                                              | From 22.04 version (bbdo 3.0.0) |
+| notes\_url                       | string           | clickable url in resources status page                                        | From 22.04 version (bbdo 3.0.0) |
+| notification\_interval           | real             | interval between two notifications                                            | From 22.04 version (bbdo 3.0.0) |
+| notification\_number             | short integer    | number of notifications sent since the start of the problem                   | From 22.04 version (bbdo 3.0.0) |
+| notification\_period             | string           | time period during witch notifications are allowed                            | From 22.04 version (bbdo 3.0.0) |
+| notify                           | boolean          | notifications allowed                                                         | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_down                 | boolean          | users are notified if host becomes down                                       | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_downtime             | boolean          | users are notified if host enters in downtime                                 | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_flapping             | boolean          | users are notified if host is flapping                                        | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_recovery             | boolean          | users are notified if host becomes up                                         | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_unreachable          | boolean          | users are notified if host becomes down and parents are down                  | From 22.04 version (bbdo 3.0.0) |
+| obsess\_over\_host               | boolean          | true if ocsp command if executed after check or notification command          | From 22.04 version (bbdo 3.0.0) |
+| output                           | string           | output of the command                                                         | From 22.04 version (bbdo 3.0.0) |
+| passive\_checks                  | boolean          | passive check                                                                 | From 22.04 version (bbdo 3.0.0) |
+| percent\_state\_change           | real             | used by flapping and compared with high and low flap thresholds               | From 22.04 version (bbdo 3.0.0) |
+| perf\_data                       | string           | perfdata extracted from the command's output                                  | From 22.04 version (bbdo 3.0.0) |
+| retain\_nonstatus\_information   | boolean          | unused                                                                        | From 22.04 version (bbdo 3.0.0) |
+| retain\_status\_information      | boolean          | unused                                                                        | From 22.04 version (bbdo 3.0.0) |
+| retry\_interval                  | real             | interval between two check when host isn't in up state and state type is soft | From 22.04 version (bbdo 3.0.0) |
+| scheduled_downtime\_depth        | short integer    | number of active downtimes                                                    | From 22.04 version (bbdo 3.0.0) |
+| should\_be\_scheduled            | boolean          | next check should be scheduled                                                | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_down                  | boolean          | logs check output event change if state is down                               | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_unreachable           | boolean          | logs check output event changes if state is unreachable                       | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_up                    | boolean          | logs check output event changes if state is up                                | From 22.04 version (bbdo 3.0.0) |
+| state                            | State            | UP DOWN UNREACHABLE                                                           | From 22.04 version (bbdo 3.0.0) |
+| state\_type                      | StateType        | SOFT HARD                                                                     | From 22.04 version (bbdo 3.0.0) |
+| statusmap\_image                 | string           | image displayed in map                                                        | From 22.04 version (bbdo 3.0.0) |
+| tags                             | TagInfo          | tags of the host (see TagInfo)                                                | From 22.04 version (bbdo 3.0.0) |
+| timezone                         | string           | time zone of the host                                                         | From 22.04 version (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -488,28 +619,28 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                | Type             | Description                                       | Version |
-|-------------------------|------------------|---------------------------------------------------|---------|
-| active\_checks\_enabled | boolean          | True if active checks are enabled on the host.    |         |
-| check\_type             | short integer    |                                                   |         |
-| host\_id                | unsigned integer | Host ID.                                          |         |
-| next\_check             | time             | Time at which the next check is scheduled.        |         |
-| command\_line           | string           | Check command line.                               |         |
-| source\_id              | unsigned integer | The id of the source instance this event.         |         |
-| destination\_id         | unsigned integer | The id of the destination instance of this event. |         |
+| Property                | Type             | Description                                       |
+| ----------------------- | ---------------- | ------------------------------------------------- |
+| active\_checks\_enabled | boolean          | True if active checks are enabled on the host.    |
+| check\_type             | short integer    |                                                   |
+| host\_id                | unsigned integer | Host ID.                                          |
+| next\_check             | time             | Time at which the next check is scheduled.        |
+| command\_line           | string           | Check command line.                               |
+| source\_id              | unsigned integer | The id of the source instance this event.         |
+| destination\_id         | unsigned integer | The id of the destination instance of this event. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                | Type             | Description                                       | Version |
-|-------------------------|------------------|---------------------------------------------------|---------|
-| active\_checks\_enabled | boolean          | True if active checks are enabled on the host.    |         |
-| check\_type             | short integer    |                                                   |         |
-| host\_id                | unsigned integer | Host ID.                                          |         |
-| next\_check             | time             | Time at which the next check is scheduled.        |         |
-| command\_line           | string           | Check command line.                               |         |
-| source\_id              | unsigned integer | The id of the source instance this event.         |         |
-| destination\_id         | unsigned integer | The id of the destination instance of this event. |         |
+| Property                | Type             | Description                                       |
+| ----------------------- | ---------------- | ------------------------------------------------- |
+| active\_checks\_enabled | boolean          | True if active checks are enabled on the host.    |
+| check\_type             | short integer    |                                                   |
+| host\_id                | unsigned integer | Host ID.                                          |
+| next\_check             | time             | Time at which the next check is scheduled.        |
+| command\_line           | string           | Check command line.                               |
+| source\_id              | unsigned integer | The id of the source instance this event.         |
+| destination\_id         | unsigned integer | The id of the destination instance of this event. |
 
 </TabItem>
 </Tabs>
@@ -520,7 +651,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                       | Type             | Description | Version |
-|--------------------------------|------------------|-------------|---------|
+| ------------------------------ | ---------------- | ----------- | ------- |
 | dependency\_period             | string           |             |         |
 | dependent\_host\_id            | unsigned integer |             |         |
 | enabled                        | boolean          |             |         |
@@ -533,7 +664,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                       | Type             | Description | Version |
-|--------------------------------|------------------|-------------|---------|
+| ------------------------------ | ---------------- | ----------- | ------- |
 | dependency\_period             | string           |             |         |
 | dependent\_host\_id            | unsigned integer |             |         |
 | enabled                        | boolean          |             |         |
@@ -551,21 +682,21 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property        | Type             | Description                                                  | Version |
-|-----------------|------------------|--------------------------------------------------------------|---------|
-| host\_group\_id | unsigned integer |                                                              |         |
+| --------------- | ---------------- | ------------------------------------------------------------ | ------- |
+| host\_group\_id | unsigned integer | id of the group                                              |         |
 | name            | string           | Group name.                                                  |         |
 | enabled         | boolean          | True if the group is enabled, false if it is not (deletion). |         |
-| poller\_id      | unsigned integer |                                                              |         |
+| poller\_id      | unsigned integer | id of the poller                                             |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property        | Type             | Description                                                  | Version |
-|-----------------|------------------|--------------------------------------------------------------|---------|
-| host\_group\_id | unsigned integer |                                                              |         |
+| --------------- | ---------------- | ------------------------------------------------------------ | ------- |
+| host\_group\_id | unsigned integer | id of the group                                              |         |
 | name            | string           | Group name.                                                  |         |
 | enabled         | boolean          | True if the group is enabled, false if it is not (deletion). |         |
-| poller\_id      | unsigned integer |                                                              |         |
+| poller\_id      | unsigned integer | id of the poller                                             |         |
 
 </TabItem>
 </Tabs>
@@ -576,7 +707,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property        | Type             | Description                                                       | Version |
-|-----------------|------------------|-------------------------------------------------------------------|---------|
+| --------------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |         |
 | group           | string           | Group name.                                                       |         |
 | instance\_id    | unsigned integer | Instance ID.                                                      |         |
@@ -588,7 +719,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property        | Type             | Description                                                       | Version |
-|-----------------|------------------|-------------------------------------------------------------------|---------|
+| --------------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |         |
 | group           | string           | Group name.                                                       |         |
 | instance\_id    | unsigned integer | Instance ID.                                                      |         |
@@ -604,20 +735,20 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property   | Type             | Description                                                  | Version |
-|------------|------------------|--------------------------------------------------------------|---------|
-| enabled    | boolean          | True if parenting is enabled, false if it is not (deletion). |         |
-| child\_id  | unsigned integer | Child host ID.                                               |         |
-| parent\_id | unsigned integer | Parent host ID.                                              |         |
+| Property   | Type             | Description                                                  |
+| ---------- | ---------------- | ------------------------------------------------------------ |
+| enabled    | boolean          | True if parenting is enabled, false if it is not (deletion). |
+| child\_id  | unsigned integer | Child host ID.                                               |
+| parent\_id | unsigned integer | Parent host ID.                                              |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property   | Type             | Description                                                  | Version |
-|------------|------------------|--------------------------------------------------------------|---------|
-| enabled    | boolean          | True if parenting is enabled, false if it is not (deletion). |         |
-| child\_id  | unsigned integer | Child host ID.                                               |         |
-| parent\_id | unsigned integer | Parent host ID.                                              |         |
+| Property   | Type             | Description                                                  |
+| ---------- | ---------------- | ------------------------------------------------------------ |
+| enabled    | boolean          | True if parenting is enabled, false if it is not (deletion). |
+| child\_id  | unsigned integer | Child host ID.                                               |
+| parent\_id | unsigned integer | Parent host ID.                                              |
 
 </TabItem>
 </Tabs>
@@ -627,98 +758,85 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                  | Type             | Description | Version |
-|---------------------------|------------------|-------------|---------|
-| acknowledged              | boolean          |             |         |
-| acknowledgement\_type     | short integer    |             |         |
-| active\_checks\_enabled   | boolean          |             |         |
-| check\_interval           | real             |             |         |
-| check\_period             | string           |             |         |
-| check\_type               | short integer    |             |         |
-| current\_check\_attempt   | short integer    |             |         |
-| current\_state            | short integer    |             |         |
-| downtime\_depth           | short integer    |             |         |
-| enabled                   | boolean          |             |         |
-| event\_handler            | string           |             |         |
-| event\_handler\_enabled   | boolean          |             |         |
-| execution\_time           | real             |             |         |
-| flap\_detection\_enabled  | boolean          |             |         |
-| has\_been\_checked        | boolean          |             |         |
-| host\_id                  | unsigned integer |             |         |
-| is\_flapping              | boolean          |             |         |
-| last\_check               | time             |             |         |
-| last\_hard\_state         | short integer    |             |         |
-| last\_hard\_state\_change | time             |             |         |
-| last\_notification        | time             |             |         |
-| last\_state\_change       | time             |             |         |
-| last\_time\_down          | time             |             |         |
-| last\_time\_unreachable   | time             |             |         |
-| last\_time\_up            | time             |             |         |
-| last\_update              | time             |             |         |
-| latency                   | real             |             |         |
-| max\_check\_attempts      | short integer    |             |         |
-| next\_check               | time             |             |         |
-| next\_host\_notification  | time             |             |         |
-| no\_more\_notifications   | boolean          |             |         |
-| notification\_number      | short integer    |             |         |
-| notifications\_enabled    | boolean          |             |         |
-| obsess\_over              | boolean          |             |         |
-| passive\_checks\_enabled  | boolean          |             |         |
-| percent\_state\_change    | real             |             |         |
-| retry\_interval           | real             |             |         |
-| should\_be\_scheduled     | boolean          |             |         |
-| state\_type               | short integer    |             |         |
-| check\_command            | string           |             |         |
-| output                    | string           |             |         |
-| perf\_data                | string           |             |         |
+| Property                  | Type             | Description                                                                   |
+| ------------------------- | ---------------- | ----------------------------------------------------------------------------- |
+| acknowledged              | boolean          | problem has been acknowledged                                                 |
+| acknowledgement\_type     | short integer    | 0 none, 1 normal, 2 sticky                                                    |
+| active\_checks\_enabled   | boolean          | True if active checks are enabled on the host.                                |
+| check\_interval           | real             | interval in units (usually 60s) between 2 checks                              |
+| check\_period             | string           | time period when checks are authorized                                        |
+| check\_type               | short integer    | 0 active, 1 passive                                                           |
+| current\_check\_attempt   | short integer    | number of failed checks                                                       |
+| current\_state            | short integer    | 0 up, 1 down, 2 unreachable                                                   |
+| downtime\_depth           | short integer    | number of active downtimes                                                    |
+| enabled                   | boolean          | enabled                                                                       |
+| event\_handler            | string           | command executed when state changes                                           |
+| event\_handler\_enabled   | boolean          | event\_handler enabled                                                        |
+| execution\_time           | real             | duration of last check                                                        |
+| flap\_detection\_enabled  | boolean          | flap detection enabled                                                        |
+| has\_been\_checked        | boolean          | check has been executed at least once                                         |
+| host\_id                  | unsigned integer | id of the host                                                                |
+| is\_flapping              | boolean          | host is flapping                                                              |
+| last\_check               | time             | time of last check                                                            |
+| last\_hard\_state         | State            | last hard state                                                               |
+| last\_hard\_state\_change | time             | time of last hard state change                                                |
+| last\_notification        | time             | time of last notification sent                                                |
+| last\_state\_change       | time             | time of last state change                                                     |
+| last\_time\_down          | time             | time of the last failed check                                                 |
+| last\_time\_unreachable   | time             | time of the last failed check with all parent hosts down                      |
+| last\_time\_up            | time             | time of the last successful check                                             |
+| last\_update              | time             | time of message create                                                        |
+| latency                   | real             | delay between scheduled check time and real check time                        |
+| max\_check\_attempts      | short integer    | number of failed check after witch host state become a hard fail state        |
+| next\_check               | time             | Time at which the next check is scheduled.                                    |
+| next\_host\_notification  | time             | next renotification time                                                      |
+| no\_more\_notifications   | boolean          | no other notification will be sent                                            |
+| notification\_number      | short integer    | number of notifications sent since the start of the problem                   |
+| notifications\_enabled    | boolean          | notifications allowed                                                         |
+| obsess\_over              | boolean          | true if ocsp command if executed after check or notification command          |
+| passive\_checks\_enabled  | boolean          | passive check                                                                 |
+| percent\_state\_change    | real             | used by flapping and compared with high and low flap thresholds               |
+| retry\_interval           | real             | interval between two check when host isn't in up state and state type is soft |
+| should\_be\_scheduled     | boolean          | next check should be scheduled                                                |
+| state\_type               | StateType        | SOFT HARD                                                                     |
+| check\_command            | string           | command executed                                                              |
+| output                    | string           | output of the command                                                         |
+| perf\_data                | string           | perfdata extracted from the command's output                                  |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                  | Type             | Description | Version |
-|---------------------------|------------------|-------------|---------|
-| acknowledged              | boolean          |             |         |
-| acknowledgement\_type     | short integer    |             |         |
-| active\_checks\_enabled   | boolean          |             |         |
-| check\_interval           | real             |             |         |
-| check\_period             | string           |             |         |
-| check\_type               | short integer    |             |         |
-| current\_check\_attempt   | short integer    |             |         |
-| current\_state            | short integer    |             |         |
-| downtime\_depth           | short integer    |             |         |
-| enabled                   | boolean          |             |         |
-| event\_handler            | string           |             |         |
-| event\_handler\_enabled   | boolean          |             |         |
-| execution\_time           | real             |             |         |
-| flap\_detection\_enabled  | boolean          |             |         |
-| has\_been\_checked        | boolean          |             |         |
-| host\_id                  | unsigned integer |             |         |
-| is\_flapping              | boolean          |             |         |
-| last\_check               | time             |             |         |
-| last\_hard\_state         | short integer    |             |         |
-| last\_hard\_state\_change | time             |             |         |
-| last\_notification        | time             |             |         |
-| last\_state\_change       | time             |             |         |
-| last\_time\_down          | time             |             |         |
-| last\_time\_unreachable   | time             |             |         |
-| last\_time\_up            | time             |             |         |
-| last\_update              | time             |             |         |
-| latency                   | real             |             |         |
-| max\_check\_attempts      | short integer    |             |         |
-| next\_check               | time             |             |         |
-| next\_host\_notification  | time             |             |         |
-| no\_more\_notifications   | boolean          |             |         |
-| notification\_number      | short integer    |             |         |
-| notifications\_enabled    | boolean          |             |         |
-| obsess\_over              | boolean          |             |         |
-| passive\_checks\_enabled  | boolean          |             |         |
-| percent\_state\_change    | real             |             |         |
-| retry\_interval           | real             |             |         |
-| should\_be\_scheduled     | boolean          |             |         |
-| state\_type               | short integer    |             |         |
-| check\_command            | string           |             |         |
-| output                    | string           |             |         |
-| perf\_data                | string           |             |         |
+| Property                   | Type             | Description                                                                      | Version                         |
+| -------------------------- | ---------------- | -------------------------------------------------------------------------------- | ------------------------------- |
+| acknowledgement\_type      | AckType          | NONE, NORMAL, STICKY                                                             | From 22.04 version (bbdo 3.0.0) |
+| checked                    | boolean          | check has been executed at least once                                            | From 22.04 version (bbdo 3.0.0) |
+| check\_type                | CheckType        | ACTIVE PASSIVE                                                                   | From 22.04 version (bbdo 3.0.0) |
+| check\_attempt             | short integer    | number of failed checks                                                          | From 22.04 version (bbdo 3.0.0) |
+| execution\_time            | real             | duration of last check                                                           | From 22.04 version (bbdo 3.0.0) |
+| flapping                   | boolean          | host is flapping                                                                 | From 22.04 version (bbdo 3.0.0) |
+| host\_id                   | unsigned integer | id of the host                                                                   | From 22.04 version (bbdo 3.0.0) |
+| last\_check                | time             | time of last check                                                               | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state          | State            | last hard state                                                                  | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state\_change  | time             | time of last hard state change                                                   | From 22.04 version (bbdo 3.0.0) |
+| last\_notification         | time             | time of last notification sent                                                   | From 22.04 version (bbdo 3.0.0) |
+| last\_state\_change        | time             | time of last state change                                                        | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_down           | time             | time of the last failed check                                                    | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_unreachable    | time             | time of the last failed check with all parent hosts down                         | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_up             | time             | time of the last successful check                                                | From 22.04 version (bbdo 3.0.0) |
+| latency                    | real             | delay between scheduled check time and real check time                           | From 22.04 version (bbdo 3.0.0) |
+| long\_output               | string           | output of some plugins on several lines                                          | From 22.04 version (bbdo 3.0.0) |
+| next\_check                | time             | Time at which the next check is scheduled.                                       | From 22.04 version (bbdo 3.0.0) |
+| next\_host\_notification   | time             | next renotification time                                                         | From 22.04 version (bbdo 3.0.0) |
+| no\_more\_notifications    | boolean          | no other notification will be sent                                               | From 22.04 version (bbdo 3.0.0) |
+| notification\_number       | short integer    | number of notifications sent since the start of the problem                      | From 22.04 version (bbdo 3.0.0) |
+| output                     | string           | output of the command                                                            | From 22.04 version (bbdo 3.0.0) |
+| percent\_state\_change     | real             | used by flapping and compared with high and low flap thresholds                  | From 22.04 version (bbdo 3.0.0) |
+| perf\_data                 | string           | perfdata extracted from the command's output                                     | From 22.04 version (bbdo 3.0.0) |
+| retry\_interval            | real             | interval between two check when service isn't in up state and state type is soft | From 22.04 version (bbdo 3.0.0) |
+| should\_be\_scheduled      | boolean          | next check should be scheduled                                                   | From 22.04 version (bbdo 3.0.0) |
+| scheduled\_downtime\_depth | short integer    | number of active downtimes                                                       | From 22.04 version (bbdo 3.0.0) |
+| state                      | State            | UP DOWN UNREACHABLE                                                              | From 22.04 version (bbdo 3.0.0) |
+| state\_type                | StateType        | SOFT HARD                                                                        | From 22.04 version (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -729,7 +847,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property       | Type             | Description                                             | Version |
-|----------------|------------------|---------------------------------------------------------|---------|
+| -------------- | ---------------- | ------------------------------------------------------- | ------- |
 | engine         | string           | Name of the monitoring engine used on this instance.    |         |
 | id             | unsigned integer | Instance ID.                                            |         |
 | name           | string           | Instance name.                                          |         |
@@ -743,7 +861,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property       | Type             | Description                                             | Version |
-|----------------|------------------|---------------------------------------------------------|---------|
+| -------------- | ---------------- | ------------------------------------------------------- | ------- |
 | engine         | string           | Name of the monitoring engine used on this instance.    |         |
 | id             | unsigned integer | Instance ID.                                            |         |
 | name           | string           | Instance name.                                          |         |
@@ -762,7 +880,7 @@ to be updated.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                          | Type             | Description                                                       | Version |
-|-----------------------------------|------------------|-------------------------------------------------------------------|---------|
+| --------------------------------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | active\_host\_checks\_enabled     | boolean          | Whether or not active host checks are globally enabled.           |         |
 | active\_service\_checks\_enabled  | boolean          | Whether or not active service checks are globally enabled.        |         |
 | check\_hosts\_freshness           | boolean          | Whether or not hosts freshness checking is globally enabled.      |         |
@@ -784,7 +902,7 @@ to be updated.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                          | Type             | Description                                                       | Version |
-|-----------------------------------|------------------|-------------------------------------------------------------------|---------|
+| --------------------------------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | active\_host\_checks\_enabled     | boolean          | Whether or not active host checks are globally enabled.           |         |
 | active\_service\_checks\_enabled  | boolean          | Whether or not active service checks are globally enabled.        |         |
 | check\_hosts\_freshness           | boolean          | Whether or not hosts freshness checking is globally enabled.      |         |
@@ -810,40 +928,40 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Version |
-|-----------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
-| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |         |
-| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
+| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Version |
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
+| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
+| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
+| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
+| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
 | msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |         |
-| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
-| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |         |
-| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
+| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
+| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
+| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
+| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |         |
+| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |         |
+| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
+| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Version |
-|-----------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
-| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |         |
-| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
+| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Version |
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
+| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
+| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
+| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
+| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
 | msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |         |
-| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
-| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
-| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |         |
-| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
+| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
+| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
+| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
+| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |         |
+| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |         |
+| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
+| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
 
 </TabItem>
 </Tabs>
@@ -857,7 +975,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property           | Type             | Description                                                     | Version |
-|--------------------|------------------|-----------------------------------------------------------------|---------|
+| ------------------ | ---------------- | --------------------------------------------------------------- | ------- |
 | args               | string           | Module arguments.                                               |         |
 | enabled            | boolean          | Whether or not this module is enabled.                          |         |
 | filename           | string           | Path to the module file.                                        |         |
@@ -869,7 +987,7 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property           | Type             | Description                                                     | Version |
-|--------------------|------------------|-----------------------------------------------------------------|---------|
+| ------------------ | ---------------- | --------------------------------------------------------------- | ------- |
 | args               | string           | Module arguments.                                               |         |
 | enabled            | boolean          | Whether or not this module is enabled.                          |         |
 | filename           | string           | Path to the module file.                                        |         |
@@ -885,178 +1003,183 @@ or unloaded.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                          | Type             | Description | Version |
-|-----------------------------------|------------------|-------------|---------|
-| acknowledged                      | boolean          |             |         |
-| acknowledged\_type                | short integer    |             |         |
-| action\_url                       | string           |             |         |
-| active\_checks\_enabled           | boolean          |             |         |
-| check\_freshness                  | boolean          |             |         |
-| check\_interval                   | real             |             |         |
-| check\_period                     | string           |             |         |
-| check\_type                       | short integer    |             |         |
-| current\_check\_attempt           | short integer    |             |         |
-| current\_state                    | short integer    |             |         |
-| default\_active\_checks\_enabled  | boolean          |             |         |
-| default\_event\_handler\_enabled  | boolean          |             |         |
-| default\_flap\_detection\_enabled | boolean          |             |         |
-| default\_notifications\_enabled   | boolean          |             |         |
-| default\_passive\_checks\_enabled | boolean          |             |         |
-| dowtine\_depth                    | short integer    |             |         |
-| display\_name                     | string           |             |         |
-| enabled                           | boolean          |             |         |
-| event\_handler                    | string           |             |         |
-| event\_handler\_enabled           | boolean          |             |         |
-| execution\_time                   | real             |             |         |
-| first\_notification\_delay        | real             |             |         |
-| flap\_detection\_enabled          | boolean          |             |         |
-| flap\_detection\_on\_critical     | boolean          |             |         |
-| flap\_detection\_on\_ok           | boolean          |             |         |
-| flap\_detection\_on\_unknown      | boolean          |             |         |
-| flap\_detection\_on\_warning      | boolean          |             |         |
-| freshness\_threshold              | real             |             |         |
-| has\_been\_checked                | boolean          |             |         |
-| high\_flap\_threshold             | real             |             |         |
-| host\_id                          | unsigned integer |             |         |
-| host\_name                        | string           |             |         |
-| icon\_image                       | string           |             |         |
-| icon\_image\_alt                  | string           |             |         |
-| service\_id                       | unsigned integer |             |         |
-| is\_flapping                      | boolean          |             |         |
-| is\_volatile                      | boolean          |             |         |
-| last\_check                       | time             |             |         |
-| last\_hard\_state                 | short integer    |             |         |
-| last\_hard\_state\_change         | time             |             |         |
-| last\_notification                | time             |             |         |
-| last\_state\_change               | time             |             |         |
-| last\_time\_critical              | time             |             |         |
-| last\_time\_ok                    | time             |             |         |
-| last\_time\_unknown               | time             |             |         |
-| last\_time\_warning               | time             |             |         |
-| last\_update                      | time             |             |         |
-| latency                           | real             |             |         |
-| low\_flap\_threshold              | real             |             |         |
-| max\_check\_attempts              | short integer    |             |         |
-| next\_check                       | time             |             |         |
-| next\_notification                | time             |             |         |
-| no\_more\_notifications           | boolean          |             |         |
-| notes                             | string           |             |         |
-| notes\_url                        | string           |             |         |
-| notification\_interval            | real             |             |         |
-| notification\_number              | short integer    |             |         |
-| notification\_period              | string           |             |         |
-| notifications\_enabled            | boolean          |             |         |
-| notify\_on\_critical              | boolean          |             |         |
-| notify\_on\_downtime              | boolean          |             |         |
-| notify\_on\_flapping              | boolean          |             |         |
-| notify\_on\_recovery              | boolean          |             |         |
-| notify\_on\_unknown               | boolean          |             |         |
-| notify\_on\_warning               | boolean          |             |         |
-| obsess\_over                      | boolean          |             |         |
-| passive\_checks\_enabled          | boolean          |             |         |
-| percent\_state\_change            | real             |             |         |
-| retry\_interval                   | real             |             |         |
-| scheduled\_downtime\_depth        | short integer    |             |         |
-| service\_description              | string           |             |         |
-| should\_be\_scheduled             | boolean          |             |         |
-| stalk\_on\_critical               | boolean          |             |         |
-| stalk\_on\_ok                     | boolean          |             |         |
-| stalk\_on\_unknown                | boolean          |             |         |
-| stalk\_on\_warning                | boolean          |             |         |
-| state\_type                       | short integer    |             |         |
-| check\_command                    | string           |             |         |
-| output                            | string           |             |         |
-| perf\_data                        | string           |             |         |
-| retain\_nonstatus\_information    | boolean          |             |         |
-| retain\_status\_information       | boolean          |             |         |
+| Property                          | Type             | Description                                                                      |
+| --------------------------------- | ---------------- | -------------------------------------------------------------------------------- |
+| acknowledged                      | boolean          | true if the problem has been acknowledged                                        |
+| acknowledgement\_type             | short integer    | 0 none, 1 normal, 2 sticky                                                       |
+| action\_url                       | string           | url to obtain information about service                                          |
+| active\_checks\_enabled           | boolean          | active check                                                                     |
+| check\_freshness                  | boolean          | passive freshness check activated                                                |
+| check\_interval                   | real             | interval in units (usually 60s) between 2 checks                                 |
+| check\_period                     | string           | time period when checks are authorized                                           |
+| check\_type                       | short integer    | 0 active, 1 passive                                                              |
+| current\_check\_attempt           | short integer    | number of failed checks                                                          |
+| current\_state                    | short integer    | 0 up, 1 down, 2 unreachable                                                      |
+| default\_active\_checks\_enabled  | boolean          | same as active\_checks\_enabled                                                  |
+| default\_event\_handler\_enabled  | boolean          | same as event\_handler\_enabled                                                  |
+| default\_flap\_detection\_enabled | boolean          | same as flap\_detection\_enabled                                                 |
+| default\_notifications\_enabled   | boolean          | same as notifications\_enabled                                                   |
+| default\_passive\_checks\_enabled | boolean          | same as passive\_checks\_enabled                                                 |
+| downtime\_depth                   | short integer    | number of active downtimes                                                       |
+| display\_name                     | string           | name displayed in UI                                                             |
+| enabled                           | boolean          | enabled                                                                          |
+| event\_handler                    | string           | command executed when state changes                                              |
+| event\_handler\_enabled           | boolean          | event\_handler enabled                                                           |
+| execution\_time                   | real             | duration of last check                                                           |
+| first\_notification\_delay        | real             | delay before notify in units (usually 60s)                                       |
+| flap\_detection\_enabled          | boolean          | flap detection enabled                                                           |
+| flap\_detection\_on\_critical     | boolean          | critical state is taken into account for flap detection                          |
+| flap\_detection\_on\_ok           | boolean          | ok state is taken into account for flap detection                                |
+| flap\_detection\_on\_unknown      | boolean          | unknown state is taken into account for flap detection                           |
+| flap\_detection\_on\_warning      | boolean          | warning state is taken into account for flap detection                           |
+| freshness\_threshold              | real             | delay after check result is stale                                                |
+| has\_been\_checked                | boolean          | check has been executed at least once                                            |
+| high\_flap\_threshold             | real             | if percent state change is higher than this, service is considered flapping      |
+| host\_id                          | unsigned integer | id of the host                                                                   |
+| host\_name                        | string           | name of the host                                                                 |
+| icon\_image                       | string           | icon displayed in the UI for the service                                         |
+| icon\_image\_alt                  | string           | alternate string for icon\_image                                                 |
+| service\_id                       | unsigned integer | id of the service                                                                |
+| is\_flapping                      | boolean          | service is flapping                                                              |
+| is\_volatile                      | boolean          | service is volatile                                                              |
+| last\_check                       | time             | time of last check                                                               |
+| last\_hard\_state                 | short integer    | last hard state                                                                  |
+| last\_hard\_state\_change         | time             | time of last hard state change                                                   |
+| last\_notification                | time             | time of last notification sent                                                   |
+| last\_state\_change               | time             | time of last state change                                                        |
+| last\_time\_critical              | time             | time of the last check critical return code                                      |
+| last\_time\_ok                    | time             | time of the last check ok return code                                            |
+| last\_time\_unknown               | time             | time of the last check unknown return code                                       |
+| last\_time\_warning               | time             | time of the last check warning return code                                       |
+| last\_update                      | time             | time of message create                                                           |
+| latency                           | real             | delay between scheduled check time and real check time                           |
+| low\_flap\_threshold              | real             | if percent state change is lower than this, service is not considered flapping   |
+| max\_check\_attempts              | short integer    | number of failed check after witch service state become a hard fail state        |
+| next\_check                       | time             | next scheduled check time                                                        |
+| next\_notification                | time             | next renotification time                                                         |
+| no\_more\_notifications           | boolean          | no other notification will be sent                                               |
+| notes                             | string           | tooltip in resources status page                                                 |
+| notes\_url                        | string           | clickable url in resources status page                                           |
+| notification\_interval            | real             | interval between two notifications                                               |
+| notification\_number              | short integer    | number of notifications sent since the start of the problem                      |
+| notification\_period              | string           | time period during witch notifications are allowed                               |
+| notifications\_enabled            | boolean          | notifications enabled                                                            |
+| notify\_on\_critical              | boolean          | users are notified if service state becomes critical                             |
+| notify\_on\_downtime              | boolean          | users are notified if service enters in downtime                                 |
+| notify\_on\_flapping              | boolean          | users are notified if service is flapping                                        |
+| notify\_on\_recovery              | boolean          | users are notified if service becomes ok                                         |
+| notify\_on\_unknown               | boolean          | users are notified if service state becomes unknown                              |
+| notify\_on\_warning               | boolean          | users are notified if service state becomes warning                              |
+| obsess\_over                      | boolean          | true if ocsp command if executed after check or notification command             |
+| passive\_checks\_enabled          | boolean          | passive check                                                                    |
+| percent\_state\_change            | real             | used by flapping and compared with high and low flap thresholds                  |
+| retry\_interval                   | real             | interval between two check when service isn't in up state and state type is soft |
+| scheduled\_downtime\_depth        | short integer    | number of active downtimes                                                       |
+| service\_description              | string           | name of the service                                                              |
+| should\_be\_scheduled             | boolean          | no next check should be scheduled                                                |
+| stalk\_on\_critical               | boolean          | logs check output event change if state is critical                              |
+| stalk\_on\_ok                     | boolean          | logs check output event change if state is ok                                    |
+| stalk\_on\_unknown                | boolean          | logs check output event change if state is unknown                               |
+| stalk\_on\_warning                | boolean          | logs check output event change if state is warning                               |
+| state\_type                       | short integer    | state soft 0 or hard 1                                                           |
+| check\_command                    | string           | command executed                                                                 |
+| output                            | string           | output of the command                                                            |
+| perf\_data                        | string           | perfdata extracted from the command's output                                     |
+| retain\_nonstatus\_information    | boolean          | unused                                                                           |
+| retain\_status\_information       | boolean          | unused                                                                           |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                          | Type             | Description | Version |
-|-----------------------------------|------------------|-------------|---------|
-| acknowledged                      | boolean          |             |         |
-| acknowledged\_type                | short integer    |             |         |
-| action\_url                       | string           |             |         |
-| active\_checks\_enabled           | boolean          |             |         |
-| check\_freshness                  | boolean          |             |         |
-| check\_interval                   | real             |             |         |
-| check\_period                     | string           |             |         |
-| check\_type                       | short integer    |             |         |
-| current\_check\_attempt           | short integer    |             |         |
-| current\_state                    | short integer    |             |         |
-| default\_active\_checks\_enabled  | boolean          |             |         |
-| default\_event\_handler\_enabled  | boolean          |             |         |
-| default\_flap\_detection\_enabled | boolean          |             |         |
-| default\_notifications\_enabled   | boolean          |             |         |
-| default\_passive\_checks\_enabled | boolean          |             |         |
-| dowtine\_depth                    | short integer    |             |         |
-| display\_name                     | string           |             |         |
-| enabled                           | boolean          |             |         |
-| event\_handler                    | string           |             |         |
-| event\_handler\_enabled           | boolean          |             |         |
-| execution\_time                   | real             |             |         |
-| first\_notification\_delay        | real             |             |         |
-| flap\_detection\_enabled          | boolean          |             |         |
-| flap\_detection\_on\_critical     | boolean          |             |         |
-| flap\_detection\_on\_ok           | boolean          |             |         |
-| flap\_detection\_on\_unknown      | boolean          |             |         |
-| flap\_detection\_on\_warning      | boolean          |             |         |
-| freshness\_threshold              | real             |             |         |
-| has\_been\_checked                | boolean          |             |         |
-| high\_flap\_threshold             | real             |             |         |
-| host\_id                          | unsigned integer |             |         |
-| host\_name                        | string           |             |         |
-| icon\_image                       | string           |             |         |
-| icon\_image\_alt                  | string           |             |         |
-| service\_id                       | unsigned integer |             |         |
-| is\_flapping                      | boolean          |             |         |
-| is\_volatile                      | boolean          |             |         |
-| last\_check                       | time             |             |         |
-| last\_hard\_state                 | short integer    |             |         |
-| last\_hard\_state\_change         | time             |             |         |
-| last\_notification                | time             |             |         |
-| last\_state\_change               | time             |             |         |
-| last\_time\_critical              | time             |             |         |
-| last\_time\_ok                    | time             |             |         |
-| last\_time\_unknown               | time             |             |         |
-| last\_time\_warning               | time             |             |         |
-| last\_update                      | time             |             |         |
-| latency                           | real             |             |         |
-| low\_flap\_threshold              | real             |             |         |
-| max\_check\_attempts              | short integer    |             |         |
-| next\_check                       | time             |             |         |
-| next\_notification                | time             |             |         |
-| no\_more\_notifications           | boolean          |             |         |
-| notes                             | string           |             |         |
-| notes\_url                        | string           |             |         |
-| notification\_interval            | real             |             |         |
-| notification\_number              | short integer    |             |         |
-| notification\_period              | string           |             |         |
-| notifications\_enabled            | boolean          |             |         |
-| notify\_on\_critical              | boolean          |             |         |
-| notify\_on\_downtime              | boolean          |             |         |
-| notify\_on\_flapping              | boolean          |             |         |
-| notify\_on\_recovery              | boolean          |             |         |
-| notify\_on\_unknown               | boolean          |             |         |
-| notify\_on\_warning               | boolean          |             |         |
-| obsess\_over                      | boolean          |             |         |
-| passive\_checks\_enabled          | boolean          |             |         |
-| percent\_state\_change            | real             |             |         |
-| retry\_interval                   | real             |             |         |
-| scheduled\_downtime\_depth        | short integer    |             |         |
-| service\_description              | string           |             |         |
-| should\_be\_scheduled             | boolean          |             |         |
-| stalk\_on\_critical               | boolean          |             |         |
-| stalk\_on\_ok                     | boolean          |             |         |
-| stalk\_on\_unknown                | boolean          |             |         |
-| stalk\_on\_warning                | boolean          |             |         |
-| state\_type                       | short integer    |             |         |
-| check\_command                    | string           |             |         |
-| output                            | string           |             |         |
-| perf\_data                        | string           |             |         |
-| retain\_nonstatus\_information    | boolean          |             |         |
-| retain\_status\_information       | boolean          |             |         |
+| Property                         | Type             | Description                                                                      | Version                         |
+| -------------------------------- | ---------------- | -------------------------------------------------------------------------------- | ------------------------------- |
+| acknowledged                     | boolean          | true if the problem has been acknowledged                                        | From 22.04 version (bbdo 3.0.0) |
+| acknowledgement\_type            | short integer    | 0 none, 1 normal, 2 sticky                                                       | From 22.04 version (bbdo 3.0.0) |
+| action\_url                      | string           | url to obtain information about service                                          | From 22.04 version (bbdo 3.0.0) |
+| active\_checks                   | boolean          | active check                                                                     | From 22.04 version (bbdo 3.0.0) |
+| check\_attempt                   | short integer    | number of failed checks                                                          | From 22.04 version (bbdo 3.0.0) |
+| check\_command                   | string           | command executed                                                                 | From 22.04 version (bbdo 3.0.0) |
+| checked                          | boolean          | check has been executed at least once                                            | From 22.04 version (bbdo 3.0.0) |
+| check\_freshness                 | boolean          | passive freshness check activated                                                | From 22.04 version (bbdo 3.0.0) |
+| check\_interval                  | real             | interval in units (usually 60s) between 2 checks                                 | From 22.04 version (bbdo 3.0.0) |
+| check\_period                    | string           | time period when checks are authorized                                           | From 22.04 version (bbdo 3.0.0) |
+| check\_type                      | short integer    | 0 active, 1 passive                                                              | From 22.04 version (bbdo 3.0.0) |
+| default\_active\_checks          | boolean          | same as active_checks                                                            | From 22.04 version (bbdo 3.0.0) |
+| default\_event\_handler\_enabled | boolean          | same as  event\_handler\_enabled                                                 | From 22.04 version (bbdo 3.0.0) |
+| default\_flap\_detection         | boolean          | same as flap\_detection                                                          | From 22.04 version (bbdo 3.0.0) |
+| default\_notify                  | boolean          | same as notify                                                                   | From 22.04 version (bbdo 3.0.0) |
+| default\_passive\_checks         | boolean          | same as passive\_checks                                                          | From 22.04 version (bbdo 3.0.0) |
+| service\_description             | string           | name of service                                                                  | From 22.04 version (bbdo 3.0.0) |
+| display\_name                    | string           | name displayed in resources page                                                 | From 22.04 version (bbdo 3.0.0) |
+| enabled                          | boolean          | enabled                                                                          | From 22.04 version (bbdo 3.0.0) |
+| event\_handler                   | string           | command executed when state changes                                              | From 22.04 version (bbdo 3.0.0) |
+| event\_handler\_enabled          | boolean          | event\_handler enabled                                                           | From 22.04 version (bbdo 3.0.0) |
+| execution\_time                  | real             | duration of last check                                                           | From 22.04 version (bbdo 3.0.0) |
+| first\_notification\_delay       | real             | delay before notify in units (usually 60s)                                       | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection                  | boolean          | flap detection enabled                                                           | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_critical    | boolean          | critical state is taken into account for flap detection                          | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_ok          | boolean          | ok state is taken into account for flap detection                                | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_unknown     | boolean          | unknown state is taken into account for flap detection                           | From 22.04 version (bbdo 3.0.0) |
+| flap\_detection\_on\_warning     | boolean          | warning state is taken into account for flap detection                           | From 22.04 version (bbdo 3.0.0) |
+| flapping                         | boolean          | service is flapping                                                              | From 22.04 version (bbdo 3.0.0) |
+| freshness\_threshold             | real             | delay after check result is stale                                                | From 22.04 version (bbdo 3.0.0) |
+| high\_flap\_threshold            | real             | if percent state change is higher than this, service is considered flapping      | From 22.04 version (bbdo 3.0.0) |
+| host\_id                         | unsigned integer | id of the host                                                                   | From 22.04 version (bbdo 3.0.0) |
+| host\_name                       | string           | name of the host                                                                 | From 22.04 version (bbdo 3.0.0) |
+| icon\_id                         | unsigned integer | id of the icon                                                                   | From 22.04 version (bbdo 3.0.0) |
+| icon\_image                      | string           | icon displayed in the UI for the service                                         | From 22.04 version (bbdo 3.0.0) |
+| icon\_image\_alt                 | string           | alternate string for icon\_image                                                 | From 22.04 version (bbdo 3.0.0) |
+| internal\_id                     | unsigned integer | internal id used by ba and metaservice                                           | From 22.04 version (bbdo 3.0.0) |
+| is\_volatile                     | boolean          | service is volatile                                                              | From 22.04 version (bbdo 3.0.0) |
+| last\_check                      | time             | time of last check                                                               | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state                | short integer    | last hard state                                                                  | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state\_change        | time             | time of last hard state change                                                   | From 22.04 version (bbdo 3.0.0) |
+| last\_notification               | time             | time of last notification sent                                                   | From 22.04 version (bbdo 3.0.0) |
+| last\_state\_change              | time             | time of last state change                                                        | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_critical             | time             | time of the last check critical return code                                      | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_ok                   | time             | time of the last check ok return code                                            | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_unknown              | time             | time of the last check unknown return code                                       | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_warning              | time             | time of the last check warning return code                                       | From 22.04 version (bbdo 3.0.0) |
+| last\_update                     | time             | time of message create                                                           | From 22.04 version (bbdo 3.0.0) |
+| latency                          | real             | delay between scheduled check time and real check time                           | From 22.04 version (bbdo 3.0.0) |
+| long\_output                     | string           | output of some plugins on several lines                                          | From 22.04 version (bbdo 3.0.0) |
+| low\_flap\_threshold             | real             | if percent state change is lower than this, service is not considered flapping   | From 22.04 version (bbdo 3.0.0) |
+| max\_check\_attempts             | short integer    | number of failed check after witch service state become a hard fail state        | From 22.04 version (bbdo 3.0.0) |
+| next\_check                      | time             | next scheduled check time                                                        | From 22.04 version (bbdo 3.0.0) |
+| next\_notification               | time             | next renotification time                                                         | From 22.04 version (bbdo 3.0.0) |
+| no\_more\_notifications          | boolean          | no other notification will be sent                                               | From 22.04 version (bbdo 3.0.0) |
+| notes                            | string           | tooltip in resources status page                                                 | From 22.04 version (bbdo 3.0.0) |
+| notes\_url                       | string           | clickable url in resources status page                                           | From 22.04 version (bbdo 3.0.0) |
+| notification\_interval           | real             | interval between two notifications                                               | From 22.04 version (bbdo 3.0.0) |
+| notification\_number             | short integer    | number of notifications sent since the start of the problem                      | From 22.04 version (bbdo 3.0.0) |
+| notification\_period             | string           | time period during witch notifications are allowed                               | From 22.04 version (bbdo 3.0.0) |
+| notify                           | boolean          | notifications enabled                                                            | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_critical             | boolean          | users are notified if service state becomes critical                             | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_downtime             | boolean          | users are notified if service enters in downtime                                 | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_flapping             | boolean          | users are notified if service is flapping                                        | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_recovery             | boolean          | users are notified if service becomes ok                                         | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_unknown              | boolean          | users are notified if service state becomes unknown                              | From 22.04 version (bbdo 3.0.0) |
+| notify\_on\_warning              | boolean          | users are notified if service state becomes warning                              | From 22.04 version (bbdo 3.0.0) |
+| obsess\_over\_service            | boolean          | true if ocsp command if executed after check or notification command             | From 22.04 version (bbdo 3.0.0) |
+| output                           | string           | output of the command                                                            | From 22.04 version (bbdo 3.0.0) |
+| passive\_checks                  | boolean          | passive check                                                                    | From 22.04 version (bbdo 3.0.0) |
+| percent\_state\_change           | real             | used by flapping and compared with high and low flap thresholds                  | From 22.04 version (bbdo 3.0.0) |
+| perfdata                         | string           | perfdata extracted from the command's output                                     | From 22.04 version (bbdo 3.0.0) |
+| retain\_nonstatus\_information   | boolean          | unused                                                                           | From 22.04 version (bbdo 3.0.0) |
+| retain\_status\_information      | boolean          | unused                                                                           | From 22.04 version (bbdo 3.0.0) |
+| retry\_interval                  | real             | interval between two check when service isn't in up state and state type is soft | From 22.04 version (bbdo 3.0.0) |
+| scheduled\_downtime\_depth       | short integer    | number of active downtimes                                                       | From 22.04 version (bbdo 3.0.0) |
+| service\_id                      | unsigned integer | id of the service                                                                | From 22.04 version (bbdo 3.0.0) |
+| severity\_id                     | unsigned integer | id of the severity associated to the service                                     | From 22.04 version (bbdo 3.0.0) |
+| should\_be\_scheduled            | boolean          | next check should be scheduled                                                   | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_critical              | boolean          | logs check output event change if state is critical                              | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_ok                    | boolean          | logs check output event change if state is ok                                    | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_unknown               | boolean          | logs check output event change if state is unknown                               | From 22.04 version (bbdo 3.0.0) |
+| stalk\_on\_warning               | boolean          | logs check output event change if state is warning                               | From 22.04 version (bbdo 3.0.0) |
+| state                            | State            | OK WARNING CRITICAL UNKNOWN PENDING                                              | From 22.04 version (bbdo 3.0.0) |
+| state\_type                      | StateType        | SOFT HARD                                                                        | From 22.04 version (bbdo 3.0.0) |
+| tags                             | TagInfo          | tags of the service (see TagInfo)                                                | From 22.04 version (bbdo 3.0.0) |
+| type                             | ServiceType      | SERVICE METASERVICE BA ANOMALY\_DETECTION                                        | From 22.04 version (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -1067,7 +1190,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                | Type             | Description                                       | Version |
-|-------------------------|------------------|---------------------------------------------------|---------|
+| ----------------------- | ---------------- | ------------------------------------------------- | ------- |
 | active\_checks\_enabled | boolean          | True if active checks are enabled on the service. |         |
 | check\_type             | short            |                                                   |         |
 | host\_id                | unsigned integer | Host ID.                                          |         |
@@ -1079,7 +1202,7 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                | Type             | Description                                       | Version |
-|-------------------------|------------------|---------------------------------------------------|---------|
+| ----------------------- | ---------------- | ------------------------------------------------- | ------- |
 | active\_checks\_enabled | boolean          | True if active checks are enabled on the service. |         |
 | check\_type             | short            |                                                   |         |
 | host\_id                | unsigned integer | Host ID.                                          |         |
@@ -1096,7 +1219,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                       | Type             | Description | Version |
-|--------------------------------|------------------|-------------|---------|
+| ------------------------------ | ---------------- | ----------- | ------- |
 | dependency\_period             | string           |             |         |
 | dependent\_host\_id            | unsigned integer |             |         |
 | dependent\_service\_id         | unsigned integer |             |         |
@@ -1111,7 +1234,7 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                       | Type             | Description | Version |
-|--------------------------------|------------------|-------------|---------|
+| ------------------------------ | ---------------- | ----------- | ------- |
 | dependency\_period             | string           |             |         |
 | dependent\_host\_id            | unsigned integer |             |         |
 | dependent\_service\_id         | unsigned integer |             |         |
@@ -1131,7 +1254,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property   | Type             | Description                                                 | Version |
-|------------|------------------|-------------------------------------------------------------|---------|
+| ---------- | ---------------- | ----------------------------------------------------------- | ------- |
 | id         | unsigned integer |                                                             |         |
 | name       | string           | Group name.                                                 |         |
 | enabled    | enabled          | True if the group is enable, false if it is not (deletion). |         |
@@ -1141,7 +1264,7 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property   | Type             | Description                                                 | Version |
-|------------|------------------|-------------------------------------------------------------|---------|
+| ---------- | ---------------- | ----------------------------------------------------------- | ------- |
 | id         | unsigned integer |                                                             |         |
 | name       | string           | Group name.                                                 |         |
 | enabled    | enabled          | True if the group is enable, false if it is not (deletion). |         |
@@ -1156,7 +1279,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property    | Type             | Description                                                 | Version |
-|-------------|------------------|-------------------------------------------------------------|---------|
+| ----------- | ---------------- | ----------------------------------------------------------- | ------- |
 | id          | unsigned integer |                                                             |         |
 | host\_id    | unsigned integer |                                                             |         |
 | service\_id | unsigned integer |                                                             |         |
@@ -1168,7 +1291,7 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property    | Type             | Description                                                 | Version |
-|-------------|------------------|-------------------------------------------------------------|---------|
+| ----------- | ---------------- | ----------------------------------------------------------- | ------- |
 | id          | unsigned integer |                                                             |         |
 | host\_id    | unsigned integer |                                                             |         |
 | service\_id | unsigned integer |                                                             |         |
@@ -1184,108 +1307,91 @@ or unloaded.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                  | Type             | Description | Version |
-|---------------------------|------------------|-------------|---------|
-| acknowledged              | boolean          |             |         |
-| acknowledgement\_type     | short integer    |             |         |
-| active\_checks\_enabled   | boolean          |             |         |
-| check\_interval           | real             |             |         |
-| check\_period             | string           |             |         |
-| check\_type               | short integer    |             |         |
-| current\_check\_attempt   | short integer    |             |         |
-| current\_state            | short integer    |             |         |
-| downtime\_depth           | short integer    |             |         |
-| enabled                   | boolean          |             |         |
-| event\_handler            | string           |             |         |
-| event\_handler\_enabled   | boolean          |             |         |
-| execution\_time           | real             |             |         |
-| flap\_detection\_enabled  | boolean          |             |         |
-| has\_been\_checked        | boolean          |             |         |
-| host\_id                  | unsigned integer |             |         |
-| host\_name                | string           |             |         |
-| is\_flapping              | boolean          |             |         |
-| last\_check               | time             |             |         |
-| last\_hard\_state         | short integer    |             |         |
-| last\_hard\_state\_change | time             |             |         |
-| last\_notification        | time             |             |         |
-| last\_state\_change       | time             |             |         |
-| last\_time\_critical      | time             |             |         |
-| last\_time\_ok            | time             |             |         |
-| last\_time\_unknown       | time             |             |         |
-| last\_time\_warning       | time             |             |         |
-| last\_update              | time             |             |         |
-| latency                   | real             |             |         |
-| max\_check\_attempts      | short integer    |             |         |
-| modified\_attributes      | unsigned integer |             |         |
-| next\_check               | time             |             |         |
-| next\_notification        | time             |             |         |
-| no\_more\_notifications   | boolean          |             |         |
-| notification\_number      | short integer    |             |         |
-| notifications\_enabled    | boolean          |             |         |
-| obsess\_over              | boolean          |             |         |
-| passive\_checks\_enabled  | boolean          |             |         |
-| percent\_state\_change    | real             |             |         |
-| retry\_interval           | real             |             |         |
-| service\_description      | string           |             |         |
-| service\_id               | unsigned integer |             |         |
-| should\_be\_scheduled     | boolean          |             |         |
-| state\_type               | short integer    |             |         |
-| check\_command            | string           |             |         |
-| output                    | string           |             |         |
-| perf\_data                | string           |             |         |
+| Property                  | Type             | Description                                                                      |
+| ------------------------- | ---------------- | -------------------------------------------------------------------------------- |
+| acknowledged              | boolean          | true if the problem has been acknowledged                                        |
+| acknowledgement\_type     | short integer    | 0 none, 1 normal, 2 sticky                                                       |
+| active\_checks\_enabled   | boolean          | active check                                                                     |
+| check\_interval           | real             | interval in units (usually 60s) between 2 checks                                 |
+| check\_period             | string           | time period when checks are authorized                                           |
+| check\_type               | short integer    | 0 active, 1 passive                                                              |
+| current\_check\_attempt   | short integer    | number of failed checks                                                          |
+| current\_state            | short integer    | 0 up, 1 down, 2 unreachable                                                      |
+| downtime\_depth           | short integer    | number of active downtimes                                                       |
+| enabled                   | boolean          | enabled                                                                          |
+| event\_handler            | string           | command executed when state changes                                              |
+| event\_handler\_enabled   | boolean          | event\_handler enabled                                                           |
+| execution\_time           | real             | duration of last check                                                           |
+| flap\_detection\_enabled  | boolean          | flap detection enabled                                                           |
+| has\_been\_checked        | boolean          | check has been executed at least once                                            |
+| host\_id                  | unsigned integer | id of the host                                                                   |
+| host\_name                | string           | name of the host                                                                 |
+| is\_flapping              | boolean          | service is flapping                                                              |
+| last\_check               | time             | time of last check                                                               |
+| last\_hard\_state         | short integer    | last hard state                                                                  |
+| last\_hard\_state\_change | time             | time of last hard state change                                                   |
+| last\_notification        | time             | time of last notification sent                                                   |
+| last\_state\_change       | time             | time of last state change                                                        |
+| last\_time\_critical      | time             | time of the last check critical return code                                      |
+| last\_time\_ok            | time             | time of the last check ok return code                                            |
+| last\_time\_unknown       | time             | time of the last check unknown return code                                       |
+| last\_time\_warning       | time             | time of the last check warning return code                                       |
+| last\_update              | time             | time of message create                                                           |
+| latency                   | real             | delay between scheduled check time and real check time                           |
+| max\_check\_attempts      | short integer    | number of failed check after witch service state become a hard fail state        |
+| next\_check               | time             | next scheduled check time                                                        |
+| next\_notification        | time             | next renotification time                                                         |
+| no\_more\_notifications   | boolean          | no other notification will be sent                                               |
+| notification\_number      | short integer    | number of notifications sent since the start of the problem                      |
+| notifications\_enabled    | boolean          | notifications enabled                                                            |
+| obsess\_over              | boolean          | true if ocsp command if executed after check or notification command             |
+| passive\_checks\_enabled  | boolean          | passive check                                                                    |
+| percent\_state\_change    | real             | used by flapping and compared with high and low flap thresholds                  |
+| retry\_interval           | real             | interval between two check when service isn't in up state and state type is soft |
+| service\_description      | string           | name of the service                                                              |
+| service\_id               | unsigned integer | id of the service                                                                |
+| should\_be\_scheduled     | boolean          | no next check should be scheduled                                                |
+| state\_type               | short integer    | state soft 0 or hard 1                                                           |
+| check\_command            | string           | command executed                                                                 |
+| output                    | string           | output of the command                                                            |
+| perf\_data                | string           | perfdata extracted from the command's output                                     |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                  | Type             | Description | Version |
-|---------------------------|------------------|-------------|---------|
-| acknowledged              | boolean          |             |         |
-| acknowledgement\_type     | short integer    |             |         |
-| active\_checks\_enabled   | boolean          |             |         |
-| check\_interval           | real             |             |         |
-| check\_period             | string           |             |         |
-| check\_type               | short integer    |             |         |
-| current\_check\_attempt   | short integer    |             |         |
-| current\_state            | short integer    |             |         |
-| downtime\_depth           | short integer    |             |         |
-| enabled                   | boolean          |             |         |
-| event\_handler            | string           |             |         |
-| event\_handler\_enabled   | boolean          |             |         |
-| execution\_time           | real             |             |         |
-| flap\_detection\_enabled  | boolean          |             |         |
-| has\_been\_checked        | boolean          |             |         |
-| host\_id                  | unsigned integer |             |         |
-| host\_name                | string           |             |         |
-| is\_flapping              | boolean          |             |         |
-| last\_check               | time             |             |         |
-| last\_hard\_state         | short integer    |             |         |
-| last\_hard\_state\_change | time             |             |         |
-| last\_notification        | time             |             |         |
-| last\_state\_change       | time             |             |         |
-| last\_time\_critical      | time             |             |         |
-| last\_time\_ok            | time             |             |         |
-| last\_time\_unknown       | time             |             |         |
-| last\_time\_warning       | time             |             |         |
-| last\_update              | time             |             |         |
-| latency                   | real             |             |         |
-| max\_check\_attempts      | short integer    |             |         |
-| modified\_attributes      | unsigned integer |             |         |
-| next\_check               | time             |             |         |
-| next\_notification        | time             |             |         |
-| no\_more\_notifications   | boolean          |             |         |
-| notification\_number      | short integer    |             |         |
-| notifications\_enabled    | boolean          |             |         |
-| obsess\_over              | boolean          |             |         |
-| passive\_checks\_enabled  | boolean          |             |         |
-| percent\_state\_change    | real             |             |         |
-| retry\_interval           | real             |             |         |
-| service\_description      | string           |             |         |
-| service\_id               | unsigned integer |             |         |
-| should\_be\_scheduled     | boolean          |             |         |
-| state\_type               | short integer    |             |         |
-| check\_command            | string           |             |         |
-| output                    | string           |             |         |
-| perf\_data                | string           |             |         |
+| Property                   | Type             | Description                                                     | Version                         |
+| -------------------------- | ---------------- | --------------------------------------------------------------- | ------------------------------- |
+| acknowledgement\_type      | AckType          | NONE NORMAL STICKY                                              | From 22.04 version (bbdo 3.0.0) |
+| check\_attempt             | short integer    | number of failed checks                                         | From 22.04 version (bbdo 3.0.0) |
+| checked                    | boolean          | check has been executed at least once                           | From 22.04 version (bbdo 3.0.0) |
+| execution\_time            | real             | duration of last check                                          | From 22.04 version (bbdo 3.0.0) |
+| flapping                   | boolean          | service is flapping                                             | From 22.04 version (bbdo 3.0.0) |
+| host\_id                   | unsigned integer | id of the host                                                  | From 22.04 version (bbdo 3.0.0) |
+| internal\_id               | unsigned integer | internal id used by ba and metaservice                          | From 22.04 version (bbdo 3.0.0) |
+| last\_check                | time             | time of last check                                              | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state          | short integer    | last hard state                                                 | From 22.04 version (bbdo 3.0.0) |
+| last\_hard\_state\_change  | time             | time of last hard state change                                  | From 22.04 version (bbdo 3.0.0) |
+| last\_notification         | time             | time of last notification sent                                  | From 22.04 version (bbdo 3.0.0) |
+| last\_state\_change        | time             | time of last state change                                       | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_critical       | time             | time of the last check critical return code                     | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_ok             | time             | time of the last check ok return code                           | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_unknown        | time             | time of the last check unknown return code                      | From 22.04 version (bbdo 3.0.0) |
+| last\_time\_warning        | time             | time of the last check warning return code                      | From 22.04 version (bbdo 3.0.0) |
+| latency                    | real             | delay between scheduled check time and real check time          | From 22.04 version (bbdo 3.0.0) |
+| long\_output               | string           | output of some plugins on several lines                         | From 22.04 version (bbdo 3.0.0) |
+| next\_check                | time             | next scheduled check time                                       | From 22.04 version (bbdo 3.0.0) |
+| next\_notification         | time             | next renotification time                                        | From 22.04 version (bbdo 3.0.0) |
+| no\_more\_notifications    | boolean          | no other notification will be sent                              | From 22.04 version (bbdo 3.0.0) |
+| notification\_number       | short integer    | number of notifications sent since the start of the problem     | From 22.04 version (bbdo 3.0.0) |
+| output                     | string           | output of the command                                           | From 22.04 version (bbdo 3.0.0) |
+| percent\_state\_change     | real             | used by flapping and compared with high and low flap thresholds | From 22.04 version (bbdo 3.0.0) |
+| perfdata                   | string           | perfdata extracted from the command's output                    | From 22.04 version (bbdo 3.0.0) |
+| scheduled\_downtime\_depth | short integer    | number of active downtimes                                      | From 22.04 version (bbdo 3.0.0) |
+| service\_id                | unsigned integer | id of the service                                               | From 22.04 version (bbdo 3.0.0) |
+| should\_be\_scheduled      | boolean          | no next check should be scheduled                               | From 22.04 version (bbdo 3.0.0) |
+| state                      | State            | OK WARNING CRITICAL UNKNOWN PENDING                             | From 22.04 version (bbdo 3.0.0) |
+| state\_type                | StateType        | SOFT HARD                                                       | From 22.04 version (bbdo 3.0.0) |
+| type                       | ServiceType      | SERVICE METASERVICE BA ANOMALY\_DETECTION                       | From 22.04 version (bbdo 3.0.0) |
 
 </TabItem>
 </Tabs>
@@ -1296,7 +1402,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property   | Type             | Description                                                              | Version |
-|------------|------------------|--------------------------------------------------------------------------|---------|
+| ---------- | ---------------- | ------------------------------------------------------------------------ | ------- |
 | loaded     | boolean          | True if the instance loaded successfully.                                |         |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload). |         |
 
@@ -1304,8 +1410,8 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property   | Type             | Description                                                              | Version |
-|------------|------------------|--------------------------------------------------------------------------|---------|
-| loaded     | boolean          | True if the instance loaded successfully.                                |         |
+| ---------- | ---------------- | ------------------------------------------------------------------------ | ------- |
+| loaded     | boolean          | True if the instance loaded successfuly.                                 |         |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload). |         |
 
 </TabItem>
@@ -1317,7 +1423,7 @@ or unloaded.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property   | Type             | Description                                                                  | Version |
-|------------|------------------|------------------------------------------------------------------------------|---------|
+| ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
 | responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
 
@@ -1325,7 +1431,7 @@ or unloaded.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property   | Type             | Description                                                                  | Version |
-|------------|------------------|------------------------------------------------------------------------------|---------|
+| ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
 | responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
 
@@ -2444,34 +2550,34 @@ graph should be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property         | Type             | Description                                                                 | Version     |
-|------------------|------------------|-----------------------------------------------------------------------------|-------------|
-| ctime            | time             | Time at which the metric value was generated.                               |             |
-| interval         | unsigned integer | Normal service check interval in seconds.                                   |             |
-| metric\_id       | unsigned integer | Metric ID (from the metrics table).                                         |             |
-| name             | string           | Metric name.                                                                |             |
-| rrd\_len         | integer          | RRD retention length in seconds.                                            |             |
-| value            | real             | Metric value.                                                               |             |
-| value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |             |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |             |
-| host\_id         | unsigned integer | The id of the host this metric is attached to.                              | Since 3.0.0 |
-| service\_id      | unsigned integer | The id of the service this metric is attached to.                           | Since 3.0.0 |
+| Property         | Type             | Description                                                                 | Version |
+| ---------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
+| ctime            | time             | Time at which the metric value was generated.                               |         |
+| interval         | unsigned integer | Normal service check interval in seconds.                                   |         |
+| metric\_id       | unsigned integer | Metric ID (from the metrics table).                                         |         |
+| name             | string           | Metric name.                                                                |         |
+| rrd\_len         | integer          | RRD retention length in seconds.                                            |         |
+| value            | real             | Metric value.                                                               |         |
+| value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |         |
+| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |         |
+| host\_id         | unsigned integer | The id of the host this metric is attached to.                              |         |
+| service\_id      | unsigned integer | The id of the service this metric is attached to.                           |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property         | Type             | Description                                                                 | Version     |
-|------------------|------------------|-----------------------------------------------------------------------------|-------------|
-| ctime            | time             | Time at which the metric value was generated.                               |             |
-| interval         | unsigned integer | Normal service check interval in seconds.                                   |             |
-| metric\_id       | unsigned integer | Metric ID (from the metrics table).                                         |             |
-| name             | string           | Metric name.                                                                |             |
-| rrd\_len         | integer          | RRD retention length in seconds.                                            |             |
-| value            | real             | Metric value.                                                               |             |
-| value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |             |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |             |
-| host\_id         | unsigned integer | The id of the host this metric is attached to.                              | Since 3.0.0 |
-| service\_id      | unsigned integer | The id of the service this metric is attached to.                           | Since 3.0.0 |
+| Property         | Type             | Description                                                                 | Version |
+| ---------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
+| ctime            | time             | Time at which the metric value was generated.                               |         |
+| interval         | unsigned integer | Normal service check interval in seconds.                                   |         |
+| metric\_id       | unsigned integer | Metric ID (from the metrics table).                                         |         |
+| name             | string           | Metric name.                                                                |         |
+| rrd\_len         | integer          | RRD retention length in seconds.                                            |         |
+| value            | real             | Metric value.                                                               |         |
+| value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |         |
+| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |         |
+| host\_id         | unsigned integer | The id of the host this metric is attached to.                              |         |
+| service\_id      | unsigned integer | The id of the service this metric is attached to.                           |         |
 
 </TabItem>
 </Tabs>
@@ -2487,7 +2593,7 @@ true) and finally a rebuild end event (end =3D true).
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property  | Type             | Description                                                                                                   | Version |
-|-----------|------------------|---------------------------------------------------------------------------------------------------------------|---------|
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
 | end       | boolean          | End flag. Set to true if rebuild is starting, false if it is ending.                                          |         |
 | id        | unsigned integer | ID of metric to rebuild if is\_index is false, or ID of index to rebuild (status graph) if is\_index is true. |         |
 | is\_index | boolean          | Index flag. Rebuild index (status) if true, rebuild metric if false.                                          |         |
@@ -2496,10 +2602,10 @@ true) and finally a rebuild end event (end =3D true).
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property  | Type             | Description                                                                                                   | Version |
-|-----------|------------------|---------------------------------------------------------------------------------------------------------------|---------|
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
 | end       | boolean          | End flag. Set to true if rebuild is starting, false if it is ending.                                          |         |
 | id        | unsigned integer | ID of metric to rebuild if is\_index is false, or ID of index to rebuild (status graph) if is\_index is true. |         |
-| is\_index | boolean          | Index flag. Rebuild index (status) if true, rebuild metric if false.                
+| is\_index | boolean          | Index flag. Rebuild index (status) if true, rebuild metric if false.                                          |         |
 
 </TabItem>
 </Tabs>
@@ -2513,7 +2619,7 @@ must be deleted.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property  | Type             | Description                                                                                            | Version |
-|-----------|------------------|--------------------------------------------------------------------------------------------------------|---------|
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
 | id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |         |
 | is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |         |
 
@@ -2521,7 +2627,7 @@ must be deleted.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property  | Type             | Description                                                                                            | Version |
-|-----------|------------------|--------------------------------------------------------------------------------------------------------|---------|
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
 | id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |         |
 | is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |         |
 
@@ -2534,7 +2640,7 @@ must be deleted.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property         | Type             | Description                                                        | Version |
-|------------------|------------------|--------------------------------------------------------------------|---------|
+| ---------------- | ---------------- | ------------------------------------------------------------------ | ------- |
 | ctime            | time             | Time at which the status was generated.                            |         |
 | index\_id        | unsigned integer | Index ID.                                                          |         |
 | interval         | unsigned integer | Normal service check interval in seconds.                          |         |
@@ -2546,7 +2652,7 @@ must be deleted.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property         | Type             | Description                                                        | Version |
-|------------------|------------------|--------------------------------------------------------------------|---------|
+| ---------------- | ---------------- | ------------------------------------------------------------------ | ------- |
 | ctime            | time             | Time at which the status was generated.                            |         |
 | index\_id        | unsigned integer | Index ID.                                                          |         |
 | interval         | unsigned integer | Normal service check interval in seconds.                          |         |
@@ -2563,7 +2669,7 @@ must be deleted.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property  | Type             | Description | Version |
-|-----------|------------------|-------------|---------|
+| --------- | ---------------- | ----------- | ------- |
 | index\_id | unsigned integer | Index ID.   |         |
 | metric\_d | unsigned integer | Index ID.   |         |
 
@@ -2571,7 +2677,7 @@ must be deleted.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property  | Type             | Description | Version |
-|-----------|------------------|-------------|---------|
+| --------- | ---------------- | ----------- | ------- |
 | index\_id | unsigned integer | Index ID.   |         |
 | metric\_d | unsigned integer | Index ID.   |         |
 
@@ -2584,7 +2690,7 @@ must be deleted.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property    | Type             | Description | Version |
-|-------------|------------------|-------------|---------|
+| ----------- | ---------------- | ----------- | ------- |
 | index\_id   | unsigned integer | Index ID.   |         |
 | host\_id    | unsigned integer | Index ID.   |         |
 | service\_id | unsigned integer | Index ID.   |         |
@@ -2593,7 +2699,7 @@ must be deleted.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property    | Type             | Description | Version |
-|-------------|------------------|-------------|---------|
+| ----------- | ---------------- | ----------- | ------- |
 | index\_id   | unsigned integer | Index ID.   |         |
 | host\_id    | unsigned integer | Index ID.   |         |
 | service\_id | unsigned integer | Index ID.   |         |
@@ -2749,7 +2855,7 @@ message RemoveGraphMessage {
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property    | Type          | Description                                                                                                                 | Version |
-|-------------|---------------|-----------------------------------------------------------------------------------------------------------------------------|---------|
+| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- | ------- |
 | bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
 | bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
 | bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
@@ -2759,7 +2865,7 @@ message RemoveGraphMessage {
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property    | Type          | Description                                                                                                                 | Version |
-|-------------|---------------|-----------------------------------------------------------------------------------------------------------------------------|---------|
+| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- | ------- |
 | bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
 | bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
 | bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
@@ -2774,14 +2880,14 @@ message RemoveGraphMessage {
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property            | Type             | Description                                                                                                                   | Version |
-|---------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
+| ------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------- |
 | acknowledged events | unsigned integer | Number of acknowledged events. Only used by "smart" clients (i.e able to acknowledge events). Not to be used by dumb clients. |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property            | Type             | Description                                                                                                                   | Version |
-|---------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
+| ------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------- |
 | acknowledged events | unsigned integer | Number of acknowledged events. Only used by "smart" clients (i.e able to acknowledge events). Not to be used by dumb clients. |         |
 
 </TabItem>
@@ -2797,7 +2903,7 @@ This event is sent when a BA's status changed.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property               | Type             | Description                                  | Version                   |
-|------------------------|------------------|----------------------------------------------|---------------------------|
+| ---------------------- | ---------------- | -------------------------------------------- | ------------------------- |
 | ba\_id                 | unsigned integer | The id of the BA.                            | Since 2.8.0 (BBDO 1.2.0). |
 | in\_downtime           | boolean          | True of the BA is in downtime.               | Since 2.8.0 (BBDO 1.2.0). |
 | last\_state\_change    | time             | The time of the last state change of the BA. | Since 2.8.0 (BBDO 1.2.0). |
@@ -2811,7 +2917,7 @@ This event is sent when a BA's status changed.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property               | Type             | Description                                  | Version                   |
-|------------------------|------------------|----------------------------------------------|---------------------------|
+| ---------------------- | ---------------- | -------------------------------------------- | ------------------------- |
 | ba\_id                 | unsigned integer | The id of the BA.                            | Since 2.8.0 (BBDO 1.2.0). |
 | in\_downtime           | boolean          | True of the BA is in downtime.               | Since 2.8.0 (BBDO 1.2.0). |
 | last\_state\_change    | time             | The time of the last state change of the BA. | Since 2.8.0 (BBDO 1.2.0). |
@@ -2832,7 +2938,7 @@ This event is sent when a KPI's status changed.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                     | Type             | Description                                   | Version                   |
-|------------------------------|------------------|-----------------------------------------------|---------------------------|
+| ---------------------------- | ---------------- | --------------------------------------------- | ------------------------- |
 | kpi\_id                      | unsigned integer | The id of the KPI.                            | Since 2.8.0 (BBDO 1.2.0). |
 | in\_downtime                 | bool             | True if the KPI is in downtime.               |                           |
 | level\_acknowledgement\_hard | real             | The hard acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
@@ -2851,7 +2957,7 @@ This event is sent when a KPI's status changed.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                     | Type             | Description                                   | Version                   |
-|------------------------------|------------------|-----------------------------------------------|---------------------------|
+| ---------------------------- | ---------------- | --------------------------------------------- | ------------------------- |
 | kpi\_id                      | unsigned integer | The id of the KPI.                            | Since 2.8.0 (BBDO 1.2.0). |
 | in\_downtime                 | bool             | True if the KPI is in downtime.               |                           |
 | level\_acknowledgement\_hard | real             | The hard acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
@@ -2877,7 +2983,7 @@ This event is sent when a meta service's status changed.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property          | Type             | Description                     | Version                   |
-|-------------------|------------------|---------------------------------|---------------------------|
+| ----------------- | ---------------- | ------------------------------- | ------------------------- |
 | meta\_service\_id | unsigned integer | The id of the meta service.     | Since 2.8.0 (BBDO 1.2.0). |
 | value             | real             | The value of the meta service.  | Since 2.8.0 (BBDO 1.2.0). |
 | state\_changed    | boolean          | True if the state just changed. | Since 2.8.0 (BBDO 1.2.0). |
@@ -2886,7 +2992,7 @@ This event is sent when a meta service's status changed.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property          | Type             | Description                     | Version                   |
-|-------------------|------------------|---------------------------------|---------------------------|
+| ----------------- | ---------------- | ------------------------------- | ------------------------- |
 | meta\_service\_id | unsigned integer | The id of the meta service.     | Since 2.8.0 (BBDO 1.2.0). |
 | value             | real             | The value of the meta service.  | Since 2.8.0 (BBDO 1.2.0). |
 | state\_changed    | boolean          | True if the state just changed. | Since 2.8.0 (BBDO 1.2.0). |
@@ -2902,7 +3008,7 @@ This event is sent when a new BA event is opened, or an old one is closed.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property     | Type             | Description                                                    | Version                   |
-|--------------|------------------|----------------------------------------------------------------|---------------------------|
+| ------------ | ---------------- | -------------------------------------------------------------- | ------------------------- |
 | ba\_id       | unsigned integer | The id of the BA.                                              | Since 2.8.0 (BBDO 1.2.0). |
 | first\_level | real             | The first level of the BA event.                               | Since 2.8.0 (BBDO 1.2.0). |
 | end\_time    | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
@@ -2914,7 +3020,7 @@ This event is sent when a new BA event is opened, or an old one is closed.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property     | Type             | Description                                                    | Version                   |
-|--------------|------------------|----------------------------------------------------------------|---------------------------|
+| ------------ | ---------------- | -------------------------------------------------------------- | ------------------------- |
 | ba\_id       | unsigned integer | The id of the BA.                                              | Since 2.8.0 (BBDO 1.2.0). |
 | first\_level | real             | The first level of the BA event.                               | Since 2.8.0 (BBDO 1.2.0). |
 | end\_time    | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
@@ -2933,7 +3039,7 @@ This event is sent when a new KPI event is opened, or an old one is closed.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property      | Type             | Description                                                    | Version                   |
-|---------------|------------------|----------------------------------------------------------------|---------------------------|
+| ------------- | ---------------- | -------------------------------------------------------------- | ------------------------- |
 | kpi\_id       | unsigned integer | The id of the KPI.                                             | Since 2.8.0 (BBDO 1.2.0). |
 | end\_time     | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
 | impact\_level | integer          | The level of the impact.                                       | Since 2.8.0 (BBDO 1.2.0). |
@@ -2947,7 +3053,7 @@ This event is sent when a new KPI event is opened, or an old one is closed.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property      | Type             | Description                                                    | Version                   |
-|---------------|------------------|----------------------------------------------------------------|---------------------------|
+| ------------- | ---------------- | -------------------------------------------------------------- | ------------------------- |
 | kpi\_id       | unsigned integer | The id of the KPI.                                             | Since 2.8.0 (BBDO 1.2.0). |
 | end\_time     | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
 | impact\_level | integer          | The level of the impact.                                       | Since 2.8.0 (BBDO 1.2.0). |
@@ -2968,7 +3074,7 @@ This event is sent when a new BA duration event is computed by BAM broker.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                | Type             | Description                                            | Version                   |
-|-------------------------|------------------|--------------------------------------------------------|---------------------------|
+| ----------------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
 | ba\_id                  | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
 | real\_start\_time       | time             | The first level of the BA event.                       | Since 2.8.0 (BBDO 1.2.0). |
 | end\_time               | time             | The end\_time of the event, in the given timeperiod.   | Since 2.8.0 (BBDO 1.2.0). |
@@ -2981,7 +3087,7 @@ This event is sent when a new BA duration event is computed by BAM broker.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                | Type             | Description                                            | Version                   |
-|-------------------------|------------------|--------------------------------------------------------|---------------------------|
+| ----------------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
 | ba\_id                  | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
 | real\_start\_time       | time             | The first level of the BA event.                       | Since 2.8.0 (BBDO 1.2.0). |
 | end\_time               | time             | The end\_time of the event, in the given timeperiod.   | Since 2.8.0 (BBDO 1.2.0). |
@@ -3002,7 +3108,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                   | Type             | Description                | Version                   |
-|----------------------------|------------------|----------------------------|---------------------------|
+| -------------------------- | ---------------- | -------------------------- | ------------------------- |
 | ba\_id                     | unsigned integer | The id of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_name                   | string           | The name of the BA.        | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_description            | string           | The description of the BA. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3015,7 +3121,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                   | Type             | Description                | Version                   |
-|----------------------------|------------------|----------------------------|---------------------------|
+| -------------------------- | ---------------- | -------------------------- | ------------------------- |
 | ba\_id                     | unsigned integer | The id of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_name                   | string           | The name of the BA.        | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_description            | string           | The description of the BA. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3036,7 +3142,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property             | Type             | Description                                                                  | Version                   |
-|----------------------|------------------|------------------------------------------------------------------------------|---------------------------|
+| -------------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------------- |
 | kpi\_id              | unsigned integer | The id of the KPI.                                                           | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_id               | unsigned integer | The id of the parent BA of this KPI.                                         | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_name             | string           | The name of the parent BA of this KPI.                                       | Since 2.8.0 (BBDO 1.2.0). |
@@ -3058,7 +3164,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property             | Type             | Description                                                                  | Version                   |
-|----------------------|------------------|------------------------------------------------------------------------------|---------------------------|
+| -------------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------------- |
 | kpi\_id              | unsigned integer | The id of the KPI.                                                           | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_id               | unsigned integer | The id of the parent BA of this KPI.                                         | Since 2.8.0 (BBDO 1.2.0). |
 | ba\_name             | string           | The name of the parent BA of this KPI.                                       | Since 2.8.0 (BBDO 1.2.0). |
@@ -3088,7 +3194,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property | Type             | Description       | Version                   |
-|----------|------------------|-------------------|---------------------------|
+| -------- | ---------------- | ----------------- | ------------------------- |
 | ba\_id   | unsigned integer | The id of the BA. | Since 2.8.0 (BBDO 1.2.0). |
 | bv\_id   | unsigned integer | The id of the BV. | Since 2.8.0 (BBDO 1.2.0). |
 
@@ -3096,7 +3202,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property | Type             | Description       | Version                   |
-|----------|------------------|-------------------|---------------------------|
+| -------- | ---------------- | ----------------- | ------------------------- |
 | ba\_id   | unsigned integer | The id of the BA. | Since 2.8.0 (BBDO 1.2.0). |
 | bv\_id   | unsigned integer | The id of the BV. | Since 2.8.0 (BBDO 1.2.0). |
 
@@ -3112,7 +3218,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property        | Type             | Description                | Version                   |
-|-----------------|------------------|----------------------------|---------------------------|
+| --------------- | ---------------- | -------------------------- | ------------------------- |
 | bv\_id          | unsigned integer | The id of the BV.          | Since 2.8.0 (BBDO 1.2.0). |
 | bv\_name        | string           | The name of the BV.        | Since 2.8.0 (BBDO 1.2.0). |
 | bv\_description | string           | The description of the BV. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3121,7 +3227,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property        | Type             | Description                | Version                   |
-|-----------------|------------------|----------------------------|---------------------------|
+| --------------- | ---------------- | -------------------------- | ------------------------- |
 | bv\_id          | unsigned integer | The id of the BV.          | Since 2.8.0 (BBDO 1.2.0). |
 | bv\_name        | string           | The name of the BV.        | Since 2.8.0 (BBDO 1.2.0). |
 | bv\_description | string           | The description of the BV. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3141,14 +3247,14 @@ the end of the dump.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property        | Type    | Description                                                   | Version                   |
-|-----------------|---------|---------------------------------------------------------------|---------------------------|
+| --------------- | ------- | ------------------------------------------------------------- | ------------------------- |
 | update\_started | boolean | True if this is the start of the dump, false if it's the end. | Since 2.8.0 (BBD0 1.2.0). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property        | Type    | Description                                                   | Version                   |
-|-----------------|---------|---------------------------------------------------------------|---------------------------|
+| --------------- | ------- | ------------------------------------------------------------- | ------------------------- |
 | update\_started | boolean | True if this is the start of the dump, false if it's the end. | Since 2.8.0 (BBD0 1.2.0). |
 
 </TabItem>
@@ -3163,14 +3269,14 @@ is asked to the BAM broker endpoint.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property         | Type   | Description                                                                                                 | Version                   |
-|------------------|--------|-------------------------------------------------------------------------------------------------------------|---------------------------|
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- |
 | bas\_to\_rebuild | string | A string containing the id of all the BAs to rebuild, separated by a comma and a space (i.e "1, 5, 8, 12"). | Since 2.8.0 (BBDO 1.2.0). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property         | Type   | Description                                                                                                 | Version                   |
-|------------------|--------|-------------------------------------------------------------------------------------------------------------|---------------------------|
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- |
 | bas\_to\_rebuild | string | A string containing the id of all the BAs to rebuild, separated by a comma and a space (i.e "1, 5, 8, 12"). | Since 2.8.0 (BBDO 1.2.0). |
 
 </TabItem>
@@ -3185,7 +3291,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property  | Type             | Description                       | Version                   |
-|-----------|------------------|-----------------------------------|---------------------------|
+| --------- | ---------------- | --------------------------------- | ------------------------- |
 | tp\_id    | unsigned integer | The id of the timeperiod.         | Since 2.8.0 (BBDO 1.2.0). |
 | name      | string           | The name of the timeperiod.       | Since 2.8.0 (BBDO 1.2.0). |
 | monday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3200,7 +3306,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property  | Type             | Description                       | Version                   |
-|-----------|------------------|-----------------------------------|---------------------------|
+| --------- | ---------------- | --------------------------------- | ------------------------- |
 | tp\_id    | unsigned integer | The id of the timeperiod.         | Since 2.8.0 (BBDO 1.2.0). |
 | name      | string           | The name of the timeperiod.       | Since 2.8.0 (BBDO 1.2.0). |
 | monday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3223,7 +3329,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property       | Type             | Description                                            | Version                   |
-|----------------|------------------|--------------------------------------------------------|---------------------------|
+| -------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
 | ba\_id         | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
 | timeperiod\_id | unsigned integer | The id of the timeperiod.                              | Since 2.8.0 (BBDO 1.2.0). |
 | is\_default    | boolean          | True if the timeperiod is the default one for this BA. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3232,7 +3338,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property       | Type             | Description                                            | Version                   |
-|----------------|------------------|--------------------------------------------------------|---------------------------|
+| -------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
 | ba\_id         | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
 | timeperiod\_id | unsigned integer | The id of the timeperiod.                              | Since 2.8.0 (BBDO 1.2.0). |
 | is\_default    | boolean          | True if the timeperiod is the default one for this BA. | Since 2.8.0 (BBDO 1.2.0). |
@@ -3249,7 +3355,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property       | Type             | Description                                     | Version                   |
-|----------------|------------------|-------------------------------------------------|---------------------------|
+| -------------- | ---------------- | ----------------------------------------------- | ------------------------- |
 | timeperiod\_id | unsigned integer | The id of the timeperiod having this exception. | Since 2.8.0               |
 | daterange      | string           | A string containing the date of the range.      | Since 2.8.0               |
 | timerange      | string           | A string containing the time of the range.      | Since 2.8.0 (BBDO 1.2.0). |
@@ -3258,7 +3364,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property       | Type             | Description                                     | Version                   |
-|----------------|------------------|-------------------------------------------------|---------------------------|
+| -------------- | ---------------- | ----------------------------------------------- | ------------------------- |
 | timeperiod\_id | unsigned integer | The id of the timeperiod having this exception. | Since 2.8.0               |
 | daterange      | string           | A string containing the date of the range.      | Since 2.8.0               |
 | timerange      | string           | A string containing the time of the range.      | Since 2.8.0 (BBDO 1.2.0). |
@@ -3275,7 +3381,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property                 | Type             | Description                                     | Version                   |
-|--------------------------|------------------|-------------------------------------------------|---------------------------|
+| ------------------------ | ---------------- | ----------------------------------------------- | ------------------------- |
 | timeperiod\_id           | unsigned integer | The id of the timeperiod having this exclusion. | Since 2.8.0 (BBDO 1.2.0). |
 | excluded\_timeperiod\_id | unsigned integer | The id of the excluded timeperiod.              | Since 2.8.0 (BBDO 1.2.0). |
 
@@ -3283,7 +3389,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property                 | Type             | Description                                     | Version                   |
-|--------------------------|------------------|-------------------------------------------------|---------------------------|
+| ------------------------ | ---------------- | ----------------------------------------------- | ------------------------- |
 | timeperiod\_id           | unsigned integer | The id of the timeperiod having this exclusion. | Since 2.8.0 (BBDO 1.2.0). |
 | excluded\_timeperiod\_id | unsigned integer | The id of the excluded timeperiod.              | Since 2.8.0 (BBDO 1.2.0). |
 
@@ -3296,7 +3402,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v2" label="BBDO v2">
 
 | Property     | Type             | Description                    | Version |
-|--------------|------------------|--------------------------------|---------|
+| ------------ | ---------------- | ------------------------------ | ------- |
 | bad\_id      | unsigned integer | The id of the BA in downtime.  |         |
 | in\_downtime | boolean          | True if the BA is in downtime. |         |
 
@@ -3304,7 +3410,7 @@ startup and after each BAM configuration reload.
 <TabItem value="BBDO v3" label="BBDO v3">
 
 | Property     | Type             | Description                    | Version |
-|--------------|------------------|--------------------------------|---------|
+| ------------ | ---------------- | ------------------------------ | ------- |
 | bad\_id      | unsigned integer | The id of the BA in downtime.  |         |
 | in\_downtime | boolean          | True if the BA is in downtime. |         |
 
