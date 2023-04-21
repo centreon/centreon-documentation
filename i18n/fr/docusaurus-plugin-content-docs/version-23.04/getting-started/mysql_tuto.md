@@ -48,7 +48,7 @@ dnf install centreon-plugin-Applications-Databases-Mysql
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install centreon-plugin-Applications-Databases-Mysql
+apt install centreon-plugin-applications-databases-mysql
 ```
 
 </TabItem>
