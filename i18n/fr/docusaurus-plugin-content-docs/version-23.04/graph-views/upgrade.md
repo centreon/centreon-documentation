@@ -76,6 +76,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
     ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
