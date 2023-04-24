@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
 
-> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable de toute détérioration ou perte de données.
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait pas être tenue pour responsable de toute détérioration ou perte de données.
 
 ### Flux réseaux
 
@@ -501,8 +501,8 @@ Pour s'assurer que les dernières étapes ont été effectuées correctement, et
 Le résultat attendu est :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
@@ -638,8 +638,8 @@ Si tout s'est bien passé, alors la commande `mysql-check-status.sh` doit renvoy
 Résultat attendu :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -859,7 +859,7 @@ Par mesure de simplicité, nous allons définir le même mot de passe pour le co
 passwd hacluster
 ```
 
-Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancées sur un seul nœud.**
+Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -900,6 +900,9 @@ pcs host auth \
 
 Cette commande doit être lancée sur un des deux nœuds :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -907,6 +910,20 @@ pcs cluster setup \
     "@CENTRAL_SLAVE_NAME@" \
     --force
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    --force
+```
+
+</TabItem>
+</Tabs>
 
 Démarrer ensuite `pacemaker` sur les deux nœuds :
 
@@ -984,6 +1001,9 @@ pcs resource create "ms_mysql" \
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -992,6 +1012,21 @@ pcs resource promotable ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+</TabItem>
+</Tabs>
 
 ### Création des ressources clones
 
@@ -1171,10 +1206,24 @@ pcs resource create snmptrapd \
 
 Pour indiquer au cluster que les ressources Centreon doivent être démarrées sur le nœud portant le rôle *master* MariaDB, nous créons ces deux contraintes :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-clone
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+```
+
+</TabItem>
+</Tabs>
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
@@ -1201,6 +1250,9 @@ pcs resource meta http target-role="started"
 #### Contrôle de l'état des ressources
 
 Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon -fr` :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -1230,6 +1282,41 @@ Full List of Resources:
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 15 16:35:47 2021
+  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 2 nodes configured
+  * 14 resource instances configured
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @CENTRAL_MASTER_NAME@ ]
+    * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+
+</TabItem>
+</Tabs>
 
 Si la ressource **centreon_central_sync** ne veut pas démarrer, vérifiez si le dossier `/usr/share/centreon-broker/lua` existe.
 
@@ -1272,30 +1359,61 @@ L'état de la réplication MariaDB peut être vérifié à n'importe quel moment
 Résultat attendu :
 
 ```bash
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
 
 Il est possible qu'immédiatement après l'installation, le thread de réplication ne soit pas actif. Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource restart ms_mysql-clone
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs resource restart ms_mysql-clone
+```
+
+</TabItem>
+</Tabs>
 
 #### Contrôle de l'absence de contraintes
 
 En temps normal, seules les contraintes de colocation doivent être actives sur le cluster. La commande `pcs constraint` doit retourner :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 Location Constraints:
 Ordering Constraints:
-  pcs constraint order stop centreon then demote ms_mysql-clone
 Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
+</TabItem>
+</Tabs>
 
 ## Intégrer des collecteurs
 

@@ -51,6 +51,8 @@ In order to keep the cluster safe from split-brain issues, a third server is man
 In order to adhere to best practices and be as resilient as possible, the Quorum server placement
 Quorum server should be at a different site than the two primary nodes, with independent network attachments.
 
+> **WARNING:** Be sure SELinux and Firewalld are disabled.
+
 ### Defining hosts' names and addresses
 
 In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
@@ -79,7 +81,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@VIP_SQL_BROADCAST_IPADDR@` : cluster's VIP SQL broadcast address
 * `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
-### Configuring  centreon-broker
+### Configuring centreon-broker
 
 #### Link to cbd service
 
@@ -527,7 +529,7 @@ GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION 
 TO '@MARIADB_REPL_USER@'@'@DATABASE_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
-Optionnaly, you can allow these privileges to be used from Central Cluster. It will make some administration scripts runnable from every nodes.
+Optionally, you can allow these privileges to be used from Central Cluster. It will make some administration scripts runnable from every nodes.
 
 ```sql
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
@@ -569,8 +571,8 @@ To make sure that all the previous steps have been successful, and that the corr
 The expected output is:
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
@@ -706,8 +708,8 @@ In addition, the output of this command must display only `OK` results:
 The expected output is:
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -848,7 +850,7 @@ update-rc.d -f mariadb remove
 
 #### Activating the clustering services
 
-First we enable all the services and start `pcsd` on ** all nodes **:
+First we enable all the services and start `pcsd` on **all nodes**:
 
 ```bash
 systemctl start pcsd
@@ -983,6 +985,9 @@ pcs host auth \
 
 The following command creates the cluster. It must be run **only on one of the nodes**.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -992,6 +997,22 @@ pcs cluster setup \
     "@DATABASE_SLAVE_NAME@" \
     --force
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@DATABASE_MASTER_NAME@" \
+    "@DATABASE_SLAVE_NAME@" \
+    --force
+```
+
+</TabItem>
+</Tabs>
 
 Then start the `pacemaker` service **on both central and databases nodes**:
 
@@ -1024,7 +1045,7 @@ pcs quorum device add model net \
 
 All commands within this section should be exectued on **only on one Cluster node**, the configuration will be spread automatically.
 
-#### Primary & Secondary MySQL Processes
+#### Primary & Secondary MySQL Processes 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1069,6 +1090,9 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -1077,6 +1101,21 @@ pcs resource promotable ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+</TabItem>
+</Tabs>
 
 #### MariaDB Virtual IP Address
 
@@ -1104,7 +1143,6 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ```bash
 pcs resource create "php" \
     systemd:php-fpm \
@@ -1274,12 +1312,29 @@ When using the 4 nodes architecture, you must define some specific Constraints t
 
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
-pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
+</Tabs>
+
 Create the Constraint that prevent Centreon Processes to run on Database nodes and  vice-et-versa: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -1287,6 +1342,19 @@ pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CE
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+</Tabs>
 
 ### Activate the Cluster and check Resources operating state
 
@@ -1311,6 +1379,9 @@ pcs resource meta http target-role="started"
 #### Checking the resources' states
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -1343,6 +1414,44 @@ Active Resources:
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 22 15:00:13 2021
+  * Last change:  Wed Sep 15 16:26:53 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
+
+Node List:
+  * Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @DATABASE_MASTER_NAME@ ]
+    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
+  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started @DATABASE_MASTER_NAME@
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+
+</TabItem>
+</Tabs>
 
 If **centreon_central_sync** won't start, verify if the folder `/usr/share/centreon-broker/lua` exist **on the two central nodes**.
 
@@ -1385,21 +1494,37 @@ The MariaDB replication state can be monitored at any time with the `mysql-check
 The expected output is:
 
 ```bash
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
 
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash 
 pcs resource restart ms_mysql-clone
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash 
+pcs resource restart ms_mysql-clone
+```
+
+</TabItem>
+</Tabs>
+
 #### Checking the constraints
 
 Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 Location Constraints:
@@ -1416,11 +1541,38 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Location Constraints:
+  Resource: cbd_rrd-clone
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+  Resource: centreon
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+  Resource: ms_mysql-clone
+    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
+  Resource: php-clone
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+Ordering Constraints:
+Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
+</TabItem>
+</Tabs>
 
 ## Modifying the Centreon configuration files
 
@@ -1449,12 +1601,6 @@ These actions must be performed only on `@CENTRAL_MASTER_NAME@` and then the bro
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
-```
-
-And then you need to restart all the centreon processes using the following command:
-
-```bash
-pcs resource restart centreon
 ```
 
 ### Modification of the 3 configuration files
@@ -1536,6 +1682,60 @@ database:
     dsn: "mysql:host=@VIP_SQL_IPADDR@:3306;dbname=centreon_storage"
     username: "@MARIADB_CENTREON_USER@"
     password: "@MARIADB_CENTREON_PASSWD@"
+```
+
+And then you need to restart the gorgone and cbd_central_broker resources for changes to take effect.
+Use the following command to restart the gorgone resource and all subsequent resources:
+
+```bash
+pcs resource restart gorgone
+```
+
+After resources are restarted, verify if all is OK using the command `crm_mon -fr`. The result should look like this:
+
+```text
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.4-5.el8_7.2-dc6eb4362e) - partition with quoru
+m
+  * Last updated: Wed Nov 23 10:27:48 2022
+  * Last change:  Wed Nov 23 10:27:43 2022 by hacluster via crmd on @CENTRAL_MASTER_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
+
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ centreon-rhel8-pri-bdd @CENTRAL_SLAVE_NAME@ @DATABASE_SLAVE_NAME@
+]
+
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ centreon-rhel8-pri-bdd ]
+    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
+    * Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started centreon-rhel8-pri-bdd
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ centreon-rhel8-pri-bdd @DATABASE_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ centreon-rhel8-pri-bdd @DATABASE_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started@CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+
+Migration Summary:
+```
+
+If an error is found while your resources are running, try doing some "cleaning" using this command:
+
+```bash
+pcs resource cleanup
 ```
 
 ## Integrating pollers

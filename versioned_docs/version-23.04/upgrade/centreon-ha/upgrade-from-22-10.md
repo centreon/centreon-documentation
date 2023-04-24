@@ -83,7 +83,7 @@ It's necessary to destroy the cluster completely and configure it back again wit
 Perform a backup of the cluster using:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs config backup centreon_cluster
@@ -114,7 +114,7 @@ cat centreon_pcs_command.sh
 The content should looks like this:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```text
 pcs resource create --no-default-ops --force -- vip ocf:heartbeat:IPaddr2   broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@   op     monitor interval=10s id=vip-monitor-interval-10s timeout=20s     start interval=0s id=vip-start-interval-0s timeout=20s     stop interval=0s id=vip-stop-interval-0s timeout=20s   meta target-role=started;
@@ -196,7 +196,7 @@ To be run **only on one central node**:
 > You can find the @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ variables in `/etc/centreon-ha/mysql-resources.sh`
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -222,7 +222,7 @@ pcs resource create "ms_mysql" \
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -238,7 +238,7 @@ pcs resource promotable ms_mysql \
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -305,7 +305,7 @@ bash centreon_pcs_command.sh
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -320,7 +320,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -333,7 +333,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux / Alma Linux 8" label="RHEL / Oracle Linux / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

@@ -51,6 +51,8 @@ Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de sp
 Afin de respecter les meilleures pratiques et de bénéficier d'une infrastructure aussi résiliente que possible, le placement du serveur
 Quorum doit être sur un site différent des deux nœuds principaux, avec des attachements réseaux indépendants.
 
+> **AVERTISSEMENT:** Assurez-vous que SELinux et Firewalld sont désactivés.
+
 ### Définition des noms et adresses IP des serveurs
 
 Dans cette procédure, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des macros suivantes :
@@ -575,8 +577,8 @@ Pour s'assurer que les dernières étapes ont été effectuées correctement, et
 Le résultat attendu est :
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
@@ -712,8 +714,8 @@ Si tout s'est bien passé, alors la commande `mysql-check-status.sh` doit renvoy
 Résultat attendu :
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -801,7 +803,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
 
-Pour les **noeuds centraux**
+For **Central nodes**
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -822,7 +824,7 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1
 </TabItem>
 </Tabs>
 
-Et pour les **noeuds de bases de données**
+And for **Database nodes**
 
 ```bash
 systemctl stop mariadb
@@ -839,7 +841,8 @@ chkconfig mysql off
 ```
 
 </TabItem>
-<TabItem value="Debian 11 " label="Debian 11">
+<TabItem value="Debian 11" label="Debian 11">
+
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
 ```bash
@@ -988,6 +991,9 @@ pcs host auth \
 
 Cette commande doit être lancée sur un des nœuds :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -997,6 +1003,22 @@ pcs cluster setup \
     "@DATABASE_SLAVE_NAME@" \
     --force
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@DATABASE_MASTER_NAME@" \
+    "@DATABASE_SLAVE_NAME@" \
+    --force
+```
+
+</TabItem>
+</Tabs>
 
 Démarrer ensuite `pacemaker` sur l'ensemble des nœuds :
 
@@ -1074,6 +1096,9 @@ pcs resource create "ms_mysql" \
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -1082,6 +1107,21 @@ pcs resource promotable ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+</TabItem>
+</Tabs>
 
 ##### Adresse VIP Serveurs bases de données
 
@@ -1279,12 +1319,29 @@ Dans le cadre d'un Cluster avec bases de données déportées, il est nécessair
 
 Exécuter les commandes suivantes pour indiquer au Cluster que les ressources vip_mysql & le rôle primaire doivent être démarrées sur le même nœud :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
+pcs constraint colocation add master "vip_mysql" with "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
-pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs constraint colocation add master "vip_mysql" with "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
+</Tabs>
+
 Exécuter les commandes suivantes pour indiquer au Cluster sur quels nœuds les ressources doivent être exécutées :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -1292,6 +1349,19 @@ pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CE
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+</Tabs>
 
 ### Lancement du Cluster et contrôle de l'état des ressources
 
@@ -1316,6 +1386,9 @@ pcs resource meta http target-role="started"
 #### Contrôle de l'état des ressources
 
 Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon -f`. Suite à l'activation  des ressources, vous devriez obtenir une sortie similaire à celle-ci:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -1348,6 +1421,44 @@ Active Resources:
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 22 15:00:13 2021
+  * Last change:  Wed Sep 15 16:26:53 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
+
+Node List:
+  * Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @DATABASE_MASTER_NAME@ ]
+    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
+  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started @DATABASE_MASTER_NAME@
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+
+</TabItem>
+</Tabs>
 
 Si la ressource **centreon_central_sync** ne veut pas démarrer, vérifiez si le dossier `/usr/share/centreon-broker/lua` existe **sur les deux noeuds centraux**.
 
@@ -1390,21 +1501,37 @@ L'état de la réplication MariaDB peut être vérifié à n'importe quel moment
 Résultat attendu :
 
 ```bash
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
 
 Il est possible qu'immédiatement après l'installation, le thread de réplication ne soit pas actif. Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource restart ms_mysql-clone
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs resource restart ms_mysql-clone
+```
+
+</TabItem>
+</Tabs>
+
 #### Contrôle de l'absence de contraintes
 
 En temps normal, seules les contraintes de colocation doivent être actives sur le cluster. La commande `pcs constraint show` doit retourner :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 Location Constraints:
@@ -1421,11 +1548,38 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Location Constraints:
+  Resource: cbd_rrd-clone
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+  Resource: centreon
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+  Resource: ms_mysql-clone
+    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
+  Resource: php-clone
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+Ordering Constraints:
+Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
+</TabItem>
+</Tabs>
 
 ## Modifications des fichiers de configuration Centreon
 
@@ -1457,15 +1611,9 @@ Ces actions uniquement sur le `@CENTRAL_MASTER_NAME@` puis les fichiers de confi
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
-Redémarrer ensuite les services Centreon à l'aide de la commande :
-
-```bash
-pcs resource restart centreon
-```
-
 ### Modification des 3 fichiers de configuration
 
-Après avoir modifié le output du broker, il nous faut modifier les fichiers de configuration de Centreon.
+Après avoir modifié l'output du broker, il nous faut modifier les fichiers de configuration de Centreon.
 Pour ce faire éditer tout d'abord le fichier `/etc/centreon/conf.pm` et remplacer @DATABASE_MASTER_IPADDR@ par l'adresse de la *vip-mysql* :
 
 ```bash
@@ -1542,6 +1690,60 @@ database:
     dsn: "mysql:host=@VIP_SQL_IPADDR@:3306;dbname=centreon_storage"
     username: "@MARIADB_CENTREON_USER@"
     password: "@MARIADB_CENTREON_PASSWD@"
+```
+
+Ensuite, vous devez redémarrer les ressources gorgone et cbd_central_broker pour que les changements prennent effet.
+Utilisez la commande suivante pour redémarrer la ressource gorgone et toutes les ressources suivantes :
+
+```bash
+pcs resource restart gorgone
+```
+
+Et après le redémarrage des ressources, vérifiez si tout est OK avec la commande `crm_mon -fr`, le résultat devrait être similaire à ceci :
+
+```text
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.4-5.el8_7.2-dc6eb4362e) - partition with quoru
+m
+  * Last updated: Wed Nov 23 10:27:48 2022
+  * Last change:  Wed Nov 23 10:27:43 2022 by hacluster via crmd on @CENTRAL_MASTER_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
+
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ centreon-rhel8-pri-bdd @CENTRAL_SLAVE_NAME@ @DATABASE_SLAVE_NAME@
+]
+
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ centreon-rhel8-pri-bdd ]
+    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
+    * Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started centreon-rhel8-pri-bdd
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ centreon-rhel8-pri-bdd @DATABASE_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ centreon-rhel8-pri-bdd @DATABASE_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started@CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+
+Migration Summary:
+```
+
+Si une erreur est trouvée pendant l'exécution de vos ressources, essayez de "nettoyer" avec cette commande :
+
+```bash
+pcs resource cleanup
 ```
 
 ## Intégrer des collecteurs

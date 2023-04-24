@@ -391,7 +391,7 @@ max_allowed_packet=128M
 #innodb_buffer_pool_size=1G
 ```
 
-De plus, commentez la ligne :
+Comment the following line:
 
 ```
 #bind-address            = 127.0.0.1
@@ -501,8 +501,8 @@ To make sure that all the previous steps have been successful, and that the corr
 The expected output is:
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [KO]
 Error reports:
     No slave (maybe because we cannot check a server).
@@ -638,8 +638,8 @@ In addition, the output of this command must display only `OK` results:
 The expected output is:
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -900,6 +900,9 @@ pcs host auth \
 
 The following command creates the cluster. It must be run **only on one of the central nodes**.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -907,6 +910,20 @@ pcs cluster setup \
     "@CENTRAL_SLAVE_NAME@" \
     --force
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    --force
+```
+
+</TabItem>
+</Tabs>
 
 Then start the `pacemaker` service **on both central nodes**:
 
@@ -984,6 +1001,9 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -992,6 +1012,21 @@ pcs resource promotable ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+</Tabitem>
+</Tabs>
 
 ### Creating the clone resources
 
@@ -1171,10 +1206,24 @@ pcs resource create snmptrapd \
 
 In order to force the cluster running both `centreon` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-clone
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+```
+
+</TabItem>
+</Tabs>
 
 After this step, all resources should be running on the same node, the platform should be redundant and working properly.
 
@@ -1183,6 +1232,9 @@ After this step, all resources should be running on the same node, the platform 
 #### Checking the resources' states
 
 You can monitor the cluster's resources in real time using the `crm_mon -f` command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 Cluster Summary:
@@ -1213,7 +1265,42 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
 ```
 
-If **centreon_central_sync** won't start, verify if the folder `/usr/share/centreon-broker/lua` exists.
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 15 16:35:47 2021
+  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 2 nodes configured
+  * 14 resource instances configured
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @CENTRAL_MASTER_NAME@ ]
+    * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+
+</TabItem>
+</Tabs>
+
+If **centreon_central_sync** won't start, verify if the folder `/usr/share/centreon-broker/lua` exist.
 
 If not, you can create it with this command `mkdir -p /usr/share/centreon-broker/lua`. And launch a cleanup with this command `pcs resource cleanup`.
 
@@ -1254,30 +1341,61 @@ The MariaDB replication state can be monitored at any time with the `mysql-check
 The expected output is:
 
 ```bash
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-It can happen that the replication thread is not running right after installation. Restarting the `ms_mysql` resource may fix it.
+It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
-```bash
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash 
 pcs resource restart ms_mysql-clone
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash 
+pcs resource restart ms_mysql-clone
+```
+
+</TabItem>
+</Tabs>
 
 #### Checking the constraints
 
 Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 Location Constraints:
 Ordering Constraints:
-  pcs constraint order stop centreon then demote ms_mysql-clone
 Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
+</TabItem>
+</Tabs>
 
 ## Integrating pollers
 
