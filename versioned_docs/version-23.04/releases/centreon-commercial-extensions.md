@@ -29,6 +29,10 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
+- [Configuration] Remove deprecated "Import SSV" feature from Business Activities configuration
+- [Configuration] Improve Business Activities configuration panel display
+   - Dispaly listing pagination icons while displaying configuration panel
+   - Allow more space to indicators names
 
 ## Centreon MBI
 
@@ -81,6 +85,8 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
+- [Core] Allow user to exclude un representative data from prediction computation.
+- [Core] Enable usage of Anomaly Detection services in Business Activities
 
 ## Centreon IT & Business Extension
 
