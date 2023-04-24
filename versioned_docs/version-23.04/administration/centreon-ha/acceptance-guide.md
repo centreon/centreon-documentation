@@ -29,7 +29,7 @@ pcs status
 The command should return the following information:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8/ Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -61,40 +61,6 @@ Full List of Resources:
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 11:09:30 2021
-Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-```
-
-</TabItem>
 </Tabs>
 
 > Check the resources for `Failed` errors and correct them with the help of the [troubleshooting guide](troubleshooting-guide.md).
@@ -110,7 +76,7 @@ pcs constraint
 The command should return this:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Location Constraints:
@@ -118,18 +84,6 @@ Ordering Constraints:
 Colocation Constraints:
   centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
-Ticket Constraints:
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Location Constraints:
-Ordering Constraints:
-Colocation Constraints:
-  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -168,7 +122,7 @@ pcs status
 The expected output is:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -200,40 +154,6 @@ Full List of Resources:
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 11:24:27 2021
-Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-```
-
-</TabItem>
 </Tabs>
 
 ### Perform a failover
@@ -259,7 +179,7 @@ pcs status
 The expected output is:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -288,40 +208,6 @@ Full List of Resources:
     * centengine        (systemd:centengine):    Started @CENTRAL_SLAVE_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_SLAVE_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 11:38:32 2021
-Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
-    
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_SLAVE_NAME@ ]
-     Slaves: [ @CENTRAL_MASTER_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
 </TabItem>
@@ -369,7 +255,7 @@ pcs status
 The output should be:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -398,40 +284,6 @@ Full List of Resources:
     * centengine        (systemd:centengine):    Started @CENTRAL_SLAVE_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_SLAVE_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 11:38:32 2021
-Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_SLAVE_NAME@ ]
-     Slaves: [ @CENTRAL_MASTER_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
 </TabItem>
@@ -474,7 +326,7 @@ iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 Executing the command results in no active resources being seen on the secondary node and the primary node being seen as `offline`:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -491,31 +343,13 @@ No active resources
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
-Last updated: Fri Jul  9 16:11:53 2021
-Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_SLAVE_NAME@ ]
-OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
-
-No active resources
-```
-
-</TabItem>
 </Tabs>
 
 The resources and the cluster are still working by performing a `pcs status` on the primary node.
 The secondary node is seen `offline` on the primary.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -545,40 +379,6 @@ Full List of Resources:
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 16:19:03 2021
-Last change: Fri Jul  9 16:05:26 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_MASTER_NAME@ ]
-OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
 </TabItem>
@@ -629,7 +429,7 @@ iptables -D OUTPUT @RULE_NUMBER@
 The secondary node is again seen `online` by the cluster:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -658,40 +458,6 @@ Full List of Resources:
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 17:12:39 2021
-Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_MASTER_NAME@ ]
-     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
 </TabItem>
@@ -728,7 +494,7 @@ iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
 Resources on the primary node should stop and should start on the secondary node. You can use the `crm_mon -fr` command on the secondary node to watch the startup of resources:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster Summary:
@@ -758,40 +524,6 @@ Full List of Resources:
     * centengine        (systemd:centengine):    Started @CENTRAL_SLAVE_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_SLAVE_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Fri Jul  9 15:14:00 2021
-Last change: Fri Jul  9 15:11:35 2021 by root via crm_resource on @CENTRAL_SLAVE_NAME@
-
-2 nodes configured
-14 resource instances configured
-
-Online: [ @CENTRAL_SLAVE_NAME@ ]
-OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
 </TabItem>
@@ -868,7 +600,7 @@ pcs status
 The command should return the following information:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8/ Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster name: centreon_cluster
@@ -885,50 +617,6 @@ Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CE
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Cluster name: centreon_cluster
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Wed May  4 15:36:20 2022
-Last change: Mon May  2 18:20:27 2022 by root via crm_attribute on @DATABASE_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -971,7 +659,7 @@ pcs constraint
 The command should return this:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Location Constraints:
@@ -991,30 +679,6 @@ Ordering Constraints:
   stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
   ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
-Ticket Constraints:
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Location Constraints:
-  Resource: cbd_rrd-clone
-    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-  Resource: centreon
-    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-  Resource: ms_mysql-master
-    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-  Resource: php-clone
-    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-Ordering Constraints:
-  stop centreon then demote ms_mysql-master (kind:Mandatory)
-Colocation Constraints:
-  ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -1053,7 +717,7 @@ pcs status
 The expected output is:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster name: centreon_cluster
@@ -1070,50 +734,6 @@ Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CE
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Cluster name: centreon_cluster
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Wed May  4 15:36:20 2022
-Last change: Mon May  2 18:20:27 2022 by root via crm_attribute on @DATABASE_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1166,7 +786,7 @@ pcs status
 The expected output is:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster name: centreon_cluster
@@ -1183,50 +803,6 @@ Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CE
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Cluster name: centreon_cluster
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Wed May  4 15:36:20 2022
-Last change: Mon May  2 18:20:27 2022 by root via crm_attribute on @DATABASE_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1294,7 +870,7 @@ pcs status
 The output should be:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster name: centreon_cluster
@@ -1311,50 +887,6 @@ Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CE
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Cluster name: centreon_cluster
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Wed May  4 15:36:20 2022
-Last change: Mon May  2 18:20:27 2022 by root via crm_attribute on @DATABASE_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1428,7 +960,7 @@ Executing the command results in no active resources being seen on the secondary
 The resources and the cluster are still working by performing a `pcs status` on the primary node.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster name: centreon_cluster
@@ -1446,51 +978,6 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Cluster name: centreon_cluster
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Thu May  5 10:34:05 2022
-Last change: Thu May  5 09:09:50 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
-OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1565,7 +1052,7 @@ iptables -D OUTPUT @RULE_NUMBER@
 The secondary node is again seen `online` by the cluster:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Cluster name: centreon_cluster
@@ -1582,50 +1069,6 @@ Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CE
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
-
-Daemon Status:
-  corosync: active/enabled
-  pacemaker: active/enabled
-  pcsd: active/enabled
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Cluster name: centreon_cluster
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Wed May  4 15:36:20 2022
-Last change: Mon May  2 18:20:27 2022 by root via crm_attribute on @DATABASE_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1690,7 +1133,7 @@ iptables -A OUTPUT -d @QDEVICE_IPADDR@ -j DROP
 Resources on the @CENTRAL_MASTER_NAME@ should stop and should start on the @CENTRAL_SLAVE_NAME@. You can use the `crm_mon -fr` command on the @CENTRAL_SLAVE_NAME@ to watch the startup of resources:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
 Stack: corosync
@@ -1707,50 +1150,6 @@ OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_SLAVE_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
- Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
-
-Migration Summary:
-* Node @DATABASE_MASTER_NAME@:
-* Node @CENTRAL_SLAVE_NAME@:
-* Node @DATABASE_SLAVE_NAME@:
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
-Last updated: Thu May  5 11:06:38 2022
-Last change: Thu May  5 09:09:50 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
-
-4 nodes configured
-21 resource instances configured
-
-Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
-OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
-
-Full list of resources:
-
- Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]

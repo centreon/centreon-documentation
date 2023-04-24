@@ -32,71 +32,12 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Upgrade process
 
-### Update the Centreon repository
+To perform the upgrade, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) only on the **active central node** and **active database node if needed**.
 
-Run the following commands:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
-
-```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
-```
-
-</TabItem>
-</Tabs>
-
-> **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
-
-### Upgrade the Centreon solution
-
-> Please, make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
-
-Clean yum cache:
-
-```shell
-yum clean all --enablerepo=*
-```
-
-Then upgrade all the components with the following command:
+Then perform below commands only on the Central Servers:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\*
-```
-
-</TabItem>
-<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
-
-
-```shell
-yum update centreon\*
-```
-
-</TabItem>
-</Tabs>
-
-Only on the Central Servers:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-```shell
-mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
-```
-
-</TabItem>
-<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
 ```shell
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
@@ -122,15 +63,6 @@ diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rp
 ```
 
 </TabItem>
-<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
-
-On the Central Servers:
-
-```shell
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
-```
-
-</TabItem>
 </Tabs>
 
 * **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
@@ -142,22 +74,12 @@ For each difference between the files, assess whether you should copy it from **
 ### Finalizing the upgrade
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-  
-```shell
-systemctl reload httpd24-httpd
 ```
 
 </TabItem>
@@ -377,7 +299,7 @@ To be run **only on one central node**:
 @MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -393,45 +315,6 @@ pcs resource create "ms_mysql" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host'
-```
-
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host' \
-    master
 ```
 
 </TabItem>
@@ -443,32 +326,10 @@ pcs resource create "ms_mysql" \
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-pcs resource meta ms_mysql-master \
     master-node-max="1" \
     clone_max="2" \
     globally-unique="false" \
@@ -481,65 +342,10 @@ pcs resource meta ms_mysql-master \
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
-VIP Address of databases servers
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s"
-```
-
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
-VIP Address of databases servers
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s"
-```
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-pcs resource meta ms_mysql-master \
     master-node-max="1" \
     clone_max="2" \
     globally-unique="false" \
@@ -603,19 +409,11 @@ bash centreon_pcs_command.sh
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 pcs constraint order stop centreon then demote ms_mysql-clone
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-pcs constraint colocation add master "ms_mysql-master" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-master
 ```
 
 </TabItem>
@@ -626,19 +424,11 @@ pcs constraint order stop centreon then demote ms_mysql-master
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
-pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
 ```
 
 </TabItem>
@@ -647,21 +437,11 @@ pcs constraint colocation add master "ms_mysql-master" with "vip_mysql
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
-pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```

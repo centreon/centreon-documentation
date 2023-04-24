@@ -270,5 +270,25 @@
   "sidebar.docs.category.Centreon MAP (Legacy)": {
     "message": "Centreon MAP (Legacy)",
     "description": "The label for category Centreon MAP (Legacy) in sidebar docs"
+  },
+  "sidebar.docs.category.Installing Centreon HA": {
+    "message": "Installer Centreon HA",
+    "description": "The label for category Installing Centreon HA in sidebar docs"
+  },
+  "sidebar.docs.category.Installing a manual Centreon HA": {
+    "message": "Installer un Centreon HA à basculement manuel",
+    "description": "The label for category Installing a manual Centreon HA in sidebar docs"
+  },
+  "sidebar.docs.category.Operating Centreon HA": {
+    "message": "Faire fonctionner Centreon HA",
+    "description": "The label for category Operating Centreon HA in sidebar docs"
+  },
+  "sidebar.docs.category.Updating Centreon HA": {
+    "message": "Mettre à jour Centreon HA",
+    "description": "The label for category Updating Centreon HA in sidebar docs"
+  },
+  "sidebar.docs.category.Upgrading Centreon HA": {
+    "message": "Monter de version Centreon HA",
+    "description": "The label for category Upgrading Centreon HA in sidebar docs"
   }
-}  
+}

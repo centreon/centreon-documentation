@@ -892,10 +892,6 @@
             {
               "type": "doc",
               "id": "version-23.04/update/update-centreon-platform"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/update/update-centreon-ha"
             }
           ]
         },
@@ -1344,16 +1340,18 @@
         },
         {
           "type": "category",
+          "label": "Updating Centreon HA",
+          "items": [
+              {
+                "type": "doc",
+                "id": "version-23.04/update/update-centreon-ha"
+              }
+            ]
+          },
+        {
+          "type": "category",
           "label": "Upgrading Centreon HA",
           "items": [
-        {
-          "type": "doc",
-          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
-        },
         {
           "type": "doc",
           "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
@@ -1364,7 +1362,11 @@
         },
         {
           "type": "doc",
-          "id": "version-23.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
         }
       ]
     }       
