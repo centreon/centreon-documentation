@@ -29,6 +29,17 @@ Release date: `April 26, 2023`
     - Service groups
     - Service categories
     - Service severities
+- [Resources Status] Add extended mode for Resources Status listing dispaly. 
+- [Resources Status] Switch between extended and compact mode in Resources Status page.
+- [Resources Status] Provide both simple and forced check options in Resources Status.
+- [Resources Status] Various user interface improvements in Resources Status :
+   - Align columns content with labels.
+   - Display reordering column icon only on mouse hover.
+   - Change columns displayed by default.
+   - Display listing pagination icons while displaying resource details panel.
+- [Terminology] Rename “problems” to “alerts” in Resources Status.
+- [Terminology] Rename “Plugin Pack” to “Monitoring Connectors” in user interface.
+- [UI] Improve Top Counter responsiveness.
 
 ## Centreon Collect
 
