@@ -2,12 +2,14 @@
 id: migrate-from-el-to-el
 title: Migrate from an EL-type OS to another EL-type OS (from a Centreon 18.10 or newer)
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 8.
+- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 8 or 9.
 - Your version of Centreon is 18.10 or newer.
 
 > If your Centreon platform includes a Centreon redundancy system, please
@@ -17,7 +19,7 @@ This procedure only applies if the following conditions are met:
 
 ### Step 1: Install the new server
 
-1. Install your new OS according to the [prerequisites](../installation/prerequisites.md).
+1. Install your new OS: check the [supported operating systems](../installation/compatibility.md#operating-systems).
 
 2. Install a new Centreon central server from [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon web interface.
@@ -27,9 +29,29 @@ complete the installation process by connecting to the Centreon web interface.
 
 3. Perform software and system updates:
 
-   ```shell
-   dnf update
-   ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 ### Step 2 : Synchronize the data
 
@@ -138,9 +160,29 @@ create them again:
 
 If you only use Centreon plugins, reinstall them on the new server:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum install centreon-plugin-\*
+dnf install centreon-plugin-\*
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-plugin-\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-\*
+```
+
+</TabItem>
+</Tabs>
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 

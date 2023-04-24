@@ -298,7 +298,7 @@ Description of users, umask and user directory:
 
 The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. Install the Business repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Then run the following command:
 
@@ -486,7 +486,7 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
-1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. To start installing the reporting server, install the Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
    

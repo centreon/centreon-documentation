@@ -67,7 +67,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
-> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+> Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
@@ -82,7 +82,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
-> Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+> Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
@@ -97,7 +97,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+> Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
@@ -186,7 +186,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
 
 2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.10, le nouveau protocole BBDO v3 est activé.
+3. Si vous avez mis à niveau votre plateforme Centreon depuis une version antérieure à 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.
 
    ```text

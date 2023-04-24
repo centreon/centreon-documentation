@@ -327,8 +327,8 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL does not work, you can manually find this package in the folder.
 
-Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+Install the Centreon Business repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP Engine server using the following command:
 
@@ -592,8 +592,8 @@ the interface part of the extension.
 
 ### Step 1: Install the business repository
 
-Install the Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+Install the Centreon Business repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Step 2: Install the MAP module
 

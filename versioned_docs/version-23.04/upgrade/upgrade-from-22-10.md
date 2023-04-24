@@ -1,11 +1,11 @@
 ---
-id: upgrade-from-22-04
-title: Upgrade from Centreon 22.04
+id: upgrade-from-22-10
+title: Upgrade from Centreon 22.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 22.04
+This chapter describes how to upgrade your Centreon platform from version 22.10
 to version 23.04.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
@@ -32,7 +32,7 @@ servers:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Update your Centreon 22.04 to the latest minor version.
+1. Update your Centreon 22.10 to the latest minor version.
 
 2. Remove the **centreon.repo** file:
 
@@ -68,48 +68,6 @@ apt update
 > If you have a Business edition, do the same with the Business repository.
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-### Upgrade PHP
-
-Centreon 23.04 uses PHP in version 8.1.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:remi-8.1
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:remi-8.1
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-systemctl stop php8.0-fpm
-```
-
-</TabItem>
-</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -512,7 +470,6 @@ apt update
 Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
-
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

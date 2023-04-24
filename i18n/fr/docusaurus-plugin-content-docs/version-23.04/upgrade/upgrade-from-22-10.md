@@ -1,12 +1,12 @@
 ---
-id: upgrade-from-22-04
-title: Montée de version depuis Centreon 22.04
+id: upgrade-from-22-10
+title: Montée de version depuis Centreon 22.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 22.04 vers la version 23.04.
+Centreon depuis la version 22.10 vers la version 23.04.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
@@ -27,12 +27,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 > Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
-### Installer les nouveaux dépôts
+### Installation du nouveau dépôt Centreon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
 
 2. Supprimez le fichier **centreon.repo** :
 
@@ -68,48 +68,6 @@ apt update
 > Si vous avez une édition Business, faites de même avec le dépôt Business.
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
-
-### Montée de version de PHP
-
-Centreon 23.04 utilise PHP en version 8.1.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:remi-8.1
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:remi-8.1
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-systemctl stop php8.0-fpm
-```
-
-</TabItem>
-</Tabs>
 
 ### Montée de version de la solution Centreon
 
@@ -159,7 +117,7 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf update centreon\* php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>

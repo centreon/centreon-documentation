@@ -35,6 +35,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 > If you are still running version **4.0.X**, you **must first install and run the server in version 4.1.X before upgrading to the latest version**.
 
 ### Java version requirement
+
   > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
@@ -87,10 +88,10 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
-> Install Centreon MAP (Legacy) repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+> Install the Centreon Business repository, you can find it on the
+> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Update Centreon MAP (Legacy) server:
+2. Update the Centreon MAP (Legacy) server:
 
     ```shell
     dnf update centreon-map-server
@@ -103,7 +104,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-> Install Centreon MAP repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> Install the Centreon Business repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
@@ -189,7 +190,7 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. If you have upgraded your Centreon platform to version 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
+3. If you have upgraded your Centreon platform from a version earlier than 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 
    ```text
    broker.pb.message.enabled=true

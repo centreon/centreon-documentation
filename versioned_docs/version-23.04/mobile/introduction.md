@@ -44,7 +44,5 @@ When logging in for the first time, you need to fill the following parameters:
 If you have problems to connect:
 
 - Make sure your Centreon platform is accessible from your device
-- During the installation or upgrade of Centreon, you may have customized your Apache configuration (for HTTPS or URL rewriting purposes), in that case
-you may want to double-check that your configuration makes the API accessible [on this page](../upgrade/upgrade-from-19-10.md#configure-apache-api-access)
 - Make sure you give realtime API access to the user. Go to **Configuration > Users > Contacts / Users**:
 on the **Centreon Authentication** tab, **Reach API Realtime** must be enabled.

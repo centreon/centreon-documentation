@@ -2,6 +2,8 @@
 id: migrate-from-el-to-debian
 title: Migrate from an EL-type OS to Debian 11
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
@@ -17,7 +19,7 @@ This procedure only applies if the following conditions are met:
 
 ### Step 1: Install the new server
 
-1. Install your new OS according to the [prerequisites](../installation/prerequisites.md).
+1. Install your new OS: check the [supported operating systems](../installation/compatibility.md#operating-systems).
 
 2. Install a new Centreon central server from [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon web interface.
@@ -149,12 +151,13 @@ create them again::
 
 ### Step 4: Synchronize the plugins
 
-If you only use Centreon plugins, reinstall them on the new server:
+If you only use Centreon plugins, reinstall them on the new server.
+
+1. Install the Monitoring Connectors repository (you can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories)).
+
+2. Run the following commands:
 
 ```shell
-apt update
-echo "deb https://apt.centreon.com/repository/22.10-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 apt install centreon-pack*
 apt install centreon-plugin-\*

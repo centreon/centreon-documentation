@@ -2,6 +2,8 @@
 id: migrate-from-el-to-debian
 title: Migrer depuis un OS de type EL vers Debian 11
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
@@ -18,7 +20,7 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 
 ### Étape 1 : Installer le nouveau serveur
 
-1. Installez votre nouvel OS en suivant les [prérequis](../installation/prerequisites.md).
+1. Installez votre nouvel OS: voir la liste des [OS supportés](../installation/compatibility.md#système-dexploitation).
 
 2. Installez un nouveau serveur central Centreon à partir des [paquets](../installation/installation-of-a-central-server/using-packages.md)
    jusqu'à terminer le processus d'installation en vous connectant à l'interface web.
@@ -150,10 +152,11 @@ apt update && apt upgrade
 
 Si vous n'utilisez que des plugins Centreon, réinstallez-les sur le nouveau serveur:
 
+1. Installez le dépôt des connecteurs de supervision (vous trouverez son adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts)).
+
+2. Exécutez les commandes suivante :
+
 ```shell
-apt update
-echo "deb https://apt.centreon.com/repository/22.10-plugin-packs/ bullseye main" >> /etc/apt/sources.list.d/centreon-pp.list
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 apt install centreon-pack*
 apt install centreon-plugin-\*
@@ -166,12 +169,12 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire
-   **/var/lib/centreon/installs/install-22.10.x-YYYYMMDD_HHMMSS** dans le
+   **/var/lib/centreon/installs/install-23.04.x-YYYYMMDD_HHMMSS** dans le
    répertoire **/usr/share/centreon/www/install** (**x** est le numéro de version cible pour votre machine migrée):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-22.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-23.04.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur

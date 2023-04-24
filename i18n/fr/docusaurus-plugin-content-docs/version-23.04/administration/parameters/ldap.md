@@ -109,31 +109,3 @@ de type Posix.
 > **uid=<USER\>,dc=<ORGANIZATION\>,dc=okta,dc=com**
 > - et le champ **Base de recherche de groupe DN** du type
 > **ou=<OU\>,dc=<ORGANIZATION\>,dc=okta,dc=com**
-
-Sous CentOS 7, on peut définir de ne pas vérifier le certificat serveur avec la
-procédure suivante:
-
-Ajouter la ligne suivante dans le fichier "/etc/openldap/ldap.conf" :
-
-```shell
-TLS_REQCERT never
-```
-
-Puis redémarrez le serveur Apache :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-systemctl restart httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-systemctl restart httpd24-httpd
-```
-
-</TabItem>
-</Tabs>
