@@ -45,7 +45,7 @@ Server. Click on **Next**:
   - If you want to link the poller to an existing Remote Server, select one from the list, then click **Apply**.
 
     > If you want to change the direction of the flow between the Central Server
-    > (or the Remote Server and the Poller, check the **Advanced: reverse Centreon
+    > (or the Remote Server) and the Poller, check the **Advanced: reverse Centreon
     > Broker communication flow** checkbox. In this case, it will be necessary to
     > export the configuration of the poller as well as the server to which it
     > will be attached.
@@ -122,12 +122,12 @@ SSH protocol.
     > You can copy the configuration in a custom file by copying the content from
     > the pop-in.
 
-3. Start the Gorgone daemon:
+3. Restart the Gorgone daemon:
 
-    From the Poller, run the following command to start the Gorgone service:
+    From the Poller, run the following command to restart the Gorgone service:
 
     ``` shell
-    systemctl start gorgoned
+    systemctl restart gorgoned
     ```
 
     Make sure it is started by running the following command:
@@ -150,12 +150,6 @@ SSH protocol.
               └─28598 gorgone-action
 
     Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
-    ```
-
-    Finally, enable the automatic startup of the service with the command:
-
-    ```shell
-    systemctl enable gorgoned
     ```
 
 4. **To force the Central's Gorgone daemon to connect to the Poller**, restart it with

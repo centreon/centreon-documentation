@@ -20,7 +20,7 @@ In order to collect each indicator value, monitoring plugins are used which are 
 
 Once hosts and services are monitored, they have a status in Centreon (e.g. **OK**, **Warning**, **Critical**...). You can keep track of any changes using the **Monitoring > Resources Status** page.
 
-If a problem occurs (not-OK/not-UP status), [contacts/users](../monitoring/basic-objects/contacts-create.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set time periods.
+If an alert occurs (not-OK/not-UP status), [contacts/users](../monitoring/basic-objects/contacts-create.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set time periods.
 
 ## What features can I use to help me monitor hosts?
 

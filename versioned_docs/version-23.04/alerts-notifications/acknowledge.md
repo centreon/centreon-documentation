@@ -1,6 +1,6 @@
 ---
 id: acknowledge
-title: Acknowledging a problem
+title: Acknowledging an alert
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,9 +13,9 @@ confirmed, the notification process is triggered, it can generate a
 notification sent to a contact. If the problem persists and depending on
 the configuration produced (resend a notification at regular time
 intervals, escalation of notification, etc.) it is possible that other
-alerts be send.
+notifications be sent.
 
-The acknowledgment of an incident can be used to stop the notification
+The acknowledgment of an alert can be used to stop the notification
 process (sending of notifications) until the host or the service
 recovers its nominal status.
 
@@ -28,14 +28,14 @@ team is in the process of dealing with the problem. Notifications are no
 longer sent. The service will return to its nominal state after a change
 of disk.
 
-> The acknowledgment of an incident signifies the taking into account of
-> the problem by a user of the monitoring (and not the correction of
+> The acknowledgment of an alert signifies the taking into account of
+> the problem by a user of the monitoring - and not the correction of
 > the incident which can only be effective when the check returns to its
-> nominal state).
+> nominal state.
 
 ### Practice
 
-To acknowledge an incident, there are several solutions:
+To acknowledge an alert, there are several solutions:
 
 <Tabs groupId="sync">
 <TabItem value="From the Resources Status page" label="From the Resources Status page">

@@ -137,17 +137,18 @@ appliquée.
 
 Vous pouvez lier ces types d'indicateurs à une activité métier:
 
--   Services
--   D'autres activités métier
--   Meta-services
--   Règles booléennes
+- Services
+- D'autres activités métier
+- Meta-services
+- Règles booléennes
+- Services de type [Anomaly Detection](../monitoring/anomaly-detection.md)
 
 **Méthode de calcul**
 
 Vous pouvez choisir parmi les 4 méthodes suivantes:
 
 -   Best status
--   Wors status
+-   Worst status
 -   Ratio
 -   Impact
 
@@ -261,13 +262,14 @@ lignes
 
 Un indicateur est un point de contrôle présent dans le système de
 supervision qui est associé à une BA. Un BA peut avoir 1 à n indicateurs
-et ces indicateurs peuvent être de quatre types :
+et ces indicateurs peuvent être de cinq types :
 
--   Indicateur "Service" (les services déployés par groupes **ne sont
+- Indicateurs "Service" (les services déployés par groupes **ne sont
     pas** disponibles)
--   Indicateur "Meta Service"
--   Indicateur "Booléen"
--   Indicateur "Activité métier"
+- Indicateurs "Meta Service"
+- Indicateurs "Booléen"
+- Indicateurs "Activité métier"
+- Indicateurs basés sur des services de type [Anomaly Detection](../monitoring/anomaly-detection.md)
 
 Un indicateur impacte uniquement sa BA parente lorsque le statut de la
 ressource qui lui est rattachée est en état confirmé ("hard") dans la
@@ -383,21 +385,6 @@ massivement les seuils:
 | Impact dégradé  | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact critique | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
 | Impact inconnu  | Poids d'impact en cas d'état "Unknown" ou inconnu,dans la supervision temps réel    |
-
-#### Charger fichier SSV
-
-Pour ajouter plusieurs KPI à la fois en chargeant un fichier de type
-.ssv, cliquer sur le lien "Load .ssv file" qui dirige vers un
-formulaire de saisie.
-
-![image](../assets/service-mapping/guide/ssv.png)
-
-| Colonne            | Description                                                                    |
-|--------------------|--------------------------------------------------------------------------------|
-| Fichier .ssv       | Ouvrir l'explorateur de fichiers                                               |
-| Type de KPI        | Type de KPI à charger                                                          |
-| Format             | Aide sur le format du fichier SSV à utiliser en fonction du type de KPI choisi |
-| Remplissage manuel | Possibilité de compléter ce champ plutôt que de charger un fichier             |
 
 ### Indicateur booléen
 

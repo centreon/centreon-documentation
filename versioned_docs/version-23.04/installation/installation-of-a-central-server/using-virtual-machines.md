@@ -5,7 +5,7 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and for Oracle VirtualBox. It is based on the **Linux CentOS 7** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and in OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
 The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
@@ -25,7 +25,7 @@ The host machine must have the following characteristics:
 
 3. In section 2, select which version of Centreon you want to download.
 
-4. In section 3, **Download your image**, click the **Download** button next to **VMWare Virtual Machine (OVA)**. A new page opens.
+4. In section 3, **Download your image**, click the **Download** button next to the VM you want. A new page opens.
 
     - If you want Centreon to contact you, fill in your details, then click **Download**.
 
@@ -42,7 +42,7 @@ The host machine must have the following characteristics:
 
     ![image](../../assets/installation/VMW1.png)
 
-2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will supervise. Here is an example of configuration in VSphere 6:
+2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is an example of configuration in VSphere 6:
 
     ![image](../../assets/installation/VMW_network_adapter.png)
 
@@ -194,4 +194,3 @@ The host machine must have the following characteristics:
 - The root password of the DBMS is not initialized.
 
 > For security reasons, we highly recommend you change those passwords after you complete the installation.
-

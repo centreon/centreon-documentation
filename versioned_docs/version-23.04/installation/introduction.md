@@ -26,7 +26,7 @@ Before installing Centreon:
 
 ## Unattended script
 
-To quickly test Centreon and install a central server on CentOS 7 or on AlmaLinux 8 / Oracle Linux 8 / RHEL 8, you
+To quickly test Centreon and install a central server on AlmaLinux/Oracle Linux/RHEL 8 or 9, you
 can use a script.
 
 1. Update your system:
@@ -51,10 +51,19 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="RHEL 9" label="RHEL 9">
 
 ```shell
-yum update
+dnf update
+subscription-manager register --username my_username --password my_password --auto-attach --force
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
+
+```shell
+dnf update
 ```
 
 </TabItem>
@@ -63,15 +72,15 @@ yum update
 2. Run the following command as **root**:
 
   ```Bash
-  curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh | sh
+  curl -L https://raw.githubusercontent.com/centreon/centreon/23.04.x/centreon/unattended.sh | sh
   ```
 
-  The script will install a central server using version 22.10, from the stable repository, with minimal output on your terminal.
+  The script will install a central server using version 23.04, from the stable repository, with minimal output on your terminal.
 
   In case of problems when running the script, execute it again using the following command:
 
   ```shell
-  sh -x unattended.sh install -t central -v 22.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended$(date +"%m-%d-%Y-%H%M%S").log
+  sh -x unattended.sh install -t central -v 22.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
   ```
 
   You will get a full log file with all errors in your tmp folder, named unattended(date).log.

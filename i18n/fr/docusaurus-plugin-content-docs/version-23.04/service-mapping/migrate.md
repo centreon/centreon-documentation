@@ -2,6 +2,8 @@
 id: migrate
 title: Migrer l'extension
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 > Si vous mettez à jour d'une version inférieure à 18.10 vers une version
 > supérieure à 18.10, une nouvelle licence doit être récupérée auprès du
@@ -16,9 +18,29 @@ title: Migrer l'extension
 Afin de mettre à jour le module **Centreon BAM**, lancer la commande
 ci-dessous :
 
-``` shell
-yum update centreon-bam-server
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-bam-server
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-bam-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt upgrade centreon-bam-server
+```
+
+</TabItem>
+</Tabs>
 
 ## Mise à jour de l'interface
 

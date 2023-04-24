@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 21.04 vers la version 22.10.
+Centreon depuis la version 21.04 vers la version 23.04.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -29,30 +29,36 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Montée de version du serveur Centreon Central
 
-### Mise à jour des dépôts
+> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
-Il est nécessaire de mettre à jour le dépôt Centreon.
-
-Exécutez la commande suivante :
+### Installer les nouveaux dépôts
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
+1. Mettez à jour votre Centreon 21.04 jusqu'à la dernière version mineure.
 
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+2. Supprimez le fichier **centreon.repo** :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
+3. Installez le nouveau dépôt :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
 </Tabs>
 
-> Si vous avez une édition Business, installez également le dépôt Business. Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+> Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
+>
+> Si vous avez une édition Business, faites de même avec le dépôt Business.
+>
+> Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
 
 ### Installer le dépôt MariaDB
 
@@ -66,7 +72,7 @@ rm -f ./mariadb_repo_setup
 
 ### Montée de version de PHP
 
-Centreon 22.10 utilise PHP en version 8.1.
+Centreon 23.04 utilise PHP en version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -114,23 +120,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Vous devez tout d'abord installer les dépôts **remi** :
-
-```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-
-Ensuite, vous devez activer le dépôt php 8.1 :
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 </Tabs>
 
 ### Montée de version de la solution Centreon
@@ -138,23 +127,25 @@ yum-config-manager --enable remi-php81
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 22.10.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 23.04.
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
+
 ```shell
 systemctl stop cbd
 ```
 
 Supprimer les fichiers de rétention présents :
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Videz le cache de yum :
+Videz le cache :
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Mettez à jour l'ensemble des composants :
@@ -163,14 +154,7 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -182,37 +166,10 @@ yum update centreon\* php-pecl-gnupg
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Exécutez les commandes suivantes :
+
 ```shell
 systemctl enable php-fpm
 systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
-> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-
-Exécutez les commandes suivantes :
-```shell
-systemctl stop rh-php73-php-fpm
-systemctl disable rh-php73-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-Ou, si votre version de PHP est la 7.4 :
-
-```shell
-systemctl stop rh-php74-php-fpm
-systemctl disable rh-php74-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
 ```
 
 </TabItem>
@@ -220,26 +177,73 @@ systemctl start php-fpm
 
 ### Mettre à jour une configuration Apache personnalisée
 
-Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
 Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 
 ```
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version, par exemple la chaîne **authentication** dans la directive **LocationMatch**
-* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version.
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il ne contient pas la configuration personnalisée.
 
 Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
-Notamment, assurez-vous que votre configuration Apache personnalisée contient la directive suivante (incluant **authentication**).
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
+
+```shell
+apachectl configtest
+```
+
+Le résultat attendu est le suivant :
+
+```shell
+Syntax OK
+```
+
+Redémarrez Apache pour appliquer les modifications :
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status httpd
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
 
 ```
-<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-</LocationMatch>
-```
+
+</TabItem>
+</Tabs>
 
 #### Configuration Apache personnalisée : activer la compression du texte
 
@@ -260,16 +264,9 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+
 ```shell
 systemctl reload httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-```shell
-systemctl reload httpd24-httpd
 ```
 
 </TabItem>
@@ -321,7 +318,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 3. Redémarrez les processus Centreon :
 
-    ```
+    ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
@@ -342,14 +339,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -357,16 +347,16 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 
 ### Montée de version de la solution Centreon
 
-Videz le cache de yum :
+Videz le cache :
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.

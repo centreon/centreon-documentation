@@ -16,9 +16,7 @@ If the module **centreon-poller-display-central-1.6.x** is installed:
     yum remove centreon-poller-display-central
     ```
 
-If your server uses the CentOS or Red Hat v7 operating system, refer to the
-[upgrade procedure](../upgrade/upgrade-from-3-4.md) to upgrade your Central server.
-Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.md).
+Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
 > If you use the Centreon EMS modules, you must update these repositories. Be sure
 > to contact Centreon support and request new licenses.
@@ -35,9 +33,7 @@ following command:
   yum remove centreon-poller-display
   ```
 
-3. If your server uses the CentOS or Red Hat v7 operating system, refer to the
-[upgrade procedure](../upgrade/upgrade-from-3-4.md) to upgrade your Remote Server.
-Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.md).
+Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
     > If you use Centreon EMS modules, you must update the repositories. Be sure to
     > contact your Centreon support and request new licenses.
