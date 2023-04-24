@@ -305,6 +305,7 @@ Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Ensuite, importez la clé du dépôt :
