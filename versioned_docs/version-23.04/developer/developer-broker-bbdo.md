@@ -102,13 +102,13 @@ have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 | [Host check](../developer-broker-mapping/#nebhostcheck)                             | 8     |            No |
 | [Host dependency](../developer-broker-mapping/#nebhostdependency)                   | 9     |            No |
 | [Host group](../developer-broker-mapping/#nebhostgroup)                             | 10    |            No |
-| [Host group member](../developer-broker-mapping/#hostgroupmember)                   | 11    |            No |
-| [Host](../developer-broker-mapping/#host)                                           | 12    |            No |
-| [Host parent](../developer-broker-mapping/#hostparent)                              | 13    |            No |
-| [Host status](../developer-broker-mapping/#hoststatus)                              | 14    |            No |
-| [Instance](../developer-broker-mapping/#instance)                                   | 15    |            No |
-| [Instance status](../developer-broker-mapping/#instancestatus)                      | 16    |            No |
-| [Log entry](../developer-broker-mapping/#logentry)                                  | 17    |            No |
+| [Host group member](../developer-broker-mapping/#nebhostgroupmember)                | 11    |            No |
+| [Host](../developer-broker-mapping/#nebhost)                                        | 12    |            No |
+| [Host parent](../developer-broker-mapping/#nebhostparent)                           | 13    |            No |
+| [Host status](../developer-broker-mapping/#nebhoststatus)                           | 14    |            No |
+| [Instance](../developer-broker-mapping/#nebinstance)                                | 15    |            No |
+| [Instance status](../developer-broker-mapping/#nebinstancestatus)                   | 16    |            No |
+| [Log entry](../developer-broker-mapping/#neblogentry)                               | 17    |            No |
 | [Module](../developer-broker-mapping/#module)                                       | 18    |            No |
 | [Service check](../developer-broker-mapping/#servicecheck)                          | 19    |            No |
 | [Service dependency](../developer-broker-mapping/#servicedependency)                | 20    |            No |
@@ -130,6 +130,8 @@ have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 | [Pb Downtime](../developer-broker-mapping/#nebpbdowntime)                           | 36    |           Yes |
 | [Pb Custom variable](../developer-broker-mapping/#nebpbcustomvariable)              | 37    |           Yes |
 | [Pb Custom variable status](../developer-broker-mapping/#nebpbcustomvariablestatus) | 38    |           Yes |
+| [Pb Host check](../developer-broker-mapping/#nebpbhostcheck)                        | 39    |           Yes |
+| [Pb Log entry](../developer-broker-mapping/#nebpblogentry)                          | 41    |           Yes |
 | [Pb Acknowledgement](../developer-broker-mapping/#nebpbacknowledgement)             | 45    |           Yes |
 
 ### Storage

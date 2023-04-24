@@ -49,11 +49,17 @@ The content of this message is serialized as follows:
 
 #### NEB::PbAcknowledgement
 
-| category | element |  ID   |
+| Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |      45 | 65581 |
 
-The Protobuf message for this event is:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::Acknowledgement** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message Acknowledgement {
@@ -119,7 +125,7 @@ The content of this message is serialized as follows:
 
 #### NEB::PbComment
 
-| category | element |  ID   |
+| Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |      35 | 65571 |
 
@@ -207,7 +213,7 @@ The content of this message is serialized as follows:
 
 #### NEB::PbCustomVariable
 
-| category | element |  ID   |
+| Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |      37 | 65573 |
 
@@ -271,7 +277,7 @@ The content of this message is serialized as follows:
 
 #### NEB::PbCustomVariableStatus
 
-| category | element |  ID   |
+| Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |      38 | 65574 |
 
@@ -310,7 +316,7 @@ message CustomVariable {
 
 ### Downtime
 
-This event is emit by Centreon Engine when a downtime is set on a resource.
+This event is emitted by Centreon Engine when a downtime is set on a resource.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -352,14 +358,11 @@ The content of this message is serialized as follows:
 
 #### NEB::PbDowntime
 
-| category | element |  ID   |
+| Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |      36 | 65572 |
 
-The Protobuf message of a PbDowntime is the same as for a PbCustomVariable.
-You just have to know that some of the fields may not be filled.
-
-This event finally needs the following messages:
+The Protobuf message of a PbDowntime is defined by the following protobuf declaration:
 
 ```cpp
 message Downtime {
@@ -397,7 +400,7 @@ message Downtime {
 
 _Event handlers_ are optional system commands (scripts or executables) that are
 run whenever a resource state change occurs. When a such command is configured,
-an _event handler_ event is emit by Centreon Engine. These BBDO events are
+an _event handler_ event is emitted by Centreon Engine. These BBDO events are
 usually sent when Centreon Engine is restarted or reloaded.
 
 There is no Protobuf event for an event handler.
@@ -432,8 +435,8 @@ The content of this message is serialized as follows:
 ### Flapping status
 
 When a resource state is unstable, Centreon Engine tags it as _flapping_. There
-was a time when a _flapping status_ event was emit in such case. It is no more
-the case. The _flapping status_ event does not exist anymore.
+was a time when a _flapping status_ event was emitted in such case. It is no more
+the case. The _flapping status_ event **does not exist anymore**.
 
 ### Tag
 
@@ -445,13 +448,13 @@ in a near future should be more global.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-There are no _tag_ in BBDO v2.
+**There are no _tag_ in BBDO v2.**
 
 </TabItem>
 
 <TabItem value="BBDO v3" label="BBDO v3">
 
-#### NEB::Tag
+#### NEB::PbTag
 
 | Category | element |  ID   |
 | -------- | ------- | ----- |
@@ -487,8 +490,18 @@ message Tag {
 
 ### Host
 
+This event is emitted by Centreon Engine to declare a host configuration.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::Host
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      12 | 65548 |
+
+The content of this message is serialized as follows:
 
 | Property                          | Type             | Description                                                                   |
 | --------------------------------- | ---------------- | ----------------------------------------------------------------------------- |
@@ -540,7 +553,7 @@ message Tag {
 | last\_update                      | time             | time of message create                                                        |
 | latency                           | real             | delay between scheduled check time and real check time                        |
 | low\_flap\_threshold              | real             | if percent state change is lower than this, host is not considered flapping   |
-| max\_check\_attempts              | short integer    | number of failed check after witch host state become a hard fail state        |
+| max\_check\_attempts              | short integer    | number of failed check after which host state become a hard fail state        |
 | next\_check                       | time             | next scheduled check time                                                     |
 | next\_notification                | time             | next renotification time                                                      |
 | no\_more\_notifications           | boolean          | no other notification will be sent                                            |
@@ -548,7 +561,7 @@ message Tag {
 | notes\_url                        | string           | clickable url in resources status page                                        |
 | notification\_interval            | real             | interval between two notifications                                            |
 | notification\_number              | short integer    | number of notifications sent since the start of the problem                   |
-| notification\_period              | string           | time period during witch notifications are allowed                            |
+| notification\_period              | string           | time period during which notifications are allowed                            |
 | notifications\_enabled            | boolean          | notifications allowed                                                         |
 | notify\_on\_down                  | boolean          | users are notified if host becomes down                                       |
 | notify\_on\_downtime              | boolean          | users are notified if host enters in downtime                                 |
@@ -575,96 +588,147 @@ message Tag {
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                         | Type             | Description                                                                   | Version                         |
-| -------------------------------- | ---------------- | ----------------------------------------------------------------------------- | ------------------------------- |
-| acknowledged                     | boolean          | true if the problem has been acknowledged                                     | From 22.04 version (bbdo 3.0.0) |
-| acknowledgement\_type            | AckType          | NONE, NORMAL, STICKY                                                          | From 22.04 version (bbdo 3.0.0) |
-| action\_url                      | string           | url to obtain information about host                                          | From 22.04 version (bbdo 3.0.0) |
-| active\_checks                   | boolean          | active check                                                                  | From 22.04 version (bbdo 3.0.0) |
-| address                          | string           | IP of the host                                                                | From 22.04 version (bbdo 3.0.0) |
-| alias                            | string           | alias                                                                         | From 22.04 version (bbdo 3.0.0) |
-| check\_attempt                   | short integer    | number of failed checks                                                       | From 22.04 version (bbdo 3.0.0) |
-| check\_command                   | string           | command to execute                                                            | From 22.04 version (bbdo 3.0.0) |
-| check\_freshness                 | boolean          | passive freshness check activated                                             | From 22.04 version (bbdo 3.0.0) |
-| check\_interval                  | real             | interval in units (usually 60s) between 2 checks                              | From 22.04 version (bbdo 3.0.0) |
-| check\_period                    | string           | time period when checks are authorized                                        | From 22.04 version (bbdo 3.0.0) |
-| check\_type                      | CheckType        | ACTIVE PASSIVE                                                                | From 22.04 version (bbdo 3.0.0) |
-| checked                          | boolean          | check has been executed at least once                                         | From 22.04 version (bbdo 3.0.0) |
-| default\_active\_checks          | boolean          | same as active\_checks\_enabled                                               | From 22.04 version (bbdo 3.0.0) |
-| default\_event\_handler\_enabled | boolean          | same as event\_handler\_enabled                                               | From 22.04 version (bbdo 3.0.0) |
-| default\_flap\_detection         | boolean          | same as flap\_detection\_enabled                                              | From 22.04 version (bbdo 3.0.0) |
-| default\_notify                  | boolean          | same as notify                                                                | From 22.04 version (bbdo 3.0.0) |
-| default\_passive\_checks         | boolean          | same as passive\_checks\_enabled                                              | From 22.04 version (bbdo 3.0.0) |
-| display\_name                    | string           | name displayed in UI                                                          | From 22.04 version (bbdo 3.0.0) |
-| enabled                          | boolean          | enabled                                                                       | From 22.04 version (bbdo 3.0.0) |
-| event\_handler                   | string           | command executed when state changes                                           | From 22.04 version (bbdo 3.0.0) |
-| event\_handler\_enabled          | boolean          | event\_handler enabled                                                        | From 22.04 version (bbdo 3.0.0) |
-| execution\_time                  | real             | duration of last check                                                        | From 22.04 version (bbdo 3.0.0) |
-| first\_notification\_delay       | real             | delay before notify in units (usually 60s)                                    | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection                  | boolean          | flap detection enabled                                                        | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_down        | boolean          | down state is taken into account for flap detection                           | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_unreachable | boolean          | unreachable state is taken into account for flap detection                    | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_up          | boolean          | up state is taken into account for flap detection                             | From 22.04 version (bbdo 3.0.0) |
-| flapping                         | boolean          | host is flapping                                                              | From 22.04 version (bbdo 3.0.0) |
-| freshness\_threshold             | real             | delay after check result is stale                                             | From 22.04 version (bbdo 3.0.0) |
-| high\_flap\_threshold            | real             | if percent\_state\_change is higher than this, host is considered flapping    | From 22.04 version (bbdo 3.0.0) |
-| host\_id                         | unsigned integer | id of the host                                                                | From 22.04 version (bbdo 3.0.0) |
-| icon\_image                      | string           | icon displayed in the UI for the host                                         | From 22.04 version (bbdo 3.0.0) |
-| icon\_image\_alt                 | string           | alternate string for icon\_image                                              | From 22.04 version (bbdo 3.0.0) |
-| instance\_id                     | unsigned integer | id of the poller that checks host                                             | From 22.04 version (bbdo 3.0.0) |
-| last\_check                      | time             | time of last check                                                            | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state                | State            | last hard state                                                               | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state\_change        | time             | time of last hard state change                                                | From 22.04 version (bbdo 3.0.0) |
-| last\_notification               | time             | time of last notification sent                                                | From 22.04 version (bbdo 3.0.0) |
-| last\_state\_change              | time             | time of last state change                                                     | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_down                 | time             | time of the last failed check                                                 | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_unreachable          | time             | time of the last failed check with all parent hosts down                      | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_up                   | time             | time of the last successful check                                             | From 22.04 version (bbdo 3.0.0) |
-| last\_update                     | time             | time of message create                                                        | From 22.04 version (bbdo 3.0.0) |
-| latency                          | real             | delay between scheduled check time and real check time                        | From 22.04 version (bbdo 3.0.0) |
-| low\_flap\_threshold             | real             | if percent\_state\_change is lower than this, host is not considered flapping | From 22.04 version (bbdo 3.0.0) |
-| max\_check\_attempts             | short integer    | number of failed check after witch host state become a hard fail state        | From 22.04 version (bbdo 3.0.0) |
-| name                             | string           | name of the host                                                              | From 22.04 version (bbdo 3.0.0) |
-| next\_check                      | time             | next scheduled check time                                                     | From 22.04 version (bbdo 3.0.0) |
-| next\_host\_notification         | time             | next renotification time                                                      | From 22.04 version (bbdo 3.0.0) |
-| no\_more\_notifications          | boolean          | no other notification will be sent                                            | From 22.04 version (bbdo 3.0.0) |
-| notes                            | string           | tooltip in resources status page                                              | From 22.04 version (bbdo 3.0.0) |
-| notes\_url                       | string           | clickable url in resources status page                                        | From 22.04 version (bbdo 3.0.0) |
-| notification\_interval           | real             | interval between two notifications                                            | From 22.04 version (bbdo 3.0.0) |
-| notification\_number             | short integer    | number of notifications sent since the start of the problem                   | From 22.04 version (bbdo 3.0.0) |
-| notification\_period             | string           | time period during witch notifications are allowed                            | From 22.04 version (bbdo 3.0.0) |
-| notify                           | boolean          | notifications allowed                                                         | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_down                 | boolean          | users are notified if host becomes down                                       | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_downtime             | boolean          | users are notified if host enters in downtime                                 | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_flapping             | boolean          | users are notified if host is flapping                                        | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_recovery             | boolean          | users are notified if host becomes up                                         | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_unreachable          | boolean          | users are notified if host becomes down and parents are down                  | From 22.04 version (bbdo 3.0.0) |
-| obsess\_over\_host               | boolean          | true if ocsp command if executed after check or notification command          | From 22.04 version (bbdo 3.0.0) |
-| output                           | string           | output of the command                                                         | From 22.04 version (bbdo 3.0.0) |
-| passive\_checks                  | boolean          | passive check                                                                 | From 22.04 version (bbdo 3.0.0) |
-| percent\_state\_change           | real             | used by flapping and compared with high and low flap thresholds               | From 22.04 version (bbdo 3.0.0) |
-| perf\_data                       | string           | perfdata extracted from the command's output                                  | From 22.04 version (bbdo 3.0.0) |
-| retain\_nonstatus\_information   | boolean          | unused                                                                        | From 22.04 version (bbdo 3.0.0) |
-| retain\_status\_information      | boolean          | unused                                                                        | From 22.04 version (bbdo 3.0.0) |
-| retry\_interval                  | real             | interval between two check when host isn't in up state and state type is soft | From 22.04 version (bbdo 3.0.0) |
-| scheduled_downtime\_depth        | short integer    | number of active downtimes                                                    | From 22.04 version (bbdo 3.0.0) |
-| should\_be\_scheduled            | boolean          | next check should be scheduled                                                | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_down                  | boolean          | logs check output event change if state is down                               | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_unreachable           | boolean          | logs check output event changes if state is unreachable                       | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_up                    | boolean          | logs check output event changes if state is up                                | From 22.04 version (bbdo 3.0.0) |
-| state                            | State            | UP DOWN UNREACHABLE                                                           | From 22.04 version (bbdo 3.0.0) |
-| state\_type                      | StateType        | SOFT HARD                                                                     | From 22.04 version (bbdo 3.0.0) |
-| statusmap\_image                 | string           | image displayed in map                                                        | From 22.04 version (bbdo 3.0.0) |
-| tags                             | TagInfo          | tags of the host (see TagInfo)                                                | From 22.04 version (bbdo 3.0.0) |
-| timezone                         | string           | time zone of the host                                                         | From 22.04 version (bbdo 3.0.0) |
+#### NEB::PbHost
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      30 | 65566 |
+
+The Protobuf message of a PbHost is defined by the following protobuf declaration:
+
+```cpp
+enum AckType {
+  NONE = 0;
+  NORMAL = 1;
+  STICKY = 2;
+}
+
+message TagInfo {
+  uint64 id = 1;
+  TagType type = 2;
+}
+
+message Host {
+  uint64 host_id = 1;                     // Host ID.
+
+  bool acknowledged = 2;                  // True if the problem has been acknowledged.
+  AckType acknowledgement_type = 3;       // Acknowledgement type.
+
+  bool active_checks = 4;                 // True if active checks are enabled.
+  bool enabled = 5;                       // True if this host is enabled.
+  int32 scheduled_downtime_depth = 6;     // Number of active downtimes.
+  string check_command = 7;               // Check command.
+  int32 check_interval = 8;               // Interval in units (usually 60s) between 2 checks.
+  string check_period = 9;                // Time period when checks are authorized
+
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 10;              // Type of the last check.
+  int32 check_attempt = 11;               // Number of failed checks.
+  enum State {
+    UP = 0;
+    DOWN = 1;
+    UNREACHABLE = 2;
+  }
+  State state = 12;                       // Current state.
+  bool event_handler_enabled = 13;        // True if an event handler is configured on this host.
+  string event_handler = 14;              // Command executed when state changes.
+  double execution_time = 15;             // Duration of the last check.
+  bool flap_detection = 16;               // True if flap detection is enabled.
+  bool checked = 17;                      // check has been executed at least once.
+  bool flapping = 18;                     // True if the host is flapping.
+  int64 last_check = 19;                  // Timestamp of the last check.
+  State last_hard_state = 20;             // Last hard state.
+  int64 last_hard_state_change = 21;      // Timestamp of the last hard state change.
+  int64 last_notification = 22;           // Timestamp of the last notification.
+  int32 notification_number = 23;         // Current notification number or 0 if not.
+  int64 last_state_change = 24;           // Timestamp of the last state change.
+  int64 last_time_down = 25;              // Timestamp of the last failed check.
+  int64 last_time_unreachable = 26;       // Timestamp of the last failed check with all parent hosts down.
+  int64 last_time_up = 27;                // Timestamp of the last successful check.
+  int64 last_update = 28;                 // Timestamp of the last message creation.
+  double latency = 29;                    // Delay between scheduled check time and real check time.
+  int32 max_check_attempts = 30;          // Number of failed check after which host state becomes a gard fail state.
+  int64 next_check = 31;                  // Next scheduled check timestamp.
+  int64 next_host_notification = 32;      // Next renotification timestamp.
+  bool no_more_notifications = 33;        // If true, no other notification will be sent.
+  bool notify = 34;                       // Notifications allowed
+  string output = 35;                     // Output of the check command.
+  bool passive_checks = 36;               // Passive checks are enabled.
+  double percent_state_change = 37;       // Used by flapping and compared with high and low flap thresholds.
+  string perfdata = 38;                   // perfdata extracted from the command's output.
+  double retry_interval = 39;             // interval between two checks when host isn't in up state and state type is soft.
+  bool should_be_scheduled = 40;          // True if next check should be scheduled
+  bool obsess_over_host = 41;             // True if OCSP command is executed after check or notification command.
+
+  enum StateType {
+    SOFT = 0;                             // State not still confirmed.
+    HARD = 1;                             // State confirmed.
+  }
+
+  StateType state_type = 42;              // The state type.
+  string action_url = 43;                 // Optional url available in the WUI linked to this host.
+  string address = 44;                    // An address
+  string alias = 45;                      // An alias for this host.
+  bool check_freshness = 46;              // Passive freshness check activated
+  bool default_active_checks = 47;        // Same as active_checks but the default value.
+  bool default_event_handler_enabled = 48;// Same as event_handler but the default value.
+  bool default_flap_detection = 49;       // Same as flap_detection but the default value.
+  bool default_notify = 50;               // Same as notify byt the default value.
+  bool default_passive_checks = 51;       // Same as passive checks but the default value.
+  string display_name = 52;               // Name displayed in the WUI
+  double first_notification_delay = 53;   // Delay before notify in units (usually 60s).
+  bool flap_detection_on_down = 54;       // Down state is taken into account for flap detection.
+  bool flap_detection_on_unreachable = 55;// Unreachable state is taken into account for flap detection.
+  bool flap_detection_on_up = 56;         // Up state is taken into account for flap detection.
+  double freshness_threshold = 57;        // Delay after check result is stale.
+  double high_flap_threshold = 58;        // If percent state change is higher than this, host is considered flapping.
+  string name = 59;                       // Host name.
+  string icon_image = 60;                 // Icon displayed in the WUI for the host.
+  string icon_image_alt = 61;             // Alternative string for icon_image.
+  int32 instance_id = 62;                 // Instance ID.
+  double low_flap_threshold = 63;         // If percent state change is lower than this, host is not considered flapping.
+  string notes = 64;                      // Tooltip in resources status page.
+  string notes_url = 65;                  // clickable url in resources status page.
+  double notification_interval = 66;      // Interval between two notifications.
+  string notification_period = 67;        // Time period during which notifications are allowed.
+  bool notify_on_down = 68;               // Users are notified if host becomes down.
+  bool notify_on_downtime = 69;           // Users are notified if host enters in downtime.
+  bool notify_on_flapping = 70;           // Users are notified if host is flapping.
+  bool notify_on_recovery = 71;           // Users are notified if host becomes up.
+  bool notify_on_unreachable = 72;        // Users are notified if host becomes unreachable.
+  bool stalk_on_down = 73;                // Logs check output changes if state is down.
+  bool stalk_on_unreachable = 74;         // Logs check output changes if state is unreachable.
+  bool stalk_on_up = 75;                  // Logs check output changes if state is up.
+  string statusmap_image = 76;            // Image displayed in map.
+  bool retain_nonstatus_information = 77; // Unused
+  bool retain_status_information = 78;    // Unused
+  string timezone = 79;                   // Time zone of the host.
+  uint64 severity_id = 80;                // Severity ID.
+  repeated TagInfo tags = 81;             // Tags linked to this host.
+  uint64 icon_id = 82;                    // Icon ID.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Host check
 
+This event is emitted by Centreon Engine on host checks.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::HostCheck
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       8 | 65544 |
+
+The content of this message is serialized as follows:
 
 | Property                | Type             | Description                                       |
 | ----------------------- | ---------------- | ------------------------------------------------- |
@@ -679,108 +743,151 @@ message Tag {
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                | Type             | Description                                       |
-| ----------------------- | ---------------- | ------------------------------------------------- |
-| active\_checks\_enabled | boolean          | True if active checks are enabled on the host.    |
-| check\_type             | short integer    |                                                   |
-| host\_id                | unsigned integer | Host ID.                                          |
-| next\_check             | time             | Time at which the next check is scheduled.        |
-| command\_line           | string           | Check command line.                               |
-| source\_id              | unsigned integer | The id of the source instance this event.         |
-| destination\_id         | unsigned integer | The id of the destination instance of this event. |
+#### NEB::PbHostCheck
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      39 | 65575 |
+
+The Protobuf message for this event is given by:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+enum CheckType {
+    CheckActive = 0;
+    CheckPassive = 1;
+}
+
+message Check {
+    BBDOHeader header = 1;
+
+    bool active_checks_enabled = 2;   // True if active checks are enabled on the host.
+    CheckType check_type = 3;         // One of the values in CheckType.
+    string command_line = 4;          // Check command line.
+    uint64 host_id = 5;               // Host ID.
+    uint64 next_check = 6;            // Timestamp at which the next check is scheduled.
+    uint64 service_id = 7;            // Service ID or 0 for a host check.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Host dependency
 
+This is a configuration event sent to declare a host dependency.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                       | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | string           |             |         |
-| dependent\_host\_id            | unsigned integer |             |         |
-| enabled                        | boolean          |             |         |
-| execution\_failure\_options    | string           |             |         |
-| inherits\_parent               | boolean          |             |         |
-| host\_id                       | unsigned integer |             |         |
-| notification\_failure\_options | string           |             |         |
+#### NEB::HostDependency
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       9 | 65545 |
+
+The content of this message is serialized as follows:
+
+| Property                       | Type             | Description                                                             |
+| ------------------------------ | ---------------- | ----------------------------------------------------------------------- |
+| dependency\_period             | string           | Time period when the dependency is available.                           |
+| dependent\_host\_id            | unsigned integer | Host ID of the resource this host is dependent on                       |
+| enabled                        | boolean          | True if the dependency is enabled.                                      |
+| execution\_failure\_options    | string           | Some values among "up", "down", "unreachable", "pending", "none", "all" |
+| inherits\_parent               | boolean          | True if the dependency is inherited from parent                         |
+| host\_id                       | unsigned integer | Host ID.                                                                |
+| notification\_failure\_options | string           | Same values as for execution\_failure\_options                          |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                       | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | string           |             |         |
-| dependent\_host\_id            | unsigned integer |             |         |
-| enabled                        | boolean          |             |         |
-| execution\_failure\_options    | string           |             |         |
-| inherits\_parent               | boolean          |             |         |
-| host\_id                       | unsigned integer |             |         |
-| notification\_failure\_options | string           |             |         |
+**There is no Protobuf version for this event.**
 
 </TabItem>
 </Tabs>
 
 ### Host group
 
+This is a configuration event that declares a host group.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property        | Type             | Description                                                  | Version |
-| --------------- | ---------------- | ------------------------------------------------------------ | ------- |
-| host\_group\_id | unsigned integer | id of the group                                              |         |
-| name            | string           | Group name.                                                  |         |
-| enabled         | boolean          | True if the group is enabled, false if it is not (deletion). |         |
-| poller\_id      | unsigned integer | id of the poller                                             |         |
+#### NEB::HostGroup
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      10 | 65546 |
+
+The content of this message is serialized as follows:
+
+| Property        | Type             | Description                                                  |
+| --------------- | ---------------- | ------------------------------------------------------------ |
+| host\_group\_id | unsigned integer | id of the group                                              |
+| name            | string           | Group name.                                                  |
+| enabled         | boolean          | True if the group is enabled, false if it is not (deletion). |
+| poller\_id      | unsigned integer | id of the poller                                             |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property        | Type             | Description                                                  | Version |
-| --------------- | ---------------- | ------------------------------------------------------------ | ------- |
-| host\_group\_id | unsigned integer | id of the group                                              |         |
-| name            | string           | Group name.                                                  |         |
-| enabled         | boolean          | True if the group is enabled, false if it is not (deletion). |         |
-| poller\_id      | unsigned integer | id of the poller                                             |         |
+**There is no protobuf 3 version of this event.**
 
 </TabItem>
 </Tabs>
 
 ### Host group member
 
+This is a configuration event. It is sent just after a _hostgroup_ event to
+detail members of the group to configure. Even in BBDO v3, we still use the
+BBDO v2 version of this event.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property        | Type             | Description                                                       | Version |
-| --------------- | ---------------- | ----------------------------------------------------------------- | ------- |
-| enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |         |
-| group           | string           | Group name.                                                       |         |
-| instance\_id    | unsigned integer | Instance ID.                                                      |         |
-| host\_id        | unsigned integer | Host ID.                                                          |         |
-| source\_id      | unsigned integer | The id of the source instance this event.                         |         |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                 |         |
+#### NEB::HostGroupMember
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      11 | 65547 |
+
+The content of this message is serialized as follows:
+
+| Property        | Type             | Description                                                       |
+| --------------- | ---------------- | ----------------------------------------------------------------- |
+| enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |
+| group           | string           | Group name.                                                       |
+| instance\_id    | unsigned integer | Instance ID.                                                      |
+| host\_id        | unsigned integer | Host ID.                                                          |
+| source\_id      | unsigned integer | The id of the source instance this event.                         |
+| destination\_id | unsigned integer | The id of the destination instance of this event.                 |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property        | Type             | Description                                                       | Version |
-| --------------- | ---------------- | ----------------------------------------------------------------- | ------- |
-| enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |         |
-| group           | string           | Group name.                                                       |         |
-| instance\_id    | unsigned integer | Instance ID.                                                      |         |
-| host\_id        | unsigned integer | Host ID.                                                          |         |
-| source\_id      | unsigned integer | The id of the source instance this event.                         |         |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                 |         |
+**No Protobuf 3 version of this event.**
 
 </TabItem>
 </Tabs>
 
 ### Host parent
 
+This is a configuration event sent to declare a host parent. Even in BBDO v3,
+we still use the BBDO v2 version of this event.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::HostParent
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      13 | 65549 |
+
+The content of this message is serialized as follows:
 
 | Property   | Type             | Description                                                  |
 | ---------- | ---------------- | ------------------------------------------------------------ |
@@ -791,19 +898,26 @@ message Tag {
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property   | Type             | Description                                                  |
-| ---------- | ---------------- | ------------------------------------------------------------ |
-| enabled    | boolean          | True if parenting is enabled, false if it is not (deletion). |
-| child\_id  | unsigned integer | Child host ID.                                               |
-| parent\_id | unsigned integer | Parent host ID.                                              |
+**There is no Protobuf version of this event.**
 
 </TabItem>
 </Tabs>
 
 ### Host status
 
+This is an event emitted by Centreon Engine when a host has real time modifications.
+It is declined into two versions:
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::HostStatus
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       14 | 65550 |
+
+The content of this message is serialized as follows:
 
 | Property                  | Type             | Description                                                                   |
 | ------------------------- | ---------------- | ----------------------------------------------------------------------------- |
@@ -834,7 +948,7 @@ message Tag {
 | last\_time\_up            | time             | time of the last successful check                                             |
 | last\_update              | time             | time of message create                                                        |
 | latency                   | real             | delay between scheduled check time and real check time                        |
-| max\_check\_attempts      | short integer    | number of failed check after witch host state become a hard fail state        |
+| max\_check\_attempts      | short integer    | number of failed check after which host state become a hard fail state        |
 | next\_check               | time             | Time at which the next check is scheduled.                                    |
 | next\_host\_notification  | time             | next renotification time                                                      |
 | no\_more\_notifications   | boolean          | no other notification will be sent                                            |
@@ -853,78 +967,153 @@ message Tag {
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                   | Type             | Description                                                                      | Version                         |
-| -------------------------- | ---------------- | -------------------------------------------------------------------------------- | ------------------------------- |
-| acknowledgement\_type      | AckType          | NONE, NORMAL, STICKY                                                             | From 22.04 version (bbdo 3.0.0) |
-| checked                    | boolean          | check has been executed at least once                                            | From 22.04 version (bbdo 3.0.0) |
-| check\_type                | CheckType        | ACTIVE PASSIVE                                                                   | From 22.04 version (bbdo 3.0.0) |
-| check\_attempt             | short integer    | number of failed checks                                                          | From 22.04 version (bbdo 3.0.0) |
-| execution\_time            | real             | duration of last check                                                           | From 22.04 version (bbdo 3.0.0) |
-| flapping                   | boolean          | host is flapping                                                                 | From 22.04 version (bbdo 3.0.0) |
-| host\_id                   | unsigned integer | id of the host                                                                   | From 22.04 version (bbdo 3.0.0) |
-| last\_check                | time             | time of last check                                                               | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state          | State            | last hard state                                                                  | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state\_change  | time             | time of last hard state change                                                   | From 22.04 version (bbdo 3.0.0) |
-| last\_notification         | time             | time of last notification sent                                                   | From 22.04 version (bbdo 3.0.0) |
-| last\_state\_change        | time             | time of last state change                                                        | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_down           | time             | time of the last failed check                                                    | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_unreachable    | time             | time of the last failed check with all parent hosts down                         | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_up             | time             | time of the last successful check                                                | From 22.04 version (bbdo 3.0.0) |
-| latency                    | real             | delay between scheduled check time and real check time                           | From 22.04 version (bbdo 3.0.0) |
-| long\_output               | string           | output of some plugins on several lines                                          | From 22.04 version (bbdo 3.0.0) |
-| next\_check                | time             | Time at which the next check is scheduled.                                       | From 22.04 version (bbdo 3.0.0) |
-| next\_host\_notification   | time             | next renotification time                                                         | From 22.04 version (bbdo 3.0.0) |
-| no\_more\_notifications    | boolean          | no other notification will be sent                                               | From 22.04 version (bbdo 3.0.0) |
-| notification\_number       | short integer    | number of notifications sent since the start of the problem                      | From 22.04 version (bbdo 3.0.0) |
-| output                     | string           | output of the command                                                            | From 22.04 version (bbdo 3.0.0) |
-| percent\_state\_change     | real             | used by flapping and compared with high and low flap thresholds                  | From 22.04 version (bbdo 3.0.0) |
-| perf\_data                 | string           | perfdata extracted from the command's output                                     | From 22.04 version (bbdo 3.0.0) |
-| retry\_interval            | real             | interval between two check when service isn't in up state and state type is soft | From 22.04 version (bbdo 3.0.0) |
-| should\_be\_scheduled      | boolean          | next check should be scheduled                                                   | From 22.04 version (bbdo 3.0.0) |
-| scheduled\_downtime\_depth | short integer    | number of active downtimes                                                       | From 22.04 version (bbdo 3.0.0) |
-| state                      | State            | UP DOWN UNREACHABLE                                                              | From 22.04 version (bbdo 3.0.0) |
-| state\_type                | StateType        | SOFT HARD                                                                        | From 22.04 version (bbdo 3.0.0) |
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      32 | 65538 |
+
+The content of this message is serialized as follows:
+
+```cpp
+enum AckType {
+  NONE = 0;
+  NORMAL = 1;
+  STICKY = 2;
+}
+
+message HostStatus {
+  uint64 host_id = 1;                 // Host ID.
+
+  bool checked = 2;                   // True if the host is checked.
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 3;           // Type of the last check (ACTIVE/PASSIVE).
+
+  enum State {
+    UP = 0;
+    DOWN = 1;
+    UNREACHABLE = 2;
+  }
+  State state = 4;                    // Current state of the host.
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+  StateType state_type = 5;           // Confirmed or not state (HARD/SOFT).
+  int64 last_state_change = 6;        // Timestamp of the last state change.
+  State last_hard_state = 7;          // Last hard state.
+  int64 last_hard_state_change = 8;   // Timestamp of the last hard state.
+  int64 last_time_up = 9;             // Timestamp of the last up state.
+  int64 last_time_down = 10;          // Timestamp of the last down state.
+  int64 last_time_unreachable = 11;   // Timestamp of the last unreachable state.
+
+  string output = 12;                 // Check output.
+  string long_output = 13;            // Check long output.
+  string perfdata = 14;               // Check performance data.
+
+  bool flapping = 15;                 // True if the host is flapping.
+  double percent_state_change = 16;   // Used by flapping and compared with high and low flap thresholds
+  double latency = 17;                // Delay between scheduled check time and real check time.
+  double execution_time = 18;         // Duration of last check.
+  int64 last_check = 19;              // Timestamp of the last check.
+  int64 next_check = 20;              // Timestamp at which the next check is scheduled.
+  bool should_be_scheduled = 21;      // True if the next check should be scheduled.
+  int32 check_attempt = 22;           // Number of failed checks.
+
+  int32 notification_number = 23;     // Number of notifications sent since the start of the problem.
+  bool no_more_notifications = 24;    // No other notification will be sent.
+  int64 last_notification = 25;       // Timestamp of last notification sent.
+  int64 next_host_notification = 26;  // Timestamp of next renotification.
+
+  AckType acknowledgement_type = 27;  // One value of the AckType enum.
+  int32 scheduled_downtime_depth = 28;// Number of active downtimes.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Instance
 
+This event is emitted by Centreon Engine when Engine starts to send its configuration or when Engine stops.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property       | Type             | Description                                             | Version |
-| -------------- | ---------------- | ------------------------------------------------------- | ------- |
-| engine         | string           | Name of the monitoring engine used on this instance.    |         |
-| id             | unsigned integer | Instance ID.                                            |         |
-| name           | string           | Instance name.                                          |         |
-| is\_running    | boolean          | Whether or not this instance is running.                |         |
-| pid            | unsigned integer | Monitoring engine PID.                                  |         |
-| program\_end   | time             | Time at which the instance shut down.                   |         |
-| program\_start | time             | Time at which the instance started.                     |         |
-| version        | string           | Version of the monitoring engine used on this instance. |         |
+#### NEB::Instance
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      15 | 65551 |
+
+The content of this message is serialized as follows:
+
+| Property       | Type             | Description                                             |
+| -------------- | ---------------- | ------------------------------------------------------- |
+| engine         | string           | Name of the monitoring engine used on this instance.    |
+| id             | unsigned integer | Instance ID.                                            |
+| name           | string           | Instance name.                                          |
+| is\_running    | boolean          | Whether or not this instance is running.                |
+| pid            | unsigned integer | Monitoring engine PID.                                  |
+| program\_end   | time             | Time at which the instance shut down.                   |
+| program\_start | time             | Time at which the instance started.                     |
+| version        | string           | Version of the monitoring engine used on this instance. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property       | Type             | Description                                             | Version |
-| -------------- | ---------------- | ------------------------------------------------------- | ------- |
-| engine         | string           | Name of the monitoring engine used on this instance.    |         |
-| id             | unsigned integer | Instance ID.                                            |         |
-| name           | string           | Instance name.                                          |         |
-| is\_running    | boolean          | Whether or not this instance is running.                |         |
-| pid            | unsigned integer | Monitoring engine PID.                                  |         |
-| program\_end   | time             | Time at which the instance shut down.                   |         |
-| program\_start | time             | Time at which the instance started.                     |         |
-| version        | string           | Version of the monitoring engine used on this instance. |         |
+#### NEB::PbInstance
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      44 | 65580 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbInstance** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+message Instance {
+  BBDOHeader header = 1;
+
+  string engine = 2;        // Name of the monitoring engine used on this instance.
+  bool running = 3;         // Whether or not this instance is running.
+  string name = 4;          // Instance name.
+  int64 pid = 5;            // Monitoring engine PID.
+  uint64 instance_id = 6;   // Instance ID.
+  int64 end_time = 7;       // Timestamp at which the instance shuts down.
+  int64 start_time = 8;     // Timestamp at which the instance starts.
+  string version = 9;       // Version of the emitter of this message.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Instance status
 
+Event emitted by Centreon Engine regularly as a watchdog. This event tells the poller
+is still alive with various other informations.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::InstanceStatus
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      16 | 65552 |
+
+The content of this message is serialized as follows:
 
 | Property                          | Type             | Description                                                       | Version |
 | --------------------------------- | ---------------- | ----------------------------------------------------------------- | ------- |
@@ -948,67 +1137,137 @@ message Tag {
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                          | Type             | Description                                                       | Version |
-| --------------------------------- | ---------------- | ----------------------------------------------------------------- | ------- |
-| active\_host\_checks\_enabled     | boolean          | Whether or not active host checks are globally enabled.           |         |
-| active\_service\_checks\_enabled  | boolean          | Whether or not active service checks are globally enabled.        |         |
-| check\_hosts\_freshness           | boolean          | Whether or not hosts freshness checking is globally enabled.      |         |
-| check\_services\_freshness        | boolean          | Whether or not services freshness checking is globally enabled.   |         |
-| event\_handler\_enabled           | boolean          | Whether or not event handlers are globally enabled.               |         |
-| flap\_detection\_enabled          | boolean          | Whether or not flap detection is globally enabled.                |         |
-| id                                | unsigned integer | Instance ID.                                                      |         |
-| last\_alive                       | time             | Last time the instance was known alive.                           |         |
-| last\_command\_check              | time             | Last time a check command was executed.                           |         |
-| notifications\_enabled            | boolean          | Whether or not notifications are globally enabled.                |         |
-| obsess\_over\_hosts               | boolean          | Whether or not the monitoring engine should obsess over hosts.    |         |
-| obsess\_over\_services            | boolean          | Whether or not the monitoring engine should obsess over services. |         |
-| passive\_host\_checks\_enabled    | boolean          | Whether or not passive host checks are globally enabled.          |         |
-| passive\_service\_checks\_enabled | boolean          | Whether or not passive service checks are globally enabled.       |         |
-| global\_host\_event\_handler      | string           | Global host event handler.                                        |         |
-| global\_service\_event\_handler   | string           | Global service event handler.                                     |         |
+#### NEB::PbInstanceStatus
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      42 | 65578 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbInstanceStatus** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+message InstanceStatus {
+  BBDOHeader header = 1;
+
+  bool event_handlers = 2;                    // Whether or not event handlers are globally enabled.
+  bool flap_detection = 3;                    // Whether or not flap detection is globally enabled.
+  bool notifications = 4;                     // Whether or not notifications are globally enabled.
+  bool active_host_checks = 5;                // Whether or not active host checks are globally enabled.
+  bool active_service_checks = 6;             // Whether or not active service checks are globally enabled.
+  bool check_hosts_freshness = 7;             // Whether or not hosts freshness checking is globally enabled.
+  bool check_services_freshness =  8;         // Whether or not services freshness checking is globally enabled.
+  string global_host_event_handler = 9;       // Global host event handler.
+  string global_service_event_handler = 10;   // Global service event handler.
+  uint64 last_alive = 11;                     // Last time the instance was known alive.
+  int64 last_command_check = 12;              // Last time a check command was executed.
+  bool obsess_over_hosts = 13;                // Whether or not the monitoring engine should obsess over hosts.
+  bool obsess_over_services = 14;             // Whether or not the monitoring engine should obsess over services.
+  bool passive_host_checks = 15;              // Whether or not passive host checks are globally enabled.
+  bool passive_service_checks = 16;           // Whether or not passive service checks are globally enabled.
+  uint64 instance_id = 17;                    // Instance ID.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Log entry
 
+Centreon Engine generates many logs. Among them, there is a part sent to Centreon Broker
+to store them into the database. These logs are sent thanks to _log entry_ envents.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Version |
-| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
-| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
-| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
-| msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |         |
-| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
-| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |         |
-| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |         |
-| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
-| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
+#### NEB::LogEntry
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      17 | 65553 |
+
+The content of this message is serialized as follows:
+
+| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |
+| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property              | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Version |
-| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| c\_time               | time             | Log time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |         |
-| host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |         |
-| instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
-| log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
-| msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |         |
-| notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| notification\_contact | string           | Notification contact.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |         |
-| retry                 | integer          | Current check attempt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
-| service\_description  | string           | Service description. Empty if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |         |
-| service\_id           | unsigned integer | Service ID. 0 if log entry does not refer to a specific service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |         |
-| status                | short integer    | Host / service status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |         |
-| output                | string           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |         |
+#### NEB::PbLogEntry
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      41 | 65577 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbInstanceStatus** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message LogEntry {
+  enum LogType {
+    SOFT = 0;
+    HARD = 1;
+  }
+  enum MsgType {
+    SERVICE_ALERT = 0;
+    HOST_ALERT = 1;
+    SERVICE_NOTIFICATION = 2;
+    HOST_NOTIFICATION = 3;
+    WARNING = 4;
+    OTHER = 5;
+    SERVICE_INITIAL_STATE = 8;
+    HOST_INITIAL_STATE = 9;
+    SERVICE_ACKNOWLEDGE_PROBLEM = 10;
+    HOST_ACKNOWLEDGE_PROBLEM = 11;
+    SERVICE_EVENT_HANDLER = 12;
+    HOST_EVENT_HANDLER = 13;
+    GLOBAL_SERVICE_EVENT_HANDLER = 14;
+    GLOBAL_HOST_EVENT_HANDLER = 15;
+  }
+
+  uint64 ctime = 1;                     // Log timestamp.
+  string instance_name = 2;             // Instance name.
+  string output = 3;                    // Output.
+  uint64 host_id = 4;                   // Host ID.
+  uint64 service_id = 5;                // Service ID or 0 if log entry does not refer to a specific service.
+  string host_name = 6;                 // Host name.
+  string service_description = 7;       // Service description or empty if log entry does not refer to a specific service.
+  string notification_contact = 8;      // Notification contact.
+  string notification_cmd = 9;          // Notification command.
+  LogType type = 10;                    // One value of LogType.
+  MsgType msg_type = 11;                // One value of MsgType.
+  int32 status = 12;                    // Host / service status.
+  int32 retry = 13;                     // Current check attempt.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -1020,6 +1279,14 @@ or unloaded.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::Module
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      18 | 65554 |
+
+The content of this message is serialized as follows:
 
 | Property           | Type             | Description                                                     | Version |
 | ------------------ | ---------------- | --------------------------------------------------------------- | ------- |
@@ -1049,6 +1316,14 @@ or unloaded.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::Service
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      23 | 65559 |
+
+The content of this message is serialized as follows:
 
 | Property                          | Type             | Description                                                                      |
 | --------------------------------- | ---------------- | -------------------------------------------------------------------------------- |
@@ -1101,7 +1376,7 @@ or unloaded.
 | last\_update                      | time             | time of message create                                                           |
 | latency                           | real             | delay between scheduled check time and real check time                           |
 | low\_flap\_threshold              | real             | if percent state change is lower than this, service is not considered flapping   |
-| max\_check\_attempts              | short integer    | number of failed check after witch service state become a hard fail state        |
+| max\_check\_attempts              | short integer    | number of failed check after which service state become a hard fail state        |
 | next\_check                       | time             | next scheduled check time                                                        |
 | next\_notification                | time             | next renotification time                                                         |
 | no\_more\_notifications           | boolean          | no other notification will be sent                                               |
@@ -1109,7 +1384,7 @@ or unloaded.
 | notes\_url                        | string           | clickable url in resources status page                                           |
 | notification\_interval            | real             | interval between two notifications                                               |
 | notification\_number              | short integer    | number of notifications sent since the start of the problem                      |
-| notification\_period              | string           | time period during witch notifications are allowed                               |
+| notification\_period              | string           | time period during which notifications are allowed                               |
 | notifications\_enabled            | boolean          | notifications enabled                                                            |
 | notify\_on\_critical              | boolean          | users are notified if service state becomes critical                             |
 | notify\_on\_downtime              | boolean          | users are notified if service enters in downtime                                 |
@@ -1191,7 +1466,7 @@ or unloaded.
 | latency                          | real             | delay between scheduled check time and real check time                           | From 22.04 version (bbdo 3.0.0) |
 | long\_output                     | string           | output of some plugins on several lines                                          | From 22.04 version (bbdo 3.0.0) |
 | low\_flap\_threshold             | real             | if percent state change is lower than this, service is not considered flapping   | From 22.04 version (bbdo 3.0.0) |
-| max\_check\_attempts             | short integer    | number of failed check after witch service state become a hard fail state        | From 22.04 version (bbdo 3.0.0) |
+| max\_check\_attempts             | short integer    | number of failed check after which service state become a hard fail state        | From 22.04 version (bbdo 3.0.0) |
 | next\_check                      | time             | next scheduled check time                                                        | From 22.04 version (bbdo 3.0.0) |
 | next\_notification               | time             | next renotification time                                                         | From 22.04 version (bbdo 3.0.0) |
 | no\_more\_notifications          | boolean          | no other notification will be sent                                               | From 22.04 version (bbdo 3.0.0) |
@@ -1199,7 +1474,7 @@ or unloaded.
 | notes\_url                       | string           | clickable url in resources status page                                           | From 22.04 version (bbdo 3.0.0) |
 | notification\_interval           | real             | interval between two notifications                                               | From 22.04 version (bbdo 3.0.0) |
 | notification\_number             | short integer    | number of notifications sent since the start of the problem                      | From 22.04 version (bbdo 3.0.0) |
-| notification\_period             | string           | time period during witch notifications are allowed                               | From 22.04 version (bbdo 3.0.0) |
+| notification\_period             | string           | time period during which notifications are allowed                               | From 22.04 version (bbdo 3.0.0) |
 | notify                           | boolean          | notifications enabled                                                            | From 22.04 version (bbdo 3.0.0) |
 | notify\_on\_critical             | boolean          | users are notified if service state becomes critical                             | From 22.04 version (bbdo 3.0.0) |
 | notify\_on\_downtime             | boolean          | users are notified if service enters in downtime                                 | From 22.04 version (bbdo 3.0.0) |
@@ -1236,6 +1511,14 @@ or unloaded.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::ServiceCheck
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      19 | 65555 |
+
+The content of this message is serialized as follows:
+
 | Property                | Type             | Description                                       | Version |
 | ----------------------- | ---------------- | ------------------------------------------------- | ------- |
 | active\_checks\_enabled | boolean          | True if active checks are enabled on the service. |         |
@@ -1264,6 +1547,14 @@ or unloaded.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::ServiceDependency
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      20 | 65556 |
+
+The content of this message is serialized as follows:
 
 | Property                       | Type             | Description | Version |
 | ------------------------------ | ---------------- | ----------- | ------- |
@@ -1300,6 +1591,14 @@ or unloaded.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::ServiceGroup
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      21 | 65557 |
+
+The content of this message is serialized as follows:
+
 | Property   | Type             | Description                                                 | Version |
 | ---------- | ---------------- | ----------------------------------------------------------- | ------- |
 | id         | unsigned integer |                                                             |         |
@@ -1324,6 +1623,14 @@ or unloaded.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::ServiceGroupMember
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      22 | 65558 |
+
+The content of this message is serialized as follows:
 
 | Property    | Type             | Description                                                 | Version |
 | ----------- | ---------------- | ----------------------------------------------------------- | ------- |
@@ -1353,6 +1660,14 @@ or unloaded.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::ServiceStatus
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      24 | 65560 |
+
+The content of this message is serialized as follows:
 
 | Property                  | Type             | Description                                                                      |
 | ------------------------- | ---------------- | -------------------------------------------------------------------------------- |
@@ -1385,7 +1700,7 @@ or unloaded.
 | last\_time\_warning       | time             | time of the last check warning return code                                       |
 | last\_update              | time             | time of message create                                                           |
 | latency                   | real             | delay between scheduled check time and real check time                           |
-| max\_check\_attempts      | short integer    | number of failed check after witch service state become a hard fail state        |
+| max\_check\_attempts      | short integer    | number of failed check after which service state become a hard fail state        |
 | next\_check               | time             | next scheduled check time                                                        |
 | next\_notification        | time             | next renotification time                                                         |
 | no\_more\_notifications   | boolean          | no other notification will be sent                                               |
@@ -1448,6 +1763,14 @@ or unloaded.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::InstanceConfiguration
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      25 | 65561 |
+
+The content of this message is serialized as follows:
+
 | Property   | Type             | Description                                                              | Version |
 | ---------- | ---------------- | ------------------------------------------------------------------------ | ------- |
 | loaded     | boolean          | True if the instance loaded successfully.                                |         |
@@ -1469,6 +1792,14 @@ or unloaded.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::ResponsiveInstance
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      26 | 65562 |
+
+The content of this message is serialized as follows:
+
 | Property   | Type             | Description                                                                  | Version |
 | ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
@@ -1481,291 +1812,6 @@ or unloaded.
 | ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
 | responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
-
-</TabItem>
-</Tabs>
-
-### Pb Service
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-This event is a Protobuf event so items are not serialized as in the previous
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **Service** messages should be sent, instead you should see these
-ones.
-
-Such a message is sent to declare a new service or to declare a service change.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-enum ServiceType {
-  SERVICE = 0;
-  METASERVICE = 2;
-  BA = 3;
-}
-
-message Service {
-  uint64 host_id = 1;
-  uint64 service_id = 2;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  bool acknowledged = 3;
-  AckType acknowledgement_type = 4;
-
-  bool active_checks = 5;
-  bool enabled = 6;
-  int32 scheduled_downtime_depth = 7;
-  string check_command = 8;
-  uint32 check_interval = 9;
-  string check_period = 10;
-
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 11;
-  int32 check_attempt = 12;
-  enum State {
-    OK = 0;
-    WARNING = 1;
-    CRITICAL = 2;
-    UNKNOWN = 3;
-    PENDING = 4;
-  }
-  State state = 13;
-  bool event_handler_enabled = 14;
-  string event_handler = 15;
-  double execution_time = 16;
-  bool flap_detection = 17;
-  bool checked = 18;
-  bool flapping = 19;
-  int64 last_check = 20;
-  State last_hard_state = 21;
-  int64 last_hard_state_change = 22;
-  int64 last_notification = 23;
-  int32 notification_number = 24;
-  int64 last_state_change = 25;
-  int64 last_time_ok = 26;
-  int64 last_time_warning = 27;
-  int64 last_time_critical = 28;
-  int64 last_time_unknown = 29;
-  int64 last_update = 30;
-  double latency = 31;
-  uint32 max_check_attempts = 32;
-  int64 next_check = 33;
-  int64 next_notification = 34;
-  bool no_more_notifications = 35;
-  bool notify = 36;
-  string output = 37;
-  string long_output = 38;
-  bool passive_checks = 39;
-  double percent_state_change = 40;
-  string perfdata = 41;
-  double retry_interval = 42;
-  string host_name = 43;
-  string description = 44;
-  bool should_be_scheduled = 45;
-  bool obsess_over_service = 46;
-
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-
-  StateType state_type = 47;
-  string action_url = 48;
-  bool check_freshness = 49;
-  bool default_active_checks = 50;
-  bool default_event_handler_enabled = 51;
-  bool default_flap_detection = 52;
-  bool default_notify = 53;
-  bool default_passive_checks = 54;
-  string display_name = 55;
-  double first_notification_delay = 56;
-  bool flap_detection_on_critical = 57;
-  bool flap_detection_on_ok = 58;
-  bool flap_detection_on_unknown = 59;
-  bool flap_detection_on_warning = 60;
-  double freshness_threshold = 61;
-  double high_flap_threshold = 62;
-  string icon_image = 63;
-  string icon_image_alt = 64;
-  bool is_volatile = 65;
-  double low_flap_threshold = 66;
-  string notes = 67;
-  string notes_url = 68;
-  double notification_interval = 69;
-  string notification_period = 70;
-  bool notify_on_critical = 71;
-  bool notify_on_downtime = 72;
-  bool notify_on_flapping = 73;
-  bool notify_on_recovery = 74;
-  bool notify_on_unknown = 75;
-  bool notify_on_warning = 76;
-  bool stalk_on_critical = 77;
-  bool stalk_on_ok = 78;
-  bool stalk_on_unknown = 79;
-  bool stalk_on_warning = 80;
-  bool retain_nonstatus_information = 81;
-  bool retain_status_information = 82;
-  uint64 severity_id = 83;
-  repeated TagInfo tags = 84;
-
-  ServiceType type = 85;
-
-  /* In case of metaservice and ba, they also have an internal id. We keep it
-   * here. */
-  uint64 internal_id = 86;
-  uint64 icon_id = 87;
-}
-```
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-This event is a Protobuf event so items are not serialized as in the previous
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **Service** messages should be sent, instead you should see these
-ones.
-
-Such a message is sent to declare a new service or to declare a service change.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-enum ServiceType {
-  SERVICE = 0;
-  METASERVICE = 2;
-  BA = 3;
-}
-
-message Service {
-  uint64 host_id = 1;
-  uint64 service_id = 2;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  bool acknowledged = 3;
-  AckType acknowledgement_type = 4;
-
-  bool active_checks = 5;
-  bool enabled = 6;
-  int32 scheduled_downtime_depth = 7;
-  string check_command = 8;
-  uint32 check_interval = 9;
-  string check_period = 10;
-
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 11;
-  int32 check_attempt = 12;
-  enum State {
-    OK = 0;
-    WARNING = 1;
-    CRITICAL = 2;
-    UNKNOWN = 3;
-    PENDING = 4;
-  }
-  State state = 13;
-  bool event_handler_enabled = 14;
-  string event_handler = 15;
-  double execution_time = 16;
-  bool flap_detection = 17;
-  bool checked = 18;
-  bool flapping = 19;
-  int64 last_check = 20;
-  State last_hard_state = 21;
-  int64 last_hard_state_change = 22;
-  int64 last_notification = 23;
-  int32 notification_number = 24;
-  int64 last_state_change = 25;
-  int64 last_time_ok = 26;
-  int64 last_time_warning = 27;
-  int64 last_time_critical = 28;
-  int64 last_time_unknown = 29;
-  int64 last_update = 30;
-  double latency = 31;
-  uint32 max_check_attempts = 32;
-  int64 next_check = 33;
-  int64 next_notification = 34;
-  bool no_more_notifications = 35;
-  bool notify = 36;
-  string output = 37;
-  string long_output = 38;
-  bool passive_checks = 39;
-  double percent_state_change = 40;
-  string perfdata = 41;
-  double retry_interval = 42;
-  string host_name = 43;
-  string description = 44;
-  bool should_be_scheduled = 45;
-  bool obsess_over_service = 46;
-
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-
-  StateType state_type = 47;
-  string action_url = 48;
-  bool check_freshness = 49;
-  bool default_active_checks = 50;
-  bool default_event_handler_enabled = 51;
-  bool default_flap_detection = 52;
-  bool default_notify = 53;
-  bool default_passive_checks = 54;
-  string display_name = 55;
-  double first_notification_delay = 56;
-  bool flap_detection_on_critical = 57;
-  bool flap_detection_on_ok = 58;
-  bool flap_detection_on_unknown = 59;
-  bool flap_detection_on_warning = 60;
-  double freshness_threshold = 61;
-  double high_flap_threshold = 62;
-  string icon_image = 63;
-  string icon_image_alt = 64;
-  bool is_volatile = 65;
-  double low_flap_threshold = 66;
-  string notes = 67;
-  string notes_url = 68;
-  double notification_interval = 69;
-  string notification_period = 70;
-  bool notify_on_critical = 71;
-  bool notify_on_downtime = 72;
-  bool notify_on_flapping = 73;
-  bool notify_on_recovery = 74;
-  bool notify_on_unknown = 75;
-  bool notify_on_warning = 76;
-  bool stalk_on_critical = 77;
-  bool stalk_on_ok = 78;
-  bool stalk_on_unknown = 79;
-  bool stalk_on_warning = 80;
-  bool retain_nonstatus_information = 81;
-  bool retain_status_information = 82;
-  uint64 severity_id = 83;
-  repeated TagInfo tags = 84;
-
-  ServiceType type = 85;
-
-  /* In case of metaservice and ba, they also have an internal id. We keep it
-   * here. */
-  uint64 internal_id = 86;
-  uint64 icon_id = 87;
-}
-```
 
 </TabItem>
 </Tabs>
@@ -1839,410 +1885,6 @@ message AdaptiveService {
 </TabItem>
 </Tabs>
 
-### Pb Service Status
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-When BBDO 3 version is used, this type of event is sent instead of
-**Service Status**. Its content is almost the same but the old one contains some
-configuration items you don't have here, A **Pb Service Status** is smaller than
-a **Service Status**. Missing items can be found in **Pb Service**.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message ServiceStatus {
-  uint64 host_id = 1;
-  uint64 service_id = 2;
-
-  bool checked = 3;
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 4;
-
-  enum State {
-    OK = 0;
-    WARNING = 1;
-    CRITICAL = 2;
-    UNKNOWN = 3;
-    PENDING = 4;
-  }
-  State state = 5;
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-  StateType state_type = 6;
-  int64 last_state_change = 7;
-  State last_hard_state = 8;
-  int64 last_hard_state_change = 9;
-  int64 last_time_ok = 10;
-  int64 last_time_warning = 11;
-  int64 last_time_critical = 12;
-  int64 last_time_unknown = 13;
-
-  string output = 14;
-  string long_output = 15;
-  string perfdata = 16;
-
-  bool flapping = 17;
-  double percent_state_change = 18;
-  double latency = 19;
-  double execution_time = 20;
-  int64 last_check = 21;
-  int64 next_check = 22;
-  bool should_be_scheduled = 23;
-  int32 check_attempt = 24;
-
-  int32 notification_number = 25;
-  bool no_more_notifications = 26;
-  int64 last_notification = 27;
-  int64 next_notification = 28;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  AckType acknowledgement_type = 29;
-  int32 scheduled_downtime_depth = 30;
-
-  ServiceType type = 31;
-
-  /* In case of metaservice and ba, they also have an internal id. We keep it
-   * here. */
-  uint64 internal_id = 32;
-}
-```
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-When BBDO 3 version is used, this type of event is sent instead of
-**Service Status**. Its content is almost the same but the old one contains some
-configuration items you don't have here, A **Pb Service Status** is smaller than
-a **Service Status**. Missing items can be found in **Pb Service**.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message ServiceStatus {
-  uint64 host_id = 1;
-  uint64 service_id = 2;
-
-  bool checked = 3;
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 4;
-
-  enum State {
-    OK = 0;
-    WARNING = 1;
-    CRITICAL = 2;
-    UNKNOWN = 3;
-    PENDING = 4;
-  }
-  State state = 5;
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-  StateType state_type = 6;
-  int64 last_state_change = 7;
-  State last_hard_state = 8;
-  int64 last_hard_state_change = 9;
-  int64 last_time_ok = 10;
-  int64 last_time_warning = 11;
-  int64 last_time_critical = 12;
-  int64 last_time_unknown = 13;
-
-  string output = 14;
-  string long_output = 15;
-  string perfdata = 16;
-
-  bool flapping = 17;
-  double percent_state_change = 18;
-  double latency = 19;
-  double execution_time = 20;
-  int64 last_check = 21;
-  int64 next_check = 22;
-  bool should_be_scheduled = 23;
-  int32 check_attempt = 24;
-
-  int32 notification_number = 25;
-  bool no_more_notifications = 26;
-  int64 last_notification = 27;
-  int64 next_notification = 28;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  AckType acknowledgement_type = 29;
-  int32 scheduled_downtime_depth = 30;
-
-  ServiceType type = 31;
-
-  /* In case of metaservice and ba, they also have an internal id. We keep it
-   * here. */
-  uint64 internal_id = 32;
-}
-```
-
-</TabItem>
-</Tabs>
-
-### Pb Host
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-When BBDO 3 version is used, this type of event is sent instead of
-**Host**. Its content is almost the same.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message Host {
-  uint64 host_id = 1;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  bool acknowledged = 2;
-  int32 acknowledgement_type = 3;
-
-  bool active_checks = 4;
-  bool enabled = 5;
-  int32 scheduled_downtime_depth = 6;
-  string check_command = 7;
-  int32 check_interval = 8;
-  string check_period = 9;
-
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 10;
-  int32 check_attempt = 11;
-  enum State {
-    UP = 0;
-    DOWN = 1;
-    UNREACHABLE = 2;
-  }
-  State state = 12;
-  bool event_handler_enabled = 13;
-  string event_handler = 14;
-  double execution_time = 15;
-  bool flap_detection = 16;
-  bool checked = 17;
-  bool flapping = 18;
-  int64 last_check = 19;
-  State last_hard_state = 20;
-  int64 last_hard_state_change = 21;
-  int64 last_notification = 22;
-  int32 notification_number = 23;
-  int64 last_state_change = 24;
-  int64 last_time_down = 25;
-  int64 last_time_unreachable = 26;
-  int64 last_time_up = 27;
-  int64 last_update = 28;
-  double latency = 29;
-  int32 max_check_attempts = 30;
-  int64 next_check = 31;
-  int64 next_host_notification = 32;
-  bool no_more_notifications = 33;
-  bool notify = 34;
-  string output = 35;
-  bool passive_checks = 36;
-  double percent_state_change = 37;
-  string perfdata = 38;
-  double retry_interval = 39;
-  bool should_be_scheduled = 40;
-  bool obsess_over_host = 41;
-
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-
-  StateType state_type = 42;
-  string action_url = 43;
-  string address = 44;
-  string alias = 45;
-  bool check_freshness = 46;
-  bool default_active_checks = 47;
-  bool default_event_handler_enabled = 48;
-  bool default_flap_detection = 49;
-  bool default_notify = 50;
-  bool default_passive_checks = 51;
-  string display_name = 52;
-  double first_notification_delay = 53;
-  bool flap_detection_on_down = 54;
-  bool flap_detection_on_unreachable = 55;
-  bool flap_detection_on_up = 56;
-  double freshness_threshold = 57;
-  double high_flap_threshold = 58;
-  string name = 59;
-  string icon_image = 60;
-  string icon_image_alt = 61;
-  int32 instance_id = 62;
-  double low_flap_threshold = 63;
-  string notes = 64;
-  string notes_url = 65;
-  double notification_interval = 66;
-  string notification_period = 67;
-  bool notify_on_down = 68;
-  bool notify_on_downtime = 69;
-  bool notify_on_flapping = 70;
-  bool notify_on_recovery = 71;
-  bool notify_on_unreachable = 72;
-  bool stalk_on_down = 73;
-  bool stalk_on_unreachable = 74;
-  bool stalk_on_up = 75;
-  string statusmap_image = 76;
-  bool retain_nonstatus_information = 77;
-  bool retain_status_information = 78;
-  string timezone = 79;
-  uint64 severity_id = 80;
-  repeated TagInfo tags = 81;
-  uint64 icon_id = 82;
-}
-```
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-When BBDO 3 version is used, this type of event is sent instead of
-**Host**. Its content is almost the same.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message Host {
-  uint64 host_id = 1;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  bool acknowledged = 2;
-  int32 acknowledgement_type = 3;
-
-  bool active_checks = 4;
-  bool enabled = 5;
-  int32 scheduled_downtime_depth = 6;
-  string check_command = 7;
-  int32 check_interval = 8;
-  string check_period = 9;
-
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 10;
-  int32 check_attempt = 11;
-  enum State {
-    UP = 0;
-    DOWN = 1;
-    UNREACHABLE = 2;
-  }
-  State state = 12;
-  bool event_handler_enabled = 13;
-  string event_handler = 14;
-  double execution_time = 15;
-  bool flap_detection = 16;
-  bool checked = 17;
-  bool flapping = 18;
-  int64 last_check = 19;
-  State last_hard_state = 20;
-  int64 last_hard_state_change = 21;
-  int64 last_notification = 22;
-  int32 notification_number = 23;
-  int64 last_state_change = 24;
-  int64 last_time_down = 25;
-  int64 last_time_unreachable = 26;
-  int64 last_time_up = 27;
-  int64 last_update = 28;
-  double latency = 29;
-  int32 max_check_attempts = 30;
-  int64 next_check = 31;
-  int64 next_host_notification = 32;
-  bool no_more_notifications = 33;
-  bool notify = 34;
-  string output = 35;
-  bool passive_checks = 36;
-  double percent_state_change = 37;
-  string perfdata = 38;
-  double retry_interval = 39;
-  bool should_be_scheduled = 40;
-  bool obsess_over_host = 41;
-
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-
-  StateType state_type = 42;
-  string action_url = 43;
-  string address = 44;
-  string alias = 45;
-  bool check_freshness = 46;
-  bool default_active_checks = 47;
-  bool default_event_handler_enabled = 48;
-  bool default_flap_detection = 49;
-  bool default_notify = 50;
-  bool default_passive_checks = 51;
-  string display_name = 52;
-  double first_notification_delay = 53;
-  bool flap_detection_on_down = 54;
-  bool flap_detection_on_unreachable = 55;
-  bool flap_detection_on_up = 56;
-  double freshness_threshold = 57;
-  double high_flap_threshold = 58;
-  string name = 59;
-  string icon_image = 60;
-  string icon_image_alt = 61;
-  int32 instance_id = 62;
-  double low_flap_threshold = 63;
-  string notes = 64;
-  string notes_url = 65;
-  double notification_interval = 66;
-  string notification_period = 67;
-  bool notify_on_down = 68;
-  bool notify_on_downtime = 69;
-  bool notify_on_flapping = 70;
-  bool notify_on_recovery = 71;
-  bool notify_on_unreachable = 72;
-  bool stalk_on_down = 73;
-  bool stalk_on_unreachable = 74;
-  bool stalk_on_up = 75;
-  string statusmap_image = 76;
-  bool retain_nonstatus_information = 77;
-  bool retain_status_information = 78;
-  string timezone = 79;
-  uint64 severity_id = 80;
-  repeated TagInfo tags = 81;
-  uint64 icon_id = 82;
-}
-```
-
-</TabItem>
-</Tabs>
-
 ### Pb Adaptive host
 
 <Tabs groupId="sync">
@@ -2310,147 +1952,6 @@ message AdaptiveHost {
 </TabItem>
 </Tabs>
 
-### Pb Host Status
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-When BBDO 3 version is used, this type of event is sent instead of
-**Host Status**. Its content is almost the same but the old one contains some
-configuration items you don't have here, A **Pb Host Status** is smaller than
-a **Host Status**. Missing items can be found in **Pb Host**.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message HostStatus {
-  uint64 host_id = 1;
-
-  bool checked = 2;
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 3;
-
-  enum State {
-    UP = 0;
-    DOWN = 1;
-    UNREACHABLE = 2;
-  }
-  State state = 4;
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-  StateType state_type = 5;
-  int64 last_state_change = 6;
-  State last_hard_state = 7;
-  int64 last_hard_state_change = 8;
-  int64 last_time_up = 9;
-  int64 last_time_down = 10;
-  int64 last_time_unreachable = 11;
-
-  string output = 12;
-  string long_output = 13;
-  string perfdata = 14;
-
-  bool flapping = 15;
-  double percent_state_change = 16;
-  double latency = 17;
-  double execution_time = 18;
-  int64 last_check = 19;
-  int64 next_check = 20;
-  bool should_be_scheduled = 21;
-  int32 check_attempt = 22;
-
-  int32 notification_number = 23;
-  bool no_more_notifications = 24;
-  int64 last_notification = 25;
-  int64 next_host_notification = 26;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  AckType acknowledgement_type = 27;
-  int32 scheduled_downtime_depth = 28;
-}
-```
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-When BBDO 3 version is used, this type of event is sent instead of
-**Host Status**. Its content is almost the same but the old one contains some
-configuration items you don't have here, A **Pb Host Status** is smaller than
-a **Host Status**. Missing items can be found in **Pb Host**.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message HostStatus {
-  uint64 host_id = 1;
-
-  bool checked = 2;
-  enum CheckType {
-    ACTIVE = 0;
-    PASSIVE = 1;
-  }
-  CheckType check_type = 3;
-
-  enum State {
-    UP = 0;
-    DOWN = 1;
-    UNREACHABLE = 2;
-  }
-  State state = 4;
-  enum StateType {
-    SOFT = 0;
-    HARD = 1;
-  }
-  StateType state_type = 5;
-  int64 last_state_change = 6;
-  State last_hard_state = 7;
-  int64 last_hard_state_change = 8;
-  int64 last_time_up = 9;
-  int64 last_time_down = 10;
-  int64 last_time_unreachable = 11;
-
-  string output = 12;
-  string long_output = 13;
-  string perfdata = 14;
-
-  bool flapping = 15;
-  double percent_state_change = 16;
-  double latency = 17;
-  double execution_time = 18;
-  int64 last_check = 19;
-  int64 next_check = 20;
-  bool should_be_scheduled = 21;
-  int32 check_attempt = 22;
-
-  int32 notification_number = 23;
-  bool no_more_notifications = 24;
-  int64 last_notification = 25;
-  int64 next_host_notification = 26;
-
-  enum AckType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
-  }
-  AckType acknowledgement_type = 27;
-  int32 scheduled_downtime_depth = 28;
-}
-```
-
-</TabItem>
-</Tabs>
-
 ### Pb Severity
 
 <Tabs groupId="sync">
@@ -2506,81 +2007,6 @@ message Severity {
   }
   Type type = 6;
   uint64 poller_id = 7;
-}
-```
-
-</TabItem>
-</Tabs>
-
-### Pb Tag
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-This event comes with BBDO 3. It is used to associate a tag to a resource.
-There are four types of tag, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**,
-**HOSTCATEGORY**. A tag is not associated with a poller, but we must know for
-internal handling which poller sent the tag, that is why there is a **poller\_id**
-item in the message.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-enum TagType {
-  SERVICEGROUP = 0;
-  HOSTGROUP = 1;
-  SERVICECATEGORY = 2;
-  HOSTCATEGORY = 3;
-}
-
-message Tag {
-  uint64 id = 1;
-  enum Action {
-    ADD = 0;
-    DELETE = 1;
-    MODIFY = 2;
-  }
-
-  Action action = 2;
-  TagType type = 3;
-  string name = 4;
-  int64 poller_id = 5;
-}
-```
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-This event comes with BBDO 3. It is used to associate a tag to a resource.
-There are four types of tag, **SERVICEGROUP**, **HOSTGROUP**, **SERVICECATEGORY**,
-**HOSTCATEGORY**. A tag is not associated with a poller, but we must know for
-internal handling which poller sent the tag, that is why there is a **poller\_id**
-item in the message.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-enum TagType {
-  SERVICEGROUP = 0;
-  HOSTGROUP = 1;
-  SERVICECATEGORY = 2;
-  HOSTCATEGORY = 3;
-}
-
-message Tag {
-  uint64 id = 1;
-  enum Action {
-    ADD = 0;
-    DELETE = 1;
-    MODIFY = 2;
-  }
-
-  Action action = 2;
-  TagType type = 3;
-  string name = 4;
-  int64 poller_id = 5;
 }
 ```
 
