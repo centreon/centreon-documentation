@@ -64,7 +64,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 > Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -76,10 +76,10 @@ dnf install https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centr
     ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 > Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -87,7 +87,7 @@ yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/ce
 2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
     ```shell
-    yum update centreon-map-server
+    dnf update centreon-map-server
     ```
 
 </TabItem>
@@ -138,11 +138,12 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 ```shell
 dnf update centreon-map-web-client
 ```
+
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update centreon-map-web-client
+dnf update centreon-map-web-client
 ```
 
 </TabItem>

@@ -69,7 +69,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
@@ -82,10 +82,10 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
     ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 > Install the Centreon Business repository, you can find it on the
@@ -94,7 +94,7 @@ yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/ce
 2. Update the Centreon MAP (Legacy) server:
 
     ```shell
-    yum update centreon-map-server
+    dnf update centreon-map-server
     ```
 
 </TabItem>
@@ -144,10 +144,10 @@ echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release
 dnf update centreon-map-web-client
 ```
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update centreon-map-web-client
+dnf update centreon-map-web-client
 ```
 
 </TabItem>
