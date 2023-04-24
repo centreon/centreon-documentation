@@ -20,13 +20,13 @@ between BBDO v2 and BBDO v3.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-#### NEB::acknowledgement
+#### NEB::Acknowledgement
 
 | Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |       1 | 65537 |
 
-The content of the message is serialized as follows:
+The content of this message is serialized as follows:
 
 | Property                                     | Type             | Description                                                              |
 | -------------------------------------------- | ---------------- | ------------------------------------------------------------------------ |
@@ -89,13 +89,13 @@ event differs between BBDO v2 and BBDO v3.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-#### NEB::comment
+#### NEB::Comment
 
 | Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |       2 | 65538 |
 
-The content of the message is serialized as follows:
+The content of this message is serialized as follows:
 
 | Property       | Type             | Description                                                                                                                               |
 | -------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -182,13 +182,13 @@ a _custom variable_ event. This event differs between BBDO v2 and BBDO v3.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-#### NEB::customvariable
+#### NEB::CustomVariable
 
 | Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |       3 | 65539 |
 
-The content of the message is serialized as follows:
+The content of this message is serialized as follows:
 
 | Property       | Type             | Description                                                    |
 | -------------- | ---------------- | -------------------------------------------------------------- |
@@ -249,6 +249,14 @@ to be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### NEB::CustomVariableStatus
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       4 | 65540 |
+
+The content of this message is serialized as follows:
+
 | Property     | Type             | Description                                      |
 | ------------ | ---------------- | ------------------------------------------------ |
 | host\_id     | unsigned integer | Host ID.                                         |
@@ -261,22 +269,59 @@ to be updated.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property     | Type             | Description                                      |
-| ------------ | ---------------- | ------------------------------------------------ |
-| host\_id     | unsigned integer | Host ID.                                         |
-| modified     | boolean          | True if the variable was modified.               |
-| name         | string           | Variable name.                                   |
-| service\_id  | unsigned integer | Service ID. 0 if this is a host custom variable. |
-| update\_time | time             | Last time at which the variable was updated.     |
-| value        | string           | Variable value.                                  |
+#### NEB::PbCustomVariableStatus
+
+| category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      38 | 65574 |
+
+The Protobuf message of a PbCustomVariableStatus is the same as for a PbCustomVariable.
+You just have to know that some of the fields may not be filled.
+
+This event finally needs the following messages:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+message CustomVariable {
+  enum VarType {
+    HOST = 0;
+    SERVICE = 1;
+  }
+
+  BBDOHeader header = 1;     // Not used
+  uint64 host_id = 2;        // Host ID.
+  uint64 service_id = 3;     // Service ID or 0 for a host custom variable.
+  bool modified = 4;         // True if the variable was modified.
+  string name = 5;           // Variable name.
+  uint64 update_time = 6;    // Last time at which the variable was updated.
+  string value = 7;          // Variable value.
+  string default_value = 8;  // The default value of the custom variable.
+  bool enabled = 9;          // True if the custom variable is enabled.
+  bool password = 10;        // True if the value must be hidden.
+  VarType type = 11;         // One of the values of the VarType enum.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Downtime
 
+This event is emit by Centreon Engine when a downtime is set on a resource.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### NEB::Downtime
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       5 | 65541 |
+
+The content of this message is serialized as follows:
 
 | Property            | Type             | Description                                                |
 | ------------------- | ---------------- | ---------------------------------------------------------- |
@@ -305,37 +350,65 @@ to be updated.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property            | Type             | Description                                                |
-| ------------------- | ---------------- | ---------------------------------------------------------- |
-| actual\_end\_time   | time             | Actual time at which the downtime ended.                   |
-| actual\_start\_time | time             | Actual time at which the downtime started.                 |
-| author              | string           | Downtime creator.                                          |
-| downtime\_type      | short integer    | 1 for a service downtime, 2 for a host downtime.           |
-| deletion\_time      | time             | Time at which the downtime was deleted.                    |
-| duration            | time             | Downtime duration.                                         |
-| end\_time           | time             | Scheduled downtime end time.                               |
-| entry\_time         | time             | Time at which the downtime was created.                    |
-| fixed               | boolean          | True if the downtime is fixed, false if it is flexible.    |
-| host\_id            | unsigned integer | Host ID.                                                   |
-| instance\_id        | unsigned integer | Instance ID.                                               |
-| internal\_id        | unsigned integer | Internal monitoring engine ID.                             |
-| service\_id         | unsigned integer | Service ID. 0 if this is a host downtime.                  |
-| start\_time         | time             | Scheduled downtime start time.                             |
-| triggered\_by       | unsigned integer | Internal ID of the downtime that triggered this downtime.  |
-| was\_cancelled      | boolean          | True if the downtime was cancelled.                        |
-| was\_started        | boolean          | True if the downtime has been started.                     |
-| comment             | string           | Downtime comment.                                          |
-| is\_recurring       | boolean          | True if this downtime is recurring.                        |
-| recurring\_tp       | string           | The recurring timepriod of the recurring downtime.         |
-| come\_from          | short            | Id of the parent recurring downtime for spawned downtimes. |
+#### NEB::PbDowntime
+
+| category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      36 | 65572 |
+
+The Protobuf message of a PbDowntime is the same as for a PbCustomVariable.
+You just have to know that some of the fields may not be filled.
+
+This event finally needs the following messages:
+
+```cpp
+message Downtime {
+  enum DowntimeType {
+    NOT_USED = 0;
+    SERVICE = 1;                  // The downtime is set on a service.
+    HOST = 2;                     // The downtime is set on a host.
+    ANY = 3;                      // This is kept for retro compatibility (not used).
+  };
+  uint64 id = 1;                  // Internal monitoring engine ID.
+  uint64 instance_id = 2;         // Instance ID.
+  uint64 host_id = 3;             // Host ID.
+  uint64 service_id = 4;          // Service ID or 0 if this is a host downtime.
+  string author = 5;              // Downtime author.
+  string comment_data = 6;        // Downtime comment.
+  DowntimeType type = 7;          // One value from the previous enum.
+  uint32 duration = 8;            // Downtime duration.
+  uint64 triggered_by = 9;        // Internal ID of the downtime that triggered this downtime.
+  int64 entry_time = 10;          // Time at which the downtime was created.
+  uint64 actual_start_time = 11;  // Actual time at which the downtime started.
+  uint64 actual_end_time = 12;    // Actual time at which the downtime ended.
+  uint64 start_time = 13;         // Scheduled downtime start time.
+  uint64 deletion_time = 14;      // Time at which the downtime was deleted.
+  uint64 end_time = 15;           // Scheduled downtime end time.
+  bool started = 16;              // True if the downtime has been started.
+  bool cancelled = 17;            // True if the downtime was cancelled.
+  bool fixed = 18;                // True if the downtime is fixed, false if it is flexible.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Event handler
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
+_Event handlers_ are optional system commands (scripts or executables) that are
+run whenever a resource state change occurs. When a such command is configured,
+an _event handler_ event is emit by Centreon Engine. These BBDO events are
+usually sent when Centreon Engine is restarted or reloaded.
+
+There is no Protobuf event for an event handler.
+
+#### NEB::EventHandler
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |       6 | 65542 |
+
+The content of this message is serialized as follows:
 
 | Property        | Type             | Description                                                                                                                                      |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -355,85 +428,59 @@ to be updated.
 | output          | string           | Output returned by the event handler.                                                                                                            |
 | source\_id      | unsigned integer | The id of the source instance of this event.                                                                                                     |
 | destination\_id | unsigned integer | The id of the destination instance of this event.                                                                                                |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-| Property        | Type             | Description                                                                                                                                      |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| early\_timeout  | boolean          | True if the event handler timed out.                                                                                                             |
-| end\_time       | time             | Time at which the event handler execution ended.                                                                                                 |
-| execution\_time | real             | Execution time in seconds.                                                                                                                       |
-| handler\_type   | short integer    | 0 for host-specific event handler, 1 for service-specific event handler, 2 for global host event handler and 3 for global service event handler. |
-| host\_id        | unsigned integer | Host ID.                                                                                                                                         |
-| return\_code    | short integer    | Value returned by the event handler.                                                                                                             |
-| service\_id     | unsigned integer | Service ID. 0 if this is a host event handler.                                                                                                   |
-| start\_time     | time             | Time at which the event handler started.                                                                                                         |
-| state           | short integer    | Host / service state.                                                                                                                            |
-| state\_type     | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                          |
-| timeout         | short integer    | Event handler timeout in seconds.                                                                                                                |
-| command\_args   | string           | Event handler arguments.                                                                                                                         |
-| command\_line   | string           | Event handler command line.                                                                                                                      |
-| output          | string           | Output returned by the event handler.                                                                                                            |
-| source\_id      | unsigned integer | The id of the source instance of this event.                                                                                                     |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                                                                                                |
-
-</TabItem>
-</Tabs>
 
 ### Flapping status
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
+When a resource state is unstable, Centreon Engine tags it as _flapping_. There
+was a time when a _flapping status_ event was emit in such case. It is no more
+the case. The _flapping status_ event does not exist anymore.
 
-| Property               | Type             | Description                                       |
-| ---------------------- | ---------------- | ------------------------------------------------- |
-| event\_time            | time             | Time at witch the flapping event has been occured |
-| event\_type            | integer          | 1000 for start, 1001 stop                         |
-| flapping\_type         | short integer    | 0 for host, 1 for service                         |
-| high\_threshold        | real             | High flapping threshold.                          |
-| host\_id               | unsigned integer | Host ID.                                          |
-| low\_threshold         | real             | Low flapping threshold.                           |
-| percent\_state\_change | real             | percent of state change                           |
-| reason\_type           | short integer    | not used                                          |
-| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry.   |
+### Tag
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+The _tag_ is a new configuration event currently used for categories and groups.
 
-| Property               | Type             | Description                                       |
-| ---------------------- | ---------------- | ------------------------------------------------- |
-| event\_time            | time             | Time at witch the flapping event has been occured |
-| event\_type            | integer          | 1000 for start, 1001 stop                         |
-| flapping\_type         | short integer    | 0 for host, 1 for service                         |
-| high\_threshold        | real             | High flapping threshold.                          |
-| host\_id               | unsigned integer | Host ID.                                          |
-| low\_threshold         | real             | Low flapping threshold.                           |
-| percent\_state\_change | real             | percent of state change                           |
-| reason\_type           | short integer    | not used                                          |
-| service\_id            | unsigned integer | Service ID. 0 if this is a host flapping entry.   |
-
-</TabItem>
-</Tabs>
-
-### TagInfo (BBDO v3 only)
+At the moment, it is used in parallel with _group_ events and other things but
+in a near future should be more global.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-Only BBDO v3
+There are no _tag_ in BBDO v2.
 
 </TabItem>
 
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property  | Type             | Description                                         |
-| --------- | ---------------- | --------------------------------------------------- |
-| id        | unsigned integer | unique id of the tag                                |
-| action    | Action           | ADD DELETE MODIFY                                   |
-| type      | TagType          | SERVICEGROUP HOSTGROUP SERVICECATEGORY HOSTCATEGORY |
-| name      | string           | name                                                |
-| poller_id | unsigned integer | id of the poller                                    |
+#### NEB::Tag
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      34 | 65570 |
+
+The Protobuf messages for this event are:
+
+```cpp
+enum TagType {
+  SERVICEGROUP = 0;       // Tag representing a service group
+  HOSTGROUP = 1;          // Tag representing a host group
+  SERVICECATEGORY = 2;    // Tag representing a service category
+  HOSTCATEGORY = 3;       // Tag representing a host category
+}
+
+message Tag {
+  uint64 id = 1;          // Tag ID (unicity obtained by coupling it with the type)
+  enum Action {
+    ADD = 0;              // With this action, the event adds a new tag.
+    DELETE = 1;           // With this action, the event removes a tag.
+    MODIFY = 2;           // With this action, the event modifies a tag.
+  }
+
+  Action action = 2;      // The current action for this event.
+  TagType type = 3;       // The type of this tag.
+  string name = 4;        // Name of this tag.
+  int64 poller_id = 5;    // Poller ID.
+}
+```
 
 </TabItem>
 </Tabs>

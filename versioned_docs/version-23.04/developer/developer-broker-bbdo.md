@@ -91,45 +91,46 @@ The table below lists event types available in the NEB category. They
 have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 
 
-| Type                                                                    | Value | Uses Protobuf |
-|-------------------------------------------------------------------------|-------|---------------|
-| [Acknowledgement](../developer-broker-mapping/#nebacknowledgement)      | 1     |            No |
-| [Comment](../developer-broker-mapping/#nebcomment)                      | 2     |            No |
-| [Custom variable](../developer-broker-mapping/#nebcustomvariable)       | 3     |            No |
-| Custom variable status                                                  | 4     |            No |
-| Downtime                                                                | 5     |            No |
-| Event handler                                                           | 6     |            No |
-| Flapping status                                                         | 7     |            No |
-| Host check                                                              | 8     |            No |
-| Host dependency                                                         | 9     |            No |
-| Host group                                                              | 10    |            No |
-| Host group member                                                       | 11    |            No |
-| Host                                                                    | 12    |            No |
-| Host parent                                                             | 13    |            No |
-| Host status                                                             | 14    |            No |
-| Instance                                                                | 15    |            No |
-| Instance status                                                         | 16    |            No |
-| Log entry                                                               | 17    |            No |
-| Module                                                                  | 18    |            No |
-| Service check                                                           | 19    |            No |
-| Service dependency                                                      | 20    |            No |
-| Service group                                                           | 21    |            No |
-| Service group member                                                    | 22    |            No |
-| Service                                                                 | 23    |            No |
-| Service status                                                          | 24    |            No |
-| Instance Configuration                                                  | 25    |            No |
-| Responsive Instance                                                     | 26    |            No |
-| Pb Service                                                              | 27    |           Yes |
-| Pb Adaptive Service                                                     | 28    |           Yes |
-| Pb Service Status                                                       | 29    |           Yes |
-| Pb Host                                                                 | 30    |           Yes |
-| Pb Adaptive Host                                                        | 31    |           Yes |
-| Pb Host Status                                                          | 32    |           Yes |
-| Pb Severity                                                             | 33    |           Yes |
-| Pb Tag                                                                  | 34    |           Yes |
-| [Pb Comment](../developer-broker-mapping/#nebpbcomment)                 | 35    |           Yes |
-| [Pb Custom variable](../developer-broker-mapping/#nebpbcustomvariable)  | 37    |           Yes |
-| [Pb Acknowledgement](../developer-broker-mapping/#nebpbacknowledgement) | 45    |           Yes |
+| Type                                                                                | Value | Uses Protobuf |
+|-------------------------------------------------------------------------------------|-------|---------------|
+| [Acknowledgement](../developer-broker-mapping/#nebacknowledgement)                  | 1     |            No |
+| [Comment](../developer-broker-mapping/#nebcomment)                                  | 2     |            No |
+| [Custom variable](../developer-broker-mapping/#nebcustomvariable)                   | 3     |            No |
+| [Custom variable status](../developer-broker-mapping/#nebcustomvariablestatus)      | 4     |            No |
+| [Downtime](../developer-broker-mapping/#nebdowntime)                                | 5     |            No |
+| [Event handler](../developer-broker-mapping/#nebeventhandler)                       | 6     |            No |
+| [Host check](../developer-broker-mapping/#nebhostcheck)                             | 8     |            No |
+| [Host dependency](../developer-broker-mapping/#nebhostdependency)                   | 9     |            No |
+| [Host group](../developer-broker-mapping/#nebhostgroup)                             | 10    |            No |
+| [Host group member](../developer-broker-mapping/#hostgroupmember)                   | 11    |            No |
+| [Host](../developer-broker-mapping/#host)                                           | 12    |            No |
+| [Host parent](../developer-broker-mapping/#hostparent)                              | 13    |            No |
+| [Host status](../developer-broker-mapping/#hoststatus)                              | 14    |            No |
+| [Instance](../developer-broker-mapping/#instance)                                   | 15    |            No |
+| [Instance status](../developer-broker-mapping/#instancestatus)                      | 16    |            No |
+| [Log entry](../developer-broker-mapping/#logentry)                                  | 17    |            No |
+| [Module](../developer-broker-mapping/#module)                                       | 18    |            No |
+| [Service check](../developer-broker-mapping/#servicecheck)                          | 19    |            No |
+| [Service dependency](../developer-broker-mapping/#servicedependency)                | 20    |            No |
+| [Service group](../developer-broker-mapping/#servicegroup)                          | 21    |            No |
+| [Service group member](../developer-broker-mapping/#servicegroupmember)             | 22    |            No |
+| [Service](../developer-broker-mapping/#service)                                     | 23    |            No |
+| [Service status](../developer-broker-mapping/#servicestatus)                        | 24    |            No |
+| [Instance Configuration](../developer-broker-mapping/#instanceconfiguration)        | 25    |            No |
+| [Responsive Instance](../developer-broker-mapping/#responsiveinstance)              | 26    |            No |
+| [Pb Service](../developer-broker-mapping/#pbservice)                                | 27    |           Yes |
+| [Pb Adaptive Service](../developer-broker-mapping/#pbadaptiveservice)               | 28    |           Yes |
+| [Pb Service Status](../developer-broker-mapping/#pbservicestatus)                   | 29    |           Yes |
+| [Pb Host](../developer-broker-mapping/#pbhost)                                      | 30    |           Yes |
+| [Pb Adaptive Host](../developer-broker-mapping/#pbadaptivehost)                     | 31    |           Yes |
+| [Pb Host Status](../developer-broker-mapping/#pbhoststatus)                         | 32    |           Yes |
+| [Pb Severity](../developer-broker-mapping/#pbseverity)                              | 33    |           Yes |
+| [Pb Tag](../developer-broker-mapping/#nebtag)                                       | 34    |           Yes |
+| [Pb Comment](../developer-broker-mapping/#nebpbcomment)                             | 35    |           Yes |
+| [Pb Downtime](../developer-broker-mapping/#nebpbdowntime)                           | 36    |           Yes |
+| [Pb Custom variable](../developer-broker-mapping/#nebpbcustomvariable)              | 37    |           Yes |
+| [Pb Custom variable status](../developer-broker-mapping/#nebpbcustomvariablestatus) | 38    |           Yes |
+| [Pb Acknowledgement](../developer-broker-mapping/#nebpbacknowledgement)             | 45    |           Yes |
 
 ### Storage
 
