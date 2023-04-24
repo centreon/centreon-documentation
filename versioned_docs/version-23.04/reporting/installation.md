@@ -230,28 +230,6 @@ dnf install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Install **gpg**:
-
-```shell
-apt install gpg
-```
-
-Import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Then install Centreon MBI:
-
 ```shell
 apt update && apt install centreon-bi-server
 ```
@@ -599,6 +577,12 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install the Centreon repository :
+￼
+￼```shell
+￼echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+￼```
+
 Install the prerequisite packages:
 
 ```shell
@@ -799,39 +783,35 @@ Once the installation is complete, continue to the next chapter to configure the
 In some cases, SSH key exchange fails.
 To solve the problem, do the following manually:
 
-**On the monitoring server**. To start, switch to the `bash` environment of `centreonBI` :
+Switch to the `centreonBI` user :
 
 ```bash
 su - centreonBI
 ```
 
-Next, generate an SSH key to prepare the :
+Generate the SSH key :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
+ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -P "" -q
 ```
 
-Then, **on the reporting server**, switch to the `bash` environment of `centreonBI` :
+And print the `centreonBI` public key (in order to authorize it then on Centreon) :
 
 ```bash
 su - centreonBI
+cat /home/centreonBI/.ssh/id_ed25519.pub
 ```
 
-Generate the SSH key:
+Now, **on the monitoring server** :
+
+Create a `.ssh` folder that `centreonBI` will own, restrict permissions on this folder and paste into the `authorized_keys` file the contents of its public key on the reporting server (shown earlier) :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
-cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@reporting pub key content@" > /home/centreonBI/.ssh/authorized_keys
 ```
 
-After executing these commands, copy the contents of the file that was displayed by the `cat` command and paste it into the **~/.ssh/authorized_keys** **file on the monitoring server**
-and then apply the correct permissions to the file (still as the `centreon` user) and then apply the correct permissions to the file (still as the `centreon` user):
-
-```bash
-chmod 600 ~/.ssh/authorized_keys
-```
-
-The key exchange must then be validated by a first connection that will accept the SSH server signature (always as the `centreonBI` user) **from the reporting server** :
+The key exchange must then be validated by a first connection that will accept the SSH server signature.
+As the `centreonBI` user **from the reporting server** :
 
 ```bash
 ssh centreonBI@@MONITORING_SERVER@
