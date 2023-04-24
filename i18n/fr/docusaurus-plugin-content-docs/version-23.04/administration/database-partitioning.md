@@ -44,7 +44,7 @@ open_files_limit = 32000
 ```
 
 > Si vous
-> installez Centreon via les RPM sur votre propre server RedHat ou CentOS, vous
+> installez Centreon via les RPM sur votre propre server RedHat, vous
 > serez obligé de réaliser cette configuration manuellement. N'oubliez pas de
 > redémarrer le service mysql / mariadb si vous avez besoin de configurer ce
 > paramètre dans le fichier my.cnf.

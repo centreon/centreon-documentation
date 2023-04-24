@@ -2,6 +2,8 @@
 id: pluginpacks
 title: Utiliser des Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Un Plugin Pack est un jeu téléchargeable
 de modèles de configuration qui permet un déploiement rapide de la supervision de votre infrastructure IT. Les Plugin Packs sont le moyen le plus simple de mettre un hôte en supervision.
@@ -30,9 +32,29 @@ recommandé de rester à jour sur ce composant.
 
 Pour mettre à jour le module, lancez la commande :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum update centreon-pp-manager
+dnf update centreon-pp-manager
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-pp-manager
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update centreon-pp-manager
+```
+
+</TabItem>
+</Tabs>
 
 ### Licence
 
@@ -62,23 +84,61 @@ Un plugin pack s'installe en 4 étapes :
 
 ### Accéder au catalogue des Plugin Packs
 
-* Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
-* Si vous avez une licence **hors ligne** :
-  - installez le dépôt des Plugin Packs (rendez-vous sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en obtenir l'adresse)
-  - installez ou mettez à jour le catalogue des Plugin Packs
+#### Licence en ligne
+
+Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme à la page **Configuration > Packs de plugins**.
+
+#### Licence hors ligne
+
+Si vous avez une licence **hors ligne** :
+
+- installez le dépôt des Plugin Packs (rendez-vous sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en obtenir l'adresse)
+- installez ou mettez à jour le catalogue des Plugin Packs
 depuis votre serveur central :
 
-  ```shell
-  yum install centreon-pack-*
-  ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-  Ou:
+```shell
+dnf install centreon-pack-*
+```
 
-  ```shell
-  yum update centreon-pack-*
-  ```
+or:
 
-  > Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des Plugin Packs disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
+```shell
+dnf update centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-pack-*
+```
+
+or:
+
+```shell
+dnf update centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-pack-*
+```
+
+or:
+
+```shell
+apt update centreon-pack-*
+```
+
+</TabItem>
+</Tabs>
+
+> Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des Plugin Packs disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
 
 ### Installer le pack
 
@@ -137,17 +197,55 @@ La procédure de supervision comprend une section **Installation** qui vous indi
 
 La commande d'installation suit le modèle suivant :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
-yum install centreon-plugin-$PLUGIN-PACK$
+dnf install centreon-plugin-$PLUGIN-PACK$
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-plugin-$PLUGIN-PACK$
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-$PLUGIN-PACK$
+```
+
+</TabItem>
+</Tabs>
 
 dans laquelle ``$PLUGIN-PACK$`` correspond au nom du pack. Exemple :
 
-```
-yum install centreon-plugin-Cloud-Aws-Ec2-Api
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-> Attention, la commande `yum` est sensible à la casse.
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-plugin-Cloud-Aws-Ec2-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-Cloud-Aws-Ec2-Api
+```
+
+</TabItem>
+</Tabs>
 
 ## Utiliser un plugin pack
 
@@ -202,9 +300,29 @@ Si **Installation automatique des plugins** est à **OFF**, utilisez la commande
 
 1. Exécutez la commande suivante sur **tous les collecteurs**:
 
-    ```shell
-    yum update centreon-plugin\*
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-plugin\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-plugin\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update centreon-plugin\*
+```
+
+</TabItem>
+</Tabs>
 
 2. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md) sur tous les collecteurs. L'option **Redémarrer l'ordonnanceur** doit avoir la valeur **Redémarrer**.
 

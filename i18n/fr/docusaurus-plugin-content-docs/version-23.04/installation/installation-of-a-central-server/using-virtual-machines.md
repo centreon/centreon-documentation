@@ -6,8 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
-VMware et pour l'outil Oracle VirtualBox.
-Elle est basée sur le système d'exploitation **Linux CentOS 7** et inclut
+VMware et OVF pour l'outil Oracle VirtualBox.
+Elle est basée sur le système d'exploitation **Alma Linux 8** et inclut
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
 La VM est configurée en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
@@ -32,7 +32,7 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 3. Dans la section 2, sélectionnez la version de Centreon désirée.
 
-4. Dans la section 3, **Download your image**, cliquez sur le bouton **Download** à côté de **VMWare Virtual Machine (OVA)**. Une nouvelle page apparaît.
+4. Dans la section 3, **Download your image**, cliquez sur le bouton **Download** à côté de la machine virtuelle désirée. Une nouvelle page apparaît.
 
    * Si vous souhaitez être contacté par Centreon, entrez vos informations de contact, puis
 cliquez sur **Download**.

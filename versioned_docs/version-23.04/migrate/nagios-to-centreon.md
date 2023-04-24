@@ -22,14 +22,21 @@ This script uses the Perl-Nagios-Object library to read CFG files. To install it
 please follow this steps on your Nagios(R) server:
 
 <Tabs groupId="sync">
-<TabItem value="CentOS" label="CentOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum install perl-Module-Build
+dnf install perl-Module-Build
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install perl-Module-Build
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
 apt-get install libmodule-build-perl

@@ -31,7 +31,7 @@ Le deuxième widget se place automatiquement sur la deuxième colonne :
 
 ![image](../assets/getting-started/cv_4.png)
 
-Cliquez de nouveau sur le bouton **+ Ajouter widget**, saisissez le titre **Problèmes non traités** et sélectionnez le
+Cliquez de nouveau sur le bouton **+ Ajouter widget**, saisissez le titre **Alertes non traitées** et sélectionnez le
 widget **Services Monitoring**. Cliquez ensuite sur le bouton **Soumettre** :
 
 ![image](../assets/getting-started/cv_5.png)

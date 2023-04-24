@@ -2,6 +2,8 @@
 id: developer-translate-centreon  
 title: Comment traduire Centreon
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Si vous voulez contribuer à traduire Centreon, ce tutoriel est pour vous ! Découvrez comment traduire l’interface web de Centreon et comment nous aider à ajouter de nouvelles langues dans Centreon.
 
@@ -44,7 +46,7 @@ Vous pouvez maintenant commencer la traduction de Centreon en modifiant les fich
 Sur votre serveur Centreon, installez gettext :
 
 ```shell
-sudo yum install gettext
+sudo dnf install gettext
 ```
 
 Créez le répertoire **locale** pour votre Centreon :
@@ -86,9 +88,24 @@ sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MES
 
 Redémarrez Apache :
 
+<Tabs groupId="sync">
+<TabItem value="Alma/ RHEL / Oracle Linux 8" label="Alma/ RHEL / Oracle Linux 8">
+
+Restart Apache:
 ```shell
-sudo service httpd24-httpd restart
+systemctl restart httpd
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Restart Apache:
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+</Tabs>
 
 Connectez-vous à votre interface web Centreon, modifiez votre profil et sélectionnez une nouvelle langue :
 

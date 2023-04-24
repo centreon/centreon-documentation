@@ -1,6 +1,6 @@
 ---
 id: acknowledge
-title: Acquitter un problème
+title: Acquitter une alerte
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 
 
-## Acquitter un problème
+## Acquitter une alerte
 
 ### Principe
 
@@ -16,30 +16,30 @@ Lorsqu'un hôte ou un service présente un incident et que ce dernier est
 validé, le processus de notification est enclenché, pouvant générer une
 notification envoyée à un contact. Si le problème persiste et suivant la
 configuration réalisée (relancer une notification à intervalle de temps
-régulier, escalade de notification) il est possible que d'autres alertes
+régulier, escalade de notification) il est possible que d'autres notifications
 soient émises.
 
-L'acquittement d'un incident permet de stopper le processus de
+L'acquittement d'une alerte permet de stopper le processus de
 notification (envoi de notifications), jusqu'à ce que l'hôte ou le
 service retrouve un statut nominal.
 
 Exemple d'utilisation :
 
 Un service est chargé de vérifier la santé des disques durs d'une baie
-de disque. Un disque dur physique tombe en panne sur une baie de disque,
+de disques. Un disque dur physique tombe en panne sur une baie de disques,
 une notification est envoyée. L'opérateur de supervision acquitte le
 service en précisant qu'une équipe est en train de régler le problème.
 Les notifications ne sont plus envoyées. Le service reprendra son état
 nominal après changement du disque.
 
-> L'acquittement d'un incident signifie la prise en compte du problème
-> par un utilisateur de la supervision (et non la résolution de ce
+> L'acquittement d'une alerte signifie la prise en compte du problème
+> par un utilisateur de la supervision, et non la résolution de ce
 > dernier qui ne pourra être effective que lorsque le contrôle sera
-> revenu dans son état nominal).
+> revenu dans son état nominal.
 
 ### En pratique
 
-Pour acquitter un incident, plusieurs solutions sont possibles :
+Pour acquitter une alerte, plusieurs solutions sont possibles :
 
 <Tabs groupId="sync">
 <TabItem value="Page Statut des ressources" label="Page Statut des ressources">

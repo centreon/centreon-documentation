@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 22.04
-to version 22.10.
+to version 23.04.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -25,67 +25,53 @@ servers:
 
 ## Upgrade the Centreon Central server
 
-### Update the Centreon repository
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-Run the following commands:
+### Install the new repositories
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
+1. Update your Centreon 22.04 to the latest minor version.
 
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+2. Remove the **centreon.repo** file:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
+3. Install the new repository:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-sed -i -E 's|[0-9]{2}\.[0-9]{2}|22.10|g' /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 ```
 
 </TabItem>
 </Tabs>
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-### Install the MariaDB repository
-
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-</Tabs>
+> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+>
+> If you have a Business edition, do the same with the Business repository.
+>
+> You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Upgrade PHP
 
-Centreon 22.10 uses PHP in version 8.1.
+Centreon 23.04 uses PHP in version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -116,15 +102,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-You need to enable the php 8.1 repository:
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -139,7 +116,7 @@ systemctl stop php8.0-fpm
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 22.10.
+If you have installed Business extensions, update the Business repository to version 23.04.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
@@ -156,20 +133,13 @@ Delete existing retention files:
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean yum cache:
+Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum clean all --enablerepo=*
 ```
 
 </TabItem>
@@ -189,14 +159,7 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -276,69 +239,6 @@ If everything is ok, you should have:
            ├─1487 /usr/sbin/httpd -DFOREGROUND
            └─1887 /usr/sbin/httpd -DFOREGROUND
 
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
-
-Run a diff between the old and the new Apache configuration files:
-
-```shell
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
-```
-
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
-
-For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
-
-Check that Apache is configured properly by running the following command:
-
-```shell
-/opt/rh/httpd24/root/usr/sbin/apachectl configtest
-```
-
-The expected result is the following:
-
-```shell
-Syntax OK
-```
-
-Restart the Apache and PHP processes to take in account the new configuration:
-
-```shell
-systemctl restart php-fpm httpd24-httpd
-```
-
-Then check its status:
-
-```shell
-systemctl status httpd24-httpd
-```
-
-If everything is ok, you must have:
-
-```shell
-● httpd24-httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
-  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
- Main PID: 31786 (httpd)
-   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
-   CGroup: /system.slice/httpd24-httpd.service
-           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 
 </TabItem>
@@ -424,13 +324,6 @@ systemctl reload php-fpm httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-systemctl reload php-fpm httpd24-httpd
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -486,14 +379,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 22.10
+   -  version: 23.04
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.04/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -580,21 +473,14 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-sed -i -E 's|[0-9]{2}\.[0-9]{2}|22.10|g' /etc/apt/sources.list.d/centreon.list
+sed -i -E 's|[0-9]{2}\.[0-9]{2}|23.04|g' /etc/apt/sources.list.d/centreon.list
 apt update
 ```
 
@@ -603,20 +489,13 @@ apt update
 
 ### Upgrade the Centreon solution
 
-Clean yum cache:
+Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum clean all --enablerepo=*
 ```
 
 </TabItem>
@@ -637,14 +516,7 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\*
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 </TabItem>
@@ -659,15 +531,8 @@ apt upgrade centreon-poller
 
 > Accept new GPG keys from the repositories as needed.
 
-Start and enable **gorgoned**:
+Restart **centreon**:
 
 ```shell
-systemctl start gorgoned
-systemctl enable gorgoned
-```
-
-Restart **centengine**:
-
-```shell
-systemctl restart centengine
+systemctl restart centreon
 ```

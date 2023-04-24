@@ -265,14 +265,31 @@ Complete!
 Ensuite installez le paquet **centreon-release** :
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Vous devez d'abord installer le dépôt EPEL :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+La commande doit retourner des résultats comme suit :
+
+```shell
+Installed:
+  epel-release-9-2.el9.noarch
+
+Complete!
+```
+
+Ensuite installez le paquet **centreon-release** :
+
+```shell
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -287,7 +304,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :
@@ -301,7 +318,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
-Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Installez ensuite le serveur Centreon MAP Engine à l'aide de la commande suivante :
 
@@ -313,10 +330,10 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-map-engine
+dnf install centreon-map-engine
 ```
 
 </TabItem>
@@ -344,10 +361,10 @@ dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install MariaDB-client MariaDB-server
+dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
@@ -393,7 +410,40 @@ mysql_secure_installation
 Cette procédure permet de s'assurer que le fichier de configuration peut être utilisé à la fois pour MAP Engine et MAP Legacy.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Faites une sauvegarde du fichier **/etc/my.cnf.d/map.cnf** :
+
+  ```shell
+  cp map.cnf map.cnf.bk
+  ```
+
+2. Exécutez le script de configuration du serveur Centreon MAP Engine.
+
+  Deux modes sont disponibles :
+   - Interactif *(aucune option/mode par défaut)* : plusieurs questions seront posées pour remplir de manière interactive les variables d'installation.
+   - Automatique *(--automatic ou -a)* : l'installation se fera automatiquement à partir des valeurs définies dans le fichier `/etc/centreon-map/vars.sh`.
+  
+  Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard (interactif) et de choisir **Non** lorsqu'on vous demande le mode d'installation avancé :
+    
+   ```shell
+   /etc/centreon-map/configure.sh
+  ```
+
+3. Récupérez la sauvegarde du fichier de configuration :
+  
+  ```shell
+  cp map.cnf.bk map.cnf
+  ```
+  
+  Répondez **Y**. Ensuite redémarrez MySQL:
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Faites une sauvegarde du fichier **/etc/my.cnf.d/map.cnf** :
 
@@ -526,7 +576,7 @@ Le serveur Centreon MAP est maintenant démarré et activé : installons la part
 
 ### Étape 1 : installer le dépôt Business
 
-Installez le dépôt de Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
+Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ### Étape 2 : installer le module MAP
 
@@ -540,10 +590,10 @@ Installez le dépôt de Centreon MAP : vous pouvez le trouver sur le [portail du
   ```
 
   </TabItem>
-  <TabItem value="CentOS 7" label="CentOS 7">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
-  sudo yum install centreon-map-web-client
+  sudo dnf install centreon-map-web-client
   ```
 
   </TabItem>
@@ -610,3 +660,6 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.
+
+- Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
+- Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser MAP.

@@ -121,13 +121,13 @@ recommandé) ou en utilisant le protocole SSH.
     > Vous pouvez copier la configuration en sélectionnant le contenu de la pop-in
     > pour la coller dans un fichier de configuration personnalisé.
 
-3. Démarrer le daemon Gorgone :
+3. Redémarrer le daemon Gorgone :
 
-    Depuis le Poller, exécutez la commande suivante pour démarrer le service
+    Depuis le Poller, exécutez la commande suivante pour redémarrer le service
     Gorgone :
 
     ```shell
-    systemctl start gorgoned
+    systemctl restart gorgoned
     ```
 
     Assurez-vous que le service est démarré en exécutant la commande suivante :
@@ -150,12 +150,6 @@ recommandé) ou en utilisant le protocole SSH.
               └─28598 gorgone-action
 
     Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
-    ```
-
-    Enfin, activez le démarrage automatique du service avec la commande :
-
-    ```shell
-    systemctl enable gorgoned
     ```
 
 4. Pour forcer le Gorgone du Central à se connecter au collecteur, redémarrez-le avec

@@ -14,8 +14,12 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
     > Amazon AWS, VMware, etc.). To know the complete list, please go to
     > the [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction)
     > catalog.
+    >
+    > If, on page **Configuration > Monitoring Connectors Manager** you have set **Automatic installation of plugins** to **ON**, the discovery plugin will be installed automatically when you run the discovery job.
 
 3. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
+
+You can duplicate discovery jobs: hover over the job and then click **Duplicate**.
 
 ## Job discovery wizard
 
@@ -251,6 +255,8 @@ From version 21.04, mappers **Property**, **Macro**, **Host group** and **Host c
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
+When you define several mappers of the same type and the conditions apply for several of them, the last mapper will prevail over the others (the one at the bottom of the list). This applies to the following mappers: monitoring, severity, property, macros.
+
 ### Add a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
@@ -264,7 +270,7 @@ field.
 ### Edit a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+section, click on the **More actions** icon, then click **Edit**.
 
 2. Edit the fields you want, or even the type of mapper. See [Edit a discovery job](#edit-a-discovery-job).
 
@@ -273,11 +279,18 @@ section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/
 ### Delete a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Delete** icon: ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
+section, click on the **More actions** icon, then click **Delete**.
 
   A popin window will ask you to confirm the action.
 
 2. Click on **DELETE** to delete the mapper.
+
+### Duplicate a mapper
+
+1. In the job wizard at step four, or on the edition panel in the **Mappers**
+section, click on the **More actions** icon, then click **Duplicate**.
+
+2. Enter the number of copies of the mapper you want to make, then click **Duplicate**.
 
 ## Types of mappers
 
@@ -382,6 +395,8 @@ monitoring server defined in the job or from the ones available on the
 Centreon platform.
 
 This mapper is mandatory.
+
+If no Monitoring mapper applies to the host (because you have defined too strict conditions), the monitoring server on which the job runs will be selected by default.
 
 ### Exclusion
 

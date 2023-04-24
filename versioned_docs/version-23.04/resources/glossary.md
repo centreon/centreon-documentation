@@ -23,7 +23,13 @@ When a resource is acknowledged, [notifications](#notification) are stopped, and
 
 Acknowledging a resource does not mean that the incident is over: it will be over when the resource is back to its nominal state (**OK** or **UP**).
 
-**See also**: [Acknowledging a problem](../alerts-notifications/acknowledge.md).
+**See also**: [Acknowledging an alert](../alerts-notifications/acknowledge.md).
+
+## Alert
+
+An alert is one of the following statuses: **Warning**, **Down**, **Critical**, **Unknown**.
+
+The term alert is used in this way in the [pre-defined filters on page **Resources Status**](../alerts-notifications/resources-status.md#pre-defined-filters).
 
 ## Architecture: simple VS distributed
 

@@ -3,6 +3,9 @@ id: monitor-linux-server-with-snmp
 title: Monitor your first Linux host
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Monitoring a Linux server with SNMP
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](it100.md) that provides Centreon Plugin Packs (your [license](../administration/licenses.md) is already set up).
@@ -66,9 +69,30 @@ systemctl enable snmpd
 
 Connect to your poller using SSH and install the Linux SNMP plugin (see the [monitoring procedure for the **Linux SNMP** Plugin Pack](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) for more information):
 
-   ```shell
-   yum install centreon-plugin-Operatingsystems-Linux-Snmp
-   ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-operatingsystems-linux-snmp
+```
+
+</TabItem>
+
+</Tabs>
 
 ### On the central server
 

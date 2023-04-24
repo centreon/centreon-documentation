@@ -6,15 +6,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 22.10.
+to version 23.04.
+
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.04, as CentOS 7 is no longer supported: you need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon server to Oracle Linux / RHEL 8
+> If you want to migrate your Centreon server to Oracle Linux / RHEL 8 or 9
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
-> If not, please follow [this](./upgrade-from-19-10.md#upgrade-mariadb-server)
+> If not, please follow [this](./upgrade-mariadb.md)
 > procedure in order to update MariaDB before you can continue with the upgrade
 > from version 20.10 to version 21.04 as described by this document.
 
@@ -23,6 +25,8 @@ to version 22.10.
 > installed at the end of the update process.
 
 ## Prerequisites
+
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
 ### Perform a backup
 
@@ -44,28 +48,33 @@ servers:
 >
 > MariaDB will be upgraded afterwards.
 
-### Update the Centreon repository
-
-Run the following commands:
+### Install the new repositories
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
+1. Update your Centreon 20.10 to the latest minor version.
 
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+2. Remove the **centreon.repo** file:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
+3. Install the new repository:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
 </Tabs>
 
-> If you are using a Business edition, install the correct Business repository too. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+>
+> If you have a Business edition, do the same with the Business repository.
+>
+> You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Install the MariaDB repository
 
@@ -79,7 +88,7 @@ rm -f ./mariadb_repo_setup
 
 ### Upgrade PHP
 
-Centreon 22.10 uses PHP in version 8.1.
+Centreon 23.04 uses PHP in version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -127,23 +136,6 @@ dnf module install php:remi-8.1
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-First, you need to install the **remi** repository:
-
-```shell
-yum install -y yum-utils
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-```
-
-Then, you need to enable the php 8.1 repository:
-
-```shell
-yum-config-manager --enable remi-php81
-```
-
-</TabItem>
 </Tabs>
 
 ### Upgrade the Centreon solution
@@ -151,7 +143,7 @@ yum-config-manager --enable remi-php81
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 22.10.
+If you have installed Business extensions, update the Business repository to version 23.04.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -164,10 +156,10 @@ Delete existing retention files:
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean yum cache:
+Clean the cache:
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Then upgrade all the components with the following command:
@@ -176,18 +168,12 @@ Then upgrade all the components with the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 </Tabs>
+
 > Accept new GPG keys from the repositories as needed.
 
 <Tabs groupId="sync">
@@ -200,47 +186,25 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-The PHP timezone should be set. Run the command:
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-Execute the following commands:
-```shell
-systemctl stop rh-php72-php-fpm
-systemctl disable rh-php72-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-Or, if you have PHP 7.4:
-```shell
-systemctl stop rh-php74-php-fpm
-systemctl disable rh-php74-php-fpm
-systemctl enable php-fpm
-systemctl start php-fpm
-```
-
-</TabItem>
 </Tabs>
 
 ### Update your customized Apache configuration
 
-This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+This section only applies if you customized your Apache configuration.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
+When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 Run a diff between the old and the new Apache configuration files:
 
-```
-diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+```shell
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade, e.g. the **authentication** string in the **LocationMatch** directive
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
 
@@ -251,6 +215,55 @@ In particular, make sure your customized Apache configuration contains the follo
     ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+apachectl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take in account the new configuration:
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+```
+
+</TabItem>
+</Tabs>
 
 #### Customized Apache configuration: enable text compression
 
@@ -285,14 +298,7 @@ Run the following command on the dedicated DBMS server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm 
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -333,7 +339,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 3. Install the 10.5 version:
 
     ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
     ```
 
 4. Start the mariadb service:
@@ -383,15 +389,6 @@ systemctl reload httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd24-httpd
-```
-
-</TabItem>
 </Tabs>
 
 Then log on to the Centreon web interface to continue the upgrade process:
@@ -417,7 +414,7 @@ page:
 
 ![image](../assets/upgrade/web_update_5.png)
 
-> As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
+> As the interface layout has changed in version 23.04, you need to clear your browser cache to display the new theme.
 
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.md).
@@ -457,14 +454,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -472,16 +462,16 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 
 ### Upgrade the Centreon solution
 
-Clean yum cache:
+Clean the cache:
 
 ```shell
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 Upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+dnf update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.
