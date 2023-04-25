@@ -563,7 +563,7 @@ dnf config-manager --set-enabled 'crb'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
 ```
 
 In the case of an installation based on a blank distribution, install the GPG key:
