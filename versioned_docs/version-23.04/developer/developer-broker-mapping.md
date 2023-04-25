@@ -14,8 +14,7 @@ exchanged. This page list properties available for each event type.
 
 The acknowledgement of an incident means that the problem has been taken into
 account by a user of the monitoring. When the user acknowledges the problem,
-Centreon Engine emits an /acknowledgement/ event. This event differs
-between BBDO v2 and BBDO v3.
+Centreon Engine emits an **acknowledgement** event. This event is different in BBDO v2 and in BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -42,7 +41,7 @@ The content of this message is serialized as follows:
 | persistent\_comment                          | boolean          | True if the comment is persistent.                                       |
 | service\_id                                  | unsigned integer | Service ID. 0 for a host acknowledgement.                                |
 | state                                        | short integer    | Host / service state.                                                    |
-| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already ack.                   |
+| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already acknowledged.                   |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -54,12 +53,10 @@ The content of this message is serialized as follows:
 |        1 |      45 | 65581 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::Acknowledgement** events should be sent, instead you
-should see these ones.
+events, but using the Protobuf 3 serialization mechanism. When BBDO version 3 is
+used, no more **NEB::Acknowledgement** events should be sent, but **NEB::PbAcknowledgement** events instead.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message Acknowledgement {
@@ -88,8 +85,7 @@ message Acknowledgement {
 ### Comment
 
 In several situations, the user has to enter a comment in the Centreon
-interface. When he validates it, Centreon Engine emits a /comment/ event. This
-event differs between BBDO v2 and BBDO v3.
+interface. When they validate it, Centreon Engine emits a **comment** event. This event is different in BBDO v2 and in BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -128,7 +124,7 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      35 | 65571 |
 
-The Protobuf message for this event is given by:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -179,10 +175,10 @@ message Comment {
 
 ### Custom variable
 
-A _custom variable_ is essentially a variable with a _name_ and a _value_. It
+A **custom variable** is essentially a variable with a **name** and a **value**. It
 often comes from Centreon Engine macros. For Centreon to work correctly, these
 custom variables must be sent to Centreon Broker. Each one is sent thanks to
-a _custom variable_ event. This event differs between BBDO v2 and BBDO v3.
+a **custom variable** event. This event is different in BBDO v2 and in BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -216,7 +212,7 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      37 | 65573 |
 
-The Protobuf message for this event is given by:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -248,7 +244,7 @@ message CustomVariable {
 
 ### Custom variable status
 
-Custom variable status events are generated when a custom variable needs
+**Custom variable status** events are generated when a custom variable needs
 to be updated.
 
 <Tabs groupId="sync">
@@ -280,10 +276,10 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      38 | 65574 |
 
-The Protobuf message of a PbCustomVariableStatus is the same as for a PbCustomVariable.
-You just have to know that some of the fields may not be filled.
+The Protobuf message for a **PbCustomVariableStatus** is the same as for a **PbCustomVariable**,
+except that some of the fields may not be filled in.
 
-This event finally needs the following messages:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -361,7 +357,7 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      36 | 65572 |
 
-The Protobuf message of a PbDowntime is defined by the following protobuf declaration:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message Downtime {
@@ -397,12 +393,13 @@ message Downtime {
 
 ### Event handler
 
-_Event handlers_ are optional system commands (scripts or executables) that are
-run whenever a resource state change occurs. When a such command is configured,
-an _event handler_ event is emitted by Centreon Engine. These BBDO events are
+**Event handlers** are optional system commands (scripts or executables) that are
+run whenever a resource state change occurs. When such a command is configured,
+an **event handler** event is emitted by Centreon Engine. These BBDO events are
 usually sent when Centreon Engine is restarted or reloaded.
 
-There is no Protobuf event for an event handler.
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::EventHandler
 
@@ -431,23 +428,29 @@ The content of this message is serialized as follows:
 | source\_id      | unsigned integer | The id of the source instance of this event.                                                                                                     |
 | destination\_id | unsigned integer | The id of the destination instance of this event.                                                                                                |
 
+</TabItem>
+<TabItem value="BBDO v3" label="BBDO v3">
+
+The event is the same as in BBDO v2. There is no Protobuf event.
+
+</TabItem>
+</Tabs>
+
 ### Flapping status
 
-When a resource state is unstable, Centreon Engine tags it as _flapping_. There
-was a time when a _flapping status_ event was emitted in such case. It is no more
-the case. The _flapping status_ event **does not exist anymore**.
+When the status of a resource is unstable, Centreon Engine tags it as **flapping**. In the past, a **flapping status** event was emitted in such casees - it is no longer the case. The **flapping status** event **does not exist anymore**.
 
 ### Tag
 
-The _tag_ is a new configuration event currently used for categories and groups.
+The **tag** is a new configuration event currently used for categories and groups.
 
-At the moment, it is used in parallel with _group_ events and other things but
+At the moment, it is used in parallel with **group** events and other things but
 in a near future should be more global.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-**There are no _tag_ in BBDO v2.**
+There are no **tag** events in BBDO v2.
 
 </TabItem>
 
@@ -459,7 +462,7 @@ in a near future should be more global.
 | -------- | ------- | ----- |
 |        1 |      34 | 65570 |
 
-The Protobuf messages for this event are:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 enum TagType {
@@ -489,7 +492,7 @@ message Tag {
 
 ### Host
 
-This event is emitted by Centreon Engine to declare a host configuration.
+This event is emitted every time a change is made to the configuration of a host and the configuration is deployed.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -593,7 +596,7 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      30 | 65566 |
 
-The Protobuf message of a PbHost is defined by the following protobuf declaration:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 enum AckType {
@@ -716,7 +719,7 @@ message Host {
 
 ### Host check
 
-This event is emitted by Centreon Engine on host checks.
+This type of event is emitted by Centreon Engine when a check is performed on a host.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -748,7 +751,7 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      39 | 65575 |
 
-The Protobuf message for this event is given by:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -777,7 +780,7 @@ message Check {
 
 ### Host dependency
 
-This is a configuration event sent to declare a host dependency.
+This event is emitted when a dependency between hosts is defined, and the configuration is deployed.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -803,14 +806,14 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There is no Protobuf version for this event.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
 
 ### Host group
 
-This is a configuration event that declares a host group.
+This event is emitted when a host group is created.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -833,14 +836,14 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There is no protobuf 3 version of this event.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
 
 ### Host group member
 
-This is a configuration event. It is sent just after a _hostgroup_ event to
+This is a configuration event. It is sent just after a **hostgroup** event to
 detail members of the group to configure. Even in BBDO v3, we still use the
 BBDO v2 version of this event.
 
@@ -867,14 +870,14 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**No Protobuf 3 version of this event.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
 
 ### Host parent
 
-This is a configuration event sent to declare a host parent. Even in BBDO v3,
+This is a configuration event sent when a host parent is defined. Even in BBDO v3,
 we still use the BBDO v2 version of this event.
 
 <Tabs groupId="sync">
@@ -897,15 +900,14 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There is no Protobuf version of this event.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
 
 ### Host status
 
-This is an event emitted by Centreon Engine when a host has real time modifications.
-It is declined into two versions:
+This is an event emitted by Centreon Engine when a host has real time modifications (status, output, metrics...).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -973,12 +975,11 @@ The content of this message is serialized as follows:
 |        1 |      32 | 65538 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbHostStatus** events should be sent, instead you
-should see these ones.
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::HostStatus** events should be sent, instead you
+should see **NEB::PbHostStatus** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 enum AckType {
@@ -1077,12 +1078,11 @@ The content of this message is serialized as follows:
 |        1 |      44 | 65580 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbInstance** events should be sent, instead you
-should see these ones.
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Instance** events should be sent, instead you
+should see **NEB::PbInstance** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -1108,8 +1108,8 @@ message Instance {
 
 ### Instance status
 
-Event emitted by Centreon Engine regularly as a watchdog. This event tells the poller
-is still alive with various other informations.
+This event is emitted by Centreon Engine regularly as a watchdog. This event tells Broker that the poller
+is still alive (with various other information).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1152,11 +1152,10 @@ The content of this message is serialized as follows:
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbInstanceStatus** events should be sent, instead you
-should see these ones.
+used, no more **NEB::InstanceStatus** events should be sent, instead you
+should see **NEB::PbInstanceStatus** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -1190,8 +1189,8 @@ message InstanceStatus {
 
 ### Log entry
 
-Centreon Engine generates many logs. Among them, there is a part sent to Centreon Broker
-to store them into the database. These logs are sent thanks to _log entry_ envents.
+Centreon Engine generates many logs. Some of them are sent to Centreon Broker
+to be stored into the database. These logs are sent using **log entry** events.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1230,12 +1229,11 @@ The content of this message is serialized as follows:
 |        1 |      41 | 65577 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbLogEntry** events should be sent, instead you
-should see these ones.
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::LogEntry** events should be sent, instead you
+should see **NEB::PbLogEntry** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message LogEntry {
@@ -1281,12 +1279,11 @@ message LogEntry {
 
 ### Module
 
-Module events are generated when Centreon Engine modules get loaded
+**Module** events are generated when Centreon Engine modules get loaded
 or unloaded. This message is not very useful since the only modules available
-in Engine are _external command_ and _cbmod_ that are mandatory.
+in Engine are **external command** and **cbmod**, which are mandatory.
 
-So, it should be removed in a near future. No BBDO v3 version of this event
-exists.
+So, it should be removed in a near future.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1311,15 +1308,14 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**No Protobuf version of this event exists.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
 
 ### Service
 
-This is a configuration event. It is emitted by Centreon Engine to declare
-a service configuration.
+This is a configuration event. It is emitted by Centreon Engine when a change is made to the configuration of a service, and the configuration is deployed.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1428,11 +1424,10 @@ The content of this message is serialized as follows:
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbService** events should be sent, instead you
-should see these ones.
+used, no more **NEB::Service** events should be sent, instead you
+should see **NEB::PbService** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 enum ServiceType {
@@ -1568,7 +1563,7 @@ message Service {
 
 ### Service check
 
-This event is emitted by Centreon Engine on service checks.
+This event is emitted by Centreon Engine when a check is performed on a service.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1600,12 +1595,11 @@ The content of this message is serialized as follows:
 |        1 |      40 | 65576 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbServiceCheck** events should be sent, instead you
-should see these ones.
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::ServiceCheck** events should be sent, instead you
+should see **NEB::PbServiceCheck** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -1660,7 +1654,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There are no _service dependency_ in BBDO v3.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
@@ -1688,7 +1682,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There are no _service group_ in BBDO v3.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
@@ -1718,7 +1712,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There are no _service group member_ in BBDO v3.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
@@ -1795,12 +1789,11 @@ The content of this message is serialized as follows:
 |        1 |      29 | 65565 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::ServiceStatus** events should be sent, instead you
-should see these ones.
+should see **NEB::PbServiceStatus**.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message ServiceStatus {
@@ -1888,7 +1881,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**There is no Protobuf event for an event handler.**
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
@@ -1921,12 +1914,11 @@ The content of this message is serialized as follows:
 |        1 |      46 | 65582 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbResponsiveInstance** events should be sent, instead you
-should see these ones.
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::ResponsiveInstance** events should be sent, instead you
+should see **NEB::PbResponsiveInstance** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message BBDOHeader {
@@ -1952,7 +1944,7 @@ updated on the fly (for example with an external command)
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-**No Adaptive service available in BBDO v2.**
+No **Adaptive service** available in BBDO v2.
 
 </TabItem>
 
@@ -1964,13 +1956,7 @@ updated on the fly (for example with an external command)
 | -------- | ------- | ----- |
 |        1 |      41 | 65577 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbAdaptiveService** events should be sent, instead you
-should see these ones.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message AdaptiveService {
@@ -2001,12 +1987,12 @@ message AdaptiveService {
 ### Adaptive host
 
 This event was introduced with BBDO v3. It is emitted when a host has its configuration
-updated on the fly (for example with an external command)
+updated on the fly (for example with an external command).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-**No Adaptive host available in BBDO v2.**
+No **Adaptive host** available in BBDO v2.
 
 </TabItem>
 
@@ -2018,13 +2004,7 @@ updated on the fly (for example with an external command)
 | -------- | ------- | ----- |
 |        1 |      31 | 65567 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbAdaptiveHost** events should be sent, instead you
-should see these ones.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message AdaptiveHost {
@@ -2056,7 +2036,7 @@ message AdaptiveHost {
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-**No BBDO v2 version of this event exists.**
+No BBDO v2 version of this event exists.
 
 </TabItem>
 
@@ -2069,8 +2049,8 @@ message AdaptiveHost {
 |        1 |      33 | 65569 |
 
 This event comes with BBDO 3. It contains the severity of a resource.
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```text
 message Severity {
