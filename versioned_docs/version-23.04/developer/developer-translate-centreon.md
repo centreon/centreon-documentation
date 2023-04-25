@@ -91,11 +91,11 @@ systemctl restart httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Restart Apache:
 ```shell
-systemctl restart httpd24-httpd
+systemctl restart httpd
 ```
 
 </TabItem>

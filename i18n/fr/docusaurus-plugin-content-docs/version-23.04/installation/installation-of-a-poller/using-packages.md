@@ -5,12 +5,14 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon fournit des RPM pour ses produits au travers de la solution
+Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur CentOS 7, Alma/RHEL/Oracle Linux 8 ou Debian 11.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
+
+> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ## Prérequis
 
@@ -26,12 +28,13 @@ dnf update
 
 ### Configuration spécifique
 
-Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
@@ -41,10 +44,27 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update
+dnf update
+```
+
+### Configuration spécifique
+
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
 ```
 
 </TabItem>
@@ -90,7 +110,7 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
 **/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
@@ -162,6 +182,7 @@ Enable the CodeReady Builder repository using these commands:
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
 </TabItem>
@@ -195,17 +216,37 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma 9" label="Alma 9">
 
-#### Dépôt Redhat Software Collections
-
-Pour installer Centreon, vous devrez configurer le référentiel officiel des collections
-de logiciels pris en charge par Redhat.
-
-Installez le référentiel de collections de logiciels à l'aide de cette commande :
+Exécutez les commandes suivantes :
 
 ```shell
-yum install -y centos-release-scl
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
@@ -214,7 +255,7 @@ yum install -y centos-release-scl
 Installez les dépendances suivantes :
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
 </TabItem>
@@ -232,14 +273,18 @@ suffisants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
@@ -248,13 +293,15 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Puis importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>
@@ -272,7 +319,7 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 yum install -y centreon-poller
@@ -290,17 +337,20 @@ apt install -y centreon-poller
 </Tabs>
 
 Pour activer le démarrage automatique des services de supervision au démarrage
-du serveur, exécuter la commande suivant :
+du serveur, exécuter la commande suivante :
+
 ```shell
 systemctl enable centreon centengine centreontrapd snmptrapd gorgoned
 ```
 
 Les services de supervision passive peuvent être démarrés :
+
 ```shell
 systemctl start centreontrapd snmptrapd gorgoned
 ```
 
 Redémarrez Centreon Engine :
+
 ```shell
 systemctl restart centengine
 ```
@@ -400,7 +450,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 23.04.
 
 ## Étape 4 : Ajouter le Poller à la configuration
 

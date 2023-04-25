@@ -24,14 +24,21 @@ Pour installer ce dernier, exécutez les commandes suivantes sur votre serveur
 Nagios(R) :
 
 <Tabs groupId="sync">
-<TabItem value="CentOS" label="CentOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum install perl-Module-Build
+dnf install perl-Module-Build
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install perl-Module-Build
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
 apt-get install libmodule-build-perl

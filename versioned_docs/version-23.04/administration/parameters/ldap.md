@@ -101,30 +101,3 @@ on the MS Active Directory, Okta or of Posix type directories.
 > - **uid=<USER\>,dc=<ORGANIZATION\>,dc=okta,dc=com** for **Bind DN** field
 > - **ou=<OU\>,dc=<ORGANIZATION\>,dc=okta,dc=com** \*\* for **Search group
 > base DN** field.
-
-With CentOS 7, it's possible to not check server certificate, follow procedure:
-
-Add the following line in file "/etc/openldap/ldap.conf":
-
-```shell
-TLS_REQCERT never
-```
-
-Then restart Apache:
-
-<Tabs groupId="sync">
-<TabItem value="Alma/ RHEL / Oracle Linux 8" label="Alma/ RHEL / Oracle Linux 8">
-
-```shell
-systemctl restart httpd
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-systemctl restart httpd24-httpd
-```
-
-</TabItem>
-</Tabs>

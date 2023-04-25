@@ -12,7 +12,7 @@ There are several ways to install Centreon. Which one suits your needs best?
 ## To install Centreon in production
 
 - Use [RPM or DEB packages](../installation/installation-of-a-central-server/using-packages.md): if you already have the
-  OS and you only want to install Centreon. Centreon supports the following operating systems: CentOS 7, AlmaLinux 8, RedHat/OracleLinux 7 or 8 and Debian 11.
+  OS and you only want to install Centreon. See the list of [supported operating systems](../installation/compatibility.md#operating-systems).
 
 ## To install Centreon on a Linux distribution that is not supported by Centreon
 

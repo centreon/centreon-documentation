@@ -141,29 +141,116 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 #### Couche Matériel
 
-| Nombre de services supervisés | CPU minimum          | Mémoire Vive  |
-|-------------------------------|----------------------|---------------|
-| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
-| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
-| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
-| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                     | > Contacter Centreon |               |
+<Tabs groupId="sync">
+<TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
-#### Espace de stockage
+| Élément                     | Valeur     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 Go      |
 
-Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+Votre serveur MBI doit être partitionné de la manière suivante :
 
-#### Partition
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 233 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
 
-| File system                    | Taille                                                                                       |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| /                              | 5GB minimum                                                                                  |
-| /var (containing MariaDB data) | utiliser le résultat du fichier de simulation de l'espace disque ci-dessus                   |
-| Dossier temporaire de MariaDB  | Fortement recommandé de le positionner dans /var                                             |
-| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB.       |
+</TabItem>
+<TabItem value="Jusqu'à 1 000 hôtes" label="Jusqu'à 1 000 hôtes">
 
-Pour controler l'espace libre, utiliser la commande suivante en remplaçant
-**vg_data** par le nom du volume groupe:
+| Élément                     | Valeur     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 465 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 2 500 hôtes" label="Jusqu'à 2 500 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 24 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 1163 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 5 000 hôtes" label="Jusqu'à 5 000 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 24 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 2326 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 10 000 hôtes" label="Jusqu'à 10 000 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 12 vCPU    |
+| RAM                         | 32 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 4651 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+
+Pour de grosses volumétries de données, contactez votre commercial Centreon.
+
+</TabItem>
+</Tabs>
+
+Pour contrôler l'espace libre, utilisez la commande suivante en remplaçant
+**vg_data** par le nom du groupe de volumes :
 
 ```shell
 vgdisplay vg_data | grep -i free*
@@ -329,7 +416,11 @@ Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
 ligne de commande suivante :
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
+
+```bash
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Configuration spécifique à Debian 11
@@ -391,7 +482,23 @@ processus d'installation :
 
 1. Pour commencer l'installation du serveur de reporting, installez le dépôt Business. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-2. Installez le dépôt MariaDB :
+2. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
+
+3. Installez le dépôt MariaDB :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -417,7 +524,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 </Tabs>
 
-3. Puis lancez la commande suivante:
+4. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">

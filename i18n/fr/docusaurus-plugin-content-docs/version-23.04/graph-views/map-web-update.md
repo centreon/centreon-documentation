@@ -23,10 +23,10 @@ sudo dnf update centreon-map-engine centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
-sudo yum update centreon-map-engine centreon-map-web-client
+sudo dnf update centreon-map-engine centreon-map-web-client
 ```
 
 </TabItem>

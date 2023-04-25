@@ -23,6 +23,14 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Vue compacte ou étendue
+
+Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifiant la présentation visuelle des lignes dans les tableaux.
+
+Cliquez sur le bouton dédié pour faciliter la lecture des informations contenues dans les tableaux :
+- Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
+- Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
+
 ## Exécuter des actions sur les évènements
 
 ### Prendre en compte un évènement
@@ -38,15 +46,13 @@ Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
 
-- l'alerte disparaît de la vue **Problèmes non traités**
+- l'alerte disparaît de la vue **Alertes non traitées**
 - les [notifications](notif-configuration.md) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
 
 L'acquittement peut aussi être supprimé pour reverser l'évènement dans la liste
 des évènements non pris en compte ainsi que pour relancer les notifications. Cliquez
 sur **Désacquitter** dans le menu **Plus d'actions**.
-
-![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
 ### Planifier une plage de maintenance
 
@@ -56,21 +62,23 @@ Il est possible de [planifier une plage de maintenance](downtimes.md) :
 - En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Planifier une maintenance** au-dessus du tableau.
 
 La mise en maintenance d'une ressource a pour effet de masquer l'alerte
-de la vue **Problèmes non traités** et de stopper les notifications partant
+de la vue **Alertes non traitées** et de stopper les notifications partant
 de la ressource. L'arrière-plan des lignes des ressources en maintenance est mauve.
-
-![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
 ### Relancer un contrôle
 
 Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir
-le statut d'un service/hôte en lançant un contrôle manuellement via
-l'interface. Cela est possible de deux manières différentes :
+le statut d'une ou plusieurs ressources en lançant un contrôle manuellement via
+l'interface.
 
-- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne
-- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier**.
+Deux types d'actions de contrôle sont disponibles :
+- L'action **Vérifier** : un contrôle que vous effectuez uniquement durant la période de vérification configurée.
+- L'action **Vérification forcée** : un contrôle que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
 
-![image](../assets/alerts/resources-status/resources-status-check.gif)
+Vous pouvez contrôler vos ressources et rafraîchir leur statut de deux manières :
+
+- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne (**Vérification forcée** uniquement).
+- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier** au-dessus du tableau.
 
 ### Soumettre un statut
 
@@ -80,8 +88,6 @@ de sortie et des métriques, afin de remettre à zéro l'évènement.
 Pour cela, sélectionnez un service passif puis cliquez sur **Soumettre un statut**
 dans le menu **Plus d'actions**.
 
-![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
-
 ## Filtrer les évènements
 
 Les différents filtres s'ajoutent selon un critère ET : les résultats correspondront à tous les critères saisis.
@@ -89,17 +95,17 @@ Les différents filtres s'ajoutent selon un critère ET : les résultats corresp
 ### Filtres prédéfinis
 
 Lorsque vous arrivez sur la vue d'évènements, par défaut le filtre est
-positionné sur **Problèmes non traités** : ce filtre permet de visualiser
+positionné sur **Alertes non traitées** : ce filtre permet de visualiser
 rapidement tous les problèmes n'ayant pas encore été pris en compte ou
 associés à une plage de maintenance. Il est possible de choisir parmi 2
-autres filtres : **Problèmes de ressources** & **Tous**.
+autres filtres : **Toutes les alertes** & **Tous**.
 
 Signification des filtres :
 
-- **Problèmes non traités** : Le statut de la ressource est **Alerte** ou
+- **Alertes non traitées** : Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
-- **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
+- **Toutes les alertes**: Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** (que la ressource ait été acquittée/mise en maintenance ou non)
 - **Tous** : toutes les ressources.
 
@@ -124,16 +130,11 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
     - **Niveau de criticité d'hôte**
     - [**Criticité du service**](../monitoring/categories.md): nom de la criticité du service
     - **Niveau de criticité du service**
-
-    ![image](../assets/alerts/resources-status/search-popup.png)
-
+  
 2. Cliquez sur un critère de recherche : une liste de toutes les valeurs possibles s'affiche.
 
 3. Sélectionnez les valeurs désirées. La barre de recherche affiche le texte correspondant au filtre appliqué, et un chiffre indique à gauche du critère le nombre de valeurs sélectionnées.
-
-    ![image](../assets/alerts/resources-status/search-criteria.png)
-
-    Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
+Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
 
 4. Cliquez sur **Rechercher**, ou cliquez en dehors de la pop-up. La liste des ressources est filtrée.
 
@@ -226,11 +227,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
 
-![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
-
 En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant) :
-
-![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
 
 ## Panneau de détail
 
