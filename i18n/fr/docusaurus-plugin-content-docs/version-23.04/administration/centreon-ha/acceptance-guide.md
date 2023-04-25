@@ -63,7 +63,7 @@ Full List of Resources:
 </TabItem>
 </Tabs>
 
-> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](troubleshooting-guide.md).
+> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du guide de dépannage (page **Dépanner Centreon-HA**).
 
 ### Vérifier les contraintes
 
@@ -107,7 +107,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ## Basculement des ressources du Centreon
 
@@ -240,7 +240,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation a `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ### Retour à la situation nominale
 
@@ -324,7 +324,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation est `KO`, vous devez la corriger en suivant [le guide d'exploitation](operating-guide.md).
+> Si la synchronisation est `KO`, vous devez la corriger en suivant le **Guide d'exploitation du cluster**.
 
 ## Simuler la perte du noeud secondaire
 
@@ -851,7 +851,7 @@ Daemon Status:
 </TabItem>
 </Tabs>
 
-> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](troubleshooting-guide.md).
+> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide de la page **Dépanner Centreon-HA**.
 
 ### Vérifier les contraintes
 
@@ -907,7 +907,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ## Basculement des ressources du Centreon
 
@@ -1060,7 +1060,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation a `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ### Retour à la situation nominale
 
