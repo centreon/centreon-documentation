@@ -1025,7 +1025,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-</Tabitem>
+</TabItem>
 </Tabs>
 
 ### Creating the clone resources
