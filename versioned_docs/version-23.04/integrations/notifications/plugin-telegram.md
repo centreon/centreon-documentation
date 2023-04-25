@@ -19,10 +19,10 @@ Telegram notifications connector uses the perl Centreon plugin to send notificat
 
 ### centreon plugin with telegram
 
-First of all, you need the Centreon Telegram plugin to be installed on your Centreon server
+First of all, you need the Centreon Telegram plugin to be installed on your Centreon server.
+First, install Git, then execute the following commands:
 
 ```bash
-yum install git
 mkdir /usr/lib/centreon/git-plugins
 cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git

@@ -2,6 +2,8 @@
 id: ntopng
 title: Widget NtopNG
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Use the NtopNG widget in [custom views](../../alerts-notifications/custom-views.md) to view data about network usage collected by an NtopNG server.
 
@@ -16,9 +18,29 @@ The widget can display the following views (see [**Examples**](#examples) below)
 
 1. Install the following package on the central server:
   
-  ```shell
-  yum install centreon-widget-ntopng-listing
-  ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-widget-ntopng-listing
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-widget-ntopng-listing
+```
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt install centreon-widget-ntopng-listing
+```
+
+</TabItem>
+</Tabs>
+
 
 2. On page **Administration > Extensions > Manager**, install the **NtopNG** widget.
 
