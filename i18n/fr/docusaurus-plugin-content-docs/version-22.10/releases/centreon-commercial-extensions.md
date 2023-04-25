@@ -19,7 +19,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.5
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
 
