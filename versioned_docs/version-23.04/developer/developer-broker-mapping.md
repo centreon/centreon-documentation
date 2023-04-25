@@ -2221,10 +2221,18 @@ true) and finally a rebuild end event (end `true`).
 
 This message and its principle are only available in BBDO v2.
 With BBDO v3, we take advantage of the power of Protobuf. To rebuild graphs,
-we use the event [Bbdo::PbRebuildGraphs](#bbdopbrebuildgraphs).
+we use the event [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### Storage::Rebuild
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       2 | 196610 |
+
+The content of this message is serialized as follows:
 
 | Property  | Type             | Description                                                                                                   | Version |
 | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
@@ -2237,18 +2245,30 @@ we use the event [Bbdo::PbRebuildGraphs](#bbdopbrebuildgraphs).
 
 **Not available with Protobuf 3**
 
-Take a look at [Bbdo::PbRebuildGraphs](#bbdopbrebuildgraphs) for a replacement.
+Take a look at [Storage::PbRebuildMessage](#storagepbrebuildmessage) for a replacement.
 
 </TabItem>
 </Tabs>
 
 ### Remove graph
 
-A Storage endpoint generates a remove graph event when some graph
+A Storage endpoint generates a **remove graph** event when some graph
 must be deleted.
+
+This message and its principle are only available in BBDO v2.
+With BBDO v3, we take advantage of the power of Protobuf. To remove graphs,
+we use the event [Storage::PbRemoveMessage](#storagepbremovemessage).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### Storage::RemoveGraph
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       3 | 196611 |
+
+The content of this message is serialized as follows:
 
 | Property  | Type             | Description                                                                                            | Version |
 | --------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
@@ -2258,39 +2278,64 @@ must be deleted.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property  | Type             | Description                                                                                            | Version |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
-| id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |         |
-| is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |         |
+**Not available with Protobuf 3**
+
+Take a look at [Storage::PbRemoveMessage](#storagepbremovemessage) for a replacement.
 
 </TabItem>
 </Tabs>
 
 ### Status
 
+This event is emitted by cbd when a **Service Status** or a **Host Status** is received.
+It essentially contains a resource with its status.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property         | Type             | Description                                                        | Version |
-| ---------------- | ---------------- | ------------------------------------------------------------------ | ------- |
-| ctime            | time             | Time at which the status was generated.                            |         |
-| index\_id        | unsigned integer | Index ID.                                                          |         |
-| interval         | unsigned integer | Normal service check interval in seconds.                          |         |
-| rrd\_len         | time             | RRD retention in seconds.                                          |         |
-| state            | short integer    | Service state.                                                     |         |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event). |         |
+#### Storage::Status
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       4 | 196612 |
+
+The content of this message is serialized as follows:
+
+| Property         | Type             | Description                                                        |
+| ---------------- | ---------------- | ------------------------------------------------------------------ |
+| ctime            | time             | Time at which the status was generated.                            |
+| index\_id        | unsigned integer | Index ID.                                                          |
+| interval         | unsigned integer | Normal service check interval in seconds.                          |
+| rrd\_len         | time             | RRD retention in seconds.                                          |
+| state            | short integer    | Service state.                                                     |
+| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property         | Type             | Description                                                        | Version |
-| ---------------- | ---------------- | ------------------------------------------------------------------ | ------- |
-| ctime            | time             | Time at which the status was generated.                            |         |
-| index\_id        | unsigned integer | Index ID.                                                          |         |
-| interval         | unsigned integer | Normal service check interval in seconds.                          |         |
-| rrd\_len         | time             | RRD retention in seconds.                                          |         |
-| state            | short integer    | Service state.                                                     |         |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event). |         |
+#### Storage::PbStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |      10 | 196618 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **Storage::Status** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message Status {
+  uint64 index_id = 1;      // Index ID.
+  uint32 interval = 2;      // Normal service check interval in seconds.
+  uint32 rrd_len = 3;       // RRD retention in seconds.
+  uint64 time = 4;          // Timestamp at which the status was generated.
+  uint32 state = 5;         // Service state.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -2318,81 +2363,76 @@ must be deleted.
 
 ### Index mapping
 
+This event is emitted by Centreon Broker when a new service configuration is
+received. It associates an ID to the pair **(host ID/service ID)**. This new
+ID is useful for the service metrics declaration.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property    | Type             | Description | Version |
-| ----------- | ---------------- | ----------- | ------- |
-| index\_id   | unsigned integer | Index ID.   |         |
-| host\_id    | unsigned integer | Index ID.   |         |
-| service\_id | unsigned integer | Index ID.   |         |
+#### Storage::IndexMapping
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       5 | 196613 |
+
+The content of this message is serialized as follows:
+
+| Property    | Type             | Description |
+| ----------- | ---------------- | ----------- |
+| index\_id   | unsigned integer | Index ID.   |
+| host\_id    | unsigned integer | Host ID.    |
+| service\_id | unsigned integer | Service ID. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property    | Type             | Description | Version |
-| ----------- | ---------------- | ----------- | ------- |
-| index\_id   | unsigned integer | Index ID.   |         |
-| host\_id    | unsigned integer | Index ID.   |         |
-| service\_id | unsigned integer | Index ID.   |         |
+#### Storage::PbIndexMapping
 
-</TabItem>
-</Tabs>
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |      11 | 196619 |
 
-### Pb Rebuild Message
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
-handling these rebuilds are of that type. They replace the old BBDO rebuild
-message.
-
-There are three states for this message:
-* START: here is the first state, this message initializes which metrics have
-to be rebuilt.
-* DATA: once the START state has been sent, one or more messages with DATA state
-may be sent to the RRD broker.
-* END: When all the rebuild events have been sent, this one is sent to close the
-rebuilds. And the RRD broker falls back in a nominal state.
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **Storage::IndexMapping** events should be sent, instead you
+should see these ones.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
 
-```text
-message Point {
-  int64 ctime = 1;
-  double value = 2;
-}
-
-message Timeserie {
-  repeated Point pts = 1;
-  int32 data_source_type = 2;
-  uint32 check_interval = 3;
-  uint32 rrd_retention = 4;
-}
-
-message RebuildMessage {
-  enum State {
-    START = 0;
-    DATA = 1;
-    END = 2;
-  }
-  State state = 1;
-  /* Only used on DATA state */
-  map<uint64, Timeserie> timeserie = 2;
-
-  /* Only used on START/END state */
-  repeated uint64 metric_id = 3;
+```cpp
+message IndexMapping {
+  uint64 index_id = 1;      // Index ID for a service.
+  uint64 host_id = 2;       // Host ID of the service.
+  uint64 service_id = 3;    // Service ID of the service.
 }
 ```
 
 </TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+</Tabs>
+
+### Rebuild Message
 
 This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
 handling these rebuilds are of that type. They replace the old BBDO rebuild
 message.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+**Not available with BBDO v2.**
+
+See [Storage::Rebuild](#storagerebuild)
+
+</TabItem>
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### Storage::PbRebuildMessage
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       7 | 196615 |
 
 There are three states for this message:
 * START: here is the first state, this message initializes which metrics have
@@ -2436,35 +2476,29 @@ message RebuildMessage {
 </TabItem>
 </Tabs>
 
-### Pb Remove Graph Message
+### Remove Graph Message
+
+This event comes with BBDO 3. When we want to remove graph files, we can use
+the centengine gRPC API and this call makes cbd to generate a **Storage::PbRemoveGraphMessage**.
+Two possibilities are mixed in this event. We can remove graphs
+matching some index data or graphs matching some metric data. It is also
+possible to mix the two kinds.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-This event comes with BBDO 3. When we want to remove graph files, we can use
-the centengine gRPC API and this call makes cbd to generate a **Pb Remove Graph
-Message**. Two possibilities are mixed in this event. We can remove graphes
-matching some index data or graphs matching some metric data. It is also
-possible to mix the two kinds.
+**Not available with BBDO v2.**
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message RemoveGraphMessage {
-  repeated uint64 index_ids = 1;
-  repeated uint64 metric_ids = 2;
-}
-```
+See [Storage::RemoveGraph](#storageremovegraph)
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-This event comes with BBDO 3. When we want to remove graph files, we can use
-the centengine gRPC API and this call makes cbd to generate a **Pb Remove Graph
-Message**. Two possibilities are mixed in this event. We can remove graphes
-matching some index data or graphs matching some metric data. It is also
-possible to mix the two kinds.
+#### Storage::PbRemoveGraphMessage
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       8 | 196616 |
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
