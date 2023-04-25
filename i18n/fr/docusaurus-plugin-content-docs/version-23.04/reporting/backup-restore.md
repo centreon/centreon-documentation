@@ -2,6 +2,8 @@
 id: backup-restore
 title: Sauvegarde et restauration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Sauvegarde de Centreon MBI
 
@@ -56,7 +58,6 @@ Pour modifier la valeur de rotation des sauvegardes, éditer la valeur
 
 ### Sauvegarde du serveur de reporting dédié
 
-
 > Il est important de disposer d'au moins 5 Go d'espace libre sur le
 > **Volume Group** hébergeant l'espace de stockage **data** du SGBD
 > MariaDB. Pour cela, exécuter la commande suivante en renseignant
@@ -64,8 +65,7 @@ Pour modifier la valeur de rotation des sauvegardes, éditer la valeur
 
     vgdisplay vg_data | grep -i free 
 
-
-#### Elements sauvegardés
+#### Éléments sauvegardés
 
 Les éléments sauvegardés sont les suivants :
 
@@ -146,9 +146,53 @@ Le processus de restauration comprend plusieurs étapes :
 
 #### Réinstallation du module Centreon MBI
 
-Sur le serveur central Centreon, lancer la commande ::
+Sur le serveur central Centreon, lancer la commande :
 
-    yum install centreon-bi-server-x.y.z
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-bi-server-x.y.z
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-bi-server-x.y.z
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Install **gpg**:
+
+```shell
+apt install gpg
+```
+
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt update && apt install centreon-bi-server-x.y.z
+```
+
+</TabItem>
+</Tabs>
 
 #### Intégration des anciens rapports générés
 

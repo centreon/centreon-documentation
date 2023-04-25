@@ -49,11 +49,11 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum clean all
-yum update centreon-bi-server
+dnf clean all
+dnf update centreon-bi-server
 ```
 
 </TabItem>
@@ -70,7 +70,7 @@ apt update && apt upgrade centreon-bi-server
 2. Mettre à jour l'interface: se connecter à l'interface web de Centreon et se rendre dans le menu
  **Administration > Extension > Manager** puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
 
-## Étape 3 : Mettre  à jour le serveur de reporting
+## Étape 3 : Mettre à jour le serveur de reporting
 
 ### Prérequis de la version Java
   
@@ -106,7 +106,7 @@ Vous pouvez maintenant procéder à la montée de version :
     systemctl stop cbis
     ```
 
-2. Puis mettre à jour les paquets, en exécutant la commande suivante :
+2. Puis mettez à jour les paquets, en exécutant la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -118,11 +118,12 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum clean all
-yum update centreon-bi\*
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf clean all
+dnf update centreon-bi\*
 ```
 
 </TabItem>

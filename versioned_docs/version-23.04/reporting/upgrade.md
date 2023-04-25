@@ -48,11 +48,11 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum clean all
-yum update centreon-bi-server
+dnf clean all
+dnf update centreon-bi-server
 ```
 
 </TabItem>
@@ -118,11 +118,12 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum clean all
-yum update centreon-bi\*
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf clean all
+dnf update centreon-bi\*
 ```
 
 </TabItem>

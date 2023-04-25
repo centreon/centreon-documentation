@@ -2,12 +2,14 @@
 id: backup-restore
 title: Backup & restore
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Centreon MBI backup
 
 ### Backup: Configurationt data on the Centreon server
 
-#### Items to back up:
+#### Items to back up
 
 -   Custom report designs and their settings
 -   Generated reports.
@@ -46,11 +48,9 @@ To modify this value, update **RETENTION_AGE** in the backup script
 (line **67**) located here:
 **/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh**
 
-
 > We advise to export backups to another resource in order to secure them.
 
 ### Backing up the reporting server
-
 
 > It is important to have at least 5 GB of free space on the **Volume Group**
 > hosting the **data** storage MariaDB DBMS. To check free
@@ -58,7 +58,7 @@ To modify this value, update **RETENTION_AGE** in the backup script
 >
 >       vgdisplay vg_data | grep -i free
 
-#### Items to back up:
+#### Items to back up
 
 -   Configuration files
 -   Aggregated data
@@ -130,9 +130,53 @@ The restore process is divided into several steps:
 
 #### Re-install centreon-bi-server module in the same version as the one saved
 
-On the main Centreon server run the following command:
+On the main Centreon server, run the following commands:
 
-    yum install centreon-bi-server-x.y.z
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-bi-server-x.y.z
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-bi-server-x.y.z
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Install **gpg**:
+
+```shell
+apt install gpg
+```
+
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt update && apt install centreon-bi-server-x.y.z
+```
+
+</TabItem>
+</Tabs>
 
 #### Integrate generated reports
 

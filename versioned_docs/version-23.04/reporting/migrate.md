@@ -3,16 +3,15 @@ id: migrate
 title: Migrate the extension
 ---
 
-This chapter explains you how to move your reporting server to another
-one. It can be usefull if you want to migrate your reporting server from
-CentOS 6 to CentOS 7.
+This chapter explains how to move your reporting server to another
+one (e.g. if you want to switch to another supported OS).
 
-Migration of the interface extension is linked to Centreon central migration.
+The migration of the interface extension is done at the same time as the migration of the central server.
 
 ## Install the new reporting server
 
-Install your new reporting server based and the Centreon MBI
-repositories using the [standard documentation](installation.md).
+Install your new reporting server based on the Centreon Business
+repository using the [standard documentation](installation.md).
 
 ## Synchronizing files & data
 
@@ -45,10 +44,10 @@ Execute the following command to ensure database files compatibility:
 
     mysql mysql < repair_mysql_upgrade.sql
 
-    Download the file here: [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql)
+    Download the following file: [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql)
 
 
-> Be sure to copy the the custom report & ressources you designed to your
+> Be sure to copy the the custom report & resources you designed to your
 > new reporting server in the same folders.
 
 ## Move generated reports
