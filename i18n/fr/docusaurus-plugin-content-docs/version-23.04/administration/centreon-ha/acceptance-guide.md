@@ -82,8 +82,8 @@ La commande devrait renvoyer ceci :
 Location Constraints:
 Ordering Constraints:
 Colocation Constraints:
-  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
 
@@ -101,8 +101,8 @@ Pour vérifier que la synchronisation de la base de données fonctionne, exécut
 La commande devrait retourner les informations suivantes :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -234,8 +234,8 @@ Vérifiez également que la réplication MySQL est toujours opérationnelle en u
 La commande doit retourner les informations suivantes :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -309,6 +309,23 @@ Enfin, supprimez les contraintes avec la commande :
 pcs resource clear centreon
 ```
 
+Vérifiez également que la réplication MySQL est toujours opérationnelle en utilisant la commande :
+
+```bash
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+La commande doit retourner les informations suivantes :
+
+```text
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
+Slave Thread Status [OK]
+Position Status [OK]
+```
+
+> Si la synchronisation est `KO`, vous devez la corriger en suivant [le guide d'exploitation](operating-guide.md).
+
 ## Simuler la perte du noeud secondaire
 
 Pour simuler une panne de réseau qui isolerait le noeud secondaire, vous pouvez utiliser `iptables` pour supprimer le trafic depuis et vers le noeud secondaire.
@@ -323,23 +340,43 @@ iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP
 iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 ```
 
-L'exécution de la commande a pour résultat qu'aucune ressource active n'est visible sur le nœud secondaire et que le nœud primaire est considéré comme "hors ligne" :
+L'exécution de la commande `pcs status` sur le second nœud indique que les ressources sont arrêtées et que le nœud primaire est `offline`:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
+Cluster name: centreon_cluster
 Cluster Summary:
   * Stack: corosync
-  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
-  * Last updated: Wed Sep 15 16:35:47 2021
-  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * Current DC: @CENTRAL_SLAVE_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition WITHOUT quorum
+  * Last updated: Tue Nov  8 14:33:00 2022
+  * Last change:  Tue Nov  8 14:25:58 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
   * 2 nodes configured
   * 14 resource instances configured
 Node List:
   * Online: [ @CENTRAL_SLAVE_NAME@ ]
   * OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
-No active resources
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: php-clone [php]:
+    * Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Stopped
+    * http      (systemd:httpd):         Stopped
+    * gorgone   (systemd:gorgoned):      Stopped
+    * centreon_central_sync     (systemd:centreon-central-sync):         Stopped
+    * cbd_central_broker        (systemd:cbd-sql):       Stopped
+    * centengine        (systemd:centengine):    Stopped
+    * centreontrapd     (systemd:centreontrapd):         Stopped
+    * snmptrapd (systemd:snmptrapd):     Stopped
+Daemon Status:
+  corosync: active/enabled
+  pacemaker: active/enabled
+  pcsd: active/enabled
 ```
 
 </TabItem>
@@ -352,33 +389,27 @@ Le noeud secondaire est vu `offline` sur le primaire.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
+Cluster name: centreon_cluster
 Cluster Summary:
   * Stack: corosync
-  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
-  * Last updated: Wed Sep 15 16:35:47 2021
-  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
+  * Last updated: Tue Nov  8 15:19:52 2022
+  * Last change:  Tue Nov  8 14:25:58 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
   * 2 nodes configured
   * 14 resource instances configured
 Node List:
-  * Online: [ @CENTRAL_MASTER_NAME@ ]
-  * OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
+  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @CENTRAL_MASTER_NAME@ ]
-    * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php-clone [php]:
-    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: cbd_rrd-clone [cbd_rrd]:
-    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-  * Resource Group: centreon:
-    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
-    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
-    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
-    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+	@@ -545,40 +609,51 @@ Full List of Resources:
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+Daemon Status:
+  corosync: active/enabled
+  pacemaker: active/enabled
+  pcsd: active/enabled
 ```
 
 </TabItem>
@@ -472,8 +503,8 @@ Vérifiez également que la réplication MySQL est toujours opérationnelle en u
 La commande doit retourner les informations suivantes :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -499,9 +530,9 @@ Les ressources sur le noeud primaire doivent s'arrêter et doivent démarrer sur
 ```text
 Cluster Summary:
   * Stack: corosync
-  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Current DC: @CENTRAL_SLAVE_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
   * Last updated: Wed Sep 15 16:35:47 2021
-  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
   * 2 nodes configured
   * 14 resource instances configured
 Node List:
@@ -575,13 +606,187 @@ iptables -D INPUT @RULE_NUMBER@;
 iptables -D OUTPUT @RULE_NUMBER@
 ```
 
-En exécutant la commande `crm_mon` sur le second noeud, vous verrez le noeud primaire monter dans le cluster.
-Si vous souhaitez passer au noeud primaire, exécutez les [commandes de basculement] (acceptance-guide.md#Retour-à-la-situation-nominale).
+En exécutant la commande `crm_mon` sur le nœud secondaire, vous verrez le nœud primaire monter dans le cluster mais rester en tant que nœud SLAVE.
+
+```text
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
+  * Last updated: Tue Nov  8 17:27:28 2022
+  * Last change:  Tue Nov  8 17:23:19 2022 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
+  * 2 nodes configured
+  * 14 resource instances configured
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * ms_mysql  (ocf::heartbeat:mariadb-centreon):       Stopped @CENTRAL_MASTER_NAME@ (Monitoring)
+    * Masters: [ @CENTRAL_SLAVE_NAME@ ]
+    * Stopped: [ @CENTRAL_MASTER_NAME@ ]
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_SLAVE_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_SLAVE_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_SLAVE_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_SLAVE_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_SLAVE_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_SLAVE_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_SLAVE_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_SLAVE_NAME@
+Migration Summary:
+  * Node: @CENTRAL_MASTER_NAME@:
+    * ms_mysql: migration-threshold=1000000 fail-count=1000000 last-failure='Tue Nov  8 17:27:25 2
+022'
+Failed Resource Actions:
+  * ms_mysql_start_0 on @CENTRAL_MASTER_NAME@ 'error' (1): call=440, status='complete', exitreason='M
+ariaDB slave io has failed (1236): Got fatal error 1236 from master when reading data from binary
+log: 'Error: connecting slave', last-rc-change='Tue Nov  8 17:27:21 2022', queued=0ms, exec=4060ms
+```
+
+Si vous voulez passer au nœud primaire, vous devez effectuer un basculement.
+Donc, **avant de faire cela, vous devez vérifier le statut du cluster et de la réplication de la base de données**.
+
+Tout d'abord, vérifiez les contraintes :
+
+```shell
+pcs constraint
+```
+
+La commande doit retourner un résultat similaire à ceci :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
+</TabItem>
+</Tabs>
+
+Maintenant, vérifiez le statut de réplication via la commande suivante :
+
+```bash
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+À ce moment, le cluster est en mode dégradé avec deux nœuds esclaves.
+Dans ce cas particulier, il retourne les informations suivantes car la ressource ms_mysql est arrêtée sur @CENTRAL_MASTER_NAME@ :
+
+```text
+Connection SLAVE Status '@CENTRAL_MASTER_NAME@' [KO]
+Error reports:
+    ERROR 2002 (HY000): Can't connect to MySQL server on '@CENTRAL_MASTER_NAME@' (115)
+Impossible de se connecter au serveur '@CENTRAL_MASTER_NAME@'.
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
+Slave Thread Status [KO]
+Error reports:
+    Skip check on '@CENTRAL_MASTER_NAME@'.
+    No slave (maybe because we cannot check a server).
+Position Status [SKIP]
+Error reports:
+    Skip because we can't identify a unique slave.
+```
+
+Vous devez donc resynchroniser les bases depuis @CENTRAL_SLAVE_NAME@ vers @CENTRAL_MASTER_NAME@ en lançant le script "sync-bigdb" sur le **nœud SLAVE**.
+
+```shell
+/usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
+```
+
+Comme lors de l'exécution précédente de ce script, vérifiez si le snapshot LVM est correctement supprimé et l'esclave MySQL redémarré.
+```l
+```text
+...
+Umount and Delete LVM snapshot
+  Logical volume "dbbackupdatadir" successfully removed.
+Start MySQL Slave
+OK
+Start Replication
+Id      User    Host    db      Command Time    State   Info    Progress
+5       centreon-repl   @CENTRAL_SLAVE_NAME@:51850        NULL    Query   0       starting        show processlist  0.000
+6       centreon        localhost       centreon_storage        Sleep   0               NULL    0.000
+7       system user             NULL    Connect 0       Connecting to master    NULL    0.000
+8       system user             NULL    Slave_SQL       0       Slave has read all relay log; waiting for more updates    NULL    0.000
+```
+
+Maintenant, la réplication de la base de données devrait être OK, vérifiez-la.
+
+```shell
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+le résultat devrait être :
+
+```text
+Connection MASTER Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_MASTER_NAME@' [OK]
+Slave Thread Status [OK]
+Position Status [OK]
+```
+
+Maintenant, vous pouvez effectuer un failover pour revenir en situation initiale.
+
+```shell
+pcs resource clear centreon
+```
+
+Faites un "cleanup" pour effacer les erreurs et redémarrez la ressource ms_mysql sur @CENTRAL_MASTER_NAME@.
+
+```shell
+pcs resource cleanup
+```
+
+La situation est stabilisée, vous pouvez effectuer un failover en déplaçant la ressource **centreon**.
+
+```shell
+pcs resource move centreon
+```
+
+La ressource **centreon** est maintenant relocalisée et le cluster est OK, vérifiez avec `crm_mon -fr` sur n'importe quel nœud.
+
+```text
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
+  * Last updated: Wed Nov  9 10:23:54 2022
+  * Last change:  Wed Nov  9 10:23:26 2022 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 2 nodes configured
+  * 14 resource instances configured
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ centreon-rhel8-sec ]
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @CENTRAL_MASTER_NAME@ ]
+    * Slaves: [ centreon-rhel8-sec ]
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ centreon-rhel8-sec ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ centreon-rhel8-sec ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+Migration Summary:
+```
 
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Définition-des-noms-et-adresses-IP-des-serveurs)
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les [macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Définition-des-noms-et-adresses-IP-des-serveurs)
 
 ### Conditions requises pour les tests
 
@@ -676,8 +881,8 @@ Location Constraints:
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
-  stop centreon then demote ms_mysql-clone (kind:Mandatory)
 Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
   ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
@@ -696,8 +901,8 @@ Pour vérifier que la synchronisation de la base de données fonctionne, exécut
 La commande devrait retourner les informations suivantes :
 
 ```bash
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection SLAVE Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -849,8 +1054,8 @@ Vérifiez également que la réplication MySQL est toujours opérationnelle en u
 La commande doit retourner les informations suivantes :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1107,8 +1312,8 @@ Vérifiez également que la réplication MySQL est toujours opérationnelle en u
 La commande doit comporter les informations suivantes :
 
 ```text
-Connection Status '@DATABASE_MASTER_NAME@' [OK]
-Connection Status '@DATABASE_SLAVE_NAME@' [OK]
+Connection MASTER Status '@DATABASE_MASTER_NAME@' [OK]
+Connection MASTER Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
