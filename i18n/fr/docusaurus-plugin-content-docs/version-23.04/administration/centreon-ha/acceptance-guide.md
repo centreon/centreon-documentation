@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via [les macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Définition-des-noms-et-adresses-IP-des-serveurs).
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les macros définies à la page suivante : [Installation d'un cluster à 2 nœuds](../../installation/installation-of-centreon-ha/installation-2-nodes.md), section **Définition des noms et adresses IP des serveurs**.
 
 ### Conditions requises pour les tests
 
 Pour vérifier le bon fonctionnement de votre cluster, vous obtiendrez toutes les commandes pour effectuer un test de basculement et simuler des pannes de réseau.
 
-Il est nécessaire de vérifier l'état du cluster avant d'effectuer les tests d'acceptation. 
+Il est nécessaire de vérifier l'état du cluster avant d'effectuer les tests d'acceptation.
 
 ### Vérifier l'état du cluster
 
@@ -786,8 +786,8 @@ Migration Summary:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les [macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Définition-des-noms-et-adresses-IP-des-serveurs)
-
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les macros définies à la page suivante : [Installation d'un cluster à 4 nœuds](../../installation/installation-of-centreon-ha/installation-4-nodes.md), section **Définition des noms et adresses IP des serveurs**.
+  
 ### Conditions requises pour les tests
 
 Pour vérifier le bon fonctionnement de votre cluster, vous obtiendrez toutes les commandes pour effectuer un test de basculement et simuler des pannes de réseau.
