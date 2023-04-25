@@ -66,12 +66,11 @@ message Acknowledgement {
   uint64 host_id = 1;                // Host ID.
   uint64 service_id = 2;             // Service ID or 0 for a host acknowledgement.
   uint64 instance_id = 3;            // Instance ID.
-  enum AcknowledgementType {
-    NONE = 0;
-    NORMAL = 1;
-    STICKY = 2;
+  enum ResourceType {
+    HOST = 0;
+    SERVICE = 1;
   }
-  AcknowledgementType type = 4;      // Type of the acknowledgement based on the previous enum.
+  ResourceType type = 4;             // Type of the resource.
   string author = 5;                 // Acknowledgement author.
   string comment_data = 6;           // Comment associated to the acknowledgement.
   bool sticky = 7;                   // Sticky flag.
@@ -967,11 +966,19 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
+#### NEB::PbHostStatus
+
 | Category | element |  ID   |
 | -------- | ------- | ----- |
 |        1 |      32 | 65538 |
 
-The content of this message is serialized as follows:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbHostStatus** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 enum AckType {
@@ -1224,7 +1231,7 @@ The content of this message is serialized as follows:
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
-used, no more **NEB::PbInstanceStatus** events should be sent, instead you
+used, no more **NEB::PbLogEntry** events should be sent, instead you
 should see these ones.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -1274,8 +1281,12 @@ message LogEntry {
 
 ### Module
 
-Module events are generated when Centreon Broker modules get loaded
-or unloaded.
+Module events are generated when Centreon Engine modules get loaded
+or unloaded. This message is not very useful since the only modules available
+in Engine are _external command_ and _cbmod_ that are mandatory.
+
+So, it should be removed in a near future. No BBDO v3 version of this event
+exists.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1300,19 +1311,15 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property           | Type             | Description                                                     | Version |
-| ------------------ | ---------------- | --------------------------------------------------------------- | ------- |
-| args               | string           | Module arguments.                                               |         |
-| enabled            | boolean          | Whether or not this module is enabled.                          |         |
-| filename           | string           | Path to the module file.                                        |         |
-| instance\_id       | unsigned integer | Instance ID.                                                    |         |
-| loaded             | boolean          | Whether or not this module is loaded.                           |         |
-| should\_be\_loaded | boolean          | Whether or not this module should be (should have been) loaded. |         |
+**No Protobuf version of this event exists.**
 
 </TabItem>
 </Tabs>
 
 ### Service
+
+This is a configuration event. It is emitted by Centreon Engine to declare
+a service configuration.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1413,100 +1420,155 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                         | Type             | Description                                                                      | Version                         |
-| -------------------------------- | ---------------- | -------------------------------------------------------------------------------- | ------------------------------- |
-| acknowledged                     | boolean          | true if the problem has been acknowledged                                        | From 22.04 version (bbdo 3.0.0) |
-| acknowledgement\_type            | short integer    | 0 none, 1 normal, 2 sticky                                                       | From 22.04 version (bbdo 3.0.0) |
-| action\_url                      | string           | url to obtain information about service                                          | From 22.04 version (bbdo 3.0.0) |
-| active\_checks                   | boolean          | active check                                                                     | From 22.04 version (bbdo 3.0.0) |
-| check\_attempt                   | short integer    | number of failed checks                                                          | From 22.04 version (bbdo 3.0.0) |
-| check\_command                   | string           | command executed                                                                 | From 22.04 version (bbdo 3.0.0) |
-| checked                          | boolean          | check has been executed at least once                                            | From 22.04 version (bbdo 3.0.0) |
-| check\_freshness                 | boolean          | passive freshness check activated                                                | From 22.04 version (bbdo 3.0.0) |
-| check\_interval                  | real             | interval in units (usually 60s) between 2 checks                                 | From 22.04 version (bbdo 3.0.0) |
-| check\_period                    | string           | time period when checks are authorized                                           | From 22.04 version (bbdo 3.0.0) |
-| check\_type                      | short integer    | 0 active, 1 passive                                                              | From 22.04 version (bbdo 3.0.0) |
-| default\_active\_checks          | boolean          | same as active_checks                                                            | From 22.04 version (bbdo 3.0.0) |
-| default\_event\_handler\_enabled | boolean          | same as  event\_handler\_enabled                                                 | From 22.04 version (bbdo 3.0.0) |
-| default\_flap\_detection         | boolean          | same as flap\_detection                                                          | From 22.04 version (bbdo 3.0.0) |
-| default\_notify                  | boolean          | same as notify                                                                   | From 22.04 version (bbdo 3.0.0) |
-| default\_passive\_checks         | boolean          | same as passive\_checks                                                          | From 22.04 version (bbdo 3.0.0) |
-| service\_description             | string           | name of service                                                                  | From 22.04 version (bbdo 3.0.0) |
-| display\_name                    | string           | name displayed in resources page                                                 | From 22.04 version (bbdo 3.0.0) |
-| enabled                          | boolean          | enabled                                                                          | From 22.04 version (bbdo 3.0.0) |
-| event\_handler                   | string           | command executed when state changes                                              | From 22.04 version (bbdo 3.0.0) |
-| event\_handler\_enabled          | boolean          | event\_handler enabled                                                           | From 22.04 version (bbdo 3.0.0) |
-| execution\_time                  | real             | duration of last check                                                           | From 22.04 version (bbdo 3.0.0) |
-| first\_notification\_delay       | real             | delay before notify in units (usually 60s)                                       | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection                  | boolean          | flap detection enabled                                                           | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_critical    | boolean          | critical state is taken into account for flap detection                          | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_ok          | boolean          | ok state is taken into account for flap detection                                | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_unknown     | boolean          | unknown state is taken into account for flap detection                           | From 22.04 version (bbdo 3.0.0) |
-| flap\_detection\_on\_warning     | boolean          | warning state is taken into account for flap detection                           | From 22.04 version (bbdo 3.0.0) |
-| flapping                         | boolean          | service is flapping                                                              | From 22.04 version (bbdo 3.0.0) |
-| freshness\_threshold             | real             | delay after check result is stale                                                | From 22.04 version (bbdo 3.0.0) |
-| high\_flap\_threshold            | real             | if percent state change is higher than this, service is considered flapping      | From 22.04 version (bbdo 3.0.0) |
-| host\_id                         | unsigned integer | id of the host                                                                   | From 22.04 version (bbdo 3.0.0) |
-| host\_name                       | string           | name of the host                                                                 | From 22.04 version (bbdo 3.0.0) |
-| icon\_id                         | unsigned integer | id of the icon                                                                   | From 22.04 version (bbdo 3.0.0) |
-| icon\_image                      | string           | icon displayed in the UI for the service                                         | From 22.04 version (bbdo 3.0.0) |
-| icon\_image\_alt                 | string           | alternate string for icon\_image                                                 | From 22.04 version (bbdo 3.0.0) |
-| internal\_id                     | unsigned integer | internal id used by ba and metaservice                                           | From 22.04 version (bbdo 3.0.0) |
-| is\_volatile                     | boolean          | service is volatile                                                              | From 22.04 version (bbdo 3.0.0) |
-| last\_check                      | time             | time of last check                                                               | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state                | short integer    | last hard state                                                                  | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state\_change        | time             | time of last hard state change                                                   | From 22.04 version (bbdo 3.0.0) |
-| last\_notification               | time             | time of last notification sent                                                   | From 22.04 version (bbdo 3.0.0) |
-| last\_state\_change              | time             | time of last state change                                                        | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_critical             | time             | time of the last check critical return code                                      | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_ok                   | time             | time of the last check ok return code                                            | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_unknown              | time             | time of the last check unknown return code                                       | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_warning              | time             | time of the last check warning return code                                       | From 22.04 version (bbdo 3.0.0) |
-| last\_update                     | time             | time of message create                                                           | From 22.04 version (bbdo 3.0.0) |
-| latency                          | real             | delay between scheduled check time and real check time                           | From 22.04 version (bbdo 3.0.0) |
-| long\_output                     | string           | output of some plugins on several lines                                          | From 22.04 version (bbdo 3.0.0) |
-| low\_flap\_threshold             | real             | if percent state change is lower than this, service is not considered flapping   | From 22.04 version (bbdo 3.0.0) |
-| max\_check\_attempts             | short integer    | number of failed check after which service state become a hard fail state        | From 22.04 version (bbdo 3.0.0) |
-| next\_check                      | time             | next scheduled check time                                                        | From 22.04 version (bbdo 3.0.0) |
-| next\_notification               | time             | next renotification time                                                         | From 22.04 version (bbdo 3.0.0) |
-| no\_more\_notifications          | boolean          | no other notification will be sent                                               | From 22.04 version (bbdo 3.0.0) |
-| notes                            | string           | tooltip in resources status page                                                 | From 22.04 version (bbdo 3.0.0) |
-| notes\_url                       | string           | clickable url in resources status page                                           | From 22.04 version (bbdo 3.0.0) |
-| notification\_interval           | real             | interval between two notifications                                               | From 22.04 version (bbdo 3.0.0) |
-| notification\_number             | short integer    | number of notifications sent since the start of the problem                      | From 22.04 version (bbdo 3.0.0) |
-| notification\_period             | string           | time period during which notifications are allowed                               | From 22.04 version (bbdo 3.0.0) |
-| notify                           | boolean          | notifications enabled                                                            | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_critical             | boolean          | users are notified if service state becomes critical                             | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_downtime             | boolean          | users are notified if service enters in downtime                                 | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_flapping             | boolean          | users are notified if service is flapping                                        | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_recovery             | boolean          | users are notified if service becomes ok                                         | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_unknown              | boolean          | users are notified if service state becomes unknown                              | From 22.04 version (bbdo 3.0.0) |
-| notify\_on\_warning              | boolean          | users are notified if service state becomes warning                              | From 22.04 version (bbdo 3.0.0) |
-| obsess\_over\_service            | boolean          | true if ocsp command if executed after check or notification command             | From 22.04 version (bbdo 3.0.0) |
-| output                           | string           | output of the command                                                            | From 22.04 version (bbdo 3.0.0) |
-| passive\_checks                  | boolean          | passive check                                                                    | From 22.04 version (bbdo 3.0.0) |
-| percent\_state\_change           | real             | used by flapping and compared with high and low flap thresholds                  | From 22.04 version (bbdo 3.0.0) |
-| perfdata                         | string           | perfdata extracted from the command's output                                     | From 22.04 version (bbdo 3.0.0) |
-| retain\_nonstatus\_information   | boolean          | unused                                                                           | From 22.04 version (bbdo 3.0.0) |
-| retain\_status\_information      | boolean          | unused                                                                           | From 22.04 version (bbdo 3.0.0) |
-| retry\_interval                  | real             | interval between two check when service isn't in up state and state type is soft | From 22.04 version (bbdo 3.0.0) |
-| scheduled\_downtime\_depth       | short integer    | number of active downtimes                                                       | From 22.04 version (bbdo 3.0.0) |
-| service\_id                      | unsigned integer | id of the service                                                                | From 22.04 version (bbdo 3.0.0) |
-| severity\_id                     | unsigned integer | id of the severity associated to the service                                     | From 22.04 version (bbdo 3.0.0) |
-| should\_be\_scheduled            | boolean          | next check should be scheduled                                                   | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_critical              | boolean          | logs check output event change if state is critical                              | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_ok                    | boolean          | logs check output event change if state is ok                                    | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_unknown               | boolean          | logs check output event change if state is unknown                               | From 22.04 version (bbdo 3.0.0) |
-| stalk\_on\_warning               | boolean          | logs check output event change if state is warning                               | From 22.04 version (bbdo 3.0.0) |
-| state                            | State            | OK WARNING CRITICAL UNKNOWN PENDING                                              | From 22.04 version (bbdo 3.0.0) |
-| state\_type                      | StateType        | SOFT HARD                                                                        | From 22.04 version (bbdo 3.0.0) |
-| tags                             | TagInfo          | tags of the service (see TagInfo)                                                | From 22.04 version (bbdo 3.0.0) |
-| type                             | ServiceType      | SERVICE METASERVICE BA ANOMALY\_DETECTION                                        | From 22.04 version (bbdo 3.0.0) |
+#### NEB::PbService
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      27 | 65563 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbService** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+enum ServiceType {
+  SERVICE = 0;
+  METASERVICE = 2;
+  BA = 3;
+  ANOMALY_DETECTION = 4;
+}
+
+enum AckType {
+  NONE = 0;
+  NORMAL = 1;
+  STICKY = 2;
+}
+
+message Service {
+  uint64 host_id = 1;                         // Host ID.
+  uint64 service_id = 2;                      // Service ID.
+
+  bool acknowledged = 3;                      // Is it currently acknowledged?
+  AckType acknowledgement_type = 4;           // AckType value.
+
+  bool active_checks = 5;                     // Are active checks enabled?
+  bool enabled = 6;                           // Is this service active?
+  int32 scheduled_downtime_depth = 7;         // Number of active downtimes.
+  string check_command = 8;                   // Command executed.
+  uint32 check_interval = 9;                  // Interval in units (usually 60s) between 2 checks.
+  string check_period = 10;                   // Time period when checks are authorized.
+
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 11;                  // CheckType value.
+  int32 check_attempt = 12;                   // Number of failed checks.
+  enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+    PENDING = 4;
+  }
+  State state = 13;                           // Current state of this service.
+  bool event_handler_enabled = 14;            // Event handler enabled?
+  string event_handler = 15;                  // Command executed when state changes.
+  double execution_time = 16;                 // Duration of last check.
+  bool flap_detection = 17;                   // Is flap detection enabled?
+  bool checked = 18;                          // Is this service checked?
+  bool flapping = 19;                         // Is this service flapping?
+  int64 last_check = 20;                      // Timestamp of the last check.
+  State last_hard_state = 21;                 // Last hard state.
+  int64 last_hard_state_change = 22;          // Timestamp of the last hard state change.
+  int64 last_notification = 23;               // Timestamp of the last notification.
+  int32 notification_number = 24;             // Number of notifications sent since the start of the problem.
+  int64 last_state_change = 25;               // Timestamp of the last state change.
+  int64 last_time_ok = 26;                    // Timestamp of the last check OK return code.
+  int64 last_time_warning = 27;               // Timestamp of the last check WARNING return code.
+  int64 last_time_critical = 28;              // Timestamp of the last check CRITICAL return code.
+  int64 last_time_unknown = 29;               // Timestamp of the last check UNKNOWN return code.
+  int64 last_update = 30;                     // Timestamp of this event creation.
+  double latency = 31;                        // Delay between scheduled check time and real check time.
+  uint32 max_check_attempts = 32;             // Number of failed checks after which service state becomes a hard fail state.
+  int64 next_check = 33;                      // Next scheduled check timestamp.
+  int64 next_notification = 34;               // Next notification timestamp.
+  bool no_more_notifications = 35;            // No other notification will be sent.
+  bool notify = 36;                           // Are notifications enabled on this service?
+  string output = 37;                         // Output of the check command.
+  string long_output = 38;                    // Long output of the check command.
+  bool passive_checks = 39;                   // Are passive checks enabled?
+  double percent_state_change = 40;           // Used by flapping and compared with high and low flap thresholds.
+  string perfdata = 41;                       // Perfdata extracted from the command's output.
+  double retry_interval = 42;                 // Interval between two checks when service isn't in ok state and state type is SOFT.
+  string host_name = 43;                      // Host name of this service.
+  string description = 44;                    // Description of this service
+  bool should_be_scheduled = 45;              // Is there a next check scheduled?
+  bool obsess_over_service = 46;              // True if OCSP command is executed after check or notification command.
+
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+
+  StateType state_type = 47;                  // StateType value.
+  string action_url = 48;                     // Url to obtain information about this service.
+  bool check_freshness = 49;                  // Passive freshness check activated?
+  bool default_active_checks = 50;            // Default value of active_checks.
+  bool default_event_handler_enabled = 51;    // Default value of event_handler_enabled.
+  bool default_flap_detection = 52;           // Default value of flap detection.
+  bool default_notify = 53;                   // Default value of notify.
+  bool default_passive_checks = 54;           // Default value of passive checks.
+  string display_name = 55;                   // Name displayed in WUI.
+  double first_notification_delay = 56;       // Delay before notify in units (usually 60s).
+  bool flap_detection_on_critical = 57;       // Critical state is taken into account for flap detection.
+  bool flap_detection_on_ok = 58;             // Ok state is taken into account for flap detection.
+  bool flap_detection_on_unknown = 59;        // Unknown state is taken into account for flap detection.
+  bool flap_detection_on_warning = 60;        // Warning state is taken into account for flap detection.
+  double freshness_threshold = 61;            // Delay after check result is stale.
+  double high_flap_threshold = 62;            // If percent state change is higher than this, service is considered flapping.
+  string icon_image = 63;                     // Icon displayed in the WUI for the service.
+  string icon_image_alt = 64;                 // Alternate string for icon_image.
+  bool is_volatile = 65;                      // Is the service volatile?
+  double low_flap_threshold = 66;             // If percent state change is lower than this, service is not considered flapping.
+  string notes = 67;                          // Tooltip in resources status page.
+  string notes_url = 68;                      // Clickable url in resources status page.
+  double notification_interval = 69;          // Interval between two notifications.
+  string notification_period = 70;            // Time period during which notifications are allowed.
+  bool notify_on_critical = 71;               // Users are notified if service state becomes critical.
+  bool notify_on_downtime = 72;               // Users are notified if service enters in downtime.
+  bool notify_on_flapping = 73;               // Users are notified if service is flapping.
+  bool notify_on_recovery = 74;               // Users are notified if service becomes OK.
+  bool notify_on_unknown = 75;                // Users are notified if service state becomes unknown.
+  bool notify_on_warning = 76;                // Users are notified if service state becomes warning.
+  bool stalk_on_critical = 77;                // Users are notified if service state becomes critical.
+  bool stalk_on_ok = 78;                      // Logs check output event change if state is OK.
+  bool stalk_on_unknown = 79;                 // Logs check output event change if state is unknown.
+  bool stalk_on_warning = 80;                 // Logs check output event change if state is warning.
+  bool retain_nonstatus_information = 81;     // unused.
+  bool retain_status_information = 82;        // unused.
+  uint64 severity_id = 83;                    // Severity ID or 0.
+  repeated TagInfo tags = 84;                 // Tag IDs.
+
+  ServiceType type = 85;                      // What kind of service is it?
+
+  /* In case of metaservice and ba, they also have an internal id. We keep it
+   * here. */
+  uint64 internal_id = 86;                    // ID of metaservice or ba.
+  uint64 icon_id = 87;                        // Icon ID.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Service check
+
+This event is emitted by Centreon Engine on service checks.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1531,14 +1593,41 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                | Type             | Description                                       | Version |
-| ----------------------- | ---------------- | ------------------------------------------------- | ------- |
-| active\_checks\_enabled | boolean          | True if active checks are enabled on the service. |         |
-| check\_type             | short            |                                                   |         |
-| host\_id                | unsigned integer | Host ID.                                          |         |
-| next\_check             | time             | Time at which the next check is scheduled.        |         |
-| service\_id             | unsigned integer | Service ID.                                       |         |
-| command\_line           | string           | Check command line.                               |         |
+#### NEB::PbServiceCheck
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      40 | 65576 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbServiceCheck** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // A internal number not currently used.
+}
+
+enum CheckType {
+    CheckActive = 0;
+    CheckPassive = 1;
+}
+
+message Check {
+    BBDOHeader header = 1;
+
+    bool active_checks_enabled = 2;   // True if active checks are enabled on the host.
+    CheckType check_type = 3;         // One of the values in CheckType.
+    string command_line = 4;          // Check command line.
+    uint64 host_id = 5;               // Host ID.
+    uint64 next_check = 6;            // Timestamp at which the next check is scheduled.
+    uint64 service_id = 7;            // Service ID or 0 for a host check.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -1571,17 +1660,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                       | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | string           |             |         |
-| dependent\_host\_id            | unsigned integer |             |         |
-| dependent\_service\_id         | unsigned integer |             |         |
-| enabled                        | boolean          |             |         |
-| execution\_failure\_options    | string           |             |         |
-| host\_id                       | unsigned integer |             |         |
-| inherits\_parent               | boolean          |             |         |
-| notification\_failure\_options | string           |             |         |
-| service\_id                    | unsigned integer |             |         |
+**There are no _service dependency_ in BBDO v3.**
 
 </TabItem>
 </Tabs>
@@ -1609,12 +1688,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property   | Type             | Description                                                 | Version |
-| ---------- | ---------------- | ----------------------------------------------------------- | ------- |
-| id         | unsigned integer |                                                             |         |
-| name       | string           | Group name.                                                 |         |
-| enabled    | enabled          | True if the group is enable, false if it is not (deletion). |         |
-| poller\_id | unsigned integer |                                                             |         |
+**There are no _service group_ in BBDO v3.**
 
 </TabItem>
 </Tabs>
@@ -1632,26 +1706,19 @@ The content of this message is serialized as follows:
 
 The content of this message is serialized as follows:
 
-| Property    | Type             | Description                                                 | Version |
-| ----------- | ---------------- | ----------------------------------------------------------- | ------- |
-| id          | unsigned integer |                                                             |         |
-| host\_id    | unsigned integer |                                                             |         |
-| service\_id | unsigned integer |                                                             |         |
-| enabled     | enabled          | True if the group is enable, false if it is not (deletion). |         |
-| group\_name | string           | Group name.                                                 |         |
-| poller\_id  | unsigned integer |                                                             |         |
+| Property    | Type             | Description                                                 |
+| ----------- | ---------------- | ----------------------------------------------------------- |
+| id          | unsigned integer |                                                             |
+| host\_id    | unsigned integer |                                                             |
+| service\_id | unsigned integer |                                                             |
+| enabled     | enabled          | True if the group is enable, false if it is not (deletion). |
+| group\_name | string           | Group name.                                                 |
+| poller\_id  | unsigned integer |                                                             |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property    | Type             | Description                                                 | Version |
-| ----------- | ---------------- | ----------------------------------------------------------- | ------- |
-| id          | unsigned integer |                                                             |         |
-| host\_id    | unsigned integer |                                                             |         |
-| service\_id | unsigned integer |                                                             |         |
-| enabled     | enabled          | True if the group is enable, false if it is not (deletion). |         |
-| group\_name | string           | Group name.                                                 |         |
-| poller\_id  | unsigned integer |                                                             |         |
+**There are no _service group member_ in BBDO v3.**
 
 </TabItem>
 </Tabs>
@@ -1721,39 +1788,81 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                   | Type             | Description                                                     | Version                         |
-| -------------------------- | ---------------- | --------------------------------------------------------------- | ------------------------------- |
-| acknowledgement\_type      | AckType          | NONE NORMAL STICKY                                              | From 22.04 version (bbdo 3.0.0) |
-| check\_attempt             | short integer    | number of failed checks                                         | From 22.04 version (bbdo 3.0.0) |
-| checked                    | boolean          | check has been executed at least once                           | From 22.04 version (bbdo 3.0.0) |
-| execution\_time            | real             | duration of last check                                          | From 22.04 version (bbdo 3.0.0) |
-| flapping                   | boolean          | service is flapping                                             | From 22.04 version (bbdo 3.0.0) |
-| host\_id                   | unsigned integer | id of the host                                                  | From 22.04 version (bbdo 3.0.0) |
-| internal\_id               | unsigned integer | internal id used by ba and metaservice                          | From 22.04 version (bbdo 3.0.0) |
-| last\_check                | time             | time of last check                                              | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state          | short integer    | last hard state                                                 | From 22.04 version (bbdo 3.0.0) |
-| last\_hard\_state\_change  | time             | time of last hard state change                                  | From 22.04 version (bbdo 3.0.0) |
-| last\_notification         | time             | time of last notification sent                                  | From 22.04 version (bbdo 3.0.0) |
-| last\_state\_change        | time             | time of last state change                                       | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_critical       | time             | time of the last check critical return code                     | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_ok             | time             | time of the last check ok return code                           | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_unknown        | time             | time of the last check unknown return code                      | From 22.04 version (bbdo 3.0.0) |
-| last\_time\_warning        | time             | time of the last check warning return code                      | From 22.04 version (bbdo 3.0.0) |
-| latency                    | real             | delay between scheduled check time and real check time          | From 22.04 version (bbdo 3.0.0) |
-| long\_output               | string           | output of some plugins on several lines                         | From 22.04 version (bbdo 3.0.0) |
-| next\_check                | time             | next scheduled check time                                       | From 22.04 version (bbdo 3.0.0) |
-| next\_notification         | time             | next renotification time                                        | From 22.04 version (bbdo 3.0.0) |
-| no\_more\_notifications    | boolean          | no other notification will be sent                              | From 22.04 version (bbdo 3.0.0) |
-| notification\_number       | short integer    | number of notifications sent since the start of the problem     | From 22.04 version (bbdo 3.0.0) |
-| output                     | string           | output of the command                                           | From 22.04 version (bbdo 3.0.0) |
-| percent\_state\_change     | real             | used by flapping and compared with high and low flap thresholds | From 22.04 version (bbdo 3.0.0) |
-| perfdata                   | string           | perfdata extracted from the command's output                    | From 22.04 version (bbdo 3.0.0) |
-| scheduled\_downtime\_depth | short integer    | number of active downtimes                                      | From 22.04 version (bbdo 3.0.0) |
-| service\_id                | unsigned integer | id of the service                                               | From 22.04 version (bbdo 3.0.0) |
-| should\_be\_scheduled      | boolean          | no next check should be scheduled                               | From 22.04 version (bbdo 3.0.0) |
-| state                      | State            | OK WARNING CRITICAL UNKNOWN PENDING                             | From 22.04 version (bbdo 3.0.0) |
-| state\_type                | StateType        | SOFT HARD                                                       | From 22.04 version (bbdo 3.0.0) |
-| type                       | ServiceType      | SERVICE METASERVICE BA ANOMALY\_DETECTION                       | From 22.04 version (bbdo 3.0.0) |
+#### NEB::PbServiceStatus
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      29 | 65565 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::ServiceStatus** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message ServiceStatus {
+  uint64 host_id = 1;                         // Host ID.
+  uint64 service_id = 2;                      // Service ID.
+
+  bool checked = 3;                          // Is this service checked?
+  enum CheckType {
+    ACTIVE = 0;
+    PASSIVE = 1;
+  }
+  CheckType check_type = 4;                  // CheckType value.
+
+  enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+    PENDING = 4;
+  }
+  State state = 5;                           // Current state of this service.
+  enum StateType {
+    SOFT = 0;
+    HARD = 1;
+  }
+  StateType state_type = 6;                  // StateType value.
+  int64 last_state_change = 7;               // Timestamp of the last state change.
+  State last_hard_state = 8;                 // Last hard state.
+  int64 last_hard_state_change = 9;          // Timestamp of the last hard state change.
+  int64 last_time_ok = 10;                   // Timestamp of the last check OK return code.
+  int64 last_time_warning = 11;              // Timestamp of the last check WARNING return code.
+  int64 last_time_critical = 12;             // Timestamp of the last check CRITICAL return code.
+  int64 last_time_unknown = 13;              // Timestamp of the last check UNKNOWN return code.
+
+  string output = 14;                        // Output of the check command.
+  string long_output = 15;                   // Long output of the check command.
+  string perfdata = 16;                      // Perfdata extracted from the command's output.
+
+  bool flapping = 17;                        // Is this service flapping?
+  double percent_state_change = 18;          // Used by flapping and compared with high and low flap thresholds.
+  double latency = 19;                       // Delay between scheduled check time and real check time.
+  double execution_time = 20;                // Duration of last check.
+  int64 last_check = 21;                     // Timestamp of the last check.
+  int64 next_check = 22;                     // Next scheduled check timestamp.
+  bool should_be_scheduled = 23;             // Is there a next check scheduled?
+  int32 check_attempt = 24;                  // Number of failed checks after which service state becomes a hard fail state.
+
+  int32 notification_number = 25;            // Number of notifications sent since the start of the problem.
+  bool no_more_notifications = 26;           // No other notification will be sent.
+  int64 last_notification = 27;              // Timestamp of the last notification.
+  int64 next_notification = 28;              // Next notification timestamp.
+
+  AckType acknowledgement_type = 29;         // AckType value.
+  int32 scheduled_downtime_depth = 30;       // Number of active downtimes.
+
+  ServiceType type = 31;                     // What kind of service is it?
+
+  /* In case of metaservice and ba, they also have an internal id. We keep it
+   * here. */
+  uint64 internal_id = 32;                   // ID of metaservice or ba.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -1779,10 +1888,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property   | Type             | Description                                                              | Version |
-| ---------- | ---------------- | ------------------------------------------------------------------------ | ------- |
-| loaded     | boolean          | True if the instance loaded successfuly.                                 |         |
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload). |         |
+**There is no Protobuf event for an event handler.**
 
 </TabItem>
 </Tabs>
@@ -1803,187 +1909,164 @@ The content of this message is serialized as follows:
 | Property   | Type             | Description                                                                  | Version |
 | ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
 | poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
-| responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
+| responsive | boolean          | A boolean telling if the poller with ID **poller_id** is responsive or not.  |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property   | Type             | Description                                                                  | Version |
-| ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
-| responsive | boolean          | A boolean telling if the poller with ID **poller\_id** is responsive or not. |         |
+#### NEB::PbResponsiveInstance
 
-</TabItem>
-</Tabs>
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      46 | 65582 |
 
-### Pb Adaptive service
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-When BBDO 3 version is used, you can see this event sent when a service has
-changes in its configuration.
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbResponsiveInstance** events should be sent, instead you
+should see these ones.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
 
-```text
+```cpp
+message BBDOHeader {
+  uint32 conf_version = 1;   // An internal number, not currently used.
+}
+
+message ResponsiveInstance {
+  BBDOHeader header = 1;
+
+  uint64 poller_id = 2;      // Poller ID.
+  bool responsive = 3;       // Is this poller responsive?
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Adaptive service
+
+This event was introduced with BBDO v3. It is emitted when a service has its configuration
+updated on the fly (for example with an external command)
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+**No Adaptive service available in BBDO v2.**
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveService
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      41 | 65577 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbAdaptiveService** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
 message AdaptiveService {
-  uint64 host_id = 1;
-  uint64 service_id = 2;
+  uint64 host_id = 1;                         // Host ID.
+  uint64 service_id = 2;                      // Service ID.
 
-  optional bool notify = 3;
-  optional bool active_checks = 4;
-  optional bool should_be_scheduled = 5;
-  optional bool passive_checks = 6;
-  optional bool event_handler_enabled = 7;
-  optional bool flap_detection_enabled = 8;
-  optional bool obsess_over_service = 9;
-  optional string event_handler = 10;
-  optional string check_command = 11;
-  optional uint32 check_interval = 12;
-  optional uint32 retry_interval = 13;
-  optional uint32 max_check_attempts  = 14;
-  optional bool check_freshness = 15;
-  optional string check_period = 16;
-  optional string notification_period = 17;
-}
-```
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-When BBDO 3 version is used, you can see this event sent when a service has
-changes in its configuration.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message AdaptiveService {
-  uint64 host_id = 1;
-  uint64 service_id = 2;
-
-  optional bool notify = 3;
-  optional bool active_checks = 4;
-  optional bool should_be_scheduled = 5;
-  optional bool passive_checks = 6;
-  optional bool event_handler_enabled = 7;
-  optional bool flap_detection_enabled = 8;
-  optional bool obsess_over_service = 9;
-  optional string event_handler = 10;
-  optional string check_command = 11;
-  optional uint32 check_interval = 12;
-  optional uint32 retry_interval = 13;
-  optional uint32 max_check_attempts  = 14;
-  optional bool check_freshness = 15;
-  optional string check_period = 16;
-  optional string notification_period = 17;
+  optional bool notify = 3;                   // Are notifications enabled on this service?
+  optional bool active_checks = 4;            // Are active checks enabled?
+  optional bool should_be_scheduled = 5;      // Is there a next check scheduled?
+  optional bool passive_checks = 6;           // Are passive checks enabled?
+  optional bool event_handler_enabled = 7;    // Event handler enabled?
+  optional bool flap_detection_enabled = 8;   // Is flap detection enabled?
+  optional bool obsess_over_service = 9;      // True if OCSP command is executed after check or notification command.
+  optional string event_handler = 10;         // Command executed when state changes.
+  optional string check_command = 11;         // Command executed.
+  optional uint32 check_interval = 12;        // Interval in units (usually 60s) between 2 checks.
+  optional uint32 retry_interval = 13;        // Interval between two checks when service isn't in ok state and state type is SOFT.
+  optional uint32 max_check_attempts  = 14;   // Number of failed checks after which service state becomes a hard fail state.
+  optional bool check_freshness = 15;         // Passive freshness check activated?
+  optional string check_period = 16;          // Time period when checks are authorized.
+  optional string notification_period = 17;   // Time period when notifications are authorized.
 }
 ```
 
 </TabItem>
 </Tabs>
 
-### Pb Adaptive host
+### Adaptive host
+
+This event was introduced with BBDO v3. It is emitted when a host has its configuration
+updated on the fly (for example with an external command)
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-When BBDO 3 version is used, you can see this event sent when a host has
-changes in its configuration.
-
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message AdaptiveHost {
-  uint64 host_id = 1;
-
-  optional bool notify = 2;
-  optional bool active_checks = 3;
-  optional bool should_be_scheduled = 4;
-  optional bool passive_checks = 5;
-  optional bool event_handler_enabled = 6;
-  optional bool flap_detection = 7;
-  optional bool obsess_over_host = 8;
-  optional string event_handler = 9;
-  optional string check_command  = 10;
-  optional uint32 check_interval  = 11;
-  optional uint32 retry_interval  = 12;
-  optional uint32 max_check_attempts  = 13;
-  optional bool check_freshness = 14;
-  optional string check_period  = 15;
-  optional string notification_period  = 16;
-}
-```
+**No Adaptive host available in BBDO v2.**
 
 </TabItem>
+
 <TabItem value="BBDO v3" label="BBDO v3">
 
-When BBDO 3 version is used, you can see this event sent when a host has
-changes in its configuration.
+#### NEB::PbAdaptiveHost
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      31 | 65567 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::PbAdaptiveHost** events should be sent, instead you
+should see these ones.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
 
-```text
+```cpp
 message AdaptiveHost {
-  uint64 host_id = 1;
+  uint64 host_id = 1;                         // Host ID.
 
-  optional bool notify = 2;
-  optional bool active_checks = 3;
-  optional bool should_be_scheduled = 4;
-  optional bool passive_checks = 5;
-  optional bool event_handler_enabled = 6;
-  optional bool flap_detection = 7;
-  optional bool obsess_over_host = 8;
-  optional string event_handler = 9;
-  optional string check_command  = 10;
-  optional uint32 check_interval  = 11;
-  optional uint32 retry_interval  = 12;
-  optional uint32 max_check_attempts  = 13;
-  optional bool check_freshness = 14;
-  optional string check_period  = 15;
-  optional string notification_period  = 16;
+  optional bool notify = 2;                   // Are notifications enabled on this service?
+  optional bool active_checks = 3;            // Are active checks enabled?
+  optional bool should_be_scheduled = 4;      // Is there a next check scheduled?
+  optional bool passive_checks = 5;           // Are passive checks enabled?
+  optional bool event_handler_enabled = 6;    // Event handler enabled?
+  optional bool flap_detection = 7;           // Is flap detection enabled?
+  optional bool obsess_over_host = 8;         // True if OCSP command is executed after check or notification command.
+  optional string event_handler = 9;          // Command executed when state changes.
+  optional string check_command  = 10;        // Command executed.
+  optional uint32 check_interval  = 11;       // Interval in units (usually 60s) between 2 checks.
+  optional uint32 retry_interval  = 12;       // Interval between two checks when service isn't in ok state and state type is SOFT.
+  optional uint32 max_check_attempts  = 13;   // Number of failed checks after which service state becomes a hard fail state.
+  optional bool check_freshness = 14;         // Passive freshness check activated?
+  optional string check_period  = 15;         // Time period when checks are authorized.
+  optional string notification_period  = 16;  // Time period when notifications are authorized.
 }
 ```
 
 </TabItem>
 </Tabs>
 
-### Pb Severity
+### Severity
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-This event comes with BBDO 3. It contains the severity of a resource.
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
-
-```text
-message Severity {
-  uint64 id = 1;
-  enum Action {
-    ADD = 0;
-    DELETE = 1;
-    MODIFY = 2;
-  }
-  Action action = 2;
-  uint32 level = 3;
-  uint64 icon_id = 4;
-  string name = 5;
-  enum Type {
-    SERVICE = 0;
-    HOST = 1;
-  }
-  Type type = 6;
-  uint64 poller_id = 7;
-}
-```
+**No BBDO v2 version of this event exists.**
 
 </TabItem>
+
 <TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbSeverity
+
+| Category | element |  ID   |
+| -------- | ------- | ----- |
+|        1 |      33 | 65569 |
 
 This event comes with BBDO 3. It contains the severity of a resource.
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)

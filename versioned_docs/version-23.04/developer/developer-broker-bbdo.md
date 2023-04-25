@@ -109,30 +109,34 @@ have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 | [Instance](../developer-broker-mapping/#nebinstance)                                | 15    |            No |
 | [Instance status](../developer-broker-mapping/#nebinstancestatus)                   | 16    |            No |
 | [Log entry](../developer-broker-mapping/#neblogentry)                               | 17    |            No |
-| [Module](../developer-broker-mapping/#module)                                       | 18    |            No |
-| [Service check](../developer-broker-mapping/#servicecheck)                          | 19    |            No |
-| [Service dependency](../developer-broker-mapping/#servicedependency)                | 20    |            No |
-| [Service group](../developer-broker-mapping/#servicegroup)                          | 21    |            No |
-| [Service group member](../developer-broker-mapping/#servicegroupmember)             | 22    |            No |
-| [Service](../developer-broker-mapping/#service)                                     | 23    |            No |
-| [Service status](../developer-broker-mapping/#servicestatus)                        | 24    |            No |
-| [Instance Configuration](../developer-broker-mapping/#instanceconfiguration)        | 25    |            No |
-| [Responsive Instance](../developer-broker-mapping/#responsiveinstance)              | 26    |            No |
-| [Pb Service](../developer-broker-mapping/#pbservice)                                | 27    |           Yes |
-| [Pb Adaptive Service](../developer-broker-mapping/#pbadaptiveservice)               | 28    |           Yes |
-| [Pb Service Status](../developer-broker-mapping/#pbservicestatus)                   | 29    |           Yes |
-| [Pb Host](../developer-broker-mapping/#pbhost)                                      | 30    |           Yes |
-| [Pb Adaptive Host](../developer-broker-mapping/#pbadaptivehost)                     | 31    |           Yes |
-| [Pb Host Status](../developer-broker-mapping/#pbhoststatus)                         | 32    |           Yes |
-| [Pb Severity](../developer-broker-mapping/#pbseverity)                              | 33    |           Yes |
+| [Module](../developer-broker-mapping/#nebmodule)                                    | 18    |            No |
+| [Service check](../developer-broker-mapping/#nebservicecheck)                       | 19    |            No |
+| [Service dependency](../developer-broker-mapping/#nebservicedependency)             | 20    |            No |
+| [Service group](../developer-broker-mapping/#nebservicegroup)                       | 21    |            No |
+| [Service group member](../developer-broker-mapping/#nebservicegroupmember)          | 22    |            No |
+| [Service](../developer-broker-mapping/#nebservice)                                  | 23    |            No |
+| [Service status](../developer-broker-mapping/#nebservicestatus)                     | 24    |            No |
+| [Instance Configuration](../developer-broker-mapping/#nebinstanceconfiguration)     | 25    |            No |
+| [Responsive Instance](../developer-broker-mapping/#nebresponsiveinstance)           | 26    |            No |
+| [Pb Service](../developer-broker-mapping/#nebpbservice)                             | 27    |           Yes |
+| [Pb Adaptive Service](../developer-broker-mapping/#nebpbadaptiveservice)            | 28    |           Yes |
+| [Pb Service Status](../developer-broker-mapping/#nebpbservicestatus)                | 29    |           Yes |
+| [Pb Host](../developer-broker-mapping/#nebpbhost)                                   | 30    |           Yes |
+| [Pb Adaptive Host](../developer-broker-mapping/#nebpbadaptivehost)                  | 31    |           Yes |
+| [Pb Host Status](../developer-broker-mapping/#nebpbhoststatus)                      | 32    |           Yes |
+| [Pb Severity](../developer-broker-mapping/#nebpbseverity)                           | 33    |           Yes |
 | [Pb Tag](../developer-broker-mapping/#nebtag)                                       | 34    |           Yes |
 | [Pb Comment](../developer-broker-mapping/#nebpbcomment)                             | 35    |           Yes |
 | [Pb Downtime](../developer-broker-mapping/#nebpbdowntime)                           | 36    |           Yes |
 | [Pb Custom variable](../developer-broker-mapping/#nebpbcustomvariable)              | 37    |           Yes |
 | [Pb Custom variable status](../developer-broker-mapping/#nebpbcustomvariablestatus) | 38    |           Yes |
 | [Pb Host check](../developer-broker-mapping/#nebpbhostcheck)                        | 39    |           Yes |
+| [Pb Service check](../developer-broker-mapping/#nebpbservicecheck)                  | 40    |           Yes |
 | [Pb Log entry](../developer-broker-mapping/#nebpblogentry)                          | 41    |           Yes |
+| [Pb Instance Status](../developer-broker-mapping/#nebpbinstancestatus)              | 42    |           Yes |
+| [Pb Instance](../developer-broker-mapping/#nebpbinstance)                           | 44    |           Yes |
 | [Pb Acknowledgement](../developer-broker-mapping/#nebpbacknowledgement)             | 45    |           Yes |
+| [Pb Responsive Instance](../developer-broker-mapping/#nebpbresponsiveinstance)      | 46    |           Yes |
 
 ### Storage
 
