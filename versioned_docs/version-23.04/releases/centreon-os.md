@@ -21,33 +21,33 @@ If you have feature requests or want to report a bug, please go to our
 
 Release date: `April 26, 2023`
 
-- [API]Configuration REST API: we have started extending Centreon's REST API. The first endpoints available in this release allow managing:
-   - Time periods
-   - Host groups
-   - Host categories
-   - Host severities
-   - Service groups
-   - Service categories
-   - Service severities
-- [Authentication] Added SAML authentication
-  - Possibility to use conditions to access to Centreon
-  - Possibility to import automatically users
-  - Possibility to manage manually or automatically groups
-  - Possibility to manage manually or automatically roles
-- [Install] Removed Enterprise Linux version 7 and added version 9.
-- [Resources Status] Add extended mode for Resources Status listing dispaly. 
-- [Resources Status] Switch between extended and compact mode in Resources Status page.
-- [Resources Status] Provide both simple and forced check options in Resources Status.
+- [API] We have started extending Centreon's Configuration REST API. The first endpoints available in this release allow you to manage:
+   - Time periods.
+   - Host groups.
+   - Host categories.
+   - Host severities.
+   - Service groups.
+   - Service categories.
+   - Service severities.
+- [Authentication] Added SAML authentication. With SAML, you can:
+  - Use conditions to access Centreon.
+  - Import users automatically.
+  - Manage groups manually or automatically.
+  - Manage roles manually or automatically.
+- [Installation] Removed Enterprise Linux version 7 and added version 9.
+- [Resources Status] Added extended mode for Resources Status listing display.
+- [Resources Status] You can now switch between extended and compact mode in the Resources Status page.
+- [Resources Status] Both simple and forced check options are provided in Resources Status.
 - [Resources Status] Various user interface improvements in Resources Status :
-   - Align columns content with labels.
-   - Display reordering column icon only on mouse hover.
-   - Change columns displayed by default.
-   - Display listing pagination icons while displaying resource details panel.
-- [Terminology] Rename “problems” to “alerts” in Resources Status.
-- [Terminology] Rename “Plugin Pack” to “Monitoring Connectors” in user interface.
-- [UI] Improve Top Counter responsiveness.
-- [UX] Added German translation.
+   - Aligned column contents with labels.
+   - The icon that allows you to reorder columns is now displayed only on mouseover.
+   - The columns displayed by default have been changed.
+   - Listing pagination icons are now displayed at the same time as the resource details panel.
+- [Terminology] Renamed “problems” to “alerts” in Resources Status.
+- [Terminology] Renamed “Plugin Pack” to “Monitoring Connectors” in the user interface.
+- [UI] Improved Top Counter responsiveness.
 - [UI] Added new Centreon branding.
+- [UX] Added German translation.
 - [Widgets] Added the possibility to select a Meta-Service in the graph monitoring widget.
 
 ## Centreon Collect
@@ -58,9 +58,11 @@ Release date: `April 26, 2023`
 
 #### Centreon Engine
 
+Compatibility with other 23.04 components.
+
 #### Centreon Broker
 
-- Convert all BBDO messages to Protobuf: BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
+- Converted all BBDO messages to Protobuf: the BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
 
 ## Centreon Gorgone
 

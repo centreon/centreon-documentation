@@ -28,10 +28,10 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
-- [Configuration] Remove deprecated "Import SSV" feature from Business Activities configuration
-- [Configuration] Improve Business Activities configuration panel display
-   - Display listing pagination icons while displaying configuration panel
-   - Allow more space to indicators names
+- [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
+- [Configuration] Improved Business Activities configuration panel display:
+   - Display listing pagination icons while displaying the configuration panel
+   - Allow more space to display indicators' names.
 
 ## Centreon MBI
 
@@ -48,18 +48,9 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
-
-- Plugins automatic installation
-
-Plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
-
-- Job duplication
-
-Host Discovery jobs can now be duplicated to avoid repetitive work.
-
-- Mapper duplication
-
-Host Discovery Mappers can now be duplicated inside a job.
+- Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
+- Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
+- Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
 
 ## Centreon Monitoring Connectors Manager
 
@@ -84,15 +75,17 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
-- [Core] Allow user to exclude un representative data from prediction computation.
-- [Core] Enable usage of Anomaly Detection services in Business Activities
+- [Core] It is now possible to exclude unrepresentative data from prediction computation.
+- [Core] Anomaly Detection services can now be used in Business Activities.
 
-## Centreon IT & Business Extension
+## Centreon IT & Business Extensions
+
+### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Ajout de la possibilité de personnaliser la page de connexion et le bandeau
-  - Possibilité de changer le fond de la page de connexion
-  - Possibilité de changer le logo de la page de connexion
-  - Possibilité d'afficher un texte personnalisé
-  - Possibilité de nommer la plateforme, visible sur la page de connexion et dans le bandeau
+- Added the possibility to customize the login page and the banner. You can now:
+  - Change the background of the login page.
+  - Change the logo on the login page.
+  - Display custom text on the login page.
+  - Give a name to the platform, that will be visible on the login page and in the banner.
