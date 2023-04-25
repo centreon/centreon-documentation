@@ -144,16 +144,17 @@ The table below lists event types available in the Storage category.
 They have to be mixed with the BBDO\_STORAGE\_TYPE category to get a BBDO
 event ID.
 
-| Type                    | Value | Uses Protobuf |
-|-------------------------|-------|---------------|
-| metric                  | 1     |            No |
-| rebuild                 | 2     |            No |
-| remove\_graph           | 3     |            No |
-| status                  | 4     |            No |
-| index mapping           | 5     |            No |
-| metric mapping          | 6     |            No |
-| Pb Rebuild Message      | 7     |           Yes |
-| Pb Remove Graph Message | 8     |           Yes |
+| Type                                                       | Value | Uses Protobuf |
+|------------------------------------------------------------|-------|---------------|
+| [Metric](../developer-broker-mapping/#storagemetric)       | 1     |            No |
+| rebuild                                                    | 2     |            No |
+| remove\_graph                                              | 3     |            No |
+| status                                                     | 4     |            No |
+| index mapping                                              | 5     |            No |
+| metric mapping                                             | 6     |            No |
+| Pb Rebuild Message                                         | 7     |           Yes |
+| Pb Remove Graph Message                                    | 8     |           Yes |
+| [Pb Metric](../developer-broker-mapping/#storagepbmetric)  | 9     |           Yes |
 
 ### BBDO
 

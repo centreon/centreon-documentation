@@ -124,7 +124,13 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      35 | 65571 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::Comment** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message BBDOHeader {
@@ -212,7 +218,13 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      37 | 65573 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::CustomVariable** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message BBDOHeader {
@@ -357,7 +369,13 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      36 | 65572 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::Downtime** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message Downtime {
@@ -462,7 +480,13 @@ There are no **tag** events in BBDO v2.
 | -------- | ------- | ----- |
 |        1 |      34 | 65570 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::Tag** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 enum TagType {
@@ -596,7 +620,13 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      30 | 65566 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::Host** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 enum AckType {
@@ -751,7 +781,13 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 |        1 |      39 | 65575 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::HostCheck** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message BBDOHeader {
@@ -1628,6 +1664,8 @@ message Check {
 
 ### Service dependency
 
+This is a configuration event sent to declare a service dependency.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
@@ -1661,6 +1699,8 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Service group
 
+This is a configuration event that declares a service group.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
@@ -1688,6 +1728,10 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 </Tabs>
 
 ### Service group member
+
+This is a configuration event. It is sent just after a _servicegroup_ event to
+detail members of the group to configure. Even in BBDO v3, we still use the
+BBDO v2 version of this event.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1718,6 +1762,9 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 </Tabs>
 
 ### Service status
+
+This is an event emitted by Centreon Engine when a service has real time modifications.
+It is declined into two versions:
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1862,6 +1909,9 @@ message ServiceStatus {
 
 ### Instance configuration
 
+Here is a configuration event announcing all the configuration events that are
+going to be sent by a poller.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
@@ -1887,6 +1937,8 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 </Tabs>
 
 ### Responsive instance
+
+This event is emitted by cbd. It tells if a poller is responsive or not.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1956,7 +2008,13 @@ No **Adaptive service** available in BBDO v2.
 | -------- | ------- | ----- |
 |        1 |      41 | 65577 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::AdaptiveService** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message AdaptiveService {
@@ -2004,7 +2062,13 @@ No **Adaptive host** available in BBDO v2.
 | -------- | ------- | ----- |
 |        1 |      31 | 65567 |
 
-Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **NEB::AdaptiveHost** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
 ```cpp
 message AdaptiveHost {
@@ -2032,6 +2096,9 @@ message AdaptiveHost {
 </Tabs>
 
 ### Severity
+
+Here is a configuration event. It defines a severity. This event was introduced
+with BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2086,6 +2153,14 @@ graph should be updated.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
+#### Storage::Metric
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |       1 | 196609 |
+
+The content of this message is serialized as follows:
+
 | Property         | Type             | Description                                                                 | Version |
 | ---------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
 | ctime            | time             | Time at which the metric value was generated.                               |         |
@@ -2102,18 +2177,37 @@ graph should be updated.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property         | Type             | Description                                                                 | Version |
-| ---------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
-| ctime            | time             | Time at which the metric value was generated.                               |         |
-| interval         | unsigned integer | Normal service check interval in seconds.                                   |         |
-| metric\_id       | unsigned integer | Metric ID (from the metrics table).                                         |         |
-| name             | string           | Metric name.                                                                |         |
-| rrd\_len         | integer          | RRD retention length in seconds.                                            |         |
-| value            | real             | Metric value.                                                               |         |
-| value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |         |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |         |
-| host\_id         | unsigned integer | The id of the host this metric is attached to.                              |         |
-| service\_id      | unsigned integer | The id of the service this metric is attached to.                           |         |
+#### Storage::PbMetric
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       9 | 196617 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+used, no more **Storage::Metric** events should be sent, instead you
+should see these ones.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message Metric {
+  enum ValueType {
+    GAUGE = 0;
+    COUNTER = 1;
+    DERIVE = 2;
+    ABSOLUTE = 3;
+    AUTOMATIC = 4;
+  }
+  uint64 metric_id = 4;       // Metric ID.
+  int32 rrd_len = 5;          // RRD retention length in seconds.
+  int32 interval = 6;         // Normal service check interval in seconds.
+  ValueType value_type = 7;   // A value from ValueType.
+  uint64 time = 8;            // Timestamp at which the metric value was generated.
+  double value = 9;           // Metric value.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -2121,9 +2215,13 @@ graph should be updated.
 ### Rebuild
 
 Rebuild events are generated when a Storage endpoint detects that some
-graph should be rebuild. It first sends a rebuild start event (end =3D
-false), then metric values (metric event with is\_for\_rebuild set to
-true) and finally a rebuild end event (end =3D true).
+graph should be rebuild. It first sends a rebuild start event (end `false`),
+then metric values (metric event with is\_for\_rebuild set to
+true) and finally a rebuild end event (end `true`).
+
+This message and its principle are only available in BBDO v2.
+With BBDO v3, we take advantage of the power of Protobuf. To rebuild graphs,
+we use the event [Bbdo::PbRebuildGraphs](#bbdopbrebuildgraphs).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2137,11 +2235,9 @@ true) and finally a rebuild end event (end =3D true).
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property  | Type             | Description                                                                                                   | Version |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
-| end       | boolean          | End flag. Set to true if rebuild is starting, false if it is ending.                                          |         |
-| id        | unsigned integer | ID of metric to rebuild if is\_index is false, or ID of index to rebuild (status graph) if is\_index is true. |         |
-| is\_index | boolean          | Index flag. Rebuild index (status) if true, rebuild metric if false.                                          |         |
+**Not available with Protobuf 3**
+
+Take a look at [Bbdo::PbRebuildGraphs](#bbdopbrebuildgraphs) for a replacement.
 
 </TabItem>
 </Tabs>
