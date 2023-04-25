@@ -20,7 +20,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.5
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
 
@@ -102,7 +102,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.10.5
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 - No change.
 
@@ -151,7 +151,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 #### Bug fixes
 
@@ -203,7 +203,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.1
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 - [UI] Fixed a cosmetic issue in BAM and Autodiscovery table header.
 
@@ -238,7 +238,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 #### Bug fixes
 

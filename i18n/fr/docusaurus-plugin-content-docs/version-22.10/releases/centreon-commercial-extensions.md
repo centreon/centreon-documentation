@@ -101,7 +101,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.10.5
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 - No change.
 
@@ -150,7 +150,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 #### Bug fixes
 
@@ -202,7 +202,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.1
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 - [UI] Fixed a cosmetic issue in BAM and Autodiscovery table header.
 
@@ -237,7 +237,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `April 18, 2023`
+Release date: `April 24, 2023`
 
 #### Bug fixes
 
