@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les macros définies à la page suivante : [**Installation d'un cluster à 2 nœuds**](../../installation/installation-of-centreon-ha/installation-2-nodes.md), section **Définition des noms et adresses IP des serveurs**.
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les macros définies à la page suivante : **Installation d'un cluster à 2 nœuds**, section **Définition des noms et adresses IP des serveurs**.
 
 ### Conditions requises pour les tests
 
