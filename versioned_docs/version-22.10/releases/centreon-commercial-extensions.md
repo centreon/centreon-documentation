@@ -22,7 +22,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 Release date: `April 24, 2023`
 
-> You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
+> You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#step-6--execute-the-configuresh-script) in order to apply some fixes provided by this release.
 
 #### Bug fixes
 - [API] Fixed an issue with create element in view that could break default icon.
