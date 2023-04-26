@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Centreon Broker uses global mapping tables for events that can be
-exchanged. This page list properties available for each event type.
+exchanged. This page lists properties available for each event type.
 
 ## NEB
 
@@ -53,8 +53,8 @@ The content of this message is serialized as follows:
 |        1 |      45 | 65581 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events, but using the Protobuf 3 serialization mechanism. When BBDO version 3 is
-used, no more **NEB::Acknowledgement** events should be sent, but **NEB::PbAcknowledgement** events instead.
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Acknowledgement** events should be sent, instead you should see **NEB::PbAcknowledgement** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
@@ -125,9 +125,9 @@ The content of this message is serialized as follows:
 |        1 |      35 | 65571 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::Comment** events should be sent, instead you
-should see these ones.
+should see **NEB::PbComment** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -219,9 +219,9 @@ The content of this message is serialized as follows:
 |        1 |      37 | 65573 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::CustomVariable** events should be sent, instead you
-should see these ones.
+should see **NEB::PbCustomVariable** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -370,9 +370,9 @@ The content of this message is serialized as follows:
 |        1 |      36 | 65572 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::Downtime** events should be sent, instead you
-should see these ones.
+should see **NEB::PbDowntime** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -481,9 +481,9 @@ There are no **tag** events in BBDO v2.
 |        1 |      34 | 65570 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::Tag** events should be sent, instead you
-should see these ones.
+should see **NEB::PbTag** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -621,9 +621,9 @@ The content of this message is serialized as follows:
 |        1 |      30 | 65566 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::Host** events should be sent, instead you
-should see these ones.
+should see **NEB::PbHost** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -782,9 +782,9 @@ The content of this message is serialized as follows:
 |        1 |      39 | 65575 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::HostCheck** events should be sent, instead you
-should see these ones.
+should see **NEB::PbHostCheck** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -1187,7 +1187,7 @@ The content of this message is serialized as follows:
 |        1 |      42 | 65578 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::InstanceStatus** events should be sent, instead you
 should see **NEB::PbInstanceStatus** events.
 
@@ -1459,7 +1459,7 @@ The content of this message is serialized as follows:
 |        1 |      27 | 65563 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::Service** events should be sent, instead you
 should see **NEB::PbService** events.
 
@@ -1664,7 +1664,7 @@ message Check {
 
 ### Service dependency
 
-This is a configuration event sent to declare a service dependency.
+This is a configuration event sent when a dependency between services is defined.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1699,7 +1699,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Service group
 
-This is a configuration event that declares a service group.
+This is a configuration event that is emitted when a service group is created.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1729,7 +1729,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Service group member
 
-This is a configuration event. It is sent just after a _servicegroup_ event to
+This is a configuration event. It is sent just after a **servicegroup** event to
 detail members of the group to configure. Even in BBDO v3, we still use the
 BBDO v2 version of this event.
 
@@ -1764,7 +1764,6 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 ### Service status
 
 This is an event emitted by Centreon Engine when a service has real time modifications.
-It is declined into two versions:
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2009,9 +2008,9 @@ No **Adaptive service** available in BBDO v2.
 |        1 |      41 | 65577 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::AdaptiveService** events should be sent, instead you
-should see these ones.
+should see **NEB::PbAdaptiveService** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -2063,9 +2062,9 @@ No **Adaptive host** available in BBDO v2.
 |        1 |      31 | 65567 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **NEB::AdaptiveHost** events should be sent, instead you
-should see these ones.
+should see **NEB::PbAdaptiveHost** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -2097,7 +2096,7 @@ message AdaptiveHost {
 
 ### Severity
 
-Here is a configuration event. It defines a severity. This event was introduced
+This is a configuration event. It defines a severity. This event was introduced
 with BBDO v3.
 
 <Tabs groupId="sync">
@@ -2184,12 +2183,11 @@ The content of this message is serialized as follows:
 |        3 |       9 | 196617 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **Storage::Metric** events should be sent, instead you
-should see these ones.
+should see **Storage::PbMetric** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message Metric {
@@ -2215,7 +2213,7 @@ message Metric {
 ### Rebuild
 
 Rebuild events are generated when a Storage endpoint detects that some
-graph should be rebuild. It first sends a rebuild start event (end `false`),
+graphs should be rebuilt. It first sends a rebuild start event (end `false`),
 then metric values (metric event with is\_for\_rebuild set to
 true) and finally a rebuild end event (end `true`).
 
@@ -2243,7 +2241,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**Not available with Protobuf 3**
+Not available with Protobuf 3.
 
 Take a look at [Storage::PbRebuildMessage](#storagepbrebuildmessage) for a replacement.
 
@@ -2252,7 +2250,7 @@ Take a look at [Storage::PbRebuildMessage](#storagepbrebuildmessage) for a repla
 
 ### Remove graph
 
-A Storage endpoint generates a **remove graph** event when some graph
+A Storage endpoint generates a **remove graph** event when some graphs
 must be deleted.
 
 This message and its principle are only available in BBDO v2.
@@ -2278,7 +2276,7 @@ The content of this message is serialized as follows:
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-**Not available with Protobuf 3**
+Not available with Protobuf 3.
 
 Take a look at [Storage::PbRemoveMessage](#storagepbremovemessage) for a replacement.
 
@@ -2287,7 +2285,7 @@ Take a look at [Storage::PbRemoveMessage](#storagepbremovemessage) for a replace
 
 ### Status
 
-This event is emitted by cbd when a **Service Status** or a **Host Status** is received.
+This event is emitted by cbd when a **Service Status** or a **Host Status** event is received.
 It essentially contains a resource with its status.
 
 <Tabs groupId="sync">
@@ -2320,12 +2318,11 @@ The content of this message is serialized as follows:
 |        3 |      10 | 196618 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **Storage::Status** events should be sent, instead you
-should see these ones.
+should see **Storage::PbStatus** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message Status {
@@ -2394,12 +2391,11 @@ The content of this message is serialized as follows:
 |        3 |      11 | 196619 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO 3 version is
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
 used, no more **Storage::IndexMapping** events should be sent, instead you
-should see these ones.
+should see **Storage::PbIndexMapping** events.
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```cpp
 message IndexMapping {
@@ -2414,14 +2410,14 @@ message IndexMapping {
 
 ### Rebuild Message
 
-This event comes with BBDO 3. When some graphs have to be rebuilt. Messages
+This event comes with BBDO 3, when some graphs have to be rebuilt. Messages
 handling these rebuilds are of that type. They replace the old BBDO rebuild
 message.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-**Not available with BBDO v2.**
+Not available with BBDO v2.
 
 See [Storage::Rebuild](#storagerebuild)
 
@@ -2435,12 +2431,13 @@ See [Storage::Rebuild](#storagerebuild)
 |        3 |       7 | 196615 |
 
 There are three states for this message:
+
 * START: here is the first state, this message initializes which metrics have
 to be rebuilt.
 * DATA: once the START state has been sent, one or more messages with DATA state
 may be sent to the RRD broker.
 * END: When all the rebuild events have been sent, this one is sent to close the
-rebuilds. And the RRD broker falls back in a nominal state.
+rebuilds. And the RRD broker falls back into a nominal state.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -2479,15 +2476,15 @@ message RebuildMessage {
 ### Remove Graph Message
 
 This event comes with BBDO 3. When we want to remove graph files, we can use
-the centengine gRPC API and this call makes cbd to generate a **Storage::PbRemoveGraphMessage**.
-Two possibilities are mixed in this event. We can remove graphs
+the centengine gRPC API and this call makes cbd generate a **Storage::PbRemoveGraphMessage** event.
+There are two possibilities concerning this event. We can remove graphs
 matching some index data or graphs matching some metric data. It is also
 possible to mix the two kinds.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-**Not available with BBDO v2.**
+Not available with BBDO v2.
 
 See [Storage::RemoveGraph](#storageremovegraph)
 
@@ -2500,8 +2497,7 @@ See [Storage::RemoveGraph](#storageremovegraph)
 | -------- | ------- | ------ |
 |        3 |       8 | 196616 |
 
-The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
-is the following:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
 ```text
 message RemoveGraphMessage {
@@ -2563,7 +2559,7 @@ message RemoveGraphMessage {
 
 ### BA status event
 
-This event is sent when a BA's status changed.
+This event is sent when a BA's status changes.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2598,7 +2594,7 @@ This event is sent when a BA's status changed.
 
 ### KPI status event
 
-This event is sent when a KPI's status changed.
+This event is sent when a KPI's status changes.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2643,7 +2639,7 @@ This event is sent when a KPI's status changed.
 
 ### Meta service status event
 
-This event is sent when a meta service's status changed.
+This event is sent when a meta service's status changes.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2734,7 +2730,7 @@ This event is sent when a new KPI event is opened, or an old one is closed.
 
 ### BA duration event event
 
-This event is sent when a new BA duration event is computed by BAM broker.
+This event is sent when a new BA duration event is computed by the BAM broker.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
