@@ -2669,30 +2669,61 @@ This event is sent when a BA's status changes.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property               | Type             | Description                                  | Version                   |
-| ---------------------- | ---------------- | -------------------------------------------- | ------------------------- |
-| ba\_id                 | unsigned integer | The id of the BA.                            | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime           | boolean          | True of the BA is in downtime.               | Since 2.8.0 (BBDO 1.2.0). |
-| last\_state\_change    | time             | The time of the last state change of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| level\_acknowledgement | real             | The acknowledgment level of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime        | real             | The downtime level of the BA.                | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal         | real             | The nominal level of the BA.                 | Since 2.8.0 (BBDO 1.2.0). |
-| state                  | short integer    | The state of the BA.                         | Since 2.8.0 (BBDO 1.2.0). |
-| state\_changed         | boolean          | True if the state of the BA just changed.    | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::BaStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       1 | 393217 |
+
+The content of this message is serialized as follows:
+
+| Property               | Type             | Description                                  |
+| ---------------------- | ---------------- | -------------------------------------------- |
+| ba\_id                 | unsigned integer | The id of the BA.                            |
+| in\_downtime           | boolean          | True if the BA is in downtime.               |
+| last\_state\_change    | time             | The time of the last state change of the BA. |
+| level\_acknowledgement | real             | The acknowledgment level of the BA.          |
+| level\_downtime        | real             | The downtime level of the BA.                |
+| level\_nominal         | real             | The nominal level of the BA.                 |
+| state                  | short integer    | The state of the BA.                         |
+| state\_changed         | boolean          | True if the state of the BA just changed.    |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property               | Type             | Description                                  | Version                   |
-| ---------------------- | ---------------- | -------------------------------------------- | ------------------------- |
-| ba\_id                 | unsigned integer | The id of the BA.                            | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime           | boolean          | True of the BA is in downtime.               | Since 2.8.0 (BBDO 1.2.0). |
-| last\_state\_change    | time             | The time of the last state change of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| level\_acknowledgement | real             | The acknowledgment level of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime        | real             | The downtime level of the BA.                | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal         | real             | The nominal level of the BA.                 | Since 2.8.0 (BBDO 1.2.0). |
-| state                  | short integer    | The state of the BA.                         | Since 2.8.0 (BBDO 1.2.0). |
-| state\_changed         | boolean          | True if the state of the BA just changed.    | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbBaStatus
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      19 | 393235 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::BaStatus** events should be sent, instead you
+should see **BAM::PbBaStatus** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+}
+
+message BaStatus {
+    uint32 ba_id = 2;                   // The ID of the BA.
+    bool in_downtime = 3;               // True if the BA is in downtime.
+    uint64 last_state_change = 4;       // Timestamp of the last state change of the BA.
+    double level_acknowledgement = 5;   // The acknowledgement level of the BA.
+    double level_downtime = 6;          // The downtime level of the BA.
+    double level_nominal = 7;           // The nominal level of the BA.
+    State state = 8;                    // The state of the BA.
+    bool state_changed = 9;             // True if the state of the BA just changed.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -2704,65 +2735,103 @@ This event is sent when a KPI's status changes.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                     | Type             | Description                                   | Version                   |
-| ---------------------------- | ---------------- | --------------------------------------------- | ------------------------- |
-| kpi\_id                      | unsigned integer | The id of the KPI.                            | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime                 | bool             | True if the KPI is in downtime.               |                           |
-| level\_acknowledgement\_hard | real             | The hard acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| level\_acknowledgement\_soft | real             | The soft acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime\_hard        | real             | The hard downtime level of the KPI.           | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime\_soft        | real             | The soft downtime level of the KPI.           | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal\_hard         | real             | The hard nominal level of the KPI.            | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal\_soft         | real             | The soft nominal level of the KPI.            | Since 2.8.0 (BBDO 1.2.0). |
-| state\_hard                  | short integer    | The hard state of the KPI.                    | Since 2.8.0 (BBDO 1.2.0). |
-| state\_soft                  | short integer    | The soft state of the KPI.                    | Since 2.8.0 (BBDO 1.2.0). |
-| last\_state\_change          | time             | The time of the last state change of the KPI. | Since 2.8.0 (BBDO 1.2.0). |
-| last\_impact                 | real             | The last impact of the KPI.                   | Since 2.8.0 (BBDO 1.2.0). |
-| valid                        | bool             | True if the KPi is valid.                     |                           |
+#### BAM::KpiStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       2 | 393218 |
+
+The content of this message is serialized as follows:
+
+| Property                     | Type             | Description                                   |
+| ---------------------------- | ---------------- | --------------------------------------------- |
+| kpi\_id                      | unsigned integer | The id of the KPI.                            |
+| in\_downtime                 | bool             | True if the KPI is in downtime.               |
+| level\_acknowledgement\_hard | real             | The hard acknowledgement level of the KPI.    |
+| level\_acknowledgement\_soft | real             | The soft acknowledgement level of the KPI.    |
+| level\_downtime\_hard        | real             | The hard downtime level of the KPI.           |
+| level\_downtime\_soft        | real             | The soft downtime level of the KPI.           |
+| level\_nominal\_hard         | real             | The hard nominal level of the KPI.            |
+| level\_nominal\_soft         | real             | The soft nominal level of the KPI.            |
+| state\_hard                  | short integer    | The hard state of the KPI.                    |
+| state\_soft                  | short integer    | The soft state of the KPI.                    |
+| last\_state\_change          | time             | The time of the last state change of the KPI. |
+| last\_impact                 | real             | The last impact of the KPI.                   |
+| valid                        | bool             | True if the KPi is valid.                     |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                     | Type             | Description                                   | Version                   |
-| ---------------------------- | ---------------- | --------------------------------------------- | ------------------------- |
-| kpi\_id                      | unsigned integer | The id of the KPI.                            | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime                 | bool             | True if the KPI is in downtime.               |                           |
-| level\_acknowledgement\_hard | real             | The hard acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| level\_acknowledgement\_soft | real             | The soft acknowledgement level of the KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime\_hard        | real             | The hard downtime level of the KPI.           | Since 2.8.0 (BBDO 1.2.0). |
-| level\_downtime\_soft        | real             | The soft downtime level of the KPI.           | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal\_hard         | real             | The hard nominal level of the KPI.            | Since 2.8.0 (BBDO 1.2.0). |
-| level\_nominal\_soft         | real             | The soft nominal level of the KPI.            | Since 2.8.0 (BBDO 1.2.0). |
-| state\_hard                  | short integer    | The hard state of the KPI.                    | Since 2.8.0 (BBDO 1.2.0). |
-| state\_soft                  | short integer    | The soft state of the KPI.                    | Since 2.8.0 (BBDO 1.2.0). |
-| last\_state\_change          | time             | The time of the last state change of the KPI. | Since 2.8.0 (BBDO 1.2.0). |
-| last\_impact                 | real             | The last impact of the KPI.                   | Since 2.8.0 (BBDO 1.2.0). |
-| valid                        | bool             | True if the KPi is valid.                     |                           |
+#### BAM::PbKpiStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      27 | 393243 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Ack** events should be sent, instead you
+should see **NEB::PbAck** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+}
+
+message KpiStatus {
+    uint32 kpi_id = 1;                      // ID of the KPI.
+    bool in_downtime = 2;                   // True if the KPI is in downtime.
+    double level_acknowledgement_hard = 3;  // The hard acknowledgement level of the KPI.
+    double level_acknowledgement_soft = 4;  // The soft acknowledgement level of the KPI.
+    double level_downtime_hard = 5;         // The hard downtime level of the KPI.
+    double level_downtime_soft = 6;         // The soft downtime level of the KPI.
+    double level_nominal_hard = 7;          // The hard nominal level of the KPI.
+    double level_nominal_soft = 8;          // The soft nominal level of the KPI.
+    State state_hard = 9;                   // Hard state of the KPI.
+    State state_soft = 10;                  // Soft state of the KPI.
+    int64 last_state_change = 11;           // Timestamp of the last state change of the KPI.
+    double last_impact = 12;                // Last impact of the KPI.
+    bool valid = 13;                        // True if the KPi is valid.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Meta service status event
 
-This event is sent when a meta service's status changes.
+This event was designed to send meta service's status changes.
+
+At the moment meta services are not managed by Centreon Broker, so this
+event is not used.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property          | Type             | Description                     | Version                   |
-| ----------------- | ---------------- | ------------------------------- | ------------------------- |
-| meta\_service\_id | unsigned integer | The id of the meta service.     | Since 2.8.0 (BBDO 1.2.0). |
-| value             | real             | The value of the meta service.  | Since 2.8.0 (BBDO 1.2.0). |
-| state\_changed    | boolean          | True if the state just changed. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::MetaServiceStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       3 | 393219 |
+
+The content of this message is serialized as follows:
+
+| Property          | Type             | Description                     |
+| ----------------- | ---------------- | ------------------------------- |
+| meta\_service\_id | unsigned integer | The id of the meta service.     |
+| value             | real             | The value of the meta service.  |
+| state\_changed    | boolean          | True if the state just changed. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property          | Type             | Description                     | Version                   |
-| ----------------- | ---------------- | ------------------------------- | ------------------------- |
-| meta\_service\_id | unsigned integer | The id of the meta service.     | Since 2.8.0 (BBDO 1.2.0). |
-| value             | real             | The value of the meta service.  | Since 2.8.0 (BBDO 1.2.0). |
-| state\_changed    | boolean          | True if the state just changed. | Since 2.8.0 (BBDO 1.2.0). |
+There is no Protobuf event.
 
 </TabItem>
 </Tabs>
@@ -2774,61 +2843,124 @@ This event is sent when a new BA event is opened, or an old one is closed.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property     | Type             | Description                                                    | Version                   |
-| ------------ | ---------------- | -------------------------------------------------------------- | ------------------------- |
-| ba\_id       | unsigned integer | The id of the BA.                                              | Since 2.8.0 (BBDO 1.2.0). |
-| first\_level | real             | The first level of the BA event.                               | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time    | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime | boolean          | True if BA was in downtime during the BA event.                | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time  | time             | The start\_time of the event.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| status       | short integer    | The status of the BA during the event.                         | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::BaEvent
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       4 | 393220 |
+
+The content of this message is serialized as follows:
+
+| Property     | Type             | Description                                                    |
+| ------------ | ---------------- | -------------------------------------------------------------- |
+| ba\_id       | unsigned integer | The id of the BA.                                              |
+| first\_level | real             | The first level of the BA event.                               |
+| end\_time    | time             | The end\_time of the event. 0 or (time)-1 for an opened event. |
+| in\_downtime | boolean          | True if BA was in downtime during the BA event.                |
+| start\_time  | time             | The start\_time of the event.                                  |
+| status       | short integer    | The status of the BA during the event.                         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property     | Type             | Description                                                    | Version                   |
-| ------------ | ---------------- | -------------------------------------------------------------- | ------------------------- |
-| ba\_id       | unsigned integer | The id of the BA.                                              | Since 2.8.0 (BBDO 1.2.0). |
-| first\_level | real             | The first level of the BA event.                               | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time    | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime | boolean          | True if BA was in downtime during the BA event.                | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time  | time             | The start\_time of the event.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| status       | short integer    | The status of the BA during the event.                         | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbBaEvent
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      20 | 393236 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::BaEvent** events should be sent, instead you
+should see **BAM::PbBaEvent** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+}
+
+message BaEvent {
+    uint32 ba_id = 1;         // The ID of the BA.
+    double first_level = 2;   // The first level of the BA event.
+    int64 end_time = 3;       // The end\_time of the event. 0 or (time)-1 for an opened event.
+    bool in_downtime = 4;     // True if BA was in downtime during the BA event.
+    uint64 start_time = 5;    // The start\_time of the event.
+    State status = 6;         // The status of the BA during the event.
+}
+```
 
 </TabItem>
 </Tabs>
 
-### KPI-event event
+### KPI Event
 
 This event is sent when a new KPI event is opened, or an old one is closed.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property      | Type             | Description                                                    | Version                   |
-| ------------- | ---------------- | -------------------------------------------------------------- | ------------------------- |
-| kpi\_id       | unsigned integer | The id of the KPI.                                             | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time     | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_level | integer          | The level of the impact.                                       | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime  | boolean          | True if BA was in downtime during the BA event.                | Since 2.8.0 (BBDO 1.2.0). |
-| first\_output | string           | The first output of the KPI during the event.                  | Since 2.8.0 (BBDO 1.2.0). |
-| perfdata      | string           | The first perfdata of the KPI during the event.                | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time   | time             | The start\_time of the event.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| status        | short integer    | The status of the BA during the event.                         | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::KpiEvent
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       5 | 393221 |
+
+The content of this message is serialized as follows:
+
+| Property      | Type             | Description                                                    |
+| ------------- | ---------------- | -------------------------------------------------------------- |
+| kpi\_id       | unsigned integer | The id of the KPI.                                             |
+| end\_time     | time             | The end\_time of the event. 0 or (time)-1 for an opened event. |
+| impact\_level | integer          | The level of the impact.                                       |
+| in\_downtime  | boolean          | True if BA was in downtime during the BA event.                |
+| first\_output | string           | The first output of the KPI during the event.                  |
+| perfdata      | string           | The first perfdata of the KPI during the event.                |
+| start\_time   | time             | The start\_time of the event.                                  |
+| status        | short integer    | The status of the BA during the event.                         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property      | Type             | Description                                                    | Version                   |
-| ------------- | ---------------- | -------------------------------------------------------------- | ------------------------- |
-| kpi\_id       | unsigned integer | The id of the KPI.                                             | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time     | time             | The end\_time of the event. 0 or (time)-1 for an opened event. | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_level | integer          | The level of the impact.                                       | Since 2.8.0 (BBDO 1.2.0). |
-| in\_downtime  | boolean          | True if BA was in downtime during the BA event.                | Since 2.8.0 (BBDO 1.2.0). |
-| first\_output | string           | The first output of the KPI during the event.                  | Since 2.8.0 (BBDO 1.2.0). |
-| perfdata      | string           | The first perfdata of the KPI during the event.                | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time   | time             | The start\_time of the event.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| status        | short integer    | The status of the BA during the event.                         | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbKpiEvent
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      21 | 393237 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::KpiEvent** events should be sent, instead you
+should see **BAM::PbKpiEvent** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+}
+
+message KpiEvent {
+    uint32 ba_id = 1;         // The id of the BA.
+    uint64 start_time = 2;    // The start\_time of the event.
+    int64 end_time = 3;       // The end\_time of the event. 0 or (time)-1 for an opened event.
+    uint32 kpi_id = 4;        // The id of the KPI.
+    int32  impact_level = 5;  // The level of the impact.
+    bool in_downtime = 6;     // True if BA was in downtime during the BA event.
+    string output = 7;        // The first output of the KPI during the event.
+    string perfdata = 8;      // The first perfdata of the KPI during the event.
+    State status = 9;         // The status of the BA during the event.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -2840,29 +2972,53 @@ This event is sent when a new BA duration event is computed by the BAM broker.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                | Type             | Description                                            | Version                   |
-| ----------------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
-| ba\_id                  | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
-| real\_start\_time       | time             | The first level of the BA event.                       | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time               | time             | The end\_time of the event, in the given timeperiod.   | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time             | time             | The start\_time of the event, in the given timeperiod. | Since 2.8.0 (BBDO 1.2.0). |
-| duration                | unsigned integer | end\_time - start\_time.                               | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_duration           | unsigned integer | The duration of the event in the given timperiod.      | Since 2.8.0 (BBDO 1.2.0). |
-| timeperiod\_is\_default | boolean          | True if the timeperiod if the default for this BA.     | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::BaDurationEvent
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |       6 | 393222 |
+
+The content of this message is serialized as follows:
+
+| Property                | Type             | Description                                            |
+| ----------------------- | ---------------- | ------------------------------------------------------ |
+| ba\_id                  | unsigned integer | The id of the BA.                                      |
+| real\_start\_time       | time             | The first level of the BA event.                       |
+| end\_time               | time             | The end\_time of the event, in the given timeperiod.   |
+| start\_time             | time             | The start\_time of the event, in the given timeperiod. |
+| duration                | unsigned integer | end\_time - start\_time.                               |
+| sla\_duration           | unsigned integer | The duration of the event in the given timperiod.      |
+| timeperiod\_is\_default | boolean          | True if the timeperiod if the default for this BA.     |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                | Type             | Description                                            | Version                   |
-| ----------------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
-| ba\_id                  | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
-| real\_start\_time       | time             | The first level of the BA event.                       | Since 2.8.0 (BBDO 1.2.0). |
-| end\_time               | time             | The end\_time of the event, in the given timeperiod.   | Since 2.8.0 (BBDO 1.2.0). |
-| start\_time             | time             | The start\_time of the event, in the given timeperiod. | Since 2.8.0 (BBDO 1.2.0). |
-| duration                | unsigned integer | end\_time - start\_time.                               | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_duration           | unsigned integer | The duration of the event in the given timperiod.      | Since 2.8.0 (BBDO 1.2.0). |
-| timeperiod\_is\_default | boolean          | True if the timeperiod if the default for this BA.     | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbBaDurationEvent
 
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      28 | 393244 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::BaStatus** events should be sent, instead you
+should see **BAM::PbBaStatus** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message BaDurationEvent {
+    uint32 ba_id = 1;                 // The ID of the BA.
+    int64 real_start_time = 2;        // Effective start timestamp of the event.
+    int64 end_time = 3;               // The end_time of the event, 0 or -1 if the event is opened.
+    int64 start_time = 4;             // Start timestamp of the event.
+    uint32 duration = 5;              // Duration in seconds.
+    uint32 sla_duration = 6;          // The duration of the event in the given timeperiod.
+    uint32 timeperiod_id = 7;         // ID of the timeperiod.
+    bool timeperiod_is_default = 8;   // True if the timeperiod is the default one for this BA.
+}
+```
 </TabItem>
 </Tabs>
 
@@ -2874,29 +3030,52 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property                   | Type             | Description                | Version                   |
-| -------------------------- | ---------------- | -------------------------- | ------------------------- |
-| ba\_id                     | unsigned integer | The id of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_name                   | string           | The name of the BA.        | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_description            | string           | The description of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_percent\_crit  | real             |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_percent\_warn  | real             |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_duration\_crit | unsigned integer |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_duration\_warn | unsigned integer |                            | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::DimensionBaEvent
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       7 | 393223 |
+
+The content of this message is serialized as follows:
+
+| Property                   | Type             | Description                |
+| -------------------------- | ---------------- | -------------------------- |
+| ba\_id                     | unsigned integer | The id of the BA.          |
+| ba\_name                   | string           | The name of the BA.        |
+| ba\_description            | string           | The description of the BA. |
+| sla\_month\_percent\_crit  | real             |                            |
+| sla\_month\_percent\_warn  | real             |                            |
+| sla\_month\_duration\_crit | unsigned integer |                            |
+| sla\_month\_duration\_warn | unsigned integer |                            |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property                   | Type             | Description                | Version                   |
-| -------------------------- | ---------------- | -------------------------- | ------------------------- |
-| ba\_id                     | unsigned integer | The id of the BA.          | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_name                   | string           | The name of the BA.        | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_description            | string           | The description of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_percent\_crit  | real             |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_percent\_warn  | real             |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_duration\_crit | unsigned integer |                            | Since 2.8.0 (BBDO 1.2.0). |
-| sla\_month\_duration\_warn | unsigned integer |                            | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbDimensionBaEvent
 
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      25 | 393241 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBaEvent** events should be sent, instead you
+should see **BAM::PbDimensionBaEvent** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message DimensionBaEvent {
+    uint32 ba_id = 1;                   // ID of the BA.
+    string ba_name = 2;                 // Name of the BA.
+    string ba_description = 3;          // Description of the BA.
+    double sla_month_percent_crit = 4;
+    double sla_month_percent_warn = 5;
+    uint32 sla_duration_crit = 6;
+    uint32 sla_duration_warn = 7;
+}
+```
 </TabItem>
 </Tabs>
 

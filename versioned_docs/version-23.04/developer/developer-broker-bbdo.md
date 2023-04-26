@@ -180,60 +180,30 @@ The table below lists event types available in the BAM category.
 They have to be mixed with the BBDO\_BAM\_TYPE category to get a
 BBDO event ID.
 
-| Type                              | Value
-|-----------------------------------|------
-| ba_status                         | 1
-| kpi_status                        | 2
-| meta_service_status               | 3
-| ba_event                          | 4
-| kpi_event                         | 5
-| ba_duration_event                 | 6
-| dimension_ba_event                | 7
-| dimension_kpi_event               | 8
-| dimension_ba_bv_relation_event    | 9
-| dimension_bv_event                | 10
-| dimension_truncate_table_signal   | 11
-| rebuild                           | 12
-| dimension_timeperiod              | 13
-| dimension_ba_timeperiod_relation  | 14
-| dimension_timeperiod_exception    | 15
-| dimension_timeperiod_exclusion    | 16
-| inherited_downtime                | 17
-
-### Dumper
-
-The table below lists event types available in the Dumper category.
-They have to be mixed with the BBDO_DUMPER_TYPE category to get a
-BBDO event ID.
-
-| Type                              | Value
-|-----------------------------------|------
-| Dump                              | 1
-| Timestamp cache                   | 2
-| Remove                            | 3
-| Reload                            | 4
-| Db dump                           | 5
-| Db dump committed                 | 6
-| Entries Ba                        | 7
-| Entries Ba type                   | 8
-| Entries boolean                   | 9
-| Entries host                      | 10
-| Entries kpi                       | 11
-| Entries organization              | 12
-| Entries service                   | 13
-| Directory dump                    | 14
-| Directory dump committed          | 15
-
-### Extcmd
-
-The table below lists event types available in the Extcmd category.
-They have to be mixed with the BBDO_EXTCMD_TYPE category to get a
-BBDO event ID.
-
-| Type            | Value
-|-----------------|-------
-| Command request | 1
-| Command result  | 2
+| Type                                | Value | Uses Protobuf |
+|------------------------------------ | ----- | ------------- |
+| BA status                           | 1     |            No |
+| KPI status                          | 2     |            No |
+| Meta Service Status                 | 3     |            No |
+| BA event                            | 4     |            No |
+| KPI event                           | 5     |            No |
+| BA Duration Event                   | 6     |            No |
+| Dimension BA Event                  | 7     |            No |
+| dimension\_kpi\_event               | 8     |            No |
+| dimension\_ba\_bv\_relation\_event  | 9     |            No |
+| dimension\_bv\_event                | 10    |            No |
+| dimension\_truncate\_table\_signal  | 11    |            No |
+| rebuild                             | 12    |            No |
+| dimension\_timeperiod               | 13    |            No |
+| dimension\_ba\_timeperiod\_relation | 14    |            No |
+| dimension\_timeperiod\_exception    | 15    |            No |
+| dimension\_timeperiod\_exclusion    | 16    |            No |
+| inherited\_downtime                 | 17    |            No |
+| Pb BA status                        | 19    |           Yes |
+| Pb BA event                         | 20    |           Yes |
+| Pb Dimension BA Event               | 7     |           Yes |
+| Pb KPI status                       | 27    |           Yes |
+| Pb BA Duration Event                | 28    |           Yes |
 
 ## Event serialization
 
