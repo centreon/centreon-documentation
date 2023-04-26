@@ -2255,7 +2255,7 @@ must be deleted.
 
 This message and its principle are only available in BBDO v2.
 With BBDO v3, we take advantage of the power of Protobuf. To remove graphs,
-we use the event [Storage::PbRemoveMessage](#storagepbremovemessage).
+we use the event [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2278,7 +2278,8 @@ The content of this message is serialized as follows:
 
 Not available with Protobuf 3.
 
-Take a look at [Storage::PbRemoveMessage](#storagepbremovemessage) for a replacement.
+Take a look at [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage)
+for a replacement.
 
 </TabItem>
 </Tabs>
@@ -2339,21 +2340,48 @@ message Status {
 
 ### Metric mapping
 
+This event is emitted by Centreon Broker when a new service configuration is
+received. It associates an index ID (the one created for a service - see
+[Index mapping](#indexmapping) to a metric ID.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property  | Type             | Description | Version |
-| --------- | ---------------- | ----------- | ------- |
-| index\_id | unsigned integer | Index ID.   |         |
-| metric\_d | unsigned integer | Index ID.   |         |
+#### Storage::MetricMapping
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       6 | 196614 |
+
+The content of this message is serialized as follows:
+
+| Property   | Type             | Description |
+| ---------- | ---------------- | ----------- |
+| index\_id  | unsigned integer | Index ID.   |
+| metric\_id | unsigned integer | Index ID.   |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property  | Type             | Description | Version |
-| --------- | ---------------- | ----------- | ------- |
-| index\_id | unsigned integer | Index ID.   |         |
-| metric\_d | unsigned integer | Index ID.   |         |
+#### Storage::PbMetricMapping
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |      12 | 196620 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **Storage::MetricMapping** events should be sent, instead you
+should see **Storage::PbIndexMapping** events.
+
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+
+```cpp
+message MetricMapping {
+  uint64 index_id = 1;    // Index ID of the service.
+  uint64 metric_id = 2;   // Metric ID linked to the service.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -2513,33 +2541,53 @@ message RemoveGraphMessage {
 
 ### Version response
 
+This is the negociation message used until BBDO v3.0.0. Each time a BBDO
+connection is established, this message is sent by the connector and by the
+acceptor to negociate options.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property    | Type          | Description                                                                                                                 | Version |
-| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- | ------- |
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version\_response** packet.                       |         |
+#### BBDO::VersionResponse
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        2 |       1 | 131073 |
+
+The content of this message is serialized as follows:
+
+| Property    | Type          | Description                                                                                                                 |
+| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version_response** packet. The sole current protocol version is 1.0.0. |
+| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version_response** packet.                                             |
+| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version_response** packet.                                             |
+| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version_response** packet.                       |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property    | Type          | Description                                                                                                                 | Version |
-| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- | ------- |
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version\_response** packet. The sole current protocol version is 1.0.0. |         |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version\_response** packet.                                             |         |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version\_response** packet.                                             |         |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version\_response** packet.                       |         |
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
 
 ### Ack
 
+Usually, a **BBDO sender** sends events and a **BBDO receiver** consumes events.
+But the sender keeps events until the receiver tells it they have been handled.
+To do that, the receiver emits an **Ack** message with the number of events
+already handled.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
+
+#### BBDO::Ack
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        2 |       2 | 131074 |
+
+The content of this message is serialized as follows:
 
 | Property            | Type             | Description                                                                                                                   | Version |
 | ------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -2548,9 +2596,66 @@ message RemoveGraphMessage {
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property            | Type             | Description                                                                                                                   | Version |
-| ------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------- |
-| acknowledged events | unsigned integer | Number of acknowledged events. Only used by "smart" clients (i.e able to acknowledge events). Not to be used by dumb clients. |         |
+#### NEB::PbAck
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        2 |       8 | 131080 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Ack** events should be sent, instead you
+should see **NEB::PbAck** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message Ack {
+  uint32 acknowledged_events = 1;   // The number of events to acknowledge.
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Stop
+
+When one side of a BBDO connection is going to exit, it emits a **Stop** event
+so that if the other side has events already handled it can send an **Ack**
+event.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+#### BBDO::Stop
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        2 |       3 | 131075 |
+
+The content of this message is empty.
+
+</TabItem>
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbStop
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        2 |       9 | 131081 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Ack** events should be sent, instead you
+should see **NEB::PbAck** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message Stop {}
+```
 
 </TabItem>
 </Tabs>

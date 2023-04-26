@@ -91,52 +91,52 @@ The table below lists event types available in the NEB category. They
 have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 
 
-| Type                                                                                | Value | Uses Protobuf |
-|-------------------------------------------------------------------------------------|-------|---------------|
-| [Acknowledgement](../developer-broker-mapping/#nebacknowledgement)                  | 1     |            No |
-| [Comment](../developer-broker-mapping/#nebcomment)                                  | 2     |            No |
-| [Custom variable](../developer-broker-mapping/#nebcustomvariable)                   | 3     |            No |
-| [Custom variable status](../developer-broker-mapping/#nebcustomvariablestatus)      | 4     |            No |
-| [Downtime](../developer-broker-mapping/#nebdowntime)                                | 5     |            No |
-| [Event handler](../developer-broker-mapping/#nebeventhandler)                       | 6     |            No |
-| [Host check](../developer-broker-mapping/#nebhostcheck)                             | 8     |            No |
-| [Host dependency](../developer-broker-mapping/#nebhostdependency)                   | 9     |            No |
-| [Host group](../developer-broker-mapping/#nebhostgroup)                             | 10    |            No |
-| [Host group member](../developer-broker-mapping/#nebhostgroupmember)                | 11    |            No |
-| [Host](../developer-broker-mapping/#nebhost)                                        | 12    |            No |
-| [Host parent](../developer-broker-mapping/#nebhostparent)                           | 13    |            No |
-| [Host status](../developer-broker-mapping/#nebhoststatus)                           | 14    |            No |
-| [Instance](../developer-broker-mapping/#nebinstance)                                | 15    |            No |
-| [Instance status](../developer-broker-mapping/#nebinstancestatus)                   | 16    |            No |
-| [Log entry](../developer-broker-mapping/#neblogentry)                               | 17    |            No |
-| [Module](../developer-broker-mapping/#nebmodule)                                    | 18    |            No |
-| [Service check](../developer-broker-mapping/#nebservicecheck)                       | 19    |            No |
-| [Service dependency](../developer-broker-mapping/#nebservicedependency)             | 20    |            No |
-| [Service group](../developer-broker-mapping/#nebservicegroup)                       | 21    |            No |
-| [Service group member](../developer-broker-mapping/#nebservicegroupmember)          | 22    |            No |
-| [Service](../developer-broker-mapping/#nebservice)                                  | 23    |            No |
-| [Service status](../developer-broker-mapping/#nebservicestatus)                     | 24    |            No |
-| [Instance Configuration](../developer-broker-mapping/#nebinstanceconfiguration)     | 25    |            No |
-| [Responsive Instance](../developer-broker-mapping/#nebresponsiveinstance)           | 26    |            No |
-| [Pb Service](../developer-broker-mapping/#nebpbservice)                             | 27    |           Yes |
-| [Pb Adaptive Service](../developer-broker-mapping/#nebpbadaptiveservice)            | 28    |           Yes |
-| [Pb Service Status](../developer-broker-mapping/#nebpbservicestatus)                | 29    |           Yes |
-| [Pb Host](../developer-broker-mapping/#nebpbhost)                                   | 30    |           Yes |
-| [Pb Adaptive Host](../developer-broker-mapping/#nebpbadaptivehost)                  | 31    |           Yes |
-| [Pb Host Status](../developer-broker-mapping/#nebpbhoststatus)                      | 32    |           Yes |
-| [Pb Severity](../developer-broker-mapping/#nebpbseverity)                           | 33    |           Yes |
-| [Pb Tag](../developer-broker-mapping/#nebtag)                                       | 34    |           Yes |
-| [Pb Comment](../developer-broker-mapping/#nebpbcomment)                             | 35    |           Yes |
-| [Pb Downtime](../developer-broker-mapping/#nebpbdowntime)                           | 36    |           Yes |
-| [Pb Custom variable](../developer-broker-mapping/#nebpbcustomvariable)              | 37    |           Yes |
-| [Pb Custom variable status](../developer-broker-mapping/#nebpbcustomvariablestatus) | 38    |           Yes |
-| [Pb Host check](../developer-broker-mapping/#nebpbhostcheck)                        | 39    |           Yes |
-| [Pb Service check](../developer-broker-mapping/#nebpbservicecheck)                  | 40    |           Yes |
-| [Pb Log entry](../developer-broker-mapping/#nebpblogentry)                          | 41    |           Yes |
-| [Pb Instance Status](../developer-broker-mapping/#nebpbinstancestatus)              | 42    |           Yes |
-| [Pb Instance](../developer-broker-mapping/#nebpbinstance)                           | 44    |           Yes |
-| [Pb Acknowledgement](../developer-broker-mapping/#nebpbacknowledgement)             | 45    |           Yes |
-| [Pb Responsive Instance](../developer-broker-mapping/#nebpbresponsiveinstance)      | 46    |           Yes |
+| Type                            | Value | Uses Protobuf |
+|---------------------------------|-------|---------------|
+| Acknowledgement                 | 1     |            No |
+| Comment                         | 2     |            No |
+| Custom variable                 | 3     |            No |
+| Custom variable status          | 4     |            No |
+| Downtime                        | 5     |            No |
+| Event handler                   | 6     |            No |
+| Host check                      | 8     |            No |
+| Host dependency                 | 9     |            No |
+| Host group                      | 10    |            No |
+| Host group member               | 11    |            No |
+| Host                            | 12    |            No |
+| Host parent                     | 13    |            No |
+| Host status                     | 14    |            No |
+| Instance                        | 15    |            No |
+| Instance status                 | 16    |            No |
+| Log entry                       | 17    |            No |
+| Module                          | 18    |            No |
+| Service check                   | 19    |            No |
+| Service dependency              | 20    |            No |
+| Service group                   | 21    |            No |
+| Service group member            | 22    |            No |
+| Service                         | 23    |            No |
+| Service status                  | 24    |            No |
+| Instance Configuration          | 25    |            No |
+| Responsive Instance             | 26    |            No |
+| Pb Service                      | 27    |           Yes |
+| Pb Adaptive Service             | 28    |           Yes |
+| Pb Service Status               | 29    |           Yes |
+| Pb Host                         | 30    |           Yes |
+| Pb Adaptive Host                | 31    |           Yes |
+| Pb Host Status                  | 32    |           Yes |
+| Pb Severity                     | 33    |           Yes |
+| Pb Tag                          | 34    |           Yes |
+| Pb Comment                      | 35    |           Yes |
+| Pb Downtime                     | 36    |           Yes |
+| Pb Custom variable              | 37    |           Yes |
+| Pb Custom variable status       | 38    |           Yes |
+| Pb Host check                   | 39    |           Yes |
+| Pb Service check                | 40    |           Yes |
+| Pb Log entry                    | 41    |           Yes |
+| Pb Instance Status              | 42    |           Yes |
+| Pb Instance                     | 44    |           Yes |
+| Pb Acknowledgement              | 45    |           Yes |
+| Pb Responsive Instance          | 46    |           Yes |
 
 ### Storage
 
@@ -144,19 +144,20 @@ The table below lists event types available in the Storage category.
 They have to be mixed with the BBDO\_STORAGE\_TYPE category to get a BBDO
 event ID.
 
-| Type                                                                                  | Value | Uses Protobuf |
-|-------------------------------------------------------------------------------------- |-------|---------------|
-| [Metric](../developer-broker-mapping/#storagemetric)                                  | 1     |            No |
-| [Rebuild](../developer-broker-mapping/#storagerebuild)                                | 2     |            No |
-| [Remove\_graph](../developer-broker-mapping/#storageremovegraph)                      | 3     |            No |
-| [Status](../developer-broker-mapping/#storagestatus)                                  | 4     |            No |
-| [Index mapping](../developer-broker-mapping/#storageindexmapping)                     | 5     |            No |
-| Metric mapping                                                                        | 6     |            No |
-| [Pb Rebuild Message](../developer-broker-mapping/#storagepbrebuildmessage)            | 7     |           Yes |
-| [Pb Remove Graph Message](../developer-broker-mapping/#storagepbremovegraphmessage)   | 8     |           Yes |
-| [Pb Metric](../developer-broker-mapping/#storagepbmetric)                             | 9     |           Yes |
-| [Pb Status](../developer-broker-mapping/#storagepbstatus)                             | 10    |           Yes |
-| [Pb Index mapping](../developer-broker-mapping/#storagepbindexmapping)                | 11    |            No |
+| Type                            | Value | Uses Protobuf |
+|---------------------------------|-------|---------------|
+| Metric                          | 1     |            No |
+| Rebuild                         | 2     |            No |
+| Remove\_graph                   | 3     |            No |
+| Status                          | 4     |            No |
+| Index mapping                   | 5     |            No |
+| Metric mapping                  | 6     |            No |
+| Pb Rebuild Message              | 7     |           Yes |
+| Pb Remove Graph Message         | 8     |           Yes |
+| Pb Metric                       | 9     |           Yes |
+| Pb Status                       | 10    |           Yes |
+| Pb Index mapping                | 11    |           Yes |
+| Pb Metric mapping               | 12    |           Yes |
 
 ### BBDO
 
@@ -165,15 +166,18 @@ They have to be mixed with the BBDO\_BBDO\_TYPE category to get a BBDO
 event ID.
 
 
-| Type              | Value
-|-------------------|------
-| version\_response | 1
-| ack               | 2
+| Type              | Value| Uses Protobuf |
+|-------------------|------|---------------|
+| version\_response | 1    |            No |
+| ack               | 2    |            No |
+| stop              | 3    |            No |
+| Pb ack            | 8    |           Yes |
+| Pb stop           | 9    |           Yes |
 
 ### BAM
 
 The table below lists event types available in the BAM category.
-They have to be mixed with the BBDO_BAM_TYPE category to get a
+They have to be mixed with the BBDO\_BAM\_TYPE category to get a
 BBDO event ID.
 
 | Type                              | Value
