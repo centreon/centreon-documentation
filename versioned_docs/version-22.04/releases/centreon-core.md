@@ -426,6 +426,23 @@ By:
 
 ## Centreon Collect
 
+### 22.04.3
+
+Release date: `April 3, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- [Configuration] Fixed an issue with configuration objects for tags and severities. 
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Performance] Fixed a stability issue related to metric cache.
+- [Performance] Fixed memory allocation issues.
+
 ### 22.04.2
 
 Release date: `February 7, 2023`

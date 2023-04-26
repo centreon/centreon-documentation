@@ -14,7 +14,7 @@ Kaspersky, Natalya Kaspersky and Alexey De-Monderik.
 The Centreon Monitoring Connector *Kaspersky* aims to collect the condition of the 
 Administration Server and managed products with the SNMP protocol.
 
-## Monitoring Connector assests
+## Monitoring Connector assets
 
 ### Monitored objects
 

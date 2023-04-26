@@ -23,14 +23,47 @@ afin de modéliser une infrastructure Azure dans Centreon
 Le connecteur de supervision Centreon *Azure Discover* fournit un *provider* de découverte d'Hôtes nommé **Microsoft Azure Management Discover**
 Celui-ci permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-provider.png)
-
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
 
 ## Prérequis
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azure-credential-configuration.md) afin d'obtenir les prérequis nécessaires pour interroger les API d'Azure.
+
+## Configuration 
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+2. Sur l'interface Web de Centreon, installez le Azure Discover Centreon Plugin Pack sur la page "Configuration > Plugin Packs > Manager" Vous serez invité à installer plusieurs autres Azure Plugin Packs en dépendances (ils serviront à définir les bons templates/indicateurs sur les éléments découverts).
+
+
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
+
+1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+2. Installez le Centreon Plugin Pack RPM sur le serveur Centreon Central, installez tous les Centreon Plugin Packs pour Azure, afin de rendre toutes les dépendances disponibles :
+
+```bash
+yum install centreon-pack-cloud-azure\*
+```
+
+3. Sur l'interface Web de Centreon, installez le Azure Discover Centreon Plugin Pack sur la page "Configuration > Plugin Packs > Manager" Vous serez invité à installer plusieurs autres Azure Plugin Packs en dépendances (ils serviront à définir les bons templates/indicateurs sur les éléments découverts).
+
+
+</TabItem>
+</Tabs>
 
 ## Paramétrer une découverte
 
