@@ -12,7 +12,7 @@ IBM develops, manufactures and sells hardware, middleware, software and other
 services and products. Created in 2002, IBM BladeCenter was IBM's blade server
 architecture. 
 
-## Monitoring Connector assests
+## Monitoring Connector assets
 
 ### Monitored objects
 
