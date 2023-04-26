@@ -2268,10 +2268,10 @@ we use the event [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
 
 The content of this message is serialized as follows:
 
-| Property  | Type             | Description                                                                                            | Version |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------ | ------- |
-| id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |         |
-| is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |         |
+| Property  | Type             | Description                                                                                            |
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
+| id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |
+| is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">

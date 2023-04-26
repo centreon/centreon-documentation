@@ -2073,59 +2073,97 @@ Cet évènement est généré par un point de terminaison Storage pour notifier 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle la valeur métrique a été générée.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| metric\_id| entier non signé| ID de la métrique (à partir du tableau des métriques).| 
-| name| chaîne| Nom de la métrique.| 
-| rrd\_len| entier| Durée de rétention des données RRD en secondes.| 
-| value| réel| Valeur de la métrique.| 
-| value\_type| entier court| Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
-| host\_id| entier non signé| L’id de l’hôte auquel cette métrique est attachée.| Depuis la version 3.0.0
-| service\_id| entier non signé| L’id du service auquel cette métrique est attachée.| Depuis la version 3.0.0
+#### Storage::Metric
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |       1 | 196609 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété       | Type            | Description                       |
+|-----------------|-----------------|----------|
+| ctime           | temps           | Heure à laquelle la valeur métrique a été générée.|
+| interval        | entier non signé| Intervalle de contrôle du service normal en secondes.|
+| metric\_id      | entier non signé| ID de la métrique (à partir du tableau des métriques).|
+| name            | chaîne          | Nom de la métrique.|
+| rrd\_len        | entier          | Durée de rétention des données RRD en secondes.|
+| value           | réel            | Valeur de la métrique.|
+| value\_type     | entier court    | Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).|
+| is\_for\_rebuild| booléen         | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).|
+| host\_id        | entier non signé| ID de l’hôte auquel cette métrique est attachée.|
+| service\_id     | entier non signé| ID du service auquel cette métrique est attachée.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle la valeur métrique a été générée.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| metric\_id| entier non signé| ID de la métrique (à partir du tableau des métriques).| 
-| name| chaîne| Nom de la métrique.| 
-| rrd\_len| entier| Durée de rétention des données RRD en secondes.| 
-| value| réel| Valeur de la métrique.| 
-| value\_type| entier court| Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
-| host\_id| entier non signé| L’id de l’hôte auquel cette métrique est attachée.| Depuis la version 3.0.0
-| service\_id| entier non signé| L’id du service auquel cette métrique est attachée.| Depuis la version 3.0.0
+#### Storage::PbMetric
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       9 | 196617 |
+
+Cet événement est un événement Protobuf, ainsi son contenu n'est pas sérialisé
+comme pour les événements en BBDO v2 mais plutôt en utilisant le mécanisme de
+sérialisation Protobuf 3. Lorsque BBDO v3 est utilisé, les événements
+**Storage::Metric** ne devraient plus être émis, vous devrier voir à la place
+des événements **Storage::PbMetric**.
+
+Voici la définition de cet événement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+
+```cpp
+message Metric {
+  enum ValueType {
+    GAUGE = 0;
+    COUNTER = 1;
+    DERIVE = 2;
+    ABSOLUTE = 3;
+    AUTOMATIC = 4;
+  }
+  uint64 metric_id = 4;       // ID de la métrique.
+  int32 rrd_len = 5;          // Longueur en secondes de la rétention RRD.
+  int32 interval = 6;         // Intervalle de check de service normal en secondes.
+  ValueType value_type = 7;   // Une valeur de ValueType.
+  uint64 time = 8;            // Timestamp à laquelle la valeur de la métrique a été générée.
+  double value = 9;           // Valeur de la métrique.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Rebuild
 
-Les évènements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un évènement de début de reconstruction (end =3D false), puis des valeurs métriques (évènement métrique avec is\_for\_rebuild défini sur True) et enfin un évènement de fin de reconstruction (end =3D true).
+Les évènements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un évènement de début de reconstruction (end `false`),
+puis des valeurs métriques (évènement métrique avec is\_for\_rebuild défini sur True) et enfin un évènement de fin de reconstruction (end `true`).
+
+Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
+Avec BBDO v3, on profite de la puissance de Protobuf. Pour reconstruire les
+graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.| 
-| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.| 
-| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.| 
+#### Storage::Rebuild
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       2 | 196610 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.|
+| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.|
+| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.| 
-| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.| 
-| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.| 
+Non disponible avec Protobuf 3.
+
+Veuillez consulter [Storage::PbRebuildMessage](#storagepbrebuildmessage) pour l'alternative.
 
 </TabItem>
 </Tabs>
@@ -2134,145 +2172,214 @@ Les évènements de reconstruction sont générés lorsqu’un point de terminai
 
 Un point de terminaison Storage génère un évènement de suppression de graphique lorsqu’un graphique doit être supprimé.
 
+Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
+Avec BBDO v3, on profite de la puissance de Protobuf. Pour supprimer les
+graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| id| entier non signé| ID de l’index (is\_index =3D true) ou ID de la métrique (is\_index =3D false) à supprimer.| 
-| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.| 
+#### Storage::RemoveGraph
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       3 | 196611 |
+
+Le contenu de ce message est sérialisé comme suit:
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| id| entier non signé| ID de l’index (is\_index =`true`) ou ID de la métrique (is\_index =`false`) à supprimer.|
+| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| id| entier non signé| ID de l’index (is\_index =3D true) ou ID de la métrique (is\_index =3D false) à supprimer.| 
-| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.| 
+Non disponible avec Protobuf 3.
+
+Veuillez consulter [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage)
+pour l'alternative.
 
 </TabItem>
 </Tabs>
 
 ### Status
 
+Cet événement est emis par Centreon Broker lorsqu'un événement de type **Service Status** ou **Host Status** est reçu.
+Il contient essentiellement une ressource avec son état.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle l’état a été généré.| 
-| index\_id| entier non signé| ID de l’index.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| rrd\_len| temps| Rétention des données RRD en secondes.| 
-| state| entier court| État du service.| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
+#### Storage::Status
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       4 | 196612 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| ctime| temps| Heure à laquelle l’état a été généré.|
+| index\_id| entier non signé| ID de l’index.|
+| interval| entier non signé| Intervalle de contrôle du service normal en secondes.|
+| rrd\_len| temps| Rétention des données RRD en secondes.|
+| state| entier court| État du service.|
+| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle l’état a été généré.| 
-| index\_id| entier non signé| ID de l’index.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| rrd\_len| temps| Rétention des données RRD en secondes.| 
-| state| entier court| État du service.| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
+#### Storage::PbStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |      10 | 196618 |
+
+Cet évènement est un évènement Protobuf, par conséquent ses éléments ne sont pas
+sérialisés comme avec BBDO v2 mais en utilisant le mécanisme de sérialisation
+Protobuf 3. Lorsque BBDO v3 est utilisé, il ne devrait plus y avoir d'émission
+d'évènements **Storage::Status**, à la place on devrait avoir des
+**Storage::PbStatus**.
+
+Voici la définition de l'évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
+message Status {
+  uint64 index_id = 1;      // ID de l'index.
+  uint32 interval = 2;      // Intervalle en secondes entre deux checks de service normaux.
+  uint32 rrd_len = 3;       // Rétention RRD en secondes.
+  uint64 time = 4;          // Timestamp auquel le status est généré.
+  uint32 state = 5;         // État du service.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Metric mapping
 
+Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de
+service est reçue. Il établit la relation entre un ID d'index d'un service et un
+ID de métrique. Voir [Index mapping](#indexmapping) pour davantage d'informations
+sur les ID d'index.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| metric\_d| entier non signé| ID de l’index.| 
+#### Storage::MetricMapping
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       6 | 196614 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| index\_id| entier non signé| ID de l’index.|
+| metric\_d| entier non signé| ID de l’index.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| metric\_d| entier non signé| ID de l’index.| 
+#### Storage::PbMetricMapping
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |      12 | 196620 |
+
+Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
+comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
+Protobuf 3. Quand BBDO v3 est actif, il ne devrait plus y avoir d'évènements
+**Storage::MetricMapping** émis mais plutôt des **Storage::PbIndexMapping**.
+
+Voici la définition de cet événement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
+message MetricMapping {
+  uint64 index_id = 1;    // ID de l'index de service.
+  uint64 metric_id = 2;   // ID de la métrique liée au service.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Index mapping
 
+Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de service
+est reçue. Il crée l'association entre un ID et un service identifié par le couple
+**(host ID/service ID)**. Ce nouvel ID est util pour la déclaration des métriques
+de service.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| host\_id| entier non signé| ID de l’index.| 
-| service\_id| entier non signé| ID de l’index.| 
+#### Storage::IndexMapping
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       5 | 196613 |
+
+Le contenu de ce message est sérialisé de la façon suivante :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| index\_id| entier non signé| ID de l’index.|
+| host\_id| entier non signé| ID de l’index.|
+| service\_id| entier non signé| ID de l’index.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| host\_id| entier non signé| ID de l’index.| 
-| service\_id| entier non signé| ID de l’index.| 
+#### Storage::PbIndexMapping
 
-</TabItem>
-</Tabs>
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        3 |      11 | 196619 |
 
-### Pb Rebuild Message
+Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de 
+Protobuf 3. Lorsque BBDO v3 est actif, les événements **Storage::IndexMapping**
+ne devraient plus être émis, à la place on devrait avoir des évènements
+**Storage::PbIndexMapping**.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
+Voici la définition de l'évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
 
-Cet évènement est compris dans BBDO 3. Quand certains graphiques doivent être reconstruits. Les messages qui concernent ces reconstructions sont de ce type. Ils remplacent l’ancien message de reconstruction de BBDO.
-
-Il existe trois états pour ce message :
-
-* START : il s’agit du premier état, ce message initialise les métriques qui doivent être reconstruites.
-* DATA : une fois que l’état START a été envoyé, un ou plusieurs messages avec l’état DATA peuvent être envoyés au broker RRD.
-* END : lorsque tous les évènements de reconstruction ont été envoyés, celui-ci est envoyé pour clôturer les reconstructions. Et le broker RRD revient à un état nominal.
-
-Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
-
-```text
-message Point {
-  int64 ctime = 1;
-  double value = 2;
-}
-
-message Timeserie {
-  repeated Point pts = 1;
-  int32 data_source_type = 2;
-  uint32 check_interval = 3;
-  uint32 rrd_retention = 4;
-}
-
-message RebuildMessage {
-  enum State {
-    START = 0;
-    DATA = 1;
-    END = 2;
-  }
-  State state = 1;
-  /* Only used on DATA state */
-  map<uint64, Timeserie> timeserie = 2;
-
-  /* Only used on START/END state */
-  repeated uint64 metric_id = 3;
+```cpp
+message IndexMapping {
+  uint64 index_id = 1;      // ID de l'index d'un service.
+  uint64 host_id = 2;       // ID de l'hôte du service.
+  uint64 service_id = 3;    // ID du service.
 }
 ```
 
 </TabItem>
+</Tabs>
+
+### Rebuild Message
+
+Cet événement arrive avec BBDO v3. Quand on doit reconstruire des graphes,
+c'est cet évènement qui contient les informations de reconstruction. Il remplace
+les anciens messages BBDO v2 de **rebuild**.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+Non disponible en BBDO v2.
+
+Voir [Storage::Rebuild](#storagerebuild)
+
+</TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-Cet évènement est compris dans BBDO 3. Quand certains graphiques doivent être reconstruits. Les messages qui concernent ces reconstructions sont de ce type. Ils remplacent l’ancien message de reconstruction de BBDO.
+#### Storage::PbRebuildMessage
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       7 | 196615 |
 
 Il existe trois états pour ce message :
 
