@@ -11,128 +11,87 @@ Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
 > notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
 > ou des développements spécifiques que vous auriez fait.
 
-Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
 notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-#### Enhancements
-
-- [ACL] ACLs on actions are now updated in real time for connected users
-- [ACL] "Read/Write" menu access ACL regarding Poller configuration has been split into two available actions:
-  "Create and edit" and "Delete"
-- [API] Added an endpoint to perform all web updates
-- [Authentication] Improved authentication via OpenID Connect by adding conditions
-- [Authentication] Improved contact groups management via OpenID Connect:
-  - Manual management of relationships between a user and contact groups
-  - Automatic management of relationships between a user and contact groups based on values retrieved from the
-    identity provider
-- [Authentication] Improved roles management via OpenID Connect:
-  - Manual management of relationships between a user and ACL groups
-  - Automatic management of relationships between a user and ACL groups based on identity provider values
-- [Configuration] Improved the default Engine logger options for newly installed central servers and new pollers created
-  with the wizard
-- [Configuration] New Broker input/output stream types available, designed to support the new gRPC stream capability of
-  Broker, but that can also be used for the legacy BBDO over TCP protocol:
-  - BBDO Server: configures a server input or output, displaying only relevant fields for this purpose
-  - BBDO Client: configures a client input or output, displaying only relevant fields for this purpose
-- [Configuration] Some obsolete parameters have been removed from the Engine configuration menu
-- [Install] Added dependency management between modules during installation, update and deletion
-- [Install] Improved error handling during installation
-- [Install] Removed "Centreon Web Directory" parameter and use Apache configuration instead
-- [UI] Improved Centreon light and dark themes
-- [UI] Relabeled and improved tooltips for some fields in the Hosts, Host Templates, Host Groups, Services and Service
-  Templates configuration forms
-- [UI] Reworked the banner to be more responsive
-- [UX] Changing themes is now possible by clicking on the profile icon
-- [UX] The quick export button is now available by default for all users that have the admin privilege or the required
-  ACL action access. Deploying a configuration is now simpler for all users.
-- [Resources Status] Added hosts and services categories management (Detail tiles, Listing filter)
-- [Resources Status] Added hosts and services severities management (Logos, level, Detail tiles, Listing filter)
-- [Event logs] Reworked CSV exporter in event logs to manage high volumetry
-- [Resources Status] Introduced CSV export in Timeline and Graphs
-- [Resources Status] Added new Parent Alias column and filter in listing for services
-- [Resources Status] Added cosmetic enhancements to the Timeline UI in Resources Status
-
-
-#### Performance
-
-- Move to PHP 8.1
-- The "conf changed" flag in the Poller configuration menu now relies on a faster database query, improving the time to display the page
-
-#### Breaking changes
-
-> The configuration of authorizations via the OpenID Connect protocol has evolved. Automatic addition to a contact
-> group and role management have been improved. It is necessary to review your OpenID Connect configuration.
-
-> In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
+- [API] We have started extending Centreon's Configuration REST API. The first endpoints available in this release allow you to manage:
+   - Time periods.
+   - Host groups.
+   - Host categories.
+   - Host severities.
+   - Service groups.
+   - Service categories.
+   - Service severities.
+- [Authentication] Added SAML authentication. With SAML, you can:
+  - Use conditions to access Centreon.
+  - Import users automatically.
+  - Manage groups manually or automatically.
+  - Manage roles manually or automatically.
+- [Installation] Removed Enterprise Linux version 7 and added version 9.
+- [Resources Status] Added extended mode for Resources Status listing display.
+- [Resources Status] You can now switch between extended and compact mode in the Resources Status page.
+- [Resources Status] Both simple and forced check options are provided in Resources Status.
+- [Resources Status] Various user interface improvements in Resources Status :
+   - Aligned column contents with labels.
+   - The icon that allows you to reorder columns is now displayed only on mouseover.
+   - The columns displayed by default have been changed.
+   - Listing pagination icons are now displayed at the same time as the resource details panel.
+- [Terminology] Renamed “problems” to “alerts” in Resources Status.
+- [Terminology] Renamed “Plugin Pack” to “Monitoring Connectors” in the user interface.
+- [UI] Improved Top Counter responsiveness.
+- [UI] Applied new Centreon branding.
+- [UX] Added German translation.
+- [Widgets] Added the possibility to select a Meta-Service in the graph monitoring widget.
 
 ## Centreon Collect
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
 #### Centreon Engine
 
-##### Enhancements
-
-- [Settings] Changed the log level of some notification log messages
-- [Settings] Optimized the delay time by setting the default maximum number of queries per transaction to 2000 (following obervations on platforms in the field)
-
-
-- [Code] Improved the management of `timed_events` objects
-- [Code] Improved the memory management of downtimes
-- [Code] Calls to the `atoi()` C function have been replaced by more secure functions
+Compatibility with other 23.04 components.
 
 #### Centreon Broker
 
-##### Enhancements
-
-
-- [Communication] Added two new Broker streams to provide simpler configuration and support the gRPC protocol
-- [Communication] Added the ability to limit the maximum total size of Broker retention files using the event_queues_total_size global parameter
-- [Communication] Changed the default retry_interval from 60 to 15, in the configuration WUI as well as in the source code for a shorter time to reconnect
-
-
-- [gRPC API] The log levels can be accessed and changed without reloading thanks to the `GetLogInfo {}` and `SetLogLevel {"logger": "<logger>", "level": "<log level>"}` gRPC commands
-- [gRPC API] All traces of a deleted poller can be removed permanently thanks to the `RemovePoller {}` gRPC command
-
-
-- [Code] Calls to the `atoi()` C function have been replaced by more secure functions
+- Converted all BBDO messages to Protobuf: the BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
 
 ## Centreon Gorgone
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+Compatibility with other 23.04 components.
 
-## Centreon High-Availability
+## Centreon High Availability
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
 
 ## Centreon DSM
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
 
 ## Centreon Open Tickets
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
+- Added Schedule Check option & auto close popup capability
