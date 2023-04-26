@@ -2104,7 +2104,7 @@ Le contenu de ce message est sérialisé comme suit :
 Cet événement est un événement Protobuf, ainsi son contenu n'est pas sérialisé
 comme pour les événements en BBDO v2 mais plutôt en utilisant le mécanisme de
 sérialisation Protobuf 3. Lorsque BBDO v3 est utilisé, les événements
-**Storage::Metric** ne devraient plus être émis, vous devrier voir à la place
+**Storage::Metric** ne devraient plus être émis, vous devriez voir à la place
 des événements **Storage::PbMetric**.
 
 Voici la définition de cet événement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2203,7 +2203,7 @@ pour l'alternative.
 
 ### Status
 
-Cet événement est emis par Centreon Broker lorsqu'un événement de type **Service Status** ou **Host Status** est reçu.
+Cet événement est émis par Centreon Broker lorsqu'un événement de type **Service Status** ou **Host Status** est reçu.
 Il contient essentiellement une ressource avec son état.
 
 <Tabs groupId="sync">
@@ -2309,7 +2309,7 @@ message MetricMapping {
 
 Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de service
 est reçue. Il crée l'association entre un ID et un service identifié par le couple
-**(host ID/service ID)**. Ce nouvel ID est util pour la déclaration des métriques
+**(host ID/service ID)**. Ce nouvel ID est utile pour la déclaration des métriques
 de service.
 
 <Tabs groupId="sync">
@@ -2486,12 +2486,12 @@ L'événement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
 
 ### Ack
 
-Généralement, un **envoyeur BBDO* envoie des événements tandis qu'un
-**récepteur BBDO** reçoit des événements. Ceci dit, envoie quelques évènements
+Généralement, un **envoyeur BBDO** envoie des événements tandis qu'un
+**récepteur BBDO** reçoit des événements. Ceci dit, il envoie quelques évènements
 comme le **Ack**.
 
 Le principe est le suivant : l'envoyeur garde en mémoire tous les évènements qu'il
-envoie au recepteur. Et lorsque le récepteur a terminé d'en traiter un lot, il
+envoie au récepteur. Et lorsque le récepteur a terminé d'en traiter un lot, il
 envoie un **Ack** avec le nombre d'évènements qu'il a traité. L'envoyeur peut
 alors les jeter.
 
