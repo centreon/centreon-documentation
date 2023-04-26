@@ -3087,46 +3087,70 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property             | Type             | Description                                                                  | Version                   |
-| -------------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------------- |
-| kpi\_id              | unsigned integer | The id of the KPI.                                                           | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_id               | unsigned integer | The id of the parent BA of this KPI.                                         | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_name             | string           | The name of the parent BA of this KPI.                                       | Since 2.8.0 (BBDO 1.2.0). |
-| host\_id             | unsigned integer | The id of the host associated with this KPI for service KPI.                 | Since 2.8.0 (BBDO 1.2.0). |
-| host\_name           | string           | The name of the host associated with this KPI for service KPI.               | Since 2.8.0 (BBDO 1.2.0)  |
-| service\_id          | unsigned integer | The id of the service associated with this KPI for service KPI.              | Since 2.8.0 (BBDO 1.2.0). |
-| service\_description | string           | The description of the service associated with this KPI for service KPI.     | Since 2.8.0 (BBDO 1.2.0). |
-| kpi\_ba\_id          | unsigned integer | The id of the BA associated with this KPI for BA KPI.                        | Since 2.8.0 (BBDO 1.2.0). |
-| kpi\_ba\_name        | string           | The name of the BA associated with this KPI for BA KPI.                      | Since 2.8.0 (BBDO 1.2.0). |
-| meta\_service\_id    | unsigned int     | The id of the meta-service associated with this KPI for meta-service KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| meta\_service\_name  | string           | The name of the meta-service associated with this KPI for meta-service KPI.  | Since 2.8.0 (BBDO 1.2.0). |
-| boolean\_id          | unsigned int     | The id of the boolean expression associated with this KPI for boolean KPI.   | Since 2.8.0 (BBDO 1.2.0). |
-| boolean\_name        | string           | The name of the boolean expression associated with this KPI for boolean KPI. | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_warning      | real             | The impact of a warning state for this KPI.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_critical     | real             | The impact of a critical state for this KPI.                                 | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_unknown      | real             | The impact of a unknown state for this KPI.                                  | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::DimensionKpiEvent
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       8 | 393224 |
+
+The content of this message is serialized as follows:
+
+| Property             | Type             | Description                                                                  |
+| -------------------- | ---------------- | ---------------------------------------------------------------------------- |
+| kpi\_id              | unsigned integer | The id of the KPI.                                                           |
+| ba\_id               | unsigned integer | The id of the parent BA of this KPI.                                         |
+| ba\_name             | string           | The name of the parent BA of this KPI.                                       |
+| host\_id             | unsigned integer | The id of the host associated with this KPI for service KPI.                 |
+| host\_name           | string           | The name of the host associated with this KPI for service KPI.               |
+| service\_id          | unsigned integer | The id of the service associated with this KPI for service KPI.              |
+| service\_description | string           | The description of the service associated with this KPI for service KPI.     |
+| kpi\_ba\_id          | unsigned integer | The id of the BA associated with this KPI for BA KPI.                        |
+| kpi\_ba\_name        | string           | The name of the BA associated with this KPI for BA KPI.                      |
+| meta\_service\_id    | unsigned int     | The id of the meta-service associated with this KPI for meta-service KPI.    |
+| meta\_service\_name  | string           | The name of the meta-service associated with this KPI for meta-service KPI.  |
+| boolean\_id          | unsigned int     | The id of the boolean expression associated with this KPI for boolean KPI.   |
+| boolean\_name        | string           | The name of the boolean expression associated with this KPI for boolean KPI. |
+| impact\_warning      | real             | The impact of a warning state for this KPI.                                  |
+| impact\_critical     | real             | The impact of a critical state for this KPI.                                 |
+| impact\_unknown      | real             | The impact of a unknown state for this KPI.                                  |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property             | Type             | Description                                                                  | Version                   |
-| -------------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------------- |
-| kpi\_id              | unsigned integer | The id of the KPI.                                                           | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_id               | unsigned integer | The id of the parent BA of this KPI.                                         | Since 2.8.0 (BBDO 1.2.0). |
-| ba\_name             | string           | The name of the parent BA of this KPI.                                       | Since 2.8.0 (BBDO 1.2.0). |
-| host\_id             | unsigned integer | The id of the host associated with this KPI for service KPI.                 | Since 2.8.0 (BBDO 1.2.0). |
-| host\_name           | string           | The name of the host associated with this KPI for service KPI.               | Since 2.8.0 (BBDO 1.2.0)  |
-| service\_id          | unsigned integer | The id of the service associated with this KPI for service KPI.              | Since 2.8.0 (BBDO 1.2.0). |
-| service\_description | string           | The description of the service associated with this KPI for service KPI.     | Since 2.8.0 (BBDO 1.2.0). |
-| kpi\_ba\_id          | unsigned integer | The id of the BA associated with this KPI for BA KPI.                        | Since 2.8.0 (BBDO 1.2.0). |
-| kpi\_ba\_name        | string           | The name of the BA associated with this KPI for BA KPI.                      | Since 2.8.0 (BBDO 1.2.0). |
-| meta\_service\_id    | unsigned int     | The id of the meta-service associated with this KPI for meta-service KPI.    | Since 2.8.0 (BBDO 1.2.0). |
-| meta\_service\_name  | string           | The name of the meta-service associated with this KPI for meta-service KPI.  | Since 2.8.0 (BBDO 1.2.0). |
-| boolean\_id          | unsigned int     | The id of the boolean expression associated with this KPI for boolean KPI.   | Since 2.8.0 (BBDO 1.2.0). |
-| boolean\_name        | string           | The name of the boolean expression associated with this KPI for boolean KPI. | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_warning      | real             | The impact of a warning state for this KPI.                                  | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_critical     | real             | The impact of a critical state for this KPI.                                 | Since 2.8.0 (BBDO 1.2.0). |
-| impact\_unknown      | real             | The impact of a unknown state for this KPI.                                  | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbDimensionKpiEvent
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      26 | 393242 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionKpiEvent** events should be sent, instead you
+should see **BAM::PbDimensionKpiEvent** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message DimensionKpiEvent {
+    uint32 kpi_id = 1;               // Id of the KPI.
+    uint32 ba_id = 2;                // Id of the parent BA of this KPI.
+    string ba_name = 3;              // Name of the parent BA of this KPI.
+    uint32 host_id = 4;              // Id of the host associated with this KPI for service KPI.
+    string host_name = 5;            // Name of the host associated with this KPI for service KPI.
+    uint32 service_id = 6;           // Id of the service associated with this KPI for service KPI.
+    string service_description = 7;  // Description of the service associated with this KPI for service KPI.
+    uint32 kpi_ba_id = 8;            // Id of the BA associated with this KPI for BA KPI.
+    string kpi_ba_name = 9;          // Name of the BA associated with this KPI for BA KPI.
+    uint32 meta_service_id = 10;     // Id of the meta-service associated with this KPI for meta-service KPI.
+    string meta_service_name = 11;   // Name of the meta-service associated with this KPI for meta-service KPI.
+    uint32 boolean_id = 12;          // Id of the boolean expression associated with this KPI for boolean KPI.
+    string boolean_name = 13;        // Name of the boolean expression associated with this KPI for boolean KPI.
+    double impact_warning = 14;      // Impact of a warning state for this KPI.
+    double impact_critical = 15;     // Impact of a critical state for this KPI.
+    double impact_unknown = 16;      // Impact of a unknown state for this KPI.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -3139,19 +3163,42 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property | Type             | Description       | Version                   |
-| -------- | ---------------- | ----------------- | ------------------------- |
-| ba\_id   | unsigned integer | The id of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_id   | unsigned integer | The id of the BV. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::DimensionBaBvRelationEvent
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       9 | 393225 |
+
+The content of this message is serialized as follows:
+
+| Property | Type             | Description       |
+| -------- | ---------------- | ----------------- |
+| ba\_id   | unsigned integer | The id of the BA. |
+| bv\_id   | unsigned integer | The id of the BV. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property | Type             | Description       | Version                   |
-| -------- | ---------------- | ----------------- | ------------------------- |
-| ba\_id   | unsigned integer | The id of the BA. | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_id   | unsigned integer | The id of the BV. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbDimensionBaBvRelationEvent
 
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      23 | 393239 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBaBvRelationEvent** events should be sent, instead
+you should see **BAM::PbDimensionBaBvRelationEvent** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message DimensionBaBvRelationEvent {
+    uint32 ba_id = 1;       // ID of the BA.
+    uint32 bv_id = 2;       // ID of the BV.
+}
+```
 </TabItem>
 </Tabs>
 
@@ -3163,25 +3210,49 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property        | Type             | Description                | Version                   |
-| --------------- | ---------------- | -------------------------- | ------------------------- |
-| bv\_id          | unsigned integer | The id of the BV.          | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_name        | string           | The name of the BV.        | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_description | string           | The description of the BV. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::DimensionBvEvent
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      10 | 393226 |
+
+The content of this message is serialized as follows:
+
+| Property        | Type             | Description                |
+| --------------- | ---------------- | -------------------------- |
+| bv\_id          | unsigned integer | The id of the BV.          |
+| bv\_name        | string           | The name of the BV.        |
+| bv\_description | string           | The description of the BV. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property        | Type             | Description                | Version                   |
-| --------------- | ---------------- | -------------------------- | ------------------------- |
-| bv\_id          | unsigned integer | The id of the BV.          | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_name        | string           | The name of the BV.        | Since 2.8.0 (BBDO 1.2.0). |
-| bv\_description | string           | The description of the BV. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbDimensionBvEvent
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      22 | 393238 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBvEvent** events should be sent, instead you
+should see **BAM::PbDimensionBvEvent** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message DimensionBvEvent {
+    uint32 bv_id = 1;
+    string bv_name = 2;
+    string bv_description = 3;
+}
+```
 
 </TabItem>
 </Tabs>
 
-### Dimension table signal
+### Dimension Truncate Table Signal
 
 This event is part of the dimension (i.e configuration) dump occuring at
 startup and after each BAM configuration reload.
@@ -3192,38 +3263,68 @@ the end of the dump.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property        | Type    | Description                                                   | Version                   |
-| --------------- | ------- | ------------------------------------------------------------- | ------------------------- |
-| update\_started | boolean | True if this is the start of the dump, false if it's the end. | Since 2.8.0 (BBD0 1.2.0). |
+#### BAM::DimensionTruncateTableSignal
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      11 | 393228 |
+
+The content of this message is serialized as follows:
+
+| Property        | Type    | Description                                                   |
+| --------------- | ------- | ------------------------------------------------------------- |
+| update\_started | boolean | True if this is the start of the dump, false if it's the end. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property        | Type    | Description                                                   | Version                   |
-| --------------- | ------- | ------------------------------------------------------------- | ------------------------- |
-| update\_started | boolean | True if this is the start of the dump, false if it's the end. | Since 2.8.0 (BBD0 1.2.0). |
+#### BAM::PbDimensionTruncateTableSignal
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      30 | 393246 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionTruncateTableSignal** events should be sent, instead you
+should see **BAM::PbDimensionTruncateTableSignal** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message DimensionTruncateTableSignal {
+    bool update_started = 1;
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Rebuild signal
 
-This event is sent when a rebuild of the event durations and availabilities
+This event is sent when a rebuild of event durations and availabilities
 is asked to the BAM broker endpoint.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property         | Type   | Description                                                                                                 | Version                   |
-| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- |
-| bas\_to\_rebuild | string | A string containing the id of all the BAs to rebuild, separated by a comma and a space (i.e "1, 5, 8, 12"). | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::Rebuild
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      12 | 393228 |
+
+The content of this message is serialized as follows:
+
+| Property         | Type   | Description                                                                                                 |
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
+| bas\_to\_rebuild | string | A string containing the id of all the BAs to rebuild, separated by a comma and a space (i.e "1, 5, 8, 12"). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property         | Type   | Description                                                                                                 | Version                   |
-| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- |
-| bas\_to\_rebuild | string | A string containing the id of all the BAs to rebuild, separated by a comma and a space (i.e "1, 5, 8, 12"). | Since 2.8.0 (BBDO 1.2.0). |
+The event is the same as in BBDO v2. There is no Protobuf event.
 
 </TabItem>
 </Tabs>
@@ -3236,32 +3337,56 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property  | Type             | Description                       | Version                   |
-| --------- | ---------------- | --------------------------------- | ------------------------- |
-| tp\_id    | unsigned integer | The id of the timeperiod.         | Since 2.8.0 (BBDO 1.2.0). |
-| name      | string           | The name of the timeperiod.       | Since 2.8.0 (BBDO 1.2.0). |
-| monday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| tuesday   | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| wednesday | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| thursday  | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| friday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| saturday  | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| sunday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::DimensionTimeperiod
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      13 | 393230 |
+
+The content of this message is serialized as follows:
+
+| Property  | Type             | Description                       |
+| --------- | ---------------- | --------------------------------- |
+| tp\_id    | unsigned integer | The id of the timeperiod.         |
+| name      | string           | The name of the timeperiod.       |
+| monday    | string           | The timeperiod rule for this day. |
+| tuesday   | string           | The timeperiod rule for this day. |
+| wednesday | string           | The timeperiod rule for this day. |
+| thursday  | string           | The timeperiod rule for this day. |
+| friday    | string           | The timeperiod rule for this day. |
+| saturday  | string           | The timeperiod rule for this day. |
+| sunday    | string           | The timeperiod rule for this day. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property  | Type             | Description                       | Version                   |
-| --------- | ---------------- | --------------------------------- | ------------------------- |
-| tp\_id    | unsigned integer | The id of the timeperiod.         | Since 2.8.0 (BBDO 1.2.0). |
-| name      | string           | The name of the timeperiod.       | Since 2.8.0 (BBDO 1.2.0). |
-| monday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| tuesday   | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| wednesday | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| thursday  | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| friday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| saturday  | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
-| sunday    | string           | The timeperiod rule for this day. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbDimensionTimeperiod
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      24 | 393240 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionTimeperiod** events should be sent, instead you
+should see **BAM::PbDimensionTimeperiod** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message DimensionTimeperiod {
+    uint32 id = 1;          // The id of the timeperiod.
+    string name = 2;        // The name of the timeperiod.
+    string monday = 3;      // The timeperiod rule for this day.
+    string tuesday = 4;     // The timeperiod rule for this day.
+    string wednesday = 5;   // The timeperiod rule for this day.
+    string thursday = 6;    // The timeperiod rule for this day.
+    string friday = 7;      // The timeperiod rule for this day.
+    string saturday = 8;    // The timeperiod rule for this day.
+    string sunday = 9;      // The timeperiod rule for this day.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -3274,71 +3399,44 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property       | Type             | Description                                            | Version                   |
-| -------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
-| ba\_id         | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
-| timeperiod\_id | unsigned integer | The id of the timeperiod.                              | Since 2.8.0 (BBDO 1.2.0). |
-| is\_default    | boolean          | True if the timeperiod is the default one for this BA. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::DimensionBaTimeperiodRelation
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      14 | 393231 |
+
+The content of this message is serialized as follows:
+
+| Property       | Type             | Description                                            |
+| -------------- | ---------------- | ------------------------------------------------------ |
+| ba\_id         | unsigned integer | The id of the BA.                                      |
+| timeperiod\_id | unsigned integer | The id of the timeperiod.                              |
+| is\_default    | boolean          | True if the timeperiod is the default one for this BA. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property       | Type             | Description                                            | Version                   |
-| -------------- | ---------------- | ------------------------------------------------------ | ------------------------- |
-| ba\_id         | unsigned integer | The id of the BA.                                      | Since 2.8.0 (BBDO 1.2.0). |
-| timeperiod\_id | unsigned integer | The id of the timeperiod.                              | Since 2.8.0 (BBDO 1.2.0). |
-| is\_default    | boolean          | True if the timeperiod is the default one for this BA. | Since 2.8.0 (BBDO 1.2.0). |
+#### BAM::PbDimensionBaTimeperiodRelation
 
-</TabItem>
-</Tabs>
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      29 | 393245 |
 
-### Dimension timeperiod exception
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBaTimeperiodRelation** events should be sent, instead you
+should see **BAM::PbDimensionBaTimeperiodRelation** events.
 
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-| Property       | Type             | Description                                     | Version                   |
-| -------------- | ---------------- | ----------------------------------------------- | ------------------------- |
-| timeperiod\_id | unsigned integer | The id of the timeperiod having this exception. | Since 2.8.0               |
-| daterange      | string           | A string containing the date of the range.      | Since 2.8.0               |
-| timerange      | string           | A string containing the time of the range.      | Since 2.8.0 (BBDO 1.2.0). |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-| Property       | Type             | Description                                     | Version                   |
-| -------------- | ---------------- | ----------------------------------------------- | ------------------------- |
-| timeperiod\_id | unsigned integer | The id of the timeperiod having this exception. | Since 2.8.0               |
-| daterange      | string           | A string containing the date of the range.      | Since 2.8.0               |
-| timerange      | string           | A string containing the time of the range.      | Since 2.8.0 (BBDO 1.2.0). |
-
-</TabItem>
-</Tabs>
-
-### Dimension timeperiod exclusion
-
-This event is part of the dimension (i.e configuration) dump occuring at
-startup and after each BAM configuration reload.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-| Property                 | Type             | Description                                     | Version                   |
-| ------------------------ | ---------------- | ----------------------------------------------- | ------------------------- |
-| timeperiod\_id           | unsigned integer | The id of the timeperiod having this exclusion. | Since 2.8.0 (BBDO 1.2.0). |
-| excluded\_timeperiod\_id | unsigned integer | The id of the excluded timeperiod.              | Since 2.8.0 (BBDO 1.2.0). |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-| Property                 | Type             | Description                                     | Version                   |
-| ------------------------ | ---------------- | ----------------------------------------------- | ------------------------- |
-| timeperiod\_id           | unsigned integer | The id of the timeperiod having this exclusion. | Since 2.8.0 (BBDO 1.2.0). |
-| excluded\_timeperiod\_id | unsigned integer | The id of the excluded timeperiod.              | Since 2.8.0 (BBDO 1.2.0). |
-
+```cpp
+message DimensionBaTimeperiodRelation {
+    uint32 ba_id = 1;           // ID of the BA.
+    uint32 timeperiod_id = 2;   // ID of the timeperiod.
+    bool is_default = 3;        // True if the timeperiod is the default one for this BA.
+}
+```
 </TabItem>
 </Tabs>
 
@@ -3347,18 +3445,46 @@ startup and after each BAM configuration reload.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Property     | Type             | Description                    | Version |
-| ------------ | ---------------- | ------------------------------ | ------- |
-| bad\_id      | unsigned integer | The id of the BA in downtime.  |         |
-| in\_downtime | boolean          | True if the BA is in downtime. |         |
+#### BAM::InheritedDowntime
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      17 | 393233 |
+
+The content of this message is serialized as follows:
+
+| Property     | Type             | Description                    |
+| ------------ | ---------------- | ------------------------------ |
+| bad\_id      | unsigned integer | The id of the BA in downtime.  |
+| in\_downtime | boolean          | True if the BA is in downtime. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Property     | Type             | Description                    | Version |
-| ------------ | ---------------- | ------------------------------ | ------- |
-| bad\_id      | unsigned integer | The id of the BA in downtime.  |         |
-| in\_downtime | boolean          | True if the BA is in downtime. |         |
+#### BAM::PbInheritedDowntime
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      18 | 393234 |
+
+This event is a Protobuf event so items are not serialized as in BBDO v2
+events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::InheritedDowntime** events should be sent, instead you
+should see **BAM::PbInheritedDowntime** events.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+message BBDOHeader {
+    uint32 conf_version = 1;
+}
+message InheritedDowntime {
+    BBDOHeader header = 1;
+    uint32 ba_id = 2;       // ID of the BA concerned by the downtime.
+    bool in_downtime = 3;   // True if the BA is in downtime.
+}
+```
 
 </TabItem>
 </Tabs>

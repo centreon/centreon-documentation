@@ -189,21 +189,27 @@ BBDO event ID.
 | KPI event                           | 5     |            No |
 | BA Duration Event                   | 6     |            No |
 | Dimension BA Event                  | 7     |            No |
-| dimension\_kpi\_event               | 8     |            No |
-| dimension\_ba\_bv\_relation\_event  | 9     |            No |
-| dimension\_bv\_event                | 10    |            No |
-| dimension\_truncate\_table\_signal  | 11    |            No |
-| rebuild                             | 12    |            No |
-| dimension\_timeperiod               | 13    |            No |
-| dimension\_ba\_timeperiod\_relation | 14    |            No |
-| dimension\_timeperiod\_exception    | 15    |            No |
-| dimension\_timeperiod\_exclusion    | 16    |            No |
-| inherited\_downtime                 | 17    |            No |
+| Dimension KPI Event                 | 8     |            No |
+| Dimension BA BV Relation Event      | 9     |            No |
+| Dimension BV Event                  | 10    |            No |
+| Dimension Truncate Table Signal     | 11    |            No |
+| Rebuild                             | 12    |            No |
+| Dimension Timeperiod                | 13    |            No |
+| Dimension BA Timeperiod Relation    | 14    |            No |
+| Inherited Downtime                  | 17    |            No |
+| Pb Inherited Downtime               | 18    |           Yes |
 | Pb BA status                        | 19    |           Yes |
 | Pb BA event                         | 20    |           Yes |
-| Pb Dimension BA Event               | 7     |           Yes |
+| Pb KPI event                        | 21    |           Yes |
+| Pb Dimension BV Event               | 22    |           Yes |
+| Pb Dimension BA BV Relation Event   | 23    |           Yes |
+| Pb Dimension Timeperiod             | 24    |           Yes |
+| Pb Dimension BA Event               | 25    |           Yes |
+| Pb Dimension KPI Event              | 26    |           Yes |
 | Pb KPI status                       | 27    |           Yes |
 | Pb BA Duration Event                | 28    |           Yes |
+| Pb Dimension BA Timeperiod Relation | 29    |           Yes |
+| Pb Dimension Truncate Table Signal  | 30    |           Yes |
 
 ## Event serialization
 
@@ -217,13 +223,13 @@ order described in the [mapping tables](developer-broker-mapping.md). They are e
 Let's take an example and see how an *host check event* gets sent in a
 packet. Its mapping is as follow :
 
-| Property              | Type             | Value in example
-|-----------------------|------------------|--------------------------
-| active_checks_enabled | boolean          | True.
-| check_type            | short integer    | 0 (active host check).
-| host_id               | unsigned integer | 42
-| next_check            | time             | 1365080225
-| command_line          | string           | ./my_plugin -H 127.0.0.1
+| Property                | Type             | Value in example
+|-------------------------|------------------|---------------------------
+| active\_checks\_enabled | boolean          | True.
+| check\_type             | short integer    | 0 (active host check).
+| host\_id                | unsigned integer | 42
+| next\_check             | time             | 1365080225
+| command\_line           | string           | ./my\_plugin -H 127.0.0.1
 
 And gives the following packet with values in hexadecimal.
 
