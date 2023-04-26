@@ -1711,60 +1711,60 @@ Cet évènement est émis par Centreon Engine losque des modifications en temps 
 #### NEB::ServiceStatus
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      24 | 65560 |
+| --------- | ------- | ----- |
+|         1 |      24 | 65560 |
 
 Le contenu de ce message est sérialisé de la manière suivante :
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| acknowledged| booléen| | 
-| acknowledgement\_type| entier court| | 
-| active\_checks\_enabled| booléen| | 
-| check\_interval| réel| | 
-| check\_period| chaîne| | 
-| check\_type| entier court| | 
-| current\_check\_attempt| entier court| | 
-| current\_state| entier court| | 
-| downtime\_depth| entier court| | 
-| enabled| booléen| | 
-| event\_handler| chaîne| | 
-| event\_handler\_enabled| booléen| | 
-| execution\_time| réel| | 
-| flap\_detection\_enabled| booléen| | 
-| has\_been\_checked| booléen| | 
-| host\_id| entier non signé| | 
-| host\_name| chaîne| | 
-| is\_flapping| booléen| | 
-| last\_check| temps| | 
-| last\_hard\_state| entier court| | 
-| last\_hard\_state\_change| temps| | 
-| last\_notification| temps| | 
-| last\_state\_change| temps| | 
-| last\_time\_critical| temps| | 
-| last\_time\_ok| temps| | 
-| last\_time\_unknown| temps| | 
-| last\_time\_warning| temps| | 
-| last\_update| temps| | 
-| latency| réel| | 
-| max\_check\_attempts| entier court| | 
-| modified\_attributes| entier non signé| | 
-| next\_check| temps| | 
-| next\_notification| temps| | 
-| no\_more\_notifications| booléen| | 
-| notification\_number| entier court| | 
-| notifications\_enabled| booléen| | 
-| obsess\_over| booléen| | 
-| passive\_checks\_enabled| booléen| | 
-| percent\_state\_change| réel| | 
-| retry\_interval| réel| | 
-| service\_description| chaîne| | 
-| service\_id| entier non signé| | 
-| should\_be\_scheduled| booléen| | 
-| state\_type| entier court| | 
-| check\_command| chaîne| | 
-| output| chaîne| | 
-| perf\_data| chaîne| | 
+| Propriété| Type| Description|
+|----------|----------|----------|
+| acknowledged| booléen| |
+| acknowledgement\_type| entier court| |
+| active\_checks\_enabled| booléen| |
+| check\_interval| réel| |
+| check\_period| chaîne| |
+| check\_type| entier court| |
+| current\_check\_attempt| entier court| |
+| current\_state| entier court| |
+| downtime\_depth| entier court| |
+| enabled| booléen| |
+| event\_handler| chaîne| |
+| event\_handler\_enabled| booléen| |
+| execution\_time| réel| |
+| flap\_detection\_enabled| booléen| |
+| has\_been\_checked| booléen| |
+| host\_id| entier non signé| |
+| host\_name| chaîne| |
+| is\_flapping| booléen| |
+| last\_check| temps| |
+| last\_hard\_state| entier court| |
+| last\_hard\_state\_change| temps| |
+| last\_notification| temps| |
+| last\_state\_change| temps| |
+| last\_time\_critical| temps| |
+| last\_time\_ok| temps| |
+| last\_time\_unknown| temps| |
+| last\_time\_warning| temps| |
+| last\_update| temps| |
+| latency| réel| |
+| max\_check\_attempts| entier court| |
+| modified\_attributes| entier non signé| |
+| next\_check| temps| |
+| next\_notification| temps| |
+| no\_more\_notifications| booléen| |
+| notification\_number| entier court| |
+| notifications\_enabled| booléen| |
+| obsess\_over| booléen| |
+| passive\_checks\_enabled| booléen| |
+| percent\_state\_change| réel| |
+| retry\_interval| réel| |
+| service\_description| chaîne| |
+| service\_id| entier non signé| |
+| should\_be\_scheduled| booléen| |
+| state\_type| entier court| |
+| check\_command| chaîne| |
+| output| chaîne| |
+| perf\_data| chaîne| |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1772,8 +1772,8 @@ Le contenu de ce message est sérialisé de la manière suivante :
 #### NEB::PbServiceStatus
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      29 | 65565 |
+| --------- | ------- | ----- |
+|         1 |      29 | 65565 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ServiceStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbServiceStatus** à la place.
 
@@ -1853,8 +1853,8 @@ Ceci est un évènement de configuration annonçant tous les évènements de con
 #### NEB::InstanceConfiguration
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      25 | 65561 |
+| --------- | ------- | ----- |
+|         1 |      25 | 65561 |
 
 Le contenu de ce message est sérialisé de la manière suivante :
 
@@ -1881,8 +1881,8 @@ Cet évènement est émis par cbd. Il indique si un collecteur répond ou non.
 #### NEB::ResponsiveInstance
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      26 | 65562 |
+| --------- | ------- | ----- |
+|         1 |      26 | 65562 |
 
 Le contenu de ce message est sérialisé de la manière suivante :
 
@@ -1897,8 +1897,8 @@ Le contenu de ce message est sérialisé de la manière suivante :
 #### NEB::PbResponsiveInstance
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      46 | 65582 |
+| --------- | ------- | ----- |
+|         1 |      46 | 65582 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ResponsiveInstance** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbResponsiveInstance** à la place.
 
@@ -1935,8 +1935,8 @@ Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configurat
 #### NEB::PbAdaptiveService
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      41 | 65577 |
+| --------- | ------- | ----- |
+|         1 |      41 | 65577 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::AdaptiveService** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAdaptiveService** à la place.
 
@@ -1984,8 +1984,8 @@ Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configurat
 #### NEB::PbAdaptiveHost
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      31 | 65567 |
+| --------- | ------- | ----- |
+|         1 |      31 | 65567 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::AdaptiveHost** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAdaptiveHost** à la place.
 
@@ -2031,8 +2031,8 @@ IL n'y a pas de version BBDO v2 de cet évènement.
 #### NEB::PbSeverity
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      33 | 65569 |
+| --------- | ------- | ----- |
+|         1 |      33 | 65569 |
 
 Cet évènement est compris dans BBDO 3. Il contient la sévérité d’une ressource.
 
@@ -2071,59 +2071,97 @@ Cet évènement est généré par un point de terminaison Storage pour notifier 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle la valeur métrique a été générée.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| metric\_id| entier non signé| ID de la métrique (à partir du tableau des métriques).| 
-| name| chaîne| Nom de la métrique.| 
-| rrd\_len| entier| Durée de rétention des données RRD en secondes.| 
-| value| réel| Valeur de la métrique.| 
-| value\_type| entier court| Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
-| host\_id| entier non signé| L’id de l’hôte auquel cette métrique est attachée.| Depuis la version 3.0.0
-| service\_id| entier non signé| L’id du service auquel cette métrique est attachée.| Depuis la version 3.0.0
+#### Storage::Metric
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |       1 | 196609 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété       | Type            | Description                       |
+|-----------------|-----------------|----------|
+| ctime           | temps           | Heure à laquelle la valeur métrique a été générée.|
+| interval        | entier non signé| Intervalle de contrôle du service normal en secondes.|
+| metric\_id      | entier non signé| ID de la métrique (à partir du tableau des métriques).|
+| name            | chaîne          | Nom de la métrique.|
+| rrd\_len        | entier          | Durée de rétention des données RRD en secondes.|
+| value           | réel            | Valeur de la métrique.|
+| value\_type     | entier court    | Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).|
+| is\_for\_rebuild| booléen         | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).|
+| host\_id        | entier non signé| ID de l’hôte auquel cette métrique est attachée.|
+| service\_id     | entier non signé| ID du service auquel cette métrique est attachée.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle la valeur métrique a été générée.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| metric\_id| entier non signé| ID de la métrique (à partir du tableau des métriques).| 
-| name| chaîne| Nom de la métrique.| 
-| rrd\_len| entier| Durée de rétention des données RRD en secondes.| 
-| value| réel| Valeur de la métrique.| 
-| value\_type| entier court| Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
-| host\_id| entier non signé| L’id de l’hôte auquel cette métrique est attachée.| Depuis la version 3.0.0
-| service\_id| entier non signé| L’id du service auquel cette métrique est attachée.| Depuis la version 3.0.0
+#### Storage::PbMetric
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       9 | 196617 |
+
+Cet événement est un événement Protobuf, ainsi son contenu n'est pas sérialisé
+comme pour les événements en BBDO v2 mais plutôt en utilisant le mécanisme de
+sérialisation Protobuf 3. Lorsque BBDO v3 est utilisé, les événements
+**Storage::Metric** ne devraient plus être émis, vous devrier voir à la place
+des événements **Storage::PbMetric**.
+
+Voici la définition de cet événement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+
+```cpp
+message Metric {
+  enum ValueType {
+    GAUGE = 0;
+    COUNTER = 1;
+    DERIVE = 2;
+    ABSOLUTE = 3;
+    AUTOMATIC = 4;
+  }
+  uint64 metric_id = 4;       // ID de la métrique.
+  int32 rrd_len = 5;          // Longueur en secondes de la rétention RRD.
+  int32 interval = 6;         // Intervalle de check de service normal en secondes.
+  ValueType value_type = 7;   // Une valeur de ValueType.
+  uint64 time = 8;            // Timestamp à laquelle la valeur de la métrique a été générée.
+  double value = 9;           // Valeur de la métrique.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Rebuild
 
-Les évènements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un évènement de début de reconstruction (end =3D false), puis des valeurs métriques (évènement métrique avec is\_for\_rebuild défini sur True) et enfin un évènement de fin de reconstruction (end =3D true).
+Les évènements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un évènement de début de reconstruction (end `false`),
+puis des valeurs métriques (évènement métrique avec is\_for\_rebuild défini sur True) et enfin un évènement de fin de reconstruction (end `true`).
+
+Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
+Avec BBDO v3, on profite de la puissance de Protobuf. Pour reconstruire les
+graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.| 
-| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.| 
-| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.| 
+#### Storage::Rebuild
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       2 | 196610 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.|
+| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.|
+| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.| 
-| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.| 
-| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.| 
+Non disponible avec Protobuf 3.
+
+Veuillez consulter [Storage::PbRebuildMessage](#storagepbrebuildmessage) pour l'alternative.
 
 </TabItem>
 </Tabs>
@@ -2132,104 +2170,214 @@ Les évènements de reconstruction sont générés lorsqu’un point de terminai
 
 Un point de terminaison Storage génère un évènement de suppression de graphique lorsqu’un graphique doit être supprimé.
 
+Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
+Avec BBDO v3, on profite de la puissance de Protobuf. Pour supprimer les
+graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| id| entier non signé| ID de l’index (is\_index =3D true) ou ID de la métrique (is\_index =3D false) à supprimer.| 
-| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.| 
+#### Storage::RemoveGraph
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       3 | 196611 |
+
+Le contenu de ce message est sérialisé comme suit:
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| id| entier non signé| ID de l’index (is\_index =`true`) ou ID de la métrique (is\_index =`false`) à supprimer.|
+| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| id| entier non signé| ID de l’index (is\_index =3D true) ou ID de la métrique (is\_index =3D false) à supprimer.| 
-| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.| 
+Non disponible avec Protobuf 3.
+
+Veuillez consulter [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage)
+pour l'alternative.
 
 </TabItem>
 </Tabs>
 
 ### Status
 
+Cet événement est emis par Centreon Broker lorsqu'un événement de type **Service Status** ou **Host Status** est reçu.
+Il contient essentiellement une ressource avec son état.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle l’état a été généré.| 
-| index\_id| entier non signé| ID de l’index.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| rrd\_len| temps| Rétention des données RRD en secondes.| 
-| state| entier court| État du service.| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
+#### Storage::Status
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       4 | 196612 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| ctime| temps| Heure à laquelle l’état a été généré.|
+| index\_id| entier non signé| ID de l’index.|
+| interval| entier non signé| Intervalle de contrôle du service normal en secondes.|
+| rrd\_len| temps| Rétention des données RRD en secondes.|
+| state| entier court| État du service.|
+| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ctime| temps| Heure à laquelle l’état a été généré.| 
-| index\_id| entier non signé| ID de l’index.| 
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.| 
-| rrd\_len| temps| Rétention des données RRD en secondes.| 
-| state| entier court| État du service.| 
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).| 
+#### Storage::PbStatus
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |      10 | 196618 |
+
+Cet évènement est un évènement Protobuf, par conséquent ses éléments ne sont pas
+sérialisés comme avec BBDO v2 mais en utilisant le mécanisme de sérialisation
+Protobuf 3. Lorsque BBDO v3 est utilisé, il ne devrait plus y avoir d'émission
+d'évènements **Storage::Status**, à la place on devrait avoir des
+**Storage::PbStatus**.
+
+Voici la définition de l'évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
+message Status {
+  uint64 index_id = 1;      // ID de l'index.
+  uint32 interval = 2;      // Intervalle en secondes entre deux checks de service normaux.
+  uint32 rrd_len = 3;       // Rétention RRD en secondes.
+  uint64 time = 4;          // Timestamp auquel le status est généré.
+  uint32 state = 5;         // État du service.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Metric mapping
 
+Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de
+service est reçue. Il établit la relation entre un ID d'index d'un service et un
+ID de métrique. Voir [Index mapping](#indexmapping) pour davantage d'informations
+sur les ID d'index.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| metric\_d| entier non signé| ID de l’index.| 
+#### Storage::MetricMapping
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       6 | 196614 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| index\_id| entier non signé| ID de l’index.|
+| metric\_d| entier non signé| ID de l’index.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| metric\_d| entier non signé| ID de l’index.| 
+#### Storage::PbMetricMapping
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |      12 | 196620 |
+
+Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
+comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
+Protobuf 3. Quand BBDO v3 est actif, il ne devrait plus y avoir d'évènements
+**Storage::MetricMapping** émis mais plutôt des **Storage::PbIndexMapping**.
+
+Voici la définition de cet événement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
+message MetricMapping {
+  uint64 index_id = 1;    // ID de l'index de service.
+  uint64 metric_id = 2;   // ID de la métrique liée au service.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Index mapping
 
+Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de service
+est reçue. Il crée l'association entre un ID et un service identifié par le couple
+**(host ID/service ID)**. Ce nouvel ID est util pour la déclaration des métriques
+de service.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| host\_id| entier non signé| ID de l’index.| 
-| service\_id| entier non signé| ID de l’index.| 
+#### Storage::IndexMapping
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       5 | 196613 |
+
+Le contenu de ce message est sérialisé de la façon suivante :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| index\_id| entier non signé| ID de l’index.|
+| host\_id| entier non signé| ID de l’index.|
+| service\_id| entier non signé| ID de l’index.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| index\_id| entier non signé| ID de l’index.| 
-| host\_id| entier non signé| ID de l’index.| 
-| service\_id| entier non signé| ID de l’index.| 
+#### Storage::PbIndexMapping
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |      11 | 196619 |
+
+Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de 
+Protobuf 3. Lorsque BBDO v3 est actif, les événements **Storage::IndexMapping**
+ne devraient plus être émis, à la place on devrait avoir des évènements
+**Storage::PbIndexMapping**.
+
+Voici la définition de l'évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
+message IndexMapping {
+  uint64 index_id = 1;      // ID de l'index d'un service.
+  uint64 host_id = 2;       // ID de l'hôte du service.
+  uint64 service_id = 3;    // ID du service.
+}
+```
 
 </TabItem>
 </Tabs>
 
-### Pb Rebuild Message
+### Rebuild Message
+
+Cet événement arrive avec BBDO v3. Quand on doit reconstruire des graphes,
+c'est cet évènement qui contient les informations de reconstruction. Il remplace
+les anciens messages BBDO v2 de **rebuild**.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-Cet évènement est compris dans BBDO 3. Quand certains graphiques doivent être reconstruits. Les messages qui concernent ces reconstructions sont de ce type. Ils remplacent l’ancien message de reconstruction de BBDO.
+Non disponible en BBDO v2.
+
+Voir [Storage::Rebuild](#storagerebuild)
+
+</TabItem>
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### Storage::PbRebuildMessage
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       7 | 196615 |
 
 Il existe trois états pour ce message :
 
@@ -2268,73 +2416,31 @@ message RebuildMessage {
 ```
 
 </TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Cet évènement est compris dans BBDO 3. Quand certains graphiques doivent être reconstruits. Les messages qui concernent ces reconstructions sont de ce type. Ils remplacent l’ancien message de reconstruction de BBDO.
-
-Il existe trois états pour ce message :
-
-* START : il s’agit du premier état, ce message initialise les métriques qui doivent être reconstruites.
-* DATA : une fois que l’état START a été envoyé, un ou plusieurs messages avec l’état DATA peuvent être envoyés au broker RRD.
-* END : lorsque tous les évènements de reconstruction ont été envoyés, celui-ci est envoyé pour clôturer les reconstructions. Et le broker RRD revient à un état nominal.
-
-Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
-
-```text
-message Point {
-  int64 ctime = 1;
-  double value = 2;
-}
-
-message Timeserie {
-  repeated Point pts = 1;
-  int32 data_source_type = 2;
-  uint32 check_interval = 3;
-  uint32 rrd_retention = 4;
-}
-
-message RebuildMessage {
-  enum State {
-    START = 0;
-    DATA = 1;
-    END = 2;
-  }
-  State state = 1;
-  /* Only used on DATA state */
-  map<uint64, Timeserie> timeserie = 2;
-
-  /* Only used on START/END state */
-  repeated uint64 metric_id = 3;
-}
-```
-
-</TabItem>
 </Tabs>
 
-### Pb Remove Graph Message
+### Remove Graph Message
+
+Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
+Non disponible en BBDO v2.
 
-Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
-
-```text
-message RemoveGraphMessage {
-  repeated uint64 index_ids = 1;
-  repeated uint64 metric_ids = 2;
-}
-```
+Voir [Storage::RemoveGraph](#storageremovegraph)
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
+#### Storage::PbRemoveGraphMessage
 
-Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+| Catégorie | élément |  ID    |
+| -------- | ------- | ------ |
+|        3 |       8 | 196616 |
 
-```text
+Voici la définition de cet évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
 message RemoveGraphMessage {
   repeated uint64 index_ids = 1;
   repeated uint64 metric_ids = 2;
@@ -2348,44 +2454,125 @@ message RemoveGraphMessage {
 
 ### Version response
 
+Voici le message de négociation utilisé jusqu'à la version BBDO v3.0.0.
+Chaque fois qu'une connexion BBDO est établie, chaque interlocuteur envoie
+ce message pour négocier les options à activer.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.| 
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.| 
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.| 
+#### BBDO::VersionResponse
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         2 |       1 | 131073 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.|
+| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.|
+| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.|
+| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.| 
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.| 
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.| 
+L'événement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
 
 </TabItem>
 </Tabs>
 
 ### Ack
 
+Généralement, un **envoyeur BBDO* envoie des événements tandis qu'un
+**récepteur BBDO** reçoit des événements. Ceci dit, envoie quelques évènements
+comme le **Ack**.
+
+Le principe est le suivant : l'envoyeur garde en mémoire tous les évènements qu'il
+envoie au recepteur. Et lorsque le récepteur a terminé d'en traiter un lot, il
+envoie un **Ack** avec le nombre d'évènements qu'il a traité. L'envoyeur peut
+alors les jeter.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.| 
+#### BBDO::Ack
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         2 |       2 | 131074 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.| 
+#### NEB::PbAck
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         2 |       8 | 131080 |
+
+Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf 3.
+Quand BBDO v3 est actif, il ne devrait plus y avoir d'évènements **NEB::Ack**
+émis mais plutôt des **NEB::PbAck**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant:
+
+```cpp
+message Ack {
+  uint32 acknowledged_events = 1;   // Le nombre d'évènements à acquitter.
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Stop
+
+Quand un côté d'une connexion BBDO va s'éteindre, il émet un événement **Stop**
+afin que l'autre côté puisse, si possible, lui envoyer un **Ack** permettant de
+jeter les éventuels événements déjà traités.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+#### BBDO::Stop
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         2 |       3 | 131075 |
+
+Le contenu de ce message est vide.
+
+</TabItem>
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### BBDO::PbStop
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         2 |       9 | 131081 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, on ne devrait plus voir de **BBDO::Stop** émis mais plutôt
+des **BBDO::PbStop**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
+
+```cpp
+message Stop {}
+```
 
 </TabItem>
 </Tabs>
