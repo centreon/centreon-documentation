@@ -94,3 +94,4 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
+- Added Schedule Check option & auto close popup capability
