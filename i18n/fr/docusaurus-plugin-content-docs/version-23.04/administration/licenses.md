@@ -21,7 +21,7 @@ Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licen
 
 Les modules suivants doivent être installés séparément et nécessitent une licence valide.
 
-- [Plugin Packs](../monitoring/pluginpacks.md#installation)
+- [connecteurs de supervision](../monitoring/pluginpacks.md#installation)
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)

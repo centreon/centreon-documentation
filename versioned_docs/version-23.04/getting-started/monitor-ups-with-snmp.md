@@ -3,7 +3,7 @@ id: monitor-ups-snmp
 title: Monitor UPS equipment with SNMP
 ---
 
-Go to the **Configuration \> Plugin Packs** menu and install **UPS Standard** Plugin Pack:
+Go to the **Configuration \> Monitoring Connectors** menu and install **UPS Standard** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_ups_0.gif)
 

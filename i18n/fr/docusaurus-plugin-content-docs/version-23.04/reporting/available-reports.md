@@ -1671,7 +1671,7 @@ Les paramètres attendus dans ce rapport :
 
 #### Prérequis
 
-Ce rapport est developpé pour une compatibilié avec le plugin pack
+Ce rapport est developpé pour une compatibilié avec le connecteur de supervision
 Virt-VMware2-ESX et le connecteur Centreon-VMWare-2.0
 
 Les prérequis pour le bon fonctionnement du rapport sont:
@@ -1758,7 +1758,7 @@ Les paramètres attendus dans ce rapport :
 
 #### Prérequis
 
-Ce rapport est developpé pour une compatibilité avec le plugin pack
+Ce rapport est developpé pour une compatibilité avec le connecteur de supervision
 Virt-VMware2-ESX et le connecteur Centreon-VMWare-2.0
 
 Les prérequis pour le bon fonctionnement du rapport sont:

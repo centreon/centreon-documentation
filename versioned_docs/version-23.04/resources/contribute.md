@@ -78,7 +78,7 @@ If you are going to make changes to quite a few files (or if you like this metho
 Your branch should be based on branch **staging**. From this branch you can make changes to docs that are already published and still supported:
 
 * for Centreon OnPrem, see [this table](../installation/prerequisites.md#operating-systems),
-* sections “Centreon Cloud” and “Plugin Packs”.
+* sections “Centreon Cloud” and “Monitoring Connectors”.
 
 ### Procedure
 

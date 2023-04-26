@@ -58,9 +58,9 @@ rm /etc/cron.d/centreon-auto-disco
 
 The Centreon extensions are also to be updated *via* the WUI, from the "Administration > Extensions > Manager" menu by clicking the "Update all" button.
 
-### Updating the Plugin Packs
+### Updating the Monitoring Connectors
 
-In order to maintain compatibility between the [Plugin Packs](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated by the `yum update` command on the central server), the plugin packs must be updated in the WUI too from the "Configuration > Plugin Packs" menu.
+In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated by the `yum update` command on the central server), the Monitoring Connectors must be updated in the WUI too from the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Updating the pollers
 

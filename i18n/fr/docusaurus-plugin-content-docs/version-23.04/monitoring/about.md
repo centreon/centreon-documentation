@@ -27,6 +27,6 @@ Avec Centreon, la supervision est rendue facile par les éléments suivants :
 
 - les [modèles d'hôtes](basic-objects/hosts-templates.md) et de [services](basic-objects/services-templates.md), qui permettent de définir des valeurs par défaut afin d’accélérer la création de ces objets.
 
-- les [Plugin Packs](pluginpacks.md), qui fournissent des modèles d'hôtes et de services prêts à l'emploi. Ceux-ci simplifient énormément la configuration des hôtes et des services : par exemple, il suffit d'appliquer les modèles issus d'un Plugin Pack à un hôte afin de mettre celui-ci en supervision.
+- les [connecteurs de supervision](pluginpacks.md), qui fournissent des modèles d'hôtes et de services prêts à l'emploi. Ceux-ci simplifient énormément la configuration des hôtes et des services : par exemple, il suffit d'appliquer les modèles issus d'un connecteur de supervision à un hôte afin de mettre celui-ci en supervision.
 
 - la [fonctionnalité d'autodécouverte d'hôte et de services](discovery/introduction.md) qui permet d'obtenir une liste des nouveaux hôtes ou services et de les ajouter automatiquement à la liste des ressources supervisées.

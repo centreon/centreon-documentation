@@ -36,7 +36,7 @@ apt update && apt install centreon-auto-discovery-server
 2. Connect to the Centreon web interface using an account allowed to install
 products and go to the **Administration > Extensions > Manager** menu.
 
-3. Make sure that the **License Manager** and **Plugin Packs Manager** modules are
+3. Make sure that the **License Manager** and **Monitoring Connectors Manager** modules are
  up-to-date before installing the **Auto Discovery** module.
 
 4. Click on the installation icon corresponding to the **Auto Discovery** module.
@@ -45,5 +45,5 @@ products and go to the **Administration > Extensions > Manager** menu.
     ![image](../../assets/monitoring/discovery/install-after.png)
 
 5. To get ready-to-use discovery rules, go to the **Configuration > Plugin
-Packs** page and [install the plugin packs](../pluginpacks.md#pack-installation) for the 
+Packs** page and [install the Monitoring Connectors](../pluginpacks.md#pack-installation) for the 
 discovery providers you want.

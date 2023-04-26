@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 ## Superviser un routeur Cisco avec SNMP
 
-Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit des Plugin Packs Centreon (votre [licence](../administration/licenses.md) est déjà configurée).
+Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit des connecteurs de supervision Centreon (votre [licence](../administration/licenses.md) est déjà configurée).
 
-Votre routeur Cisco sera supervisé à l'aide du Plugin Pack [Cisco standard](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp). (Plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+Votre routeur Cisco sera supervisé à l'aide du connecteur de supervision [Cisco standard](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp). (Plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -25,7 +25,7 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 ### Sur le collecteur
 
-Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le Plugin Pack **Cisco standard**](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
+Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le connecteur de supervision **Cisco standard**](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -54,7 +54,7 @@ apt install centreon-plugin-network-cisco-standard-snmp
 
 ### Sur le serveur central
 
-Dans l'interface web, allez à la page **Configuration > Plugin Packs**, recherchez et installez le Plugin Pack **Cisco standard** :
+Dans l'interface web, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, recherchez et installez le connecteur de supervision **Cisco standard** :
 
 ![image](../assets/getting-started/quick_start_cisco_0.gif)
 

@@ -9,8 +9,8 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
 
 1. [Installez](installation.md) le module Auto Discovery.
 
-2. Installez le [Plugin Pack](../pluginpacks.md) correspondant aux ressources que vous voulez découvrir.
-    > Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
+2. Installez le [connecteur de supervision](../pluginpacks.md) correspondant aux ressources que vous voulez découvrir.
+    > Les fournisseurs de découverte sont amenés par l'installation de connecteurs de supervision
     > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
     > le [catalogue des Plugin
     > Packs](/pp/integrations/plugin-packs/getting-started/introduction).
@@ -242,7 +242,7 @@ Les modificateurs permettent de :
 |---------------|---------------------------------------------------------------------------------------|
 | Propriété      | définir un libellé (nom, alias, adresse IP)                                           |
 | Macro         | définir une macro custom pour l'hôte                                                  |
-| Modèle      | ajouter des modèles d'hôtes (le modèle lié au plugin pack est ajouté automatiquement) |
+| Modèle      | ajouter des modèles d'hôtes (le modèle lié au connecteur de supervision est ajouté automatiquement) |
 | Groupe d'hôtes    | rattacher les hôtes à un groupe d'hôtes                                               |
 | Catégorie d'hôte | rattacher les hôtes à une catégorie                                                   |
 | Criticité d'hôte | prioriser les hôtes par sévérité                                                      |

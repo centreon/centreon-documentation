@@ -3,7 +3,7 @@ id: monitor-printer-snmp
 title: Monitor a printer with SNMP
 ---
 
-Go to the **Configuration \> Plugin Packs** menu and install **Printer Standard** Plugin Pack:
+Go to the **Configuration \> Monitoring Connectors** menu and install **Printer Standard** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_printer_0.gif)
 

@@ -17,9 +17,9 @@ ERROR - [autodiscovery] -class- host discovery - cannot get host discovery jobs 
 
 ### Solution
 
-> Ne supprimez pas le Plugin Pack pour l'installer à nouveau !
+> Ne supprimez pas le connecteur de supervision pour l'installer à nouveau !
 
-Vous devez réinstaller le Plugin Pack correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
+Vous devez réinstaller le connecteur de supervision correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
 
 ## Le scan de découverte reste bloqué à l'état planifié
 
@@ -51,4 +51,4 @@ Lorsque vous cliquez sur le bouton **Ajouter** dans la page **Configuration > H�
 
 - Vérifiez que le module Auto Discovery est bien à jour dans la page **Administration > Extensions > Gestionnaire**.
 
-- Réinstallez le Plugin Pack correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).
+- Réinstallez le connecteur de supervision correspondant en cliquant sur le bouton de réinstallation : ![image](../../assets/monitoring/discovery/reinstall-complete.png).

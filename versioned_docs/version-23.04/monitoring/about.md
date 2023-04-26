@@ -25,6 +25,6 @@ In Centreon, monitoring is made easy by the following elements:
 
 - [Host templates](basic-objects/hosts-templates.md) and [service templates](basic-objects/services-templates.md), that allow you to define default values so as to speed up the creation of these objects.
 
-- [Plugin Packs](pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
+- [Monitoring Connectors](pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Monitoring Connector templates to a host for it to be monitored.
 
 - The [autodiscovery feature for hosts and services](discovery/introduction.md), that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.

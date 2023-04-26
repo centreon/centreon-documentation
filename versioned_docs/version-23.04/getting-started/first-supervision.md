@@ -10,20 +10,20 @@ and then to implement them to monitor your first equipment.
 
 ### Installation of basic monitoring templates
 
-Go to the **Configuration \> Plugin Packs** menu.
+Go to the **Configuration \> Monitoring Connectors** menu.
 
 > [Configure the proxy](../administration/parameters/centreon-ui.md#proxy-configuration) to allow the Centreon server to access the internet.
 
-Install the **Base Generic** Plugin Pack (if it is not already installed) by moving your cursor on it and by clicking on the **+** icon (it is a prerequisite
-to the installation of any other Plugin Packs):
+Install the **Base Generic** Monitoring Connector (if it is not already installed) by moving your cursor on it and by clicking on the **+** icon (it is a prerequisite
+to the installation of any other Monitoring Connectors):
 
 ![image](../assets/getting-started/pp_base_generic_1.png)
 
-You can also click on the Plugin Pack in order to know its content before installing it:
+You can also click on the Monitoring Connector in order to know its content before installing it:
 
 ![image](../assets/getting-started/pp_base_generic_2.png)
 
-Install other Plugin Packs you probably need for your environment, for example **Linux SNMP** and **Windows SNMP** available
+Install other Monitoring Connectors you probably need for your environment, for example **Linux SNMP** and **Windows SNMP** available
 for free:
 
 ![image](../assets/getting-started/pp_install_basic.gif)

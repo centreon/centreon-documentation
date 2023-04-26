@@ -9,21 +9,21 @@ Ce topic vous propose d'installer les modèles de supervision fournis gratuiteme
 
 ### Installation des modèles de supervision de base
 
-Rendez-vous dans le menu **Configuration > Packs de plugins**.
+Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 > Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.md#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
-Commencez par installer le Plugin Pack **Base Pack** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
-l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre Plugin Pack) :
+Commencez par installer le connecteur de supervision **Base Pack** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
+l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre connecteur de supervision) :
 
 ![image](../assets/getting-started/pp_base_generic_1.png)
 
-Vous pouvez aussi cliquer sur le Plugin Pack afin d'en connaître son contenu avant de l'installer :
+Vous pouvez aussi cliquer sur le connecteur de supervision afin d'en connaître son contenu avant de l'installer :
 
 ![image](../assets/getting-started/pp_base_generic_2.png)
 
-Installez ensuite les Plugin Packs inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
+Installez ensuite les connecteurs de supervision inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
 
 ![image](../assets/getting-started/pp_install_basic.gif)
 

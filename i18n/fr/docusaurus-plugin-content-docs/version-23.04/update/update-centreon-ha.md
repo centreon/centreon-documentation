@@ -56,9 +56,9 @@ rm /etc/cron.d/centreon-auto-disco
 
 Les extensions (ou modules) Centreon nécessitent également d'être mis à jour *via* l'interface, depuis le menu "Administration > Extensions > Gestionnaire" en utilisant le bouton "Update all".
 
-### Mise à jour des Plugin Packs
+### Mise à jour des connecteurs de supervision
 
-Afin de maintenir la compatibilité entre les [Plugin Packs](../monitoring/pluginpacks.md) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux par la commande `yum update`) il faut appliquer les mises à jour des plugin packs depuis le menu "Configuration > Plugin Packs".
+Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux par la commande `yum update`) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Mise à jour des pollers
 

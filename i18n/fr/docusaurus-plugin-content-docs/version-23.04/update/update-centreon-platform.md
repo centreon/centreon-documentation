@@ -176,7 +176,7 @@ Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
 - License Manager,
-- Plugin Packs Manager,
+- Gestionnaire de connecteurs de supervision,
 - Auto Discovery.
 
 Vous pouvez alors mettre à jour toutes les autres extensions commerciales.

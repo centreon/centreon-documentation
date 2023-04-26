@@ -9,7 +9,7 @@ Ce chapitre décrit les procédures avancées de configuration de votre système
 
 ## Superviser votre serveur Centreon MAP après installation
 
-Centreon fournit un Plugin Pack et un plugin pour superviser votre serveur Centreon MAP.
+Centreon fournit un connecteur de supervision et un plugin pour superviser votre serveur Centreon MAP.
 
 ### Installer les packs
 

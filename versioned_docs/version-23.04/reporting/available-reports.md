@@ -1644,7 +1644,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-This report is developed for full compatibility with the plugin pack
+This report is developed for full compatibility with the Monitoring Connector
 Virt-VMware2-ESX and the Centreon-VMWare-2.0 connector. The following
 prerequisites for the proper generation of the report shall apply.
 
@@ -1727,7 +1727,7 @@ Parameters required for the report:
 #### Prerequisites
 
 This report is developped for full compatibility with the
-Virt-VMware2-ESX plugin pack and Centreon-VMWare-2.0 connector. Certain
+Virt-VMware2-ESX Monitoring Connector and Centreon-VMWare-2.0 connector. Certain
 prerequisites apply to ensure proper report creation:
 
 Monitoring of the following indicators:

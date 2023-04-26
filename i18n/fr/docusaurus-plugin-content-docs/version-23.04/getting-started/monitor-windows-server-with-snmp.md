@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 ## Superviser un serveur Windows en SNMP
 
-Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle. Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des Plugin Packs. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](it100.md).
+Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle. Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des connecteurs de supervision. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](it100.md).
 
-La supervision d'un serveur Windows en SNMP se fait via le [Plugin Pack Windows SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+La supervision d'un serveur Windows en SNMP se fait via le [connecteur de supervision Windows SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -93,7 +93,7 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
 ### Sur le serveur Centreon (collecteur)
 
-Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du Plugin Pack **Windows SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
+Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du connecteur de supervision **Windows SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -122,7 +122,7 @@ apt install centreon-plugin-operatingsystems-windows-snmp
 
 ### Sur le serveur central
 
-Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
+Dans l'interface Web, accédez à **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
 
@@ -170,7 +170,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
 ### Pour aller plus loin
 
-Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
+Le connecteur de supervision **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
 

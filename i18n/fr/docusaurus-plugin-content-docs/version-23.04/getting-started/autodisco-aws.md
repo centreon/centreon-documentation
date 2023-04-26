@@ -21,7 +21,7 @@ Vous devez disposer :
 
 2. [Installez](../monitoring/discovery/installation.md) le module d'autodécouverte.
 
-3. Rendez les Plugin Packs disponibles :
+3. Rendez les connecteurs de supervision disponibles :
 
     - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
@@ -50,17 +50,17 @@ apt install centreon-pack-*
 
 </Tabs>
 
-    - Si vous avez une licence en ligne, les Plugin Packs sont déjà disponibles dans l'interface.
+    - Si vous avez une licence en ligne, les connecteurs de supervision sont déjà disponibles dans l'interface.
 
-4. Pour installer le Plugin Pack Amazon EC2, allez à la page **Configuration > Packs de plugins**.
+4. Pour installer le connecteur de supervision Amazon EC2, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 5. Dans le champ **Keyword**, entrez **Amazon EC2** puis cliquez sur **Rechercher**.
 
-6. Cliquez sur le `+` dans le coin supérieur droit du Plugin Pack. Le Plugin Pack a maintenant une bordure verte et une coche dans le coin supérieur droit : les modèles de configuration et les fournisseurs de découverte sont maintenant installés.
+6. Cliquez sur le `+` dans le coin supérieur droit du connecteur de supervision. Le connecteur de supervision a maintenant une bordure verte et une coche dans le coin supérieur droit : les modèles de configuration et les fournisseurs de découverte sont maintenant installés.
 
 7. Suivez [cette procédure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2)
  (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) et 
-[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
+[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le connecteur de supervision. (Vous pouvez également accéder à la documentation d'un connecteur de supervision en cliquant sur le `i`.)
 
   ![image](../assets/getting-started/aws-doc.png)
 
