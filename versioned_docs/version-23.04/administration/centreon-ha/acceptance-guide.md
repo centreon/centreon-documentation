@@ -670,18 +670,6 @@ Ticket Constraints:
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```text
-Location Constraints:
-Ordering Constraints:
-Colocation Constraints:
-  centreon with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
-Ticket Constraints:
-```
-
-</TabItem>
 </Tabs>
 
 then check the database replication
