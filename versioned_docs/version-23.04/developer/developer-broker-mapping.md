@@ -682,7 +682,7 @@ message Host {
   int64 last_time_up = 27;                // Timestamp of the last successful check.
   int64 last_update = 28;                 // Timestamp of the last message creation.
   double latency = 29;                    // Delay between scheduled check time and real check time.
-  int32 max_check_attempts = 30;          // Number of failed check after which host state becomes a gard fail state.
+  int32 max_check_attempts = 30;          // Number of failed check after which host state becomes a hard fail state.
   int64 next_check = 31;                  // Next scheduled check timestamp.
   int64 next_host_notification = 32;      // Next renotification timestamp.
   bool no_more_notifications = 33;        // If true, no other notification will be sent.
@@ -1054,7 +1054,7 @@ message HostStatus {
 
   string output = 12;                 // Check output.
   string long_output = 13;            // Check long output.
-  string perfdata = 14;               // Check performance data.
+  string perfdata = 14;               // Performance data.
 
   bool flapping = 15;                 // True if the host is flapping.
   double percent_state_change = 16;   // Used by flapping and compared with high and low flap thresholds

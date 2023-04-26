@@ -56,22 +56,22 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message Acknowledgement {
-  uint64 host_id = 1;                // Host ID.
-  uint64 service_id = 2;             // Service ID or 0 for a host acknowledgement.
-  uint64 instance_id = 3;            // Instance ID.
+  uint64 host_id = 1;                // ID de l'hôte.
+  uint64 service_id = 2;             // ID du service, ou 0 pour un acquittement d'hôte.
+  uint64 instance_id = 3;            // ID de l'instance.
   enum ResourceType {
     HOST = 0;
     SERVICE = 1;
   }
-  ResourceType type = 4;             // Type of the resource.
-  string author = 5;                 // Acknowledgement author.
-  string comment_data = 6;           // Comment associated to the acknowledgement.
-  bool sticky = 7;                   // Sticky flag.
-  bool notify_contacts = 8;          // Notification flag.
-  uint64 entry_time = 9;             // Time at which the acknowledgement was created.
-  uint64 deletion_time = 10;         // Time at which the acknowledgement was deleted.
-  bool persistent_comment = 11;      // True if the comment is persistent.
-  int32 state = 12;                  // The host / service state.
+  ResourceType type = 4;             // Type de la ressource.
+  string author = 5;                 // Auteur de l'acquittement
+  string comment_data = 6;           // Commentaire associé à  l'acquittement.
+  bool sticky = 7;                   // Indicateur "Persistant".
+  bool notify_contacts = 8;          // Indicateur de notification.
+  uint64 entry_time = 9;             // Heure à laquelle l'acquittement a été créé.
+  uint64 deletion_time = 10;         // Heure à laquelle l'acquittement a été supprimé.
+  bool persistent_comment = 11;      // True si le commentaire est persistant.
+  int32 state = 12;                  // L'état de l'hôte/du service.
 }
 ```
 
@@ -125,15 +125,15 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 message Comment {
-  BBDOHeader header = 1;     // Not currently used.
+  BBDOHeader header = 1;     // Non utilisé actuellement.
 
   enum Src {
-    INTERNAL = 0;            // The comment originates from the monitoring engine.
-    EXTERNAL = 1;            // The comment comes from another source.
+    INTERNAL = 0;            // Le commentaire provient du moteur de supervision.
+    EXTERNAL = 1;            // Le commentaire provient d'une autre source.
   }
 
   enum Type {
@@ -150,20 +150,20 @@ message Comment {
     ACKNOWLEDGMENT = 4;
   }
 
-  string author = 2;         // Comment author.
-  Type type = 3;             // The comment type following the Type enum.
-  string data = 4;           // The content of the comment.
-  uint64 deletion_time = 5;  // Time a which the comment was deleted or 0 if the comment was not deleted (yet).
-  uint64 entry_time = 6;     // Time at which the comment was created.
-  EntryType entry_type = 7;  // Entry type following the EntryType enum.
-  uint64 expire_time = 8;    // Comment expiration time or 0 if no expiration time.
-  bool expires = 9;          // True if the comment expired.
-  uint64 host_id = 10;       // Host ID.
-  uint64 internal_id = 11;   // Internal monitoring engine ID of the comment.
-  bool persistent = 12;      // True if the comment is persistent.
-  uint64 instance_id = 13;   // Instance ID.
-  uint64 service_id = 14;    // Service ID or 0 for a host comment.
-  Src source = 15;           // Source of the comment following the Src enum.
+  string author = 2;         // Auteur du commentaire.
+  Type type = 3;             // Type du commentaire, suivant l'enum Type.
+  string data = 4;           // Le contenu du commentaire.
+  uint64 deletion_time = 5;  // Heure à laquelle le commentaire a été supprimé, ou 0 si le commentaire n'a pas (encore) été supprimé.
+  uint64 entry_time = 6;     // Heure à laquelle le commentaire a été créé.
+  EntryType entry_type = 7;  // Type d'entrée, suivant l'enum EntryType.
+  uint64 expire_time = 8;    // Heure d'expiration du commentaire, ou 0 si le commentaire n'a pas d'heure d'expiration.
+  bool expires = 9;          // True si le commentaire a expiré.
+  uint64 host_id = 10;       // ID de l'hôte.
+  uint64 internal_id = 11;   // ID interne du moteur de supervision pour le commentaire.
+  bool persistent = 12;      // True si le commentaire est persistant.
+  uint64 instance_id = 13;   // ID de l'instance
+  uint64 service_id = 14;    // ID du service, ou 0 pour un commentaire sur un hôte.
+  Src source = 15;           // Source du commentaire, suivant l'enum Src.
 }
 ```
 
@@ -213,7 +213,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 message CustomVariable {
@@ -222,17 +222,17 @@ message CustomVariable {
     SERVICE = 1;
   }
 
-  BBDOHeader header = 1;     // Not used
-  uint64 host_id = 2;        // Host ID.
-  uint64 service_id = 3;     // Service ID or 0 for a host custom variable.
-  bool modified = 4;         // True if the variable was modified.
-  string name = 5;           // Variable name.
-  uint64 update_time = 6;    // Last time at which the variable was updated.
-  string value = 7;          // Variable value.
-  string default_value = 8;  // The default value of the custom variable.
-  bool enabled = 9;          // True if the custom variable is enabled.
-  bool password = 10;        // True if the value must be hidden.
-  VarType type = 11;         // One of the values of the VarType enum.
+  BBDOHeader header = 1;     // Non utilisé.
+  uint64 host_id = 2;        // ID de l'hôte.
+  uint64 service_id = 3;     // ID du service, ou 0 pour une variable personnalisée pour un hôte.
+  bool modified = 4;         // True si la variable a été modifiée.
+  string name = 5;           // Nom de la variable.
+  uint64 update_time = 6;    // Dernière heure à laquelle la variable a été mise à jour.
+  string value = 7;          // Valeur de la variable.
+  string default_value = 8;  // La valeur par défaut de la variable personnalisée.
+  bool enabled = 9;          // True si la variable personnalisée est activée.
+  bool password = 10;        // True si la valeur doit être masquée.
+  VarType type = 11;         // Une des valeurs de l'enum VarType.
 }
 ```
 
@@ -279,7 +279,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 message CustomVariable {
@@ -288,17 +288,17 @@ message CustomVariable {
     SERVICE = 1;
   }
 
-  BBDOHeader header = 1;     // Not used
-  uint64 host_id = 2;        // Host ID.
-  uint64 service_id = 3;     // Service ID or 0 for a host custom variable.
-  bool modified = 4;         // True if the variable was modified.
-  string name = 5;           // Variable name.
-  uint64 update_time = 6;    // Last time at which the variable was updated.
-  string value = 7;          // Variable value.
-  string default_value = 8;  // The default value of the custom variable.
-  bool enabled = 9;          // True if the custom variable is enabled.
-  bool password = 10;        // True if the value must be hidden.
-  VarType type = 11;         // One of the values of the VarType enum.
+  BBDOHeader header = 1;     // Non utilisé.
+  uint64 host_id = 2;        // ID de l'hôte.
+  uint64 service_id = 3;     // ID du service, ou 0 pour une variable personnalisée pour un hôte.
+  bool modified = 4;         // True si la variable a été modifiée.
+  string name = 5;           // Nom de la variable.
+  uint64 update_time = 6;    // Dernière heure à laquelle la variable a été mise à jour.
+  string value = 7;          // Valeur de la variable.
+  string default_value = 8;  // La valeur par défaut de la variable personnalisée.
+  bool enabled = 9;          // True si la variable personnalisée est activée.
+  bool password = 10;        // True si la valeur doit être masquée.
+  VarType type = 11;         // Une des valeurs de l'enum VarType.
 }
 ```
 
@@ -361,28 +361,28 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 message Downtime {
   enum DowntimeType {
     NOT_USED = 0;
-    SERVICE = 1;                  // The downtime is set on a service.
-    HOST = 2;                     // The downtime is set on a host.
-    ANY = 3;                      // This is kept for retro compatibility (not used).
+    SERVICE = 1;                  // La plage de maintenance est positionnée sur un service.
+    HOST = 2;                     // La plage de maintenance est positionnée sur un hôte.
+    ANY = 3;                      // Valeur gardée pour des raisons de rétrocompatibilité (non utilisée).
   };
-  uint64 id = 1;                  // Internal monitoring engine ID.
-  uint64 instance_id = 2;         // Instance ID.
-  uint64 host_id = 3;             // Host ID.
-  uint64 service_id = 4;          // Service ID or 0 if this is a host downtime.
-  string author = 5;              // Downtime author.
-  string comment_data = 6;        // Downtime comment.
-  DowntimeType type = 7;          // One value from the previous enum.
-  uint32 duration = 8;            // Downtime duration.
-  uint64 triggered_by = 9;        // Internal ID of the downtime that triggered this downtime.
-  int64 entry_time = 10;          // Time at which the downtime was created.
-  uint64 actual_start_time = 11;  // Actual time at which the downtime started.
-  uint64 actual_end_time = 12;    // Actual time at which the downtime ended.
-  uint64 start_time = 13;         // Scheduled downtime start time.
-  uint64 deletion_time = 14;      // Time at which the downtime was deleted.
-  uint64 end_time = 15;           // Scheduled downtime end time.
-  bool started = 16;              // True if the downtime has been started.
-  bool cancelled = 17;            // True if the downtime was cancelled.
-  bool fixed = 18;                // True if the downtime is fixed, false if it is flexible.
+  uint64 id = 1;                  // ID interne au moteur de supervision.
+  uint64 instance_id = 2;         // ID de l'instance
+  uint64 host_id = 3;             // ID de l'hôte.
+  uint64 service_id = 4;          // ID du service, ou 0 s'il s'agit d'une plage de maintenance sur un hôte.
+  string author = 5;              // Utilisateur ayant défini la place de maintenance.
+  string comment_data = 6;        // Commentaire associé à la plage de maintenance.
+  DowntimeType type = 7;          // Une valeur de la précédente énumération.
+  uint32 duration = 8;            // Durée de la plage de maintenance.
+  uint64 triggered_by = 9;        // ID interne de la plage de maintenance ayant déclenché cette plage de maintenance.
+  int64 entry_time = 10;          // Heure à  laquelle la plage de maintenance a été créée.
+  uint64 actual_start_time = 11;  // Heure à laquelle la plage de maintenance a réellement démarré.
+  uint64 actual_end_time = 12;    // Heure à laquelle la plage de maintenance a réellement terminé.
+  uint64 start_time = 13;         // Heure de départ programmée de la plage de maintenance.
+  uint64 deletion_time = 14;      // Heure à laquelle la plage de maintenance a été supprimée.
+  uint64 end_time = 15;           // Heure de fin programmée de la plage de maintenance.
+  bool started = 16;              // True si la plage de maintenance a démarré.
+  bool cancelled = 17;            // True si la plage de maintenance a été annulée.
+  bool fixed = 18;                // True si la plage de maintenance est fixe, false si elle est flexible.
 }
 ```
 
@@ -465,24 +465,24 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 enum TagType {
-  SERVICEGROUP = 0;       // Tag representing a service group
-  HOSTGROUP = 1;          // Tag representing a host group
-  SERVICECATEGORY = 2;    // Tag representing a service category
-  HOSTCATEGORY = 3;       // Tag representing a host category
+  SERVICEGROUP = 0;       // Tag représentant un groupe de services
+  HOSTGROUP = 1;          // Tag représentant un groupe d'hôtes
+  SERVICECATEGORY = 2;    // Tag représentant une catégorie de services
+  HOSTCATEGORY = 3;       // Tag représentant une catégorie d'hôtes
 }
 
 message Tag {
-  uint64 id = 1;          // Tag ID (unicity obtained by coupling it with the type)
+  uint64 id = 1;          // ID du tag (l'unicité est obtenue en l'associant au type)
   enum Action {
-    ADD = 0;              // With this action, the event adds a new tag.
-    DELETE = 1;           // With this action, the event removes a tag.
-    MODIFY = 2;           // With this action, the event modifies a tag.
+    ADD = 0;              // Par cette action, l'évènement crée un nouveau tag.
+    DELETE = 1;           // Par cette action, l'évènement supprime un tag.
+    MODIFY = 2;           // Par cette action, l'évènement modifie un tag.
   }
 
-  Action action = 2;      // The current action for this event.
-  TagType type = 3;       // The type of this tag.
-  string name = 4;        // Name of this tag.
-  int64 poller_id = 5;    // Poller ID.
+  Action action = 2;      // L'action courante pour cet évènement.
+  TagType type = 3;       // Le type du tag.
+  string name = 4;        // Nom du tag.
+  int64 poller_id = 5;    // ID du collecteur.
 }
 ```
 
@@ -612,106 +612,106 @@ message TagInfo {
 }
 
 message Host {
-  uint64 host_id = 1;                     // Host ID.
+  uint64 host_id = 1;                     // ID de l'hôte.
 
-  bool acknowledged = 2;                  // True if the problem has been acknowledged.
-  AckType acknowledgement_type = 3;       // Acknowledgement type.
+  bool acknowledged = 2;                  // True si l'alerte a été acquittée.
+  AckType acknowledgement_type = 3;       // Type d'acquittement.
 
-  bool active_checks = 4;                 // True if active checks are enabled.
-  bool enabled = 5;                       // True if this host is enabled.
-  int32 scheduled_downtime_depth = 6;     // Number of active downtimes.
-  string check_command = 7;               // Check command.
-  int32 check_interval = 8;               // Interval in units (usually 60s) between 2 checks.
-  string check_period = 9;                // Time period when checks are authorized
+  bool active_checks = 4;                 // True si les contrôles actifs sont activés.
+  bool enabled = 5;                       // True si cet hôte est activé.
+  int32 scheduled_downtime_depth = 6;     // Nombre de plages de maintenance actives.
+  string check_command = 7;               // Commande de contrôle.
+  int32 check_interval = 8;               // Intervalle en unités (en général 60s) entre 2 contrôles.
+  string check_period = 9;                // Période de temps durant laquelle les contrôles sont autorisés
 
   enum CheckType {
     ACTIVE = 0;
     PASSIVE = 1;
   }
-  CheckType check_type = 10;              // Type of the last check.
-  int32 check_attempt = 11;               // Number of failed checks.
+  CheckType check_type = 10;              // Type du dernier contrôle.
+  int32 check_attempt = 11;               // Nombre de contrôles non OK.
   enum State {
     UP = 0;
     DOWN = 1;
     UNREACHABLE = 2;
   }
-  State state = 12;                       // Current state.
-  bool event_handler_enabled = 13;        // True if an event handler is configured on this host.
-  string event_handler = 14;              // Command executed when state changes.
-  double execution_time = 15;             // Duration of the last check.
-  bool flap_detection = 16;               // True if flap detection is enabled.
-  bool checked = 17;                      // check has been executed at least once.
-  bool flapping = 18;                     // True if the host is flapping.
-  int64 last_check = 19;                  // Timestamp of the last check.
-  State last_hard_state = 20;             // Last hard state.
-  int64 last_hard_state_change = 21;      // Timestamp of the last hard state change.
-  int64 last_notification = 22;           // Timestamp of the last notification.
-  int32 notification_number = 23;         // Current notification number or 0 if not.
-  int64 last_state_change = 24;           // Timestamp of the last state change.
-  int64 last_time_down = 25;              // Timestamp of the last failed check.
-  int64 last_time_unreachable = 26;       // Timestamp of the last failed check with all parent hosts down.
-  int64 last_time_up = 27;                // Timestamp of the last successful check.
-  int64 last_update = 28;                 // Timestamp of the last message creation.
-  double latency = 29;                    // Delay between scheduled check time and real check time.
-  int32 max_check_attempts = 30;          // Number of failed check after which host state becomes a gard fail state.
-  int64 next_check = 31;                  // Next scheduled check timestamp.
-  int64 next_host_notification = 32;      // Next renotification timestamp.
-  bool no_more_notifications = 33;        // If true, no other notification will be sent.
-  bool notify = 34;                       // Notifications allowed
-  string output = 35;                     // Output of the check command.
-  bool passive_checks = 36;               // Passive checks are enabled.
-  double percent_state_change = 37;       // Used by flapping and compared with high and low flap thresholds.
-  string perfdata = 38;                   // perfdata extracted from the command's output.
-  double retry_interval = 39;             // interval between two checks when host isn't in up state and state type is soft.
-  bool should_be_scheduled = 40;          // True if next check should be scheduled
-  bool obsess_over_host = 41;             // True if OCSP command is executed after check or notification command.
+  State state = 12;                       // État courant.
+  bool event_handler_enabled = 13;        // True si un event handler est configuré sur cet hôte.
+  string event_handler = 14;              // Commande exécutée quand l'état change.
+  double execution_time = 15;             // Durée du dernier contrôle.
+  bool flap_detection = 16;               // True si la détection du bagotement est activée.
+  bool checked = 17;                      // La ressource a été contrôlée au moins une fois.
+  bool flapping = 18;                     // True si l'hôte est en bagotement.
+  int64 last_check = 19;                  // Timestamp du dernier contrôle.
+  State last_hard_state = 20;             // Dernier état hard.
+  int64 last_hard_state_change = 21;      // Timestamp du dernier passage à l'état hard.
+  int64 last_notification = 22;           // Timestamp de la dernière notification.
+  int32 notification_number = 23;         // Numéro de la notification courante, ou 0 en l'absence de notification.
+  int64 last_state_change = 24;           // Timestamp du dernier changement d'état.
+  int64 last_time_down = 25;              // Timestamp du dernier contrôle non OK.
+  int64 last_time_unreachable = 26;       // Timestamp du dernier contrôle non OK avec tous les hôtes parents au statut non OK.
+  int64 last_time_up = 27;                // Timestamp du dernier contôle OK.
+  int64 last_update = 28;                 // Timestamp du dernier message créé.
+  double latency = 29;                    // Délai entre l'heure programmée d'un contrôle et celle de son exécution.
+  int32 max_check_attempts = 30;          // Nombre de contrôles non OK après lesquels l'hôte rentre dans un état non OK hard.
+  int64 next_check = 31;                  // Timestamp du prochain contrôle programmé.
+  int64 next_host_notification = 32;      // Timestamp de la prochaine renotification.
+  bool no_more_notifications = 33;        // Si true, aucune autre notification ne sera envoyée.
+  bool notify = 34;                       // Notifications autorisées
+  string output = 35;                     // Output de la commande de contrôle.
+  bool passive_checks = 36;               // Les contrôles passsifs sont activés.
+  double percent_state_change = 37;       // Utilisé par le bagotement, et comparé aux seuils hauts et bas de bagotement.
+  string perfdata = 38;                   // Données de performance extraites de l'output de la commande.
+  double retry_interval = 39;             // Interval entre deux contrôles quand l'hôte n'est pas dans un statut disponible et que le type de l'état est soft.
+  bool should_be_scheduled = 40;          // True si le prochain contrôle devrait être programmé.
+  bool obsess_over_host = 41;             // True si une commande OCSP est exécutée après un contôle ou une commande de notification.
 
   enum StateType {
-    SOFT = 0;                             // State not still confirmed.
-    HARD = 1;                             // State confirmed.
+    SOFT = 0;                             // État pas encore confirmé.
+    HARD = 1;                             // État confirmé.
   }
 
-  StateType state_type = 42;              // The state type.
-  string action_url = 43;                 // Optional url available in the WUI linked to this host.
-  string address = 44;                    // An address
-  string alias = 45;                      // An alias for this host.
-  bool check_freshness = 46;              // Passive freshness check activated
-  bool default_active_checks = 47;        // Same as active_checks but the default value.
-  bool default_event_handler_enabled = 48;// Same as event_handler but the default value.
-  bool default_flap_detection = 49;       // Same as flap_detection but the default value.
-  bool default_notify = 50;               // Same as notify byt the default value.
-  bool default_passive_checks = 51;       // Same as passive checks but the default value.
-  string display_name = 52;               // Name displayed in the WUI
-  double first_notification_delay = 53;   // Delay before notify in units (usually 60s).
-  bool flap_detection_on_down = 54;       // Down state is taken into account for flap detection.
-  bool flap_detection_on_unreachable = 55;// Unreachable state is taken into account for flap detection.
-  bool flap_detection_on_up = 56;         // Up state is taken into account for flap detection.
+  StateType state_type = 42;              // Type d'état.
+  string action_url = 43;                 // URL optionnelle disponible dans l'interface, associée à cet hôte.
+  string address = 44;                    // Adresse
+  string alias = 45;                      // Alias de cet hôte.
+  bool check_freshness = 46;              // Contrôle de fraîcheur passif activé.
+  bool default_active_checks = 47;        // Identique à active_checks, mais valeur par défaut.
+  bool default_event_handler_enabled = 48;// Identique à event_handler, mais valeur par défaut.
+  bool default_flap_detection = 49;       // Identique à flap_detection, mais valeur par défaut.
+  bool default_notify = 50;               // Identique à notify, mais valeur par défaut.
+  bool default_passive_checks = 51;       // Identique à passive checks, mais valeur par défaut.
+  string display_name = 52;               // Nom affiché dans l'interface
+  double first_notification_delay = 53;   // Délai entre deux notifications, en unités (généralement 60s).
+  bool flap_detection_on_down = 54;       // Le statut indsponible est pris en compte pour la détection du bagotement.
+  bool flap_detection_on_unreachable = 55;// Le statut injoignable est pris en compte pour la détection du bagotement.
+  bool flap_detection_on_up = 56;         // Le statut OK est pris en compte pour la détection du bagotement.
   double freshness_threshold = 57;        // Delay after check result is stale.
-  double high_flap_threshold = 58;        // If percent state change is higher than this, host is considered flapping.
-  string name = 59;                       // Host name.
-  string icon_image = 60;                 // Icon displayed in the WUI for the host.
-  string icon_image_alt = 61;             // Alternative string for icon_image.
-  int32 instance_id = 62;                 // Instance ID.
-  double low_flap_threshold = 63;         // If percent state change is lower than this, host is not considered flapping.
-  string notes = 64;                      // Tooltip in resources status page.
-  string notes_url = 65;                  // clickable url in resources status page.
-  double notification_interval = 66;      // Interval between two notifications.
-  string notification_period = 67;        // Time period during which notifications are allowed.
-  bool notify_on_down = 68;               // Users are notified if host becomes down.
-  bool notify_on_downtime = 69;           // Users are notified if host enters in downtime.
-  bool notify_on_flapping = 70;           // Users are notified if host is flapping.
-  bool notify_on_recovery = 71;           // Users are notified if host becomes up.
-  bool notify_on_unreachable = 72;        // Users are notified if host becomes unreachable.
-  bool stalk_on_down = 73;                // Logs check output changes if state is down.
-  bool stalk_on_unreachable = 74;         // Logs check output changes if state is unreachable.
-  bool stalk_on_up = 75;                  // Logs check output changes if state is up.
-  string statusmap_image = 76;            // Image displayed in map.
-  bool retain_nonstatus_information = 77; // Unused
-  bool retain_status_information = 78;    // Unused
-  string timezone = 79;                   // Time zone of the host.
-  uint64 severity_id = 80;                // Severity ID.
-  repeated TagInfo tags = 81;             // Tags linked to this host.
-  uint64 icon_id = 82;                    // Icon ID.
+  double high_flap_threshold = 58;        // Si le pourcentage de changement de statut dépasse ce seuil, l'hôte est considéré en bagotement.
+  string name = 59;                       // Nom de l'hôte.
+  string icon_image = 60;                 // Icône affichée dans l'interface pour cet hôte.
+  string icon_image_alt = 61;             // Text alternatif pour icon_image.
+  int32 instance_id = 62;                 // ID de l'instance
+  double low_flap_threshold = 63;         // Si le pourcentage de changement de statut est plus bas que ce seuil, l'hôte n'est pas considéré en bagotement.
+  string notes = 64;                      // Infobulle dans la page Statut des Ressources.
+  string notes_url = 65;                  // URL cliquable dans la page Statut des Ressources.
+  double notification_interval = 66;      // Intervalle entre deux notifications.
+  string notification_period = 67;        // Période de temps pendant laquelle les notifications sont autorisées.
+  bool notify_on_down = 68;               // Les utilisateurs sont notifiés si l'hôte devient indisponible.
+  bool notify_on_downtime = 69;           // Les utilisateurs sont notifiés si l'hôte entre en plage de maintenance.
+  bool notify_on_flapping = 70;           // Les utilisateurs sont notifiés si l'hôte est en bagotement.
+  bool notify_on_recovery = 71;           // Les utilisateurs sont notifiés si l'hôte devient disponible.
+  bool notify_on_unreachable = 72;        // Les utilisateurs sont notifiés si l'hôte devient injoignable.
+  bool stalk_on_down = 73;                // Inscrit dans le log le changement d'output si le statut passe à indisponible.
+  bool stalk_on_unreachable = 74;         // Inscrit dans le log le changement d'output si le statut passe à injoignable.
+  bool stalk_on_up = 75;                  // Inscrit dans le log le changement d'output si le statut passe à disponible.
+  string statusmap_image = 76;            // Image affichée sur une carte.
+  bool retain_nonstatus_information = 77; // Non utilisé
+  bool retain_status_information = 78;    // Non utilisé
+  string timezone = 79;                   // Fuseau horaire de l'hôte.
+  uint64 severity_id = 80;                // ID de la sévérité.
+  repeated TagInfo tags = 81;             // Tags associés à cet hôte.
+  uint64 icon_id = 82;                    // ID de l'icône.
 }
 ```
 
@@ -758,7 +758,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 enum CheckType {
@@ -769,12 +769,12 @@ enum CheckType {
 message Check {
     BBDOHeader header = 1;
 
-    bool active_checks_enabled = 2;   // True if active checks are enabled on the host.
-    CheckType check_type = 3;         // One of the values in CheckType.
-    string command_line = 4;          // Check command line.
-    uint64 host_id = 5;               // Host ID.
-    uint64 next_check = 6;            // Timestamp at which the next check is scheduled.
-    uint64 service_id = 7;            // Service ID or 0 for a host check.
+    bool active_checks_enabled = 2;   // True si les contôle actifs sont activés sur l'hôte.
+    CheckType check_type = 3;         // L'une des valeurs de CheckType.
+    string command_line = 4;          // Ligne de commande de contrôle.
+    uint64 host_id = 5;               // ID de l'hôte.
+    uint64 next_check = 6;            // Timestamp du prochain contrôle programmé.
+    uint64 service_id = 7;            // ID du service, ou 0 pour un contrôle sur un hôte.
 }
 ```
 
@@ -986,53 +986,53 @@ enum AckType {
 }
 
 message HostStatus {
-  uint64 host_id = 1;                 // Host ID.
+  uint64 host_id = 1;                 // ID de l'hôte.
 
-  bool checked = 2;                   // True if the host is checked.
+  bool checked = 2;                   // True si l'hôte est contrôlé.
   enum CheckType {
     ACTIVE = 0;
     PASSIVE = 1;
   }
-  CheckType check_type = 3;           // Type of the last check (ACTIVE/PASSIVE).
+  CheckType check_type = 3;           // Type du dernier contrôle (ACTIVE/PASSIVE).
 
   enum State {
     UP = 0;
     DOWN = 1;
     UNREACHABLE = 2;
   }
-  State state = 4;                    // Current state of the host.
+  State state = 4;                    // État courant de l'hôte.
   enum StateType {
     SOFT = 0;
     HARD = 1;
   }
-  StateType state_type = 5;           // Confirmed or not state (HARD/SOFT).
-  int64 last_state_change = 6;        // Timestamp of the last state change.
-  State last_hard_state = 7;          // Last hard state.
-  int64 last_hard_state_change = 8;   // Timestamp of the last hard state.
-  int64 last_time_up = 9;             // Timestamp of the last up state.
-  int64 last_time_down = 10;          // Timestamp of the last down state.
-  int64 last_time_unreachable = 11;   // Timestamp of the last unreachable state.
+  StateType state_type = 5;           // État confirmé ou non (HARD/SOFT).
+  int64 last_state_change = 6;        // Timestamp du dernier changement d'état.
+  State last_hard_state = 7;          // Dernier état hard.
+  int64 last_hard_state_change = 8;   // Timestamp du dernier état hard.
+  int64 last_time_up = 9;             // Timestamp du dernier statut disponible.
+  int64 last_time_down = 10;          // Timestamp du dernier statut indisponible.
+  int64 last_time_unreachable = 11;   // Timestamp du dernier statut injoignable.
 
-  string output = 12;                 // Check output.
-  string long_output = 13;            // Check long output.
-  string perfdata = 14;               // Check performance data.
+  string output = 12;                 // Output du contrôle.
+  string long_output = 13;            // Output long du contrôle.
+  string perfdata = 14;               // Données de performance.
 
-  bool flapping = 15;                 // True if the host is flapping.
-  double percent_state_change = 16;   // Used by flapping and compared with high and low flap thresholds
-  double latency = 17;                // Delay between scheduled check time and real check time.
-  double execution_time = 18;         // Duration of last check.
-  int64 last_check = 19;              // Timestamp of the last check.
-  int64 next_check = 20;              // Timestamp at which the next check is scheduled.
-  bool should_be_scheduled = 21;      // True if the next check should be scheduled.
-  int32 check_attempt = 22;           // Number of failed checks.
+  bool flapping = 15;                 // True si l'hôte est en bagotement.
+  double percent_state_change = 16;   // Utilisé par le bagotement, et comparé aux seuils hauts et bas de bagotement.
+  double latency = 17;                // Délai entre l'heure où le contrôle est programmé et celle où il est exécuté.
+  double execution_time = 18;         // Durée du dernier contrôle.
+  int64 last_check = 19;              // Timestamp du dernier contrôle.
+  int64 next_check = 20;              // Timestamp du moment ou le prochain contrpole est programmé.
+  bool should_be_scheduled = 21;      // True si le prochain contrôle devrait être programmé.
+  int32 check_attempt = 22;           // Nombre de contrôles non OK.
 
-  int32 notification_number = 23;     // Number of notifications sent since the start of the problem.
-  bool no_more_notifications = 24;    // No other notification will be sent.
-  int64 last_notification = 25;       // Timestamp of last notification sent.
-  int64 next_host_notification = 26;  // Timestamp of next renotification.
+  int32 notification_number = 23;     // Nombre de notifications envoyées depuis le début de l'alerte.
+  bool no_more_notifications = 24;    // Aucune autre notification ne sera envoyée.
+  int64 last_notification = 25;       // Timestamp de la dernière notification envoyée.
+  int64 next_host_notification = 26;  // Timestamp de la prochaine renotification.
 
-  AckType acknowledgement_type = 27;  // One value of the AckType enum.
-  int32 scheduled_downtime_depth = 28;// Number of active downtimes.
+  AckType acknowledgement_type = 27;  // Une valeur de l'énumération AckType.
+  int32 scheduled_downtime_depth = 28;// Nombre de plages de maintenance actives.
 }
 ```
 
@@ -1080,20 +1080,20 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 message Instance {
   BBDOHeader header = 1;
 
-  string engine = 2;        // Name of the monitoring engine used on this instance.
-  bool running = 3;         // Whether or not this instance is running.
-  string name = 4;          // Instance name.
-  int64 pid = 5;            // Monitoring engine PID.
-  uint64 instance_id = 6;   // Instance ID.
-  int64 end_time = 7;       // Timestamp at which the instance shuts down.
-  int64 start_time = 8;     // Timestamp at which the instance starts.
-  string version = 9;       // Version of the emitter of this message.
+  string engine = 2;        // Nom du moteur de supervision utilisé sur cette instance.
+  bool running = 3;         // Si l'instance fonctionne ou pas.
+  string name = 4;          // Nom de l'instance.
+  int64 pid = 5;            // PID du moteur de supervision.
+  uint64 instance_id = 6;   // ID de l'instance
+  int64 end_time = 7;       // Timestamp auquel l'instance s'éteint.
+  int64 start_time = 8;     // Timestamp auquel l'instance s'allume.
+  string version = 9;       // Version de l'émetteur de ce message.
 }
 ```
 
@@ -1149,28 +1149,28 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 message InstanceStatus {
   BBDOHeader header = 1;
 
-  bool event_handlers = 2;                    // Whether or not event handlers are globally enabled.
-  bool flap_detection = 3;                    // Whether or not flap detection is globally enabled.
-  bool notifications = 4;                     // Whether or not notifications are globally enabled.
-  bool active_host_checks = 5;                // Whether or not active host checks are globally enabled.
-  bool active_service_checks = 6;             // Whether or not active service checks are globally enabled.
-  bool check_hosts_freshness = 7;             // Whether or not hosts freshness checking is globally enabled.
-  bool check_services_freshness =  8;         // Whether or not services freshness checking is globally enabled.
-  string global_host_event_handler = 9;       // Global host event handler.
-  string global_service_event_handler = 10;   // Global service event handler.
-  uint64 last_alive = 11;                     // Last time the instance was known alive.
-  int64 last_command_check = 12;              // Last time a check command was executed.
-  bool obsess_over_hosts = 13;                // Whether or not the monitoring engine should obsess over hosts.
-  bool obsess_over_services = 14;             // Whether or not the monitoring engine should obsess over services.
-  bool passive_host_checks = 15;              // Whether or not passive host checks are globally enabled.
-  bool passive_service_checks = 16;           // Whether or not passive service checks are globally enabled.
-  uint64 instance_id = 17;                    // Instance ID.
+  bool event_handlers = 2;                    // Si les event handlers sont activés globalement, ou non.
+  bool flap_detection = 3;                    // Si la détection du bagotement est activée globalement, ou non.
+  bool notifications = 4;                     // Si les notifications sont activées globalement, ou non.
+  bool active_host_checks = 5;                // Si les contrôles actifs sur les hôtes sont activés globalement, ou non.
+  bool active_service_checks = 6;             // Si les contrôles actifs sur les services sont activés globalement, ou non.
+  bool check_hosts_freshness = 7;             // Si le contrôle de la fraîcheur des hôtes est activé globalement, ou non.
+  bool check_services_freshness =  8;         // Si le contrôle de la fraîcheur des services est activé globalement, ou non.
+  string global_host_event_handler = 9;       // Event handler global sur les hôtes.
+  string global_service_event_handler = 10;   // Event handler global sur les services.
+  uint64 last_alive = 11;                     // Dernière fois que l'instance était vivante.
+  int64 last_command_check = 12;              // Dernière fois qu'une commande de vérification a été exécutée.
+  bool obsess_over_hosts = 13;                // Si le moteur de supervision doit porcéder à des contôles supplémentaires sur les hôtes, ou non.
+  bool obsess_over_services = 14;             // Si le moteur de supervision doit porcéder à des contôles supplémentaires sur les services, ou non.
+  bool passive_host_checks = 15;              // Si les contôles passifs sur les hôtes sont activés globalement, ou non.
+  bool passive_service_checks = 16;           // Si les contôles passifs sur les services sont activés globalement, ou non.
+  uint64 instance_id = 17;                    // ID de l'instance.
 }
 ```
 
@@ -1245,19 +1245,19 @@ message LogEntry {
     GLOBAL_HOST_EVENT_HANDLER = 15;
   }
 
-  uint64 ctime = 1;                     // Log timestamp.
-  string instance_name = 2;             // Instance name.
+  uint64 ctime = 1;                     // Timestamp du log.
+  string instance_name = 2;             // Nom de l'instance.
   string output = 3;                    // Output.
-  uint64 host_id = 4;                   // Host ID.
-  uint64 service_id = 5;                // Service ID or 0 if log entry does not refer to a specific service.
-  string host_name = 6;                 // Host name.
-  string service_description = 7;       // Service description or empty if log entry does not refer to a specific service.
-  string notification_contact = 8;      // Notification contact.
-  string notification_cmd = 9;          // Notification command.
-  LogType type = 10;                    // One value of LogType.
-  MsgType msg_type = 11;                // One value of MsgType.
-  int32 status = 12;                    // Host / service status.
-  int32 retry = 13;                     // Current check attempt.
+  uint64 host_id = 4;                   // ID de l'hôte.
+  uint64 service_id = 5;                // ID du service, ou 0 si l'entrée de log ne se rapporte pas à un service spécifique.
+  string host_name = 6;                 // Nom de l'hôte.
+  string service_description = 7;       // Description du service, ou vide si l'entrée de log ne se rapporte pas à un service spécifique.
+  string notification_contact = 8;      // Contact de notification.
+  string notification_cmd = 9;          // Commande de notification.
+  LogType type = 10;                    // Une valeur de LogType.
+  MsgType msg_type = 11;                // Une valeur de MsgType.
+  int32 status = 12;                    // Statut de l'hôte/ du service.
+  int32 retry = 13;                     // Tentative de contrôle courante.
 }
 ```
 
@@ -1426,25 +1426,25 @@ enum AckType {
 }
 
 message Service {
-  uint64 host_id = 1;                         // Host ID.
-  uint64 service_id = 2;                      // Service ID.
+  uint64 host_id = 1;                         // ID de l'hôte.
+  uint64 service_id = 2;                      // ID du service.
 
-  bool acknowledged = 3;                      // Is it currently acknowledged?
-  AckType acknowledgement_type = 4;           // AckType value.
+  bool acknowledged = 3;                      // Actuellement acquitté?
+  AckType acknowledgement_type = 4;           // Valeur de AckType.
 
-  bool active_checks = 5;                     // Are active checks enabled?
-  bool enabled = 6;                           // Is this service active?
-  int32 scheduled_downtime_depth = 7;         // Number of active downtimes.
-  string check_command = 8;                   // Command executed.
-  uint32 check_interval = 9;                  // Interval in units (usually 60s) between 2 checks.
-  string check_period = 10;                   // Time period when checks are authorized.
+  bool active_checks = 5;                     // Les contrôles actifs sont-ils activés?
+  bool enabled = 6;                           // Ce service est-il actif?
+  int32 scheduled_downtime_depth = 7;         // Nombre de plages de maintenance actives.
+  string check_command = 8;                   // Commande exécutée.
+  uint32 check_interval = 9;                  // Intervalle en unités (généralement 60s) entre 2 contrôles.
+  string check_period = 10;                   // Période de temps durant laquelle les contrôles sont autorisés.
 
   enum CheckType {
     ACTIVE = 0;
     PASSIVE = 1;
   }
-  CheckType check_type = 11;                  // CheckType value.
-  int32 check_attempt = 12;                   // Number of failed checks.
+  CheckType check_type = 11;                  // Valeur de CheckType.
+  int32 check_attempt = 12;                   // Nombre de contrôles non OK.
   enum State {
     OK = 0;
     WARNING = 1;
@@ -1452,7 +1452,7 @@ message Service {
     UNKNOWN = 3;
     PENDING = 4;
   }
-  State state = 13;                           // Current state of this service.
+  State state = 13;                           // État courant du service.
   bool event_handler_enabled = 14;            // Event handler enabled?
   string event_handler = 15;                  // Command executed when state changes.
   double execution_time = 16;                 // Duration of last check.
@@ -1582,7 +1582,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // A internal number not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 enum CheckType {
@@ -1596,7 +1596,7 @@ message Check {
     bool active_checks_enabled = 2;   // True if active checks are enabled on the host.
     CheckType check_type = 3;         // One of the values in CheckType.
     string command_line = 4;          // Check command line.
-    uint64 host_id = 5;               // Host ID.
+    uint64 host_id = 5;               // ID de l'hôte.
     uint64 next_check = 6;            // Timestamp at which the next check is scheduled.
     uint64 service_id = 7;            // Service ID or 0 for a host check.
 }
@@ -1782,7 +1782,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message ServiceStatus {
-  uint64 host_id = 1;                         // Host ID.
+  uint64 host_id = 1;                         // ID de l'hôte.
   uint64 service_id = 2;                      // Service ID.
 
   bool checked = 3;                          // Is this service checked?
@@ -1908,14 +1908,14 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message BBDOHeader {
-  uint32 conf_version = 1;   // An internal number, not currently used.
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.
 }
 
 message ResponsiveInstance {
   BBDOHeader header = 1;
 
-  uint64 poller_id = 2;      // Poller ID.
-  bool responsive = 3;       // Is this poller responsive?
+  uint64 poller_id = 2;      // ID du collecteur.
+  bool responsive = 3;       // Le collecteur répond-il?
 }
 ```
 
@@ -1946,7 +1946,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message AdaptiveService {
-  uint64 host_id = 1;                         // Host ID.
+  uint64 host_id = 1;                         // ID de l'hôte.
   uint64 service_id = 2;                      // Service ID.
 
   optional bool notify = 3;                   // Are notifications enabled on this service?
@@ -1995,7 +1995,7 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 
 ```cpp
 message AdaptiveHost {
-  uint64 host_id = 1;                         // Host ID.
+  uint64 host_id = 1;                         // ID de l'hôte.
 
   optional bool notify = 2;                   // Are notifications enabled on this service?
   optional bool active_checks = 3;            // Are active checks enabled?
