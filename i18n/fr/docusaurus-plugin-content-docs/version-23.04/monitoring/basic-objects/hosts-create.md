@@ -16,7 +16,7 @@ Vous pouvez :
 
 Pour mettre un hôte en supervision, le plus simple est de lui attribuer un [modèle](hosts-templates.md) issu d'un [connecteur de supervision](../pluginpacks.md) : 
 
-1. Pour connaître le nom du modèle correspondant à un connecteur de supervision, allez à la page **Configuration > Packs de plugins**. Recherchez le connecteur de supervision désiré, puis cliquez sur l'icône "i" en bas à gauche de celui-ci. 
+1. Pour connaître le nom du modèle correspondant à un connecteur de supervision, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**. Recherchez le connecteur de supervision désiré, puis cliquez sur l'icône "i" en bas à gauche de celui-ci. 
 
     ![image](../../assets/configuration/pluginpacks/doc.png)
 

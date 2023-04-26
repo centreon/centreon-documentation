@@ -9,7 +9,7 @@ Ce topic vous propose d'installer les modèles de supervision fournis gratuiteme
 
 ### Installation des modèles de supervision de base
 
-Rendez-vous dans le menu **Configuration > Packs de plugins**.
+Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 > Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.md#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à internet.

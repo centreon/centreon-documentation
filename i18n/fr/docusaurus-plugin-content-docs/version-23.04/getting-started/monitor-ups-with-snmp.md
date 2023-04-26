@@ -3,7 +3,7 @@ id: monitor-ups-snmp
 title: Superviser un onduleur en SNMP
 ---
 
-Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le connecteur de supervision **UPS Standard** :
+Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **UPS Standard** :
 
 ![image](../assets/getting-started/quick_start_ups_0.gif)
 
