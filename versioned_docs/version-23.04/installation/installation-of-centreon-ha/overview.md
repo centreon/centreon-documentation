@@ -1,10 +1,9 @@
 ---
 id: overview
-title: Centreon-HA Overview
+title: Centreon HA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Introduction 
 
@@ -100,15 +99,15 @@ to elect a master node or resource role.
 
 ### Softwares & operating systems 
 
-Centreon officialy supports Clustering on the following Products: 
+Centreon officially supports Clustering on the following products: 
 
 * Any Centreon Licensed Editions 
 * Centreon Map Server 
 
 And on the following Operating Systems: 
 
-* CentOS 7
-* RHEL 7 
+* Alma / RHEL / Oracle Linux 8
+* Debian 11 
 
 *Important:* To install pacemaker and corosync packages on RedHat systems, servers must have access to
 the _Red Hat Enterprise Linux High Availability_ licensed repository.  

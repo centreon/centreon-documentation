@@ -1,17 +1,17 @@
 ---
-id: upgrade-centreon-ha-from-21-10
-title: Montée de version de Centreon HA depuis Centreon 21.10
+id: upgrade-centreon-ha-from-22-04
+title: Montée de version de Centreon HA depuis Centreon 22.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10 vers la version 23.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.04 vers la version 23.04.
 
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
 
-Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de suspendre toutes les ressources Centreon, ainsi que MariaDB.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
@@ -33,9 +33,9 @@ Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous deve
 
 Pour effectuer la montée de version:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
+> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
+> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
 
 Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
 
@@ -83,7 +83,7 @@ Il est nécessaire de détruire complètement le cluster et de le configurer à 
 Réalisez une sauvegarde du cluster en exécutant les commandes suivantes :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs config backup centreon_cluster
@@ -91,6 +91,7 @@ pcs resource config --output-format=cmd | sed -e :a -e '/\\$/N; s/\\\n//; ta' | 
 ```
 
 </TabItem>
+
 </Tabs>
 
 Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer cette procédure.
@@ -114,7 +115,7 @@ cat centreon_pcs_command.sh
 Le contenu doit ressembler à ceci :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```text
 pcs resource create --no-default-ops --force -- vip ocf:heartbeat:IPaddr2   broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@   op     monitor interval=10s id=vip-monitor-interval-10s timeout=20s     start interval=0s id=vip-start-interval-0s timeout=20s     stop interval=0s id=vip-stop-interval-0s timeout=20s   meta target-role=started;
@@ -161,74 +162,6 @@ pcs resource delete centreon --force
 </TabItem>
 </Tabs>
 
-### Reconfigure MariaDB
-
-Il est nécessaire de modifier la configuration de MySQL en éditant `/etc/my.cnf.d/server.cnf` :
-
-> Sur les 2 serveurs centraux dans une HA 2 nœuds
-> Sur les 2 serveurs de base de données dans une HA 4 noeuds.
-
-```bash
-[server]
-...
-skip-slave-start
-log-slave-updates
-gtid_strict_mode=ON
-expire_logs_days=7
-ignore-db-dir=lost+found
-...
-```
-
-### Lancer la réplication GTID
-
-Exécutez cette commande **sur le nœud de base de données secondaire:**.
-
-```bash
-mysqladmin -p shutdown
-```
-
-Il est important de s'assurer que MariaDB est complètement arrêté. Vous allez exécuter cette commande et vérifier qu'elle ne renvoie aucun résultat :
-
-```bash
-ps -ef | grep mariadb[d]
-```
-
-Une fois le service arrêté **sur le nœud de base de données secondaire**, vous allez exécuter le script de synchronisation **depuis le nœud de base de données primaire** :
-
-```bash
-mysqladmin -p shutdown
-systemctl restart mariadb
-/usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
-```
-
-La sortie de ce script est très verbeuse : pour vous assurer que tout s'est bien passé, concentrez-vous sur les dernières lignes de la sortie, en vérifiant qu'elles ressemblent à ceci :
-
-```text
-Umount and Delete LVM snapshot
-  Logical volume "dbbackupdatadir" successfully removed
-Start MySQL Slave
-Start Replication
-Id	User	Host	db	Command	Time	State	Info	Progress
-[variable number of lines]
-```
-
-La chose importante à vérifier est que `Start MySQL Slave` et `Start Replication` sont présents et qu'aucune erreur ne les suit.
-
-De plus, la sortie de cette commande ne doit afficher que des résultats `OK` :
-
-```bash
-/usr/share/centreon-ha/bin/mysql-check-status.sh
-```
-
-La sortie attendue est :
-
-```text
-Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
-Slave Thread Status [OK]
-Position Status [OK]
-```
-
 ### Redémarrer les processus de Centreon
 
 Puis de redémarrer tous les processus sur le **nœud central actif** :
@@ -264,7 +197,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 > Vous pouvez trouver les variables @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -290,7 +223,7 @@ pcs resource create "ms_mysql" \
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -305,7 +238,7 @@ pcs resource promotable ms_mysql \
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -372,7 +305,7 @@ bash centreon_pcs_command.sh
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -387,7 +320,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -400,7 +333,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 Recréez ensuite les contraintes qui empêchent les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

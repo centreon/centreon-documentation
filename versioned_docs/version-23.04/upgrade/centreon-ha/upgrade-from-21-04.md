@@ -6,7 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 21.04
-to version 22.04
+to version 23.04.
+
+You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 23.04, as CentOS 7 is no longer supported: you need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. You can also contact Centreon to order a migration service.
 
 ## Prerequisites
 
@@ -38,13 +40,6 @@ Then perform below commands only on the Central Servers:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
-
-```shell
-mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
-```
-
-</TabItem>
-<TabItem value="RHEL / CentOS 7" label="RHEL / CentOS 7">
 
 ```shell
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
@@ -283,45 +278,6 @@ pcs resource create "ms_mysql" \
 ```
 
 </TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host' \
-    master
-```
-
-</TabItem>
 </Tabs>
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
@@ -333,28 +289,6 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-pcs resource meta ms_mysql-master \
     master-node-max="1" \
     clone_max="2" \
     globally-unique="false" \
@@ -393,60 +327,6 @@ pcs resource create vip_mysql \
     monitor interval="10s" timeout="20s"
 ```
 
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
-VIP Address of databases servers
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s"
-```
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-pcs resource meta ms_mysql-master \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
-VIP Address of databases servers
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s"
-```
 </TabItem>
 </Tabs>
 </TabItem>
@@ -495,14 +375,6 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-pcs constraint colocation add master "ms_mysql-master" with "centreon"
-pcs constraint order stop centreon then demote ms_mysql-master
-```
-
-</TabItem>
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
@@ -518,14 +390,6 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
-pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
-```
-
-</TabItem>
 </Tabs>
 
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
@@ -536,16 +400,6 @@ Then recreate the Constraint that prevent Centreon Processes to run on Database 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
-pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```

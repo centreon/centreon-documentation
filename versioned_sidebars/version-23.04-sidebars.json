@@ -181,46 +181,6 @@
         {
           "type": "doc",
           "id": "version-23.04/installation/offline"
-        },
-        {
-          "type": "category",
-          "label": "Installation of Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/overview"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/installation-2-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/installation-4-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha/integrating-pollers"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Installation of a manual Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
-            }
-          ]
         }
       ]
     },
@@ -896,28 +856,6 @@
           ]
         },
         {
-          "type": "category",
-          "label": "Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/acceptance-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/monitoring-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/operating-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
-            }
-          ]
-        },
-        {
           "type": "doc",
           "id": "version-23.04/administration/extensions"
         },
@@ -962,10 +900,6 @@
             {
               "type": "doc",
               "id": "version-23.04/update/update-centreon-platform"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/update/update-centreon-ha"
             }
           ]
         },
@@ -996,18 +930,6 @@
             {
               "type": "doc",
               "id": "version-23.04/upgrade/upgrade-from-20-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
             {
               "type": "doc",
@@ -1340,15 +1262,51 @@
     },
     {
       "type": "category",
-      "label": "Monitoring your platform",
+      "label": "Centreon HA",
+      "link": {
+        "type": "doc",
+        "id": "version-23.04/installation/installation-of-centreon-ha/overview"
+      },
       "items": [
         {
-          "type": "doc",
-          "id": "version-23.04/health/centreon-agent"
+          "type": "category",
+          "label": "Installing Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha/integrating-pollers"
+            }
+          ]
         },
         {
           "type": "category",
-          "label": "Centreon HA",
+          "label": "Installing a manual Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operating Centreon HA",
           "items": [
             {
               "type": "doc",
@@ -1367,6 +1325,48 @@
               "id": "version-23.04/administration/centreon-ha/troubleshooting-guide"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "Updating Centreon HA",
+          "items": [
+              {
+                "type": "doc",
+                "id": "version-23.04/update/update-centreon-ha"
+              }
+            ]
+          },
+        {
+          "type": "category",
+          "label": "Upgrading Centreon HA",
+          "items": [
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+        }
+      ]
+    }       
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Monitoring your platform",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-23.04/health/centreon-agent"
         }
       ]
     },

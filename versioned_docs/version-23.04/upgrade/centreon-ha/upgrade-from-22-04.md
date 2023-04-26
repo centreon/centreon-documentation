@@ -1,67 +1,67 @@
 ---
-id: upgrade-centreon-ha-from-21-10
-title: Montée de version de Centreon HA depuis Centreon 21.10
+id: upgrade-centreon-ha-from-22-04
+title: Upgrade Centreon HA from Centreon 22.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10 vers la version 23.04.
+This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 23.04.
 
-## Prérequis
+## Prerequisites
 
-### Suspendre la gestion des ressources du cluster
+### Suspend cluster resources management
 
-Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de suspendre toutes les ressources Centreon, ainsi que MariaDB.
+In order to avoid a failover of the cluster during the update, it is necessary to unmanage all Centreon resources, as well as MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
 ```
 
-### Sauvegarde
+### Perform a backup
 
-Avant toute chose, il est préférable de s’assurer de l’état et de la consistance des sauvegardes de l’ensemble des serveurs centraux de votre plateforme :
+Be sure that you have fully backed up your environment for the following servers:
 
-- Serveur Centreon Central
-- Serveur de Base de données
+- Central server
+- Database server
 
-### Mettre à jour la clé de signature RPM
+### Update the RPM signing key
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021.
-Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#existing-installation), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021.
+When upgrading from an older version, you need to go through the [key rotation procedure](../../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
-## Processus de mise à jour
+## Upgrade process
 
-Pour effectuer la montée de version:
+To perform the upgrade:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
 
-Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
+Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
-```bash
+```shell
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-Sur le nœud central passif, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
+On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
-### Suppression des crons
+### Removing cron jobs
 
-La mise à jour RPM remet en place les crons sur les serveurs Central et Bases de données. Supprimez-les pour éviter les exécutions simultanées : 
+The RPM upgrade puts cron jobs back in place on the central and databases servers. Remove them to avoid concurrent executions on central and database nodes: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
 ```
 
-### Réinitialiser les autorisations de la ressource centreon_central_sync
+### Reset the permissions for centreon_central_sync resource
 
-L'upgrade RPM remet les permissions en place sur les serveurs centraux. Modifiez-les en utilisant ces commandes :
+The RPM upgrade puts the permissions back in place on the two **central servers**. Change them using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -73,17 +73,17 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
-## Ugprade du cluster
+## Cluster ugprade
 
-Depuis Centreon 22.04, la réplication de MariaDB est maintenant basée sur [GTID](https://mariadb.com/kb/en/gtid/).
-Il est nécessaire de détruire complètement le cluster et de le configurer à nouveau avec la dernière version de Centreon et les mécanismes de réplication de MariaDB GTID.
+Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
+It's necessary to destroy the cluster completely and configure it back again with the latest version of Centreon and MariaDB replication mechanisms.
 
-### Mode maintenance et sauvegarde
+### Maintenance mode and backup
 
-Réalisez une sauvegarde du cluster en exécutant les commandes suivantes :
+Perform a backup of the cluster using:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs config backup centreon_cluster
@@ -93,28 +93,28 @@ pcs resource config --output-format=cmd | sed -e :a -e '/\\$/N; s/\\\n//; ta' | 
 </TabItem>
 </Tabs>
 
-Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer cette procédure.
+Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
 
 ```bash
 ls -l centreon_cluster.tar.bz2
 ```
 
-Vous devriez obtenir un résultat comme celui-ci :
+You should have a result like this:
 
 ```text
 -rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
 ```
 
-Vérifiez ensuite le fichier centreon_pcs_command.sh, la commande d'exportation peut afficher quelques lignes d'avertissement mais elle n'est pas bloquante.
+Then check the file centreon_pcs_command.sh, the export command may display some Warning lines but it's not blocking.
 
 ```bash
 cat centreon_pcs_command.sh
 ```
 
-Le contenu doit ressembler à ceci :
+The content should looks like this:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```text
 pcs resource create --no-default-ops --force -- vip ocf:heartbeat:IPaddr2   broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@   op     monitor interval=10s id=vip-monitor-interval-10s timeout=20s     start interval=0s id=vip-start-interval-0s timeout=20s     stop interval=0s id=vip-stop-interval-0s timeout=20s   meta target-role=started;
@@ -131,11 +131,11 @@ pcs resource group add centreon   vip http gorgone centreon_central_sync cbd_cen
 </TabItem>
 </Tabs>
 
-Ce fichier sera nécessaire pour recréer toutes les ressources de votre cluster.
+This file will be necessary to recreate all the ressources of your cluster.
 
-### Supprimer les ressources
+### Delete the resources
 
-Ces commandes ne doivent être exécutées que sur le nœud central actif :
+These command should run only the active central node:
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -161,93 +161,25 @@ pcs resource delete centreon --force
 </TabItem>
 </Tabs>
 
-### Reconfigure MariaDB
+### Restart Centreon process
 
-Il est nécessaire de modifier la configuration de MySQL en éditant `/etc/my.cnf.d/server.cnf` :
-
-> Sur les 2 serveurs centraux dans une HA 2 nœuds
-> Sur les 2 serveurs de base de données dans une HA 4 noeuds.
+Then to restart all the processes on the **active central node**:
 
 ```bash
-[server]
-...
-skip-slave-start
-log-slave-updates
-gtid_strict_mode=ON
-expire_logs_days=7
-ignore-db-dir=lost+found
-...
+systemctl restart cbd-sql cbd gorgoned centengine centreontrapd
 ```
 
-### Lancer la réplication GTID
-
-Exécutez cette commande **sur le nœud de base de données secondaire:**.
-
-```bash
-mysqladmin -p shutdown
-```
-
-Il est important de s'assurer que MariaDB est complètement arrêté. Vous allez exécuter cette commande et vérifier qu'elle ne renvoie aucun résultat :
-
-```bash
-ps -ef | grep mariadb[d]
-```
-
-Une fois le service arrêté **sur le nœud de base de données secondaire**, vous allez exécuter le script de synchronisation **depuis le nœud de base de données primaire** :
-
-```bash
-mysqladmin -p shutdown
-systemctl restart mariadb
-/usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
-```
-
-La sortie de ce script est très verbeuse : pour vous assurer que tout s'est bien passé, concentrez-vous sur les dernières lignes de la sortie, en vérifiant qu'elles ressemblent à ceci :
-
-```text
-Umount and Delete LVM snapshot
-  Logical volume "dbbackupdatadir" successfully removed
-Start MySQL Slave
-Start Replication
-Id	User	Host	db	Command	Time	State	Info	Progress
-[variable number of lines]
-```
-
-La chose importante à vérifier est que `Start MySQL Slave` et `Start Replication` sont présents et qu'aucune erreur ne les suit.
-
-De plus, la sortie de cette commande ne doit afficher que des résultats `OK` :
-
-```bash
-/usr/share/centreon-ha/bin/mysql-check-status.sh
-```
-
-La sortie attendue est :
-
-```text
-Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection SLAVE Status '@CENTRAL_SLAVE_NAME@' [OK]
-Slave Thread Status [OK]
-Position Status [OK]
-```
-
-### Redémarrer les processus de Centreon
-
-Puis de redémarrer tous les processus sur le **nœud central actif** :
-
-```bash
-systemctl restart cbd-sql cbd gorgoned centengine centreontrapd 
-```
-
-Et sur le **nœud central passif** :
+And on the **passive central node**:
 
 ```bash
 systemctl restart cbd
 ```
 
-### Nettoyer les fichiers de mémoire de broker
+### Clean broker memory files
 
-> **WARNING:** exécuter cette commande uniquement sur le noeud central passif.
+> **WARNING:** perform this command only the **passive central node**.
 
-Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
+Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
 ```bash
 rm -rf /var/lib/centreon-broker/central-broker-master.memory*
@@ -255,16 +187,16 @@ rm -rf /var/lib/centreon-broker/central-broker-master.queue*
 rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
-### Recréer les ressources du cluster
+### Recreate the cluster resources
 
-À exécuter **seulement sur un nœud central** :
+To be run **only on one central node**:
 
-> **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
+> **WARNING:** the syntax of the following command depends on the Linux distribution you are using.
 
-> Vous pouvez trouver les variables @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
+> You can find the @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ variables in `/etc/centreon-ha/mysql-resources.sh`
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -285,12 +217,12 @@ pcs resource create "ms_mysql" \
 </TabItem>
 </Tabs>
 
-> **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
+> **WARNING:** the syntax of the following command depends on the Linux distribution you are using.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -300,12 +232,13 @@ pcs resource promotable ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
 </TabItem>
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -316,7 +249,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-Adresse VIP des serveurs de bases de données
+VIP Address of databases servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -337,7 +270,7 @@ pcs resource create vip_mysql \
 </TabItem>
 </Tabs>
 
-#### PHP ressource
+#### PHP resource
 
 ```bash
 pcs resource create "php" \
@@ -349,7 +282,7 @@ pcs resource create "php" \
     clone
 ```
 
-#### Ressource RRD broker
+#### RRD broker resource
 
 ```bash
 pcs resource create "cbd_rrd" \
@@ -361,18 +294,18 @@ pcs resource create "cbd_rrd" \
     clone
 ```
 
-#### Recréer le groupe de ressources *centreon*
+#### Recreating the *centreon* resource group
 
 ```bash
 bash centreon_pcs_command.sh
 ```
 
-#### Recréer les contraintes
+#### Recreating the constraint
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -384,10 +317,10 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
+In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -397,10 +330,10 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Recréez ensuite les contraintes qui empêchent les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
+Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -414,19 +347,19 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-## Reprise de la gestion des ressources du cluster
+## Resuming the cluster resources management
 
-Maintenant que la mise à jour est terminée, les ressources peuvent être gérées à nouveau :
+Now that the update is finished, the resources can be managed again:
 
 ```bash
 pcs property set maintenance-mode=false
-pcs resource cleanup ms_mysql
+pcs resource cleanup
 ```
 
-## Vérifier la santé du cluster
+## Check cluster's health
 
-Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon -fr` :
-> **INFO:** L'option `-fr` vous permet d'afficher toutes les resources même si elles sont disable.
+You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
+> **INFO:** The `-fr` option allows you to display all resources even if they are disable.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -499,9 +432,9 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 </TabItem>
 </Tabs>
 
-### Ressources désactivées
+### Disabled resources
 
-Lorsque vous faite une `crm_mon -fr` et que vous une ressource qui est disable :
+When you do a `crm_mon -fr` and you have a resource that is disable :
 
 ```text
 ...
@@ -513,23 +446,23 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ...
 ```
 
-Vous devez faire enable la resource avec la commande suivante :
+You must enable the resource with the following command :
 
 ```bash
 pcs resource enable @RESSOURCE_NAME@
 ```
 
-Dans notre cas :
+In our case :
 
 ```bash
 pcs resource enable vip_mysql
 ```
 
-## Vérification de la stabilité de la plate-forme
+## Verifying the platform stability
 
-Vous devez maintenant vérifier que tout fonctionne bien :
+You should now check that eveything works fine:
 
-* Accès aux menus de l'interface utilisateur web.
-* Génération de la configuration des pollers + méthode de rechargement et de redémarrage.
-* Planification des contrôles immédiats (Central + Pollers), des accusés de réception, des temps d'arrêt, etc.
-* Déplacer des ressources ou redémarrer le serveur actif et vérifier à nouveau que tout va bien.
+* Access to the web UI menus.
+* Poller configuration generation + reload and restart method.
+* Schedule immediate checks (Central + Pollers) , acknowledgements, downtimes, etc.
+* Move resources or reboot active server and check again that everything is fine.
