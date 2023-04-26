@@ -108,16 +108,20 @@ Le tableau ci-dessous répertorie les types d’événements disponibles dans la
 
 Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie Storage. Ils doivent être combinés avec la catégorie BBDO\_STORAGE\_TYPE pour obtenir un ID d’événement BBDO.
 
-| Type| Valeur| Utilise Protobuf
-|----------|----------|----------
-| metric| 1| Non
-| rebuild| 2| Non
-| remove\_graph| 3| Non
-| status| 4| Non
-| index mapping| 5| Non
-| metric mapping| 6| Non
-| Pb Rebuild Message| 7| Oui
-| Pb Remove Graph Message| 8| Oui
+| Type                            | Value | Utilise Protobuf |
+|---------------------------------|-------|------------------|
+| Metric                          | 1     |               No |
+| Rebuild                         | 2     |               No |
+| Remove graph                    | 3     |               No |
+| Status                          | 4     |               No |
+| Index mapping                   | 5     |               No |
+| Metric mapping                  | 6     |               No |
+| Pb Rebuild Message              | 7     |              Yes |
+| Pb Remove Graph Message         | 8     |              Yes |
+| Pb Metric                       | 9     |              Yes |
+| Pb Status                       | 10    |              Yes |
+| Pb Index mapping                | 11    |              Yes |
+| Pb Metric mapping               | 12    |              Yes |
 
 ### BBDO
 

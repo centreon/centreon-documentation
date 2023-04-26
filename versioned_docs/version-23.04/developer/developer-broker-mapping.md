@@ -2270,7 +2270,7 @@ The content of this message is serialized as follows:
 
 | Property  | Type             | Description                                                                                            |
 | --------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| id        | unsigned integer | Index ID (is\_index =3D true) or metric ID (is\_index =3D false) to remove.                            |
+| id        | unsigned integer | Index ID (is\_index =`true`) or metric ID (is\_index =`false`) to remove.                            |
 | is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |
 
 </TabItem>

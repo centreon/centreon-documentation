@@ -2420,30 +2420,29 @@ message RebuildMessage {
 </TabItem>
 </Tabs>
 
-### Pb Remove Graph Message
+### Remove Graph Message
+
+Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
+Non disponible en BBDO v2.
 
-Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
-
-```text
-message RemoveGraphMessage {
-  repeated uint64 index_ids = 1;
-  repeated uint64 metric_ids = 2;
-}
-```
+Voir [Storage::RemoveGraph](#storageremovegraph)
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
+#### Storage::PbRemoveGraphMessage
 
-Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        3 |       8 | 196616 |
 
-```text
+Voici la définition de cet évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
+
+```cpp
 message RemoveGraphMessage {
   repeated uint64 index_ids = 1;
   repeated uint64 metric_ids = 2;
