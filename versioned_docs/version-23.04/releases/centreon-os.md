@@ -46,7 +46,7 @@ Release date: `April 26, 2023`
 - [Terminology] Renamed “problems” to “alerts” in Resources Status.
 - [Terminology] Renamed “Plugin Pack” to “Monitoring Connectors” in the user interface.
 - [UI] Improved Top Counter responsiveness.
-- [UI] Added new Centreon branding.
+- [UI] Applied new Centreon branding.
 - [UX] Added German translation.
 - [Widgets] Added the possibility to select a Meta-Service in the graph monitoring widget.
 
