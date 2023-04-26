@@ -75,7 +75,7 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '22.10',
+  version: '23.04',
   link: 'https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/',
   target: '_blank'
 }

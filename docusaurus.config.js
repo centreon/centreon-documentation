@@ -52,6 +52,7 @@ const config = {
             },
             '22.10': {
               label: '22.10',
+              banner:'none',
             },
             22.04: {
               label: '22.04',
