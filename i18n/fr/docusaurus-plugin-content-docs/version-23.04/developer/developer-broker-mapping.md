@@ -1712,60 +1712,60 @@ Cet évènement est émis par Centreon Engine losque des modifications en temps 
 #### NEB::ServiceStatus
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      24 | 65560 |
+| --------- | ------- | ----- |
+|         1 |      24 | 65560 |
 
 Le contenu de ce message est sérialisé de la manière suivante :
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| acknowledged| booléen| | 
-| acknowledgement\_type| entier court| | 
-| active\_checks\_enabled| booléen| | 
-| check\_interval| réel| | 
-| check\_period| chaîne| | 
-| check\_type| entier court| | 
-| current\_check\_attempt| entier court| | 
-| current\_state| entier court| | 
-| downtime\_depth| entier court| | 
-| enabled| booléen| | 
-| event\_handler| chaîne| | 
-| event\_handler\_enabled| booléen| | 
-| execution\_time| réel| | 
-| flap\_detection\_enabled| booléen| | 
-| has\_been\_checked| booléen| | 
-| host\_id| entier non signé| | 
-| host\_name| chaîne| | 
-| is\_flapping| booléen| | 
-| last\_check| temps| | 
-| last\_hard\_state| entier court| | 
-| last\_hard\_state\_change| temps| | 
-| last\_notification| temps| | 
-| last\_state\_change| temps| | 
-| last\_time\_critical| temps| | 
-| last\_time\_ok| temps| | 
-| last\_time\_unknown| temps| | 
-| last\_time\_warning| temps| | 
-| last\_update| temps| | 
-| latency| réel| | 
-| max\_check\_attempts| entier court| | 
-| modified\_attributes| entier non signé| | 
-| next\_check| temps| | 
-| next\_notification| temps| | 
-| no\_more\_notifications| booléen| | 
-| notification\_number| entier court| | 
-| notifications\_enabled| booléen| | 
-| obsess\_over| booléen| | 
-| passive\_checks\_enabled| booléen| | 
-| percent\_state\_change| réel| | 
-| retry\_interval| réel| | 
-| service\_description| chaîne| | 
-| service\_id| entier non signé| | 
-| should\_be\_scheduled| booléen| | 
-| state\_type| entier court| | 
-| check\_command| chaîne| | 
-| output| chaîne| | 
-| perf\_data| chaîne| | 
+| Propriété| Type| Description|
+|----------|----------|----------|
+| acknowledged| booléen| |
+| acknowledgement\_type| entier court| |
+| active\_checks\_enabled| booléen| |
+| check\_interval| réel| |
+| check\_period| chaîne| |
+| check\_type| entier court| |
+| current\_check\_attempt| entier court| |
+| current\_state| entier court| |
+| downtime\_depth| entier court| |
+| enabled| booléen| |
+| event\_handler| chaîne| |
+| event\_handler\_enabled| booléen| |
+| execution\_time| réel| |
+| flap\_detection\_enabled| booléen| |
+| has\_been\_checked| booléen| |
+| host\_id| entier non signé| |
+| host\_name| chaîne| |
+| is\_flapping| booléen| |
+| last\_check| temps| |
+| last\_hard\_state| entier court| |
+| last\_hard\_state\_change| temps| |
+| last\_notification| temps| |
+| last\_state\_change| temps| |
+| last\_time\_critical| temps| |
+| last\_time\_ok| temps| |
+| last\_time\_unknown| temps| |
+| last\_time\_warning| temps| |
+| last\_update| temps| |
+| latency| réel| |
+| max\_check\_attempts| entier court| |
+| modified\_attributes| entier non signé| |
+| next\_check| temps| |
+| next\_notification| temps| |
+| no\_more\_notifications| booléen| |
+| notification\_number| entier court| |
+| notifications\_enabled| booléen| |
+| obsess\_over| booléen| |
+| passive\_checks\_enabled| booléen| |
+| percent\_state\_change| réel| |
+| retry\_interval| réel| |
+| service\_description| chaîne| |
+| service\_id| entier non signé| |
+| should\_be\_scheduled| booléen| |
+| state\_type| entier court| |
+| check\_command| chaîne| |
+| output| chaîne| |
+| perf\_data| chaîne| |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1773,8 +1773,8 @@ Le contenu de ce message est sérialisé de la manière suivante :
 #### NEB::PbServiceStatus
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      29 | 65565 |
+| --------- | ------- | ----- |
+|         1 |      29 | 65565 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ServiceStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbServiceStatus** à la place.
 
@@ -1855,8 +1855,8 @@ Ceci est un évènement de configuration annonçant tous les évènements de con
 #### NEB::InstanceConfiguration
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      25 | 65561 |
+| --------- | ------- | ----- |
+|         1 |      25 | 65561 |
 
 Le contenu de ce message est sérialisé de la manière suivante :
 
@@ -1883,8 +1883,8 @@ Cet évènement est émis par cbd. Il indique si un collecteur répond ou non.
 #### NEB::ResponsiveInstance
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      26 | 65562 |
+| --------- | ------- | ----- |
+|         1 |      26 | 65562 |
 
 Le contenu de ce message est sérialisé de la manière suivante :
 
@@ -1899,8 +1899,8 @@ Le contenu de ce message est sérialisé de la manière suivante :
 #### NEB::PbResponsiveInstance
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      46 | 65582 |
+| --------- | ------- | ----- |
+|         1 |      46 | 65582 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ResponsiveInstance** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbResponsiveInstance** à la place.
 
@@ -1937,8 +1937,8 @@ Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configurat
 #### NEB::PbAdaptiveService
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      41 | 65577 |
+| --------- | ------- | ----- |
+|         1 |      41 | 65577 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::AdaptiveService** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAdaptiveService** à la place.
 
@@ -1986,8 +1986,8 @@ Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configurat
 #### NEB::PbAdaptiveHost
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      31 | 65567 |
+| --------- | ------- | ----- |
+|         1 |      31 | 65567 |
 
 Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::AdaptiveHost** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAdaptiveHost** à la place.
 
@@ -2033,8 +2033,8 @@ IL n'y a pas de version BBDO v2 de cet évènement.
 #### NEB::PbSeverity
 
 | Catégorie | élément | ID |
-| -------- | ------- | ----- |
-|        1 |      33 | 65569 |
+| --------- | ------- | ----- |
+|         1 |      33 | 65569 |
 
 Cet évènement est compris dans BBDO 3. Il contient la sévérité d’une ressource.
 
@@ -2075,9 +2075,9 @@ Cet évènement est généré par un point de terminaison Storage pour notifier 
 
 #### Storage::Metric
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        3 |       1 | 196609 |
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |       1 | 196609 |
 
 Le contenu de ce message est sérialisé comme suit :
 
@@ -2099,9 +2099,9 @@ Le contenu de ce message est sérialisé comme suit :
 
 #### Storage::PbMetric
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       9 | 196617 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       9 | 196617 |
 
 Cet événement est un événement Protobuf, ainsi son contenu n'est pas sérialisé
 comme pour les événements en BBDO v2 mais plutôt en utilisant le mécanisme de
@@ -2146,9 +2146,9 @@ graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebui
 
 #### Storage::Rebuild
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       2 | 196610 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       2 | 196610 |
 
 Le contenu de ce message est sérialisé comme suit :
 
@@ -2181,9 +2181,9 @@ graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbr
 
 #### Storage::RemoveGraph
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       3 | 196611 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       3 | 196611 |
 
 Le contenu de ce message est sérialisé comme suit:
 
@@ -2213,9 +2213,9 @@ Il contient essentiellement une ressource avec son état.
 
 #### Storage::Status
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       4 | 196612 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       4 | 196612 |
 
 Le contenu de ce message est sérialisé comme suit :
 
@@ -2233,9 +2233,9 @@ Le contenu de ce message est sérialisé comme suit :
 
 #### Storage::PbStatus
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        3 |      10 | 196618 |
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |      10 | 196618 |
 
 Cet évènement est un évènement Protobuf, par conséquent ses éléments ne sont pas
 sérialisés comme avec BBDO v2 mais en utilisant le mécanisme de sérialisation
@@ -2270,9 +2270,9 @@ sur les ID d'index.
 
 #### Storage::MetricMapping
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       6 | 196614 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       6 | 196614 |
 
 Le contenu de ce message est sérialisé comme suit :
 
@@ -2286,9 +2286,9 @@ Le contenu de ce message est sérialisé comme suit :
 
 #### Storage::PbMetricMapping
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        3 |      12 | 196620 |
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |      12 | 196620 |
 
 Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
 comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
@@ -2319,9 +2319,9 @@ de service.
 
 #### Storage::IndexMapping
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       5 | 196613 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       5 | 196613 |
 
 Le contenu de ce message est sérialisé de la façon suivante :
 
@@ -2336,9 +2336,9 @@ Le contenu de ce message est sérialisé de la façon suivante :
 
 #### Storage::PbIndexMapping
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        3 |      11 | 196619 |
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         3 |      11 | 196619 |
 
 Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de 
@@ -2377,9 +2377,9 @@ Voir [Storage::Rebuild](#storagerebuild)
 
 #### Storage::PbRebuildMessage
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        3 |       7 | 196615 |
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         3 |       7 | 196615 |
 
 Il existe trois états pour ce message :
 
@@ -2436,7 +2436,7 @@ Voir [Storage::RemoveGraph](#storageremovegraph)
 
 #### Storage::PbRemoveGraphMessage
 
-| Category | element |  ID    |
+| Catégorie | élément |  ID    |
 | -------- | ------- | ------ |
 |        3 |       8 | 196616 |
 
@@ -2456,44 +2456,125 @@ message RemoveGraphMessage {
 
 ### Version response
 
+Voici le message de négociation utilisé jusqu'à la version BBDO v3.0.0.
+Chaque fois qu'une connexion BBDO est établie, chaque interlocuteur envoie
+ce message pour négocier les options à activer.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.| 
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.| 
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.| 
+#### BBDO::VersionResponse
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         2 |       1 | 131073 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.|
+| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.|
+| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.|
+| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.| 
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.| 
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.| 
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.| 
+L'événement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
 
 </TabItem>
 </Tabs>
 
 ### Ack
 
+Généralement, un **envoyeur BBDO* envoie des événements tandis qu'un
+**récepteur BBDO** reçoit des événements. Ceci dit, envoie quelques évènements
+comme le **Ack**.
+
+Le principe est le suivant : l'envoyeur garde en mémoire tous les évènements qu'il
+envoie au recepteur. Et lorsque le récepteur a terminé d'en traiter un lot, il
+envoie un **Ack** avec le nombre d'évènements qu'il a traité. L'envoyeur peut
+alors les jeter.
+
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.| 
+#### BBDO::Ack
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         2 |       2 | 131074 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.| 
+#### NEB::PbAck
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         2 |       8 | 131080 |
+
+Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf 3.
+Quand BBDO v3 est actif, il ne devrait plus y avoir d'évènements **NEB::Ack**
+émis mais plutôt des **NEB::PbAck**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant:
+
+```cpp
+message Ack {
+  uint32 acknowledged_events = 1;   // Le nombre d'évènements à acquitter.
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Stop
+
+Quand un côté d'une connexion BBDO va s'éteindre, il émet un événement **Stop**
+afin que l'autre côté puisse, si possible, lui envoyer un **Ack** permettant de
+jeter les éventuels événements déjà traités.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+#### BBDO::Stop
+
+| Catégorie | élément |   ID   |
+| --------- | ------- | ------ |
+|         2 |       3 | 131075 |
+
+Le contenu de ce message est vide.
+
+</TabItem>
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### BBDO::PbStop
+
+| Catégorie | élément |  ID    |
+| --------- | ------- | ------ |
+|         2 |       9 | 131081 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, on ne devrait plus voir de **BBDO::Stop** émis mais plutôt
+des **BBDO::PbStop**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
+
+```cpp
+message Stop {}
+```
 
 </TabItem>
 </Tabs>

@@ -2639,7 +2639,7 @@ The content of this message is empty.
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-#### NEB::PbStop
+#### BBDO::PbStop
 
 | Category | element |  ID    |
 | -------- | ------- | ------ |
@@ -2647,8 +2647,8 @@ The content of this message is empty.
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Ack** events should be sent, instead you
-should see **NEB::PbAck** events.
+used, no more **BBDO::Stop** events should be sent, instead you
+should see **BBDO::PbStop** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
