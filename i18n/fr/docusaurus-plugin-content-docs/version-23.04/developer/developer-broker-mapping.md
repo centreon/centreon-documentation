@@ -1889,7 +1889,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | Propriété| Type| Description| Version
 |----------|----------|----------|----------
 | poller\_id| entier non signé| ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload).| 
-| responsive| booléen| Un booléen indiquant si le collecteur ayant l’ID **poller\_id** répond ou non.| 
+| responsive| booléen| Un booléen indiquant si le collecteur ayant l’ID **poller_id** répond ou non.| 
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2471,10 +2471,10 @@ Le contenu de ce message est sérialisé comme suit :
 
 | Propriété| Type| Description|
 |----------|----------|----------|
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**. La seule version actuelle du protocole est la 1.0.0.|
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version\_response**.|
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version\_response**.|
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version\_response**.|
+| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**. La seule version actuelle du protocole est la 1.0.0.|
+| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**.|
+| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version_response**.|
+| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version_response**.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2486,7 +2486,7 @@ L'événement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
 
 ### Ack
 
-Généralement, un **envoyeur BBDO* envoie des événements tandis qu'un
+Généralement, un **envoyeur BBDO** envoie des événements tandis qu'un
 **récepteur BBDO** reçoit des événements. Ceci dit, envoie quelques évènements
 comme le **Ack**.
 
@@ -2586,30 +2586,61 @@ Cet évènement est envoyé lorsque le statut d’une BA a changé.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| in\_downtime| booléen| True si la BA est en temps d’arrêt.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| last\_state\_change| temps| L’heure du dernier changement d’état de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_acknowledgement| réel| Le niveau d’acquittement de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_downtime| réel| Le niveau de temps d’arrêt de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_nominal| réel| Le niveau nominal de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state| entier court| L’état de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_changed| booléen| True si l’état de la BA vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::BaStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       1 | 393217 |
+
+Le contenu de ce message est sérialisé comme suit:
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| ba\_id| entier non signé| L’id de la BA.|
+| in\_downtime| booléen| True si la BA est en temps d’arrêt.|
+| last\_state\_change| temps| L’heure du dernier changement d’état de la BA.|
+| level\_acknowledgement| réel| Le niveau d’acquittement de la BA.|
+| level\_downtime| réel| Le niveau de temps d’arrêt de la BA.|
+| level\_nominal| réel| Le niveau nominal de la BA.|
+| state| entier court| L’état de la BA.|
+| state\_changed| booléen| True si l’état de la BA vient de changer.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’id de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| in\_downtime| booléen| True si la BA est en temps d’arrêt.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| last\_state\_change| temps| L’heure du dernier changement d’état de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_acknowledgement| réel| Le niveau d’acquittement de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_downtime| réel| Le niveau de temps d’arrêt de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_nominal| réel| Le niveau nominal de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state| entier court| L’état de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_changed| booléen| True si l’état de la BA vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::PbBaStatus
+
+| Category | element |  ID    |
+| -------- | ------- | ------ |
+|        6 |      19 | 393235 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisé
+comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
+Protobuf. Quand BBDO v3 est actif, les évènements **BAM::BaStatus** devraient
+être remplacés par les évènements **BAM::PbBaStatus**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant:
+
+```cpp
+enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+}
+
+message BaStatus {
+    uint32 ba_id = 2;                   // ID de la BA.
+    bool in_downtime = 3;               // Vrai si la BA est en downtime.
+    uint64 last_state_change = 4;       // Timestamp du dernier changement d'état de la BA.
+    double level_acknowledgement = 5;   // Niveau d'acquittement de la BA.
+    double level_downtime = 6;          // Niveau de downtime de la BA.
+    double level_nominal = 7;           // Niveau nominal de la BA.
+    State state = 8;                    // État de la BA.
+    bool state_changed = 9;             // Vrai si l'état de la BA vient juste de changer.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -2621,65 +2652,103 @@ Cet évènement est envoyé lorsque le statut d’un KPI a changé.
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| kpi\_id| entier non signé| L’ID du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| in\_downtime| bool| True si le KPI est en temps d’arrêt.| 
-| level\_acknowledgement\_hard| réel| Le niveau d’acquittement hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_acknowledgement\_soft| réel| Le niveau d’acquittement soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_downtime\_hard| réel| Le niveau de temps d’arrêt hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_downtime\_soft| réel| Le niveau de temps d’arrêt soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_nominal\_hard| réel| Le niveau nominal hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_nominal\_soft| réel| Le niveau nominal soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_hard| entier court| L’état hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_soft| entier court| L’état soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| last\_state\_change| temps| L’heure du dernier changement d’état du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| last\_impact| réel| Le dernier impact du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| valid| bool| True si le KPI est valide.| 
+#### BAM::KpiStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       2 | 393218 |
+
+Le contenu de ce message est sérialisé comme suit:
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| kpi\_id| entier non signé| L’ID du KPI.|
+| in\_downtime| bool| True si le KPI est en temps d’arrêt.|
+| level\_acknowledgement\_hard| réel| Le niveau d’acquittement hard du KPI.|
+| level\_acknowledgement\_soft| réel| Le niveau d’acquittement soft du KPI.|
+| level\_downtime\_hard| réel| Le niveau de temps d’arrêt hard du KPI.|
+| level\_downtime\_soft| réel| Le niveau de temps d’arrêt soft du KPI.|
+| level\_nominal\_hard| réel| Le niveau nominal hard du KPI.|
+| level\_nominal\_soft| réel| Le niveau nominal soft du KPI.|
+| state\_hard| entier court| L’état hard du KPI.|
+| state\_soft| entier court| L’état soft du KPI.|
+| last\_state\_change| temps| L’heure du dernier changement d’état du KPI.|
+| last\_impact| réel| Le dernier impact du KPI.|
+| valid| bool| True si le KPI est valide.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| kpi\_id| entier non signé| L’ID du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| in\_downtime| bool| True si le KPI est en temps d’arrêt.| 
-| level\_acknowledgement\_hard| réel| Le niveau d’acquittement hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_acknowledgement\_soft| réel| Le niveau d’acquittement soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_downtime\_hard| réel| Le niveau de temps d’arrêt hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_downtime\_soft| réel| Le niveau de temps d’arrêt soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_nominal\_hard| réel| Le niveau nominal hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| level\_nominal\_soft| réel| Le niveau nominal soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_hard| entier court| L’état hard du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_soft| entier court| L’état soft du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| last\_state\_change| temps| L’heure du dernier changement d’état du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| last\_impact| réel| Le dernier impact du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| valid| bool| True si le KPI est valide.| 
+#### BAM::PbKpiStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |      27 | 393243 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utlisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, les évènements **BAM::KpiStatus** ne sont plus envoyés
+et sont remplacés par des évènements **BAM::PbKpiStatus**.
+
+The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
+is the following:
+
+```cpp
+enum State {
+    OK = 0;
+    WARNING = 1;
+    CRITICAL = 2;
+    UNKNOWN = 3;
+}
+
+message KpiStatus {
+    uint32 kpi_id = 1;                      // ID du KPI.
+    bool in_downtime = 2;                   // Vrai si le KPI est en downtime.
+    double level_acknowledgement_hard = 3;  // Niveau hard d'acquittement du KPI.
+    double level_acknowledgement_soft = 4;  // Niveau soft d'acquittement du KPI.
+    double level_downtime_hard = 5;         // Niveau hard du downtime du KPI.
+    double level_downtime_soft = 6;         // Niveau soft du downtime du KPI.
+    double level_nominal_hard = 7;          // Niveau nominal hard du KPI.
+    double level_nominal_soft = 8;          // Niveau nominal soft du KPI.
+    State state_hard = 9;                   // État hard du KPI.
+    State state_soft = 10;                  // État soft du KPI.
+    int64 last_state_change = 11;           // Timestamp du dernier changement d'état du KPI.
+    double last_impact = 12;                // Dernier impact du KPI.
+    bool valid = 13;                        // Vrai si le KPI est valide.
+}
+```
 
 </TabItem>
 </Tabs>
 
 ### Meta service status event
 
-Cet évènement est envoyé lorsque le statut d’un méta-service a changé.
+Cet évènement a été créé pour envoyer les changement d'état d'un méta-service.
+
+Actuellement, les meta-services n'étant pas géré par Centreon Broker, cet
+évènement n'est pas utilisé.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| meta\_service\_id| entier non signé| L’ID du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| value| réel| La valeur du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_changed| booléen| True si l’état vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::MetaServiceStatus
+
+| Category | element |   ID   |
+| -------- | ------- | ------ |
+|        6 |       3 | 393219 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété| Type| Description|
+|----------|----------|----------|
+| meta\_service\_id| entier non signé| L’ID du méta-service.|
+| value| réel| La valeur du méta-service.|
+| state\_changed| booléen| True si l’état vient de changer.|
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| meta\_service\_id| entier non signé| L’ID du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| value| réel| La valeur du méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| state\_changed| booléen| True si l’état vient de changer.| Depuis la version 2.8.0 (BBDO 1.2.0).
+Il n'y a pas d'évènement Protobuf.
 
 </TabItem>
 </Tabs>

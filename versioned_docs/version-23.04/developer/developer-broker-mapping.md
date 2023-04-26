@@ -2770,8 +2770,8 @@ The content of this message is serialized as follows:
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Ack** events should be sent, instead you
-should see **NEB::PbAck** events.
+used, no more **BAM::KpiStatus** events should be sent, instead you
+should see **BAM::PbKpiStatus** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
