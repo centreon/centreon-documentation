@@ -6,7 +6,7 @@ title: Migration depuis une plateforme Centreon 3.4
 ## Prérequis
 
 Cette procédure ne s'applique que pour une plate-forme **Centreon 3.4**,
-installé sur une distribution GNU/Linux 64 bits autre que CentOS ou Red Hat 7
+installée sur une distribution GNU/Linux 64 bits
 et disposant des prérequis suivants :
 
 | Composants      | Version |
@@ -15,9 +15,6 @@ et disposant des prérequis suivants :
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
 
-> Si votre plate-forme a été installé à partir de l'ISO Centreon ou des dépôts
-> Centreon 3.4 sur CentOS ou Red Hat en version 7, référez-vous à la documentation
-> de [montée de version](../upgrade/upgrade-from-3-4.md).
 
 ## Migration
 
@@ -39,9 +36,29 @@ web.
 
 2. Réalisez les mises à jour logicielle et système :
 
-    ```shell
-    yum update
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 > Il est préférable de saisir le même mot de passe pour l'utilisateur 'centreon'
 > lors du processus d'installation web.
@@ -79,14 +96,14 @@ Centreon.
     ```
 
 3. Transférer les exports vers le nouveau serveur de base de données Centreon
-22.10 :
+23.04 :
 
     ```shell
     rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
     rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
     ```
 
-4. Sur le serveur de base de données Centreon 22.10, supprimer les bases de
+4. Sur le serveur de base de données Centreon 23.04, supprimer les bases de
 données vierges et les recréer :
 
     ```shell
@@ -146,8 +163,8 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 > sondes de supervision.
 
 > Si vous avez des Pollers en Centreon Engine 1.8.1 que vous comptez migrer plus
-> tard en 22.10, attention au dossier des plugins Nagios. La macro de
-> ressource $USER1$ de Centreon 22.10 pointe sur /usr/lib64/nagios/plugins
+> tard en 23.04, attention au dossier des plugins Nagios. La macro de
+> ressource $USER1$ de Centreon 23.04 pointe sur /usr/lib64/nagios/plugins
 >
 > A éxécuter sur vos collecteurs en Centreon Engine 1.8.1 :
 >
@@ -165,18 +182,18 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 > -rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 > ```
 
-Vous pouvez générer les configurations depuis Centreon 22.10
-indifféremment vers un collecteur en 22.10 ou 1.8.1.
+Vous pouvez générer les configurations depuis Centreon 23.04
+indifféremment vers un collecteur en 23.04 ou 1.8.1.
 
 ### Montée de version de la solution Centreon
 
 Forcez la montée de version du nouveau serveur en déplacant le contenu du répertoire
-**/var/lib/centreon/installs/install-22.10.0-YYYYMMDD\_HHMMSS** dans le
+**/var/lib/centreon/installs/install-23.04.0-YYYYMMDD\_HHMMSS** dans le
 répertoire  **/usr/share/centreon/www/install** :
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-22.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-23.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > Si vous utilisez la même adresse IP ou le même nom DNS entre l'ancien serveur
@@ -211,4 +228,4 @@ la configuration de l'ensemble de la plateforme et exportez là.
 ### Mise à jour des modules
 
 Référez-vous à la documentation des modules installés afin de connaître leur
-compatibilité avec Centreon 22.10, et pour mettre à jour ces derniers.
+compatibilité avec Centreon 23.04, et pour mettre à jour ces derniers.

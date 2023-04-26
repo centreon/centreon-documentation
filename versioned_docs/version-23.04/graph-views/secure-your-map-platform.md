@@ -2,18 +2,22 @@
 id: secure-your-map-platform
 title: Secure your MAP platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-This chapter describes advanced procedures to secure your Centreon MAP
+This chapter describes advanced procedures to secure your Centreon MAP and MAP (Legacy)
 platform.
+
+> If you want to use MAP and MAP (Legacy) in HTTPS, you must both secure your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
 
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
-## Configure HTTPS/TLS on the MAP server
+## Configure HTTPS/TLS on the MAP (or MAP Legacy) server
 
 ### HTTPS/TLS configuration with a recognized key
 
 > This section describes how to add a **recognized key** to the Centreon
-> MAP server.
+> MAP (or MAP Legacy) server.
 >
 > If you want to create an auto-signed key and add it to your server, please
 > refer to the [following
@@ -60,8 +64,14 @@ centreon-map.keystore-pass=xxx
 >
 > Users will have to open the URL:
 >
+> - MAP:
 > ```shell
-> https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+>https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
+> ```
+>
+> - MAP (Legacy):
+> ```shell
+> https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 > ```
 >
 > *The solution we recommend is to use a recognized key method, as explained
@@ -105,6 +115,31 @@ centreon-map.keystore-pass=xxx
 
 ### Activate TLS profile of Centreon MAP service
 
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
+1. Stop Centreon MAP service:
+
+    ```shell
+    systemctl stop centreon-map-engine
+    ```
+
+2. Edit the file `/etc/centreon-map/centreon-map.conf`, adding ",tls"
+   after "prod" profile:
+
+    ```text
+    RUN_ARGS="--spring.profiles.active=prod,tls"
+    ```
+
+3. Restart Centreon MAP service:
+
+    ```shell
+    systemctl start centreon-map-engine
+    ```
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
 1. Stop Centreon MAP service:
 
     ```shell
@@ -124,8 +159,12 @@ centreon-map.keystore-pass=xxx
     systemctl start centreon-map
     ```
 
-Centreon MAP server is now configured to respond to requests from HTTPS at
-port 8443.
+</TabItem>
+</Tabs>
+
+Centreon MAP server is now configured to respond to requests from HTTPS:
+- at port 9443 for MAP,
+- at port 8443 for MAP (Legacy).
 
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.md#change-centreon-map-server-port).
@@ -183,15 +222,27 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
-Then, set the following parameters in MAP server configuration at
-`/etc/centreon-studio/studio-config.properties` :
+Then, set the following parameters in MAP server configuration at:
+
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
+**/etc/centreon-map/centreon-map.conf**
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+**/etc/centreon-studio/studio-config.properties**
+
+</TabItem>
+</Tabs>
 
 To set the communication protocol with Centreon server to HTTPS:
 ```shell
 centreon.url=https://<server-address>
 ```
 
-To enable TLS socket connection with Broker :
+To enable TLS socket connection with Broker:
 
 ```text
 broker.tls=true

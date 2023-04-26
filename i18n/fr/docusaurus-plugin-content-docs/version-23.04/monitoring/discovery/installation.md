@@ -2,14 +2,36 @@
 id: installation
 title: Installation
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Installer le module d'autodécouverte
 
 1. Pour installer le paquet, exécutez la commande suivante sur le serveur Central :
 
-    ``` shell
-    yum install -y centreon-auto-discovery-server
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt install centreon-auto-discovery-server
+```
+
+</TabItem>
+</Tabs>
 
 2. Pour installer l'extension, connectez-vous à l’interface web de Centreon avec un compte ayant le
 droit d’installer des modules et rendez-vous dans le menu **Administration >

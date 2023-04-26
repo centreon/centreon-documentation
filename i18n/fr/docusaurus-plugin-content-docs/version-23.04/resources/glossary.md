@@ -23,11 +23,17 @@ Lorsqu'une ressource est acquittée, les [notifications](#notification) sont sus
 
 Acquitter une ressource ne signifie pas que l'incident est résolu : il le sera lorsque la ressource sera revenue dans son état nominal (**OK** ou **DISPONIBLE**).
 
-**Voir aussi** : [Acquitter un problème](../alerts-notifications/acknowledge.md).
+**Voir aussi** : [Acquitter une alerte](../alerts-notifications/acknowledge.md).
 
 ## Action de supervision
 
 Toute action exécutée depuis l’interface permettant d’agir sur votre supervision en temps réel. Par exemple, [faire un acquittement](#acquittement), planifier une [plage de maintenance](#plage-de-maintenance), forcer un contrôle, etc. 
+
+## Alerte
+
+Une alerte correspond à l'un des statuts suivants : **Alerte**, **Indisponible**, **Critique**, **Inconnu**.
+
+Le terme d'alerte est utilisé de cette façon dans les [filtres prédéfinis](../alerts-notifications/resources-status.md#filtres-prédéfinis) à la page **Statut des ressources**.
 
 ## Architecture simple VS distribuée
 
@@ -78,7 +84,7 @@ Sauvegarde dans un fichier texte de toute une base de données MySQL/MariaDB.
 
 Voir [**Moteur de supervision**](#moteur-de-supervision).
 
-## État du problème
+## État de l'alerte
 
 Non traité, acquitté, en maintenance.
 

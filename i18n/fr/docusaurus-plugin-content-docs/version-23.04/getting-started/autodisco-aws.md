@@ -3,6 +3,9 @@ id: autodisco-aws
 title: Utiliser Autodiscovery pour découvrir des instances AWS EC2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Dans ce tutoriel, nous allons utiliser le module [Autodiscovery](../monitoring/discovery/hosts-discovery.md) pour détecter des instances AWS EC2 et les mettre en supervision.
 
 ## Prérequis
@@ -22,9 +25,30 @@ Vous devez disposer :
 
     - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
-        ```shell
-        yum install centreon-pack-*
-        ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-pack-*
+```
+
+</TabItem>
+
+</Tabs>
 
     - Si vous avez une licence en ligne, les connecteurs de supervision sont déjà disponibles dans l'interface.
 

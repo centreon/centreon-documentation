@@ -16,76 +16,77 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
-
-#### Performance
-
-- Move to Java 17
+- Compatibility with other 23.04 components.
 
 ## Centreon BAM
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
+- [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
+- [Configuration] Improved Business Activities configuration panel display:
+   - Display listing pagination icons while displaying the configuration panel
+   - Allow more space to display indicators' names.
 
 ## Centreon MBI
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
-
-#### Performance
-
-- ETL daily and rebuild optimizations
-- Move to Java 17
+- Compatibility with other 23.04 components.
 
 ## Centreon Auto Discovery
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
+- Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
+- Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
+- Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
 
-#### Enhancements
+## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
 
-- Already monitored hosts can now be updated by Host Discovery in manual mode. It had been made available in automatic mode in the 22.04 release, it is now available in manual mode. Changes can be made to macros, templates, host groups, host categories, host severity and the monitoring server
-- When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
+### 23.04.0
 
-## Centreon Monitoring Connectors Manager
+Release date: `April 26, 2023`
 
-### 22.10.0
-
-Release date: `October 26, 2022`
-
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
 
 ## Centreon License Manager
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
 
 ## Centreon Anomaly Detection
 
-### 22.10.0
+### 23.04.0
 
-Release date: `October 26, 2022`
+Release date: `April 26, 2023`
 
-- Compatibility with other 22.10 components.
+- Compatibility with other 23.04 components.
+- [Core] It is now possible to exclude unrepresentative data from prediction computation.
+- [Core] Anomaly Detection services can now be used in Business Activities.
 
-#### Enhancements
+## Centreon IT & Business Extensions
 
-- Added new type of resources in Resource Status (display and filter)
-- Added prediction envelope size management by user from Resources Status
-- Downtimes on regular services are now propagated to related Anomaly Detection service(s)
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+- Added the possibility to customize the login page and the banner. You can now:
+  - Change the background of the login page.
+  - Change the logo on the login page.
+  - Display custom text on the login page.
+  - Give a name to the platform, that will be visible on the login page and in the banner.

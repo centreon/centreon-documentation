@@ -16,10 +16,8 @@ désinstallez le module **centreon-poller-display-central**
     yum remove centreon-poller-display-central
     ```
 
-Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4.md)
-si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
-[procédure de migration](../migrate/migrate-from-3-4.md) d'un serveur Centreon
-Central vers 22.10.
+Puis suivez la [procédure de migration](../migrate/migrate-from-3-4.md) d'un serveur Centreon
+Central vers 23.04.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
 > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers. Demandez
@@ -37,9 +35,7 @@ en exécutant la commande suivante :
   yum remove centreon-poller-display
   ```
 
-3. Si votre serveur est basé sur la distribution CentOS ou Red Hat en version
-7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4.md),
-sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4.md).
+Référez vous à [la procédure de migration](../migrate/migrate-from-3-4.md).
 
     > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
     > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers.
@@ -169,7 +165,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 22.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 23.04.
 
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:

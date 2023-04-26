@@ -54,28 +54,31 @@ To use Anomaly Detection, you will need:
 
 ### Step 1: Installing packages
 
-1. Add an additional repository:
+Run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Nothing to do.
+```shell
+dnf install centreon-anomaly-detection
+```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y epel-release
+dnf install centreon-anomaly-detection
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt install centreon-anomaly-detection
 ```
 
 </TabItem>
 </Tabs>
-
-2. Run the following command:
-
-   ```shell
-   yum install centreon-anomaly-detection
-   ```
 
 ### Step 2: UI installation
 
@@ -231,6 +234,7 @@ Once you have created an Anomaly Detection service, you can see it in the follow
 - The **Monitoring > Performances > Graphs** menu.
 - The **Monitoring > Event Logs > Event Logs** menu.
 - The **service-monitoring** widget in the **Home > Custom Views** menu.
+- You can use an Anomaly Detection service as an indicator in [Centreon BAM](../service-mapping/ba-management.md).
 - And all menus where you can operate on services.
 
 ## Forward history of data
@@ -239,6 +243,8 @@ Once you have created an Anomaly Detection service, you can see it in the follow
 > of services monitored, the extraction of data from the **centreon\_storage**
 > database can take several tens of minutes. This will strongly impact the
 > performance of the database and may slow down the monitoring platform as a whole.
+
+To be able to send data from an Anomaly Detection service, a first check must have been made. You can [run a check on the service from the Resources Status page](../alerts-notifications/resources-status.md#refresh-a-status).
 
 To send the history of data of an anomaly service to our SaaS platform, connect to your Centreon
 Central server and access the **centreon** user:

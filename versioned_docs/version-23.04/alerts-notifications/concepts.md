@@ -5,6 +5,7 @@ title: Possible statuses of a resource
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
 precise meaning for the resource. 
+
 * The statuses and states of a resource
 can be seen on page [Resources Status](resources-status.md). You can filter the page according to these statuses and to certain states.
 * Some statuses are determined according to user-defined thresholds.

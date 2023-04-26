@@ -2,6 +2,8 @@
 id: update-centreon-ha
 title: Updating Centreon-HA platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This procedure is intended to be used to perform minor updates of Centreon, when the Engine/Broker compatibility is assured between the old and the new version. No service downtime is necessary in this case, only a short outage of the Web UI login screen.
 
@@ -23,9 +25,15 @@ pcs resource unmanage ms_mysql
 
 Update your cluster by running the following command on each node:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
-yum update
+dnf update
 ```
+
+</TabItem>
+</Tabs>
 
 And then you should be able to finalize the update *via* the web UI. You might have to log off your session or to refresh the login page to access the update process.
 
@@ -58,9 +66,15 @@ In order to maintain compatibility between the [Monitoring Connectors](../monito
 
 It is recommended to update the pollers as well, **especially if `centreon-engine` and/or `centreon-broker` packages have been updated**:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
-yum update
+dnf update
 ```
+
+</TabItem>
+</Tabs>
 
 ### Exporting Engine/Broker configuration
 

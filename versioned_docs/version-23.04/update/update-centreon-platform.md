@@ -1,11 +1,11 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 22.10 platform
+title: Update a Centreon 23.04 platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to update your Centreon 22.10 platform (i.e. switch from version 22.10.x to version 22.10.y).
+This chapter describes how to update your Centreon 23.04 platform (i.e. switch from version 23.04.x to version 23.04.y).
 
 ## Perform a backup
 
@@ -17,51 +17,9 @@ servers:
 
 ## Update the Centreon central server
 
-### Prerequisites
-
-If you have installed **debuginfo** packages (or **dbgsym** on Debian), remove them before updating your platform. You can reinstall them after the update.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Centos 7" label="Centos 7">
-
-```shell
-yum remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt remove 'centreon-*-dbgsym'
-```
-
-</TabItem>
-</Tabs>
-
 ### Update the Centreon solution
 
-Please make sure all users are logged out from the Centreon web interface before starting the update procedure.
+Make sure all users are logged out from the Centreon web interface before starting the update procedure.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -79,18 +37,18 @@ Then upgrade all the components with the following command:
   ```
 
 </TabItem>
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Clean the cache:
 
   ```shell
-  yum clean all --enablerepo=*
+  dnf clean all --enablerepo=*
   ```
 
 Then upgrade all the components with the following command:
 
   ```shell
-  yum update centreon\*
+ dnf update centreon\*
   ```
 
 </TabItem>
@@ -113,8 +71,9 @@ Then upgrade all the components with the following command:
 </Tabs>
 
 Now you need to finalize the update:
-  <Tabs groupId="sync">
-  <TabItem value="Using the wizard" label="Using the wizard">
+
+<Tabs groupId="sync">
+<TabItem value="Using the wizard" label="Using the wizard">
 
 1. Log on to the Centreon web interface to continue the update process. Click on **Next**:
 
@@ -152,14 +111,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 22.10
+   -  version: 23.04
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.04/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -206,10 +165,6 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   systemctl restart cbd centengine gorgoned
   ```
 
-### Reinstall **debuginfo** or **dbgsym** packages (optional)
-
-If you uninstalled **debuginfo** or **dbgsym** packages before performing the update, you can reinstall them now.
-
 ### Update extensions
 
 From **Administration > Extensions > Manager**, update all extensions, starting
@@ -246,18 +201,18 @@ This procedure is the same as to update a Centreon central server.
   ```
 
 </TabItem>
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Clean the cache:
 
   ```shell
-  yum clean all --enablerepo=*
+  dnf clean all --enablerepo=*
   ```
 
 2. Then upgrade all the components with the following command:
 
   ```shell
-  yum update centreon-poller
+  dnf update centreon-poller
   ```
 
 </TabItem>

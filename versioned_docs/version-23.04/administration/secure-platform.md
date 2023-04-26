@@ -41,11 +41,11 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 ## Enable SELinux
 
-Centreon recently developed SELinux rules in order to strengthen the control of
+Centreon developed SELinux rules in order to strengthen the control of
 components by the operating system.
 
 > These rules are currently in **beta mode** and can be activated.
-> You can activate them by following this procedure. In you detect of a problem,
+> You can activate them by following this procedure. If you detect a problem,
 > it is possible to disable SELinux globally and to send us your feedback in
 > order to improve our rules on [Github](https://github.com/centreon/centreon).
 
@@ -74,7 +74,7 @@ For more information about SELinux please see [Red Hat documentation](https://ac
 
 ### Activate SELinux in permissive mode
 
-By default, SELinux is disabled during Centreon installation process. To enable SELinux in permissive mode, you need to
+By default, SELinux is disabled during the Centreon installation process. To enable SELinux in permissive mode, you need to
 modify the `/etc/selinux/config` file as:
 
 ```shell
@@ -102,10 +102,13 @@ shutdown -r now
 Depending on the type of server, install the packages with the following command:
 
 <Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+<Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
 
    ```shell
-   yum install centreon-common-selinux \
+   dnf install centreon-common-selinux \
    centreon-web-selinux \
    centreon-broker-selinux \
    centreon-engine-selinux \
@@ -117,7 +120,7 @@ Depending on the type of server, install the packages with the following command
 <TabItem value="Poller" label="Poller">
 
    ```shell
-   yum install centreon-common-selinux \
+   dnf install centreon-common-selinux \
    centreon-broker-selinux \
    centreon-engine-selinux \
    centreon-gorgoned-selinux \
@@ -128,18 +131,108 @@ Depending on the type of server, install the packages with the following command
 <TabItem value="Map server" label="Map server">
 
    ```shell
-   yum install centreon-map-selinux
+   dnf install centreon-map-selinux
    ```
 
 </TabItem>
 <TabItem value="MBI server" label="MBI server">
 
    ```shell
-   yum install centreon-mbi-selinux
+   dnf install centreon-mbi-selinux
    ```
 
 </TabItem>
 </Tabs>
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+<Tabs groupId="sync">
+<TabItem value="Central / Remote Server" label="Central / Remote Server">
+
+   ```shell
+   dnf install centreon-common-selinux \
+   centreon-web-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+
+</TabItem>
+<TabItem value="Poller" label="Poller">
+
+   ```shell
+   dnf install centreon-common-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+
+</TabItem>
+<TabItem value="Map server" label="Map server">
+
+   ```shell
+   dnf install centreon-map-selinux
+   ```
+
+</TabItem>
+<TabItem value="MBI server" label="MBI server">
+
+   ```shell
+   dnf install centreon-mbi-selinux
+   ```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+<Tabs groupId="sync">
+<TabItem value="Central / Remote Server" label="Central / Remote Server">
+
+   ```shell
+   apt install centreon-common-selinux \
+   centreon-web-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+
+</TabItem>
+<TabItem value="Poller" label="Poller">
+
+   ```shell
+   apt install centreon-common-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+
+</TabItem>
+<TabItem value="Map server" label="Map server">
+
+   ```shell
+   apt install centreon-map-selinux
+   ```
+
+</TabItem>
+<TabItem value="MBI server" label="MBI server">
+
+   ```shell
+   apt install centreon-mbi-selinux
+   ```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
 
 To check the installation, execute the following command:
 
@@ -166,8 +259,8 @@ Before enabling SELinux in **enforcing** mode, you need to be sure that no error
 cat /var/log/audit/audit.log | grep -i denied
 ```
 
-If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition of
-the Centreon default SELinux rules. To do this, use the following command to tranform error in SELinux rules:
+If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition to
+the Centreon default SELinux rules. To do this, use the following command to transform errors into SELinux rules:
 
 ```shell
 audit2allow -a
@@ -199,7 +292,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 ## Securing root access to the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
-installation. It is mandatory to set a password for the **root** user of the database. If you haven't already done so, please execute the following command and follow instructions:
+installation. It is mandatory to set a password for the **root** user of the database. If you haven't already done so, please execute the following command and follow the instructions:
 
 ```shell
 mysql_secure_installation
@@ -213,20 +306,19 @@ mysql_secure_installation
 Install firewalld:
 
 ```shell
-yum install firewalld
+dnf install firewalld
 ```
 
 </TabItem>
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Install firewalld:
 
 ```shell
-yum install firewalld
+dnf install firewalld
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 Install firewalld:
@@ -244,6 +336,7 @@ Enable firewalld:
 systemctl enable firewalld
 systemctl start firewalld
 ```
+
 Then add rules for firewalld:
 
 > The list of network flows required for each type of server is defined
@@ -327,14 +420,13 @@ dnf install python3-inotify
 ```
 
 </TabItem>
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install python-inotify
+dnf install python3-inotify
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -361,8 +453,7 @@ yum update -y selinux-policy*
 ```
 
 </TabItem>
-
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 yum install epel-release
@@ -376,7 +467,6 @@ yum update -y selinux-policy*
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -484,7 +574,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
 
   </TabItem>
 
-  <TabItem value="CentOS 7" label="CentOS 7">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   Open the file **/etc/pki/tls/openssl.cnf**. The goal here is to edit this file in order to inform the various IPs and FQDNs for the server.
 
@@ -569,7 +659,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   
   </TabItem>
   
-  <TabItem value="CentOS 7" label="CentOS 7">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
   
   ```text
   openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
@@ -585,7 +675,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   </TabItem>
   </Tabs>
   
-  The password created on step **Create a private key for the certificate of certification authority**  must be entered. You get your server certificate named **centreon7.crt**.
+  The password created at step **Create a private key for the certificate of certification authority** must be entered. You get your server certificate named **centreon7.crt**.
   
   You can view the contents of the file: 
   ```text
@@ -598,7 +688,7 @@ Now you have your self-signed certificate, you can perform the following procedu
 
 ### Activating HTTPS mode on your web server
 
-1. Install SSL module for Apache:
+1. Install the SSL module for Apache:
   
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -609,25 +699,25 @@ dnf install mod_ssl mod_security openssl
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
 
-```text
+```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install httpd24-mod_ssl httpd24-mod_security openssl
+dnf install mod_ssl mod_security openssl
 ```
-
+  
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
 
-```text
+```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
 ```
@@ -646,9 +736,9 @@ systemctl restart apache2
 
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt**) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
 
-```text
+```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
 ```
@@ -666,14 +756,13 @@ cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
+cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -694,11 +783,11 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
+
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 Edit the **/etc/apache2/sites-available/centreon.conf** file by adding the **<VirtualHost *:443>** section.
@@ -789,7 +878,7 @@ ServerTokens Prod
 > certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```apacheconf
 Define base_uri "/centreon"
@@ -857,7 +946,6 @@ ServerTokens Prod
 > certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 ```apacheconf
@@ -949,27 +1037,24 @@ expose_php = Off
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
-Header set X-Frame-Options: "sameorigin"
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 ServerSignature Off
 ServerTokens Prod
-TraceEnable Off
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
 
 ```phpconf
 expose_php = Off
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following line:
@@ -1002,17 +1087,15 @@ Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following lin
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
+Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
 
 ```apacheconf
-#Alias 
-/icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
+#Alias /icons/ "/usr/share/httpd/icons/"
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 Edit the **/etc/apache2/mods-available/autoindex.conf** file and comment the following line:
@@ -1038,10 +1121,10 @@ Syntax OK
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```apacheconf
-/opt/rh/httpd24/root/usr/sbin/apachectl configtest
+apachectl configtest
 ```
 
 The expected result is the following:
@@ -1105,43 +1188,42 @@ If everything is ok, you should have:
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl restart php-fpm httpd24-httpd
+systemctl restart php-fpm httpd
 ```
 
 Then check its status:
 
 ```shell
-systemctl status httpd24-httpd
+systemctl status httpd
 ```
 
-If everything is ok, you must have:
+If everything is ok, you should have:
 
 ```shell
-● httpd24-httpd.service - The Apache HTTP Server
-   Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
-   Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
-  Process: 31762 ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop (code=exited, status=0/SUCCESS)
- Main PID: 31786 (httpd)
-   Status: "Total requests: 850; Idle/Busy workers 50/50;Requests/sec: 0.547; Bytes served/sec: 5.1KB/sec"
-   CGroup: /system.slice/httpd24-httpd.service
-           ├─ 1219 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31786 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31788 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31789 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31790 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31802 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31865 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31866 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31882 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
-           └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -1187,6 +1269,72 @@ Now you can access your platform with your browser in HTTPS mode.
 > Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
 > recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
+9. Gorgone API configuration
+
+Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+```
+
+Then restart the Gorgone daemon:
+
+```shell
+systemctl restart gorgoned
+```
+
+Then check its status:
+
+```shell
+systemctl status gorgoned
+```
+
+If everything is ok, you must have:
+
+```shell
+● gorgoned.service - Centreon Gorgone
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2023-03-06 15:58:10 CET; 27min ago
+ Main PID: 1791096 (perl)
+    Tasks: 124 (limit: 23040)
+   Memory: 595.3M
+   CGroup: /system.slice/gorgoned.service
+           ├─1791096 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─1791109 gorgone-statistics
+           ├─1791112 gorgone-legacycmd
+           ├─1791117 gorgone-engine
+           ├─1791118 gorgone-audit
+           ├─1791125 gorgone-nodes
+           ├─1791138 gorgone-action
+           ├─1791151 gorgone-cron
+           ├─1791158 gorgone-dbcleaner
+           ├─1791159 gorgone-autodiscovery
+           ├─1791166 gorgone-httpserver
+           ├─1791180 gorgone-proxy
+           ├─1791181 gorgone-proxy
+           ├─1791182 gorgone-proxy
+           ├─1791189 gorgone-proxy
+           └─1791190 gorgone-proxy
+
+mars 06 15:58:10 ito-central systemd[1]: gorgoned.service: Succeeded.
+mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
+mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
+```
+
+You should see the following line in the Gorgone daemon log file **/var/log/centreon-gorgone/gorgoned.log**:
+
+```text
+2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
+
 ## Custom URI
 
 It is possible to customize the URI for your Centreon platform. For example, **/centreon** can be replaced by **/monitoring**.
@@ -1205,14 +1353,13 @@ vim /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
+vim /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
@@ -1238,10 +1385,10 @@ systemctl restart httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl restart httpd24-httpd
+systemctl restart httpd
 ```
 
 </TabItem>
@@ -1282,15 +1429,19 @@ dnf install nghttp2
 ...
 ```
 
-4. Update method used by apache multi-processus module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
+4. Update the method used by the apache multi-processus module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-```diff
--LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   Comment the following line:
 
--#LoadModule mpm_event_module modules/mod_mpm_event.so
-+LoadModule mpm_event_module modules/mod_mpm_event.so
-```
+   ```shell
+   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   ```
+
+   Uncomment the following line:
+
+   ```shell
+   LoadModule mpm_event_module modules/mod_mpm_event.so
+   ```
 
 5. Restart the Apache process to take in account the new configuration:
 
@@ -1299,17 +1450,17 @@ systemctl restart httpd
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. [Configure https on Centreon](#secure-the-web-server-with-https)
 
 2. Install nghttp2 module:
 
 ```shell
-yum install httpd24-nghttp2
+dnf install nghttp2
 ```
 
-3. Enable http2 protocol in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**:
+3. Enable http2 protocol in **/etc/httpd/conf.d/10-centreon.conf**:
 
 ```apacheconf
 ...
@@ -1320,24 +1471,27 @@ yum install httpd24-nghttp2
 ...
 ```
 
-4. Update method used by Apache multi-processus module in **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
+4. Update the method used by the apache multi-processus module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-```diff
--LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   Comment the following line:
 
--#LoadModule mpm_event_module modules/mod_mpm_event.so
-+LoadModule mpm_event_module modules/mod_mpm_event.so
-```
+   ```shell
+   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   ```
+
+   Uncomment the following line:
+
+   ```shell
+   LoadModule mpm_event_module modules/mod_mpm_event.so
+   ```
 
 5. Restart the Apache process to take in account the new configuration:
 
 ```shell
-systemctl restart httpd24-httpd
+systemctl restart httpd
 ```
 
 </TabItem>
-
 <TabItem value="Debian 11" label="Debian 11">
 
 1. [Configure HTTPS on your Centreon server](#secure-the-web-server-with-https).
@@ -1359,15 +1513,19 @@ apt install nghttp2
 ...
 ```
 
-4. Update the method used by the Apache multi-processus module in **/etc/apache2/sites-available/00-mpm.conf**:
+4. Update the method used by the apache multi-processus module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-```diff
--LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   Comment the following line:
 
--#LoadModule mpm_event_module modules/mod_mpm_event.so
-+LoadModule mpm_event_module modules/mod_mpm_event.so
-```
+   ```shell
+   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   ```
+
+   Uncomment the following line:
+
+   ```shell
+   LoadModule mpm_event_module modules/mod_mpm_event.so
+   ```
 
 5. Restart the Apache process to take into account the new configuration:
 

@@ -22,17 +22,14 @@ Votre résolution doit être au minimum à 1280 x 768.
 
 ### Système d'exploitation
 
-Les OS supportés par Centreon sont CentOS 7, AlmaLinux 8, RedHat/OracleLinux 7 ou 8 et Debian 11.
+Les OS supportés par Centreon sont AlmaLinux/RedHat/OracleLinux 8 et 9 et Debian 11.
 
 | Version                  | Mode d'installation                                   |
 |--------------------------|-------------------------------------------------------|
 | Alma Linux 8             | paquets RPM, sources, machine virtuelle               |
 | RHEL/Oracle Linux 8      | paquets RPM, sources                                  |
+| RHEL/Oracle Linux/Alma Linux 9              | paquets RPM, sources               |
 | Debian 11                | paquets DEB                                           |
-| CentOS 7                 | paquets RPM, machine virtuelle, sources               |
-| RHEL/Oracle Linux 7      | paquets RPM, sources                                  |
-
-> Nous ne recommandons pas d'installer Centreon sur CentOS 7 ou RHEL/Oracle Linux 7. En effet, à partir de Centreon 23.04, EL 8/9 et Debian 11 uniquement seront supportés.
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
 L'installation de la plate-forme sera plus complexe, à partir des fichiers sources de chaque composant.
@@ -42,8 +39,8 @@ Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent
 
 ### SGBD
 
-> Centreon supporte MariaDB. Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.
-
 | Logiciel | Version |
 |----------|---------|
 | MariaDB  | 10.5.x  |
+
+> Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.

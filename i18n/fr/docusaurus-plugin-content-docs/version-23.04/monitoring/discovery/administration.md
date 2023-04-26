@@ -2,29 +2,36 @@
 id: administration
 title: Administration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Mise à jour
 
-> Lors de la montée de version à partir d'une version antérieure à la version
-> 20.04, toutes les données de la fonctionnalité **Host Discovery** seront
-> perdues:
->
-> - Tâches de découverte,
-> - Paramètres/informations d'identification sauvegardés.
->
-> Cela est dû à la nouvelle méthode renforcée de stockage des informations
-> d'identification dans cette version.
->
-> Les hôtes découverts au travers des tâches ne sont pas touchés.
->
-> La montée de version vers 22.10 conserve toutes les données présentes depuis
-> la version 20.04.
-
 1. Pour mettre à jour le module, exécutez la commande suivante :
 
-    ``` shell
-    yum update -y centreon-auto-discovery-server
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf update -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf update -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt update && apt update centreon-auto-discovery-server
+```
+
+</TabItem>
+</Tabs>
 
 2. Connectez-vous sur l’interface web de Centreon avec un compte ayant le
 droit d’installer des modules et rendez-vous dans le menu **Administration >

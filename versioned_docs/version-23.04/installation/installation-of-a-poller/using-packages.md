@@ -5,12 +5,14 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon provides RPM packages for its products through the Centreon Open
+Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on CentOS 7, on Alma/RHEL/Oracle Linux 8 and on Debian 11.
+These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.
 
 You must run the installation procedure as a privileged user.
+
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
 ## Prerequisites
 
@@ -26,12 +28,13 @@ dnf update
 
 ### Additional configuration
 
-If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Use the following command to check which languages are installed on your system:
@@ -41,10 +44,27 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum update
+dnf update
+```
+
+### Additional configuration
+
+If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Use the following command to check which languages are installed on your system:
+
+```shell
+locale -a
 ```
 
 </TabItem>
@@ -92,7 +112,7 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -128,7 +148,7 @@ SELinux is not installed on Debian 11, continue.
 </TabItem>
 </Tabs>
 
-### Configure or disable firewall
+### Configure or disable the firewall
 
 If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld).
 You can also disable the firewall during installation by running the following commands:
@@ -180,6 +200,7 @@ Enable the CodeReady Builder repository using these commands:
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
 </TabItem>
@@ -194,22 +215,50 @@ Builder repository supported by Oracle.
 Enable the repository using these commands:
 
 ```shell
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+dnf install dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma 9" label="Alma 9">
 
-#### Redhat Software Collections repository
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
-To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat.
-
-Install the Software Collections repository using this command:
+Run the following commands:
 
 ```shell
-yum install -y centos-release-scl
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+To install Centreon you will need to install the **CodeReady Builder** repository.
+
+Run the following commands:
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+To install Centreon you will need to install the **CodeReady Builder** repository.
+
+Run the following commands:
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf config-manager --set-enabled ol9_codeready_builder
+dnf install -y epel-release
 ```
 
 </TabItem>
@@ -218,7 +267,7 @@ yum install -y centos-release-scl
 Install the following dependencies:
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
 </TabItem>
@@ -235,14 +284,18 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
@@ -251,13 +304,15 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 To install the Centreon repository, execute following command line:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Then import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>
@@ -275,10 +330,10 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon-poller
+dnf install -y centreon-poller
 ```
 
 </TabItem>
@@ -370,16 +425,16 @@ You will receive the validation of the Centreon central or the Remote Server ser
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
 ```
 
-### Main errors messages
+### Main error messages
 
 ``` shell
-2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+2023-05-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
 > Your credentials are incorrect for the **<API_ACCOUNT>**.
 
 ``` shell
-2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+2023-05-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
@@ -391,20 +446,20 @@ Failed connect to 192.168.0.1:444; Connection refused
 > Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
 
 ``` shell
-2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
+2023-05-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
 > The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 
 ``` shell
-2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
+2023-05-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 22.10.
+> Your Centreon target version is invalid. It should be greater or equal to 23.04.
 
-## Step 4: Add the Poller to configuration
+## Step 4: Add the Poller to the configuration
 
-Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+Go to [Attach a poller to a central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
 ## Step 5: Secure your platform
 

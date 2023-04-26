@@ -125,7 +125,7 @@ Avant de passer à la configuration proprement dite du cluster, quelques étapes
 Afin d'améliorer la fiabilité du cluster et puisque *Centreon HA* ne fonctionne que sur IP v4, il est recommandé d'appliquer les réglages suivants sur tous les serveurs de la plateforme Centreon :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -137,21 +137,6 @@ net.ipv4.tcp_keepalive_probes = 2
 net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart NetworkManager
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-cat >> /etc/sysctl.conf <<EOF
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv4.tcp_retries2 = 3
-net.ipv4.tcp_keepalive_time = 200
-net.ipv4.tcp_keepalive_probes = 2
-net.ipv4.tcp_keepalive_intvl = 2
-EOF
-systemctl restart network
 ```
 
 </TabItem>
@@ -213,6 +198,14 @@ Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et dépen
 Sur tous les :
 
 <Tabs groupId="sync">
+<TabItem value="Alma Linux 8" label="Alma Linux 8">
+
+```bash
+dnf config-manager --enable ha
+dnf install centreon-ha-web
+```
+
+</TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```bash
@@ -226,29 +219,6 @@ dnf install centreon-ha-web
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-web
-```
-
-</TabItem>
-<TabItem value="Alma Linux 8" label="Alma Linux 8">
-
-```bash
-dnf config-manager --enable ha
-dnf install centreon-ha-web
-```
-
-</TabItem>
-<TabItem value="RHEL 7" label="RHEL 7">
-
-```bash
-subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
-dnf install centreon-ha-web
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-ha-web
 ```
 
 </TabItem>
@@ -691,19 +661,11 @@ chmod 775 /tmp/centreon-autodisco/
 Les services de l'application Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, les services de clustering s'en chargeront. Il est donc nécessaire d'arrêter et de désactiver ces services.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon centreon-central-sync cbd-sql
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon centreon-central-sync cbd-sql
 ```
 
 </TabItem>
@@ -769,7 +731,7 @@ nmcli connection up "@CENTRAL_VIP_IFNAME@"
 Le service `httpd.service` est par défaut indépendant de `centreon.service` mais dans cette configuration, il faut l'y rattacher en modifiant sa définition sur les deux noeuds centraux :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 cat > /usr/lib/systemd/system/httpd.service <<"EOF"
@@ -797,37 +759,6 @@ EOF
 ```
 
 </TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-cat > /usr/lib/systemd/system/httpd24-httpd.service <<"EOF"
-[Unit]
-Description=The Apache HTTP Server
-PartOf=centreon.service
-ReloadPropagatedFrom=centreon.service
-After=centreon.service
-
-[Service]
-Type=notify
-EnvironmentFile=/opt/rh/httpd24/root/etc/sysconfig/httpd
-
-ExecStart=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -DFOREGROUND
-ExecReload=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful
-ExecStop=/opt/rh/httpd24/root/usr/sbin/httpd-scl-wrapper $OPTIONS -k graceful-stop
-# We want systemd to give httpd some time to finish gracefully, but still want
-# it to kill httpd after TimeoutStopSec if something went wrong during the
-# graceful stop. Normally, Systemd sends SIGTERM signal right after the
-# ExecStop, which would kill httpd. We are sending useless SIGCONT here to give
-# httpd time to finish.
-KillSignal=SIGCONT
-PrivateTmp=true
-
-[Install]
-WantedBy=centreon.service
-EOF
-```
-
-</TabItem>
 </Tabs>
 
 #### Service Gorgone
@@ -835,7 +766,7 @@ EOF
 Le service `gorgoned.service` est par défaut indépendant de `centreon.service` mais dans cette configuration, il doit lui être rattaché en modifiant sa définition sur les deux noeuds centraux :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 cat > /etc/systemd/system/gorgoned.service <<"EOF"
@@ -843,28 +774,6 @@ cat > /etc/systemd/system/gorgoned.service <<"EOF"
 Description=Centreon Gorgone
 PartOf=centreon.service
 After=httpd.service
-ReloadPropagatedFrom=centreon.service
-
-[Service]
-EnvironmentFile=/etc/sysconfig/gorgoned
-ExecStart=/usr/bin/perl /usr/bin/gorgoned $OPTIONS
-Type=simple
-User=centreon-gorgone
-
-[Install]
-WantedBy=centreon.service
-EOF
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-cat > /etc/systemd/system/gorgoned.service <<"EOF"
-[Unit]
-Description=Centreon Gorgone
-PartOf=centreon.service
-After=httpd24-httpd.service
 ReloadPropagatedFrom=centreon.service
 
 [Service]
@@ -1016,19 +925,11 @@ nmcli con up "@CENTRAL_VIP_IFNAME@"
 Afin de prendre en compte toutes les modifications précédentes, et d'activer les services (pour que le démarrage du service `centreon.service` les lance tous) il est nécessaire de lancer ces commandes sur les deux noeuds centraux :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 systemctl daemon-reload
 systemctl enable cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd mariadb
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-systemctl daemon-reload
-systemctl enable cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd mariadb
 ```
 
 </TabItem>
@@ -1043,17 +944,10 @@ systemctl start centreon
 Vérifiez ensuite l'état de tous les services :
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
 systemctl status cbd httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
-```
-
-</TabItem>
-<TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
-
-```bash
-systemctl status cbd httpd24-httpd gorgoned centreon-central-sync cbd-sql centengine centreontrapd snmptrapd
 ```
 
 </TabItem>

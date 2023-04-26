@@ -43,11 +43,11 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
   ```
   
   </TabItem>
-  <TabItem value="CentOS 7" label="CentOS 7">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
-  yum info centreon-map-web-client
-  yum info centreon-map-engine
+  dnf info centreon-map-web-client
+  dnf info centreon-map-engine
   ``` 
   
   </TabItem>
@@ -71,10 +71,10 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
   ```
   
   </TabItem>
-  <TabItem value="CentOS 7" label="CentOS 7">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
   
   ```shell
-  sudo yum install centreon-map-web-client
+  sudo dnf install centreon-map-web-client
   ```
   
   </TabItem>

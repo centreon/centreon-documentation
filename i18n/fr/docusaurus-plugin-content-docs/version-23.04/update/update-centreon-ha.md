@@ -23,9 +23,15 @@ pcs resource unmanage ms_mysql
 
 Lancer la mise à jour sur les deux serveurs centraux :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
-yum update
+dnf update
 ```
+
+</TabItem>
+</Tabs>
 
 Une fois les mises à jour terminées sur les deux serveurs, il reste à appliquer la mise à jour via l'interface web en fermant la session en cours ou en rafraichissant la page de login.
 
@@ -58,9 +64,15 @@ Afin de maintenir la compatibilité entre les [connecteurs de supervision](../mo
 
 Il est recommandé de mettre également à jour les pollers Centreon, **en particulier dans le cas où les paquets `centreon-engine` et/ou `centreon-broker` ont été mis à jour**.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
-yum update
+dnf update
 ```
+
+</TabItem>
+</Tabs>
 
 ### Export de la configuration Broker/Engine
 

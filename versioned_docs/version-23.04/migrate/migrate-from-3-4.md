@@ -6,7 +6,7 @@ title: Migrate from a Centreon 3.4 platform
 ## Prerequisites
 
 The following procedure only applies to migration from a Centreon 3.4 platform
-installed on a 64-bit GNU/Linux distribution other than CentOS / Oracle Linux / RHEL 8.
+installed on a 64-bit GNU/Linux distribution other than Oracle Linux / RHEL 8.
 Here are the system requirements:
 
 | Components      | Version |
@@ -14,10 +14,6 @@ Here are the system requirements:
 | Centreon Web    | 2.8.x   |
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
-
-> If your platform was installed from Centreon ISO or Centreon 3.4 repositories
-> running on CentOS or Red Hat version 7, refer to the
-> [upgrade](../upgrade/upgrade-from-3-4.md) documentation.
 
 ## Migrate
 
@@ -39,9 +35,29 @@ interface.
 
 2. Perform software and system updates:
 
-    ```shell
-    yum update
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
 
 > It is advisable to set the same password for the *centreon* user during the web
 > installation process.
@@ -76,7 +92,7 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
      service mysqld stop
     ```
 
-3. Export the dumps to the new Centreon 22.10 database server (make sure you
+3. Export the dumps to the new Centreon 23.04 database server (make sure you
 have enough space for large databases dumps):
 
   ```shell
@@ -84,7 +100,7 @@ have enough space for large databases dumps):
   rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
   ```
 
-4. On the Centreon 22.10 database server, drop the original databases and
+4. On the Centreon 23.04 database server, drop the original databases and
 create them again:
 
   ```shell
@@ -142,7 +158,7 @@ installation. The main directories to synchronize are:
 > To run the plugins, you must first install the required dependencies.
 
 > If you still have distant Centreon Engine 1.8.1 Pollers that you want to
-> postpone the upgrade to 22.10, be aware that Centreon Web 22.10 resource
+> postpone the upgrade to 23.04, be aware that Centreon Web 23.04 resource
 > $USER1$ actually points to /usr/lib64/nagios/plugins
 >
 > On the 1.8.1 Pollers to mitigate the issue:
@@ -161,18 +177,18 @@ installation. The main directories to synchronize are:
 > -rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 > ```
 
-You can now push poller configuration from Centreon 22.10 whether the distant
-Poller is Centreon Engine 22.10 or 1.8.1.
+You can now push poller configuration from Centreon 23.04 whether the distant
+Poller is Centreon Engine 23.04 or 1.8.1.
 
 ### Upgrade Centreon
 
 On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-22.10.0-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-23.04.0-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory:
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-22.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-23.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > If you use the same IP address or same DNS name between old Centreon webserver
@@ -202,4 +218,4 @@ configuration of all your pollers and export it.
 ### Upgrade the modules
 
 Please refer to the documentation of each module to verify compatibility with
-Centreon 22.10 and perform the upgrade.
+Centreon 23.04 and perform the upgrade.

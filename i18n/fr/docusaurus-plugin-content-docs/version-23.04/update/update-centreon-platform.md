@@ -1,12 +1,12 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 22.10
+title: Mise à jour d'une plateforme Centreon 23.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-22.10 (c'est-à-dire le passage de 22.10.x à 22.10.y).
+23.04 (c'est-à-dire le passage de 23.04.x à 23.04.y).
 
 ## Sauvegarde
 
@@ -17,48 +17,6 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur de gestion de base de données.
 
 ## Mise à jour du serveur Centreon Central
-
-### Prérequis
-
-Si vous aviez installé des paquets **debuginfo** (ou **dbgsym** sous Debian), désinstallez-le avant de mettre à jour la plateforme. Vous pourrez les réinstaller après.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Centos 7" label="Centos 7">
-
-```shell
-yum remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt remove 'centreon-*-dbgsym'
-```
-
-</TabItem>
-</Tabs>
 
 ### Mise à jour de la solution Centreon
 
@@ -80,18 +38,18 @@ Mettez à jour l'ensemble des composants :
   ```
 
 </TabItem>
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Videz le cache :
 
   ```shell
-  yum clean all --enablerepo=*
+  dnf clean all --enablerepo=*
   ```
 
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  yum update centreon\*
+  dnf update centreon\*
   ```
 
 </TabItem>
@@ -114,8 +72,9 @@ Mettez à jour l'ensemble des composants :
 </Tabs>
 
 Vous devez maintenant finaliser la mise à jour :
-  <Tabs groupId="sync">
-  <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
+
+<Tabs groupId="sync">
+<TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon pour démarrer le processus de
 mise à jour. Cliquez sur **Next** :
@@ -157,14 +116,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 22.10
+   - version : 23.04
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v22.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.04/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -211,10 +170,6 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-### Réinstaller les paquets **debuginfo** ou **dbgsym** (optionnel)
-
-Si vous aviez désinstallé des paquets **debuginfo** ou **dbgsym** avant la mise à jour, vous pouvez les réinstaller maintenant.
-
 ### Mise à jour des extensions
 
 Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
@@ -251,18 +206,18 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
   ```
 
 </TabItem>
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Videz le cache :
 
   ```shell
-  yum clean all --enablerepo=*
+  dnf clean all --enablerepo=*
   ```
 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  yum update centreon-poller
+  dnf update centreon-poller
   ```
 
 </TabItem>

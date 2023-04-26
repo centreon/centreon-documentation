@@ -43,8 +43,8 @@ section:
 open_files_limit = 32000
 ```
 
-> If you install Centreon on your RedHat or CentOS Linux version, you will be
-> able to do it manually. Don't forget to restart mariadb processes if you change
+> If you install Centreon on your RedHat Linux version, you will be
+> able to do it manually. Don't forget to restart the mariadb processes if you change
 > this value in my.cnf.
 
 If you use systemd, you need to create the

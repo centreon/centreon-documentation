@@ -21,7 +21,7 @@ exécutées périodiquement.
 
 Une fois les hôtes et services mis en supervision, ceux-ci ont un [statut](../alerts-notifications/concepts.md) dans Centreon (**OK**, **Alerte**, **Critique**...). Vous pouvez suivre leur évolution à la page [Statut des ressources](../alerts-notifications/resources-status.md).
 
-En cas de problème (statut non-OK/non-DISPONIBLE), les [contacts](basic-objects/contacts.md) pourront recevoir des [notifications](../alerts-notifications/notif-configuration.md), suivant des [périodes de temps](basic-objects/timeperiods.md) définies.
+En cas d'alerte (statut non-OK/non-DISPONIBLE), les [contacts](basic-objects/contacts.md) pourront recevoir des [notifications](../alerts-notifications/notif-configuration.md), suivant des [périodes de temps](basic-objects/timeperiods.md) définies.
 
 Avec Centreon, la supervision est rendue facile par les éléments suivants :
 

@@ -3,6 +3,9 @@ id: monitor-cisco-router-with-snmp
 title: Superviser votre premier routeur Cisco
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Superviser un routeur Cisco avec SNMP
 
 Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit des connecteurs de supervision Centreon (votre [licence](../administration/licenses.md) est déjà configurée).
@@ -24,9 +27,30 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le connecteur de supervision **Cisco standard**](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
 
-```shell
-yum install centreon-plugin-Network-Cisco-Standard-Snmp
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Network-Cisco-Standard-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-network-cisco-standard-snmp
+```
+
+</TabItem>
+
+</Tabs>
 
 ### Sur le serveur central
 

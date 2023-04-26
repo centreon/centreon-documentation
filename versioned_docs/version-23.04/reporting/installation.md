@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Install Centreon MBI extension
+title: Install the Centreon MBI extension
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -97,6 +97,24 @@ considerations.
 | apache (existing)    | centreonBI                 |
   
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+- Centreon Web 23.04
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
+  file (same as the one returned by the `timedatectl status` command).
+- Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
+  execution of long queries and can stop ETL or report generation jobs:
+  - wait_timeout
+  - interactive_timeout
+
+#### Users and groups
+
+| User                 | Group                      |
+|----------------------|----------------------------|
+| centreonBI (new)     | apache,centreon,centreonBI |
+| apache (existing)    | centreonBI                 |
+  
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 - Centreon Web 23.04
@@ -115,25 +133,6 @@ considerations.
 | apache (existing)    | centreonBI                   |
   
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-- Centreon Web 23.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`  file
-
-  (same as the one returned by the `timedatectl status` command).
-- Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
-  execution of long queries and can stop ETL or report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-
-#### Users and groups
-
-| User                 | Group                      |
-|----------------------|----------------------------|
-| centreonBI (new)     | apache,centreon,centreonBI |
-| apache (existing)    | centreonBI                 |
-
-</TabItem>
 </Tabs>
 
 #### Description of users, umask and home directory
@@ -146,28 +145,113 @@ considerations.
 
 #### Hardware layer
 
-| Number of services supervised | Minimum CPU          | RAM           |
-|-------------------------------|----------------------|---------------|
-| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
-| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
-| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
-| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                     | > Contact Centreon   |               |
+<Tabs groupId="sync">
+<TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
-#### Storage space
-Use [the following file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 GB      |
 
-#### Partitioning
+This is how your MBI server should be partitioned:
 
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 233 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
 
+</TabItem>
+<TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
 
-| File system                    | Size                                                                                         |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| /                              | 5GB minimum                                                                                  |
-| /var (containing MariaDB data) | Use the result of the above disk space simulation file                                       |
-| MariaDB temporary folder       | Strongly recommended to place it in /var                                                     |
-| Volume group*                  | 5G minimum free space on the **Volume group** hosting the MariaDB **data**.                  |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 GB      |
 
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 465 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 2,500 hosts" label="Up to 2,500 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 24 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 1163 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 5,000 hosts" label="Up to 5,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 24 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 2326 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 10,000 hosts" label="Up to 10,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 12 vCPU    |
+| RAM                         | 32 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 4651 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+
+For very large amounts of data, contact your sales representative.
+
+</TabItem>
+</Tabs>
 
 To check the free space, use the following command by replacing **vg_data** with the name of the group volume:
 
@@ -177,7 +261,7 @@ vgdisplay vg_data | grep -i free*
 
 #### Firmware and software layer
 
-- OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
+- OS : RHEL / Oracle Linux / Alma 8 or 9, Debian 11
 - SGBD : MariaDB 10.5
 - Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
 - SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
@@ -213,9 +297,9 @@ Description of users, umask and user directory:
 
 The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. Install the Business repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Then run the following command:
+2. Then run the following commands:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -225,36 +309,14 @@ dnf install centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install centreon-bi-server
+dnf install centreon-bi-server
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-Install **gpg**:
-
-```shell
-apt install gpg
-```
-
-Import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Then install Centreon MBI:
 
 ```shell
 apt update && apt install centreon-bi-server
@@ -278,7 +340,7 @@ MBI menu, *Reports > Monitoring Business Intelligence > General Options* :
 | Tabs                                                                                   | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Scheduler options                                                                      | CBIS Host                  | IP address of the reporting server                                                   |
-| ETL options A MariaDB database dedicated to reporting has been set up.                 | Yes                        |                                                                                      |
+| ETL options | Reporting engine uses a dedicated MySQL server                | Yes                        |                                                                                      |
 | Reporting widgets                                                                      | Reporting MariaDB database | IP address of the reporting base (default = IP address of the reporting server)      |
 
 \**The connection test will not work at this point in the installation*.
@@ -288,7 +350,7 @@ MBI menu, *Reports > Monitoring Business Intelligence > General Options* :
 Download the license sent by the Centreon team to start configuring the general options.
 
 <Tabs groupId="sync">
-<TabItem value="Local monitoring base at the central office" label="Local monitoring base at the central office">
+<TabItem value="Monitoring database on the central server" label="Monitoring database on the central server">
 
 The MariaDB monitoring database is hosted on the central monitoring server.
 
@@ -304,7 +366,7 @@ Use the following option:
 If there is no password for the "root" user, do not specify the **root-password** option.
 
 </TabItem>
-<TabItem value="Remote monitoring base in relation to the central office" label="Remote monitoring base in relation to the central office">
+<TabItem value="Monitoring database on a remote server" label="Monitoring database on a remote server">
 
 The MariaDB monitoring database is hosted on a dedicated server.
 
@@ -334,7 +396,11 @@ Then, create the views manually on the slave server by running the following
 command:
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
+
+```bash
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Debian 11 specific configuration
@@ -352,7 +418,6 @@ systemctl restart mariadb
 ```
 
 ### Give rights to the cbis user
-
 
 When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) named **cbis** is automatically created.
 It allows the report generation engine to extract data from Centreon (using the APIs) in order to insert them in the report.
@@ -397,9 +462,51 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
-1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. To start installing the reporting server, install the Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Then run the following command:
+2. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+   
+   - If you need to check the Java version, enter the following command:
+   
+   ```shell
+   java -version
+   ```
+   
+   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+   
+   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
+
+3. Install the MariaDB repository:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+</Tabs>
+
+4. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -489,7 +596,100 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Enable the **codeready-builder** repository:
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+Then launch the installation:
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, install the GPG key:
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Enable codeready-builder repositories:
+
+```shell
+dnf config-manager --set-enabled ol9_codeready_builder
+```
+
+Then launch the installation:
+
+```shell
+dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, install the GPG key:
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Alma 9" label="Alma 9">
+
+Install the **epel** repository :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Run the following command:
+
+```shell
+dnf config-manager --set-enabled 'crb' 
+```
+
+Then launch the installation:
+
+```shell
+dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+```
+
+In the case of an installation based on a blank distribution, install the GPG key:
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
+Install the Centreon repository :
+￼
+￼```shell
+￼echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+￼```
 
 Install the prerequisite packages:
 
@@ -519,46 +719,6 @@ apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Java version requirement
-  
-> Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-- If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-Now you can install the repository:
-
-```shell
-yum install https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
-```
-
-Install MBI:
-
-```shell
-yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-In the case of an installation based on a blank distribution, import the :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
-
-</TabItem>
 </Tabs>
 
 Enable the **cbis** service:
@@ -578,7 +738,42 @@ systemctl start gorgoned && systemctl enable gorgoned
 #### MariaDB Optimizations
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 /  RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
+in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
+
+```shell
+systemctl restart mariadb
+```
+
+It is necessary to change the limitation **LimitNOFILE**. Changing this
+option in `/etc/my.cnf` will NOT work.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+If the MariaDB service fails to start, remove the files *ib_logfile*
+(MariaDB must absolutely be stopped)and then restart MariaDB again:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+If you are using a specific socket file for MariaDB, modify the file `/etc/my.cnf` and
+in the [client] section, add :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
 in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
@@ -696,39 +891,35 @@ Once the installation is complete, continue to the next chapter to configure the
 In some cases, SSH key exchange fails.
 To solve the problem, do the following manually:
 
-**On the monitoring server**. To start, switch to the `bash` environment of `centreonBI` :
+Switch to the `centreonBI` user :
 
 ```bash
 su - centreonBI
 ```
 
-Next, generate an SSH key to prepare the :
+Generate the SSH key :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
+ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -P "" -q
 ```
 
-Then, **on the reporting server**, switch to the `bash` environment of `centreonBI` :
+And print the `centreonBI` public key (in order to authorize it then on Centreon) :
 
 ```bash
 su - centreonBI
+cat /home/centreonBI/.ssh/id_ed25519.pub
 ```
 
-Generate the SSH key:
+Now, **on the monitoring server** :
+
+Create a `.ssh` folder that `centreonBI` will own, restrict permissions on this folder and paste into the `authorized_keys` file the contents of its public key on the reporting server (shown earlier) :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
-cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@reporting pub key content@" > /home/centreonBI/.ssh/authorized_keys
 ```
 
-After executing these commands, copy the contents of the file that was displayed by the `cat` command and paste it into the **~/.ssh/authorized_keys** **file on the monitoring server**
-and then apply the correct permissions to the file (still as the `centreon` user) and then apply the correct permissions to the file (still as the `centreon` user):
-
-```bash
-chmod 600 ~/.ssh/authorized_keys
-```
-
-The key exchange must then be validated by a first connection that will accept the SSH server signature (always as the `centreonBI` user) **from the reporting server** :
+The key exchange must then be validated by a first connection that will accept the SSH server signature.
+As the `centreonBI` user **from the reporting server** :
 
 ```bash
 ssh centreonBI@@MONITORING_SERVER@

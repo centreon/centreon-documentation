@@ -3,6 +3,9 @@ id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The objective of this tutorial is to monitor a Mysql/MariaDB database.
 
 ## Prerequisites
@@ -27,9 +30,30 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 Install the following plugin on the poller that will monitor your database:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ``` shell
-yum install centreon-plugin-Applications-Databases-Mysql
+dnf install centreon-plugin-Applications-Databases-Mysql
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Applications-Databases-Mysql
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-applications-databases-mysql
+```
+
+</TabItem>
+
+</Tabs>
 
 ### On the central server
 
