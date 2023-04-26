@@ -686,7 +686,7 @@ message Host {
   bool flap_detection_on_down = 54;       // Le statut indsponible est pris en compte pour la détection du bagotement.
   bool flap_detection_on_unreachable = 55;// Le statut injoignable est pris en compte pour la détection du bagotement.
   bool flap_detection_on_up = 56;         // Le statut OK est pris en compte pour la détection du bagotement.
-  double freshness_threshold = 57;        // Delay after check result is stale.
+  double freshness_threshold = 57;        // Délai après lequel le résultat du contrôle n'est plus considéré comme frais.
   double high_flap_threshold = 58;        // Si le pourcentage de changement de statut dépasse ce seuil, l'hôte est considéré en bagotement.
   string name = 59;                       // Nom de l'hôte.
   string icon_image = 60;                 // Icône affichée dans l'interface pour cet hôte.
@@ -1453,90 +1453,89 @@ message Service {
     PENDING = 4;
   }
   State state = 13;                           // État courant du service.
-  bool event_handler_enabled = 14;            // Event handler enabled?
-  string event_handler = 15;                  // Command executed when state changes.
-  double execution_time = 16;                 // Duration of last check.
-  bool flap_detection = 17;                   // Is flap detection enabled?
-  bool checked = 18;                          // Is this service checked?
-  bool flapping = 19;                         // Is this service flapping?
-  int64 last_check = 20;                      // Timestamp of the last check.
-  State last_hard_state = 21;                 // Last hard state.
-  int64 last_hard_state_change = 22;          // Timestamp of the last hard state change.
-  int64 last_notification = 23;               // Timestamp of the last notification.
-  int32 notification_number = 24;             // Number of notifications sent since the start of the problem.
-  int64 last_state_change = 25;               // Timestamp of the last state change.
-  int64 last_time_ok = 26;                    // Timestamp of the last check OK return code.
-  int64 last_time_warning = 27;               // Timestamp of the last check WARNING return code.
-  int64 last_time_critical = 28;              // Timestamp of the last check CRITICAL return code.
-  int64 last_time_unknown = 29;               // Timestamp of the last check UNKNOWN return code.
-  int64 last_update = 30;                     // Timestamp of this event creation.
-  double latency = 31;                        // Delay between scheduled check time and real check time.
-  uint32 max_check_attempts = 32;             // Number of failed checks after which service state becomes a hard fail state.
-  int64 next_check = 33;                      // Next scheduled check timestamp.
-  int64 next_notification = 34;               // Next notification timestamp.
-  bool no_more_notifications = 35;            // No other notification will be sent.
-  bool notify = 36;                           // Are notifications enabled on this service?
-  string output = 37;                         // Output of the check command.
-  string long_output = 38;                    // Long output of the check command.
-  bool passive_checks = 39;                   // Are passive checks enabled?
-  double percent_state_change = 40;           // Used by flapping and compared with high and low flap thresholds.
-  string perfdata = 41;                       // Perfdata extracted from the command's output.
-  double retry_interval = 42;                 // Interval between two checks when service isn't in ok state and state type is SOFT.
-  string host_name = 43;                      // Host name of this service.
-  string description = 44;                    // Description of this service
-  bool should_be_scheduled = 45;              // Is there a next check scheduled?
-  bool obsess_over_service = 46;              // True if OCSP command is executed after check or notification command.
+  bool event_handler_enabled = 14;            // Event handler activé?
+  string event_handler = 15;                  // Commande exécutée lors d'un changement d'état.
+  double execution_time = 16;                 // Durée du dernier contrôle.
+  bool flap_detection = 17;                   // La détaction du bagotement est-elle activée ?
+  bool checked = 18;                          // Le service a-t-il été contrôlé ?
+  bool flapping = 19;                         // Le service est-il en état de bagotement ?
+  int64 last_check = 20;                      // Timestamp du dernier contrôle.
+  State last_hard_state = 21;                 // Dernier état hard.
+  int64 last_hard_state_change = 22;          // Timestamp du dernier changement d'état hard.
+  int64 last_notification = 23;               // Timestamp de la dernière notification.
+  int32 notification_number = 24;             // Nombre de notifications envoyées depuis le début de l'alerte.
+  int64 last_state_change = 25;               // Timestamp du dernier changement de statut.
+  int64 last_time_ok = 26;                    // Timestamp du dernier code retour check OK.
+  int64 last_time_warning = 27;               // Timestamp du dernier code retour check WARNING.
+  int64 last_time_critical = 28;              // Timestamp du dernier code retour check CRITICAL.
+  int64 last_time_unknown = 29;               // Timestamp du dernier code retour check UNKNOWN.
+  int64 last_update = 30;                     // Timestamp de la création de cet évènement.
+  double latency = 31;                        // Délai entre l'heure de contrôle programmée et celle de l'exécution du contrôle.
+  uint32 max_check_attempts = 32;             // Nombre de contrôles non OK après lesquels le service entre dans un état non OK hard.
+  int64 next_check = 33;                      // Timestamp du prochain contrôle programmé.
+  int64 next_notification = 34;               // Timestamp de la prochaine notification.
+  bool no_more_notifications = 35;            // Aucune autre notification ne sera envoyée.
+  bool notify = 36;                           // Les notifications sont-elles activées sur ce service?
+  string output = 37;                         // Output de la commande de contrôle.
+  string long_output = 38;                    // Output long de la commande de contrôle.
+  bool passive_checks = 39;                   // Les contrôles passifs sont-ils activés?
+  double percent_state_change = 40;           // Utilisé par le bagotement, et comparé aux seuils hauts et bas de bagotement.
+  string perfdata = 41;                       // Données de performance extraites de l'output de la commande.
+  double retry_interval = 42;                 // Intervalle entre deux contrôles lorsque le service n'est pas dans un statut OK et que le type d'état est SOFT.
+  string host_name = 43;                      // Nom de l'hôte pour ce service.
+  string description = 44;                    // Description de ce service.
+  bool should_be_scheduled = 45;              // Un prochain contrôle est-il programmé ?
+  bool obsess_over_service = 46;              // True si une commande OCSP est exécutée après un contrôle ou une commande de notification.
 
   enum StateType {
     SOFT = 0;
     HARD = 1;
   }
 
-  StateType state_type = 47;                  // StateType value.
-  string action_url = 48;                     // Url to obtain information about this service.
-  bool check_freshness = 49;                  // Passive freshness check activated?
-  bool default_active_checks = 50;            // Default value of active_checks.
-  bool default_event_handler_enabled = 51;    // Default value of event_handler_enabled.
-  bool default_flap_detection = 52;           // Default value of flap detection.
-  bool default_notify = 53;                   // Default value of notify.
-  bool default_passive_checks = 54;           // Default value of passive checks.
-  string display_name = 55;                   // Name displayed in WUI.
-  double first_notification_delay = 56;       // Delay before notify in units (usually 60s).
-  bool flap_detection_on_critical = 57;       // Critical state is taken into account for flap detection.
-  bool flap_detection_on_ok = 58;             // Ok state is taken into account for flap detection.
-  bool flap_detection_on_unknown = 59;        // Unknown state is taken into account for flap detection.
-  bool flap_detection_on_warning = 60;        // Warning state is taken into account for flap detection.
-  double freshness_threshold = 61;            // Delay after check result is stale.
-  double high_flap_threshold = 62;            // If percent state change is higher than this, service is considered flapping.
-  string icon_image = 63;                     // Icon displayed in the WUI for the service.
-  string icon_image_alt = 64;                 // Alternate string for icon_image.
-  bool is_volatile = 65;                      // Is the service volatile?
-  double low_flap_threshold = 66;             // If percent state change is lower than this, service is not considered flapping.
-  string notes = 67;                          // Tooltip in resources status page.
-  string notes_url = 68;                      // Clickable url in resources status page.
-  double notification_interval = 69;          // Interval between two notifications.
-  string notification_period = 70;            // Time period during which notifications are allowed.
-  bool notify_on_critical = 71;               // Users are notified if service state becomes critical.
-  bool notify_on_downtime = 72;               // Users are notified if service enters in downtime.
-  bool notify_on_flapping = 73;               // Users are notified if service is flapping.
-  bool notify_on_recovery = 74;               // Users are notified if service becomes OK.
-  bool notify_on_unknown = 75;                // Users are notified if service state becomes unknown.
-  bool notify_on_warning = 76;                // Users are notified if service state becomes warning.
-  bool stalk_on_critical = 77;                // Users are notified if service state becomes critical.
-  bool stalk_on_ok = 78;                      // Logs check output event change if state is OK.
-  bool stalk_on_unknown = 79;                 // Logs check output event change if state is unknown.
-  bool stalk_on_warning = 80;                 // Logs check output event change if state is warning.
-  bool retain_nonstatus_information = 81;     // unused.
-  bool retain_status_information = 82;        // unused.
-  uint64 severity_id = 83;                    // Severity ID or 0.
-  repeated TagInfo tags = 84;                 // Tag IDs.
+  StateType state_type = 47;                  // Valeur de StateType.
+  string action_url = 48;                     // URL permettant d'obtenir des informations sur ce service.
+  bool check_freshness = 49;                  // Contrôle de fraîcheur passive activé?
+  bool default_active_checks = 50;            // Valeur par défaut pour active_checks.
+  bool default_event_handler_enabled = 51;    // Valeur par défaut pour event_handler_enabled.
+  bool default_flap_detection = 52;           // Valeur par défaut pour flap detection.
+  bool default_notify = 53;                   // Valeur par défaut pour notify.
+  bool default_passive_checks = 54;           // Valeur par défaut pour passive checks.
+  string display_name = 55;                   // Non affiché dans l'interface.
+  double first_notification_delay = 56;       // Délai avant de notifier, en unités (généralement 60s).
+  bool flap_detection_on_critical = 57;       // Le statut critique est pris en compte pour la détection du bagotement.
+  bool flap_detection_on_ok = 58;             // Le statut ok est pris en compte pour la détection du bagotement.
+  bool flap_detection_on_unknown = 59;        // Le statut inconnu est pris en compte pour la détection du bagotement.
+  bool flap_detection_on_warning = 60;        // Le statut alerte est pris en compte pour la détection du bagotement.
+  double freshness_threshold = 61;            // Délai après lequel le résultat du contrôle n'est plus considéré comme frais.
+  double high_flap_threshold = 62;            // Si le pourcentage de changement est plus élevé que ce nombre, le service est considéré comme en état de bagotement.
+  string icon_image = 63;                     // Icône affichée dans l'interface pour ce service.
+  string icon_image_alt = 64;                 // Texte alternatif pour icon_image.
+  bool is_volatile = 65;                      // Le service est-il volatile?
+  double low_flap_threshold = 66;             // Si le pourcentage de changement est moins élevé que ce nombre, le service n'est pas considéré comme en état de bagotement.
+  string notes = 67;                          // Infobulle dans la page Statut des ressources.
+  string notes_url = 68;                      // URL cliquable dans la page Statut des ressources.
+  double notification_interval = 69;          // Intervalle entre deux notifications.
+  string notification_period = 70;            // Période de temps pendant laquelle les notifications sont autorisées.
+  bool notify_on_critical = 71;               // Les utilisateurs sont notifiés si le statut du service devient critique.
+  bool notify_on_downtime = 72;               // Les utilisateurs sont notifiés si une plage de maintenance est appliquée au service.
+  bool notify_on_flapping = 73;               // Les utilisateurs sont notifiés si le service est en état de bagotement.
+  bool notify_on_recovery = 74;               // Les utilisateurs sont notifiés si le statut du service devient Disponible.
+  bool notify_on_unknown = 75;                // Les utilisateurs sont notifiés si le statut du service devient inconnu.
+  bool notify_on_warning = 76;                // Les utilisateurs sont notifiés si le statut du service devient alerte.
+  bool stalk_on_critical = 77;                // Les utilisateurs sont notifiés si le statut du service devient critique.
+  bool stalk_on_ok = 78;                      // Inscrit dans le log le changement d'output si le statut passe à disponible.
+  bool stalk_on_unknown = 79;                 // Inscrit dans le log le changement d'output si le statut passe à inconnu.
+  bool stalk_on_warning = 80;                 // Inscrit dans le log le changement d'output si le statut passe à alerte
+  bool retain_nonstatus_information = 81;     // Non utilisé.
+  bool retain_status_information = 82;        // Non utilisé.
+  uint64 severity_id = 83;                    // ID de la sévérité, ou 0.
+  repeated TagInfo tags = 84;                 // IDs des tags.
 
-  ServiceType type = 85;                      // What kind of service is it?
+  ServiceType type = 85;                      // De quel type de service s'agit-il?
 
-  /* In case of metaservice and ba, they also have an internal id. We keep it
-   * here. */
-  uint64 internal_id = 86;                    // ID of metaservice or ba.
-  uint64 icon_id = 87;                        // Icon ID.
+  /* Les métaservices et les BA ont un ID interne. Il est stocké ici. */
+  uint64 internal_id = 86;                    // ID du métaservice ou de la BA.
+  uint64 icon_id = 87;                        // ID de l'icône.
 }
 ```
 
@@ -1593,12 +1592,12 @@ enum CheckType {
 message Check {
     BBDOHeader header = 1;
 
-    bool active_checks_enabled = 2;   // True if active checks are enabled on the host.
-    CheckType check_type = 3;         // One of the values in CheckType.
-    string command_line = 4;          // Check command line.
+    bool active_checks_enabled = 2;   // True si les contrôles actifs sont activés sur l'hôte.
+    CheckType check_type = 3;         // L'une des valeurs de CheckType.
+    string command_line = 4;          // Commande de contrôle.
     uint64 host_id = 5;               // ID de l'hôte.
-    uint64 next_check = 6;            // Timestamp at which the next check is scheduled.
-    uint64 service_id = 7;            // Service ID or 0 for a host check.
+    uint64 next_check = 6;            // Timestamp pour lequel le prochain contrôle est programmé.
+    uint64 service_id = 7;            // ID du service, ou 0 pour un contrôle sur un hôte.
 }
 ```
 
@@ -1783,14 +1782,14 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 ```cpp
 message ServiceStatus {
   uint64 host_id = 1;                         // ID de l'hôte.
-  uint64 service_id = 2;                      // Service ID.
+  uint64 service_id = 2;                      // ID du service.
 
-  bool checked = 3;                          // Is this service checked?
+  bool checked = 3;                          // Le service est-il contrôlé?
   enum CheckType {
     ACTIVE = 0;
     PASSIVE = 1;
   }
-  CheckType check_type = 4;                  // CheckType value.
+  CheckType check_type = 4;                  // Valeur de CheckType.
 
   enum State {
     OK = 0;
@@ -1799,46 +1798,45 @@ message ServiceStatus {
     UNKNOWN = 3;
     PENDING = 4;
   }
-  State state = 5;                           // Current state of this service.
+  State state = 5;                           // État courant du service.
   enum StateType {
     SOFT = 0;
     HARD = 1;
   }
-  StateType state_type = 6;                  // StateType value.
-  int64 last_state_change = 7;               // Timestamp of the last state change.
-  State last_hard_state = 8;                 // Last hard state.
-  int64 last_hard_state_change = 9;          // Timestamp of the last hard state change.
-  int64 last_time_ok = 10;                   // Timestamp of the last check OK return code.
-  int64 last_time_warning = 11;              // Timestamp of the last check WARNING return code.
-  int64 last_time_critical = 12;             // Timestamp of the last check CRITICAL return code.
-  int64 last_time_unknown = 13;              // Timestamp of the last check UNKNOWN return code.
+  StateType state_type = 6;                  // Valeur de StateType.
+  int64 last_state_change = 7;               // Timestamp du dernier changement d'état.
+  State last_hard_state = 8;                 // Dernier état hard.
+  int64 last_hard_state_change = 9;          // Timestamp du dernier changement d'état hard.
+  int64 last_time_ok = 10;                   // Timestamp du dernier code retour OK.
+  int64 last_time_warning = 11;              // Timestamp du dernier code retour WARNING.
+  int64 last_time_critical = 12;             // Timestamp  du dernier code retour CRITICAL.
+  int64 last_time_unknown = 13;              // Timestamp  du dernier code retour UNKNOWN.
 
-  string output = 14;                        // Output of the check command.
-  string long_output = 15;                   // Long output of the check command.
-  string perfdata = 16;                      // Perfdata extracted from the command's output.
+  string output = 14;                        // Output de la commande de contrôle.
+  string long_output = 15;                   // Output long de la commande de contrôle.
+  string perfdata = 16;                      // Données de performance extraites de l'output de la commande.
 
-  bool flapping = 17;                        // Is this service flapping?
-  double percent_state_change = 18;          // Used by flapping and compared with high and low flap thresholds.
-  double latency = 19;                       // Delay between scheduled check time and real check time.
-  double execution_time = 20;                // Duration of last check.
-  int64 last_check = 21;                     // Timestamp of the last check.
-  int64 next_check = 22;                     // Next scheduled check timestamp.
-  bool should_be_scheduled = 23;             // Is there a next check scheduled?
-  int32 check_attempt = 24;                  // Number of failed checks after which service state becomes a hard fail state.
+  bool flapping = 17;                        // Le service est-il en état de bagotement ?
+  double percent_state_change = 18;          // Utilisé par le bagotement, et comparé aux seuils hauts et bas de bagotement.
+  double latency = 19;                       // Délai entre l'heure de contrôle programmée et celle à laquelle le contrôle a été exécuté.
+  double execution_time = 20;                // Durée du dernier contrôle.
+  int64 last_check = 21;                     // Timestamp du dernier contrôle.
+  int64 next_check = 22;                     // Timestamp du prochain contrôle programmé.
+  bool should_be_scheduled = 23;             // Un prochain contrôle est-il programmé?
+  int32 check_attempt = 24;                  // Nombre de contrôles non OK après lesquels un service entre dans un état non OK hard.
 
-  int32 notification_number = 25;            // Number of notifications sent since the start of the problem.
-  bool no_more_notifications = 26;           // No other notification will be sent.
-  int64 last_notification = 27;              // Timestamp of the last notification.
-  int64 next_notification = 28;              // Next notification timestamp.
+  int32 notification_number = 25;            // Nombre de notifications envoyées depuis le début de l'alerte.
+  bool no_more_notifications = 26;           // Aucune autre notification ne sera envoyée.
+  int64 last_notification = 27;              // Timestamp de la dernière notification.
+  int64 next_notification = 28;              // Timestamp de la prochaine notification.
 
-  AckType acknowledgement_type = 29;         // AckType value.
-  int32 scheduled_downtime_depth = 30;       // Number of active downtimes.
+  AckType acknowledgement_type = 29;         // Valeur de AckType.
+  int32 scheduled_downtime_depth = 30;       // Nombre de plages de maintenance actives.
 
-  ServiceType type = 31;                     // What kind of service is it?
+  ServiceType type = 31;                     // De quel type de service s'agit-il ?
 
-  /* In case of metaservice and ba, they also have an internal id. We keep it
-   * here. */
-  uint64 internal_id = 32;                   // ID of metaservice or ba.
+  /* Les métaservices et les BA ont un ID interne. Il est stocké ici. */
+  uint64 internal_id = 32;                   // ID du métaservice ou de la BA.
 }
 ```
 
@@ -1947,23 +1945,23 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 ```cpp
 message AdaptiveService {
   uint64 host_id = 1;                         // ID de l'hôte.
-  uint64 service_id = 2;                      // Service ID.
+  uint64 service_id = 2;                      // ID du service.
 
-  optional bool notify = 3;                   // Are notifications enabled on this service?
-  optional bool active_checks = 4;            // Are active checks enabled?
-  optional bool should_be_scheduled = 5;      // Is there a next check scheduled?
-  optional bool passive_checks = 6;           // Are passive checks enabled?
-  optional bool event_handler_enabled = 7;    // Event handler enabled?
-  optional bool flap_detection_enabled = 8;   // Is flap detection enabled?
-  optional bool obsess_over_service = 9;      // True if OCSP command is executed after check or notification command.
-  optional string event_handler = 10;         // Command executed when state changes.
-  optional string check_command = 11;         // Command executed.
-  optional uint32 check_interval = 12;        // Interval in units (usually 60s) between 2 checks.
-  optional uint32 retry_interval = 13;        // Interval between two checks when service isn't in ok state and state type is SOFT.
-  optional uint32 max_check_attempts  = 14;   // Number of failed checks after which service state becomes a hard fail state.
-  optional bool check_freshness = 15;         // Passive freshness check activated?
-  optional string check_period = 16;          // Time period when checks are authorized.
-  optional string notification_period = 17;   // Time period when notifications are authorized.
+  optional bool notify = 3;                   // Les notifications sont-elles activées sur ce service?
+  optional bool active_checks = 4;            // Les contrôles actifs sont-ils activés ?
+  optional bool should_be_scheduled = 5;      // Un prochain contrôle est-il programmé ?
+  optional bool passive_checks = 6;           // Les contrôles passifs sont-ils activés ?
+  optional bool event_handler_enabled = 7;    // Event handler est-il activé ?
+  optional bool flap_detection_enabled = 8;   // La détection du bagotement est-elle activée ?
+  optional bool obsess_over_service = 9;      // True si une commande OCSP est exécutée après un contôle ou une commande de notification.
+  optional string event_handler = 10;         // Commande exécutée quand le statut change.
+  optional string check_command = 11;         // Command exécutée.
+  optional uint32 check_interval = 12;        // Intervalle en unités (généralement 60s) entre 2 contrôles.
+  optional uint32 retry_interval = 13;        // Intervalle entre deux contrôles lorsque le service n'est pas dans un statut OK et que le type d'état est SOFT.
+  optional uint32 max_check_attempts  = 14;   // Nombre de contrôles non OK après lesquels un service entre dans un état non OK hard.
+  optional bool check_freshness = 15;         // Le contrôle passif de fraîcheur est-il activé ?
+  optional string check_period = 16;          // Période de temps pendant laquelle les contrôles sont autorisés.
+  optional string notification_period = 17;   // Période de temps pendant laquelle les notifications sont autorisées.
 }
 ```
 
@@ -1997,21 +1995,21 @@ Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3
 message AdaptiveHost {
   uint64 host_id = 1;                         // ID de l'hôte.
 
-  optional bool notify = 2;                   // Are notifications enabled on this service?
-  optional bool active_checks = 3;            // Are active checks enabled?
-  optional bool should_be_scheduled = 4;      // Is there a next check scheduled?
-  optional bool passive_checks = 5;           // Are passive checks enabled?
-  optional bool event_handler_enabled = 6;    // Event handler enabled?
-  optional bool flap_detection = 7;           // Is flap detection enabled?
-  optional bool obsess_over_host = 8;         // True if OCSP command is executed after check or notification command.
-  optional string event_handler = 9;          // Command executed when state changes.
-  optional string check_command  = 10;        // Command executed.
-  optional uint32 check_interval  = 11;       // Interval in units (usually 60s) between 2 checks.
-  optional uint32 retry_interval  = 12;       // Interval between two checks when service isn't in ok state and state type is SOFT.
-  optional uint32 max_check_attempts  = 13;   // Number of failed checks after which service state becomes a hard fail state.
-  optional bool check_freshness = 14;         // Passive freshness check activated?
-  optional string check_period  = 15;         // Time period when checks are authorized.
-  optional string notification_period  = 16;  // Time period when notifications are authorized.
+  optional bool notify = 2;                   // Les notifications sont-elles activées sur ce service ?
+  optional bool active_checks = 3;            // Les contrôles actifs sont-ils activés ?
+  optional bool should_be_scheduled = 4;      // Un prochain contrôle est-il programmé ?
+  optional bool passive_checks = 5;           // Les contrôles passifs sont-ils activés ?
+  optional bool event_handler_enabled = 6;    // Event handler est-il activé ?
+  optional bool flap_detection = 7;           // La détection du bagotement est-elle activée ?
+  optional bool obsess_over_host = 8;         // True si une commande OCSP est exécutée après un contôle ou une commande de notification.
+  optional string event_handler = 9;          // Commande exécutée quand le statut change.
+  optional string check_command  = 10;        // Commande exécutée.
+  optional uint32 check_interval  = 11;       // Intervalle en unités (généralement 60s) entre 2 contrôles.
+  optional uint32 retry_interval  = 12;       // Intervalle entre deux contrôles lorsque le service n'est pas dans un statut OK et que le type d'état est SOFT.
+  optional uint32 max_check_attempts  = 13;   // Nombre de contrôles non OK après lesquels un service entre dans un état non OK hard.
+  optional bool check_freshness = 14;         // Le contrôle passif de fraîcheur est-il activé ?
+  optional string check_period  = 15;         // Période de temps pendant laquelle les contrôles sont autorisés.
+  optional string notification_period  = 16;  // Période de temps pendant laquelle les notifications sont autorisées.
 }
 ```
 
