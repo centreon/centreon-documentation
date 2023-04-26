@@ -48,11 +48,139 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
+#### Matériel
+
+<Tabs groupId="sync">
+<TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 2 vCPU    |
+| RAM                         | 4 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+</TabItem>
+<TabItem value="Jusqu'à 1 000 hôtes" label="Jusqu'à 1 000 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 4 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+
+</TabItem>
+<TabItem value="Jusqu'à 2 500 hôtes" label="Jusqu'à 2 500 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 10 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+
+</TabItem>
+<TabItem value="Jusqu'à 5 000 hôtes" label="Jusqu'à 5 000 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 4 vCPU    |
+| RAM                         | 18 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+</TabItem>
+<TabItem value="Jusqu'à 10 000 hôtes" label="Jusqu'à 10 000 hôtes">
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU    | 6 vCPU    |
+| RAM                         | 18 Go      |
+
+Votre serveur MAP doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 5 Go                              |
+| vg_data |   | Espace libre (non alloué) | 2 Go                              |
+
+</TabItem>
+<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+
+Pour de grosses volumétries de données, contactez votre commercial Centreon.
+
+</TabItem>
+</Tabs>
+
+#### Mémoire pour Java
+
+Pour implémenter correctement la mémoire dédiée :
+
+1. Modifiez le paramètre **JAVA_OPTS** dans le fichier de configuration Centreon MAP
+`/etc/centreon-map/centreon-map.conf`:
+
+   ```text
+   JAVA_OPTS="-Xms512m -Xmx4G"
+   ```
+
+   > La valeur Xmx dépend de la quantité de mémoire indiquée dans les tableaux dans la section [Matériel](#matériel).
+
+2. Redémarrez le service :
+
+   ```shell
+   systemctl restart centreon-map-engine
+   ```
+
 #### Informations requises lors de la configuration
 
 - Connexion à Centreon Web avec des droits d'administrateur.
 
 > Même avec un serveur correctement dimensionné, vous devez garder à l'esprit les meilleures pratiques et recommandations lors de la création de vues afin de ne pas rencontrer de problèmes de performance.
+
+> Si le serveur central est configuré en HTTPS, vous devez appliquer la configuration SSL sur le serveur MAP. Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser votre serveur MAP.
 
 ### Client web de Centreon MAP
 
@@ -94,6 +222,26 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 ### Étape 3 : installer le serveur MAP Engine
 
+#### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+
+#### Procédure
+
 Si vous installez votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet **centreon-release** :
 
 <Tabs groupId="sync">
@@ -122,26 +270,6 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
-
-#### Prérequis de la version Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
-  
-  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-  
-  ```shell
-  java -version
-  ```
-  
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-  ```shell
-  sudo update-alternatives --config java
-  ```
-
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
-  
-Vous pouvez maintenant procéder à l'installation du paquet **centreon-release** :
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04.el7.centos.noarch.rpm
@@ -173,7 +301,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
-Installez le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Installez ensuite le serveur Centreon MAP Engine à l'aide de la commande suivante :
 
@@ -399,7 +527,7 @@ Le serveur Centreon MAP est maintenant démarré et activé : installons la part
 
 ### Étape 1 : installer le dépôt Business
 
-Installez le dépôt de Centreon MAP : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ### Étape 2 : installer le module MAP
 
@@ -483,3 +611,10 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.
+
+## Sécuriser MAP en HTTPS
+
+Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP.
+
+- Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
+- Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser MAP.

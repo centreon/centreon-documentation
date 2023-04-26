@@ -22,7 +22,7 @@ Si vous voulez pouvoir voir les Activités métier supervisées par un serveur d
 
 ### Installation du paquet
 
-Ajouter le dépôt Centreon BAM, vous pouvez le trouver sur le 
+Ajouter le dépôt Centreon Business, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 Et installer le paquet en exécutant la commande ci-dessous :

@@ -1023,6 +1023,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+            },
+            {
+              "type": "doc",
               "id": "version-22.10/upgrade/centreon-ha/upgrade-from-centreon-failover"
             },
             {
@@ -1161,10 +1165,6 @@
             {
               "type": "doc",
               "id": "version-22.10/integrations/event-management/sc-signl4-events"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-servicenow-mid-server"
             }
           ]
         },
