@@ -32,6 +32,7 @@ dnf install centreon-widget-ntopng-listing
 dnf install centreon-widget-ntopng-listing
 ```
 
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
