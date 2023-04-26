@@ -100,15 +100,15 @@ pour élire un nœud maître ou un rôle ressource.
 
 ### Logiciels et systèmes d'exploitation
 
-Centreon supporte officiellement le Clustering sur les produits suivants : 
+Centreon supporte officiellement le Clustering sur les produits suivants :
 
 * Toutes les éditions sous licence de Centreon 
 * Serveur de Centreon-Map
 
 Et sur les systèmes d'exploitation suivants : 
 
-* CentOS 7
-* RHEL 7 
+* Alma / RHEL / Oracle Linux 8
+* Debian 11
 
 *Important:* Pour installer les paquets pacemaker et corosync sur les systèmes RedHat, les serveurs doivent avoir accès au dépôt
 sous licence _Red Hat Enterprise Linux High Availability_.  

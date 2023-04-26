@@ -1135,7 +1135,7 @@ pcs resource create vip_mysql \
 
 ### Creating the clone resources
 
-Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP7). For the second kind, you will declare *clone* resources.
+Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP). For the second kind, you will declare *clone* resources.
 
 > **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
