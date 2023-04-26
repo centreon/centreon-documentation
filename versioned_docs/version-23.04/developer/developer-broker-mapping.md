@@ -456,7 +456,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Flapping status
 
-When the status of a resource is unstable, Centreon Engine tags it as **flapping**. In the past, a **flapping status** event was emitted in such casees - it is no longer the case. The **flapping status** event **does not exist anymore**.
+When the status of a resource is unstable, Centreon Engine tags it as **flapping**. In the past, a **flapping status** event was emitted in such cases - it is no longer the case. The **flapping status** event **does not exist anymore**.
 
 ### Tag
 
