@@ -19,7 +19,7 @@ Sur le serveur central, installez les Packs requis à l'aide des commandes suiva
 yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
 ```
 
-À partir du gestionnaire de PLugin Packs, installez les packs.
+À partir du Gestionnaire de connecteurs de supervision, installez les packs.
 
 ### Installer les plugins
 

@@ -134,7 +134,7 @@ apt update centreon-pack-*
 </TabItem>
 </Tabs>
 
-> Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des Plugin Packs disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
+> Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des connecteurs de supervision disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
 
 ### Installer le pack
 

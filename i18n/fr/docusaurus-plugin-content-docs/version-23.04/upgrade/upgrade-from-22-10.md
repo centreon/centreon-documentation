@@ -401,7 +401,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    toutes les extensions, en commençant par les suivantes :
 
    - License Manager,
-   - Plugin Packs Manager,
+   - Monitoring Connectors Manager,
    - Auto Discovery.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.

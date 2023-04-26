@@ -98,8 +98,8 @@ Installing a Monitoring Connector is a 4-step process:
 
 If you have an offline license:
 
-- install the Plugin Packs repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
-- install or update the Plugin Packs catalog from your Centreon Central server:
+- install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
+- install or update the Monitoring Connectors catalog from your Centreon Central server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
