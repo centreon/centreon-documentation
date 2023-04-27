@@ -75,8 +75,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '22.10',
-  link: 'https://www.centreon.com/fr/centreon-22-10-les-nouveautes/',
+  version: '23.04',
+  link: 'https://www.centreon.com/fr/centreon-23-04-decouvrez-les-nouveautes-a-venir-ce-printemps/',
   target: '_blank'
 }
 
