@@ -2342,7 +2342,7 @@ message Status {
 
 This event is emitted by Centreon Broker when a new service configuration is
 received. It associates an index ID (the one created for a service - see
-[Index mapping](#indexmapping) to a metric ID.
+[Index mapping](#indexmapping)) to a metric ID.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2439,7 +2439,7 @@ message IndexMapping {
 ### Rebuild Message
 
 This event comes with BBDO 3, when some graphs have to be rebuilt. Messages
-handling these rebuilds are of that type. They replace the old BBDO rebuild
+handling these rebuilds are of that type. They replace the old BBDO v2 rebuild
 message.
 
 <Tabs groupId="sync">
@@ -3347,7 +3347,7 @@ The content of this message is serialized as follows:
 
 | Property  | Type             | Description                       |
 | --------- | ---------------- | --------------------------------- |
-| tp\_id    | unsigned integer | The id of the timeperiod.         |
+| tp\_id    | unsigned integer | The ID of the timeperiod.         |
 | name      | string           | The name of the timeperiod.       |
 | monday    | string           | The timeperiod rule for this day. |
 | tuesday   | string           | The timeperiod rule for this day. |
@@ -3376,7 +3376,7 @@ is the following:
 
 ```cpp
 message DimensionTimeperiod {
-    uint32 id = 1;          // The id of the timeperiod.
+    uint32 id = 1;          // The ID of the timeperiod.
     string name = 2;        // The name of the timeperiod.
     string monday = 3;      // The timeperiod rule for this day.
     string tuesday = 4;     // The timeperiod rule for this day.
@@ -3409,8 +3409,8 @@ The content of this message is serialized as follows:
 
 | Property       | Type             | Description                                            |
 | -------------- | ---------------- | ------------------------------------------------------ |
-| ba\_id         | unsigned integer | The id of the BA.                                      |
-| timeperiod\_id | unsigned integer | The id of the timeperiod.                              |
+| ba\_id         | unsigned integer | The ID of the BA.                                      |
+| timeperiod\_id | unsigned integer | The ID of the timeperiod.                              |
 | is\_default    | boolean          | True if the timeperiod is the default one for this BA. |
 
 </TabItem>
