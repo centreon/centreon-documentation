@@ -392,6 +392,13 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   systemctl restart cbd centengine gorgoned
   ```
 
+Update permissions on centreon-broker configuration files.
+
+  ```shell
+  usermod -a -G centreon-broker www-data
+  usermod -a -G www-data centreon-broker
+  ```
+
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.md).
 

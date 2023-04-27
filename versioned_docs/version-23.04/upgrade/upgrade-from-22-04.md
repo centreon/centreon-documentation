@@ -434,6 +434,13 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   systemctl restart cbd centengine gorgoned
   ```
 
+Update permissions on centreon-broker configuration files.
+
+  ```shell
+  usermod -a -G centreon-broker www-data
+  usermod -a -G www-data centreon-broker
+  ```
+
 > As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
 
 If the Centreon BAM module is installed, refer to the
