@@ -2487,11 +2487,7 @@ L'événement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
 ### Ack
 
 Généralement, un **envoyeur BBDO** envoie des événements tandis qu'un
-<<<<<<< HEAD
 **récepteur BBDO** reçoit des événements. Ceci dit, il envoie quelques évènements
-=======
-**récepteur BBDO** reçoit des événements. Ceci dit, envoie quelques évènements
->>>>>>> 788129fe9588ed9268dab5327b7055950b80d0f7
 comme le **Ack**.
 
 Le principe est le suivant : l'envoyeur garde en mémoire tous les évènements qu'il
