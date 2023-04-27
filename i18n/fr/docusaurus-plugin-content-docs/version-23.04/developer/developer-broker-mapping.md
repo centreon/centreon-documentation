@@ -2723,9 +2723,9 @@ message KpiStatus {
 
 ### Meta service status event
 
-Cet évènement a été créé pour envoyer les changement d'état d'un méta-service.
+Cet évènement a été créé pour envoyer les changements d'état d'un méta-service.
 
-Actuellement, les meta-services n'étant pas géré par Centreon Broker, cet
+Actuellement, les méta-services n'étant pas gérés par Centreon Broker, cet
 évènement n'est pas utilisé.
 
 <Tabs groupId="sync">
@@ -2931,7 +2931,7 @@ message BaDurationEvent {
     int64 end_time = 3;               // Timestamp de fin de l'évènement. 0 ou -1 si l'évènement est encore ouvert.
     int64 start_time = 4;             // Timestamp de création de l'évènement.
     uint32 duration = 5;              // Durée en secondes de l'évènement.
-    uint32 sla_duration = 6;          // Durée en secondes de l'évènement dans la timeperiod en court.
+    uint32 sla_duration = 6;          // Durée en secondes de l'évènement dans la timeperiod en cours.
     uint32 timeperiod_id = 7;         // ID de la timeperiod.
     bool timeperiod_is_default = 8;   // Vrai si la timeperiod est celle par défaut pour cette BA.
 }
@@ -3057,8 +3057,8 @@ message DimensionKpiEvent {
     string service_description = 7;  // Description du service associé au KPI (KPI de type service)
     uint32 kpi_ba_id = 8;            // ID de la BA associée au KPI (KPI de type BA)
     string kpi_ba_name = 9;          // Nom de la BA associée au KPI (KPI de type BA)
-    uint32 meta_service_id = 10;     // ID du meta-service associé au KPI (KPI de type meta-service)
-    string meta_service_name = 11;   // Nom du meta-service associé au KPI (KPI de type meta-service)
+    uint32 meta_service_id = 10;     // ID du méta-service associé au KPI (KPI de type méta-service)
+    string meta_service_name = 11;   // Nom du méta-service associé au KPI (KPI de type méta-service)
     uint32 boolean_id = 12;          // Id of the boolean expression associated with this KPI for boolean KPI.
     string boolean_name = 13;        // Nom de l'expression booléenne associée au KPI (KPI de type booléen)
     double impact_warning = 14;      // Impact d'un état warning pour le KPI.
@@ -3340,7 +3340,7 @@ Le contenu de ce message est sérialisé comme suit :
 | Propriété    | Type             | Description                         |
 | ----------   | ----------       | ----------                          |
 | bad\_id      | entier non signé | L’ID de la BA en temps d’arrêt.     |
-| in\_downtime | booléen          | True si le BA est en temps d’arrêt. |
+| in\_downtime | booléen          | True si la BA est en temps d’arrêt. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
