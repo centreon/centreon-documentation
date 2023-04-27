@@ -108,80 +108,67 @@ Le tableau ci-dessous répertorie les types d’événements disponibles dans la
 
 Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie Storage. Ils doivent être combinés avec la catégorie BBDO\_STORAGE\_TYPE pour obtenir un ID d’événement BBDO.
 
-| Type| Valeur| Utilise Protobuf
-|----------|----------|----------
-| metric| 1| Non
-| rebuild| 2| Non
-| remove\_graph| 3| Non
-| status| 4| Non
-| index mapping| 5| Non
-| metric mapping| 6| Non
-| Pb Rebuild Message| 7| Oui
-| Pb Remove Graph Message| 8| Oui
+| Type                            | Value | Utilise Protobuf |
+|---------------------------------|-------|------------------|
+| Metric                          | 1     |               No |
+| Rebuild                         | 2     |               No |
+| Remove graph                    | 3     |               No |
+| Status                          | 4     |               No |
+| Index mapping                   | 5     |               No |
+| Metric mapping                  | 6     |               No |
+| Pb Rebuild Message              | 7     |              Yes |
+| Pb Remove Graph Message         | 8     |              Yes |
+| Pb Metric                       | 9     |              Yes |
+| Pb Status                       | 10    |              Yes |
+| Pb Index mapping                | 11    |              Yes |
+| Pb Metric mapping               | 12    |              Yes |
 
 ### BBDO
 
 Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie BBDO. Ils doivent être combinés avec la catégorie BBDO\_BBDO\_TYPE pour obtenir un ID d’événement BBDO.
 
-| Type| Valeur
-|----------|----------
-| version\_response| 1
-| ack| 2
+| Type              | Valeur| Utilise Protobuf |
+|-------------------|-------|------------------|
+| version response  | 1     |              Non |
+| ack               | 2     |              Non |
+| stop              | 3     |              Non |
+| Pb ack            | 8     |              Oui |
+| Pb stop           | 9     |              Oui |
 
 ### BAM
 
 Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie BAM. Ils doivent être combinés avec la catégorie BBDO\_BAM\_TYPE pour obtenir un ID d’événement BBDO.
 
-| Type| Valeur
-|----------|----------
-| ba\_status| 1
-| kpi\_status| 2
-| meta\_service\_status| 3
-| ba\_event| 4
-| kpi\_event| 5
-| ba\_duration\_event| 6
-| dimension\_ba\_event| 7
-| dimension\_kpi\_event| 8
-| dimension\_ba\_bv\_relation\_event| 9
-| dimension\_bv\_event| 10
-| dimension\_truncate\_table\_signal| 11
-| rebuild| 12
-| dimension\_timeperiod| 13
-| dimension\_ba\_timeperiod\_relation| 14
-| dimension\_timeperiod\_exception| 15
-| dimension\_timeperiod\_exclusion| 16
-| inherited\_downtime| 17
-
-### Dumper
-
-Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie Dumper. Ils doivent être combinés avec la catégorie BBDO\_DUMPER\_TYPE pour obtenir un ID d’événement BBDO.
-
-| Type| Valeur
-|----------|----------
-| Dump| 1
-| Timestamp cache| 2
-| Remove| 3
-| Reload| 4
-| Db dump| 5
-| Db dump committed| 6
-| Entries Ba| 7
-| Entries Ba type| 8
-| Entries boolean| 9
-| Entries host| 10
-| Entries kpi| 11
-| Entries organization| 12
-| Entries service| 13
-| Directory dump| 14
-| Directory dump committed| 15
-
-### Extcmd
-
-Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie Extcmd. Ils doivent être combinés avec la catégorie BBDO\_EXTCMD\_TYPE pour obtenir un ID d’événement BBDO.
-
-| Type| Valeur
-|----------|----------
-| Command request| 1
-| Command result| 2
+| Type                                | Valeur | Uses Protobuf |
+|------------------------------------ | ------ | ------------- |
+| BA status                           | 1      |           Non |
+| KPI status                          | 2      |           Non |
+| Meta Service Status                 | 3      |           Non |
+| BA event                            | 4      |           Non |
+| KPI event                           | 5      |           Non |
+| BA Duration Event                   | 6      |           Non |
+| Dimension BA Event                  | 7      |           Non |
+| Dimension KPI Event                 | 8      |           Non |
+| Dimension BA BV Relation Event      | 9      |           Non |
+| Dimension BV Event                  | 10     |           Non |
+| Dimension Truncate Table Signal     | 11     |           Non |
+| Rebuild                             | 12     |           Non |
+| Dimension Timeperiod                | 13     |           Non |
+| Dimension BA Timeperiod Relation    | 14     |           Non |
+| Inherited Downtime                  | 17     |           Non |
+| Pb Inherited Downtime               | 18     |           Oui |
+| Pb BA status                        | 19     |           Oui |
+| Pb BA event                         | 20     |           Oui |
+| Pb KPI event                        | 21     |           Oui |
+| Pb Dimension BV Event               | 22     |           Oui |
+| Pb Dimension BA BV Relation Event   | 23     |           Oui |
+| Pb Dimension Timeperiod             | 24     |           Oui |
+| Pb Dimension BA Event               | 25     |           Oui |
+| Pb Dimension KPI Event              | 26     |           Oui |
+| Pb KPI status                       | 27     |           Oui |
+| Pb BA Duration Event                | 28     |           Oui |
+| Pb Dimension BA Timeperiod Relation | 29     |           Oui |
+| Pb Dimension Truncate Table Signal  | 30     |           Oui |
 
 ## Sérialisation des événements
 
@@ -243,9 +230,9 @@ Et donne le paquet suivant avec les valeurs en hexadécimal.
 
 ## Établissement de la connexion
 
-BBDO est un protocole qui peut négocier des fonctionnalités. Lors de l’établissement d’une connexion, un paquet *version\_response* est envoyé par le client. Il fournit la version du protocole BBDO qu’il supporte et ses extensions. Le serveur répond à ce message par un autre paquet *version\_response* contenant sa propre version du protocole supportée et ses extensions. Si les versions du protocole correspondent, la négociation des extensions commence.
+BBDO est un protocole qui peut négocier des fonctionnalités. Lors de l’établissement d’une connexion, un paquet *version_response* est envoyé par le client. Il fournit la version du protocole BBDO qu’il supporte et ses extensions. Le serveur répond à ce message par un autre paquet *version_response* contenant sa propre version du protocole supportée et ses extensions. Si les versions du protocole correspondent, la négociation des extensions commence.
 
-Actuellement, deux extensions sont supportées : **TLS** et **COMPRESSION**. Juste après le paquet **version\_response**, chaque pair recherche dans la liste des extensions de l’autre pair les extensions qu’il supporte. Lorsqu’il en trouve une, elle est activée (c’est-à-dire qu’elle démarre immédiatement).
+Actuellement, deux extensions sont supportées : **TLS** et **COMPRESSION**. Juste après le paquet **version_response**, chaque pair recherche dans la liste des extensions de l’autre pair les extensions qu’il supporte. Lorsqu’il en trouve une, elle est activée (c’est-à-dire qu’elle démarre immédiatement).
 
 ### Exemple
 
