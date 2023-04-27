@@ -421,7 +421,6 @@ systemctl restart mariadb
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
 apt install -y centreon
 systemctl daemon-reload
 systemctl restart mariadb
@@ -457,7 +456,6 @@ dnf install -y centreon-central
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
 apt install -y centreon-central
 ```
 
