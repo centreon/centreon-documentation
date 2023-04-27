@@ -168,7 +168,7 @@ event ID.
 
 | Type              | Value| Uses Protobuf |
 |-------------------|------|---------------|
-| version\_response | 1    |            No |
+| version response  | 1    |            No |
 | ack               | 2    |            No |
 | stop              | 3    |            No |
 | Pb ack            | 8    |           Yes |

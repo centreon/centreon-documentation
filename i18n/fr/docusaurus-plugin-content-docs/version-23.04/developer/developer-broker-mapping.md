@@ -2079,18 +2079,18 @@ Cet évènement est généré par un point de terminaison Storage pour notifier 
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété       | Type            | Description                       |
-|-----------------|-----------------|----------|
-| ctime           | temps           | Heure à laquelle la valeur métrique a été générée.|
-| interval        | entier non signé| Intervalle de contrôle du service normal en secondes.|
-| metric\_id      | entier non signé| ID de la métrique (à partir du tableau des métriques).|
-| name            | chaîne          | Nom de la métrique.|
-| rrd\_len        | entier          | Durée de rétention des données RRD en secondes.|
-| value           | réel            | Valeur de la métrique.|
-| value\_type     | entier court    | Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).|
-| is\_for\_rebuild| booléen         | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).|
-| host\_id        | entier non signé| ID de l’hôte auquel cette métrique est attachée.|
-| service\_id     | entier non signé| ID du service auquel cette métrique est attachée.|
+| Propriété         | Type              | Description                                                                                   |
+| ----------------- | ----------------- | ----------                                                                                    |
+| ctime             | temps             | Heure à laquelle la valeur métrique a été générée.                                            |
+| interval          | entier non signé  | Intervalle de contrôle du service normal en secondes.                                         |
+| metric\_id        | entier non signé  | ID de la métrique (à partir du tableau des métriques).                                        |
+| name              | chaîne            | Nom de la métrique.                                                                           |
+| rrd\_len          | entier            | Durée de rétention des données RRD en secondes.                                               |
+| value             | réel              | Valeur de la métrique.                                                                        |
+| value\_type       | entier court      | Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).               |
+| is\_for\_rebuild  | booléen           | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild). |
+| host\_id          | entier non signé  | ID de l’hôte auquel cette métrique est attachée.                                              |
+| service\_id       | entier non signé  | ID du service auquel cette métrique est attachée.                                             |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2150,11 +2150,11 @@ graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebui
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| end| booléen| Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.|
-| id| entier non signé| ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True.|
-| is\_index| booléen| Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.|
+| Propriété  | Type             | Description                                                                                                                        |
+| ---------- | ----------       | ----------                                                                                                                         |
+| end        | booléen          | Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.                                        |
+| id         | entier non signé | ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True. |
+| is\_index  | booléen          | Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.                              |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2185,10 +2185,10 @@ graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbr
 
 Le contenu de ce message est sérialisé comme suit:
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| id| entier non signé| ID de l’index (is\_index =`true`) ou ID de la métrique (is\_index =`false`) à supprimer.|
-| is\_index| booléen| Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé.|
+| Propriété  | Type             | Description                                                                                                               |
+| ---------- | ----------       | ----------                                                                                                                |
+| id         | entier non signé | ID de l’index (is\_index =`true`) ou ID de la métrique (is\_index =`false`) à supprimer.                                  |
+| is\_index  | booléen          | Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2217,14 +2217,14 @@ Il contient essentiellement une ressource avec son état.
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| ctime| temps| Heure à laquelle l’état a été généré.|
-| index\_id| entier non signé| ID de l’index.|
-| interval| entier non signé| Intervalle de contrôle du service normal en secondes.|
-| rrd\_len| temps| Rétention des données RRD en secondes.|
-| state| entier court| État du service.|
-| is\_for\_rebuild| booléen| Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild).|
+| Propriété        | Type             | Description                                                                                   |
+| ----------       | ----------       | ----------                                                                                    |
+| ctime            | temps            | Heure à laquelle l’état a été généré.                                                         |
+| index\_id        | entier non signé | ID de l’index.                                                                                |
+| interval         | entier non signé | Intervalle de contrôle du service normal en secondes.                                         |
+| rrd\_len         | temps            | Rétention des données RRD en secondes.                                                        |
+| state            | entier court     | État du service.                                                                              |
+| is\_for\_rebuild | booléen          | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2274,10 +2274,10 @@ sur les ID d'index.
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| index\_id| entier non signé| ID de l’index.|
-| metric\_d| entier non signé| ID de l’index.|
+| Propriété  | Type             | Description    |
+| ---------- | ----------       | ----------     |
+| index\_id  | entier non signé | ID de l’index. |
+| metric\_d  | entier non signé | ID de l’index. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2323,11 +2323,11 @@ de service.
 
 Le contenu de ce message est sérialisé de la façon suivante :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| index\_id| entier non signé| ID de l’index.|
-| host\_id| entier non signé| ID de l’index.|
-| service\_id| entier non signé| ID de l’index.|
+| Propriété   | Type             | Description    |
+| ----------  | ----------       | ----------     |
+| index\_id   | entier non signé | ID de l’index. |
+| host\_id    | entier non signé | ID de l’index. |
+| service\_id | entier non signé | ID de l’index. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2469,12 +2469,12 @@ ce message pour négocier les options à activer.
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| bbdo\_major| entier court| La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**. La seule version actuelle du protocole est la 1.0.0.|
-| bbdo\_minor| entier court| La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**.|
-| bbdo\_patch| entier court| Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version_response**.|
-| extensions| chaîne| Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version_response**.|
+| Propriété   | Type         | Description                                                                                                                                               |
+| ----------  | ----------   | ----------                                                                                                                                                |
+| bbdo\_major | entier court | La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**. La seule version actuelle du protocole est la 1.0.0. |
+| bbdo\_minor | entier court | La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**.                                                      |
+| bbdo\_patch | entier court | Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version_response**.                                                             |
+| extensions  | chaîne       | Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version_response**.                                     |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2506,9 +2506,9 @@ alors les jeter.
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| acknowledged events| entier non signé| Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents.|
+| Propriété           | Type             | Description                                                                                                                                                                                       |
+| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| acknowledged events | entier non signé | Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2588,31 +2588,31 @@ Cet évènement est envoyé lorsque le statut d’une BA a changé.
 
 #### BAM::BaStatus
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       1 | 393217 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 1       | 393217 |
 
 Le contenu de ce message est sérialisé comme suit:
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| ba\_id| entier non signé| L’id de la BA.|
-| in\_downtime| booléen| True si la BA est en temps d’arrêt.|
-| last\_state\_change| temps| L’heure du dernier changement d’état de la BA.|
-| level\_acknowledgement| réel| Le niveau d’acquittement de la BA.|
-| level\_downtime| réel| Le niveau de temps d’arrêt de la BA.|
-| level\_nominal| réel| Le niveau nominal de la BA.|
-| state| entier court| L’état de la BA.|
-| state\_changed| booléen| True si l’état de la BA vient de changer.|
+| Propriété              | Type             | Description                                    |
+| ----------             | ----------       | ----------                                     |
+| ba\_id                 | entier non signé | L’id de la BA.                                 |
+| in\_downtime           | booléen          | True si la BA est en temps d’arrêt.            |
+| last\_state\_change    | temps            | L’heure du dernier changement d’état de la BA. |
+| level\_acknowledgement | réel             | Le niveau d’acquittement de la BA.             |
+| level\_downtime        | réel             | Le niveau de temps d’arrêt de la BA.           |
+| level\_nominal         | réel             | Le niveau nominal de la BA.                    |
+| state                  | entier court     | L’état de la BA.                               |
+| state\_changed         | booléen          | True si l’état de la BA vient de changer.      |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbBaStatus
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |      19 | 393235 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 19      | 393235 |
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisé
 comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
@@ -2654,36 +2654,36 @@ Cet évènement est envoyé lorsque le statut d’un KPI a changé.
 
 #### BAM::KpiStatus
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       2 | 393218 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 2       | 393218 |
 
 Le contenu de ce message est sérialisé comme suit:
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| kpi\_id| entier non signé| L’ID du KPI.|
-| in\_downtime| bool| True si le KPI est en temps d’arrêt.|
-| level\_acknowledgement\_hard| réel| Le niveau d’acquittement hard du KPI.|
-| level\_acknowledgement\_soft| réel| Le niveau d’acquittement soft du KPI.|
-| level\_downtime\_hard| réel| Le niveau de temps d’arrêt hard du KPI.|
-| level\_downtime\_soft| réel| Le niveau de temps d’arrêt soft du KPI.|
-| level\_nominal\_hard| réel| Le niveau nominal hard du KPI.|
-| level\_nominal\_soft| réel| Le niveau nominal soft du KPI.|
-| state\_hard| entier court| L’état hard du KPI.|
-| state\_soft| entier court| L’état soft du KPI.|
-| last\_state\_change| temps| L’heure du dernier changement d’état du KPI.|
-| last\_impact| réel| Le dernier impact du KPI.|
-| valid| bool| True si le KPI est valide.|
+| Propriété                    | Type             | Description                                  |
+| ---------------------------- | ---------------- | -------------------------------------------- |
+| kpi\_id                      | entier non signé | L’ID du KPI.                                 |
+| in\_downtime                 | bool             | True si le KPI est en temps d’arrêt.         |
+| level\_acknowledgement\_hard | réel             | Le niveau d’acquittement hard du KPI.        |
+| level\_acknowledgement\_soft | réel             | Le niveau d’acquittement soft du KPI.        |
+| level\_downtime\_hard        | réel             | Le niveau de temps d’arrêt hard du KPI.      |
+| level\_downtime\_soft        | réel             | Le niveau de temps d’arrêt soft du KPI.      |
+| level\_nominal\_hard         | réel             | Le niveau nominal hard du KPI.               |
+| level\_nominal\_soft         | réel             | Le niveau nominal soft du KPI.               |
+| state\_hard                  | entier court     | L’état hard du KPI.                          |
+| state\_soft                  | entier court     | L’état soft du KPI.                          |
+| last\_state\_change          | temps            | L’heure du dernier changement d’état du KPI. |
+| last\_impact                 | réel             | Le dernier impact du KPI.                    |
+| valid                        | bool             | True si le KPI est valide.                   |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbKpiStatus
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |      27 | 393243 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 27      | 393243 |
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utlisant le mécanisme de sérialisation de Protobuf.
@@ -2733,17 +2733,17 @@ Actuellement, les meta-services n'étant pas géré par Centreon Broker, cet
 
 #### BAM::MetaServiceStatus
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       3 | 393219 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 3       | 393219 |
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| meta\_service\_id| entier non signé| L’ID du méta-service.|
-| value| réel| La valeur du méta-service.|
-| state\_changed| booléen| True si l’état vient de changer.|
+| Propriété         | Type             | Description                      |
+| ----------        | ----------       | ----------                       |
+| meta\_service\_id | entier non signé | L’ID du méta-service.            |
+| value             | réel             | La valeur du méta-service.       |
+| state\_changed    | booléen          | True si l’état vient de changer. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2762,29 +2762,29 @@ Cet évènement est envoyé lorsqu’un nouvel évènement BA est ouvert, ou qu�
 
 #### BAM::BaEvent
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       4 | 393220 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 4       | 393220 |
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| first\_level| réel| Le premier niveau de l’évènement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| end\_time| temps| L’heure de fin de l’évènement. 0 ou (temps)-1 pour un évènement ouvert.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| in\_downtime| booléen| True si BA était en arrêt pendant l’évènement BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| start\_time| temps| L’heure de début de l’évènement.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| status| entier court| Le statut de la BA pendant l’évènement.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| Propriété    | Type             | Description                                                             |
+| ----------   | ----------       | ----------                                                              |
+| ba\_id       | entier non signé | L’ID de la BA.                                                          |
+| first\_level | réel             | Le premier niveau de l’évènement BA.                                    |
+| end\_time    | temps            | L’heure de fin de l’évènement. 0 ou (temps)-1 pour un évènement ouvert. |
+| in\_downtime | booléen          | True si BA était en arrêt pendant l’évènement BA.                       |
+| start\_time  | temps            | L’heure de début de l’évènement.                                        |
+| status       | entier court     | Le statut de la BA pendant l’évènement.                                 |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbBaEvent
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |      20 | 393236 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 20      | 393236 |
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comment en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
@@ -2824,31 +2824,31 @@ Cet évènement est envoyé lorsqu’un nouvel évènement KPI est ouvert, ou qu
 
 #### BAM::KpiEvent
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       5 | 393221 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 5       | 393221 |
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| kpi\_id| entier non signé| L’ID du KPI.|
-| end\_time| temps| L’heure de fin de l’évènement. 0 ou (temps)-1 pour un évènement ouvert.|
-| impact\_level| entier| Le niveau de l’impact.|
-| in\_downtime| booléen| True si BA était en arrêt pendant l’évènement BA.|
-| first\_output| chaîne| Le premier output du KPI pendant l’évènement.|
-| perfdata| chaîne| La première perfdata du KPI pendant l’évènement.|
-| start\_time| temps| L’heure de début de l’évènement.|
-| status| entier court| Le statut de la BA pendant l’évènement.|
+| Propriété     | Type             | Description                                                             |
+| ----------    | ----------       | ----------                                                              |
+| kpi\_id       | entier non signé | L’ID du KPI.                                                            |
+| end\_time     | temps            | L’heure de fin de l’évènement. 0 ou (temps)-1 pour un évènement ouvert. |
+| impact\_level | entier           | Le niveau de l’impact.                                                  |
+| in\_downtime  | booléen          | True si BA était en arrêt pendant l’évènement BA.                       |
+| first\_output | chaîne           | Le premier output du KPI pendant l’évènement.                           |
+| perfdata      | chaîne           | La première perfdata du KPI pendant l’évènement.                        |
+| start\_time   | temps            | L’heure de début de l’évènement.                                        |
+| status        | entier court     | Le statut de la BA pendant l’évènement.                                 |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbKpiEvent
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |      21 | 393237 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 21      | 393237 |
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
@@ -2891,30 +2891,30 @@ Cet évènement est envoyé lorsqu’un nouvel évènement de durée BA est calc
 
 #### BAM::BaDurationEvent
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |       6 | 393222 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 6       | 393222 |
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| ba\_id| entier non signé| L’ID de la BA.|
-| real\_start\_time| temps| Le premier niveau de l’évènement BA.|
-| end\_time| temps| L’heure de fin de l’évènement, dans la période de temps donnée.|
-| start\_time| temps| L’heure de début de l’évènement, dans la période de temps donnée.|
-| duration| entier non signé| end\_time - start\_time.|
-| sla\_duration| entier non signé| La durée de l’évènement dans la période de temps donnée.|
-| timeperiod\_is\_default| booléen| True si la période de temps est la valeur par défaut pour cette BA.|
+| Propriété               | Type             | Description                                                         |
+| ----------              | ----------       | ----------                                                          |
+| ba\_id                  | entier non signé | L’ID de la BA.                                                      |
+| real\_start\_time       | temps            | Le premier niveau de l’évènement BA.                                |
+| end\_time               | temps            | L’heure de fin de l’évènement, dans la période de temps donnée.     |
+| start\_time             | temps            | L’heure de début de l’évènement, dans la période de temps donnée.   |
+| duration                | entier non signé | end\_time - start\_time.                                            |
+| sla\_duration           | entier non signé | La durée de l’évènement dans la période de temps donnée.            |
+| timeperiod\_is\_default | booléen          | True si la période de temps est la valeur par défaut pour cette BA. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbBaDurationEvent
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |      28 | 393244 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 28      | 393244 |
 
 Cet évènement est un évènement Protobuf ainsi les éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
@@ -2948,30 +2948,30 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 #### BAM::DimensionBaEvent
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       7 | 393223 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 7       | 393223 |
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description|
-|----------|----------|----------|
-| ba\_id| entier non signé| L’ID de la BA.|
-| ba\_name| chaîne| Le nom de la BA.|
-| ba\_description| chaîne| La description de la BA.|
-| sla\_month\_percent\_crit| réel| |
-| sla\_month\_percent\_warn| réel| |
-| sla\_month\_duration\_crit| entier non signé| |
-| sla\_month\_duration\_warn| entier non signé| |
+| Propriété                  | Type             | Description              |
+| ----------                 | ----------       | ----------               |
+| ba\_id                     | entier non signé | L’ID de la BA.           |
+| ba\_name                   | chaîne           | Le nom de la BA.         |
+| ba\_description            | chaîne           | La description de la BA. |
+| sla\_month\_percent\_crit  | réel             |                          |
+| sla\_month\_percent\_warn  | réel             |                          |
+| sla\_month\_duration\_crit | entier non signé |                          |
+| sla\_month\_duration\_warn | entier non signé |                          |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionBaEvent
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |      25 | 393241 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 25      | 393241 |
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
@@ -3004,39 +3004,39 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 
 #### BAM::DimensionKpiEvent
 
-| Category | element |   ID   |
-| -------- | ------- | ------ |
-|        6 |       8 | 393224 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 8       | 393224 |
 
 Le contenu de ce message est sérialisé comme suit :
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| kpi\_id| entier non signé| L’ID du KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| ba\_id| entier non signé| L’identifiant de la BA parent de ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| ba\_name| chaîne| Le nom de la BA parent de ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| host\_id| entier non signé| L’ID de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| host\_name| chaîne| Le nom de l’hôte associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| service\_id| entier non signé| L’ID du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| service\_description| chaîne| La description du service associé à ce KPI pour le KPI de service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| kpi\_ba\_id| entier non signé| L’ID de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| kpi\_ba\_name| chaîne| Le nom de la BA associée à ce KPI pour le KPI de BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| meta\_service\_id| entier non signé| L’ID du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| meta\_service\_name| chaîne| Le nom du méta-service associé à ce KPI pour le KPI de méta-service.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| boolean\_id| entier non signé| L’ID de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| boolean\_name| chaîne| Le nom de l’expression booléenne associée à ce KPI pour le KPI booléen.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| impact\_warning| réel| L’impact d’un état d’alerte pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| impact\_critical| réel| L’impact d’un état critique pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| impact\_unknown| réel| L’impact d’un état inconnu pour ce KPI.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| Propriété            | Type             | Description                                                             |
+| ----------           | ----------       | ----------                                                              |
+| kpi\_id              | entier non signé | L’ID du KPI.                                                            |
+| ba\_id               | entier non signé | L’identifiant de la BA parent de ce KPI.                                |
+| ba\_name             | chaîne           | Le nom de la BA parent de ce KPI.                                       |
+| host\_id             | entier non signé | L’ID de l’hôte associé à ce KPI pour le KPI de service.                 |
+| host\_name           | chaîne           | Le nom de l’hôte associé à ce KPI pour le KPI de service.               |
+| service\_id          | entier non signé | L’ID du service associé à ce KPI pour le KPI de service.                |
+| service\_description | chaîne           | La description du service associé à ce KPI pour le KPI de service.      |
+| kpi\_ba\_id          | entier non signé | L’ID de la BA associée à ce KPI pour le KPI de BA.                      |
+| kpi\_ba\_name        | chaîne           | Le nom de la BA associée à ce KPI pour le KPI de BA.                    |
+| meta\_service\_id    | entier non signé | L’ID du méta-service associé à ce KPI pour le KPI de méta-service.      |
+| meta\_service\_name  | chaîne           | Le nom du méta-service associé à ce KPI pour le KPI de méta-service.    |
+| boolean\_id          | entier non signé | L’ID de l’expression booléenne associée à ce KPI pour le KPI booléen.   |
+| boolean\_name        | chaîne           | Le nom de l’expression booléenne associée à ce KPI pour le KPI booléen. |
+| impact\_warning      | réel             | L’impact d’un état d’alerte pour ce KPI.                                |
+| impact\_critical     | réel             | L’impact d’un état critique pour ce KPI.                                |
+| impact\_unknown      | réel             | L’impact d’un état inconnu pour ce KPI.                                 |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionKpiEvent
 
-| Category | element |  ID    |
-| -------- | ------- | ------ |
-|        6 |      26 | 393242 |
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 26      | 393242 |
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
@@ -3077,18 +3077,18 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_id| entier non signé| L’ID de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| Propriété  | Type             | Description    |
+| ---------- | ----------       | ----------     |
+| ba\_id     | entier non signé | L’ID de la BA. |
+| bv\_id     | entier non signé | L’ID de la BV. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_id| entier non signé| L’ID de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+| Propriété  | Type             | Description    |
+| ---------- | ----------       | ----------     |
+| ba\_id     | entier non signé | L’ID de la BA. |
+| bv\_id     | entier non signé | L’ID de la BV. |
 
 </TabItem>
 </Tabs>
@@ -3100,25 +3100,48 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bv\_id| entier non signé| L’ID de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_name| chaîne| Le nom de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_description| chaîne| La description de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::DimensionBvEvent
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 10      | 393226 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété       | Type             | Description              |
+| ----------      | ----------       | ----------               |
+| bv\_id          | entier non signé | L’ID de la BV.           |
+| bv\_name        | chaîne           | Le nom de la BV.         |
+| bv\_description | chaîne           | La description de la BV. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bv\_id| entier non signé| L’ID de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_name| chaîne| Le nom de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| bv\_description| chaîne| La description de la BV.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::PbDimensionBvEvent
 
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 22      | 393238 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, les évènements **BAM::DimensionBvEvent** devraient
+être remplacés par des évènements **BAM::PbDimentionBvEvent**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
+
+```cpp
+message DimensionBvEvent {
+    uint32 bv_id = 1;           // ID de la BV.
+    string bv_name = 2;         // Nom de la BV.
+    string bv_description = 3;  // Description de la BV.
+}
+```
 </TabItem>
 </Tabs>
 
-### Dimension table signal
+### Dimension Truncate Table Signal
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
@@ -3127,16 +3150,41 @@ Ce signal est envoyé avant le dump de toutes les dimensions, et à nouveau à l
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| update\_started| booléen| True si c’est le début du dump, False si c’est la fin.| Depuis la version 2.8.0 (BBD0 1.2.0).
+#### BAM::DimensionTruncateTableSignal
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 11      | 393228 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété       | Type       | Description                                            |
+| ----------      | ---------- | ----------                                             |
+| update\_started | booléen    | True si c’est le début du dump, False si c’est la fin. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| update\_started| booléen| True si c’est le début du dump, False si c’est la fin.| Depuis la version 2.8.0 (BBD0 1.2.0).
+#### BAM::PbDimensionTruncateTableSignal
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 30      | 393246 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, les évènements **BAM::DimensionTruncateTableSignal**
+devraient être remplacés par des évènements
+**BAM::PbDimensionTruncateTableSignal**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
+
+```cpp
+message DimensionTruncateTableSignal {
+    bool update_started = 1;  // Vrai pour signaler le départ du dump, faux pour la fin.
+}
+```
 
 </TabItem>
 </Tabs>
@@ -3148,16 +3196,22 @@ Cet évènement est envoyé lorsqu’une reconstruction des durées et des dispo
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bas\_to\_rebuild| chaîne| Une chaîne contenant les ID de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »).| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::Rebuild
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 12      | 393228 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété        | Type       | Description                                                                                                                      |
+| ----------       | ---------- | ----------                                                                                                                       |
+| bas\_to\_rebuild | chaîne     | Une chaîne contenant les ID de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bas\_to\_rebuild| chaîne| Une chaîne contenant les ID de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »).| Depuis la version 2.8.0 (BBDO 1.2.0).
+L'évènement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
 
 </TabItem>
 </Tabs>
@@ -3169,33 +3223,56 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| tp\_id| entier non signé| L’ID de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| name| chaîne| Le nom de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| monday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| tuesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| wednesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| thursday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| friday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| saturday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| sunday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::DimensionTimeperiod
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 13      | 393230 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété  | Type             | Description                                   |
+| ---------- | ----------       | ----------                                    |
+| tp\_id     | entier non signé | L’ID de la période de temps.                  |
+| name       | chaîne           | Le nom de la période de temps.                |
+| monday     | chaîne           | La règle de la période de temps pour ce jour. |
+| tuesday    | chaîne           | La règle de la période de temps pour ce jour. |
+| wednesday  | chaîne           | La règle de la période de temps pour ce jour. |
+| thursday   | chaîne           | La règle de la période de temps pour ce jour. |
+| friday     | chaîne           | La règle de la période de temps pour ce jour. |
+| saturday   | chaîne           | La règle de la période de temps pour ce jour. |
+| sunday     | chaîne           | La règle de la période de temps pour ce jour. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| tp\_id| entier non signé| L’ID de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| name| chaîne| Le nom de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| monday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| tuesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| wednesday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| thursday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| friday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| saturday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| sunday| chaîne| La règle de la période de temps pour ce jour.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::PbDimensionTimeperiod
 
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 24      | 393240 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, les **BAM::DimensionTimeperiod** devraient être remplacés
+par des **BAM::PbDimensionTimeperiod**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
+
+```cpp
+message DimensionTimeperiod {
+    uint32 id = 1;          // ID de la période de temps.
+    string name = 2;        // Nom de la période de temps.
+    string monday = 3;      // Règle de la période de temps pour ce jour.
+    string tuesday = 4;     // Règle de la période de temps pour ce jour.
+    string wednesday = 5;   // Règle de la période de temps pour ce jour.
+    string thursday = 6;    // Règle de la période de temps pour ce jour.
+    string friday = 7;      // Règle de la période de temps pour ce jour.
+    string saturday = 8;    // Règle de la période de temps pour ce jour.
+    string sunday = 9;      // Règle de la période de temps pour ce jour.
+}
+```
 </TabItem>
 </Tabs>
 
@@ -3206,69 +3283,44 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| timeperiod\_id| entier non signé| L’ID de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| is\_default| booléen| True si la période de temps est celle par défaut pour cette BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::DimensionBaTimeperiodRelation
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 14      | 393231 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété      | Type             | Description                                                     |
+| ----------     | ----------       | ----------                                                      |
+| ba\_id         | entier non signé | L’ID de la BA.                                                  |
+| timeperiod\_id | entier non signé | L’ID de la période de temps.                                    |
+| is\_default    | booléen          | True si la période de temps est celle par défaut pour cette BA. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| ba\_id| entier non signé| L’ID de la BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| timeperiod\_id| entier non signé| L’ID de la période de temps.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| is\_default| booléen| True si la période de temps est celle par défaut pour cette BA.| Depuis la version 2.8.0 (BBDO 1.2.0).
+#### BAM::PbDimensionBaTimeperiodRelation
 
-</TabItem>
-</Tabs>
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 29      | 393245 |
 
-### Dimension timeperiod exception
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, les **BAM::DimensionBaTimeperiodRelation** devraient être remplacés
+par des **BAM::PbDimensionBaTimeperiodRelation**.
 
-Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| timeperiod\_id| entier non signé| L’ID de la période de temps ayant cette exception.| Depuis la version 2.8.0
-| daterange| chaîne| Une chaîne de caractères contenant la date de la plage.| Depuis la version 2.8.0
-| timerange| chaîne| Une chaîne de caractères contenant l’heure de la plage.| Depuis la version 2.8.0 (BBDO 1.2.0).
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| timeperiod\_id| entier non signé| L’ID de la période de temps ayant cette exception.| Depuis la version 2.8.0
-| daterange| chaîne| Une chaîne de caractères contenant la date de la plage.| Depuis la version 2.8.0
-| timerange| chaîne| Une chaîne de caractères contenant l’heure de la plage.| Depuis la version 2.8.0 (BBDO 1.2.0).
-
-</TabItem>
-</Tabs>
-
-### Dimension timeperiod exclusion
-
-Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| timeperiod\_id| entier non signé| L’ID de la période de temps ayant cette exclusion.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| excluded\_timeperiod\_id| entier non signé| L’ID de la période exclue.| Depuis la version 2.8.0 (BBDO 1.2.0).
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| timeperiod\_id| entier non signé| L’ID de la période de temps ayant cette exclusion.| Depuis la version 2.8.0 (BBDO 1.2.0).
-| excluded\_timeperiod\_id| entier non signé| L’ID de la période exclue.| Depuis la version 2.8.0 (BBDO 1.2.0).
-
+```cpp
+message DimensionBaTimeperiodRelation {
+    uint32 ba_id = 1;           // ID de la BA.
+    uint32 timeperiod_id = 2;   // ID de la période de temps.
+    bool is_default = 3;        // Vrai si la période de temps est celle par défaut de cette BA.
+}
+```
 </TabItem>
 </Tabs>
 
@@ -3277,18 +3329,46 @@ Cet évènement fait partie du dump de dimension (c’est-à-dire, la configurat
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bad\_id| entier non signé| L’ID de la BA en temps d’arrêt.| 
-| in\_downtime| booléen| True si le BA est en temps d’arrêt.| 
+#### BAM::InheritedDowntime
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 17      | 393233 |
+
+Le contenu de ce message est sérialisé comme suit :
+
+| Propriété    | Type             | Description                         |
+| ----------   | ----------       | ----------                          |
+| bad\_id      | entier non signé | L’ID de la BA en temps d’arrêt.     |
+| in\_downtime | booléen          | True si le BA est en temps d’arrêt. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
-| Propriété| Type| Description| Version
-|----------|----------|----------|----------
-| bad\_id| entier non signé| L’ID de la BA en temps d’arrêt.| 
-| in\_downtime| booléen| True si le BA est en temps d’arrêt.| 
+#### BAM::PbInheritedDowntime
+
+| Catégorie | élément | ID     |
+| --------  | ------- | ------ |
+| 6         | 18      | 393234 |
+
+Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
+comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
+Quand BBDO v3 est actif, les **BAM::InheritedDowntime** devraient être remplacés
+par des **BAM::PbInheritedDowntime**.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
+est le suivant :
+
+```cpp
+message BBDOHeader {
+    uint32 conf_version = 1;
+}
+message InheritedDowntime {
+    BBDOHeader header = 1;
+    uint32 ba_id = 2;       // ID de la BA concernée par le downtime.
+    bool in_downtime = 3;   // Vrai si la BA est en downtime.
+}
+```
 
 </TabItem>
 </Tabs>

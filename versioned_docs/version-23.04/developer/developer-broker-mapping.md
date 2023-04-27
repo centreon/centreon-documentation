@@ -3243,9 +3243,9 @@ is the following:
 
 ```cpp
 message DimensionBvEvent {
-    uint32 bv_id = 1;
-    string bv_name = 2;
-    string bv_description = 3;
+    uint32 bv_id = 1;           // BV ID.
+    string bv_name = 2;         // BV name.
+    string bv_description = 3;  // BV description.
 }
 ```
 
@@ -3294,7 +3294,7 @@ is the following:
 
 ```cpp
 message DimensionTruncateTableSignal {
-    bool update_started = 1;
+    bool update_started = 1;    // True if this is the start of the dump, false if it's the end.
 }
 ```
 
