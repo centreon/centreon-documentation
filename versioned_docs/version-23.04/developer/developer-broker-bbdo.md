@@ -91,42 +91,52 @@ The table below lists event types available in the NEB category. They
 have to be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 
 
-| Type                   | Value | Uses Protobuf |
-|------------------------|-------|---------------|
-| Acknowledgement        | 1     |            No |
-| Comment                | 2     |            No |
-| Custom variable        | 3     |            No |
-| Custom variable status | 4     |            No |
-| Downtime               | 5     |            No |
-| Event handler          | 6     |            No |
-| Flapping status        | 7     |            No |
-| Host check             | 8     |            No |
-| Host dependency        | 9     |            No |
-| Host group             | 10    |            No |
-| Host group member      | 11    |            No |
-| Host                   | 12    |            No |
-| Host parent            | 13    |            No |
-| Host status            | 14    |            No |
-| Instance               | 15    |            No |
-| Instance status        | 16    |            No |
-| Log entry              | 17    |            No |
-| Module                 | 18    |            No |
-| Service check          | 19    |            No |
-| Service dependency     | 20    |            No |
-| Service group          | 21    |            No |
-| Service group member   | 22    |            No |
-| Service                | 23    |            No |
-| Service status         | 24    |            No |
-| Instance Configuration | 25    |            No |
-| Responsive Instance    | 26    |            No |
-| Pb Service             | 27    |           Yes |
-| Pb Adaptive Service    | 28    |           Yes |
-| Pb Service Status      | 29    |           Yes |
-| Pb Host                | 30    |           Yes |
-| Pb Adaptive Host       | 31    |           Yes |
-| Pb Host Status         | 32    |           Yes |
-| Pb Severity            | 33    |           Yes |
-| Pb Tag                 | 34    |           Yes |
+| Type                            | Value | Uses Protobuf |
+|---------------------------------|-------|---------------|
+| Acknowledgement                 | 1     |            No |
+| Comment                         | 2     |            No |
+| Custom variable                 | 3     |            No |
+| Custom variable status          | 4     |            No |
+| Downtime                        | 5     |            No |
+| Event handler                   | 6     |            No |
+| Host check                      | 8     |            No |
+| Host dependency                 | 9     |            No |
+| Host group                      | 10    |            No |
+| Host group member               | 11    |            No |
+| Host                            | 12    |            No |
+| Host parent                     | 13    |            No |
+| Host status                     | 14    |            No |
+| Instance                        | 15    |            No |
+| Instance status                 | 16    |            No |
+| Log entry                       | 17    |            No |
+| Module                          | 18    |            No |
+| Service check                   | 19    |            No |
+| Service dependency              | 20    |            No |
+| Service group                   | 21    |            No |
+| Service group member            | 22    |            No |
+| Service                         | 23    |            No |
+| Service status                  | 24    |            No |
+| Instance Configuration          | 25    |            No |
+| Responsive Instance             | 26    |            No |
+| Pb Service                      | 27    |           Yes |
+| Pb Adaptive Service             | 28    |           Yes |
+| Pb Service Status               | 29    |           Yes |
+| Pb Host                         | 30    |           Yes |
+| Pb Adaptive Host                | 31    |           Yes |
+| Pb Host Status                  | 32    |           Yes |
+| Pb Severity                     | 33    |           Yes |
+| Pb Tag                          | 34    |           Yes |
+| Pb Comment                      | 35    |           Yes |
+| Pb Downtime                     | 36    |           Yes |
+| Pb Custom variable              | 37    |           Yes |
+| Pb Custom variable status       | 38    |           Yes |
+| Pb Host check                   | 39    |           Yes |
+| Pb Service check                | 40    |           Yes |
+| Pb Log entry                    | 41    |           Yes |
+| Pb Instance Status              | 42    |           Yes |
+| Pb Instance                     | 44    |           Yes |
+| Pb Acknowledgement              | 45    |           Yes |
+| Pb Responsive Instance          | 46    |           Yes |
 
 ### Storage
 
@@ -134,89 +144,72 @@ The table below lists event types available in the Storage category.
 They have to be mixed with the BBDO\_STORAGE\_TYPE category to get a BBDO
 event ID.
 
-| Type                    | Value | Uses Protobuf |
-|-------------------------|-------|---------------|
-| metric                  | 1     |            No |
-| rebuild                 | 2     |            No |
-| remove\_graph           | 3     |            No |
-| status                  | 4     |            No |
-| index mapping           | 5     |            No |
-| metric mapping          | 6     |            No |
-| Pb Rebuild Message      | 7     |           Yes |
-| Pb Remove Graph Message | 8     |           Yes |
+| Type                            | Value | Uses Protobuf |
+|---------------------------------|-------|---------------|
+| Metric                          | 1     |            No |
+| Rebuild                         | 2     |            No |
+| Remove\_graph                   | 3     |            No |
+| Status                          | 4     |            No |
+| Index mapping                   | 5     |            No |
+| Metric mapping                  | 6     |            No |
+| Pb Rebuild Message              | 7     |           Yes |
+| Pb Remove Graph Message         | 8     |           Yes |
+| Pb Metric                       | 9     |           Yes |
+| Pb Status                       | 10    |           Yes |
+| Pb Index mapping                | 11    |           Yes |
+| Pb Metric mapping               | 12    |           Yes |
 
 ### BBDO
 
 The table below lists event types available in the BBDO category.
-They have to be mixed with the BBDO_BBDO_TYPE category to get a BBDO
+They have to be mixed with the BBDO\_BBDO\_TYPE category to get a BBDO
 event ID.
 
 
-| Type              | Value
-|-------------------|------
-| version\_response | 1
-| ack               | 2
+| Type              | Value| Uses Protobuf |
+|-------------------|------|---------------|
+| version response  | 1    |            No |
+| ack               | 2    |            No |
+| stop              | 3    |            No |
+| Pb ack            | 8    |           Yes |
+| Pb stop           | 9    |           Yes |
 
 ### BAM
 
 The table below lists event types available in the BAM category.
-They have to be mixed with the BBDO_BAM_TYPE category to get a
+They have to be mixed with the BBDO\_BAM\_TYPE category to get a
 BBDO event ID.
 
-| Type                              | Value
-|-----------------------------------|------
-| ba_status                         | 1
-| kpi_status                        | 2
-| meta_service_status               | 3
-| ba_event                          | 4
-| kpi_event                         | 5
-| ba_duration_event                 | 6
-| dimension_ba_event                | 7
-| dimension_kpi_event               | 8
-| dimension_ba_bv_relation_event    | 9
-| dimension_bv_event                | 10
-| dimension_truncate_table_signal   | 11
-| rebuild                           | 12
-| dimension_timeperiod              | 13
-| dimension_ba_timeperiod_relation  | 14
-| dimension_timeperiod_exception    | 15
-| dimension_timeperiod_exclusion    | 16
-| inherited_downtime                | 17
-
-### Dumper
-
-The table below lists event types available in the Dumper category.
-They have to be mixed with the BBDO_DUMPER_TYPE category to get a
-BBDO event ID.
-
-| Type                              | Value
-|-----------------------------------|------
-| Dump                              | 1
-| Timestamp cache                   | 2
-| Remove                            | 3
-| Reload                            | 4
-| Db dump                           | 5
-| Db dump committed                 | 6
-| Entries Ba                        | 7
-| Entries Ba type                   | 8
-| Entries boolean                   | 9
-| Entries host                      | 10
-| Entries kpi                       | 11
-| Entries organization              | 12
-| Entries service                   | 13
-| Directory dump                    | 14
-| Directory dump committed          | 15
-
-### Extcmd
-
-The table below lists event types available in the Extcmd category.
-They have to be mixed with the BBDO_EXTCMD_TYPE category to get a
-BBDO event ID.
-
-| Type            | Value
-|-----------------|-------
-| Command request | 1
-| Command result  | 2
+| Type                                | Value | Uses Protobuf |
+|------------------------------------ | ----- | ------------- |
+| BA status                           | 1     |            No |
+| KPI status                          | 2     |            No |
+| Meta Service Status                 | 3     |            No |
+| BA event                            | 4     |            No |
+| KPI event                           | 5     |            No |
+| BA Duration Event                   | 6     |            No |
+| Dimension BA Event                  | 7     |            No |
+| Dimension KPI Event                 | 8     |            No |
+| Dimension BA BV Relation Event      | 9     |            No |
+| Dimension BV Event                  | 10    |            No |
+| Dimension Truncate Table Signal     | 11    |            No |
+| Rebuild                             | 12    |            No |
+| Dimension Timeperiod                | 13    |            No |
+| Dimension BA Timeperiod Relation    | 14    |            No |
+| Inherited Downtime                  | 17    |            No |
+| Pb Inherited Downtime               | 18    |           Yes |
+| Pb BA status                        | 19    |           Yes |
+| Pb BA event                         | 20    |           Yes |
+| Pb KPI event                        | 21    |           Yes |
+| Pb Dimension BV Event               | 22    |           Yes |
+| Pb Dimension BA BV Relation Event   | 23    |           Yes |
+| Pb Dimension Timeperiod             | 24    |           Yes |
+| Pb Dimension BA Event               | 25    |           Yes |
+| Pb Dimension KPI Event              | 26    |           Yes |
+| Pb KPI status                       | 27    |           Yes |
+| Pb BA Duration Event                | 28    |           Yes |
+| Pb Dimension BA Timeperiod Relation | 29    |           Yes |
+| Pb Dimension Truncate Table Signal  | 30    |           Yes |
 
 ## Event serialization
 
@@ -230,13 +223,13 @@ order described in the [mapping tables](developer-broker-mapping.md). They are e
 Let's take an example and see how an *host check event* gets sent in a
 packet. Its mapping is as follow :
 
-| Property              | Type             | Value in example
-|-----------------------|------------------|--------------------------
-| active_checks_enabled | boolean          | True.
-| check_type            | short integer    | 0 (active host check).
-| host_id               | unsigned integer | 42
-| next_check            | time             | 1365080225
-| command_line          | string           | ./my_plugin -H 127.0.0.1
+| Property                | Type             | Value in example
+|-------------------------|------------------|---------------------------
+| active\_checks\_enabled | boolean          | True.
+| check\_type             | short integer    | 0 (active host check).
+| host\_id                | unsigned integer | 42
+| next\_check             | time             | 1365080225
+| command\_line           | string           | ./my\_plugin -H 127.0.0.1
 
 And gives the following packet with values in hexadecimal.
 
