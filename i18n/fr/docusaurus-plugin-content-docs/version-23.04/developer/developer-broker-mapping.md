@@ -433,10 +433,7 @@ Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protob
 
 ### Flapping status
 
-Lorsque le statut d'une ressource est instable, Centreon Engine le marque comme en bagotage (**flapping**). Historiquement, un évènement **flapping status** état émis dans ces cas-là. Cela n'est plus d'actualité. L'évènement **flapping status** n'existe plus.
-
-</TabItem>
-</Tabs>
+Lorsque le statut d'une ressource est instable, Centreon Engine le marque comme en bagotage (**flapping**). Historiquement, un évènement **flapping status** était émis dans ces cas-là. Cela n'est plus d'actualité. L'évènement **flapping status** n'existe plus.
 
 ### Tag
 
