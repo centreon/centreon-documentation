@@ -14,6 +14,8 @@ You can find in this chapter all changelogs concerning **Centreon Commercial Ext
 
 If you have feature requests or want to report a bug, please contact support.
 
+Read more about version 23.04 in our [blog post](https://www.centreon.com/centreon-23-04-discover-the-latest-release/).
+
 ## Centreon MAP
 
 ### 23.04.0

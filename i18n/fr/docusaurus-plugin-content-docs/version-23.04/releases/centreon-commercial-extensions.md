@@ -11,7 +11,9 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 > notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
 > ou des développements spécifiques que vous auriez fait.
 
-Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, veuillez contacter le support.
+
+Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-04-decouvrez-les-nouveautes-a-venir-ce-printemps/).
 
 ## Centreon MAP
 

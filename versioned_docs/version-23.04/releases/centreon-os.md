@@ -15,6 +15,8 @@ You can find in this chapter all changelogs concerning **Centreon Open Source**.
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
+Read more about version 23.04 in our [blog post](https://www.centreon.com/centreon-23-04-discover-the-latest-release/).
+
 ## Centreon Web
 
 ### 23.04.0
