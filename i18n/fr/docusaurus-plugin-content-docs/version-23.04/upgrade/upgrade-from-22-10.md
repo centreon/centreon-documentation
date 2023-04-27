@@ -388,8 +388,6 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-> La présentation de l'interface ayant été modifiée dans la version 22.10, vous devez vider le cache de votre navigateur pour afficher le nouveau thème.
-
 Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
