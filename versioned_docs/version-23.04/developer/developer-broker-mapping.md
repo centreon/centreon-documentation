@@ -2770,8 +2770,8 @@ The content of this message is serialized as follows:
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Ack** events should be sent, instead you
-should see **NEB::PbAck** events.
+used, no more **BAM::KpiStatus** events should be sent, instead you
+should see **BAM::PbKpiStatus** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -3001,8 +3001,8 @@ The content of this message is serialized as follows:
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::BaStatus** events should be sent, instead you
-should see **BAM::PbBaStatus** events.
+used, no more **BAM::BaDurationEvent** events should be sent, instead you
+should see **BAM::PbBaDurationEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -3243,9 +3243,9 @@ is the following:
 
 ```cpp
 message DimensionBvEvent {
-    uint32 bv_id = 1;
-    string bv_name = 2;
-    string bv_description = 3;
+    uint32 bv_id = 1;           // BV ID.
+    string bv_name = 2;         // BV name.
+    string bv_description = 3;  // BV description.
 }
 ```
 
@@ -3294,7 +3294,7 @@ is the following:
 
 ```cpp
 message DimensionTruncateTableSignal {
-    bool update_started = 1;
+    bool update_started = 1;    // True if this is the start of the dump, false if it's the end.
 }
 ```
 
