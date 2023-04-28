@@ -16,7 +16,7 @@ You can dynamically change the configuration of a volume attached to an instance
 
 The Amazon EBS Centreon Plugin uses the Amazon Cloudwatch API to collect the related EBS metrics.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -117,30 +117,30 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon EBS ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Amazon EBS ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ebs-Api
 ```
 
-2. On the Centreon Web interface, install the 'Amazon EBS' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'Amazon EBS' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon EBS resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Amazon EBS resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ebs-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-ec2.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Amazon EBS' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'Amazon EBS' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

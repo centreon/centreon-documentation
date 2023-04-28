@@ -14,7 +14,7 @@ Il offre une visibilité et des rapports sur les licences Cisco que vous achetez
 tout en donnant aux organisations sensibles à la sécurité un moyen d'accéder à un sous-ensemble de fonctionnalités de Cisco SSM
 sans utiliser de connexion Internet directe pour gérer leur base d'installation.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -61,7 +61,7 @@ Plus d'information sont disponible dans la documentation officielle de Cisco SSM
 yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco SSSM* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco SSSM* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -72,19 +72,19 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 ```
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco SSMS* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco SSMS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par compte.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par compte.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-Ssms-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory   | Name                    | Description                                                               |

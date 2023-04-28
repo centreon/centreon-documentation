@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin Pack inclue la supervision le système AIX en utilisant les commandes SSH, tel que :
+Le connecteur de supervision inclut la supervision le système AIX en utilisant les commandes SSH, tel que :
 * Retour de commande
 * Messages errpt
 * Inodes
@@ -102,7 +102,7 @@ Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d
 yum install centreon-plugin-Operatingsystems-Aix-Local
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AIX SSH* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *AIX SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,20 +113,20 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 yum install centreon-plugin-Operatingsystems-Aix-Local
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-operatingsystems-aix-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *AIX SSH* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *AIX SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par serveur AIX.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par serveur AIX.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *OS-AIX-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

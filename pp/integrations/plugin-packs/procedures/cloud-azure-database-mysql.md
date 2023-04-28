@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure Database for MySQL allows you to easily set up scalable and secure high 
 availability MySQL instances.
 
-The Centreon Plugin Pack *Azure Database for MySQL* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Database for MySQL* can rely on Azure API or Azure CLI to collect the metrics related to the
 API Management service.
 
 ## Pack Assets
@@ -31,7 +31,7 @@ API Management service.
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Database for MySQL* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Database for MySQL* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Database for MySQL**:
 
@@ -123,30 +123,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Database for MySQL resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Database for MySQL resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-MySQL-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Database for MySQL* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Database for MySQL* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Database for MySQL resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Database for MySQL resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-MySQL-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-mysql.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Database for MySQL* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Database for MySQL* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

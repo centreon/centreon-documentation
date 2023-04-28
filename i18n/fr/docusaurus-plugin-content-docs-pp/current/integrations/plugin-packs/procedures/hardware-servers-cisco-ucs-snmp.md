@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 Cisco Unified Computing System (UCS) est un ensemble de ressources pour Datacenter comprenant du matériel hardware, un support système de virtualisation, une matrice de commutation et un logiciel de gestion.
 
-Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux ressources du serveur UCS.
+Le connecteur de supervision *Cisco UCS* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux ressources du serveur UCS.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -100,7 +100,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco UCS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -111,13 +111,13 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Cisco UCS* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Cisco UCS* :
 
 ```bash
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco UCS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

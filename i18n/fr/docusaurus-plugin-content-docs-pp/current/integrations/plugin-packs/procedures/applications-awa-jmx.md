@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Awa JMX apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Awa JMX apporte 1 modèle d'hôte :
 * App-Awa-JMX-custom
 
 Il apporte les Modèles de Service suivants :
@@ -63,7 +63,7 @@ Demandez à votre administrateur de le déployer et de vous en fournir l'URL.
 yum install centreon-plugin-Applications-Awa-Jmx
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Awa JMX** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Awa JMX** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Awa-Jmx
 yum install centreon-pack-applications-awa-jmx
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Awa JMX** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Awa JMX** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

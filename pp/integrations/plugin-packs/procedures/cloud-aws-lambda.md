@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **AWS Lambda** brings a host template:
+The Centreon Monitoring Connector **AWS Lambda** brings a host template:
 * Cloud-Aws-Lambda-custom
 
 It brings the following service template:
@@ -86,30 +86,30 @@ sudo ./aws/install
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **AWS Lambda** resources:
+1. Install the package on every Centreon poller expected to monitor **AWS Lambda** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Lambda-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS Lambda** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS Lambda** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **AWS Lambda** resources:
+1. Install the package on every Centreon poller expected to monitor **AWS Lambda** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Lambda-Api
 ```
 
-2. Install the **AWS Lambda** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **AWS Lambda** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-lambda
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS Lambda** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS Lambda** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

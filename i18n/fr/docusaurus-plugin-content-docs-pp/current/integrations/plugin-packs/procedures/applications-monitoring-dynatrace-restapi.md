@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Dynatrace Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Dynatrace Rest API** apporte un modèle d'hôte :
 
 * App-Monitoring-Dynatrace-Restapi-custom
 
@@ -85,7 +85,7 @@ Plus d'information sur la documentation officielle de Dynatrace : https://www.dy
 yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Dynatrace Rest API** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Dynatrace Rest API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -96,13 +96,13 @@ yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Dynatrace Rest API** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Dynatrace Rest API** :
 
 ```bash
 yum install centreon-pack-applications-monitoring-dynatrace-restapi
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Dynatrace Rest API** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Dynatrace Rest API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

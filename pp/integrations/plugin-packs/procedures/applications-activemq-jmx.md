@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Apache ActiveMQ is an open source message broker written in Java together with a full Java Message Service (JMS) client.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -80,7 +80,7 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 yum install centreon-plugin-Applications-ActiveMQ-Jmx
 ```
 
-2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -91,13 +91,13 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 yum install centreon-plugin-Applications-ActiveMQ-Jmx
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 centreon-pack-applications-activemq-jmx.noarch
 ```
 
-3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

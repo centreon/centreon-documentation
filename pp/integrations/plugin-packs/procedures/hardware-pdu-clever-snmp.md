@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Clever PDU** brings a host template:
+The Centreon Monitoring Connector **Clever PDU** brings a host template:
 
 * HW-Pdu-Clever-SNMP-custom
 
@@ -52,30 +52,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Clever PDU** resources:
+1. Install the package on every Centreon poller expected to monitor **Clever PDU** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Pdu-Clever-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Clever PDU** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Clever PDU** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Clever PDU** resources:
+1. Install the package on every Centreon poller expected to monitor **Clever PDU** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Pdu-Clever-Snmp
 ```
 
-2. Install the **Clever PDU** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Clever PDU** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-hardware-pdu-clever-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Clever PDU** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Clever PDU** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

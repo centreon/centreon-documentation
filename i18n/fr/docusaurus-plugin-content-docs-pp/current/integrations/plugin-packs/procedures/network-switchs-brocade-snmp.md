@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Brocade Switch** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Brocade Switch** apporte un modèle d'hôte :
 
 * Net-Brocade-SNMP-custom
 
@@ -125,7 +125,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Network-Switchs-Brocade-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Brocade Switch** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Brocade Switch** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -136,13 +136,13 @@ yum install centreon-plugin-Network-Switchs-Brocade-Snmp
 yum install centreon-plugin-Network-Switchs-Brocade-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Brocade Switch** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Brocade Switch** :
 
 ```bash
 yum install centreon-pack-network-switchs-brocade-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Brocade Switch** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Brocade Switch** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

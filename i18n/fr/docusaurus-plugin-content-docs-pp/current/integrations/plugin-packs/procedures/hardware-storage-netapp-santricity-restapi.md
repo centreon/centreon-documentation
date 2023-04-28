@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 Le système d'exploitation SANtricity, délivré par l'entreprise NetApp, accélère et fiabilise vos données de stockage tout en renforçant la protection de celles-ci.
 Le service SANtricity Web Services Proxy (WSP) permet d'accéder de manière normalisée à la configuration et aux indicateurs des équipements NetApp par l'utilisation d'une API Rest HTTP.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Éléments supervisés
 
-Le Plugin-Pack SANtricity permet de superviser les ressources NetApp accessibles au travers de l'API SANtricity:
+Le connecteur de supervision SANtricity permet de superviser les ressources NetApp accessibles au travers de l'API SANtricity:
 
 * Contrôleurs
 * Volumes
@@ -99,7 +99,7 @@ Les ressources ci-après décrivent les méthodes d'installation ainsi que le fo
 yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
+2. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netapp Santricity Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -110,13 +110,13 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
+3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netapp Santricity Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

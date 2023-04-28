@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Microsoft DHCP SNMP including monitoring of Subnets.
+The Monitoring Connector Microsoft DHCP SNMP including monitoring of Subnets.
 
 ### Collected Metrics
 
@@ -44,7 +44,7 @@ To control your Microsoft DHCP software, the SNMP must be configured.
 yum install centreon-plugin-Applications-Microsoft-Dhcp-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Microsoft DHCP SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Microsoft DHCP SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -55,13 +55,13 @@ yum install centreon-plugin-Applications-Microsoft-Dhcp-Snmp
 yum install centreon-plugin-Applications-Microsoft-Dhcp-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-microsoft-dhcp-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Microsoft DHCP SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Microsoft DHCP SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

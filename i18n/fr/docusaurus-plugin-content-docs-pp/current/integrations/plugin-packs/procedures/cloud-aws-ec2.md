@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Amazon Elastic Compute Cloud (Amazon EC2) offre une capacité de calcul évolutive dans le cloud Amazon Web Services (AWS). L'utilisation d'Amazon EC2 vous dispense d'investir à l'avance dans du matériel et, par conséquent, vous pouvez développer et déployer les applications plus rapidement. Vous pouvez utiliser Amazon EC2 pour lancer autant de serveurs virtuels que nécessaire, configurer la sécurité et la mise en réseau, et gérer le stockage.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -31,7 +31,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) offre une capacité de calcul évoluti
 </TabItem>
 <TabItem value="Services" label="Services">
 
-Aucune règle de découverte de service n'est associée à ce Plugin-Pack. 
+Aucune règle de découverte de service n'est associée à ce connecteur de supervision. 
 
 </TabItem>
 </Tabs>
@@ -156,7 +156,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EC2' depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface Centreon, installer le connecteur de supervision 'Amazon EC2' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -167,13 +167,13 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack 'Amazon EC2':
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision 'Amazon EC2':
 
 ```bash
 yum install centreon-pack-cloud-aws-ec2.noarch
 ```
 
-3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EC2' depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface Web de Centreon, installer le connecteur de supervision 'Amazon EC2' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

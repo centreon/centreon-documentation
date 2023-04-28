@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack HMS Ewon including monitoring of Tags.
+The Monitoring Connector HMS Ewon including monitoring of Tags.
 
 ### Collected Metrics
 
@@ -42,7 +42,7 @@ To control your HMS Ewon, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *HMS Ewon SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *HMS Ewon SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -53,13 +53,13 @@ yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-hms-ewon-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *HMS Ewon SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *HMS Ewon SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

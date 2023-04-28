@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure Traffic Manager** apporte 2 modèles d'hôte différents :
+Le connecteur de supervision Centreon **Azure Traffic Manager** apporte 2 modèles d'hôte différents :
 
 * Cloud-Azure-Network-TrafficManager-custom
 * generic-dummy-host-custom
@@ -25,7 +25,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure Traffic Manager** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure Traffic Manager** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Traffic Manager Profiles**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
@@ -78,7 +78,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-TrafficManager-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Traffic Manager** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Traffic Manager** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -89,13 +89,13 @@ yum install centreon-plugin-Cloud-Azure-Network-TrafficManager-Api
 yum install centreon-plugin-Cloud-Azure-Network-TrafficManager-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure Traffic Manager** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure Traffic Manager** :
 
 ```bash
 yum install centreon-pack-cloud-azure-network-trafficmanager
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Traffic Manager** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Traffic Manager** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

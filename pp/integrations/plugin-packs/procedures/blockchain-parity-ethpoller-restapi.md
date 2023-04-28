@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Event poller with RESTful API for both Ethereum and Hyperledger Fabric Blockchain technologies. 
 
-The Centreon Plugin-Pack *Ethpoller API* connects to various API endpoints to gather application, 
+The Centreon Monitoring Connector *Ethpoller API* connects to various API endpoints to gather application, 
 adoption and utilization metrics of a Blockchain implementation. 
 
 ## Pack assets
@@ -71,30 +71,30 @@ To get data from the API, the Poller must be able to communicate with it over th
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Parity or Hyperledger* blockchains:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Parity or Hyperledger* blockchains:
 
 ```bash
 yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Ethpoller API* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Ethpoller API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Parity or Hyperledger* blockchains:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Parity or Hyperledger* blockchains:
 
 ```bash
 yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 ```
 
-2. Install the *Ethpoller API* Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the *Ethpoller API* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-blockchain-parity-ethpoller-restapi
 ```
 
-3. On the Centreon Web interface, install the *Ethpoller API* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Ethpoller API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

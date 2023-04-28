@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack PHP APC brings 1 host template :
+The Centreon Monitoring Connector PHP APC brings 1 host template :
 * App-Php-Apc-Web-custom
 
 It brings the following Service Templates:
@@ -58,30 +58,30 @@ specified port in the *PHPAPCWEBPORT* Host Macro. More information in the
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *PHP APC* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor your *PHP APC* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Php-Apc-Web
 ```
 
-2. On the Centreon Web interface, install the *PHP APC* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the *PHP APC* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *PHP APC* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor your *PHP APC* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Php-Apc-Web
 ```
 
-2. Install the *PHP APC* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *PHP APC* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-php-apc-web
 ```
 
-3. On the Centreon Web interface, install the *PHP APC* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the *PHP APC* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

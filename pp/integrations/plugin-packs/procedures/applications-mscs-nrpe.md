@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Plugin Pack *Microsoft Cluster Server NRPE* works with the Centreon NSClient++ monitoring
+The Monitoring Connector *Microsoft Cluster Server NRPE* works with the Centreon NSClient++ monitoring
 agent to check the health and performance of Microsoft Clusters.
 
 ## Pack assets
@@ -41,12 +41,12 @@ yum install centreon-nrpe-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Microsoft Cluster servers* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Microsoft Cluster servers*:
+1. Install the Centreon package on every Poller expected to monitor *Microsoft Cluster servers*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -59,7 +59,7 @@ yum install centreon-pack-applications-mscs-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Exchange NRPE* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

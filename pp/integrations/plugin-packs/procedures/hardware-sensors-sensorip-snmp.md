@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Sensor IP** brings a host template:
+The Centreon Monitoring Connector **Sensor IP** brings a host template:
 
 * HW-Sensor-Sensorip-SNMP-custom
 
@@ -72,30 +72,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Sensor IP** resources:
+1. Install the package on every Centreon poller expected to monitor **Sensor IP** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Sensor IP** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Sensor IP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Sensor IP** resources:
+1. Install the package on every Centreon poller expected to monitor **Sensor IP** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 ```
 
-2. Install the **Sensor IP** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Sensor IP** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-hardware-sensors-sensorip-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Sensor IP** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Sensor IP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

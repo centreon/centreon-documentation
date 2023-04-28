@@ -18,7 +18,7 @@ through the Office365 API Management.
 > The data provided by the Office365 Management API are not real-time.
 > They're based on a 7 days reporting period
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -96,30 +96,30 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
+1. Install the Centreon package on every poller expected to monitor Office365 Teams:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Office365 Teams* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Office365 Teams:
+1. Install the Centreon package on every poller expected to monitor Office365 Teams:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-teams
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Office365 Teams* from the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Office365 Teams* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

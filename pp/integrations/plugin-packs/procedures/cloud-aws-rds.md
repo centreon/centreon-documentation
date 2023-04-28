@@ -157,30 +157,30 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
+1. Install the Centreon package on every poller expected to monitor Amazon RDS ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
+1. Install the Centreon package on every poller expected to monitor Amazon RDS ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Monitoring Connector RPM:
 
 ```bash
 yum install centreon-pack-cloud-aws-rds.noarch
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

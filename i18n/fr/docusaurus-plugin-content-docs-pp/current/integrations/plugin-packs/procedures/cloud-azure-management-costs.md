@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure Costs** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Azure Costs** apporte un modèle d'hôte :
 
 * Cloud-Azure-Management-Costs-Api-custom
 
@@ -113,7 +113,7 @@ Afin d'utiliser ce Pack de supervision, il est nécessaire d'attribuer les bons 
 yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Costs** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Costs** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,13 +124,13 @@ yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure Costs** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure Costs** :
 
 ```bash
 yum install centreon-pack-cloud-azure-management-costs
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Costs** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Costs** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

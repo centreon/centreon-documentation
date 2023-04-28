@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -149,30 +149,30 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Amazon EC2 ressources:
+1. Install the Centreon package on every poller expected to monitor Amazon EC2 ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor Amazon EC2 resources:
+1. Install the Centreon package on every poller expected to monitor Amazon EC2 resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-ec2.noarch
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

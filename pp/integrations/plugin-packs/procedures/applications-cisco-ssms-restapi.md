@@ -13,7 +13,7 @@ that works in conjunction with Cisco Smart Software Manager (SSM).
 It offers near real-time visibility and reporting of the Cisco licensesyou purchase and consume while giving security-sensitive organizations,
 a way to access a subset of Cisco SSM functionality without using a direct Internet connection to manage their install base.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -61,7 +61,7 @@ More information is available in the official Cisco SSMS API : https://www.cisco
 yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco SSMS* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco SSMS* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -72,20 +72,20 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco SSMS* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco SSMS* Monitoring Connector
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-The Plugin-Pack is designed to monitor resources based on one host per account.
+The Monitoring Connector is designed to monitor resources based on one host per account.
 Adding a host into Centreon, link it to the template named *App-Cisco-Ssms-Restapi-custom*. 
 Once the template applied, some Macros have to be configured:
 

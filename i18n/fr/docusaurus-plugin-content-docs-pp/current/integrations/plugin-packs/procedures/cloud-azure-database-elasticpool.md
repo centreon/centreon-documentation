@@ -12,10 +12,10 @@ Les pools élastiques Azure SQL Database représentent une solution simple et re
 bases de données qui ont des demandes d’utilisation variables et imprévisibles. Les bases de données d’un pool élastique se trouvent
 sur un seul serveur et partagent un nombre défini de ressources à prix fixe. 
 
-Le Plugin-Pack Centreon *Azure Elastic Pool* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Elastic Pool* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Elastic Pool. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -23,7 +23,7 @@ Elastic Pool. Il est possible d'utiliser les 2 modes proposés par Microsoft: Re
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Elastic Pool* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure SQL Elastic Pool**.
+Le connecteur de supervision Centreon *Azure Elastic Pool* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure SQL Elastic Pool**.
 Celui-ci permet de découvrir l'ensemble des *Elastic Pools* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-database-elasticpool-provider.png)
@@ -103,7 +103,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Elastic Pool* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Elastic Pool* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -114,13 +114,13 @@ yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Elastic Pool*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Elastic Pool*:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-elasticpool.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Elastic Pool* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Elastic Pool* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

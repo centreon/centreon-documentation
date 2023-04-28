@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Azure Classic Storage** brings 5 different host templates:
+The Centreon Monitoring Connector **Azure Classic Storage** brings 5 different host templates:
 
 * Cloud-Azure-ClassicStorage-StorageAccount-Account-custom
 * Cloud-Azure-ClassicStorage-StorageAccount-Blob-custom
@@ -61,7 +61,7 @@ It brings the following service templates:
 
 ### Discovery rules
 
-The Centreon Plugin Pack **Azure Classic Storage** includes a Host Discovery provider to
+The Centreon Monitoring Connector **Azure Classic Storage** includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure Classic Storage Account**:
 
@@ -346,30 +346,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Azure Classic Storage** resources:
+1. Install the package on every Centreon poller expected to monitor **Azure Classic Storage** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-ClassicStorage-StorageAccount-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Classic Storage** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Classic Storage** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Azure Classic Storage** resources:
+1. Install the package on every Centreon poller expected to monitor **Azure Classic Storage** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-ClassicStorage-StorageAccount-Api
 ```
 
-2. Install the **Azure Classic Storage** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Azure Classic Storage** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-classicstorage-storageaccount
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure Classic Storage** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Classic Storage** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

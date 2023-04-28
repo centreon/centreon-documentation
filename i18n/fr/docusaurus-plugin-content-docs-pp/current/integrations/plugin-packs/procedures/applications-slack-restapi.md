@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -77,7 +77,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Slack-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,7 +94,7 @@ yum install centreon-plugin-Applications-Slack-Restapi
 yum install centreon-pack-applications-slack-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

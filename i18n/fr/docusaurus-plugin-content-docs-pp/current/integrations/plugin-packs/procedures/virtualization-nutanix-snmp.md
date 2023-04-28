@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Nutanix** apporte 4 modèles d'hôte différents :
+Le connecteur de supervision Centreon **Nutanix** apporte 4 modèles d'hôte différents :
 
 * Virt-Nutanix-SNMP-custom
 * Virt-Nutanix-VM-SNMP-custom
@@ -162,7 +162,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installez le Plugin Pack **Nutanix** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installez le connecteur de supervision **Nutanix** depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -173,13 +173,13 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Nutanix** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Nutanix** :
 
 ```bash
 yum install centreon-pack-virtualization-nutanix-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installez le Plugin Pack **Nutanix** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installez le connecteur de supervision **Nutanix** depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>
