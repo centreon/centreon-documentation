@@ -1186,6 +1186,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-hms-netbiter-argos-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-hp-blade-chassis-snmp'
         },
         {
