@@ -24,7 +24,7 @@ const links = {
   ],
   thewatch: 'https://thewatch.centreon.com/',
   contribute:
-    'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
+    'https://github.com/centreon/.github/blob/master/CONTRIBUTING.md',
 };
 
 const cards = [
