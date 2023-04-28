@@ -35,8 +35,8 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 
 **Voir aussi** :
 
-- [Utiliser des Plugin Packs](../monitoring/pluginpacks.md),
-- [Introduction aux Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
+- [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
+- [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Donnée de performance
 
