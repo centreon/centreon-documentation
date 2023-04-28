@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-hms-netbiter-argos-restapi
-title: Un titre
+title: HMS Netbiter Argos RestAPI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
