@@ -120,7 +120,6 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 - [Utiliser des Plugin Packs](../monitoring/pluginpacks.md),
 - [Introduction aux Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
-
 ## Ressource
 
 Objet supervisé par une plateforme Centreon (hôtes, services, métaservices).
