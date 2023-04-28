@@ -226,7 +226,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 #### Procédure
 
-Si vous avez installé votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet `centreon-release` :
+Si vous avez installé votre serveur Centreon MAP à partir d'une "installation fraîche", vous devez installer le paquet `centreon-release` :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -527,7 +527,7 @@ Allez dans **Administration > Extensions** et cliquez sur le bouton **Installer*
 Le client lourd est actuellement disponible uniquement pour les plateformes **64-bit** Windows, Mac et Linux (Debian et Ubuntu).
 
 Vous pouvez trouver les installateurs dans **Supervision > Map > Desktop Client** ou
-[ici](https://download.centreon.com/?action=product&product=centreon-map&version=23.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[ici](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > Pour des raisons de performance, nous recommandons fortement d'avoir moins de 5 à 10 utilisateurs maximum connectés en même temps pour manipuler les vues.
 
