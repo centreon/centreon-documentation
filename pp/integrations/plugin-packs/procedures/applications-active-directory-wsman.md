@@ -41,19 +41,19 @@ To monitor Active Directory, please follow our [official documentation](../getti
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Active Directory WSMAN** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Active Directory WSMAN** resources:
 
 ```bash
 yum install centreon-plugin-Applications-ActiveDirectory-Wsman
 ```
 
-2. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Active Directory WSMAN** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Active Directory WSMAN** resources:
 
 ```bash
 yum install centreon-plugin-Applications-ActiveDirectory-Wsman
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-ActiveDirectory-Wsman
 yum install centreon-pack-applications-active-directory-wsman
 ```
 
-3. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

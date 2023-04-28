@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Amazon Elastic File System (Amazon EFS) est un système de stockage de fichiers NFS simple, évolutif, souple qui s’utilise avec AWS Cloud Services et les ressources sur site. Il prend en charge plusieurs pétaoctets de données à la demande sans interrompre les applications, ajustant automatiquement sa capacité à la hausse ou à la baisse en fonction de l'ajout ou de la suppression de fichiers. De cette manière, il n’est plus nécessaire d’allouer et de gérer la capacité en fonction de la croissance.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -102,7 +102,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EFS' depuis la page "Configuration > Plugin packs > Manager"
+2. Dans l'interface Centreon, installer le connecteur de supervision 'Amazon EFS' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,13 +113,13 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. Installer le Plugin-Pack via le RPM:
+2. Installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-cloud-aws-efs.noarch
 ```
 
-3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EFS' depuis la page "Configuration > Plugin packs > Manager"
+3. Dans l'interface Web de Centreon, installer le connecteur de supervision 'Amazon EFS' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

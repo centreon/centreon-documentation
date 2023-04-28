@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Azure Data Factory** brings a host template:
+The Centreon Monitoring Connector **Azure Data Factory** brings a host template:
 
 * Cloud-Azure-DataFactory-Factories-custom
 
@@ -23,7 +23,7 @@ It brings the following service templates:
 
 ### Discovery rules
 
-The Centreon Plugin Pack **Azure Data Factory** includes a Host Discovery provider to
+The Centreon Monitoring Connector **Azure Data Factory** includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure Data Factories**:
 
@@ -69,7 +69,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -98,7 +98,7 @@ apt install centreon-pack-cloud-azure-datafactory-factories
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Azure Data Factory** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

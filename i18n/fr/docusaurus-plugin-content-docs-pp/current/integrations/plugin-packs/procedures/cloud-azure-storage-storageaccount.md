@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure Storage Account** apporte 5 modèles d'hôte différents :
+Le connecteur de supervision Centreon **Azure Storage Account** apporte 5 modèles d'hôte différents :
 
 * Cloud-Azure-Storage-StorageAccount-Account-custom
 * Cloud-Azure-Storage-StorageAccount-Blob-custom
@@ -61,7 +61,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure Storage Account** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure Storage Account** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Storage Accounts**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
@@ -354,7 +354,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Storage-StorageAccount-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Storage Account** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Storage Account** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -365,13 +365,13 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageAccount-Api
 yum install centreon-plugin-Cloud-Azure-Storage-StorageAccount-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure Storage Account** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure Storage Account** :
 
 ```bash
 yum install centreon-pack-cloud-azure-storage-storageaccount
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Storage Account** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Storage Account** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

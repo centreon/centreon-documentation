@@ -12,7 +12,7 @@ NGINX Plus est un logiciel de Load Balancer, de serveur web et de cache de conte
 
 Le Plugin Centreon associé permet d'interroger l'API Rest de Nginx Plus afin de récupérer le statut de diverses ressources Nginx.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -76,7 +76,7 @@ Plus d'informations sont disponible sur la documentation officielle de Nginx : h
 yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Nginx Plus* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Nginx Plus* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -87,20 +87,20 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-nginx-plus-restapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Nginx Plus* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Nginx Plus* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Nginx Plus
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par environnement Nginx Plus
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Nginx-Plus-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name            | Description                                                                |

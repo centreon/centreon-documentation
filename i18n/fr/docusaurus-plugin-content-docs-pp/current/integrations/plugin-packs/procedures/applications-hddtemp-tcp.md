@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Hddtemp TCP apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Hddtemp TCP apporte 1 modèle d'hôte :
 * App-Hddtemp-Tcp-custom
 
 Il apporte le Modèle de Service suivant :
@@ -49,7 +49,7 @@ socle standard.
 yum install centreon-plugin-Applications-Hddtemp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Hddtemp TCP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Hddtemp TCP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -66,7 +66,7 @@ yum install centreon-plugin-Applications-Hddtemp
 yum install centreon-pack-applications-hddtemp-tcp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Hddtemp TCP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Hddtemp TCP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

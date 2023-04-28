@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Informix DB SNMP brings 1 host template:
+The Centreon Monitoring Connector Informix DB SNMP brings 1 host template:
 * App-DB-Informix-SNMP-custom
 
 It brings the following Service Templates:
@@ -101,30 +101,30 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Informix SNMP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Informix SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Databases-Informix-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Informix SNMP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Informix SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Databases-Informix-Snmp
 ```
 
-2. Install the **Informix DB SNMP** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Informix DB SNMP** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-databases-informix-snmp
 ```
 
-3. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

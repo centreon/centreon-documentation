@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Lenovo développe, fabrique et vend du matériel et logiciels informatiques.
 Lenovo Flex System est l'architecture de serveurs lames de Lenovo.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés 
 
@@ -79,7 +79,7 @@ absent/removed. You can also overload the default status using the
 
 ## Prerequisites
 
-Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur le
+Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur le
 serveur de lames Lenovo Flex System . Une description complète est disponible 
 sur le site officiel de Lenovo :
 
@@ -102,7 +102,7 @@ avec le serveur de lames Lenovo Flex System.
 yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 ```
 
-2. Installer le Plugin-Pack *Lenovo Flex System Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+2. Installer le connecteur de supervision *Lenovo Flex System Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,13 +113,13 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central :
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision sur le serveur Centreon Central :
 
 ```bash
 yum install centreon-pack-network-lenovo-flexsystem-snmp
 ```
 
-3. Installer le Plugin-Pack *Lenovo Flex System Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+3. Installer le connecteur de supervision *Lenovo Flex System Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>

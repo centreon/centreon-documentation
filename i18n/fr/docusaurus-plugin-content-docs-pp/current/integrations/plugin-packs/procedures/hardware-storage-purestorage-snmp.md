@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Pure Storage fournit du matériel de stockage flash pour les datacenters en utilisant des disques durs grand public. 
 Il fournit un logiciel propriétaire de déduplication et de compression des données afin d'améliorer la quantité qui est stockées sur chaque disque. 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -57,7 +57,7 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le connecteur de supervision depuis la page **Configuration > Gestionnaire de connecteurs de supervision**:
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,13 +68,13 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack :
+2. Installer le RPM du connecteur de supervision :
 
 ```bash
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Installer le Plugin-Pack 'PureStorage SNMP' depuis la page "Configuration > Plugin packs > Manager"
+3. Installer le connecteur de supervision 'PureStorage SNMP' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

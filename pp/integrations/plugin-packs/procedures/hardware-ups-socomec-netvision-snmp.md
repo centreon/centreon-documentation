@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Socomec Net Vision SNMP including Alarms, Battery, Input-lines, Output-lines.
+The Monitoring Connector Socomec Net Vision SNMP including Alarms, Battery, Input-lines, Output-lines.
 
 ### Collected Metrics
 
@@ -70,7 +70,7 @@ To control your Socomec, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Socomec Net Vision UPS SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Socomec Net Vision UPS SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,13 +81,13 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Socomec Net Vision UPS SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Socomec Net Vision UPS SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

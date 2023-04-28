@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetApp's proprietary operating system used in storage disk arrays such as NetApp FAS and AFF, ONTAP Select and Cloud Volumes ONTAP
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -125,30 +125,30 @@ A read-only account (login/password) is required.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor NetApp ONTAP ressources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor NetApp ONTAP ressources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 ```
 
-3. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

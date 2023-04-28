@@ -13,7 +13,7 @@ founded in early 2008. Nimble Storage produced hardware and software products fo
 that use the iSCSI and Fibre Channel protocols and includes data backup and data protection features. Nimble is a subsidiary of
 Hewlett Packard Enterprise.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored Objects
 
@@ -21,7 +21,7 @@ Hewlett Packard Enterprise.
 
 ### Available services
 
-The current version of the Nimble SNMP Plugin-Pack can monitor the following services:
+The current version of the Nimble SNMP Monitoring Connector can monitor the following services:
 
 * Arrays
 * Hardware
@@ -82,30 +82,30 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
+1. Install the Centreon package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
+1. Install the Centreon package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Nimble-Restapi.noarch
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

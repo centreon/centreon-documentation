@@ -8,13 +8,13 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le plugin pack Centreon Poller permet de faciliter la mise en place de la supervision pour les collecteurs. Pour être le plus pertinent possible, les collecteurs doivent être supervisés par le Central.
+Le connecteur de supervision Centreon Poller permet de faciliter la mise en place de la supervision pour les collecteurs. Pour être le plus pertinent possible, les collecteurs doivent être supervisés par le Central.
 
 ## Contenu du Pack
 
 ### Modèles
 
-Le Plugin Pack Centreon Centreon Poller apporte un modèle d'hôte :
+Le connecteur de supervision Centreon Centreon Poller apporte un modèle d'hôte :
 
 * App-Monitoring-Centreon-Poller-custom
 
@@ -112,7 +112,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon Poller** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Centreon Poller** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -129,7 +129,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plu
 yum install centreon-pack-applications-monitoring-centreon-poller
  ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Centreon Poller** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Centreon Poller** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

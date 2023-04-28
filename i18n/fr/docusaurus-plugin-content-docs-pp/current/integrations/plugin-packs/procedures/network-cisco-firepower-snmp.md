@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le plugin-pack Cisco Firepower inclue la supervision CPU, Faults, Hardware, Interfaces et Memory.
+Le connecteur de supervision Cisco Firepower inclue la supervision CPU, Faults, Hardware, Interfaces et Memory.
 
 ### Métriques collectées
 
@@ -97,7 +97,7 @@ Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configur
 yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Firepower SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Firepower SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -108,20 +108,20 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-network-cisco-firepower-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Firepower SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Firepower SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Cisco Firepower.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par équipement Cisco Firepower.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Firepower-SNMP-custom*. 
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 

@@ -12,7 +12,7 @@ know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Exchange NSClient API* works with the Centreon NSClient++ monitoring
+The Monitoring Connector *Exchange NSClient API* works with the Centreon NSClient++ monitoring
 agent and its built-in web server to run Powershell code to check the health and 
 performance of Microsoft Exchange Servers.
 
@@ -50,26 +50,26 @@ on the target Server.
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API* 
-from the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NSClient API* 
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Microsoft Exchange*:
+1. Install the Centreon package on every Poller expected to monitor *Microsoft Exchange*:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Central server:
+2. Install the Centreon connecteur de supervision RPM on the Central server:
 
 ```bash
 yum install centreon-pack-applications-exchange-nsclient-restapi
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NSClient API* 
-from the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NSClient API* 
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

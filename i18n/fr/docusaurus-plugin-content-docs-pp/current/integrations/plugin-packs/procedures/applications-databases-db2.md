@@ -164,7 +164,7 @@ Ce compte utilisateur doit avoir la permission d'exécuter la procédure `SYSPRO
 yum install centreon-plugin-Applications-Databases-Db2
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *DB2 Database* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *DB2 Database* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -181,7 +181,7 @@ yum install centreon-plugin-Applications-Databases-Db2
 yum install centreon-pack-applications-databases-db2
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *DB2 Database* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *DB2 Database* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

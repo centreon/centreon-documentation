@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure Applications Insights étend les fonction d'Azure Monitor permettant de
 superviser des applications en temps réel.
 
-Le Plugin Pack Centreon *Azure Application Insights* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Application Insights* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Application Gateway. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
@@ -30,7 +30,7 @@ Application Gateway. Il est possible d'utiliser les 2 modes proposés par Micros
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure Application Insights* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Insights**.
+Le connecteur de supervision Centreon *Azure Application Insights* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Insights**.
 Celui-ci permet de découvrir l'ensemble des instances *Application Insights* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights-provider.png)

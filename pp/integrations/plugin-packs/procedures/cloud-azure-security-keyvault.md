@@ -13,10 +13,10 @@ access to, such as API keys, passwords, certificates, or cryptographic keys. Key
 vaults and managed HSM pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools
 only support HSM-backed keys. 
 
-The Centreon Plugin-Pack *Azure Key Vault* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Key Vault* can rely on Azure API or Azure CLI to collect the metrics related to the
 Key Vault service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -24,7 +24,7 @@ Key Vault service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Key Vault* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Key Vault* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Key Vault**:
 
@@ -72,30 +72,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Key Vault resources:
+1.  Install the Centreon package on every Centreon poller expected to monitor Azure Key Vault resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Security-KeyVault-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Key Vault* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Key Vault* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Key Vault resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Key Vault resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Security-KeyVault-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-security-keyvault.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Key Vault* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Key Vault* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

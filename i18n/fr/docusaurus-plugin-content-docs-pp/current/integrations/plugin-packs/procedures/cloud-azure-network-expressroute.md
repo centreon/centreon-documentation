@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure ExpressRoute** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Azure ExpressRoute** apporte un modèle d'hôte :
 
 * Cloud-Azure-Network-ExpressRoute-custom
 
@@ -24,7 +24,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure ExpressRoute** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure ExpressRoute** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Express Routes**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
@@ -79,7 +79,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-ExpressRoute-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure ExpressRoute** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure ExpressRoute** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -90,13 +90,13 @@ yum install centreon-plugin-Cloud-Azure-Network-ExpressRoute-Api
 yum install centreon-plugin-Cloud-Azure-Network-ExpressRoute-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure ExpressRoute** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure ExpressRoute** :
 
 ```bash
 yum install centreon-pack-cloud-azure-network-expressroute
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure ExpressRoute** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure ExpressRoute** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

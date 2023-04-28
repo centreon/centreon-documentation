@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Using SXML, this Cisco Call Manager Plugin-Pack monitors alerts from the Cisco Unified Communications components.
+Using SXML, this Cisco Call Manager Monitoring Connector monitors alerts from the Cisco Unified Communications components.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -45,7 +45,7 @@ https://www.cisco.com/c/en/us/support/docs/unified-communications/unified-commun
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Callmanager SXML* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Callmanager SXML* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -56,20 +56,20 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-cisco-callmanager-sxml.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Callmanager SXML* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Callmanager SXML* Monitoring Connector
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-The Plugin-Pack is designed to monitor resources based on one Host per Cisco Callmanager SXML environment. 
+The Monitoring Connector is designed to monitor resources based on one Host per Cisco Callmanager SXML environment. 
 Adding a Host into Centreon, link it to the Template named *Net-Cisco-Callmanager-Sxml-custom*.
 Once the Template applied, some Macros have to be configured:
 

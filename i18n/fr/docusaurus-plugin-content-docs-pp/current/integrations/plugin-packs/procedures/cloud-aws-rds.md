@@ -161,7 +161,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**:
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -178,7 +178,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 yum install centreon-pack-cloud-aws-rds.noarch
 ```
 
-3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+3. Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**:
 
 </TabItem>
 </Tabs>

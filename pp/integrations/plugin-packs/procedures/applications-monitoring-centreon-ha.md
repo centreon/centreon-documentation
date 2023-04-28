@@ -10,14 +10,14 @@ import TabItem from '@theme/TabItem';
 
 Centreon-HA is Centreon central server's high availability implementation. More information available [here](/docs/installation/installation-of-centreon-ha/overview).
 
-This Plugin-Pack relies on two other Plugin-Packs:
+This Monitoring Connector relies on two other Monitoring Connectors:
 
 * [Pacemaker](applications-pacemaker-ssh.md)
 * [Linux SNMP](operatingsystems-linux-snmp.md)
 
 It consequently uses both **SNMP** and **SSH** protocols to access a Centreon-HA cluster's nodes to get status and metrics related to the cluster's health.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -73,7 +73,7 @@ This template does not collect metrics, but provides the general state of the cl
 
 ### Device Configuration
 
-The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Plugin-Pack's documentation page](operatingsystems-linux-snmp.md#net-snmp-server-configuration).
+The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Monitoring Connector's documentation page](operatingsystems-linux-snmp.md#net-snmp-server-configuration).
 
 ### Network flows
 
@@ -135,30 +135,30 @@ usermod -a -G haclient centreon-engine
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor the Centreon-HA cluster:
+1. Install the Centreon package on every Centreon Poller expected to monitor the Centreon-HA cluster:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Centreon-HA* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor the Centreon-HA cluster:
+1. Install the Centreon package on every Centreon Poller expected to monitor the Centreon-HA cluster:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. On the Centreon Web interface, install the *Centreon-HA* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

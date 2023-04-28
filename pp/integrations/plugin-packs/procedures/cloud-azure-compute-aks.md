@@ -15,7 +15,7 @@ The Centreon Plugin *Azure Kubernetes Service* can rely on Azure API or Azure CL
 
 ### Templates
 
-The Centreon Plugin Pack Azure Kubernetes Service brings a host template:
+The Centreon Monitoring Connector Azure Kubernetes Service brings a host template:
 
 * Cloud-Azure-Compute-Aks-custom
 
@@ -32,7 +32,7 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Kubernetes Service* includes a Host Discovery provider to
+The Centreon Monitoring Connector *Azure Kubernetes Service* includes a Host Discovery provider to
 automatically discover the Azure Kubernetes Service Clusters of a given subscription and add them to the Centreon configuration. This provider is named **Microsoft Azure Kubernetes Service**:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-compute-aks-provider.png)
@@ -211,30 +211,30 @@ Credentials are now stored locally in the **accessTokens.json** file so the Plug
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Azure Kubernetes Service** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Azure Kubernetes Service** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 ```
 
-2. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Azure Kubernetes Service** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Azure Kubernetes Service** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 ```
 
-2. Install the **Azure Kubernetes Service** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Azure Kubernetes Service** Centreon Monitoring Connector RPM on the Centreon Central server:
 
  ```bash
 yum install centreon-pack-cloud-azure-compute-aks
  ```
 
-3. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

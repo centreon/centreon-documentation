@@ -12,7 +12,7 @@ IBM développe, fabrique et vend du matériel, des logiciels, des middlewares et
 autres services et produits informatiques. Créée en 2002, IBM BladeCenter est
 l'architecture de serveurs lames d'IBM.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Eléments supervisés
 
@@ -80,7 +80,7 @@ absent/removed. You can also overload the default status using the
 
 ## Prérequis
 
-Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur l'IBM 
+Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur l'IBM 
 BladeCenter. Une description complète est disponible sur le site officiel de Cisco:
 
 * Avec l'interface Web de BladeCenter : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
@@ -102,7 +102,7 @@ avec l'IBM BladeCenter.
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. Installer le Plugin-Pack *IBM BladeCenter Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+2. Installer le connecteur de supervision *IBM BladeCenter Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,13 +113,13 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central :
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision sur le serveur Centreon Central :
 
 ```bash
 yum install centreon-pack-network-ibm-bladecenter-snmp
 ```
 
-3. Installer le Plugin-Pack *IBM BladeCenter Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+3. Installer le connecteur de supervision *IBM BladeCenter Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>

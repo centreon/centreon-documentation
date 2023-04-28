@@ -79,9 +79,9 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 ```
 
-Installer le Plugin-Pack 'Adva Fsp 150 SNMP' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+Installer le connecteur de supervision 'Adva Fsp 150 SNMP' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**:
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,7 +98,7 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 yum install centreon-pack-network-adva-fsp150-snmp
 ```
 
-3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+3. Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**:
 
 </TabItem>
 </Tabs>

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure Recovery** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Azure Recovery** apporte un modèle d'hôte :
 
 * Cloud-Azure-Management-Recovery-Backup-custom
 
@@ -26,7 +26,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure Recovery** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure Recovery** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Recovery Vaultss**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
@@ -81,7 +81,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Recovery** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Recovery** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -92,13 +92,13 @@ yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
 yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure Recovery** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure Recovery** :
 
 ```bash
 yum install centreon-pack-cloud-azure-management-recovery
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Recovery** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Recovery** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

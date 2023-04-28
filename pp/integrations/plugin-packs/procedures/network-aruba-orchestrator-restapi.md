@@ -66,18 +66,18 @@ To control your Aruba Orchestrator, the Rest API must be configured.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Aruba Orchestrator** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Aruba Orchestrator** resources:
 
 ```bash
 yum install centreon-plugin-Network-Aruba-Orchestrator-Restapi
 ```
 
-2. On the Centreon web interface, install the **Aruba Orchestrator Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Aruba Orchestrator Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Aruba Orchestrator** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Aruba Orchestrator** resources:
 
 ```bash
 yum install centreon-plugin-Network-Aruba-Orchestrator-Restapi
@@ -89,7 +89,7 @@ yum install centreon-plugin-Network-Aruba-Orchestrator-Restapi
 yum install centreon-pack-network-aruba-orchestrator-restapi
 ```
 
-3. On the Centreon web interface, install the **Aruba Orchestrator Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Aruba Orchestrator Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

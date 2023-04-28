@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Oracle Database** brings a host template:
+The Centreon Monitoring Connector **Oracle Database** brings a host template:
 
 * App-DB-Oracle-custom
 
@@ -354,7 +354,7 @@ This user account must have the READ (Oracle 12+) or SELECT (Oracle < 12) permis
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -383,7 +383,7 @@ apt install centreon-pack-applications-databases-oracle
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Oracle Database** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

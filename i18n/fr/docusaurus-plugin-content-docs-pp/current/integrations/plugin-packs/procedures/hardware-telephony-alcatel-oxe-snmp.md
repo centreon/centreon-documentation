@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Alcatel OXE** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Alcatel OXE** apporte un modèle d'hôte :
 
 * HW-Telephony-Alcatel-OXE-SNMP-custom
 
@@ -148,7 +148,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Alcatel OXE** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Alcatel OXE** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -159,13 +159,13 @@ yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Alcatel OXE** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Alcatel OXE** :
 
 ```bash
 yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Alcatel OXE** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Alcatel OXE** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

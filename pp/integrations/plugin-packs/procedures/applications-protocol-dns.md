@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 
 The Domain Name System (DNS) is a naming system for resources connected to the Internet or a private network. A DNS Service provides a way to match domain names to IP addresses.
 
-The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain name (default: google.com) can be getted.
+The Centreon Monitoring Connector * DNS Service * checks if a resolution for a domain name (default: google.com) can be obtained.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -47,30 +47,30 @@ This mode is meant to be used on a server with the DNS role.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
+1. Install the Centreon package on every poller expected to monitor a DNS server:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Dns
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *DNS Service* from the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *DNS Service* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor a DNS server:
+1. Install the Centreon package on every poller expected to monitor a DNS server:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Dns
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-protocol-dns
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *DNS Service* from the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *DNS Service* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

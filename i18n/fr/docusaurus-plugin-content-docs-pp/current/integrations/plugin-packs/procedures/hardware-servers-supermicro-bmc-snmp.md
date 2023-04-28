@@ -43,7 +43,7 @@ https://www.supermicro.com/en/solutions/management-software/bmc-resources
 yum install centreon-plugin-Hardware-Servers-Supermicro-Bmc-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -60,7 +60,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Bmc-Snmp
 yum install centreon-pack-hardware-servers-supermicro-bmc-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Supermicro BMC SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

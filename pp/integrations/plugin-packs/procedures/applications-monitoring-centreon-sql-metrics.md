@@ -14,7 +14,7 @@ overview of its virtual curves capabilities [here](https://thewatch.centreon.com
 
 ### Templates
 
-The Centreon Plugin Pack Centreon SQL Metrics brings a host template:
+The Centreon Monitoring Connector Centreon SQL Metrics brings a host template:
 
 * App-Monitoring-Centreon-SQL-Metrics-custom
 
@@ -54,30 +54,30 @@ When using the **Virtual-Curve** service, the configuration file must be readabl
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on the central server:
+1. Install the Centreon package on the central server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on the central server:
+1. Install the Centreon package on the central server:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. Install the **Centreon SQL Metrics** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Centreon SQL Metrics** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 ```
 
-3. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

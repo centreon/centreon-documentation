@@ -70,18 +70,18 @@ E.g: https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Fortinet Fortigate** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Fortinet Fortigate** resources:
 
 ```bash
 yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 ```
 
-2. On the Centreon web interface, install the **Fortinet Fortigate Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Fortinet Fortigate Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Fortinet Fortigate** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Fortinet Fortigate** resources:
 
 ```bash
 yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
@@ -93,7 +93,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 yum install centreon-pack-network-fortinet-fortigate-restapi
 ```
 
-3. On the Centreon web interface, install the **Fortinet Fortigate Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Fortinet Fortigate Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin Pack Fortinet FortiWeb SNMP collecte les données pour:
+Le connecteur de supervision Fortinet FortiWeb SNMP collecte les données pour:
 * Interfaces
 * Proxy
 * System
@@ -81,7 +81,7 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,7 +98,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 yum install centreon-pack-network-fortinet-fortiweb-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

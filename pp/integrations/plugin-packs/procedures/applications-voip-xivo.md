@@ -9,9 +9,9 @@ This chapter describes the prerequisites installation needed by plugins to run.
 
 ### Dependencies
 
-This plugin pack is dependent of "NTP Server" "HTTP Server" and "Asterisk VoIP
+This Monitoring Connector is dependent of "NTP Server" "HTTP Server" and "Asterisk VoIP
 Server SNMP", so you might have to install these packages before being able to
-add this plugin pack:
+add this Monitoring Connector:
 
 ``` shell
 yum install centreon-pack-applications-protocol-ntp centreon-pack-applications-protocol-http centreon-pack-applications-voip-asterisk-snmp
