@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Avril
 
-> Dans la page de gestion des Plugin Packs, vous constaterez que ceux-ci ont tous été mis à jour. S’ils n’apparaissent pas dans le tableau ci-dessous, aucune modification n’a été faite : il s’agissait seulement de prendre en compte la toute dernière version de leur plugin.
+> Dans la page de gestion des connecteurs de supervision, vous constaterez que ceux-ci ont tous été mis à jour. S’ils n’apparaissent pas dans le tableau ci-dessous, aucune modification n’a été faite : il s’agissait seulement de prendre en compte la toute dernière version de leur plugin.
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
