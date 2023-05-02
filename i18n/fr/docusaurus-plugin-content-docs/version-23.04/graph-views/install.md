@@ -226,7 +226,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 #### Procédure
 
-Si vous avez installé votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet `centreon-release` :
+Si vous avez installé votre serveur Centreon MAP à partir d'une "installation fraîche", vous devez installer le paquet `centreon-release` :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
