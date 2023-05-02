@@ -1,9 +1,9 @@
 ---
 id: introduction
-title: Centreon Platform 22.10
+title: Centreon Platform 23.04
 ---
 
-You'll find in this chapter the global **Centreon Platform 22.10** release note.
+You'll find in this chapter the global **Centreon Platform 23.04** release note.
 
 To access detailed release note by component, use the following sections:
 

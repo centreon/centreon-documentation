@@ -131,6 +131,17 @@ You can see all metrics attached to a service in the details panel of the servic
 
 Any action performed in the interface that acts on your monitoring in real time. For instance, to [acknowledge a resource](#acknowledgement), to [plan a downtime](#downtime), to force a check, etc.
 
+## Monitoring Connector
+
+The term "Monitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
+
+A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
+
+**See also**:
+
+- [Monitoring Connectors](../monitoring/pluginpacks.md),
+- [Introduction to Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction).
+
 ## Monitoring engine
 
 Centreon Engine is the software component that plans checks, executes them, and [notifies](#notification) users if an incident occurs.
@@ -157,17 +168,6 @@ See [**Metric**](#metric).
 ## Plugin
 
 A plugin is a monitoring probe, i.e. a binary executable or a script that is called by the [monitoring engine](#monitoring-engine) to carry out a check on a [host](#host) or [service](#service). The plugin determines which status should be sent to the monitoring engine, based on the checks it makes and on the thresholds defined in the configuration of the host or service.
-
-## Monitoring Connector
-
-The term "MOnitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
-
-A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
-
-**See also**:
-
-- [Monitoring Connectors](../monitoring/pluginpacks.md),
-- [Introduction to Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Poller
 
