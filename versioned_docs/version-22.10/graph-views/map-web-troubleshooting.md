@@ -7,26 +7,6 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
-## Metrics data are no longer updated with the MAP server
-
-#### Symptom
-
-Metrics are not updating during the execution of **centreon-map-engine**.
-
-#### Problem
-
-A **storage** category filter is missing in the MAP broker configuration.
-
-#### Solution
-
-Follow this procedure to add the **storage** category filter on the MAP broker configuration.
-
-1. Go to the **Configuration > Pollers > Broker** configuration.
-2. Open the **centreon-broker-master** form.
-3. From the **Output** tab, open the **centreon-studio** output.
-4. In the **Filter category** field, add **Storage**. Save your changes.
-5. Now you need to [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
 ## MAP configuration is not working in HTTPS
 
 #### Symptom
