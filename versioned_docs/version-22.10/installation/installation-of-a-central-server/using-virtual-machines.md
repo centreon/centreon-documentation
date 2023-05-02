@@ -84,9 +84,7 @@ The host machine must have the following characteristics:
 
 3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained at the previous step.
 
-4. The first time you connect to the server, instructions are displayed to help you complete the configuration:
-
-    ![image](../../assets/installation/terminal_centreon.png)
+4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
 
     Change the following settings:
 
