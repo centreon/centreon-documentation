@@ -46,5 +46,3 @@ Use the following procedure to update your MAP version:
   ```shell
   sudo systemctl start centreon-map-engine
   ```
-
-> If you notice that the metrics are no longer updating after the MAP update, see this [troubleshooting](./map-web-troubleshooting.md#metrics-data-are-no-longer-updated-with-the-map-server) section.
