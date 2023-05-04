@@ -430,12 +430,26 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-Mettez à jour les permissions sur les fichiers de configurations de cenreon-broker.
+Mettez à jour les permissions sur les fichiers de configurations de centreon-broker.
 
-  ```shell
-  usermod -a -G centreon-broker www-data
-  usermod -a -G www-data centreon-broker
-  ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+usermod -a -G centreon-broker www-data
+usermod -a -G www-data centreon-broker
+```
+
+</TabItem>
+</Tabs>
 
 > La présentation de l'interface ayant été modifiée dans la version 22.10, vous devez vider le cache de votre navigateur pour afficher le nouveau thème.
 
