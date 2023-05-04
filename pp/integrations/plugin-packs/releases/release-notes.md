@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### April
 
-> In the Plugin Packs Manager, you may notice that all Plugin Packs have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.
+> In the Monitoring Connectors Manager, you may notice that all connectors have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
