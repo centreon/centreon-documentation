@@ -375,7 +375,7 @@ Ce script crée le fichier **studio-config.properties**.
 
 #### URI personnalisée 
 
-Si vous avez personnalisé une URI de connexion pour votre plateforme Centreon, vous devez éditer le fichier **studio-config.properties** en ajoutant :
+Si vous avez [personnalisé une URI](../administration/secure-platform.md#uri-personnalisée) de connexion pour votre plateforme Centreon, vous devez éditer le fichier **studio-config.properties** en ajoutant :
 
 ```shell
 centreon.path=/centreon-custom

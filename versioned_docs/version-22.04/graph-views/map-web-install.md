@@ -373,7 +373,7 @@ This script generates the **map-config.properties** file.
 
 #### Custom URI 
 
-If you have customized the URI for your Centreon platform, you need to edit the **map-config.properties** file by adding:
+If you have [customized the URI](../administration/secure-platform.md#custom-uri) for your Centreon platform, you need to edit the **map-config.properties** file by adding:
 
 ```shell
 centreon.path=/centreon-custom

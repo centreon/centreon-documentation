@@ -358,7 +358,7 @@ Ce script crée le fichier **map-config.properties**.
 
 #### URI personnalisée 
 
-Si vous avez personnalisé une URI de connexion pour votre plateforme Centreon, vous devez éditer le fichier **map-config.properties** en ajoutant :
+Si vous avez [personnalisé une URI](../administration/secure-platform.md#uri-personnalisée) de connexion pour votre plateforme Centreon, vous devez éditer le fichier **map-config.properties** en ajoutant :
 
 ```shell
 centreon.path=/centreon-custom
