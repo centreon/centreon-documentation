@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Centreon Database Plugin Pack will help you set up monitoring for Centreon monitoring database. 
+Centreon Database Monitoring Connector will help you set up monitoring for Centreon monitoring database. 
 
 ## Pack Assets
 
 ### Templates
 
-The Centreon Plugin Pack Centreon Central brings a host template:
+The Centreon Monitoring Connector Centreon Central brings a host template:
 * App-Monitoring-Centreon-Database-custom
 
 It brings the following service templates:
@@ -173,32 +173,32 @@ SNMP must be configured on each poller being monitored. You can refer to this [d
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin packages on the poller that will monitor Centreon monitoring database:
+1. Install the Centreon packages on the poller that will monitor Centreon monitoring database:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-plugin-Operatingsystems-Linux-Snmp
 
 ```
 
-2. On the Centreon Web interface, install the **Centreon Database** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Centreon Database** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin packages on every poller that will monitor Centreon monitoring database:
+1. Install the Centreon packages on every poller that will monitor Centreon monitoring database:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Install the **Centreon Database** Plugin Pack RPM on the Centreon Central server:
+2. Install the **Centreon Database** Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-database
 ```
 
-3. On the Centreon Web interface, install the **Centreon Database** Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Centreon Database** Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 

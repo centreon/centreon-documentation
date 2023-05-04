@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure Cosmos DB est une base de données NoSQL complètement managée pour le développement d’applications modernes. Les temps de
 réponse inférieurs à dix millisecondes et la scalabilité automatique et instantanée garantissent une vitesse, quelle que soit l’échelle. 
 
-Le Plugin Pack Centreon *Azure Cosmos DB* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Cosmos DB* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Cosmos DB. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
@@ -30,7 +30,7 @@ Cosmos DB. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestA
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure Cosmos DB* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Cosmos DB Account**.
+Le connecteur de supervision Centreon *Azure Cosmos DB* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Cosmos DB Account**.
 Celui-ci permet de découvrir l'ensemble des comptes *Cosmos DB* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb-provider.png)
@@ -126,7 +126,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Cosmos DB* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Cosmos DB* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -143,7 +143,7 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 yum install centreon-pack-cloud-azure-database-cosmosdb.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Cosmos DB* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Cosmos DB* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

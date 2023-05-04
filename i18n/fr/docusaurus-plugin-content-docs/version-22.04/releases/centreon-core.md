@@ -16,6 +16,24 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.12
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
 ### 22.04.11
 
 Release date: `February 20, 2023`
@@ -48,7 +66,6 @@ Release date: `February 20, 2023`
 - Optimized queries used to display the services monitoring page.
 - Optimized queries used to display the hosts monitoring page.
 - Optimized queries used to display the services grid monitoring page.
-- Improved performances of event logs page.
 
 #### Security
 
@@ -407,6 +424,23 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.3
+
+Release date: `April 3, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- [Configuration] Fixed an issue with configuration objects for tags and severities. 
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Performance] Fixed a stability issue related to metric cache.
+- [Performance] Fixed memory allocation issues.
 
 ### 22.04.2
 

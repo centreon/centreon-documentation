@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and
 automatic and instant scalability, guarantee speed at any scale.
 
-The Centreon Plugin-Pack *Azure Cosmos DB* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Cosmos DB* can rely on Azure API or Azure CLI to collect the metrics related to the
 Cosmos DB service.
 
 ## Pack Assets
@@ -30,7 +30,7 @@ Cosmos DB service.
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Cosmos DB* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Cosmos DB* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Cosmos DB Account**:
 
@@ -120,30 +120,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Cosmos DB resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Cosmos DB resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Cosmos DB* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Cosmos DB* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Cosmos DB resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Cosmos DB resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-cosmosdb.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Cosmos DB* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Cosmos DB* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

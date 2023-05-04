@@ -12,7 +12,7 @@ Azure Cache for Redis provides an in-memory data store based on the Redis softwa
 that uses backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in the server
 memory, which can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
 
-The Centreon Plugin Pack *Azure Cache for Redis* can rely on Azure API or Azure CLI to collect the metrics related to the Redis service.
+The Centreon Monitoring Connector *Azure Cache for Redis* can rely on Azure API or Azure CLI to collect the metrics related to the Redis service.
 
 ## Pack Assets
 
@@ -34,7 +34,7 @@ The Centreon Plugin Pack *Azure Cache for Redis* can rely on Azure API or Azure 
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Cache for Redis* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Cache for Redis* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Cache for Redis**:
 
@@ -132,30 +132,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Cache for Redis resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Cache for Redis resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-Redis-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Cache for Redis* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Cache for Redis* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Cache for Redis resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Cache for Redis resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-Redis-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-redis.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Cache for Redis* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Cache for Redis* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

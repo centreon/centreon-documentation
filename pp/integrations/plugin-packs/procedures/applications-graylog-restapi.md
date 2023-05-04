@@ -12,11 +12,11 @@ Graylog is a leading centralized log management solution built to open standards
 for capturing, storing, and enabling real-time analysis of terabytes of machine
 data.
 
-The Centreon Plugin-Pack *Graylog* aims to collect the 
+The Centreon Monitoring Connector *Graylog* aims to collect the 
 number of system notifications per severity and the number of query matches for
 specific queries by requesting the dedicated built-in RestAPI.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -58,30 +58,30 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
+1. Install the Centreon package on every poller expected to monitor a Graylog server:
 
 ```bash
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Graylog* from the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
+1. Install the Centreon package on every poller expected to monitor a Graylog server:
 
 ```bash
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-graylog-restapi
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Graylog* from the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

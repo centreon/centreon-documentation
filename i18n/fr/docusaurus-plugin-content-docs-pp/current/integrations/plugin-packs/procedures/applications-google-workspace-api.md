@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Google Workspace est une suite d'outils et de logiciels de productivité de type Cloud computing et de groupware destinée aux professionnels, 
 proposée par Google sous la forme d'un abonnement.
 
-Le Plugin Pack Centreon permet de récupérer le statut en temps réel de la disponibilité des services composant cette suite,
+Le connecteur de supervision Centreon permet de récupérer le statut en temps réel de la disponibilité des services composant cette suite,
 ceci par le biais du portail dédié mis à disposition par Google.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -64,7 +64,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

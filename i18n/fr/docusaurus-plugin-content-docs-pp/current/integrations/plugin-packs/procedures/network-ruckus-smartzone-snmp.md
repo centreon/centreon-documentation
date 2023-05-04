@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du secteur à permettre au service informatique de gérer les réseaux LAN et WLAN en utilisant un seul système géré par des contrôleurs avec une seule interface utilisateur
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Elements supervisés
 
@@ -105,7 +105,7 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 
 ### Configuration de l'équipement
 
-Pour utiliser ce Plugin-Pack, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Ruckus: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A
+Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Ruckus: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A
 
 ### Flux réseaux
 
@@ -122,7 +122,7 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 ```
 
-2. Installer le Plugin-Pack 'Ruckus Smartzone' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
+2. Installer le connecteur de supervision 'Ruckus Smartzone' depuis l'interface Web et la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -133,13 +133,13 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 ```
 
-2. Installer le RPM pour avoir à disposition le Plugin-Pack dans l'interface Web de Centreon:
+2. Installer le RPM pour avoir à disposition le connecteur de supervision dans l'interface Web de Centreon:
 
 ```bash
 yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 ```
 
-3. Installer le Plugin-Pack 'Ruckus Smartzone' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web. 
+3. Installer le connecteur de supervision 'Ruckus Smartzone' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web. 
 
 </TabItem>
 </Tabs>

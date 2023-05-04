@@ -12,7 +12,7 @@ know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Microsoft Exchange NRPE* works with the Centreon NSClient++ monitoring
+The Monitoring Connector *Microsoft Exchange NRPE* works with the Centreon NSClient++ monitoring
 agent to run Powershell code to check the health and performance of Microsoft Exchange 
 Servers
 
@@ -50,24 +50,24 @@ on the target Server.
 yum install centreon-nrpe-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NRPE* from the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Exchange NRPE* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor *Microsoft Exchange*:
+1. Install the Centreon package on every poller expected to monitor *Microsoft Exchange*:
 
 ```bash
 yum install centreon-nrpe-plugin
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-exchange-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NRPE* from the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Exchange NRPE* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

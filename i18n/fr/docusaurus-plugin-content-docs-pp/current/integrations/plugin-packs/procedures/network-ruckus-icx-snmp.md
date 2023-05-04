@@ -13,7 +13,7 @@ facilitent l'exploitation et rendent les montées de version plus simples.
 Ils peuvent s'intégrer en toute transparence avec les points d'accès Wi-Fi Ruckus, les contrôleurs Ruckus SmartZone 
 et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.  
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Éléments supervisés
 
@@ -88,7 +88,7 @@ Les collecteurs Centreon doivent pouvoir joindre le port UDP/161 SNMP de l'équi
 yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Ruckus ICX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,13 +99,13 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-network-switch-ruckus-icx-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Centreon Plugin Pack *Ruckus ICX* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Centreon connecteur de supervision *Ruckus ICX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

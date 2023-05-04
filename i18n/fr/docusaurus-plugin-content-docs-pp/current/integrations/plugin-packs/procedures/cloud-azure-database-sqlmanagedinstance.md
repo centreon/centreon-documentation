@@ -13,12 +13,12 @@ locales vers un environment sécurisé cloud PaaS avec les avantages
 correspondants à savoir les correctifs et mises à jour de versions automatiques, 
 les sauvegardes automatisées et une service de haute disponibilité.
 
-Le Plugin-Pack Centreon *Azure SQL Managed Instance* s'appuie sur les API Azure Monitor 
+Le connecteur de supervision Centreon *Azure SQL Managed Instance* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
 SQL Managed Instance. Il est possible d'utiliser les 2 modes proposés par 
 Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -26,7 +26,7 @@ Microsoft: RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure SQL Managed Instance* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure SQL Managed Instance**.
+Le connecteur de supervision Centreon *Azure SQL Managed Instance* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure SQL Managed Instance**.
 Celui-ci permet de découvrir l'ensemble des instances *SQL Managed Instance* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance-provider.png)
@@ -90,7 +90,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Database-SqlManagedInstance-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure SQL Managed Instance* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure SQL Managed Instance* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,13 +101,13 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlManagedInstance-Api
 yum install centreon-plugin-Cloud-Azure-Database-SqlManagedInstance-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure SQL Managed Instance*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure SQL Managed Instance*:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-sqlmanagedinstance.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure SQL Managed Instance* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure SQL Managed Instance* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

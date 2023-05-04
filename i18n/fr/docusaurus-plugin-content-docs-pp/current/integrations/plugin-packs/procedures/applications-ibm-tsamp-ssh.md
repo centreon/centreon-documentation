@@ -61,7 +61,7 @@ doit avoir assez de privilèges pour executer la commande ```lssam```.
 yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -78,7 +78,7 @@ yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 yum install centreon-pack-applications-ibm-tsamp-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

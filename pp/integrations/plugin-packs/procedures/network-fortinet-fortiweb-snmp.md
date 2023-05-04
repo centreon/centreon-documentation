@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack Fortinet FortiWeb SNMP collects metrics for:
+The Monitoring Connector Fortinet FortiWeb SNMP collects metrics for:
 * Interfaces
 * Proxy
 * System
@@ -80,7 +80,7 @@ The Poller should be able to perform SNMP requests toward the Fortinet device ov
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fortinet FortiWeb SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Fortinet FortiWeb SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 yum install centreon-pack-network-fortinet-fortiweb-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fortinet FortiWeb SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Fortinet FortiWeb SNMP* Pack
 
 </TabItem>
 </Tabs>

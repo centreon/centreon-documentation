@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 TP-link est un fournisseur de solutions réseau.
 
-Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux équipements de marque TP-Link.
+Le connecteur de supervision *TP-Link* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux équipements de marque TP-Link.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -81,7 +81,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Network-Tplink-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *TP-Link SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -92,13 +92,13 @@ yum install centreon-plugin-Network-Tplink-Snmp
 yum install centreon-plugin-Network-Tplink-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *TP-Link SNMP* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *TP-Link SNMP* :
 
 ```bash
 yum install centreon-pack-network-tplink-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *TP-Link SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

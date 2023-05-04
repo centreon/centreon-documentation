@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Prometheus Server** brings 2 different host templates:
+The Centreon Monitoring Connector **Prometheus Server** brings 2 different host templates:
 
 * Cloud-Prometheus-Api-custom
 * Cloud-Prometheus-Target-Name-Api-custom
@@ -25,7 +25,7 @@ It brings the following service templates:
 
 ### Discovery rules
 
-The Centreon Plugin Pack **Prometheus Server** includes a Host Discovery provider to
+The Centreon Monitoring Connector **Prometheus Server** includes a Host Discovery provider to
 automatically discover Prometheus targets.
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-prometheus-api-provider.png)
@@ -78,30 +78,30 @@ HTTP.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Prometheus Server** resources:
+1. Install the package on every Centreon poller expected to monitor **Prometheus Server** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Prometheus Server** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Prometheus Server** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Prometheus Server** resources:
+1. Install the package on every Centreon poller expected to monitor **Prometheus Server** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. Install the **Prometheus Server** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Prometheus Server** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-prometheus-api
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Prometheus Server** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Prometheus Server** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>
@@ -154,7 +154,7 @@ Template to monitor Prometheus targets.
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-> Note: The test below assumes that you are using the Plugin Pack on top of a Prometheus Server.
+> Note: The test below assumes that you are using the Monitoring Connector on top of a Prometheus Server.
 
 Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
 user account and test the Plugin by running the following command:

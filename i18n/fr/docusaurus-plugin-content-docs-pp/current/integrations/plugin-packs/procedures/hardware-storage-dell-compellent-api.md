@@ -5,7 +5,7 @@ title: Dell Compellent API
 
 ## Prerequisites
 
-This plugin pack requires the use of:
+This Monitoring Connector requires the use of:
 
   - the Dell Storage Enterprise Manager provided
     [here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)

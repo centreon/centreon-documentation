@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 The Secure Shell Protocol (SSH) is a secure network protocol for remote actions
 from one computer to another.
 
-The Centreon Plugin Pack *Protocol SSH* aims to collect the status and response 
+The Centreon Monitoring Connector *Protocol SSH* aims to collect the status and response 
 time of a SSH server login.
 
 ## Pack assets
@@ -45,30 +45,30 @@ the mandatory Host Macros must be properly configured. More info in the
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a SSH server:
+1. Install the Centreon package on every Centreon poller expected to monitor a SSH server:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Protocol SSH* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a SSH server:
+1. Install the Centreon package on every Centreon poller expected to monitor a SSH server:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Ssh
 ```
 
-2. Install the *Protocol SSH* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Protocol SSH* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-protocol-ssh
 ```
 
-3. On the Centreon Web interface, install the *Protocol SSH* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

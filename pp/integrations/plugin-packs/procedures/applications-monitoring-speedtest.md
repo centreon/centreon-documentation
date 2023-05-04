@@ -41,19 +41,19 @@ It brings the following service template:
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Speedtest** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Speedtest** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Speedtest
 ```
 
-2. On the Centreon web interface, install the **Speedtest** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Speedtest** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Speedtest** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Speedtest** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Speedtest
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-Monitoring-Speedtest
 yum install centreon-pack-applications-monitoring-speedtest
 ```
 
-3. On the Centreon web interface, install the **Speedtest** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Speedtest** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

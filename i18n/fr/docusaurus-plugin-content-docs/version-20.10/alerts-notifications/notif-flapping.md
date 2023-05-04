@@ -145,7 +145,7 @@ par ce dernier.
 Vous pouvez désactiver / activer la détection de bagotement pour un
 service via le menu de configuratio.
 
-REndez-vous dans le menu `Configuration > Services > Services by Host`,
+Rendez-vous dans le menu `Configuration > Services > Services by Host`,
 sélectionnez un service et accédez à l'onglet **Data Processing** :
 
 ![image](../assets/alerts/flap_host_conf.png)

@@ -12,7 +12,7 @@ know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Hyper-V* monitors nodes and virtual machine managers included in the 
+The Monitoring Connector *Hyper-V* monitors nodes and virtual machine managers included in the 
 Microsoft Hypervisor and Virtualization solutions. 
 
 ## Pack assets
@@ -47,12 +47,12 @@ yum install centreon-nrpe-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon package on every Poller expected to monitor *Varnish*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -65,7 +65,7 @@ yum install centreon-pack-virtualization-hyperv-2012-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -37,7 +37,7 @@ To be able to get data from MIP API, you must have a valid API key. Contact MIP 
 yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 ```
 
-2. Install the Plugin-Pack RPM on your Central Server:
+2. Install the Monitoring Connector RPM on your Central Server:
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -48,13 +48,13 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 ```
 
-2. Install the Plugin-Pack RPM on your Central Server: 
+2. Install the Monitoring Connector RPM on your Central Server: 
 
 ```bash
 yum install -y centreon-pack-applications-monitoring-mip-restapi`
 ```
 
-3. Install the Plugin-Pack through "Configuration \> Plugin-Packs \> Manager" menu:
+3. Install the Monitoring Connector through the **Configuration \> Monitoring Connectors Manager** menu:
 
 ![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Amazon SQS** brings a host template:
+The Centreon Monitoring Connector **Amazon SQS** brings a host template:
 
 * Cloud-Aws-Sqs-custom
 
@@ -92,30 +92,30 @@ sudo ./aws/install
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **SQS** resources:
+1. Install the package on every Centreon poller expected to monitor **SQS** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Sqs-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Amazon SQS** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Amazon SQS** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **SQS** resources:
+1. Install the package on every Centreon poller expected to monitor **SQS** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Sqs-Api
 ```
 
-2. Install the **Amazon SQS** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Amazon SQS** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-sqs
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Amazon SQS** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Amazon SQS** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

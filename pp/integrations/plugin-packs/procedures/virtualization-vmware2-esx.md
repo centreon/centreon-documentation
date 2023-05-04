@@ -8,12 +8,12 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-VMWare is an software compagny based in USA. VMWare provides cloud computing and virtualization software and services.
+VMWare is a software company based in the USA. VMWare provides cloud computing and virtualization software and services.
 
-The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the vCenter API.
+The Centreon Plugins and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter API.
 
-## Plugin-Pack Assets
-	
+## Monitoring Connector Assets
+
 ### Monitored Objects
 
 * ESX or ESXi
@@ -37,8 +37,8 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 </TabItem>
 </Tabs>
-	
-## Monitored Metrics 
+
+### Monitored Metrics 
 
 <Tabs groupId="sync">
 <TabItem value="Esx-Cpu" label="Esx-Cpu">
@@ -183,7 +183,7 @@ structure:
 
 Each entry is called a **container**.
 
-> You can also define the "port" attribute to change listening port.
+> You can also define the "port" attribute to change the listening port.
 
 Then start the daemon and make sure it is configured to start at server boot:
 
@@ -193,13 +193,18 @@ systemctl enable centreon_vmware
 ```
 
 Make sure that the daemon configuration works fine by looking for errors in
-"/var/log/centreon/centreon\_vmware.log".
+**/var/log/centreon/centreon\_vmware.log**.
+
+### Tags and Custom Attributes
+
+> To discover Tags and Custom Attributes, you must use version 3.2.5 of **centreon-vmware-daemon** and add **--tags** in the discovery extra options.
+>Go to page **Configuration > Hosts > Discovery**, and at the 3rd step (**Define discovery parameters**), in section **Additional parameters**, in the **Extra Options** field, enter **--tags**.
 
 ### Network flows
 
-The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the vCenter.
+The Poller with the Centreon VMware Connector installed needs to access the vCenter on TCP/443 HTTPS.
 
-The Pollers that request the Centreon VMWare Connector host need to access in TCP/5700 to the Centreon VMWare Connector host.
+The Pollers that request the Centreon VMWare Connector host need to access the Centreon VMWare Connector host on TCP/5700.
 
 ## Installation
 
@@ -212,7 +217,7 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+2. Install the 'Vmware ESX' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page 
 	
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -223,17 +228,17 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 	
-2. Install the Centreon Plugin-Pack RPM: 
+2. Install the Centreon Monitoring Connector RPM: 
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-esx
 ```
 	
-3. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+3. Install the 'Vmware ESX' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page 
 
 </TabItem>
 </Tabs>
-	
+
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".

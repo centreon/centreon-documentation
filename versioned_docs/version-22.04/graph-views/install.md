@@ -106,9 +106,9 @@ See the [software requirements](../installation/prerequisites.md#software).
 
 - Centreon Web login with admin rights.
 
-> Even with a correctly sized server, you should have in mind the best
-> practices & recommendations when creating views so you don't face
-> performance issues.
+> Even with a correctly sized server, you should have in mind the best practices & recommendations when creating views so you don't face performance issues.
+
+> If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
 ### Centreon MAP Web interface
 
@@ -224,19 +224,6 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP (Legacy) server
 
-If you installed your Centreon MAP server from a "fresh CentOS installation"
-you need to install the `centreon-release` package:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
 #### Java version requirement
   > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
@@ -255,7 +242,20 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
   
   - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
-Now you can install the **centreon-release** package:
+#### Procedure
+
+If you installed your Centreon MAP server from a "fresh CentOS installation"
+you need to install the `centreon-release` package:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
@@ -263,8 +263,6 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-Install the following dependencies:
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
@@ -287,7 +285,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL doesn't work, you can manualy find this package in the folder.
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
@@ -468,7 +466,7 @@ the interface part of the extension.
 
 ### Central server
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:

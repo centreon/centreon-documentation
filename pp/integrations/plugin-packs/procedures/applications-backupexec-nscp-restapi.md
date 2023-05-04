@@ -83,19 +83,19 @@ The target equipment must be reachable from the Centreon poller on the TCP/8443 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
 ```
 
-2. On the Centreon web interface, install the **Veritas Backup Exec NSCP API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Veritas Backup Exec NSCP API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Nrpe
@@ -107,7 +107,7 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 yum install centreon-pack-applications-backupexec-nscp-restapi
 ```
 
-3. On the Centreon web interface, install the **Veritas Backup Exec NSCP API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Veritas Backup Exec NSCP API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -13,10 +13,10 @@ aux téléphones de bureau et de conférence, tout au long de vos systèmes de s
 Lors d'un déploiement dans le cadre de la solution RealPresence Clariti, les entreprises bénéficient d'applications pour assurer
 la liaison, la redondance, la traversée de pare-feu, la signalisation d'appels et la vidéo mobile.
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
+Le connecteur de supervision Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
 Polycom RPRM.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -123,8 +123,8 @@ https://documents.polycom.com/bundle/rprm-ops-10-5/page/rprm_ops/SNMP_Operations
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom RPRM SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom RPRM SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -135,14 +135,14 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom RPRM SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom RPRM SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

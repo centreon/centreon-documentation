@@ -12,7 +12,7 @@ Un plan App Service définit un ensemble de ressources de calcul nécessaires à
 de calcul sont analogues à la batterie de serveurs dans l’hébergement web classique. Une ou plusieurs applications peuvent être
 configurées pour s’exécuter sur les mêmes ressources informatiques (ou dans le même plan App Service).
 
-Le Plugin Pack Centreon *Azure App Service Plan* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure App Service Plan* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 App Service Plan. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
@@ -29,7 +29,7 @@ App Service Plan. Il est possible d'utiliser les 2 modes proposés par Microsoft
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure App Service Plan* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure App Service Plan**.
+Le connecteur de supervision Centreon *Azure App Service Plan* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure App Service Plan**.
 Celui-ci permet de découvrir l'ensemble des instances *App Service Plan* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan-provider.png)
@@ -115,7 +115,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Web-AppServicePlan-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Service Plan* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure App Service Plan* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -132,7 +132,7 @@ yum install centreon-plugin-Cloud-Azure-Web-AppServicePlan-Api
 yum install centreon-pack-cloud-azure-web-appserviceplan.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Service Plan* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure App Service Plan* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

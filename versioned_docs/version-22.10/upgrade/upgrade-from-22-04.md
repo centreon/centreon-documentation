@@ -212,7 +212,7 @@ apt upgrade centreon
 
 ### Update your customized Apache configuration
 
-This section only applies if you customized your Apache configuration. 
+This section only applies if you customized your Apache configuration.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -658,15 +658,8 @@ apt upgrade centreon-poller
 
 > Accept new GPG keys from the repositories as needed.
 
-Start and enable **gorgoned**:
+Restart **centreon**:
 
 ```shell
-systemctl start gorgoned
-systemctl enable gorgoned
-```
-
-Restart **centengine**:
-
-```shell
-systemctl restart centengine
+systemctl restart centreon
 ```

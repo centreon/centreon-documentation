@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin Pack Mobotix SNMP collecte les données pour:
+Le connecteur de supervision Mobotix SNMP collecte les données pour:
 * Interfaces
 * System
 
@@ -72,7 +72,7 @@ Afin de contrôler votre équipement Mobotix, le SNMP doit être configuré.
 yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Mobotix Camera* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Mobotix Camera* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,13 +83,13 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Mobotix Camera* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Mobotix Camera* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

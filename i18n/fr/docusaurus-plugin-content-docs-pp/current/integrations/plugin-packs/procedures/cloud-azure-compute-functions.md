@@ -12,12 +12,12 @@ Azure Functions est une plateforme serverless qui permet d'écrire et de déploy
 rapidement du code réagissant aux événements survenant dans les services Azure 
 ou tiers.
 
-Le Plugin-Pack Centreon *Azure Functions* s'appuie sur les API Azure Monitor 
+Le connecteur de supervision Centreon *Azure Functions* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
 Functions. Il est possible d'utiliser les 2 modes proposés par 
 Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -25,7 +25,7 @@ Microsoft: RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Functions* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Functions**.
+Le connecteur de supervision Centreon *Azure Functions* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Functions**.
 Celui-ci permet de découvrir l'ensemble des instances *Functions* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-compute-functions-provider.png)
@@ -268,7 +268,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Functions* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Functions* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -279,13 +279,13 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Functions*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Functions*:
 
 ```bash
 yum install centreon-pack-cloud-azure-compute-functions.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Functions* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Functions* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

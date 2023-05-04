@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack Proxmox Mail Gateway collects metrics for:
+The Monitoring Connector Proxmox Mail Gateway collects metrics for:
 * Mail
 * Version
 
@@ -57,7 +57,7 @@ E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html
 yum install centreon-plugin-Applications-Proxmox-Mg-Api
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Proxmox Mail Gateway* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,13 +68,13 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 yum install centreon-plugin-Applications-Proxmox-Mg-Api
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-proxmox-mg-api
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Proxmox Mail Gateway* Plugin Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Proxmox Mail Gateway* Monitoring Connector
 
 </TabItem>
 </Tabs>

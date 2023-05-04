@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 The Remote Authentication Dial-In User Service (RADIUS) is a networking
 protocol that allows centralized authentification.
 
-The Centreon Plugin Pack *Radius Service* aims to collect the status and 
+The Centreon Monitoring Connector *Radius Service* aims to collect the status and 
 response time of a RADIUS server login.
 
 ## Pack assets
@@ -35,7 +35,7 @@ response time of a RADIUS server login.
 
 ## Prerequisites
 
-For this Plugin Pack you will need :
+For this Monitoring Connector you will need :
 
 * A RADIUS server
 * An username and password used for authentication
@@ -46,30 +46,30 @@ For this Plugin Pack you will need :
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor RADIUS ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor RADIUS ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Radius
 ```
 
-2. On the Centreon Web interface, install the *Radius Service* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Radius Service* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor RADIUS ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor RADIUS ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Radius
 ```
 
-2. Install the *Radius Service* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Radius Service* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-protocol-radius
 ```
 
-3. On the Centreon Web interface, install the *Radius Service* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Radius Service* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

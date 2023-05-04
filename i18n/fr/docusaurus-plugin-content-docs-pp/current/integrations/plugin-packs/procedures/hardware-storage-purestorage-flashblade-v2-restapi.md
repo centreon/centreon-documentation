@@ -89,7 +89,7 @@ Vous devez configurer un utilisateur pouvant se connecter à la baie de stockage
 ### Pack de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
@@ -120,7 +120,7 @@ apt install centreon-pack-hardware-storage-purestorage-flashblade-v2-restapi
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Pure Storage FlashBlade Rest API v2**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 

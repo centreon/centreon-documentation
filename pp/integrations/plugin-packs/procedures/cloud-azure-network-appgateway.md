@@ -12,7 +12,7 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port,
 to a destination IP address and port.
 
-The Centreon Plugin-Pack *Azure Application Gateway* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Application Gateway* can rely on Azure API or Azure CLI to collect the metrics related to the
 Application Gateway service.
 Both v1 & v2 versions are supported.
 
@@ -40,7 +40,7 @@ Both v1 & v2 versions are supported.
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Application Gateway* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Application Gateway* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Gateway**:
 
@@ -155,30 +155,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Application Gateway resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Application Gateway resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-appgateway.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

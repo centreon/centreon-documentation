@@ -18,6 +18,27 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.7
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Configuration] Fixed an issue preventing an escalation from being updated.
+- [Configuration] Fixed an issue preventing a service group from being updated.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+- [UI] Fixed the issue where 99+ was displayed instead of the exact value on the top counter for values under 1000.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
 ### 22.10.6
 
 Release date: `February 22, 2023`
@@ -54,7 +75,6 @@ Release date: `February 22, 2023`
 - Optimized queries used to display the services monitoring page.
 - Optimized queries used to display the hosts monitoring page.
 - Optimized queries used to display the services grid monitoring page.
-- Improved performances of event logs page.
 
 ### 22.10.5
 
@@ -188,6 +208,15 @@ Release date: `October 26, 2022`
 > In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
 ## Centreon Collect
+
+### 22.10.1
+
+Release date: `March 16, 2023`
+
+#### Centreon Broker
+
+##### Bug fix
+- Fixed an issue in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.10.0
 

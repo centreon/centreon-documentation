@@ -13,10 +13,10 @@ Cette fonctionnalité en temps réel permet au service d’envoyer des mises à 
 application web ou mobile monopage. Par conséquent, les clients sont mis à jour sans avoir à interroger le serveur ni à envoyer
 de nouvelles requêtes HTTP de mise à jour.
 
-Le Plugin-Pack Centreon *Azure SignalR* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure SignalR* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 SignalR. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -27,7 +27,7 @@ SignalR. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure SignalR* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure SignalR**.
+Le connecteur de supervision Centreon *Azure SignalR* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure SignalR**.
 Celui-ci permet de découvrir l'ensemble des instances *SignalR* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-web-signalr-provider.png)
@@ -82,7 +82,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Web-SignalR-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure SignalR* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure SignalR* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -93,13 +93,13 @@ yum install centreon-plugin-Cloud-Azure-Web-SignalR-Api
 yum install centreon-plugin-Cloud-Azure-Web-SignalR-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure SignalR*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure SignalR*:
 
 ```bash
 yum install centreon-pack-cloud-azure-web-signalr.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure SignalR* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure SignalR* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

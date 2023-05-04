@@ -28,6 +28,15 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Open Tickets
 
+### 21.10.2
+
+Release date: `March 15, 2023`
+
+#### Bug fixes
+
+- [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
+- [Provider] Fixed default iTop URL.
+
 ### 21.10.1
 
 Release date: `July 21, 2022`

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 En transformant un serveur Windows en cache rapide, le service Azure Storage 
 Sync vous permet de centraliser votre partage de fichiers dans Azure Files.
 
-Le Plugin-Pack Centreon *Azure Storage Sync* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Storage Sync* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Storage Sync. Il est possible d'utiliser les 2 modes proposés par Microsoft: 
 RestAPI ou Azure CLI.
 
@@ -25,7 +25,7 @@ RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Storage Sync* inclut un *provider* de découverte
+Le connecteur de supervision Centreon *Azure Storage Sync* inclut un *provider* de découverte
 d'Hôtes nommé *Microsoft Azure Storage Syncs**. Celui-ci permet de découvrir l'ensemble des instances
 *Azure Storage Sync* rattachées à une *souscription* Microsoft Azure donnée:
 
@@ -84,7 +84,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Storage Sync* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,7 +101,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 yum install centreon-pack-cloud-azure-storage-storagesync
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Storage Sync* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

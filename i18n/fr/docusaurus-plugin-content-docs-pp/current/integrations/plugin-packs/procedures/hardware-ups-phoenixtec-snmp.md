@@ -66,7 +66,7 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 yum install centreon-plugin-Hardware-Ups-Phoenixtec-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Phoenixtec UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Phoenixtec UPS SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,7 +83,7 @@ yum install centreon-plugin-Hardware-Ups-Phoenixtec-Snmp
 yum install centreon-pack-hardware-ups-phoenixtec-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Phoenixtec UPS SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Phoenixtec UPS SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

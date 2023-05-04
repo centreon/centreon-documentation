@@ -22,7 +22,7 @@ If you want to be able to view the Business activities monitored by a remote ser
 
 ### Install the package
 
-Add the Centreon BAM repository, you can find it on the 
+Add the Centreon Business repository, you can find it on the 
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 And install the package using the following command:

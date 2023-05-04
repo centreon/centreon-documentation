@@ -13,10 +13,10 @@ apps from on-premises to a fully managed and secured PaaS cloud environment
 with automatic patching and version updates, automated backups and high 
 availability.
 
-The Centreon Plugin-Pack *Azure SQL Managed Instance* can rely on Azure API or Azure CLI 
+The Centreon Monitoring Connector *Azure SQL Managed Instance* can rely on Azure API or Azure CLI 
 to collect the metrics related to the SQL Managed Instance service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -24,7 +24,7 @@ to collect the metrics related to the SQL Managed Instance service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure SQL Managed Instance* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure SQL Managed Instance* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure SQL Managed Instance**:
 
@@ -82,30 +82,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure SQL Managed Instance resources:
+1.  Install the Centreon package on every Centreon poller expected to monitor Azure SQL Managed Instance resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-SqlManagedInstance-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure SQL Managed Instance* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure SQL Managed Instance* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure SQL Managed Instance resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure SQL Managed Instance resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-SqlManagedInstance-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-sqlmanagedinstance.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure SQL Managed Instance* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure SQL Managed Instance* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

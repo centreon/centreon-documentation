@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Freebox** brings a host template:
+The Centreon Monitoring Connector **Freebox** brings a host template:
 
 * Net-Freebox-Restapi-custom
 
@@ -80,7 +80,7 @@ Keep your <app_id> and obtained token with you as you will need it during the ho
 
 If the platform uses an *online* license, you can skip the package installation
 instructions below as it is not required in order to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -109,7 +109,7 @@ apt install centreon-pack-network-freebox-restapi
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Freebox** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

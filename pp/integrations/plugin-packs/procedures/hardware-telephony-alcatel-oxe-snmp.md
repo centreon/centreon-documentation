@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Alcatel OXE** brings a host template:
+The Centreon Monitoring Connector **Alcatel OXE** brings a host template:
 
 * HW-Telephony-Alcatel-OXE-SNMP-custom
 
@@ -142,30 +142,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Alcatel OXE** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel OXE** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Alcatel OXE** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Alcatel OXE** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel OXE** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. Install the **Alcatel OXE** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Alcatel OXE** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Alcatel OXE** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

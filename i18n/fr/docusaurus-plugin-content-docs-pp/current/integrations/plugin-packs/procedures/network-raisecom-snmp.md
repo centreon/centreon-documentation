@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Raisecom** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Raisecom** apporte un modèle d'hôte :
 
 * Net-Raisecom-SNMP-custom
 
@@ -129,7 +129,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Network-Raisecom-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Raisecom** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Raisecom** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -140,13 +140,13 @@ yum install centreon-plugin-Network-Raisecom-Snmp
 yum install centreon-plugin-Network-Raisecom-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Raisecom** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Raisecom** :
 
 ```bash
 yum install centreon-pack-network-raisecom-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Raisecom** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Raisecom** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

@@ -12,10 +12,10 @@ Azure Event Hubs est une plateforme de streaming de Big Data et un service d’i
 des millions d’événements par seconde. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées
 à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel.
 
-Le Plugin-Pack Centreon *Azure Event Hubs* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Event Hubs* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Event Hubs. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -30,7 +30,7 @@ Event Hubs. Il est possible d'utiliser les 2 modes proposés par Microsoft: Rest
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Event Hubs* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Event Hubs**.
+Le connecteur de supervision Centreon *Azure Event Hubs* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Event Hubs**.
 Celui-ci permet de découvrir l'ensemble des instances *Event Hubs* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs-provider.png)
@@ -230,7 +230,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Hubs* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Hubs* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -241,13 +241,13 @@ yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Event Hubs*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Event Hubs*:
 
 ```bash
 yum install centreon-pack-cloud-azure-analytics-eventhubs.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Hubs* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Hubs* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

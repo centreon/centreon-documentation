@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Cisco Telepresence System is part of the Cisco Unified Communication suite to offer high quality collaboration tools
 with video and audio capabilities. 
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -73,30 +73,30 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Cisco CTS* ressources:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Cisco CTS* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Cisco CTS* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* applications:
+1. Install the Centreon package on every Centreon poller expected to monitor *Cisco CTS* applications:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-devices-cisco-cts-snmp
 ```
 
-3. On the Centreon Web interface, install the *Cisco CTS* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Cisco CTS* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

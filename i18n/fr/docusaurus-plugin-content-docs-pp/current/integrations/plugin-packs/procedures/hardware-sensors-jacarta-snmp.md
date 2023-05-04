@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Jacarta Sensor** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Jacarta Sensor** apporte un modèle d'hôte :
 
 * HW-Sensor-Jacarta-SNMP-custom
 
@@ -53,7 +53,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Sensors-Jacarta-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Jacarta Sensor** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Jacarta Sensor** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -64,13 +64,13 @@ yum install centreon-plugin-Hardware-Sensors-Jacarta-Snmp
 yum install centreon-plugin-Hardware-Sensors-Jacarta-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Jacarta Sensor** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Jacarta Sensor** :
 
 ```bash
 yum install centreon-pack-hardware-sensors-jacarta-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Jacarta Sensor** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Jacarta Sensor** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

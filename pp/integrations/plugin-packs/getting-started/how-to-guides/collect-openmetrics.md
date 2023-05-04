@@ -21,8 +21,7 @@ and Google Cloud Platform.
     yum install centreon-plugin-Applications-Monitoring-Openmetrics
     ```
 
-2.  Install the "OpenMetrics" Centreon Plugin Pack from the `Configuration >
-    Plugin Packs` page.
+2.  Install the "OpenMetrics" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -33,21 +32,20 @@ and Google Cloud Platform.
     yum install centreon-plugin-Applications-Monitoring-Openmetrics
     ```
 
-2.  Install the Centreon Plugin Pack RPM on your Central server:
+2.  Install the Centreon Monitoring Connector RPM on your Central server:
 
     ``` bash
     yum install centreon-pack-applications-monitoring-openmetrics
     ```
 
-3.  Install the "OpenMetrics" Centreon Plugin Pack from the `Configuration >
-    Plugin Packs` page.
+3.  Install the "OpenMetrics" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-The Plugin Pack "OpenMetrics" provide the collect of openmetrics from file on
+The Monitoring Connector "OpenMetrics" provide the collect of openmetrics from file on
 the collector (the template will be App-Monitoring-Openmetrics-File-custom) or
 from a API providing openmetrics (the template will be
 App-Monitoring-Openmetrics-Web-custom). Following the template, several macros
