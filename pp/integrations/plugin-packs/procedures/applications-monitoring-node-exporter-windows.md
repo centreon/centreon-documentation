@@ -11,7 +11,7 @@ This pack helps you monitor your Windows server based on metrics exported by Pro
 
 ### Templates
 
-The Centreon Plugin Pack **Node Exporter Windows Metrics** brings a host template:
+The Centreon Monitoring Connector **Node Exporter Windows Metrics** brings a host template:
 
 * App-Monitoring-Node-Exporter-Windows-custom
 
@@ -94,30 +94,30 @@ This pack is based on community Prometheus exporter for Windows machines: https:
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Windows** resources:
+1. Install the package on every Centreon poller expected to monitor **Windows** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Node Exporter Windows Metrics** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Windows Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Windows** resources:
+1. Install the package on every Centreon poller expected to monitor **Windows** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 ```
 
-2. Install the **Node Exporter Windows Metrics** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Node Exporter Windows Metrics** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-node-exporter-windows
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Node Exporter Windows Metrics** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Windows Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

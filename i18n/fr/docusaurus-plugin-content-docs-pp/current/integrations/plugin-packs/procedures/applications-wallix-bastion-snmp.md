@@ -57,7 +57,7 @@ Afin de contrôler votre application Wallix Bastion, le SNMP doit être configur
 yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -74,7 +74,7 @@ yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 yum install centreon-pack-applications-wallix-bastion-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

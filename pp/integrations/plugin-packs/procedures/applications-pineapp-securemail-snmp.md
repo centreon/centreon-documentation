@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **PineApp Mail Secure** brings a host template:
+The Centreon Monitoring Connector **PineApp Mail Secure** brings a host template:
 
 * App-Pineapp-Securemail-SNMP-custom
 
@@ -61,7 +61,7 @@ SNMP port.
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -90,7 +90,7 @@ apt install centreon-pack-applications-pineapp-securemail-snmp
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **PineApp Mail Secure** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

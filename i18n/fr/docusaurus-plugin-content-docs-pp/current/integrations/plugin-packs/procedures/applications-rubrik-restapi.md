@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin-Pack Centreon Rubrik permet (par l'interrogation de l'API Rest) de superviser 
+Le connecteur de supervision Centreon Rubrik permet (par l'interrogation de l'API Rest) de superviser 
 le statut et les performances Clusters et ses Noeuds. Cela inclut notamment les composants 
 disques, les tâches, etc.
 
@@ -97,8 +97,8 @@ Plus d'informations disponibles sur : https://github.com/rubrikinc/api-documenta
 yum install centreon-plugin-Applications-Rubrik-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Rubrik Rest API*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Rubrik Rest API*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -109,14 +109,14 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Applications-Rubrik-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-rubrik-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Rubrik RestAPI*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Rubrik RestAPI*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

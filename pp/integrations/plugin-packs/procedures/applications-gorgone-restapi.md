@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Gorgone daemon is a lightweight, distributed, modular tasks handler (https://github.com/centreon/centreon-gorgone).
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -41,7 +41,7 @@ Gorgone daemon is a lightweight, distributed, modular tasks handler (https://git
 
 ### Gorgone configuration
 
-To use this Plugin-Pack, you must enable Gorgone module `httpserver`:
+To use this Monitoring Connector, you must enable Gorgone module `httpserver`:
 
 ```yaml
 modules:
@@ -65,30 +65,30 @@ modules:
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Gorgone ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Gorgone ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Gorgone-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'Gorgone Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'Gorgone Rest API' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Gorgone ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Gorgone ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Gorgone-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-gorgone-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Gorgone Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'Gorgone Rest API' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Le protocole Secure Shell (SSH) est un protocole de communication sécurisé
 permettant d'effectuer des actions sur un serveur distant.
 
-Le Plugin Pack Centreon *Protocol SSH* permet de récupérer le status et le
+Le connecteur de supervision Centreon *Protocol SSH* permet de récupérer le status et le
 temps de réponse d'une connexion à un serveur par l'intermédiaire du protocole
 SSH.
 
@@ -55,7 +55,7 @@ d'hôtes doivent être renseignées. Plus d'information dans le chapite
 yum install centreon-plugin-Applications-Protocol-Ssh
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Protocol SSH* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Protocol SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -72,7 +72,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 yum install centreon-pack-applications-protocol-ssh
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Protocol SSH* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Protocol SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

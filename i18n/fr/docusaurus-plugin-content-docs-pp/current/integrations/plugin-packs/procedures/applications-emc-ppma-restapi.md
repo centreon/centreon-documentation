@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin-Pack EMC PowerPath Management Appliance collecte les données pour:
+Le connecteur de supervision EMC PowerPath Management Appliance collecte les données pour:
 * Hosts
 
 ### Métriques collectées
@@ -45,7 +45,7 @@ Afin de contrôler l'application EMC PPMA, l'API Rest doit être configuré (cf:
 yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Emc PPMA Rest API* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Emc PPMA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -56,20 +56,20 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-emc-ppma-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Emc PPMA Rest API* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Emc PPMA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application EMC PPMA.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par application EMC PPMA.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Emc-Ppma-Restapi-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

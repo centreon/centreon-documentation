@@ -12,10 +12,10 @@ Les adresses IP publiques permettent aux ressources Azure de communiquer avec In
 est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Une ressource sans adresse IP publique attribuée peut
 établir une communication sortante. Azure attribue dynamiquement une adresse IP disponible qui n’est pas dédiée à la ressource.
 
-Le Plugin-Pack Centreon *Azure Public IP* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Public IP* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Public IP. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -23,7 +23,7 @@ Public IP. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestA
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Public IP* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Public IP**.
+Le connecteur de supervision Centreon *Azure Public IP* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Public IP**.
 Celui-ci permet de découvrir l'ensemble des *Public IPs* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-publicip-provider.png)
@@ -72,7 +72,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-PublicIP-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Public IP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Public IP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,13 +83,13 @@ yum install centreon-plugin-Cloud-Azure-Network-PublicIP-Api
 yum install centreon-plugin-Cloud-Azure-Network-PublicIP-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Public IP*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Public IP*:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-publicip.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Public IP* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Public IP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

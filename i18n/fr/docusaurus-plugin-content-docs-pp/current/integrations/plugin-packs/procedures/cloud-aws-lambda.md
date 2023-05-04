@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **AWS Lambda** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **AWS Lambda** apporte un modèle d'hôte :
 * Cloud-Aws-Lambda-custom
 
 Il apporte le modèle de service suivant :
@@ -92,7 +92,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Lambda-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **AWS Lambda** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS Lambda** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,13 +103,13 @@ yum install centreon-plugin-Cloud-Aws-Lambda-Api
 yum install centreon-plugin-Cloud-Aws-Lambda-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **AWS Lambda** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **AWS Lambda** :
 
 ```bash
 yum install centreon-pack-cloud-aws-lambda
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **AWS Lambda** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS Lambda** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

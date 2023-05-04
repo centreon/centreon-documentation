@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -93,7 +93,7 @@ To control your D-Link equipment, the SNMP v2 must be configured.
 yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *D-Link Network* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *D-Link Network* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -104,13 +104,13 @@ yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install network-dlink-standard-snmp.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *D-Link Network* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *D-Link Network* Monitoring Connector
 
 </TabItem>
 </Tabs>

@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 SmarterMail est un outils de la suite SmarterTool. 
 
-Le Plugin Pack *Smartermail Server* récupère des métriques sur l'utilisatation 
+Le connecteur de supervision *Smartermail Server* récupère des métriques sur l'utilisatation 
 de la solution au travers de son API. 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -68,8 +68,8 @@ protocole HTTPS.
 yum install centreon-plugin-Applications-Smartermail-Api
 ```
 
-2. Dans l'interface web Centreon, utiliser le menu "Configuration > Plugin Packs > Gestionnaire de Plugin Pack"
-pour installer le Plugin Pack *Smartermail Server* 
+2. Dans l'interface web Centreon, utiliser le menu **Configuration > Gestionnaire de connecteurs de supervision**
+pour installer le connecteur de supervision *Smartermail Server* 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,14 +80,14 @@ pour installer le Plugin Pack *Smartermail Server*
 yum install centreon-plugin-Applications-Smartermail-Api
 ```
 
-1. Installer le RPM Plugin Pack sur le serveur Centreon central:
+1. Installer le RPM connecteur de supervision sur le serveur Centreon central:
 
 ```bash
 yum install centreon-pack-smartermail-api
 ```
 
-3. Dans l'interface web Centreon, utiliser le menu "Configuration > Plugin Packs > Gestionnaire de Plugin Pack"
-pour installer le Plugin Pack *Smartermail Server* 
+3. Dans l'interface web Centreon, utiliser le menu **Configuration > Gestionnaire de connecteurs de supervision**
+pour installer le connecteur de supervision *Smartermail Server* 
 
 </TabItem>
 </Tabs>

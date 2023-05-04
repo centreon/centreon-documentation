@@ -44,10 +44,15 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['23.04', '22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
           versions: {
+            23.04: {
+              label: '⭐ 23.04',
+              banner:'none',
+            },
             '22.10': {
-              label: '⭐ 22.10',
+              label: '22.10',
+              banner:'none',
             },
             22.04: {
               label: '22.04',
@@ -197,7 +202,7 @@ const config = {
           },
           {
             to: '/pp/integrations/plugin-packs/getting-started/introduction',
-            label: 'Plugin Packs',
+            label: 'Monitoring Connectors',
             position: 'left',
             activeBaseRegex: '/pp/',
           },

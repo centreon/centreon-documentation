@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **HTTP Server** brings a host template:
+The Centreon Monitoring Connector **HTTP Server** brings a host template:
 
 * App-Protocol-HTTP-custom
 
@@ -76,30 +76,30 @@ to specify a proxy when it is required.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **HTTP Server** resources:
+1. Install the package on every Centreon poller expected to monitor **HTTP Server** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Http
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **HTTP Server** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HTTP Server** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **HTTP Server** resources:
+1. Install the package on every Centreon poller expected to monitor **HTTP Server** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Http
 ```
 
-2. Install the **HTTP Server** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **HTTP Server** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-protocol-http
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **HTTP Server** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HTTP Server** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

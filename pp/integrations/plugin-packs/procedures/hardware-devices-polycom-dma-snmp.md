@@ -16,7 +16,7 @@ The RealPresence DMA system is available in an Appliance Edition and a Virtual E
 (packaged as software only) that can be deployed on VMware, Hyper-V, KVM, Amazon AWS 
 or Microsoft Azure cloud.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -116,34 +116,34 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon package on every Centreon Poller expected to monitor 
 Polycom RealPresence DMA devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Polycom DMA SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
+1. Install the Centreon package on every Centreon Poller expected to monitor
 Polycom RealPresence DMA devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
 
-3. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Polycom DMA SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

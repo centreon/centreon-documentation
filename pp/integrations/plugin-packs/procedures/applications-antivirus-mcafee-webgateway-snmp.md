@@ -12,11 +12,11 @@ McAfee Web Gateway is a proxy platform that provides proactive Web traffic
 scanning and threat blocking with advanced real-time malware inspection
 techniques.
 
-The Centreon Plugin-Pack *McAfee Web Gateway* aims to collect signature 
+The Centreon Monitoring Connector *McAfee Web Gateway* aims to collect signature 
 databases versions and Web and malware detections statistics using the SNMP
 protocol.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -122,30 +122,30 @@ UDP/161 SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
+1. Install the Centreon McAfee Web Gateway package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 ```
 
-2. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
+1. Install the Centreon McAfee Web Gateway package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 ```
 
-3. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

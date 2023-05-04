@@ -8,13 +8,13 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Ce Plugin Pack construit des métriques sur la base d'informations récupérées dans la base de données temps-réel de Centreon. Un article sur la plateforme the Watch vous offre une vue d'ensemble de ses capacités autour des [courbes virtuelles](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
+Ce connecteur de supervision construit des métriques sur la base d'informations récupérées dans la base de données temps-réel de Centreon. Un article sur la plateforme the Watch vous offre une vue d'ensemble de ses capacités autour des [courbes virtuelles](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
 
 ## Contenu du Pack
 
 ### Modèles
 
-Le Plugin Pack Centreon SQL Metrics apporte un modèle d'hôte :
+Le connecteur de supervision Centreon SQL Metrics apporte un modèle d'hôte :
 
 * App-Monitoring-Centreon-SQL-Metrics-custom
 
@@ -62,7 +62,7 @@ Pour le service **Virtual-Curve**, le fichier de configuration associé doit pou
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. Sur l'interface web de Centreon, installer le Plugin Pack **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installer le connecteur de supervision **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,7 +79,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 yum install centreon-pack-applications-monitoring-centreon-poller
 ```
 
-3. Sur l'interface web de Centreon, installer le Plugin Pack **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installer le connecteur de supervision **Centreon SQL Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

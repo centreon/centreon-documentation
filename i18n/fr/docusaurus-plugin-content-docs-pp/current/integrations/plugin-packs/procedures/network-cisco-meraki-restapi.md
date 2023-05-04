@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Cisco Meraki est une solution de gestion des réseaux administrés dans le Cloud. L’offre comprend plusieurs produits, 
 tous administrables depuis une même console, dans le Cloud : firewalling, switching, Wi-Fi, téléphonie IP, caméra IP, MDM.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Elements supervisés
 
@@ -92,7 +92,7 @@ Vous pouvez générer, révoquer et regénérer une API Key pour votre profil.
 yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack *Cisco Meraki Rest API* depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface Centreon, installer le connecteur de supervision *Cisco Meraki Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,13 +103,13 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-network-cisco-meraki-restapi.noarch
 ```
 
-3. Dans l'interface Centreon, installer le Plugin-Pack *Cisco Meraki Rest API* depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface Centreon, installer le connecteur de supervision *Cisco Meraki Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -12,10 +12,10 @@ FortiAuthenticator is the gatekeeper of authorization into the Fortinet secured 
 access permissions from third party systems, and communicating this information to FortiGate devices for use in Identity-Based
 Policies.
 
-Th related Centreon Plugin-Pack uses the SNMP protocol to check and gather information and metrics about
+Th related Centreon Monitoring Connector uses the SNMP protocol to check and gather information and metrics about
 the FortiAuthenticator devices.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -99,32 +99,32 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the FortiAuth
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor FortiAuthenticator devices:
+1. Install the Centreon package on every Centreon Poller expected to monitor FortiAuthenticator devices:
 
 ```bash
 yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Plugin-Pack
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Monitoring Connector
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor FortiAuthenticator devices:
+1. Install the Centreon package on every Centreon Poller expected to monitor FortiAuthenticator devices:
 
 ```bash
 yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 ```
 
-3. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Plugin-Pack
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Monitoring Connector
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

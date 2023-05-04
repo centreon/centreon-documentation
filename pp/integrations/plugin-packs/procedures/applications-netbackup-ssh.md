@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Netbackup SSH brings 1 host template:
+The Centreon Monitoring Connector Netbackup SSH brings 1 host template:
 * App-Netbackup-SSH-custom
 
 It brings the following Service Templates:
@@ -94,30 +94,30 @@ The remote user must have enough privileges to execute system commands.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor **Netbackup** ressources:
+1. Install the Centreon package on every Centreon Poller expected to monitor **Netbackup** ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Netbackup-Ssh
 ```
 
-2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Netbackup** ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Netbackup** ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Netbackup-Ssh
 ```
 
-2. Install the **Netbackup SSH** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Netbackup SSH** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-netbackup-ssh
 ```
 
-3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

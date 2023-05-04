@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon OpenVPN OMI apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon OpenVPN OMI apporte 1 modèle d'hôte :
 * App-Openvpn-OMI
 
 Il apporte le Modèle de Service suivant :
@@ -50,7 +50,7 @@ sécurité.
 yum install centreon-plugin-Applications-Openvpn-Omi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *OpenVPN OMI* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *OpenVPN OMI* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -67,7 +67,7 @@ yum install centreon-plugin-Applications-Openvpn-Omi
 yum install centreon-pack-applications-openvpn-omi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *OpenVPN OMI* depuis la page **Configuration > Packs de plugins**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *OpenVPN OMI* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 </Tabs>

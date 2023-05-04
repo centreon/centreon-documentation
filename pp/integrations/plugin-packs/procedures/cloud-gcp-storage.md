@@ -6,16 +6,16 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Google Storage collects metrics for:
+The Monitoring Connector Google Storage collects metrics for:
 * Bucket
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Google Storage* includes a Host Discovery *provider* to automatically discover storages
+The Centreon Monitoring Connector *Google Storage* includes a Host Discovery *provider* to automatically discover storages
 for a given Google Cloud Project.
 
 This provider is named **Google Storage**:
@@ -73,7 +73,7 @@ should be readable by centreon-engine poller.
 yum install centreon-plugin-Cloud-Gcp-Storage-Api
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Storage* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Storage* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -84,13 +84,13 @@ yum install centreon-plugin-Cloud-Gcp-Storage-Api
 yum install centreon-plugin-Cloud-Gcp-Storage-Api
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-cloud-gcp-storage
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Storage* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Storage* Monitoring Connector
 
 </TabItem>
 </Tabs>

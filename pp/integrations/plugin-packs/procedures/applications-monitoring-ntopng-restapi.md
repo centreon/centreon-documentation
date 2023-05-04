@@ -80,19 +80,19 @@ E.g: https://www.ntop.org/guides/ntopng/api/
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **NtopNG RestAPI** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **NtopNG RestAPI** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Ntopng-Restapi
 ```
 
-2. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **NtopNG RestAPI** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **NtopNG RestAPI** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Ntopng-Restapi
@@ -104,7 +104,7 @@ yum install centreon-plugin-Applications-Monitoring-Ntopng-Restapi
 yum install centreon-pack-applications-monitoring-ntopng-restapi
 ```
 
-3. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

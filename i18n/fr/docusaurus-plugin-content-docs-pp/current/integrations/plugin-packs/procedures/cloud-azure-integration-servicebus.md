@@ -15,10 +15,10 @@ autres pour offrir les avantages suivants :
 * Routage et transfert de façon sécurisée des données et du contrôle au-delà des limites des services et des applications
 * Coordination du travail transactionnel qui nécessite un degré élevé de fiabilité
 
-Le Plugin-Pack Centreon *Azure ServiceBus* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure ServiceBus* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 ServiceBus. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -30,7 +30,7 @@ ServiceBus. Il est possible d'utiliser les 2 modes proposés par Microsoft: Rest
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure ServiceBus* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure ServiceBus**.
+Le connecteur de supervision Centreon *Azure ServiceBus* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure ServiceBus**.
 Celui-ci permet de découvrir l'ensemble des instances *ServiceBus* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-integration-servicebus-provider.png)
@@ -90,7 +90,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Integration-ServiceBus-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure ServiceBus* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure ServiceBus* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,13 +101,13 @@ yum install centreon-plugin-Cloud-Azure-Integration-ServiceBus-Api
 yum install centreon-plugin-Cloud-Azure-Integration-ServiceBus-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure ServiceBus*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure ServiceBus*:
 
 ```bash
 yum install centreon-pack-cloud-azure-integration-servicebus.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure ServiceBus* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure ServiceBus* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

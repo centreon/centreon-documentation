@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **HTTP Server** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **HTTP Server** apporte un modèle d'hôte :
 
 * App-Protocol-HTTP-custom
 
@@ -82,7 +82,7 @@ d'utiliser un proxy lorsque cela est nécessaire.
 yum install centreon-plugin-Applications-Protocol-Http
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **HTTP Server** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **HTTP Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -93,13 +93,13 @@ yum install centreon-plugin-Applications-Protocol-Http
 yum install centreon-plugin-Applications-Protocol-Http
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **HTTP Server** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **HTTP Server** :
 
 ```bash
 yum install centreon-pack-applications-protocol-http
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **HTTP Server** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **HTTP Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

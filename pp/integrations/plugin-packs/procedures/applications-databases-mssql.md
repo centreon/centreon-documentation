@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Microsoft SQL Server** brings a host template:
+The Centreon Monitoring Connector **Microsoft SQL Server** brings a host template:
 
 * App-DB-MSSQL-custom
 
@@ -171,7 +171,7 @@ The configuration file is located under different paths depending on your operat
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -200,7 +200,7 @@ apt install centreon-pack-applications-databases-mssql
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Microsoft SQL Server** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

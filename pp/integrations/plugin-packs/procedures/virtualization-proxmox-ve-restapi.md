@@ -95,19 +95,19 @@ Please refer to their official documentation: https://pve.proxmox.com/wiki/Proxm
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Proxmox VE** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Proxmox VE** resources:
 
 ```bash
 yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 ```
 
-2. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Proxmox VE** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Proxmox VE** resources:
 
 ```bash
 yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
@@ -119,7 +119,7 @@ yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 yum install centreon-pack-virtualization-proxmox-ve-restapi
 ```
 
-3. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

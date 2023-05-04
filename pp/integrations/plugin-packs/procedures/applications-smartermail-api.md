@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 SmarterMail is part of SmarterTool suite. 
 
-The Centreon Plugin Pack *Smartermail Server* uses the Rest API to get key metrics
+The Centreon Monitoring Connector *Smartermail Server* uses the Rest API to get key metrics
 giving insights about the health of the solution.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -60,30 +60,30 @@ HTTPS protocol.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor a Smartermail server:
+1. Install the Centreon package on every poller expected to monitor a Smartermail server:
 
 ```bash
 yum install centreon-plugin-Applications-Smartermail-Api
 ```
 
-2. On the Centreon Web interface, install the Centreon Plugin-Pack *Smartermail Server* from the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Smartermail Server* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
+1. Install the Centreon package on every poller expected to monitor a Graylog server:
 
 ```bash
 yum install centreon-plugin-Applications-Smartermail-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-smartermail-api
 ```
 
-3. On the Centreon Web interface, install the Centreon Plugin-Pack *Smartermail Server* from the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Smartermail Server* from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

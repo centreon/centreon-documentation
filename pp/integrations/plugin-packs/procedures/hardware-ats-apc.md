@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **APC ATS** brings a host template:
+The Centreon Monitoring Connector **APC ATS** brings a host template:
 
 * HW-ATS-Apc-SNMP-custom
 
@@ -63,30 +63,30 @@ Refer to the device's documentation.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **APC ATS** resources:
+1. Install the package on every Centreon poller expected to monitor **APC ATS** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **APC ATS** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **APC ATS** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **APC ATS** resources:
+1. Install the package on every Centreon poller expected to monitor **APC ATS** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 ```
 
-2. Install the **APC ATS** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **APC ATS** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-hardware-ats-apc
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **APC ATS** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **APC ATS** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

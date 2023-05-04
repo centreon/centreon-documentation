@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Azure SQL Server** brings a host template:
+The Centreon Monitoring Connector **Azure SQL Server** brings a host template:
 
 * Cloud-Azure-Database-SqlServer-custom
 
@@ -22,7 +22,7 @@ It brings the following service template:
 
 ### Discovery rules
 
-The Centreon Plugin Pack **Azure SQL Server** includes a Host Discovery provider to
+The Centreon Monitoring Connector **Azure SQL Server** includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure SQL Server**:
 
@@ -53,30 +53,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Azure SQL Server** resources:
+1. Install the package on every Centreon poller expected to monitor **Azure SQL Server** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-SqlServer-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure SQL Server** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure SQL Server** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Azure SQL Server** resources:
+1. Install the package on every Centreon poller expected to monitor **Azure SQL Server** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-SqlServer-Api
 ```
 
-2. Install the **Azure SQL Server** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Azure SQL Server** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-sqlserver
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Azure SQL Server** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure SQL Server** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

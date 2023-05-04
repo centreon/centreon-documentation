@@ -97,30 +97,30 @@ may be different on your setup.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
+1. Install the Centreon package on every Centreon Poller expected to monitor containers with cAdvisor:
 
 ```bash
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through the `Configuration > Plugin Packs > Manager` page.
+2. On the Centreon Web interface, install the *cAdvisor API* Monitoring Connector through the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
+1. Install the Centreon package on every Centreon Poller expected to monitor containers with cAdvisor:
 
 ```bash
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-cadvisor-api
 ```
 
-3. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through the `Configuration > Plugin Packs > Manager` page.
+3. On the Centreon Web interface, install the *cAdvisor API* Monitoring Connector through the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

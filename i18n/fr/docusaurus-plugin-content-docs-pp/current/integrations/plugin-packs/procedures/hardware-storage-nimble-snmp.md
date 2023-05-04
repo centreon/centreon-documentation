@@ -14,7 +14,7 @@ est basé à San José en Californie. C'est une entité de Hewlett Packard Enter
 Nimble Storage produit des solutions matérielles et logicielles pour le stockage de données en utilisant les protocoles
 iSCSI et Fiber Channel. Des solutions de sauvegarde et de protection de données sont également disponibles.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -22,7 +22,7 @@ iSCSI et Fiber Channel. Des solutions de sauvegarde et de protection de données
 
 ### Services disponibles
 
-Les Services suivants sont mis à disposition au travers du Plugin-Pack: 
+Les Services suivants sont mis à disposition au travers du connecteur de supervision: 
 
 * Global-Stats
 * Volumes
@@ -69,7 +69,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
+2. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble SNMP*
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,13 +80,13 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
-3. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
+3. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble SNMP*
 
 </TabItem>
 </Tabs>

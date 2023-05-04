@@ -12,9 +12,9 @@ The RealPresence Resource Manager system is a management solution that provides 
 Unified management features include license management, monitoring, conference scheduling, and provisioning of Polycom video infrastructure products 
 and as well as both Polycom and third-party endpoints within your environment.
 
-The Centreon Plugin Pack relies on the SNMP protocol to query and collect status and metrics of the Polycom RPRM solution.
+The Centreon Monitoring Connector relies on the SNMP protocol to query and collect status and metrics of the Polycom RPRM solution.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -119,34 +119,34 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon package on every Centreon Poller expected to monitor 
 Polycom RPRM devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Polycom RPRM SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
+1. Install the Centreon package on every Centreon Poller expected to monitor
 Polycom RPRM devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 ```
 
-3. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Polycom RPRM SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

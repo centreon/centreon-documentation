@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Nginx is an open-source Web Server also used as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.
 
-## Plugin Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -86,30 +86,30 @@ You can now check the result by accessing the URL
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Nginx Servers:
+1. Install the Centreon package on every Centreon Poller expected to monitor Nginx Servers:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. On the Centreon Web interface, install the *Nginx Server* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+2. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Nginx Servers:
+1. Install the Centreon package on every Centreon Poller expected to monitor Nginx Servers:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 
-3. On the Centreon Web interface, install the *Nginx Server* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+3. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

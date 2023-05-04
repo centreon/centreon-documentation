@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Ruckus SmartZone network controllers simplify the complexity of scaling and managing wired switches, and wireless access points through a common interface to support private-cloud network-as-a-service (NaaS) offerings in addition to general enterprise networks.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -116,30 +116,30 @@ Your centreon server must be able to reach the Ruckus device over UDP/161 SNMP p
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
 
 ```bash
 yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 ```
 
-2. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Ruckus Smartzone ressources:
 
 ```bash
 yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

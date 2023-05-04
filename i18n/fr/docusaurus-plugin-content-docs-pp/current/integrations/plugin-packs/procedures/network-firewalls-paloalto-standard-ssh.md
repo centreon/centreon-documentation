@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin Pack inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les nœuds et des composants matériels en 
+Le connecteur de supervision inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les nœuds et des composants matériels en 
 utilisant des commandes systèmes.
 
 ### Règles de découvertes 
@@ -96,7 +96,7 @@ doit avoir assez de privilèges pour exécuter des commandes systèmes.
 yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Palo Alto firewall SSH* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Palo Alto firewall SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -107,20 +107,20 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Palo Alto firewall SSH* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Palo Alto firewall SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par pare-feu Palo Alto.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par pare-feu Palo Alto.
 Lorsque vous ajoutez un Hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

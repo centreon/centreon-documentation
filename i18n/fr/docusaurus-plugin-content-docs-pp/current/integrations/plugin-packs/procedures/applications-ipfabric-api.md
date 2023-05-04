@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **IP Fabric API** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **IP Fabric API** apporte un modèle d'hôte :
 
 * App-Ipfabric-Api-custom
 
@@ -22,7 +22,7 @@ Il apporte le modèle de service suivant :
 
 ### Règles de découverte
 
-Le Plugin Pack IP Fabric inclut une règle de découverte d'hôtes permettant de découvrir automatiquement les équipements réseaux renseignés dans IP Fabric.
+Le connecteur de supervision IP Fabric inclut une règle de découverte d'hôtes permettant de découvrir automatiquement les équipements réseaux renseignés dans IP Fabric.
 
 ![image](../../../assets/integrations/plugin-packs/procedures/applications-ipfabric-api-provider.png)
 
@@ -59,7 +59,7 @@ Assurez-vous d'avoir une clef API avec les droits suffisants ainsi que l'adresse
 yum install centreon-plugin-Applications-Ipfabric-Api
 ```
 
-2. Sur l'interface Web de Centreon, installez le Plugin Pack **IP Fabric API** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installez le connecteur de supervision **IP Fabric API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,13 +70,13 @@ yum install centreon-plugin-Applications-Ipfabric-Api
 yum install centreon-plugin-Applications-Ipfabric-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **IP Fabric API** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **IP Fabric API** :
 
 ```bash
 yum install centreon-pack-applications-ipfabric-api
 ```
 
-3. Sur l'interface Web de Centreon, installez le Plugin Pack **IP Fabric API** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installez le connecteur de supervision **IP Fabric API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

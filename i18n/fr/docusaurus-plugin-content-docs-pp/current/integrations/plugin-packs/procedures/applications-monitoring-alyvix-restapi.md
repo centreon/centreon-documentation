@@ -12,15 +12,15 @@ Alyvix Server est un logiciel APM permettant une supervision visuelle et une ex�
 La solution permet de créer des robots émulant le comportement d'utilisateurs finaux, en interagissant visuellement
 avec n'importe quelle application Windows ou n'importe quel site ouvert depuis votre navigateur préféré.
 
-Le Plugin-Pack Centreon Alyvix Server permet (par l'interrogation de l'API Rest) de récupérer le statut et
+Le connecteur de supervision Centreon Alyvix Server permet (par l'interrogation de l'API Rest) de récupérer le statut et
 le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés par Alyvix Server, ainsi que le détail de chaque étape
 (*transaction*) du scénario élaboré.
 
-> Le Plugin-Pack *Alyvix Server* n'est **pas** compatible avec la version Open-Source d'Alyvix, la fonctionnalité API Rest
+> Le connecteur de supervision *Alyvix Server* n'est **pas** compatible avec la version Open-Source d'Alyvix, la fonctionnalité API Rest
 > étant exclusive à la version commerciale de la solution. N'hésitez pas à contacter votre représentant Commercial afin de
 > pouvoir discuter des conditions d'accès. 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -81,8 +81,8 @@ officielle: https://www.alyvix.com/learn/.
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Alyvix Server*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Alyvix Server*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -93,14 +93,14 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-monitoring-alyvix-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Alyvix Server*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Alyvix Server*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

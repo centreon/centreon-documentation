@@ -14,10 +14,10 @@ de chiffrement. Le service Key Vault prend en charge deux types de conteneurs : 
 prennent en charge le stockage des clés logicielles et sauvegardées avec HSM, les secrets et les certificats. Les pools HSM managés
 prennent uniquement en charge les clés sauvegardées avec HSM.
 
-Le Plugin-Pack Centreon *Azure Key Vault* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Key Vault* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Key Vault. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -25,7 +25,7 @@ Key Vault. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestA
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Key Vault* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Key Vault**.
+Le connecteur de supervision Centreon *Azure Key Vault* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Key Vault**.
 Celui-ci permet de découvrir l'ensemble des *Key Vaults* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-security-keyvault-provider.png)
@@ -79,7 +79,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Security-KeyVault-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Key Vault* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Key Vault* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -90,13 +90,13 @@ yum install centreon-plugin-Cloud-Azure-Security-KeyVault-Api
 yum install centreon-plugin-Cloud-Azure-Security-KeyVault-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Key Vault*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Key Vault*:
 
 ```bash
 yum install centreon-pack-cloud-azure-security-keyvault.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Key Vault* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Key Vault* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

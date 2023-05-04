@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack IBM MQ MQI brings 1 host template:
+The Centreon Monitoring Connector IBM MQ MQI brings 1 host template:
 * App-Ibmmq-Mqi-custom
 
 It brings the following Service Templates:
@@ -64,30 +64,30 @@ official IBM documentation:
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **IBM MQ MQI** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **IBM MQ MQI** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Ibmmq-Mqi
 ```
 
-2. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **IBM MQ MQI** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **IBM MQ MQI** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Ibmmq-Mqi
 ```
 
-2. Install the **IBM MQ MQI** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **IBM MQ MQI** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-ibmmq-mqi
 ```
 
-3. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>
