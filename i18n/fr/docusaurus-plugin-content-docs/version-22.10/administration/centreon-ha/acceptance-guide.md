@@ -1118,7 +1118,7 @@ Migration Summary:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via . [les macros définies ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#installation-de-centreon)
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds)  via les macros définies à la page suivante : **Installation d'un cluster à 4 nœuds**, section **Définition des noms et adresses IP des serveurs**.
 
 ### Conditions requises pour les tests
 
