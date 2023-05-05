@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via [les macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#installation-de-centreon).
+> Ce document fera référence aux paramètres qui varient d'une installation à l'autre (par exemple, les noms et adresses IP des nœuds) via les macros définies à la page suivante : **Installation d'un cluster à 2 nœuds**, section **Définition des noms et adresses IP des serveurs**.
 
 ### Conditions requises pour les tests
 
@@ -97,7 +97,7 @@ Active resources:
 </TabItem>
 </Tabs>
 
-> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](troubleshooting-guide.md).
+> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du guide de dépannage (page **Dépanner Centreon-HA**).
 
 ### Vérifier les contraintes
 
@@ -153,7 +153,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ## Basculement des ressources du Centreon
 
@@ -354,7 +354,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation a `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ### Retour à la situation nominale
 
@@ -472,7 +472,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation est `KO`, vous devez la corriger en suivant [le guide d'exploitation](operating-guide.md).
+> Si la synchronisation est `KO`, vous devez la corriger en suivant **Guide d'exploitation du cluster**.
 
 ## Simuler la perte du noeud secondaire
 
@@ -1227,7 +1227,7 @@ Daemon Status:
 </TabItem>
 </Tabs>
 
-> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du [guide de dépannage](troubleshooting-guide.md).
+> Vérifiez les erreurs `Failed` dans les ressources et corrigez-les à l'aide du guide de dépannage (page **Dépanner Centreon-HA**).
 
 ### Vérifier les contraintes
 
@@ -1307,7 +1307,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation indique `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ## Basculement des ressources du Centreon
 
@@ -1548,7 +1548,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> Si la synchronisation a `KO`, vous devez la corriger à l'aide du [operating-guide](operating-guide.md).
+> Si la synchronisation a `KO`, vous devez la corriger à l'aide du **Guide d'exploitation du cluster**.
 
 ### Retour à la situation nominale
 
@@ -2100,7 +2100,7 @@ iptables -D OUTPUT @RULE_NUMBER@
 ```
 
 En exécutant la commande `crm_mon` sur le second noeud, vous verrez le noeud primaire monter dans le cluster.
-Si vous souhaitez passer au noeud primaire, exécutez les [commandes de basculement] (acceptance-guide.md#return-to-nominal-situation).
+Si vous souhaitez passer au noeud primaire, exécutez les commandes de basculement.
 
 </TabItem>
 </Tabs>
