@@ -12,10 +12,10 @@ La solution Polycom HDX vous permet d'établir des visioconférences HD flexible
 environnement professionnel. Rapide et simple à implémenter, le système Polycom HDX répond idéalement aux besoins des
 professionnels de l'enseignement, de la santé, du commerce et de l'industrie et de la collaboration à la demande.
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
+Le connecteur de supervision Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
 Polycom HDX.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -114,8 +114,8 @@ Sur l'équipement Polycom HDX, configurez et activez l'agent SNMP en suivant ces
 yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom HDX SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom HDX SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -126,14 +126,14 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom HDX SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom HDX SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

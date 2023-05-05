@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Log Analytics is a tool in the Azure portal to edit and run log queries from data 
 collected by Azure Monitor Logs and interactively analyze their results.
 
-The *Azure Log Analytics* Plugin-Pack allows you to run KQL queries and monitor 
+The *Azure Log Analytics* Monitoring Connector allows you to run KQL queries and monitor 
 number of matched items. It can rely on both Azure API and Azure CLI.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -43,30 +43,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to run query against Azure Log Analytics:
+1.  Install the Centreon package on every Centreon poller expected to run query against Azure Log Analytics:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Log Analytics* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Log Analytics* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to run query against Azure Log Analytics:
+1. Install the Centreon package on every Centreon poller expected to run query against Azure Log Analytics:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-management-log-analytics-api
 ```
 
-3. On the Centreon Web interface, install the *Azure Log Analytics* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Log Analytics* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

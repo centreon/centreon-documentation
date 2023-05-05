@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin Pack Hikvision SNMP collecte les données pour:
+Le connecteur de supervision Hikvision SNMP collecte les données pour:
 * Cpu
 * Disk
 * Memory
@@ -68,7 +68,7 @@ Afin de contrôler votre équipement Hikvision, le SNMP doit être configuré.
 yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Hikvision camera SNMP* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hikvision camera SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,13 +79,13 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Hikvision camera SNMP* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hikvision camera SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

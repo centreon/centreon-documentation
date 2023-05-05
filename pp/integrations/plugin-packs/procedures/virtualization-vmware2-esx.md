@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 VMWare is a software company based in the USA. VMWare provides cloud computing and virtualization software and services.
 
-The Centreon Plugins and Plugin Packs rely on the Centreon VMWare Connector to request the vCenter API.
+The Centreon Plugins and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter API.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -217,7 +217,7 @@ The Pollers that request the Centreon VMWare Connector host need to access the C
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+2. Install the 'Vmware ESX' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page 
 	
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -228,13 +228,13 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 	
-2. Install the Centreon Plugin-Pack RPM: 
+2. Install the Centreon Monitoring Connector RPM: 
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-esx
 ```
 	
-3. Install the 'Vmware ESX' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+3. Install the 'Vmware ESX' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page 
 
 </TabItem>
 </Tabs>

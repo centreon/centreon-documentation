@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon PHP APC apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon PHP APC apporte 1 modèle d'hôte :
 * App-Php-Apc-Web
 
 Il apporte les Modèles de Services suivants :
@@ -64,7 +64,7 @@ les Macros d'Hôte dans la partie [Configuration](#Configuration).
 yum install centreon-plugin-Applications-Php-Apc-Web
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP APC* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *PHP APC* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Applications-Php-Apc-Web
 yum install centreon-pack-applications-php-apc-web
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP APC* depuis la page **Configuration > Packs de plugins**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *PHP APC* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 </Tabs>

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Le BCM Poller expose collecte des données sur le comportement d'un réseau Blockchain 
 basé sur les technologies Ethereum ou Hyperledger Fabric. 
 
-Le Plugin Pack *Ethpoller API* récupère les informations collectées au travers de 
+Le connecteur de supervision *Ethpoller API* récupère les informations collectées au travers de 
 l'API exposée par cet outil afin d'offrir une analyse de l'utilisation et de l'adoption 
 du réseaux au travers du comportement des noeuds observés.
 
@@ -80,7 +80,7 @@ configuré (par défaut: 8000).
 yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 ```
 
-2. Dans l'interface Web de Centreon, installer le Plugin Pack *Ethpoller API* depuis la page  `Configuration > Plugin Packs`.
+2. Dans l'interface Web de Centreon, installer le connecteur de supervision *Ethpoller API* depuis la page  **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 yum install centreon-pack-blockchain-parity-ethpoller-restapi
 ```
 
-3. Dans l'interface Web de Centreon, installer le Plugin Pack *Ethpoller API* depuis la page  `Configuration > Plugin Packs`.
+3. Dans l'interface Web de Centreon, installer le connecteur de supervision *Ethpoller API* depuis la page  **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

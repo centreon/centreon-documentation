@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le Plugin-Pack CyberPower PDU 
+Le connecteur de supervision CyberPower PDU 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -64,24 +64,24 @@ https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserG
 yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *CyberPower Systems PDU SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *CyberPower Systems PDU SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *CyberPower Systems PDU SNMP* applications:
+1. Install the Centreon package on every Centreon poller expected to monitor *CyberPower Systems PDU SNMP* applications:
 
 ```bash
 yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
-2. Installer le RPM Centreon Plugin-Pack sur votre serveur Centreon Central:
+2. Installer le RPM Centreon connecteur de supervision sur votre serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *CyberPower Systems PDU SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *CyberPower Systems PDU SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

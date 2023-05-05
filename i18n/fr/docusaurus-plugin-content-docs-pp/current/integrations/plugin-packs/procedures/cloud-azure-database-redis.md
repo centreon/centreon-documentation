@@ -13,7 +13,7 @@ application qui utilise abondamment les magasins de données principaux. Il peut
 les données fréquemment utilisées dans la mémoire du serveur, qui peut être écrite et lue rapidement. Redis constitue une solution de stockage de
 données à faible latence et à haut débit critique pour les applications modernes. 
 
-Le Plugin Pack Centreon *Azure Cache for Redis* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Cache for Redis* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Cosmos DB. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
@@ -35,7 +35,7 @@ Cosmos DB. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestA
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure Cache for Redis* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Cache for Redis**.
+Le connecteur de supervision Centreon *Azure Cache for Redis* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Cache for Redis**.
 Celui-ci permet de découvrir l'ensemble des comptes *Cosmos DB* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-database-redis-provider.png)
@@ -139,7 +139,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Database-Redis-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Cache for Redis* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Cache for Redis* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -156,7 +156,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Redis-Api
 yum install centreon-pack-cloud-azure-database-redis.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Cache for Redis* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Cache for Redis* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

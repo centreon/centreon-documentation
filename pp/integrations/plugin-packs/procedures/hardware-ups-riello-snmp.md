@@ -82,7 +82,7 @@ SNMP port.
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -111,7 +111,7 @@ apt install centreon-pack-hardware-ups-riello-snmp
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Riello UPS SNMP** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

@@ -57,18 +57,18 @@ E.g: https://docs.informatica.com/integration-cloud/cloud-platform/current-versi
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Informatica Intelligent Cloud Services** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Informatica Intelligent Cloud Services** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Iics-Restapi
 ```
 
-2. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Informatica Intelligent Cloud Services** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Informatica Intelligent Cloud Services** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Iics-Restapi
@@ -80,7 +80,7 @@ yum install centreon-plugin-Cloud-Iics-Restapi
 yum install centreon-pack-cloud-iics-restapi
 ```
 
-3. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

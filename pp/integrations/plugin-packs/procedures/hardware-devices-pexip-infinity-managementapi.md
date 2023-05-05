@@ -13,7 +13,7 @@ The software seamlessly connects enterprise communications and collaboration sol
 
 Pexip Infinity includes a ManagementAPI that allows third parties to control, configure, and obtain status information on the Pexip Infinity platform.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -64,7 +64,7 @@ More information is available on the official documentation of Pexip Infinity Ma
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pexip Infinity ManagementAPI* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pexip Infinity ManagementAPI* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -75,20 +75,20 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pexip Infinity ManagementAPI* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pexip Infinity ManagementAPI* Monitoring Connector
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-The Plugin-Pack is designed to monitor resources based on one host per Pexip Infinity ManagementAPI environment.
+The Monitoring Connector is designed to monitor resources based on one host per Pexip Infinity ManagementAPI environment.
 Adding a host into Centreon, link it to the template named *HW-Device-Pexip-Infinity-Managementapi-custom*. 
 Once the template applied, some Macros have to be configured:
 

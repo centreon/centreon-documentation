@@ -14,13 +14,13 @@ Build end-user bots visually interacting with any Windows application like ERPs 
 Measure end-user experiences: Alyvix records the click-to-appearance responsiveness of each transaction.
 Report IT service quality to support technical and business actions.
 
-The Centreon Plugin-Pack *Alyvix Server* aims to collect the execution status and duration of the Alyvix's *testcases* and their *transactions*
+The Centreon Monitoring Connector *Alyvix Server* aims to collect the execution status and duration of the Alyvix's *testcases* and their *transactions*
 by requesting the dedicated built-in RestAPI.
 
-> The *Alyvix Server* Plugin-Pack **can not** be used with the Open-Source free version of Alyvix, as the Rest API feature is only
+> The *Alyvix Server* Monitoring Connector **can not** be used with the Open-Source free version of Alyvix, as the Rest API feature is only
 > available in the commercial version. Get in touch with your Centreon Sales representative to get a quote!
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -74,30 +74,30 @@ https://www.alyvix.com/learn/.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-alyvix-restapi
 ```
 
-3. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

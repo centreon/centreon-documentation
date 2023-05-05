@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Netbackup SSH apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Netbackup SSH apporte 1 modèle d'hôte :
 * App-Netbackup-SSH
 
 Il apporte les Modèles de Services suivants :
@@ -85,7 +85,7 @@ Il apporte les Modèles de Services suivants :
 
 ### Configuration SSH
 
-L'utilisation de ce Plugin Pack requiert la création d'un utilisateur sur le
+L'utilisation de ce connecteur de supervision requiert la création d'un utilisateur sur le
 serveur supervisé, lequel sera utilisé par le collecteur Centreon pour
 s'authentifier et exécuter les requêtes SSH.
 
@@ -106,7 +106,7 @@ L'utilisateur distant doit pouvoir exécuter des commandes système.
 yum install centreon-plugin-Applications-Netbackup-Ssh
 ```
 
-2. Sur l'interface web de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface web de Centreon, installer le connecteur de supervision *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -123,7 +123,7 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 yum install centreon-pack-applications-netbackup-ssh
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Netbackup SSH* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 </Tabs>

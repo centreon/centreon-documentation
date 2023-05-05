@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack Acme Packet SNMP collects metrics for:
+The Monitoring Connector Acme Packet SNMP collects metrics for:
 * Codec
 * Hardware
 * Interfaces
@@ -173,7 +173,7 @@ To control your Acme Packet, the SNMP must be configured.
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Acme Packet* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -184,13 +184,13 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-acmepacket-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Acme Packet* Monitoring Connector
 
 </TabItem>
 </Tabs>

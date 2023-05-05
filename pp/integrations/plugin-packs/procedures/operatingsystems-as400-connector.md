@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack IBM AS400 Connector brings 1 host template:
+The Centreon Monitoring Connector IBM AS400 Connector brings 1 host template:
 * OS-AS400-Connector-custom
 
 It brings the following Service Templates:
@@ -165,30 +165,30 @@ A connector can act as a relay between several Hosts and several AS400 systems.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-AS400-Connector
 ```
 
-2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page:
+2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page:
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *AS400/iSeries* ressources:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-AS400-Connector
 ```
 
-2. Install the *IBM AS400 Connector* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *IBM AS400 Connector* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-as400-connector
 ```
 
-3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

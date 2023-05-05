@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 NRPE (Nagios Remote Plugin Executor) is a protocol that was designed to remotely run monitoring commands.
 
-This Plugin-Pack relies on 3 components that are listed below:
+This Monitoring Connector relies on 3 components that are listed below:
 
 | Component                 | Type              | Location       | Role                                                               |
 | ------------------------- | ----------------- | -------------- | ------------------------------------------------------------------ |
@@ -18,7 +18,7 @@ This Plugin-Pack relies on 3 components that are listed below:
 | `centreon_linux_local.pl` | Perl Script       | Monitored host | Is run locally and returns a status, an output message and metrics |
 | `centreon-nrpe3`          | Service/daemon    | Monitored host | Listens on port 5666 and runs the configured commands on demand    |
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -187,25 +187,25 @@ systemctl restart centreon-nrpe3.service
 
 ## Installation
 
-### Plugin-Pack
+### Monitoring Connector
 
-The Plugin-Pack installation concerns only the central server and the procedure depends on the type of license.
+The Monitoring Connector installation concerns only the central server and the procedure depends on the type of license.
 
 <Tabs groupId="sync">
 <TabItem value="IMP/EPP Online License & IT-100 Editions" label="IMP/EPP Online License & IT-100 Editions">
 
- Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
+ Install the "Linux NRPE3" Monitoring Connector from **Configuration > Monitoring Connectors Manager**in the WUI.
 
 </TabItem>
 <TabItem value="IMP/EPP Offline License" label="IMP/EPP Offline License">
 
-1. Install the Plugin Pack's RPM on the central server.
+1. Install the Monitoring Connector's RPM on the central server.
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-nrpe3
 ```
 
-2. Install the "Linux NRPE3" Plugin Pack from "Configuration > Plugin Packs > Manager" in the WUI.
+2. Install the "Linux NRPE3" Monitoring Connector from **Configuration > Monitoring Connectors Manager**in the WUI.
 
 </TabItem>
 </Tabs>

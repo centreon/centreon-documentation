@@ -13,10 +13,10 @@ System Center Configuration Manager (anciennement Microsoft Systems Management S
 la gestion de correctifs, l’automatisation de tâches, la télédistribution d’applications, l’inventaire matériel et logiciel,
 la gestion de la conformité et l’administration des politiques de sécurité.
 
-Le Plugin-Pack Centreon *Microsoft SCCM* permet de contrôler l'état d'une infrastructure SCCM par l'utilisation de l'agent *centreon-nsclient*
+Le connecteur de supervision Centreon *Microsoft SCCM* permet de contrôler l'état d'une infrastructure SCCM par l'utilisation de l'agent *centreon-nsclient*
 pour Windows. Les deux méthodes de connexion à l'agent, NRPE & RestAPI, sont supportées.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -73,8 +73,8 @@ yum install centreon-nrpe-plugin
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft SCCM* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Microsoft SCCM* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,14 +94,14 @@ yum install centreon-nrpe-plugin
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-sccm-nsclient
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Microsoft SCCM* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Microsoft SCCM* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

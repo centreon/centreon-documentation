@@ -5,9 +5,9 @@ title: Base Pack
 
 ## Prerequisites
 
-There is no prerequisites needed for this Plugin Pack.
+There is no prerequisites needed for this Monitoring Connector.
 
-This Plugin Pack gives you all basic templates.
+This Monitoring Connector gives you all basic templates.
 
 You can use it to create your own service templates, active as well as passive,
 with the following templates:

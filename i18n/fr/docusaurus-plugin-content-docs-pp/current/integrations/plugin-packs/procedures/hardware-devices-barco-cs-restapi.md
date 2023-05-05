@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -44,7 +44,7 @@ Afin de contrôler l'équipement Barco ClickShare, l'API Rest doit être configu
 yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -61,14 +61,14 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 yum install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par équipement Barco ClickShare.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par équipement Barco ClickShare.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-Barco-Cs-Restapi-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

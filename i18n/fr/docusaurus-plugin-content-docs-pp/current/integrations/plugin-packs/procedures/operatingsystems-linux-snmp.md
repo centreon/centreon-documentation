@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Linux est, au sens restreint, le noyau de système d'exploitation du même nom. Au sens large, il fait référence à tout système d'exploitation s'appuyant sur le noyau Linux.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -164,7 +164,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+2. Installer le connecteur de supervision 'Linux SNMP' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -175,13 +175,13 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-snmp
 ```
 
-3. Installer le Plugin-Pack 'Linux SNMP' depuis la page "Configuration > Plugin packs > Manager"
+3. Installer le connecteur de supervision 'Linux SNMP' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

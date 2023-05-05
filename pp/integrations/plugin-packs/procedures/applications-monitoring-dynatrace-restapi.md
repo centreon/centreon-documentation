@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Dynatrace Rest API** brings a host template:
+The Centreon Monitoring Connector **Dynatrace Rest API** brings a host template:
 
 * App-Monitoring-Dynatrace-Restapi-custom
 
@@ -79,30 +79,30 @@ More information on the offcial Dynatrace documentation: https://www.dynatrace.c
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Dynatrace** resources:
+1. Install the package on every Centreon poller expected to monitor **Dynatrace** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Dynatrace Rest API** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Dynatrace Rest API** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Dynatrace** resources:
+1. Install the package on every Centreon poller expected to monitor **Dynatrace** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 ```
 
-2. Install the **Dynatrace Rest API** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Dynatrace Rest API** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-dynatrace-restapi
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Dynatrace Rest API** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Dynatrace Rest API** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

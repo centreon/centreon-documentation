@@ -15,10 +15,10 @@ Bus is used to decouple applications and services from each other, providing the
 * Safely routing and transferring data and control across service and application boundaries
 * Coordinating transactional work that requires a high-degree of reliability
 
-The Centreon Plugin-Pack *Azure ServiceBus* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure ServiceBus* can rely on Azure API or Azure CLI to collect the metrics related to the
 ServiceBus service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -30,7 +30,7 @@ ServiceBus service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure ServiceBus* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure ServiceBus* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure ServiceBus**:
 

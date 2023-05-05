@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Awa JMX brings 1 host template:
+The Centreon Monitoring Connector Awa JMX brings 1 host template:
 * App-Awa-JMX-custom
 
 It brings the following Service Templates:
@@ -57,30 +57,30 @@ Ask your admin to deploy it and give you the URL.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **AWA JMX** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **AWA JMX** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Awa-Jmx
 ```
 
-2. On the Centreon Web interface, install the **Awa JMX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Awa JMX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **AWA JMX** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **AWA JMX** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Awa-Jmx
 ```
 
-2. Install the **Awa JMX** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Awa JMX** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-awa-jmx
 ```
 
-3. On the Centreon Web interface, install the **Awa JMX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Awa JMX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

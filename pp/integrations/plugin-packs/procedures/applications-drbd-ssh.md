@@ -13,7 +13,7 @@ allowing the replication of block devices (disks, partitions, logical volumes et
 DRBD is free software, but support exists. DRBD consists of a kernel module, administration tools in
 user space as well as shell scripts.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -62,7 +62,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DRBD SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -73,13 +73,13 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install ccentreon-pack-applications-drbd-ssh.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *DRBD SSH* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DRBD SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

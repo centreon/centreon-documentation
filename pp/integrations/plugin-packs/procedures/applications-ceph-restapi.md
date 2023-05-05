@@ -70,19 +70,19 @@ To monitor your Ceph, a user with read privileges is required. Please refer to t
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Ceph RestAPI** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Ceph RestAPI** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Ceph-Restapi
 ```
 
-2. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Ceph RestAPI** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Ceph RestAPI** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Ceph-Restapi
@@ -94,7 +94,7 @@ yum install centreon-plugin-Applications-Ceph-Restapi
 yum install centreon-pack-applications-ceph-restapi
 ```
 
-3. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

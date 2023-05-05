@@ -118,7 +118,7 @@ Afin de contrôler votre équipement Dell ME4, l'API Rest doit être configuré 
 yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Dell Me4 Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Dell Me4 Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -135,7 +135,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 yum install centreon-pack-hardware-storage-dell-me4-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Dell Me4 Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Dell Me4 Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -77,19 +77,19 @@ To monitor your CIFS server, you can use username authentication.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Protocol CIFS** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Protocol CIFS** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Cifs
 ```
 
-2. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Protocol CIFS** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Protocol CIFS** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Cifs
@@ -101,7 +101,7 @@ yum install centreon-plugin-Applications-Protocol-Cifs
 yum install centreon-pack-applications-protocol-cifs
 ```
 
-3. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Hyperledger est une plateforme open-source de développement de blockchain et 
 supporté par la fondation Linux. 
 
-Le Plugin Pack *Hyperledger API* se connecte à une API de type *exporter* afin de 
+Le connecteur de supervision *Hyperledger API* se connecte à une API de type *exporter* afin de 
 récupérer des métriques au sujet des *channels*. 
 
 ## Contenu du Pack
@@ -46,7 +46,7 @@ récupérer des métriques au sujet des *channels*.
 yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Hyperledger API* depuis la page  `Configuration > Plugin Packs`.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hyperledger API* depuis la page  **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -57,13 +57,13 @@ yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Hyperledger API*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Hyperledger API*:
 
 ```bash
 yum install centreon-pack-blockchain-hyperledger-exporter
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Hyperledger API* depuis la page  `Configuration > Plugin Packs`.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hyperledger API* depuis la page  **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

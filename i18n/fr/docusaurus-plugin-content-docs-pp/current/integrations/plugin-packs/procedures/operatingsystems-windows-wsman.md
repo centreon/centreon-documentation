@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Windows WSMAN apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Windows WSMAN apporte 1 modèle d'hôte :
 
 * OS-Windows-WSMAN-custom
 
@@ -171,7 +171,7 @@ Pour superviser les serveurs Windows via WSMAN, merci de suivre notre [documenta
   yum install centreon-plugin-Operatingsystems-Windows-Wsman
   ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Windows WSMAN** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Windows WSMAN** depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -188,7 +188,7 @@ Pour superviser les serveurs Windows via WSMAN, merci de suivre notre [documenta
   yum install centreon-pack-operatingsystems-windows-wsman
   ```
 
-3. Sur l'interface web de Centreon, installer le Plugin Pack **Windows WSMAN** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installer le connecteur de supervision **Windows WSMAN** depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

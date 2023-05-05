@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **HWg-STE Sensor** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **HWg-STE Sensor** apporte un modèle d'hôte :
 
 * HW-Sensors-HWgSTE-SNMP-custom
 
@@ -53,7 +53,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Sensors-Hwgste-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **HWg-STE Sensor** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **HWg-STE Sensor** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -64,13 +64,13 @@ yum install centreon-plugin-Hardware-Sensors-Hwgste-Snmp
 yum install centreon-plugin-Hardware-Sensors-Hwgste-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **HWg-STE Sensor** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **HWg-STE Sensor** :
 
 ```bash
 yum install centreon-pack-hardware-sensors-hwgste-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **HWg-STE Sensor** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **HWg-STE Sensor** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

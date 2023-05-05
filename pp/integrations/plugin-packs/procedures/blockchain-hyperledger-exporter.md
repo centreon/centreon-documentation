@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Hyperledger Exporter is a tool exploiting the Hyperledger Fabric built-in APIs.
 
-The Centreon Plugin Pack *Hyperledger API* aims to collect relative metrics about
+The Centreon Monitoring Connector *Hyperledger API* aims to collect relative metrics about
 channels and processing.
 
 ## Pack assets
@@ -39,30 +39,30 @@ channels and processing.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Hyperledger API* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Hyperledger API* ressources:
 
 ```bash
 yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 ```
 
-2. On the Centreon Web interface, install the *Hyperledger API* Centreon Plugin-Pack on the `Configuration > Plugin Packs` page
+2. On the Centreon Web interface, install the *Hyperledger API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Hyperledger API* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Hyperledger API* ressources:
 
 ```bash
 yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 ```
 
-2. Install the *Hyperledger API* Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the *Hyperledger API* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-blockchain-hyperledger-exporter
 ```
 
-3. On the Centreon Web interface, install the *Hyperledger API* Centreon Plugin-Pack on the `Configuration > Plugin Packs` page
+3. On the Centreon Web interface, install the *Hyperledger API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

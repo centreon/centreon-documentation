@@ -13,7 +13,7 @@ guides you through scheduled changes, and accelerates the troubleshooting of iss
 
 The AWS Health Centreon Plugin uses the Amazon Health API to collect the related metrics and details about events.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -75,30 +75,30 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS Health:
+1. Install the Centreon package on every Centreon poller expected to monitor AWS Health:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
-2. On the Centreon Web interface, install the *AWS Health* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *AWS Health* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor AWS Health:
+1. Install the Centreon package on every Centreon poller expected to monitor AWS Health:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-health.noarch
 ```
 
-3. On the Centreon Web interface, install the *AWS Health* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *AWS Health* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

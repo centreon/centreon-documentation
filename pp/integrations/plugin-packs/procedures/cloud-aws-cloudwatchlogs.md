@@ -16,7 +16,7 @@ or archive them securely for future analysis
 > This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
 > with ```--group-name``` and ```--stream-name``` options. 
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -77,30 +77,30 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon CloudWatch Logs:
+1. Install the Centreon package on every Centreon poller expected to monitor Amazon CloudWatch Logs:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon CloudWatch Logs:
+1. Install the Centreon package on every Centreon poller expected to monitor Amazon CloudWatch Logs:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-cloudwatchlogs.noarch
 ```
 
-3. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -69,19 +69,19 @@ To monitor your SFTP server, you can use pubkey authentication and/or username a
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Protocol SFTP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Protocol SFTP** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Sftp
 ```
 
-2. On the Centreon web interface, install the **Protocol SFTP** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Protocol SFTP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Protocol SFTP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Protocol SFTP** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Sftp
@@ -93,7 +93,7 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 yum install centreon-pack-applications-protocol-sftp
 ```
 
-3. On the Centreon web interface, install the **Protocol SFTP** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Protocol SFTP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

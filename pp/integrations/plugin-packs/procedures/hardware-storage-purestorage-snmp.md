@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Pure Storage develops flash-based storage for data centers using consumer-grade solid state drives. It provides 
 proprietary de-duplication and compression software to improve the amount of data that can be stored on each drive.
 	
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -55,7 +55,7 @@ Your Centreon poller must be able to reach the PureStorage storage array on the 
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the "Pure Storage SNMP" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -66,13 +66,13 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on your central server:
+2. Install the Centreon Monitoring Connector RPM on your central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the "Pure Storage SNMP" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

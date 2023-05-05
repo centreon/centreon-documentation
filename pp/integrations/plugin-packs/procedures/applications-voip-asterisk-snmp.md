@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Asterisk VoIP SNMP brings 1 host template:
+The Centreon Monitoring Connector Asterisk VoIP SNMP brings 1 host template:
 * App-VoIP-Asterisk-SNMP-custom
 
 It brings the following Service Template:
@@ -50,30 +50,30 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Asterisk** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Asterisk** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Asterisk VoIP SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Asterisk VoIP SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Asterisk** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Asterisk** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Voip-Asterisk-Snmp
 ```
 
-2. Install the **Asterisk VoIP SNMP** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Asterisk VoIP SNMP** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-voip-asterisk-snmp
 ```
 
-3. On the Centreon Web interface, install the **Asterisk VoIP SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Asterisk VoIP SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

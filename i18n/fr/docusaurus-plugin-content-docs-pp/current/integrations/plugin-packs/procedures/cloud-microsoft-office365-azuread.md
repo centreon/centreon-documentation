@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Office 365 Azure AD** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Office 365 Azure AD** apporte un modèle d'hôte :
 
 * Cloud-Microsoft-Office365-AzureAD-Api-custom
 
@@ -62,7 +62,7 @@ La documentation officielle de Microsoft sur les permissions est disponible [ici
 yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Office 365 Azure AD** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Office 365 Azure AD** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -73,13 +73,13 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Office 365 Azure AD** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Office 365 Azure AD** :
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-azuread
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Office 365 Azure AD** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Office 365 Azure AD** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

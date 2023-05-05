@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure SQL Server** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Azure SQL Server** apporte un modèle d'hôte :
 
 * Cloud-Azure-Database-SqlServer-custom
 
@@ -22,7 +22,7 @@ Il apporte le modèle de service suivant :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure SQL Server** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure SQL Server** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure SQL Servers**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
@@ -62,7 +62,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Database-SqlServer-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure SQL Server** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure SQL Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -73,13 +73,13 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlServer-Api
 yum install centreon-plugin-Cloud-Azure-Database-SqlServer-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure SQL Server** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure SQL Server** :
 
 ```bash
 yum install centreon-pack-cloud-azure-database-sqlserver
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure SQL Server** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure SQL Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

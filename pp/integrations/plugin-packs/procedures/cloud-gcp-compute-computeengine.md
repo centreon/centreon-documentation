@@ -6,18 +6,18 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Google Compute Engine collects metrics for:
+The Monitoring Connector Google Compute Engine collects metrics for:
 * Cpu
 * Diskio
 * Network
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Google Compute Engine* includes a Host Discovery *provider* to automatically discover virtual machines
+The Centreon Monitoring Connector *Google Compute Engine* includes a Host Discovery *provider* to automatically discover virtual machines
 for a given Google Cloud Project.
 
 This provider is named **Google Compute Engine**:
@@ -99,7 +99,7 @@ How to create a service account key: https://developers.google.com/identity/prot
 yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Compute Engine* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Compute Engine* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -110,13 +110,13 @@ yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-cloud-gcp-compute-computeengine
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google Compute Engine* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Compute Engine* Monitoring Connector
 
 </TabItem>
 </Tabs>

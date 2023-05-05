@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 NSClient++ Rest API fournit sa propre API Rest via le module Webserver et permet d'exploiter au maximum
 les données de monitoring des serveurs Windows à travers une connexion HTTP sécurisée.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -151,7 +151,7 @@ net start nscp
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
+2. Installer le connecteur de supervision depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -162,13 +162,13 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
 
-3. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
+3. Installer le connecteur de supervision depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

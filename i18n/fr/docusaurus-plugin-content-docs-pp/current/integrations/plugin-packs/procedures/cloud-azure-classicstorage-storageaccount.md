@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure Classic Storage** apporte 5 modèles d'hôte différents :
+Le connecteur de supervision Centreon **Azure Classic Storage** apporte 5 modèles d'hôte différents :
 
 * Cloud-Azure-ClassicStorage-StorageAccount-Account-custom
 * Cloud-Azure-ClassicStorage-StorageAccount-Blob-custom
@@ -61,7 +61,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure Classic Storage** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure Classic Storage** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Classic Storage Accounts**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée :
 
@@ -354,7 +354,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-ClassicStorage-StorageAccount-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Classic Storage** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Classic Storage** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -365,13 +365,13 @@ yum install centreon-plugin-Cloud-Azure-ClassicStorage-StorageAccount-Api
 yum install centreon-plugin-Cloud-Azure-ClassicStorage-StorageAccount-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure Classic Storage** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure Classic Storage** :
 
 ```bash
 yum install centreon-pack-cloud-azure-classicstorage-storageaccount
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Classic Storage** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Classic Storage** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

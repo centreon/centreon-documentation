@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Plugin Pack *Quadstor* works with a NRPE agent to monitor Quadstor virtual 
+The Monitoring Connector *Quadstor* works with a NRPE agent to monitor Quadstor virtual 
 tape library (VTL). 
 
 ## Pack assets
@@ -76,12 +76,12 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Quadstor* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Quadstor*:
+1. Install the Centreon package on every Poller expected to monitor *Quadstor*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -94,7 +94,7 @@ yum install centreon-pack-applications-quadstor-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Quadstor* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

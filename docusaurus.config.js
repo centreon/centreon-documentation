@@ -12,11 +12,11 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  favicon: 'img/logo-centreon.png',
+  favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
   trailingSlash: true,
-  
+
   noIndex: false,
 
   i18n: {
@@ -44,10 +44,15 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['23.04', '22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
           versions: {
+            23.04: {
+              label: '⭐ 23.04',
+              banner:'none',
+            },
             '22.10': {
-              label: '⭐ 22.10',
+              label: '22.10',
+              banner:'none',
             },
             22.04: {
               label: '22.04',
@@ -90,7 +95,7 @@ const config = {
       defer: false,
     },
   ],
-  
+
   themes: [],
 
   plugins: [
@@ -178,7 +183,8 @@ const config = {
         title: '',
         logo: {
           alt: 'Logo Centreon Docs',
-          src: 'img/logo-centreon.png',
+          src: 'img/logo_centreon_dark.png',
+          srcDark: 'img/logo_centreon.png',
           href: '/',
         },
         items: [
@@ -196,7 +202,7 @@ const config = {
           },
           {
             to: '/pp/integrations/plugin-packs/getting-started/introduction',
-            label: 'Plugin Packs',
+            label: 'Monitoring Connectors',
             position: 'left',
             activeBaseRegex: '/pp/',
           },
@@ -222,59 +228,35 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
-            title: 'Documentation',
-            items: [
-              {
-                label: 'Getting Started',
-                to: '/docs/getting-started/welcome',
-              },
-              {
-                label: 'API References',
-                to: '/docs/api/introduction',
-              },
-              {
-                label: 'Releases',
-                to: '/docs/releases/introduction',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
             items: [
               {
                 label: 'Corporate Website',
                 href: 'https://www.centreon.com/en/',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'Blog',
                 href: 'https://www.centreon.com/en/blog/',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'Download',
                 href: 'https://download.centreon.com/',
               },
             ],
           },
-          {
-            title: 'Follow us',
-            items: [
-              {
-                label: 'Github',
-                href: 'https://github.com/centreon/centreon',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/Centreon',
-              },
-            ],
-          },
         ],
         logo: {
           alt: 'Centreon Open Source Logo',
-          src: 'img/logo-centreon.png',
+          src: 'img/logo_centreon.png',
         },
         copyright: `Copyright © 2005 - 2023 Centreon`,
       },

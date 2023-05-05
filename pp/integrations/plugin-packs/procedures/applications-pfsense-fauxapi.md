@@ -12,7 +12,7 @@ At its core FauxAPI simply reads the core pfSense config.xml file, converts it t
 FauxAPI provides easy backup and restore API interfaces that by default store configuration backups on all configuration write operations thus it is very easy to roll-back
 even if the API user manages to deploy a “very broken” configuration.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -85,7 +85,7 @@ More infomation is avaible in official Pfsense Fauxpi documentation : https://gi
 yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pfsense Fauxapi* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -96,20 +96,20 @@ yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-pfsense-fauxapi.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pfsense Fauxapi* Monitoring Connector
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-The Plugin-Pack is designed to monitor resources based on one host per Pfsense Fauxapi environment.
+The Monitoring Connector is designed to monitor resources based on one host per Pfsense Fauxapi environment.
 Adding a host into Centreon, link it to the template named *App-Pfsense-Fauxapi-custom*. 
 Once the template applied, some Macros have to be configured:
 

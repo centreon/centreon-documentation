@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack includes monitoring of Network devices and Sites.
+The Monitoring Connector includes monitoring of Network devices and Sites.
 
 ### Collected Metrics
 
@@ -59,7 +59,7 @@ E.g: ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-
 yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco DNA Center Rest API* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco DNA Center Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,13 +70,13 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-cisco-dnac-restapi
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco DNA Center Rest API* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco DNA Center Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>

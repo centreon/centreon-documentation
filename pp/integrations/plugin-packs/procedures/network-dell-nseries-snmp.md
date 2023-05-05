@@ -113,19 +113,19 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell N-series SNMP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Dell N-series SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Dell-Nseries-Snmp
 ```
 
-2. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell N-series SNMP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Dell N-series SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Dell-Nseries-Snmp
@@ -137,7 +137,7 @@ yum install centreon-plugin-Network-Dell-Nseries-Snmp
 yum install centreon-pack-network-dell-nseries-snmp
 ```
 
-3. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>
