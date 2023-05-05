@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 IP-Label is a specialist in measurement of the quality of the user’s experience.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -51,30 +51,30 @@ A read-only account (login/password) to ```https://api.ip-label.net``` is requir
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor IP-Label datametrie:
+1. Install the Centreon package on every poller expected to monitor IP-Label datametrie:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor IP-Label datametrie:
+1. Install the Centreon package on every poller expected to monitor IP-Label datametrie:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Monitoring Connector RPM:
 
 ```bash
 yum install centreon-pack-applications-monitoring-iplabel-datametrie-restapi
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

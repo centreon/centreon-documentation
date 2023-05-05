@@ -11,13 +11,13 @@ import TabItem from '@theme/TabItem';
 Versa Director est la plateforme de management, supervision et d'orchestration
 pour délivrer les services de sécurité et de réseau VNF de la suite Versa Networks.
 
-Le Plugin-Pack Centreon utilise l'API de Versa Director pour se connecter et
+Le connecteur de supervision Centreon utilise l'API de Versa Director pour se connecter et
 récupérer des informations et des métriques relatives aux équipements Versa.
 
 Vous trouverez plus d'information à propos de l'API Versa Director sur la documentation officielle :
 https://apidocs.versa-networks.com/
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Elements supervisés
 
@@ -93,7 +93,7 @@ des équipements Versa via l'API du Versa Director :
 yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+2. Installer le connecteur de supervision *Versa Director Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -105,13 +105,13 @@ des équipements Versa via l'API du Versa Director :
 yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-network-versa-director-restapi
 ```
 
-3. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+3. Installer le connecteur de supervision *Versa Director Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 </Tabs>

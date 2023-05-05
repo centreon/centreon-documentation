@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le Plugin Pack Centreon **AWS Discover** permet de découvrir les resources AWS suivantes :
+Le connecteur de supervision Centreon **AWS Discover** permet de découvrir les resources AWS suivantes :
 * API Gateway
 * Backup Vault
 * EBS
@@ -23,16 +23,16 @@ Le Plugin Pack Centreon **AWS Discover** permet de découvrir les resources AWS 
 * SQS
 * VPN
 
-Ce pack s'appuie sur l'API d'AWS pour récupérer les ressources AWS et sur tous les Plugin Packs Centreon
+Ce pack s'appuie sur l'API d'AWS pour récupérer les ressources AWS et sur tous les connecteurs de supervision Centreon
 pour AWS afin de définir des modèles et des indicateurs de surveillance appropriés pour chaque type de ressource.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
-> Le Plugin Pack **AWS Discover** est un pack de *découverte*. Il ne fournit pas de modèles ni d'indicateurs de supervision.
+> Le connecteur de supervision **AWS Discover** est un pack de *découverte*. Il ne fournit pas de modèles ni d'indicateurs de supervision.
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **AWS Discover** fournit un *provider* de découverte d'hôtes nommé **AWS Discover**
+Le connecteur de supervision Centreon **AWS Discover** fournit un *provider* de découverte d'hôtes nommé **AWS Discover**
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-provider.png)
 
@@ -102,8 +102,8 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **AWS Discover** depuis la page **Configuration > Packs de plugins**.
-Des Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS Discover** depuis la page **Configuration > Packs de plugins**.
+Des connecteurs de supervision supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
 
 </TabItem>
@@ -115,14 +115,14 @@ Des Plugin Packs supplémentaires seront installés en dépendance afin de perme
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-2. Sur le serveur central Centreon, installez l'ensemble des RPM des Plugin Packs *AWS* afin de bénéficier de l'ensemble des dépendances :
+2. Sur le serveur central Centreon, installez l'ensemble des RPM des connecteurs de supervision *AWS* afin de bénéficier de l'ensemble des dépendances :
 
 ```bash
 yum install centreon-pack-cloud-aws\*
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **AWS Discover** depuis la page **Configuration > Packs de plugins**.
-Les Plugin Packs supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS Discover** depuis la page **Configuration > Packs de plugins**.
+Les connecteurs de supervision supplémentaires seront installés en dépendance afin de permettre la supervision de l'ensemble des ressources découvertes.
 
 </TabItem>
 </Tabs>
@@ -162,7 +162,7 @@ Renseignez si besoin les informations ci-après :
 
 ### Lancement de la découverte et affichage des résultats
 
-L'étape 4 permet d'ajuster les *modificateur*; ceux-ci sont déjà prédéfinis par le Plugin Pack, il n'est normalement pas
+L'étape 4 permet d'ajuster les *modificateurs*; ceux-ci sont déjà prédéfinis par le connecteur de supervision, il n'est normalement pas
 nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
 [documentation des modificateurs](/docs/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
 

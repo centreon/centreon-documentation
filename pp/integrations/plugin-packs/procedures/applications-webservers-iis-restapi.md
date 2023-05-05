@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Internet Information Services (IIS, formerly Internet Information Server) is an extensible web server software created by Microsoft for use with the Windows NT family. IIS supports HTTP, HTTP/2, HTTPS, FTP, FTPS, SMTP and NNTP.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -52,37 +52,37 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 
 ### IIS configuration
 
-To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
+To use this Monitoring Connector, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
 
 ## Setup 
 
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
+1. Install the Centreon package on every Centreon poller expected to monitor IIS resources:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
+1. Install the Centreon package on every Centreon poller expected to monitor IIS resources:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-webservers-iis-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

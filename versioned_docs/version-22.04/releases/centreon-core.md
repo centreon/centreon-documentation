@@ -17,6 +17,62 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.12
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
+### 22.04.11
+
+Release date: `February 20, 2023`
+
+#### Bug fixes
+
+- [Authentication] Added LDAP connection timeout to avoid infinite connection.
+- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
+- [CLAPI] Removed mandatory password for LDAP users creation.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an installation error when the chrony package is already installed.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [Core] Fixed SQL queries when databases names contain dash.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
+- [Install] Added missing gettext dependency for Debian.
+- [Install] Fixed an SQL error with MySQL 8.
+- [Install] Removed app_key field from configuration database.
+- [LDAP] Fixed auto-import of users.
+- [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
+- [ResourceStatus] Fixed date picker causing duplicated dates.
+- [ResourceStatus] Fixed an issue that made the acknowledgement still active in Resource Status after a disacknowledgement or when service/host returned to OK/UP status.
+- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+- [UX] Fixed visual inconsistencies in some menus.
+
+#### Enhancements
+
+- Optimized queries used to display the services monitoring page.
+- Optimized queries used to display the hosts monitoring page.
+- Optimized queries used to display the services grid monitoring page.
+
+#### Security
+
+- [CLAPI] Fixed encoding issue.
+- Fixed XSS vulnerability reflected in service-monitoring widget.
+
 ### 22.04.10
 
 Release date: `February 6, 2023`
@@ -369,6 +425,23 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.3
+
+Release date: `April 3, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- [Configuration] Fixed an issue with configuration objects for tags and severities. 
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Performance] Fixed a stability issue related to metric cache.
+- [Performance] Fixed memory allocation issues.
 
 ### 22.04.2
 

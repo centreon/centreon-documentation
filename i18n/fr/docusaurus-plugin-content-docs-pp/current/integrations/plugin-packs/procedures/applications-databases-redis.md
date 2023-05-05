@@ -118,7 +118,7 @@ Afin de contrôler votre base de données Redis, le collecteur doit pouvoir exé
 yum install centreon-plugin-Applications-Databases-Redis
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Redis Database* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Redis Database* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -135,7 +135,7 @@ yum install centreon-plugin-Applications-Databases-Redis
 yum install centreon-pack-applications-databases-redis
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Redis Database* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Redis Database* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

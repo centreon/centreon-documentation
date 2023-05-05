@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Cisco Meraki is a cloud-managed IT company headquartered in San Francisco, California. 
 Their products include wireless, switching, security, enterprise mobility management (EMM) and security cameras, all centrally managed from the web.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -82,30 +82,30 @@ You can generate, revoke, and regenerate your API key on your profile.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Cisco Meraki ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Cisco Meraki ressources:
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Cisco Meraki ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Cisco Meraki ressources:
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-cisco-meraki-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

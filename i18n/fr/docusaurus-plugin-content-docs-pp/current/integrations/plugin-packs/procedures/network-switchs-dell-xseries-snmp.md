@@ -72,7 +72,7 @@ La communication doit être possible sur le port UDP 161 de l'équipement Dell X
 yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Dell Xseries* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,13 +83,13 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
-2. Installer le RPM du Centreon Plugin-Pack sur le serveur Central :
+2. Installer le RPM du Centreon connecteur de supervision sur le serveur Central :
 
 ```bash
 yum install centreon-pack-network-switch-dell-xseries-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Dell Xseries* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

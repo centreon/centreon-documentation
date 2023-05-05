@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Emerson PDU** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Emerson PDU** apporte un modèle d'hôte :
 
 * HW-Pdu-Emerson-SNMP-custom
 
@@ -80,7 +80,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Emerson PDU** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Emerson PDU** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -91,13 +91,13 @@ yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Emerson PDU** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Emerson PDU** :
 
 ```bash
 yum install centreon-pack-hardware-pdu-emerson-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Emerson PDU** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Emerson PDU** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

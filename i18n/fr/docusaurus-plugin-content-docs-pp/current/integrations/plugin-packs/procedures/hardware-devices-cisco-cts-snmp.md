@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Les équipements Cisco Teléprésence font partie de la suite de solutions et matériels 
 Communications unifiées proposées par Cisco.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -82,24 +82,24 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco CTS* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco CTS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* applications:
+1. Install the Centreon package on every Centreon poller expected to monitor *Cisco CTS* applications:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```
 
-2. Installer le RPM Centreon Plugin-Pack sur votre serveur Centreon Central:
+2. Installer le RPM Centreon connecteur de supervision sur votre serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-devices-cisco-cts-snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco CTS* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco CTS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

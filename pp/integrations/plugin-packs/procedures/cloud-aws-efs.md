@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources. It is built to scale on demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files, eliminating the need to provision and manage capacity to accommodate growth.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -106,7 +106,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack
+2. On Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the "Amazon EFS" Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,13 +117,13 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. Installer the Centreon Plugin-Pack from the RPM:
+2. Installer the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-cloud-aws-efs.noarch
 ```
 
-3. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack:
+3. On Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the "Amazon EFS" Monitoring Connector:
 
 </TabItem>
 </Tabs>

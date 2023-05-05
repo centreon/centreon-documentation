@@ -71,30 +71,30 @@ UDP/161 SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Squid proxy* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor your *Squid proxy* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Squid-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Squid SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the *Squid SNMP* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Squid proxy* ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor your *Squid proxy* ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Squid-Snmp
 ```
 
-2. Install the *Squid SNMP* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Squid SNMP* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-squid-snmp
 ```
 
-3. On the Centreon Web interface, install the *Squid SNMP* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the *Squid SNMP* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

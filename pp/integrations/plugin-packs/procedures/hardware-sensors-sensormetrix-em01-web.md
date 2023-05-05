@@ -15,7 +15,7 @@ yum install centreon-plugin-Hardware-Sensors-Sensormetrix-Em01-Web
 
 ### Configuration
 
-The following plugin-pack monitors Sensormetrix Em01 Series. By default, the
+The following Monitoring Connector monitors Sensormetrix Em01 Series. By default, the
 host template checks: humidity, temperature and Illumination. You can also check
 (it depends your Em01 model) :
 

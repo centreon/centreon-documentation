@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using system commands.
+The Centreon Monitoring Connector includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using system commands.
 
 ### Discovery Rules
 
@@ -95,7 +95,7 @@ The remote user must have enough privileges to execute system commands.
 yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Palo Alto firewall SSH* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Palo Alto firewall SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -106,13 +106,13 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Palo Alto firewall SSH* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Palo Alto firewall SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

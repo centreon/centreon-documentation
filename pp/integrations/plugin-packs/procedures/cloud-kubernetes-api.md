@@ -998,11 +998,12 @@ Then set the values for each needed macros:
 
 Optional macros values can be set:
 
-| Macro          | Description                                | Default value |
-|----------------|--------------------------------------------|---------------|
-| `PROXYURL`     | URL of the proxy (if needed)               | none          |
-| `TIMEOUT`      | Time in seconds before the query timed out | `10`          |
-| `EXTRAOPTIONS` | Extra options (if needed)                  | none          |
+| Macro                    | Description                                | Default value |
+|--------------------------|--------------------------------------------|---------------|
+| `PROXYURL`               | URL of the proxy (if needed)               | none          |
+| `TIMEOUT`                | Time in seconds before the query timed out | `10`          |
+| `EXTRAOPTIONS`           | Extra options (if needed)                  | none          |
+| `KUBERNETESAPINAMESPACE` | Namespace filter                           | none          |
 
 If choosing `Cloud-Kubernetes-Api`, host will be added with all services to
 check each Kubernetes unit (scenario 1).

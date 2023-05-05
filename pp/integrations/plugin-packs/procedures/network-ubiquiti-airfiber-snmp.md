@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Ubiquiti AirFiber SNMP collects metrics for:
+The Monitoring Connector Ubiquiti AirFiber SNMP collects metrics for:
 * Interfaces
 * Load
 * Memory
@@ -91,7 +91,7 @@ To control your Ubiquiti AirFiber, the SNMP must be configured.
 yum install centreon-plugin-Network-Ubiquiti-Airfiber-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Ubiquiti AirFiber SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ubiquiti AirFiber SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -102,13 +102,13 @@ yum install centreon-plugin-Network-Ubiquiti-Airfiber-Snmp
 yum install centreon-plugin-Network-Ubiquiti-Airfiber-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-ubiquiti-airfiber-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Ubiquiti AirFiber SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ubiquiti AirFiber SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

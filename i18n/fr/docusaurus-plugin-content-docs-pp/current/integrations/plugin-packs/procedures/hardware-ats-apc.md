@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **APC ATS** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **APC ATS** apporte un modèle d'hôte :
 
 * HW-ATS-Apc-SNMP-custom
 
@@ -68,7 +68,7 @@ Afin de superviser l'équipement, son agent SNMP doit être configuré. Référe
 yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **APC ATS** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **APC ATS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,13 +79,13 @@ yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **APC ATS** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **APC ATS** :
 
 ```bash
 yum install centreon-pack-hardware-ats-apc
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **APC ATS** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **APC ATS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon IBM MQ MQI apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon IBM MQ MQI apporte 1 modèle d'hôte :
 * App-Ibmmq-Mqi-custom
 
 Il apporte les Modèles de Service suivants :
@@ -68,7 +68,7 @@ Linux. Une procédure est disponible ici: https://www.ibm.com/docs/en/ibm-mq/8.0
 yum install centreon-plugin-Applications-Ibmmq-Mqi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **IBM MQ MQI** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **IBM MQ MQI** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -85,7 +85,7 @@ yum install centreon-plugin-Applications-Ibmmq-Mqi
 yum install centreon-pack-applications-ibmmq-mqi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **IBM MQ MQI** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **IBM MQ MQI** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

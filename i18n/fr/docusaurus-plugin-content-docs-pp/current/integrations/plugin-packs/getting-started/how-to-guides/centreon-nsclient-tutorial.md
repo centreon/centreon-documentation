@@ -17,7 +17,7 @@ Les Plugins Centreon issus du [projet centreon-plugins](https://github.com/centr
 sous Windows. Ils sont directement déployés et prêts à l'emploi lors de l'installation de l'agent **centreon-nsclient** sous la forme d'un exécutable nommé
 *centreon_plugins.exe*.
 
-> Retrouvez la liste des Plugin Packs compatibles avec l'agent centreon-nsclient sur le [catalogue](https://www.centreon.com/catalogue-plugins-packs/)
+> Retrouvez la liste des connecteurs de supervision compatibles avec l'agent centreon-nsclient sur le [catalogue](https://www.centreon.com/catalogue-plugins-packs/)
 > officiel Centreon
 
 La procédure suivante vous permettra de comprendre le fonctionnement, l'installation et l'exploitation de l'agent **centreon-nsclient** sur vos serveurs

@@ -84,9 +84,7 @@ The host machine must have the following characteristics:
 
 3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained at the previous step.
 
-4. The first time you connect to the server, instructions are displayed to help you complete the configuration:
-
-    ![image](../../assets/installation/terminal_centreon.png)
+4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
 
     Change the following settings:
 
@@ -176,7 +174,7 @@ The host machine must have the following characteristics:
 
 6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
 
-7. Log in using the following credentials: Login: `admin`, password: `Centreon123!`. By default, your server has a predefined configuration to monitor the Centreon server itself.
+7. Log in using the following credentials: Login: `admin`, password: `Centreon!123`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
 8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.md).
 
@@ -189,7 +187,7 @@ The host machine must have the following characteristics:
 
 ## Default credentials
 
-- To log in to the Centreon web interface, the default credentials are: `admin`/`Centreon123!`.
+- To log in to the Centreon web interface, the default credentials are: `admin`/`Centreon!123`.
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 

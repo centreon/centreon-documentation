@@ -12,12 +12,12 @@ Azure App Service est une solution qui permet de facilement créer, déployer et
 mettre à l'échelle des applications web et APIs sur des conteneurs ou sur Windows
 et Linux.
 
-Le Plugin-Pack Centreon *Azure App Service* s'appuie sur les API Azure Monitor 
+Le connecteur de supervision Centreon *Azure App Service* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
 App Service. Il est possible d'utiliser les 2 modes proposés par 
 Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -25,7 +25,7 @@ Microsoft: RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure App Service* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure App Service**.
+Le connecteur de supervision Centreon *Azure App Service* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure App Service**.
 Celui-ci permet de découvrir l'ensemble des instances *App Service* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-web-appservice-provider.png)
@@ -151,7 +151,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Web-AppService-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Service* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure App Service* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -162,13 +162,13 @@ yum install centreon-plugin-Cloud-Azure-Web-AppService-Api
 yum install centreon-plugin-Cloud-Azure-Web-AppService-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure App Service*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure App Service*:
 
 ```bash
 yum install centreon-pack-cloud-azure-web-appservice.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Service* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure App Service* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

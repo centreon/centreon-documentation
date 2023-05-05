@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache HTTP, et load balancer.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -92,7 +92,7 @@ Accéder à l'url suivante pour contrôler le résultat :
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Nginx Server* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,13 +103,13 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Nginx Server* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Nginx Server* :
 
 ```bash
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Nginx Server* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Nginx Server* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

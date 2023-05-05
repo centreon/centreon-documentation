@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 
 VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
 
-Le Plugin-Pack Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié. 
+Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié. 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -149,6 +149,13 @@ systemctl enable centreon_vmware
 Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les journaux dans :
 "/var/log/centreon/centreon\_vmware.log".
 
+### Balises et Attributs personnalisés
+
+Pour découvrir les balises et les attributs personnalisés, vous devez : 
+
+* utiliser la version **3.2.5** de **centreon-vmware-daemon**
+* ajouter **--tags** dans les options supplémentaires de découverte : allez à la page **Configuration > Hôtes > Découverte**, et à la 3ème étape (**Définir les paramètres de découverte**), dans la section **Paramètres supplémentaires**, dans le champ **Options supplémentaires**, saisissez **--tags**.
+
 ### Flux réseau
 
 Le Collecteur Centreon avec le connecteur VMWare d'installé doit accéder en HTTPS (TCP/443) au vCenter.
@@ -166,7 +173,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Installer le Plugin-Pack 'Vmware VM' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+2. Installer le connecteur de supervision 'Vmware VM' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -177,13 +184,13 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-vm
 ```
 
-3. Installer le Plugin-Pack 'Vmware VM' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+3. Installer le connecteur de supervision 'Vmware VM' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 </Tabs>

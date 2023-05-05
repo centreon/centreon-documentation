@@ -88,7 +88,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 
-2. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Manager**.
+2. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -104,7 +104,7 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 ```
 
-3. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Gestionnaire**.
+3. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

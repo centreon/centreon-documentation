@@ -50,7 +50,7 @@ Afin de contrôler votre équipement Fritz!Box, l'UPnP doit être configuré.
 yum install centreon-plugin-Network-Fritzbox-Upnp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -67,7 +67,7 @@ yum install centreon-plugin-Network-Fritzbox-Upnp
 yum install centreon-pack-network-fritzbox-upnp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Fritz!Box UPnP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

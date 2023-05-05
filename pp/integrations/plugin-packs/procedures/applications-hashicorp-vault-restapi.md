@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords
 or certificates. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
 
-The Plugin Pack Centreon HashiCorp Vault relies on the Vault Rest API to collect status and metrics related to the Vault service.
+The Monitoring Connector Centreon HashiCorp Vault relies on the Vault Rest API to collect status and metrics related to the Vault service.
 
 ## Pack Assets
 
@@ -69,18 +69,18 @@ https://www.vaultproject.io/api-docs/auth .
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
+1. Install the Centreon package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
 ```bash
 yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 ```
 
-2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
+1. Install the Centreon package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
 ```bash
 yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
@@ -92,7 +92,7 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

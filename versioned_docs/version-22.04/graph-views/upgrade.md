@@ -31,15 +31,41 @@ the new repository**.
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
-## Step 1: Centreon MAP server
+## Step 1: Centreon MAP (Legacy) server
 
 > If you are still running version **4.0.X**, you **must first install
 > and run the server in version 4.1.X before upgrading to the latest
 > version**.
 
-Run the following commands to upgrade your Centreon MAP server:
+### Java version requirement
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-1. Update Centreon & Centreon MAP repositories:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Then restart the service:
+  
+  ```shell
+  systemctl restart centreon-map
+  ```
+
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+
+### Procedure
+
+Follow this procedure to upgrade your Centreon MAP server:
+
+1. Update the **centreon-release** package:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -48,10 +74,10 @@ Run the following commands to upgrade your Centreon MAP server:
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+2. Install Centreon Business repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Update Centreon MAP server:
+3. Update Centreon MAP server:
 
     ```shell
     dnf update centreon-map-server
@@ -64,10 +90,10 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+2. Install Centreon Business repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-2. Update Centreon MAP server:
+3. Update Centreon MAP server:
 
     ```shell
     yum update centreon-map-server
@@ -76,14 +102,14 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
-3. Enable and start `centreon-map` service:
+4. Enable and start `centreon-map` service:
 
     ```shell
     systemctl enable centreon-map
     systemctl start centreon-map
     ```
 
-4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+5. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
   * The old configuration file is renamed **centreon-map.conf.rpmsave**
   * The upgrade installs a new **centreon-map.conf** file.
@@ -135,6 +161,8 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
 > This configuration also works with a MySQL database.
 
 ## Step 5: MariaDB database
+
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
 1. Stop the **centreon-map** service:
     ```shell

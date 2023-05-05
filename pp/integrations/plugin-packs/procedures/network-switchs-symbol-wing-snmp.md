@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Symbol WiNG switch SNMP** brings 1 host template:
+The Centreon Monitoring Connector **Symbol WiNG switch SNMP** brings 1 host template:
 * Net-Symbol-Wing-SNMP-custom
 
 It brings the following service templates:
@@ -74,30 +74,30 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Symbol WiNG** resources:
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Symbol WiNG** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Symbol WiNG** resources:
 
 ```bash
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. Install the **Symbol WiNG switch SNMP** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-switchs-symbol-wing-snmp
 ```
 
-3. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

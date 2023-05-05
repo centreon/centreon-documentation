@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Azure Virtual Machine Scale Sets brings 1 host template:
+The Centreon Monitoring Connector Azure Virtual Machine Scale Sets brings 1 host template:
 * Cloud-Azure-Compute-Vmscalesets-custom
 
 It brings the following Service Templates:
@@ -25,7 +25,7 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Virtual Machine Scale Sets* includes a Host Discovery provider to
+The Centreon Monitoring Connector *Azure Virtual Machine Scale Sets* includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure Virtual Machine Scale Sets**:
 
@@ -85,30 +85,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure VMSS* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Azure VMSS* resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Compute-Vmscalesets-Api
 ```
 
-2. On the Centreon Web interface, install the **Azure Virtual Machine Scale Sets** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Azure Virtual Machine Scale Sets** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure VMSS* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Azure VMSS* resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Compute-Vmscalesets-Api
 ```
 
-2. Install the **Azure Virtual Machine Scale Sets** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Azure Virtual Machine Scale Sets** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-compute-vmscalesets
 ```
 
-3. On the Centreon Web interface, install the **Azure Virtual Machine Scale Sets** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Azure Virtual Machine Scale Sets** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

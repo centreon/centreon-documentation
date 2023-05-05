@@ -12,7 +12,7 @@ know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview
 
-The Plugin Pack *Symantec Netbackup* works with the Centreon NSClient++ monitoring
+The Monitoring Connector *Symantec Netbackup* works with the Centreon NSClient++ monitoring
 agent or a NRPE agent on Linux to check Netbackup backup solutions.
 
 ## Pack assets
@@ -62,12 +62,12 @@ yum install centreon-nrpe-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *NetBackup* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Symantec NetBackup*:
+1. Install the Centreon package on every Poller expected to monitor *Symantec NetBackup*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -80,7 +80,7 @@ yum install centreon-pack-applications-netbackup-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Symantec Netbackup* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

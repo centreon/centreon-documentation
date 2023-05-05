@@ -14,7 +14,7 @@ At representative points within your company, each Newtest Robot regularly simul
 business transactions, providing instant insight into the availability, response times 
 and performance of your critical application services.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -52,31 +52,31 @@ if necessary.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
+1. Install the Centreon package on every poller expected to monitor IP-Label Newtest instances:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the
-Configuration > Plugin packs > Manager" page
+2. On the Centreon Web interface, install the monitoring templates from the Centreon Monitoring Connector on the
+**Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
+1. Install the Centreon package on every poller expected to monitor IP-Label Newtest instances:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 ```
 
-3. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. On the Centreon Web interface, install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

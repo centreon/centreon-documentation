@@ -130,7 +130,7 @@ Ensure to keep the client secret because you will not be able to retrieve it fro
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -159,7 +159,7 @@ apt install centreon-pack-applications-monitoring-kadiska-restapi
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Kadiska Rest API** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

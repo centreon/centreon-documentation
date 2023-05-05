@@ -12,7 +12,7 @@ Azure Content Delivery Network est une solution conçue pour les développeurs
 pour rapidement distribuer du contenu tel que des images et vidéos ou autres
 documents
 
-Le Plugin-Pack Centreon *Azure CDN* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure CDN* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 CDN profile. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
@@ -26,7 +26,7 @@ CDN profile. Il est possible d'utiliser les 2 modes proposés par Microsoft: Res
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure CDN* inclut un *provider* de découverte
+Le connecteur de supervision Centreon *Azure CDN* inclut un *provider* de découverte
 d'Hôtes nommé *Microsoft Azure CDNs**. Celui-ci permet de découvrir l'ensemble des instances
 *Azure CDN* rattachées à une *souscription* Microsoft Azure donnée:
 
@@ -88,7 +88,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-CDN-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure CDN* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure CDN* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -105,7 +105,7 @@ yum install centreon-plugin-Cloud-Azure-Network-CDN-Api
 yum install centreon-pack-cloud-azure-network-cdn
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure CDN* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure CDN* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -7,282 +7,213 @@ import styles from './index.module.css';
 const basePathImg = './img/homepage/';
 
 const links = {
-  doc: {
-    cloud: 'cloud/getting-started/architecture',
-    gettingstarted: 'docs/getting-started/welcome',
-    pluginpacks: 'pp/integrations/plugin-packs/getting-started/introduction',
-    prerequisite: 'docs/installation/prerequisites',
-    installation: 'docs/installation/introduction',
-    monitoring: 'pp/integrations/plugin-packs/getting-started/introduction',
-  },
-  github: 'https://github.com/centreon/centreon/',
+  social: [
+    {
+      href: 'https://github.com/centreon/centreon/',
+      image: basePathImg + 'social-network/github.png'
+    },{
+      href: 'https://twitter.com/Centreon',
+      image: basePathImg + 'social-network/twitter.png'
+    },{
+      href: 'https://www.linkedin.com/company/centreonsoftware',
+      image: basePathImg + 'social-network/linkedin.png'
+    },{
+      href: 'https://www.youtube.com/c/Centreon-Monitoring',
+      image: basePathImg + 'social-network/youtube.png'
+    }
+  ],
   thewatch: 'https://thewatch.centreon.com/',
-  twitter: 'https://twitter.com/Centreon',
-  linkedin: 'https://www.linkedin.com/company/centreonsoftware',
   contribute:
-    'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
-  banner:
-    'https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/',
+    'https://github.com/centreon/.github/blob/master/CONTRIBUTING.md',
 };
 
-const stringsAndParagraphs = {
-  excellenceBlock: {
-    title: `Welcome to Centreon documentation!`,
-    subTitle: `Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.`,
-    btnStart: `Centreon On Prem`,
-    btnPp: `Plugin Packs`,
-    btnCloud: `Centreon Cloud`,
+const cards = [
+  {
+    title: "Centreon OnPrem",
+    href: "docs/getting-started/welcome/",
+    links: [
+      {
+        label: "Getting started",
+        href: "docs/getting-started/welcome"
+      },{
+        label: "Installation",
+        href: "docs/installation/introduction"
+      },{
+        label: "Setting up the monitoring",
+        href: "docs/category/setting-up-the-monitoring/"
+      },{
+        label: "Service mapping",
+        href: "docs/service-mapping/introduction/"
+      },{
+        label: "Graphical views",
+        href: "docs/graph-views/introduction-map/"
+      },{
+        label: "Reporting",
+        href: "docs/reporting/introduction/"
+      },
+    ]
   },
-  prerequisiteBlock: {
-    title: `Prerequisites`,
-    content1stPart: `We provide a software appliance complete with its Linux Operating System, Databases or Web Server. Install Centreon on a virtual or physical server. Read this chapter to understand`,
-    link: ` dimensioning guidelines `,
-    content2ndPart: `and distributed architectures.`,
-  },
-  installationBlock: {
-    title: `Installing`,
-    content1stPart: `You may install Centreon from its ISO image or from an OVA file. Read this chapter and follow the`,
-    link: ` step-by-step procedure`,
-    content2ndPart: `.`,
-  },
-  monitoringBlock: {
-    title: `Monitoring from Cloud-to-Edge`,
-    content1stPart: `Monitoring should be that easy: we packaged everything you need for 1-click setup into a library of 400+ Enterprise Plugin Packs. Find here`,
-    link: ` which KPIs are monitored `,
-    content2ndPart: `by each one of them.`,
-  },
-  communityBlock: {
-    title: `A strong community`,
-  },
-  heartOpenSourceBlock: {
-    title: `An Open Source Core`,
-    content: `Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.`,
-    btnOpen: `Contribute to the Open Source project`,
-  },
-};
+  {
+    title: "Centreon Cloud",
+    href: "cloud/getting-started/architecture/",
+    links: [
+      {
+        label: "Getting started",
+        href: "docs/getting-started/welcome"
+      },{
+        label: "Installing a poller",
+        href: "cloud/installation/prerequisites/"
+      },{
+        label: "Service mapping",
+        href: "cloud/service-mapping/introduction/"
+      },{
+        label: "Graphical views",
+        href: "cloud/graph-views/introduction-map/"
+      },
+    ]
+  }
+]
+
+const versionInfo = {
+  version: '23.04',
+  link: 'https://www.centreon.com/centreon-23-04-discover-the-latest-release/',
+  target: '_blank'
+}
 
 const Button = (props) => {
   return (
-    <div>
-      <a
-        className={clsx(styles.button, styles.buttonLink)}
-        href={props.href}
-        target={props.target}
-      >
-        {props.label}
+    <a
+      className={clsx(styles.button, {[styles.button_dark]: props.dark === "true"}) }
+      href={props.href}
+      target={props.target}
+    >
+      {props.label}
+      <img src={basePathImg + "arrow.svg"}/>
+    </a>
+  );
+};
+
+function BannerBlock() {
+  return (
+    <div className={clsx(styles.bannerContainer)}>
+      <div className={clsx(styles.mainContainer)}>
+        <div className={clsx(styles.bannerWrapper)}>
+          <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>
+          <p>New software version available</p>
+          <Button href={versionInfo.link} target={versionInfo.target} label="Learn more" dark="true"/>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SearchForm() {
+  function handleClick(e) {
+    e.preventDefault()
+    document.querySelector('.DocSearch').click()
+  }
+  return (
+    <form className={clsx(styles.searchForm)} onClick={handleClick}>
+      <div className={clsx(styles.searchForm_input)}>
+        <img src={basePathImg + "search.svg"}/>
+        <input type="search" placeholder="Search documentation" ></input>
+      </div>
+      <button className={clsx(styles.button, styles.buttonBig)}>
+        Search
+        <img src={basePathImg + "arrow.svg"}/>
+      </button>
+    </form>
+  )
+}
+
+function HeadingCard(props) {
+  return(
+    <div className={clsx(styles.headingCard)}>
+      <a href={props.card.href} className={clsx(styles.headingCardHeader)}>
+        {props.card.title}
       </a>
-    </div>
-  );
-};
-
-const Image = (props) => (
-  <div className={clsx(styles.imageContainer)}>
-    <img src={basePathImg + props.imageSrc} />
-  </div>
-);
-
-const Card = (props) => {
-  return (
-    <div className={clsx('cardContent', styles.cardContent)}>
-      <Image imageSrc={props.imageSrc} />
-      <Button href={props.btnLink} label={props.btnLabel} />
-    </div>
-  );
-};
-
-function ExcellenceBlock() {
-  return (
-    <header className={clsx(styles.heroBanner, styles.bgLightBlue)}>
-      <h1 className={clsx(styles.containerBlockh1)}>
-        {stringsAndParagraphs.excellenceBlock.title}
-      </h1>
-      <p className={clsx(styles.subTitle)}>
-        {stringsAndParagraphs.excellenceBlock.subTitle}
-      </p>
-      <div className={clsx(styles.cardBar)}>
-        <Card
-          imageSrc={'icon-tutorial.svg'}
-          btnLabel={stringsAndParagraphs.excellenceBlock.btnStart}
-          btnLink={links.doc.gettingstarted}
-        />
-        <Card
-          imageSrc={'icon-install.svg'}
-          btnLabel={stringsAndParagraphs.excellenceBlock.btnPp}
-          btnLink={links.doc.pluginpacks}
-        />
-        <Card
-          imageSrc={'icon-api.svg'}
-          btnLabel={stringsAndParagraphs.excellenceBlock.btnCloud}
-          btnLink={links.doc.cloud}
-        />
-      </div>
-    </header>
-  );
-}
-
-function SummitBlock() {
-  return (
-    <div className={clsx(styles.bannerCustom)}>
-      <div className={clsx(styles.bannerImage)}>
-        <a href={links.banner} target={'_blank'}>
-          <img src={basePathImg + 'release-banner-en-22.10.png'} />
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function PrerequisiteBlock() {
-  return (
-    <div
-      className={clsx(styles.mainContainer, styles.containerBlockPrerequisite)}
-    >
-      <div>
-        <img
-          className={clsx(styles.imageSectionPrerequisite)}
-          src={basePathImg + 'image-prerequisite-block.svg'}
-        />
-      </div>
-      <div className={clsx(styles.containerContentPrerequisite)}>
-        <h2 className={clsx(styles.titleSection)}>
-          {stringsAndParagraphs.prerequisiteBlock.title}
-        </h2>
-        <p>
-          {stringsAndParagraphs.prerequisiteBlock.content1stPart}
-          <a href={links.doc.prerequisite}>
-            {stringsAndParagraphs.prerequisiteBlock.link}
-          </a>
-          {stringsAndParagraphs.prerequisiteBlock.content2ndPart}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function InstallationBlock() {
-  return (
-    <div
-      className={clsx(
-        styles.mainContainer,
-        styles.bgLightBlue,
-        styles.containerBlockInstallation
-      )}
-    >
-      <div>
-        <img
-          className={clsx(styles.imageSectionInstallation)}
-          src={basePathImg + 'image-installation-block.svg'}
-        />
-      </div>
-      <div className={clsx(styles.containerContentInstallation)}>
-        <h2 className={clsx(styles.titleSection)}>
-          {stringsAndParagraphs.installationBlock.title}
-        </h2>
-        <p>
-          {stringsAndParagraphs.installationBlock.content1stPart}
-          <a href={links.doc.installation}>
-            {stringsAndParagraphs.installationBlock.link}
-          </a>
-          {stringsAndParagraphs.installationBlock.content2ndPart}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function MonitoringBlock() {
-  return (
-    <div
-      className={clsx(styles.mainContainer, styles.containerBlockMonitoring)}
-    >
-      <div>
-        <img
-          className={clsx(styles.imageSectionMonitoring)}
-          src={basePathImg + 'image-monitoring-block.svg'}
-        />
-      </div>
-      <div className={clsx(styles.containerContentMonitoring)}>
-        <h2 className={clsx(styles.titleSection)}>
-          {stringsAndParagraphs.monitoringBlock.title}
-        </h2>
-        <p>
-          {stringsAndParagraphs.monitoringBlock.content1stPart}
-          <a href={links.doc.monitoring}>
-            {stringsAndParagraphs.monitoringBlock.link}
-          </a>
-          {stringsAndParagraphs.monitoringBlock.content2ndPart}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function CommunityBlock() {
-  return (
-    <div
-      className={clsx(
-        styles.mainContainer,
-        styles.borderTop,
-        styles.containerBlock
-      )}
-    >
-      <h2 className={clsx(styles.titleSectionCommunity)}>
-        {stringsAndParagraphs.communityBlock.title}
-      </h2>
-      <div className={clsx(styles.cardBar)}>
-        <ul className={clsx(styles.socialSet)}>
-          <a href={links.thewatch} target={'_blank'}>
-            <li>
-              <img src={basePathImg + 'social-network/thewatch.png'} />
-            </li>
-          </a>
-          <a href={links.github} target={'_blank'}>
-            <li className={clsx(styles.bgDm)}>
-              <img src={basePathImg + 'social-network/github.svg'} />
-            </li>
-          </a>
-          <a href={links.twitter} target={'_blank'}>
-            <li>
-              <img src={basePathImg + 'social-network/twitter.svg'} />
-            </li>
-          </a>
-          <a href={links.linkedin} target={'_blank'}>
-            <li>
-              <img src={basePathImg + 'social-network/linkedin.svg'} />
-            </li>
-          </a>
+      <div className={clsx(styles.headingCardBody)}>
+        <ul>
+          {props.card.links.map((link,index)=>{
+            return(
+              <li key={index}>
+                <a href={link.href}>
+                  <span>{link.label}</span>
+                  <img src={basePathImg + "external_link.svg"}/>
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-function HeartOpenSourceBlock() {
+function HeadingCards(props){
+  return(
+    <div className={clsx(styles.headingCards)}>
+      {props.cards.map((card,index)=>{
+        return( <HeadingCard card={card} key={index}/> )
+      })}
+    </div>
+  )
+}
+
+function HeadingBlock() {
   return (
-    <div
-      className={clsx(
-        styles.mainContainer,
-        styles.containerBlock,
-        styles.bgLightPurple
-      )}
-    >
-      <div className={clsx(styles.containerContentOpenSource)}>
-        <h2 className={clsx(styles.titleSectionOpenSource)}>
-          {stringsAndParagraphs.heartOpenSourceBlock.title}
-        </h2>
-        <p className={clsx(styles.textOpenSource)}>
-          {stringsAndParagraphs.heartOpenSourceBlock.content}
-        </p>
-      </div>
-      <div className={clsx(styles.cardBarOpenSource)}>
-        <Card
-          imageSrc={'icon-openSource.svg'}
-          btnLabel={stringsAndParagraphs.heartOpenSourceBlock.btnOpen}
-          btnLink={links.contribute}
-        />
+    <div className={clsx(styles.headingContainer)}>
+      <div className={clsx(styles.mainContainer)}>
+        <h1>Welcome to Centreon documentation!</h1>
+        <SearchForm/>
+        <HeadingCards cards={cards}/>
       </div>
     </div>
-  );
+  )
+}
+
+function CommunityBlock() {
+  return(
+    <div className={clsx(styles.socialBlock)}>
+      <span className={clsx(styles.badge)}>A strong community</span>
+      <div className={clsx(styles.watchWrapper)}>
+        <div>
+          <img src={basePathImg + "social-network/thewatch.png"}/>
+        </div>
+        <Button href={links.thewatch} target="_blank" label="Join the community"/>
+      </div>
+      <div className={clsx(styles.socialWrapper)}>
+        {links.social.map((link,index)=>{
+          return(
+            <a href={link.href} key={index}>
+              <img src={link.image}/>
+            </a>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function OpensourceBlock() {
+  return(
+    <div className={clsx(styles.socialBlock)}>
+      <span className={clsx(styles.badge)}>AN OPEN SOURCE CORE</span>
+      <p>Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.</p>
+      <Button href={links.contribute} target="_blank" label="Contribute to the Open Source project"/>
+    </div>
+  )
+}
+
+function SocialBlock() {
+  return (
+    <div className={clsx(styles.socialContainer)}>
+      <div className={clsx(styles.mainContainer)}>
+        <CommunityBlock/>
+        <OpensourceBlock/>
+      </div>
+    </div>
+  )
 }
 
 export default function Home() {
@@ -293,13 +224,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <main>
-        <ExcellenceBlock />
-        <SummitBlock />
-        <PrerequisiteBlock />
-        <InstallationBlock />
-        <MonitoringBlock />
-        <CommunityBlock />
-        <HeartOpenSourceBlock />
+        <HeadingBlock />
+        <BannerBlock />
+        <SocialBlock />
       </main>
     </Layout>
   );

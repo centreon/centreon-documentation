@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Sensor IP** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Sensor IP** apporte un modèle d'hôte :
 
 * HW-Sensor-Sensorip-SNMP-custom
 
@@ -77,7 +77,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Sensor IP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Sensor IP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -88,13 +88,13 @@ yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Sensor IP** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Sensor IP** :
 
 ```bash
 yum install centreon-pack-hardware-sensors-sensorip-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Sensor IP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Sensor IP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

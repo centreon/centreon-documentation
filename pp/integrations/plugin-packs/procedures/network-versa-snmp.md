@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 Versa Networks provides secure cloud IP architecture. 
 In particular, SD-WAN that aims to phase out conventional WAN infrastructures.
 
-The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status and metrics of the Versa equipments.
+The Centreon Monitoring Connector relies on the SNMP protocol to query and collect status and metrics of the Versa equipments.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -137,34 +137,34 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Versa Net
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon package on every Centreon Poller expected to monitor 
 Versa Networks devices:
 
 ```bash
 yum install centreon-plugin-Network-Versa-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Versa SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Versa SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
+1. Install the Centreon package on every Centreon Poller expected to monitor
 Versa Networks devices:
 
 ```bash
 yum install centreon-plugin-Network-Versa-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-versa-snmp
 ```
 
-3. On the Centreon Web interface, install the *Versa SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Versa SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

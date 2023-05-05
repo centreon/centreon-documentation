@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin-Pack Google CloudSQL MySQL collecte les données pour:
+Le connecteur de supervision Google CloudSQL MySQL collecte les données pour:
 * Cpu
 * Innodb
 * Network
@@ -19,7 +19,7 @@ Le Plugin-Pack Google CloudSQL MySQL collecte les données pour:
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Google CloudSQL MySQL* inclut un *provider* de découverte d'Hôtes.
+Le connecteur de supervision Centreon *Google CloudSQL MySQL* inclut un *provider* de découverte d'Hôtes.
 Celui-ci permet de découvrir l'ensemble des bases de données MySQL rattachées à un projet GCP donné:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql-provider.png)
@@ -113,7 +113,7 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google CloudSQL MySQL* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Google CloudSQL MySQL* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,20 +124,20 @@ yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-cloud-gcp-cloudsql-mysql
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google CloudSQL MySQL* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Google CloudSQL MySQL* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par instance Google CloudSQL MySQL.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par instance Google CloudSQL MySQL.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Cloud-Gcp-CloudSQL-MySQL-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

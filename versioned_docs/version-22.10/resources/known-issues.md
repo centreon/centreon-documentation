@@ -67,6 +67,10 @@ There is currently no workaround.
 
 ## Anomaly Detection
 
+### Filter in Resource Status issue
+
+In the Resource Status view, you are not able to save a new filter of the Anomaly Detection type.
+
 ### Cannot monitor an Anomaly Detection service linked to a metaservice
 
 When you create a metaservice with an Anomaly Detection service linked to it, you may not receive data for graphs and predictions.
@@ -152,3 +156,13 @@ If you have a very large infrastructure, it is possible that the `servicemetric_
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
+
+## Centreon BAM
+
+### New Business Activities configuration issue
+
+Default levels for impact and ratio calculation methods are not set by default in new Business Activities configuration.
+
+#### Workaround
+
+There is currently no workaround.

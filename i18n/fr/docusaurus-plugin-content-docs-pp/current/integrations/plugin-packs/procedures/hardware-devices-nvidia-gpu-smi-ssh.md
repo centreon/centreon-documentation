@@ -54,7 +54,7 @@ doit avoir assez de privilèges pour executer la commande ```nvidia-smi```.
 yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -71,7 +71,7 @@ yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
 yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

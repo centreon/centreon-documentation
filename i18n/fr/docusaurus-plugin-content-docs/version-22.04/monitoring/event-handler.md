@@ -77,7 +77,7 @@ Suivre [cette procédure pour créer une commande](./basic-objects/commands.md#a
 
 ### Activer les gestionnaires d'événements sur votre plate-forme
 
-REndez-vous dans le menu **Configuration > Pollers > Engine configuration** et éditer toutes les configuration Centreon
+Rendez-vous dans le menu **Configuration > Pollers > Engine configuration** et éditer toutes les configuration Centreon
 Engine sur lesquelles vous souhaitez activer le gestionnaire d'évènements.
 
 Dans l'onglet **Check Opyions**, activer l'option **Event Handler Option** :

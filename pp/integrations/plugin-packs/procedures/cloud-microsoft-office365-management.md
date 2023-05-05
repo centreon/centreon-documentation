@@ -11,7 +11,7 @@ Office 365 is a line of online subscription services offered by Microsoft in the
 Office 365 covers document creation and management, emailing, video conferencing and many more collaboration offerings.
 The Centreon Plugin relies on the Office 365 Graph API to collect and monitor the Office 365 information and metrics.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored objects
 
@@ -130,19 +130,19 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
+1. Install the Centreon package on every poller expected to monitor **Office 365** ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. On the Centreon Web interface, install the Pack on the **Configuration > Plugin packs > Manager** page.
+2. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor **Office 365** ressources:
+1. Install the Centreon package on every poller expected to monitor **Office 365** ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
@@ -154,7 +154,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
-3. On the Centreon Web interface, install the Pack on the **Configuration > Plugin packs > Manager** page.
+3. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

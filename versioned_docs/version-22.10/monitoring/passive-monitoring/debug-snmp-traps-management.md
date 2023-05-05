@@ -24,7 +24,7 @@ and routers) or software tcpdump/wireshark on the poller may help you to confirm
 
 After validation of the connection, check the operating status of snmptrapd process (which must be running) and its
 configuration options. It is possible to enable logging of the process. To do this change the
-**/etc/sysconfig/snmptrapd.options** file and replace the "OPTIONS" line:
+**/etc/sysconfig/snmptrapd** file and replace the "OPTIONS" line:
 
 ``` shell
 # snmptrapd command line options

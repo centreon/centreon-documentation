@@ -6,18 +6,18 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin-Pack Google Compute Engine collecte les données pour:
+Le connecteur de supervision Google Compute Engine collecte les données pour:
 * Cpu
 * Diskio
 * Network
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Google Compute Engine* inclut un *provider* de découverte d'Hôtes.
+Le connecteur de supervision Centreon *Google Compute Engine* inclut un *provider* de découverte d'Hôtes.
 Celui-ci permet de découvrir l'ensemble des instances de calculs rattachées à un projet GCP donné:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-computeengine-provider.png)
@@ -97,7 +97,7 @@ Comment créer une clé de compte de service: https://developers.google.com/iden
 yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Compute Engine* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Google Compute Engine* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -108,20 +108,20 @@ yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-cloud-gcp-compute-computeengine
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google Compute Engine* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Google Compute Engine* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par instance Google Compute Engine.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par instance Google Compute Engine.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Cloud-Gcp-Compute-ComputeEngine-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

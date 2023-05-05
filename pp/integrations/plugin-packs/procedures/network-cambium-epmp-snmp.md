@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Cambium ePMP SNMP** brings a host template:
+The Centreon Monitoring Connector **Cambium ePMP SNMP** brings a host template:
 
 * Net-Cambium-Epmp-SNMP-custom
 
@@ -95,30 +95,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Cambium ePMP SNMP** resources:
+1. Install the package on every Centreon poller expected to monitor **Cambium ePMP SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Cambium-Epmp-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Cambium ePMP SNMP** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cambium ePMP SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Cambium ePMP SNMP** resources:
+1. Install the package on every Centreon poller expected to monitor **Cambium ePMP SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Cambium-Epmp-Snmp
 ```
 
-2. Install the **Cambium ePMP SNMP** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Cambium ePMP SNMP** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-cambium-epmp-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Cambium ePMP SNMP** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cambium ePMP SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

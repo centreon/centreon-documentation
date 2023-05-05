@@ -8,10 +8,10 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Ce Plugin Pack permet d'obtenir des métriques et statuts collectés grâce à l'agent de supervision NSClient++
+Ce connecteur de supervision permet d'obtenir des métriques et statuts collectés grâce à l'agent de supervision NSClient++
  et son serveur NRPE intégré.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -49,7 +49,7 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. Sur l'interface Web Centreon, installez le Pack Centreon **Dynamics 365**
-depuis la page **Configuration > Plugin Packs > Manager**.
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -67,7 +67,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe centreon-pac
 ```
 
 3. Sur l'interface Web Centreon, installez le Pack Centreon **Dynamics 365**
-depuis la page **Configuration > Plugin Packs > Manager**.
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

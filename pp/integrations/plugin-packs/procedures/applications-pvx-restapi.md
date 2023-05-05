@@ -17,7 +17,7 @@ perform queries against it.
 
 ### Templates
 
-The Centreon Plugin Pack PVX brings 1 host template:
+The Centreon Monitoring Connector PVX brings 1 host template:
 * App-Pvx-Application-Restapi-custom
 
 It brings the following Service Templates:
@@ -129,30 +129,30 @@ In this example the API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **PVX** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **PVX** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Pvx-Restapi
 ```
 
-2. On the Centreon Web interface, install the **PVX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **PVX** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **PVX** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Pvx-Restapi
 ```
 
-2. Install the **PVX** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **PVX** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-pvx-restapi
 ```
 
-3. On the Centreon Web interface, install the **PVX** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

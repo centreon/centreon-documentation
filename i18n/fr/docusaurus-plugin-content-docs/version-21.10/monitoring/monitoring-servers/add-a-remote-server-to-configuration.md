@@ -69,7 +69,7 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
 
    1. Allez à la page **Configuration > Collecteurs > Configuration de Centreon broker**.
    2. Sélectionnez le service broker du serveur distant désiré.
-   3. Dans l'onglet **Output**, dans la section **Output 1 - Unified SQL**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
+   3. Dans l'onglet **Output**, dans la section **Output 1 - Broker SQL database**, mettez à jour le nom de la base dans le champ **DB name** (le nom par défaut de la base est **centreon_storage**), puis cliquez sur **Sauvegarder**.
    4. [Exportez la configuration](deploying-a-configuration.md) du serveur distant.
    5. Redémarrez cbd:
 

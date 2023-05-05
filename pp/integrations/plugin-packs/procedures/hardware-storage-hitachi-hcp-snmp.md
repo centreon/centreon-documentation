@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Hitachi HCP SNMP including monitoring of Nodes, Tenants and Volumes.
+The Monitoring Connector Hitachi HCP SNMP including monitoring of Nodes, Tenants and Volumes.
 
 ### Collected Metrics
 
@@ -72,7 +72,7 @@ To control your Hitachi HCP, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Storage-Hitachi-Hcp-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Hitachi HCP SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Hitachi HCP SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,13 +83,13 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hcp-Snmp
 yum install centreon-plugin-Hardware-Storage-Hitachi-Hcp-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-hitachi-hcp-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Hitachi HCP SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Hitachi HCP SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

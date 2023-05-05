@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (WLAN) system developed specifically for small-to-medium enterprises (SMEs).
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -76,30 +76,30 @@ Your Centreon Poller must be able to reach the Ruckus device over UDP/161 SNMP p
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor Ruckus Zonedirector ressources:
+1. Install the Centreon package on every Poller expected to monitor Ruckus Zonedirector ressources:
 
 ```bash
 yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 ```
 
-2. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Zonedirector ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor Ruckus Zonedirector ressources:
 
 ```bash
 yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

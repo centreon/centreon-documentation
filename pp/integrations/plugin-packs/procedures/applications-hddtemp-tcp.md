@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Hddtemp TCP brings 1 host template:
+The Centreon Monitoring Connector Hddtemp TCP brings 1 host template:
 * App-Hddtemp-Tcp-custom
 
 It brings the following Service Template:
@@ -42,30 +42,30 @@ distributions make it available as a standard package.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Hddtemp** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Hddtemp** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Hddtemp
 ```
 
-2. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Hddtemp** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Hddtemp** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Hddtemp
 ```
 
-2. Install the **Hddtemp TCP** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Hddtemp TCP** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-hddtemp-tcp
 ```
 
-3. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

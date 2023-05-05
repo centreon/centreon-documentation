@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon **AWS Discover** Plugin Pack allows you to discover the following AWS resources:
+The Centreon **AWS Discover** Monitoring Connector allows you to discover the following AWS resources:
 * API Gateway
 * Backup Vault
 * EBS
@@ -23,17 +23,17 @@ The Centreon **AWS Discover** Plugin Pack allows you to discover the following A
 * SQS
 * VPN
 
-This pack relies on the AWS API to retrieve AWS resources and on all the Centreon Plugin Packs for AWS to define 
+This pack relies on the AWS API to retrieve AWS resources and on all the Centreon Monitoring Connectors for AWS to define 
 appropriate monitoring models and indicators for each type of resource.
 
 ## Pack Assets
 
-> The Centreon Plugin Pack **AWS Discover** is only a *discovery* pack. It doesn't natively provide any templates nor
+> The Centreon Monitoring Connector **AWS Discover** is only a *discovery* pack. It doesn't natively provide any templates nor
 > indicators to monitor AWS resources
 
 ### Discovery rules
 
-The Centreon Plugin Pack **AWS Discover** includes a Host Discovery *provider* to automatically discover AWS resources
+The Centreon Monitoring Connector **AWS Discover** includes a Host Discovery *provider* to automatically discover AWS resources
 This provider is named **Amazon AWS Discover**:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-provider.png)
@@ -97,34 +97,34 @@ sudo ./aws/install
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **AWS** resources:
+1. Install the package on every Centreon poller expected to monitor **AWS** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS Discover** Centreon Plugin Pack.
- You'll be prompted to install several other AWS Plugin Packs as dependencies (they will be used to set the proper templates/indicators
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS Discover** Centreon Monitoring Connector.
+ You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **AWS** resources:
+1. Install the package on every Centreon poller expected to monitor **AWS** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-2. Install all the Centreon Plugin Pack AWS RPM on the Centreon central server in order
+2. Install all the Centreon Monitoring Connector AWS RPM on the Centreon central server in order
 to make all the dependencies available:
 
 ```bash
 yum install centreon-pack-cloud-aws\*
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS Discover** Centreon Plugin Pack.
-You'll be prompted to install several other AWS Plugin Packs as dependencies (they will be used to set the proper templates/indicators
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS Discover** Centreon Monitoring Connector.
+You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
 </TabItem>
@@ -165,7 +165,7 @@ Adjust the following settings:
 
 ### Run the discovery job and display results
 
-The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Plugin Pack comes along with predefined **mappers** that
+The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Monitoring Connector comes along with predefined **mappers** that
 don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
 [this documentation](/docs/monitoring/discovery/hosts-discovery#how-to-use-the-mappers) to do so.
 
