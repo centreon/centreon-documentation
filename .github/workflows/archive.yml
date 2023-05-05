@@ -2,13 +2,11 @@ name: archive
 
 on:
   workflow_dispatch:
+  pull_request: # to delete
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
-
-permissions:
-  contents: read
 
 jobs:
   build:
