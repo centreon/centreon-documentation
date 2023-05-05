@@ -1,0 +1,35 @@
+name: archive
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+
+      - name: Update docusaurus configuration to build only one version
+        run: |
+          sed -i '/onlyIncludeVersions:/c\onlyIncludeVersions:["22.04"],' docusaurus.config.js
+        shell: bash
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build documentation
+        run: yarn build
