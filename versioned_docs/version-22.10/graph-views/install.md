@@ -419,16 +419,10 @@ This script generates the **studio-config.properties** file.
 
 #### Custom URI 
 
-If you have [customized the URI](../administration/secure-platform.md#custom-uri) for your Centreon platform, you need to edit the **studio-config.properties** file by adding:
+If you have customized the URI for your Centreon platform, you need to edit the **studio-config.properties** file by adding the following command using the custom URI already defined [here](../administration/secure-platform.md#custom-uri):
 
 ```shell
-centreon.path=/centreon-custom
-```
-
-Replace **/centreon** with your path name:
-
-```shell
-Define base_uri "/centreon"
+centreon.path=/your-custom-uri
 ```
 
 Then restart the **centreon-map** service:
