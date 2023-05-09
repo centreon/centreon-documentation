@@ -22,14 +22,14 @@ jobs:
           sudo ./aws/install
         shell: bash
 
+      - name: Install yarn
+        run: npm install -g yarn
+
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: yarn
-
-      - name: Install yarn
-        run: npm install -g yarn
 
       - name: Update docusaurus homepage to redirect to getting started doc
         run: |
