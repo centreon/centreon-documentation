@@ -10,10 +10,17 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, common]
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
+
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
 
       - name: Set up Node
         uses: actions/setup-node@v3
@@ -21,9 +28,25 @@ jobs:
           node-version: 16
           cache: yarn
 
+      - name: Update docusaurus homepage to redirect to getting started doc
+        run: |
+          cat <<EOF >src/pages/index.js
+          import React from 'react';
+          import  { Redirect } from 'react-router-dom';
+
+          export default function Home() {
+            return <Redirect to='/getting-started/installation-first-steps/' />;
+          }
+          EOF
+        shell: bash
+
       - name: Update docusaurus configuration to build only one version
         run: |
           sed -i '/onlyIncludeVersions:/c\onlyIncludeVersions:["22.04"],' docusaurus.config.js
+          perl -0777 -i.original -pe "s/docs: {/docs: {routeBasePath: '\/',/" docusaurus.config.js
+          perl -0777 -i.original -pe "s/dropdownItemsAfter: \[(\n|.)+?\]+?,//" docusaurus.config.js
+          perl -0777 -i.original -pe "s/items: \[(\n|.)+?\]+?,/items:\[{type:'localeDropdown',position:'right',}\],/" docusaurus.config.js
+          cat docusaurus.config.js
         shell: bash
 
       - name: Install dependencies
@@ -31,3 +54,7 @@ jobs:
 
       - name: Build documentation
         run: yarn build
+
+      - name: Copy to S3
+        run: |
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/22.04/

@@ -21,8 +21,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    //locales: ['en', 'fr'],
-    locales: ['en'],
+    locales: ['en', 'fr'],
     localeConfigs: {
       en: {
         label: '🇬🇧 English',
@@ -39,15 +38,13 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
           breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['22.04'],
-          //lastVersion: "22.04",
+          onlyIncludeVersions: ['23.04', '22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
           versions: {
             23.04: {
               label: '⭐ 23.04',
