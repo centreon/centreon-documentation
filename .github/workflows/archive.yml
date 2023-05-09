@@ -37,7 +37,7 @@ jobs:
           import  { Redirect } from 'react-router-dom';
 
           export default function Home() {
-            return <Redirect to='/getting-started/installation-first-steps/' />;
+            return <Redirect to='/docs/getting-started/installation-first-steps/' />;
           }
           EOF
         shell: bash
@@ -45,7 +45,6 @@ jobs:
       - name: Update docusaurus configuration to build only one version
         run: |
           sed -i '/onlyIncludeVersions:/c\onlyIncludeVersions:["22.04"],' docusaurus.config.js
-          perl -0777 -i.original -pe "s/docs: {/docs: {routeBasePath: '\/',/" docusaurus.config.js
           perl -0777 -i.original -pe "s/dropdownItemsAfter: \[(\n|.)+?\]+?,//" docusaurus.config.js
           perl -0777 -i.original -pe "s/items: \[(\n|.)+?\]+?,/items:\[{type:'localeDropdown',position:'right',}\],/" docusaurus.config.js
           cat docusaurus.config.js

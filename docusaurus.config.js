@@ -44,7 +44,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['23.04', '22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
+onlyIncludeVersions:["22.04"],
           versions: {
             23.04: {
               label: '⭐ 23.04',
@@ -179,45 +179,7 @@ const config = {
           srcDark: 'img/logo_centreon.png',
           href: '/',
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'getting-started/welcome',
-            position: 'left',
-            label: 'Centreon OnPrem',
-          },
-		      {
-            to: '/cloud/getting-started/architecture',
-            label: 'Centreon Cloud',
-            position: 'left',
-            activeBaseRegex: '/cloud/',
-          },
-          {
-            to: '/pp/integrations/plugin-packs/getting-started/introduction',
-            label: 'Monitoring Connectors',
-            position: 'left',
-            activeBaseRegex: '/pp/',
-          },
-          {
-            type: 'search',
-            position: 'right',
-          },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownActiveClassDisabled: true,
-            dropdownItemsAfter: [
-              {
-                to: 'https://docs-older.centreon.com',
-                label: 'Older',
-              },
-            ],
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-        ],
+        items:[{type:'localeDropdown',position:'right',}],
       },
 
       footer: {
