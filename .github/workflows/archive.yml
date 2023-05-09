@@ -28,6 +28,9 @@ jobs:
           node-version: 16
           cache: yarn
 
+      - name: Install yarn
+        run: npm install -g yarn
+
       - name: Update docusaurus homepage to redirect to getting started doc
         run: |
           cat <<EOF >src/pages/index.js
