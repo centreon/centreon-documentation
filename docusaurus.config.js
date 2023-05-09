@@ -21,7 +21,8 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr'],
+    //locales: ['en', 'fr'],
+    locales: ['en'],
     localeConfigs: {
       en: {
         label: '🇬🇧 English',
@@ -38,13 +39,15 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['23.04', '22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['22.04'],
+          //lastVersion: "22.04",
           versions: {
             23.04: {
               label: '⭐ 23.04',
@@ -88,14 +91,6 @@ const config = {
     ],
   ],
 
-  scripts: [
-    {
-      src: '/js/fix-location.js',
-      async: false,
-      defer: false,
-    },
-  ],
-
   themes: [],
 
   plugins: [
@@ -111,7 +106,7 @@ const config = {
       },
     ],
     'plugin-image-zoom',
-	[
+	  [
       '@docusaurus/plugin-content-docs',
       {
         id: 'cloud',
@@ -194,7 +189,7 @@ const config = {
             position: 'left',
             label: 'Centreon OnPrem',
           },
-		     {
+		      {
             to: '/cloud/getting-started/architecture',
             label: 'Centreon Cloud',
             position: 'left',
@@ -227,6 +222,7 @@ const config = {
           },
         ],
       },
+
       footer: {
         links: [
           {
@@ -261,23 +257,23 @@ const config = {
         copyright: `Copyright © 2005 - 2023 Centreon`,
       },
     }),
-    webpack: {
-      jsLoader: (isServer) => ({
-        loader: require.resolve('swc-loader'),
-        options: {
-          jsc: {
-            "parser": {
-              "syntax": "typescript",
-              "tsx": true
-            },
-            target: 'es2017',
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve('swc-loader'),
+      options: {
+        jsc: {
+          "parser": {
+            "syntax": "typescript",
+            "tsx": true
           },
-          module: {
-            type: isServer ? 'commonjs' : 'es6',
-          }
+          target: 'es2017',
         },
-      }),
-    },
+        module: {
+          type: isServer ? 'commonjs' : 'es6',
+        }
+      },
+    }),
+  },
 };
 
 module.exports = config;
