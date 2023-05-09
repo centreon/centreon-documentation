@@ -2,6 +2,8 @@
 id: upgrade-mariadb
 title: Upgrading MariaDB
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 You may have several MariaDB databases in your architecture. The central server has a database, each remote server has a database, 
 and the MBI and MAP modules each have a dedicated database. Within your architecture, all databases must have the same version of MariaDB.
