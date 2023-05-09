@@ -419,11 +419,27 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode
+If it's your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
 /etc/centreon-studio/configure.sh
+```
+
+The output should look like this:
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+This script generates the **studio-config.properties** file.
+
+#### Custom URI 
+
+If you have customized the URI for your Centreon platform, you need to edit the **studio-config.properties** file by adding the following command using the custom URI already defined [here](../administration/secure-platform.md#custom-uri):
+
+```shell
+centreon.path=/your-custom-uri
 ```
 
 Then restart the **centreon-map** service:
