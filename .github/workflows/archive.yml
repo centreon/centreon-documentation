@@ -58,5 +58,5 @@ jobs:
 
       - name: Copy to S3
         run: |
-          aws s3 cp build s3://centreon-documentation-preview-pr/22.04/
-          #aws s3 sync --delete build s3://centreon-documentation-preview-pr/22.04/
+          #aws s3 cp --recursive build s3://centreon-documentation-preview-pr/22.04/
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/22.04/
