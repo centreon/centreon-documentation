@@ -30,31 +30,11 @@ jobs:
       - name: Install yarn
         run: npm install -g yarn
 
-      - name: Update docusaurus homepage to redirect to getting started doc
-        run: |
-          cat <<EOF >src/pages/index.js
-          import React from 'react';
-          import  { Redirect } from 'react-router-dom';
-
-          export default function Home() {
-            return <Redirect to='/docs/getting-started/installation-first-steps/' />;
-          }
-          EOF
-        shell: bash
-
-      - name: Update docusaurus configuration to build only one version
-        run: |
-          sed -i '/onlyIncludeVersions:/c\onlyIncludeVersions:["22.04"],' docusaurus.config.js
-          perl -0777 -i.original -pe "s/dropdownItemsAfter: \[(\n|.)+?\]+?,//" docusaurus.config.js
-          perl -0777 -i.original -pe "s/items: \[(\n|.)+?\]+?,/items:\[{type:'localeDropdown',position:'right',}\],/" docusaurus.config.js
-          cat docusaurus.config.js
-        shell: bash
-
       - name: Install dependencies
         run: yarn install
 
-      - name: Build documentation
-        run: yarn build
+      - name: Build documentation for 22.04
+        run: VERSION="22.04" yarn build
 
       - name: Copy to S3
         run: |
