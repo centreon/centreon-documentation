@@ -64,13 +64,17 @@ de la ressource. L'arrière-plan des lignes des ressources en maintenance est ma
 ### Relancer un contrôle
 
 Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir
-le statut d'un service/hôte en lançant un contrôle manuellement via
-l'interface. Cela est possible de deux manières différentes :
+le statut d'une ou plusieurs ressources en lançant un contrôle manuellement via
+l'interface.
 
-- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne
-- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier**.
+Deux types d'actions de contrôle sont disponibles :
+- L'action **Vérifier** : un contrôle que vous effectuez uniquement durant la période de vérification configurée.
+- L'action **Vérification forcée** : un contrôle que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
 
-![image](../assets/alerts/resources-status/resources-status-check.gif)
+Vous pouvez contrôler vos ressources et rafraîchir leur statut de deux manières :
+
+- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne (**Vérification forcée** uniquement).
+- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier** au-dessus du tableau.
 
 ### Soumettre un statut
 
