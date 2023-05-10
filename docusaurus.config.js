@@ -16,7 +16,7 @@ const config = {
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
-  baseUrl: '/',
+  baseUrl: version ? `${version}/` : '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
