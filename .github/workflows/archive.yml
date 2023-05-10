@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: [self-hosted, common]
+    runs-on: [self-hosted, infra]
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -21,6 +21,11 @@ jobs:
           sudo unzip -q awscliv2.zip
           sudo ./aws/install
         shell: bash
+
+      - name: Copy to S3
+        run: |
+          #aws s3 cp --recursive "build/" s3://centreon-documentation-archive/22.04/
+          aws s3 sync --delete "src/*" s3://centreon-documentation-archive/22.04/
 
       - name: Set up Node
         uses: actions/setup-node@v3
