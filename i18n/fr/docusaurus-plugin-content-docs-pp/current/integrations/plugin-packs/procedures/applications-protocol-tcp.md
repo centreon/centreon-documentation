@@ -25,10 +25,18 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 </TabItem>
 <TabItem value="App-Protocol-Tcp-Only" label="App-Protocol-Tcp-Only">
 
+| Alias | Modèle de service | Description |
+|:------|:------------------|:------------|
+
+</TabItem>
+<TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
+
 | Alias             | Modèle de service                  | Description                                |
 |:------------------|:-----------------------------------|:-------------------------------------------|
 | Connection-Status | App-Protocol-Tcp-Connection-Status | Contrôle la connexion à un port TCP        |
 | Response-Time     | App-Protocol-Tcp-Response-Time     | Contrôle le temps de réponse à un port TCP |
+
+> Ces services ne sont pas automatiquement créés lorsque le modèle d'hôte est appliqué.
 
 </TabItem>
 </Tabs>
@@ -42,7 +50,7 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 
 | Métrique                  | Unité |
 |:--------------------------|:------|
-| status                    |       |
+| status                    | N/A   |
 | tcp.response.time.seconds | s     |
 
 </TabItem>
@@ -232,19 +240,18 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 ```bash
 /usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
-    --mode=response-time  \
+	--mode=response-time  \
 	--hostname='10.0.0.1' \
 	--port='' \
-    --packets='' \
 	--timeout='' \
-    --warning-rta='' \
-    --critical-rta='' \
-    --warning-rtmax='' \
-    --critical-rtmax='' \
-    --warning-rtmin='' \
-    --critical-rtmin='' \
-    --warning-pl='' \
-    --critical-pl='' \
+	--warning-rta='' \
+	--critical-rta='' \
+	--warning-rtmax='' \
+	--critical-rtmax='' \
+	--warning-rtmin='' \
+	--critical-rtmin='' \
+	--warning-pl='' \
+	--critical-pl='' \
 	
 ```
 
@@ -352,7 +359,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
-    --mode=response-time  \
+	--mode=connection-status  \
     --help
 ```
 
