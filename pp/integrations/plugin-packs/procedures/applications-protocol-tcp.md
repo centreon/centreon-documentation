@@ -1,36 +1,46 @@
 ---
 id: applications-protocol-tcp
-title: Protocol TCP
+title: TCP Protocol
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Pack Assets
 
 ### Templates
 
-The Centreon Plugin Pack **Protocol TCP** brings a host template:
+The Monitoring Connector **Protocol TCP** brings 2 host templates:
 
-* App-Protocol-Tcp-custom \
-It brings the following service templates:
+* App-Protocol-Tcp
+* App-Protocol-Tcp-Only
 
-| Service Alias     | Service Template                   | Service Description          | Default |
-|:------------------|:-----------------------------------|:-----------------------------|:--------|
-| Connection-Status | App-Protocol-Tcp-Connection-Status | Check TCP connection status  |         |
-| Response-Time     | App-Protocol-Tcp-Response-Time     | Check TCP port response time |         |
+The connector brings the following service templates (sorted by host template):
 
-* App-Protocol-Tcp-custom
-This host template allows checking the connectivity of a host using the TCP protocol.
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-Tcp" label="App-Protocol-Tcp">
 
-> Default services are automatically created when the host template is applied.
+| Service Alias | Service Template  | Service Description |
+|:--------------|:------------------|:--------------------|
+
+</TabItem>
+<TabItem value="App-Protocol-Tcp-Only" label="App-Protocol-Tcp-Only">
+
+| Service Alias     | Service Template                   | Service Description          |
+|:------------------|:-----------------------------------|:-----------------------------|
+| Connection-Status | App-Protocol-Tcp-Connection-Status | Check TCP connection status  |
+| Response-Time     | App-Protocol-Tcp-Response-Time     | Check TCP port response time |
+
+</TabItem>
+</Tabs>
+
+
 
 ### Collected metrics & status
 
 <Tabs groupId="sync">
 <TabItem value="Connection-Status" label="Connection-Status">
 
-| Metric Name               | Unit  |
+| Metric name               | Unit  |
 |:--------------------------|:------|
 | status                    |       |
 | tcp.response.time.seconds | s     |
@@ -38,7 +48,7 @@ This host template allows checking the connectivity of a host using the TCP prot
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
 
-| Metric Name                             | Unit  |
+| Metric name                             | Unit  |
 |:----------------------------------------|:------|
 | tcp.roundtrip.time.average.milliseconds | ms    |
 | tcp.roundtrip.time.maximum.milliseconds | ms    |
@@ -50,8 +60,8 @@ This host template allows checking the connectivity of a host using the TCP prot
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
+*Specify prerequisites that are relevant. You may want to just provide a link\n\
+to the manufacturer official documentation BUT you should try to be as complete\n\
 as possible here as it will save time to everybody.*
 
 ## Setup
@@ -60,7 +70,7 @@ as possible here as it will save time to everybody.*
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -72,10 +82,10 @@ dnf install centreon-pack-applications-protocol-tcp
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-pack-applications-protocol-tcp
+dnf install centreon-pack-applications-protocol-tcp
 ```
 
 </TabItem>
@@ -86,10 +96,17 @@ apt install centreon-pack-applications-protocol-tcp
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-protocol-tcp
+```
+
+</TabItem>
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Protocol TCP** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
@@ -105,6 +122,13 @@ You still have to manually install the plugin on the poller(s) when:
 Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Protocol-Tcp
+```
+
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -132,10 +156,74 @@ apt install centreon-plugin-applications-protocol-tcp
 
 ### Host
 
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-Tcp" label="App-Protocol-Tcp">
+
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **App-Protocol-Tcp-custom-custom** template to the host
+3. Apply the **App-Protocol-Tcp-custom** template to the host.
+
+| Mandatory   | Macro                | Description | Default |
+|:------------|:---------------------|:------------|:--------|
+|             | TCPPACKETLOSSPERCENT |             | 50      |
+|             | TCPPACKETS           |             | 1       |
+|             | TCPPORT              |             | 80      |
+|             | TCPTIMEOUT           |             | 3       |
+
+</TabItem>
+<TabItem value="App-Protocol-Tcp-Only" label="App-Protocol-Tcp-Only">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **App-Protocol-Tcp-Only-custom** template to the host.
 4. Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+
+| Mandatory   | Macro                | Description | Default |
+|:------------|:---------------------|:------------|:--------|
+|             | TCPPACKETLOSSPERCENT |             | 50      |
+|             | TCPPACKETS           |             | 1       |
+|             | TCPPORT              |             | 80      |
+|             | TCPTIMEOUT           |             | 3       |
+
+</TabItem>
+</Tabs>
+
+
+### Service 
+
+Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+
+<Tabs groupId="sync">
+<TabItem value="Connection-Status" label="Connection-Status">
+
+| Mandatory   | Macro        | Description                                                                     | Default |
+|:------------|:-------------|:--------------------------------------------------------------------------------|:--------|
+|             | TIMEOUT      | Connection timeout in seconds (Default: 3)                                      | 5       |
+|             | PORT         | Port used                                                                       |         |
+|             | WARNING      |                                                                                 |         |
+|             | CRITICAL     |                                                                                 |         |
+|             | EXTRAOPTIONS | Any extra option you may want to add to the command line (eg. a --verbose flag) |         |
+
+</TabItem>
+<TabItem value="Response-Time" label="Response-Time">
+
+| Mandatory   | Macro         | Description                                                                     | Default |
+|:------------|:--------------|:--------------------------------------------------------------------------------|:--------|
+|             | PACKETS       | Number of packets to send (Default: 5)                                          | 5       |
+|             | TIMEOUT       | Set timeout in seconds (Default: 5)                                             | 5       |
+|             | PORT          | Port used                                                                       |         |
+|             | WARNINGPL     | Packets lost threshold warning in %                                             |         |
+|             | CRITICALPL    | Packets lost threshold critical in %                                            |         |
+|             | WARNINGRTA    | Response time threshold warning in milliseconds                                 |         |
+|             | CRITICALRTA   | Response time threshold critical in milliseconds                                |         |
+|             | WARNINGRTMAX  |                                                                                 |         |
+|             | CRITICALRTMAX |                                                                                 |         |
+|             | WARNINGRTMIN  |                                                                                 |         |
+|             | CRITICALRTMIN |                                                                                 |         |
+|             | EXTRAOPTIONS  | Any extra option you may want to add to the command line (eg. a --verbose flag) |         |
+
+</TabItem>
+</Tabs>
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -146,20 +234,19 @@ running the following command:
 ```bash
 /usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
-	--mode=response-time  \
+    --mode=response-time  \
 	--hostname='10.0.0.1' \
 	--port='' \
-	--packets='' \
+    --packets='' \
 	--timeout='' \
-	--warning-rta='' \
-	--critical-rta='' \
-	--warning-rtmax='' \
-	--critical-rtmax='' \
-	--warning-rtmin='' \
-	--critical-rtmin='' \
-	--warning-pl='' \
-	--critical-pl='' \
-
+    --warning-rta='' \
+    --critical-rta='' \
+    --warning-rtmax='' \
+    --critical-rtmax='' \
+    --warning-rtmin='' \
+    --critical-rtmin='' \
+    --warning-pl='' \
+    --critical-pl='' \
 ```
 
 The expected command output is shown below:
@@ -181,7 +268,7 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode              | Template                           |
+| Mode              | Linked service template            |
 |:------------------|:-----------------------------------|
 | connection-status | App-Protocol-Tcp-Connection-Status |
 | response-time     | App-Protocol-Tcp-Response-Time     |
@@ -189,8 +276,6 @@ The plugin brings the following modes:
 
 
 ### Available options
-
-#### Global optionsAll global options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Type   |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
@@ -222,6 +307,7 @@ The plugin brings the following modes:
 | --disco-show                               | Display discovery values (if the mode manages it).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
 | --float-precision                          | Set the float precision for thresholds (Default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
 | --source-encoding                          | Set encoding of monitoring sources (In some case. Default: 'UTF-8').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
+
 
 
 #### Modes options
@@ -261,14 +347,13 @@ All  modes specific options are listed here:
 </TabItem>
 </Tabs>
 
-
 All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
-	--mode=response-time  \
+    --mode=response-time  \
     --help
 ```
 
