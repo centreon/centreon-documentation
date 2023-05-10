@@ -147,11 +147,11 @@ apt install centreon-plugin-cloud-azure-policyinsights-policystates-api
 
 | Obligatoire | Macro              | Description                                                                       | Défaut  |
 |:------------|:-------------------|:----------------------------------------------------------------------------------|:--------|
-|             | AZURECLIENTID      | Set Azure client ID                                                               |         |
-|             | AZURECLIENTSECRET  | Set Azure client secret                                                           |         |
+| x           | AZURECLIENTID      | Set Azure client ID                                                               |         |
+| x           | AZURECLIENTSECRET  | Set Azure client secret                                                           |         |
 |             | AZURERESOURCEGROUP | Set resource group                                                                |         |
-|             | AZURESUBSCRIPTION  | Set Azure subscription ID                                                         |         |
-|             | AZURETENANT        | Set Azure tenant ID                                                               |         |
+| x           | AZURESUBSCRIPTION  | Set Azure subscription ID                                                         |         |
+| x           | AZURETENANT        | Set Azure tenant ID                                                               |         |
 |             | PROXYURL           | Proxy URL                                                                         |         |
 |             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (eg. a --verbose flag) |         |
 
