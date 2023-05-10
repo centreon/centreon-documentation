@@ -2514,7 +2514,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-sonus-sbc-snmp'
         },
-        {
+          {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-xivo'
         }
