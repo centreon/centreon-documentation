@@ -2034,10 +2034,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-http'
         },
         {
@@ -2103,6 +2099,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-smtp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
         },
         {
           type: 'doc',
