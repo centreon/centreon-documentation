@@ -22,11 +22,6 @@ jobs:
           sudo ./aws/install
         shell: bash
 
-      - name: Copy to S3
-        run: |
-          #aws s3 cp --recursive "build/" s3://centreon-documentation-archive/22.04/
-          aws s3 sync --delete "src/" s3://centreon-documentation-archive/22.04/
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -42,6 +37,4 @@ jobs:
         run: VERSION="22.04" yarn build
 
       - name: Copy to S3
-        run: |
-          aws s3 cp --recursive "build/" s3://centreon-documentation-archive/22.04/
-          #aws s3 sync --delete build s3://centreon-documentation-archive/22.04/
+        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/22.04/
