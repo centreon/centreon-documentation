@@ -66,12 +66,6 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 </TabItem>
 </Tabs>
 
-## Prérequis
-
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
-
 ## Installation
 
 ### Pack de supervision
