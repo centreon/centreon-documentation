@@ -1,29 +1,46 @@
 ---
 id: applications-protocol-udp
-title: Protocol UDP
+title: UDP Protocol
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Contenu du Pack
 
 ### Modèles
 
-Le Plugin Pack Centreon **Protocol UDP** apporte un modèle d'hôte :
+Le connecteur de supervision **Protocol UDP** apporte 2 modèles d'hôte :
 
-* App-Protocol-Udp-custom \
+* App-Protocol-Udp
+* App-Protocol-Udp-Only
 
-Il apporte le modèle de service suivant :
+Le connecteur apporte le modèle de service suivant (classés par modèle d'hôte):
 
-| Alias      | Modèle de service           | Description                    | Défaut |
-|:-----------|:----------------------------|:-------------------------------|:-------|
-| Connection | App-Protocol-Udp-Connection | Contrôle l'accès à un port UDP |        |
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-Udp" label="App-Protocol-Udp">
 
-* App-Protocol-UDP-Only \
-Ce modèle permet de vérifier la connectivité d'un hôte en utilisant le protocole UDP
+| Alias | Modèle de service | Description |
+|:------|:------------------|:------------|
 
-> Les services par **Défaut** sont créés automatiquement lorsque le modèle d'hôte est appliqué.
+</TabItem>
+<TabItem value="App-Protocol-Udp-Only" label="App-Protocol-Udp-Only">
+
+| Alias | Modèle de service | Description |
+|:------|:------------------|:------------|
+
+</TabItem>
+<TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
+
+| Alias      | Modèle de service           | Description                    |
+|:-----------|:----------------------------|:-------------------------------|
+| Connection | App-Protocol-Udp-Connection | Contrôle l'accès à un port UDP |
+
+> Ces services ne sont pas automatiquement créés lorsque le modèle d'hôte est appliqué.
+
+</TabItem>
+</Tabs>
+
+
 
 ### Métriques & statuts collectés
 
@@ -37,8 +54,8 @@ Coming soon
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link
-to the manufacturer official documentation BUT you should try to be as complete
+*Specify prerequisites that are relevant. You may want to just provide a link\n\
+to the manufacturer official documentation BUT you should try to be as complete\n\
 as possible here as it will save time to everybody.*
 
 ## Installation
@@ -46,8 +63,7 @@ as possible here as it will save time to everybody.*
 ### Pack de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
-
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquet
 associé à sa distribution :
@@ -60,10 +76,10 @@ dnf install centreon-pack-applications-protocol-udp
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-pack-applications-protocol-udp
+dnf install centreon-pack-applications-protocol-udp
 ```
 
 </TabItem>
@@ -74,10 +90,17 @@ apt install centreon-pack-applications-protocol-udp
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-protocol-udp
+```
+
+</TabItem>
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Protocol UDP**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -91,6 +114,13 @@ que vous ne souhaitez pas découvrir des éléments pour la première fois, alor
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Protocol-Udp
+```
+
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -118,14 +148,49 @@ apt install centreon-plugin-applications-protocol-udp
 
 ### Hôte
 
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-Udp" label="App-Protocol-Udp">
+
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-Protocol-Udp-custom**.
+
+| Obligatoire | Macro      | Description | Défaut  |
+|:------------|:-----------|:------------|:--------|
+|             | UDPPORT    |             | 161     |
+|             | UDPTIMEOUT |             | 3       |
+
+</TabItem>
+<TabItem value="App-Protocol-Udp-Only" label="App-Protocol-Udp-Only">
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Protocol-Udp-Only-custom**.
 4. Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-| Obligatoire    | Macro           | Description                                                                       | Défaut  |
-|:---------------|:----------------|:----------------------------------------------------------------------------------|:--------|
-|                | UDPEXTRAOPTIONS | Any extra option you may want to add to every command line (eg. a --verbose flag) |         |
+| Obligatoire | Macro      | Description | Défaut  |
+|:------------|:-----------|:------------|:--------|
+|             | UDPPORT    |             | 161     |
+|             | UDPTIMEOUT |             | 3       |
+
+</TabItem>
+</Tabs>
+
+
+### Service 
+
+Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Connection" label="Connection">
+
+| Obligatoire | Macro        | Description                                                                     | Défaut  |
+|:------------|:-------------|:--------------------------------------------------------------------------------|:--------|
+|             | PORT         | Port used                                                                       |         |
+|             | EXTRAOPTIONS | Any extra option you may want to add to the command line (eg. a --verbose flag) |         |
+
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
@@ -139,13 +204,13 @@ sudo /usr/lib/centreon/plugins//centreon_protocol_udp.pl \
 	--mode=connection  \
 	--hostname='10.0.0.1' \
 	--port='' \
-
+	
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: |
+OK: | 
 ```
 
 ### Modes disponibles
@@ -161,13 +226,15 @@ sudo /usr/lib/centreon/plugins//centreon_protocol_udp.pl \
 
 Le plugin apporte les modes suivants :
 
-| Mode       | Modèle                      |
+| Mode       | Modèle de service associé   |
 |:-----------|:----------------------------|
 | connection | App-Protocol-Udp-Connection |
 
 
 
 ### Options complémentaires
+
+
 
 #### Options des modes
 
@@ -212,7 +279,6 @@ Les options spécifiques aux modes sont listées ci-dessus :
 
 </TabItem>
 </Tabs>
-
 
 Pour un mode, la liste de toutes les options complémentaires et leur signification peut être
 affichée en ajoutant le paramètre `--help` à la commande :
