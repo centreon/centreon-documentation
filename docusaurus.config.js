@@ -10,7 +10,7 @@ const version = process.env.VERSION ? process.env.VERSION : null;
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   customFields: {
-    version: version ? version : null,
+    version: version ?? null,
   },
 
   title: 'Centreon Documentation',
@@ -45,7 +45,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: version ? '/' : undefined,
           breadcrumbs: false,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',

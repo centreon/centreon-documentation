@@ -220,12 +220,15 @@ function SocialBlock() {
 
 export default function Home() {
   const { versions } = usePluginData('docusaurus-plugin-content-docs');
-  const defaultPath = versions?.[0]?.mainDocId ?? '/getting-started/installation-first-steps';
+  const defaultPath = versions?.[0]?.path ?? '/docs';
+  const defaultPage = versions?.[0]?.mainDocId ?? 'getting-started/installation-first-steps';
+  const defaultRoute = `${defaultPath}/${defaultPage}`;
+
   const { siteConfig } = useDocusaurusContext();
   const { customFields: { version } } = siteConfig;
 
   if (version) {
-    return <Redirect to={defaultPath} />;
+    return <Redirect to={defaultRoute} />;
   }
 
   return (
