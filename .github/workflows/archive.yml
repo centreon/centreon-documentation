@@ -13,6 +13,9 @@ concurrency:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        version: ["20.04", "20.10", "21.04"]
     runs-on: [self-hosted, infra]
     steps:
       - name: Checkout sources
@@ -36,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build documentation for 22.04
-        run: VERSION="22.04" yarn build
+      - name: Build documentation for ${{ matrix.version }}
+        run: VERSION="${{ matrix.version }}" yarn build
 
       - name: Copy to S3
-        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/22.04/
+        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ matrix.version }}/
