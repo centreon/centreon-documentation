@@ -144,12 +144,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        appId: '3WEC6XPLDB',
-        apiKey: 'be499306058f3e54012bab278e6e6d86',
-        indexName: 'centreon',
-        contextualSearch: true,
-      },
+      algolia: version
+        ? undefined
+        : {
+          appId: '3WEC6XPLDB',
+          apiKey: 'be499306058f3e54012bab278e6e6d86',
+          indexName: 'centreon',
+          contextualSearch: true,
+        },
 
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
