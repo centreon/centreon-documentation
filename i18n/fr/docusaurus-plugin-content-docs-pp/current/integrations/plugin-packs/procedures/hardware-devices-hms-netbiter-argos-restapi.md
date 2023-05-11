@@ -37,7 +37,6 @@ Il apporte les modèles de service suivants :
 > Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
 > pour en savoir plus sur la découverte automatique d'hôtes.
 
-> Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
 > pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>
