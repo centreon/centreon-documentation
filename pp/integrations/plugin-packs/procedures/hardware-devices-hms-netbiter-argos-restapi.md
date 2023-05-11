@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **HMS Netbiter Argos RestAPI** brings a host template:
+The Centreon Monitoring Connector **HMS Netbiter Argos RestAPI** brings a host template:
 
 * HW-Device-Hms-Netbiter-Argos-Restapi-custom
 
