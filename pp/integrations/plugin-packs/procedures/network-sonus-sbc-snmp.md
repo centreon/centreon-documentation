@@ -217,7 +217,7 @@ apt install centreon-pack-network-sonus-sbc-snmp
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Sonus SBC ** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
