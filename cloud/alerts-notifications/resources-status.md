@@ -20,6 +20,14 @@ You can add or remove columns, and sort by the column of your choice.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Compact or extended view
+
+You can display the view in the mode that suits you best, by changing the visual presentation of lines in tables.
+
+Click the dedicated button to improve the readability of information contained in tables:
+- Compact view mode ![image](../assets/alerts/resources-status/compact-icon.png)
+- Extended view mode ![image](../assets/alerts/resources-status/extended-icon.png)
+
 ## Take actions on events
 
 ### Acknowledge an event
@@ -44,8 +52,6 @@ to yellow.
 The acknowledgement can also be cancelled, in which case the event will be included again in the list 
 of **Unhandled Problems** and its notifications will resume: in the **More actions** menu, select **Disacknowledge**.
 
-![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
-
 ### Set a planned downtime
 
 When a maintenance is planned on one or multiple resources, you can set a
@@ -60,8 +66,6 @@ When a resource is in planned downtime, the alert is not visible anymore in the
 **Unhandled problems** filter and notifications for this resource are stopped. The
 color of lines for resources with a planned downtime is changed to light purple.
 
-![image](../assets/alerts/resources-status/resources-status-downtime.gif)
-
 ### Refresh a status
 
 In many situations, you need to quickly re-check one or multiple services
@@ -72,16 +76,12 @@ to refresh their status. This can be achieved in two ways:
 - By selecting multiple lines and clicking on the **Check** button,
     above the table.
 
-![image](../assets/alerts/resources-status/resources-status-check.gif)
-
 ### Submit a status
 
 In some cases, especially with so-called "passive" services, it can be useful
 to submit a result, i.e. a status, an output and metrics, in order to
 reset the event.
 This can be achieved using the **Submit Status** action, available when a single passive service is selected.
-
-![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
 ## Filtering events
 
@@ -126,15 +126,10 @@ You can filter the list of resources according to a number of predefined criteri
     - [**Service severity**](../monitoring/categories.md): name of the service severity
     - **Service severity level**
 
-    ![image](../assets/alerts/resources-status/search-popup.png)
-
+    
 2. Click on a search criterion: a list of all possible values is displayed.
 
-3. Select the values you want. The search bar displays the text for the filter you have applied, and a figure on the left of the criterion shows how many values are selected.
-
-    ![image](../assets/alerts/resources-status/search-criteria.png)
-
-    You can click the 'x' on the right of a criterion to deselect all values.
+3. Select the values you want. The search bar displays the text for the filter you have applied, and a figure on the left of the criterion shows how many values are selected. You can click the 'x' on the right of a criterion to deselect all values.
 
 4. Click **Search**, or click outside the pop-up. The list of resources is filtered.
 
@@ -186,8 +181,6 @@ The search bar shows all applied criteria, as text. Autocomplete helps you enter
 
 2. According to the type of criterion, autocomplete can suggest possible values for this criterion (e.g. for criterion **Type**, the possible values are **Host**, **Service** and **Metaservice**). Select the value you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection. It is possible to set several values for a criterion. The values should be separated by commas. The search will retrieve all values, using an OR criterion, e.g. **type:service,metaservice** will retrieve all services and metaservices.
 
-    ![image](../assets/alerts/resources-status/search_tab.gif)
-
 3. Use spaces between search criteria. Criteria are added using an AND criterion: results will match all criteria. 
 
    * You can use regular expressions. Wildcards are not supported: a search pattern starting with a * is not valid.
@@ -216,11 +209,7 @@ Use the **gear icon** next to **Filter** to:
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
 categorized under **My Filter**.
 
-![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
-
 By clicking on the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
-
-![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
 
 ## Detail panel
 

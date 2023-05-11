@@ -23,6 +23,14 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Vue compacte ou étendue
+
+Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifiant la présentation visuelle des lignes dans les tableaux.
+
+Cliquez sur le bouton dédié pour faciliter la lecture des informations contenues dans les tableaux :
+- Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
+- Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
+
 ## Exécuter des actions sur les évènements
 
 ### Prendre en compte un évènement
@@ -46,8 +54,6 @@ L'acquittement peut aussi être supprimé pour reverser l'évènement dans la li
 des évènements non pris en compte ainsi que pour relancer les notifications. Cliquez
 sur **Désacquitter** dans le menu **Plus d'actions**.
 
-![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
-
 ### Planifier une plage de maintenance
 
 Il est possible de [planifier une plage de maintenance](downtimes.md) :
@@ -59,8 +65,6 @@ La mise en maintenance d'une ressource a pour effet de masquer l'alerte
 de la vue **Problèmes non traités** et de stopper les notifications partant
 de la ressource. L'arrière-plan des lignes des ressources en maintenance est mauve.
 
-![image](../assets/alerts/resources-status/resources-status-downtime.gif)
-
 ### Relancer un contrôle
 
 Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir
@@ -70,8 +74,6 @@ l'interface. Cela est possible de deux manières différentes :
 - En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne
 - En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier**.
 
-![image](../assets/alerts/resources-status/resources-status-check.gif)
-
 ### Soumettre un statut
 
 Dans certains cas, notamment avec les services dit "passifs", il peut
@@ -79,8 +81,6 @@ Dans certains cas, notamment avec les services dit "passifs", il peut
 de sortie et des métriques, afin de remettre à zéro l'évènement.
 Pour cela, sélectionnez un service passif puis cliquez sur **Soumettre un statut**
 dans le menu **Plus d'actions**.
-
-![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
 ## Filtrer les évènements
 
@@ -125,15 +125,9 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
     - [**Criticité du service**](../monitoring/categories.md): nom de la criticité du service
     - **Niveau de criticité du service**
 
-    ![image](../assets/alerts/resources-status/search-popup.png)
-
 2. Cliquez sur un critère de recherche : une liste de toutes les valeurs possibles s'affiche.
 
-3. Sélectionnez les valeurs désirées. La barre de recherche affiche le texte correspondant au filtre appliqué, et un chiffre indique à gauche du critère le nombre de valeurs sélectionnées.
-
-    ![image](../assets/alerts/resources-status/search-criteria.png)
-
-    Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
+3. Sélectionnez les valeurs désirées. La barre de recherche affiche le texte correspondant au filtre appliqué, et un chiffre indique à gauche du critère le nombre de valeurs sélectionnées. Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
 
 4. Cliquez sur **Rechercher**, ou cliquez en dehors de la pop-up. La liste des ressources est filtrée.
 
@@ -226,11 +220,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
 
-![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
-
-En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant) :
-
-![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
+En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant).
 
 ## Panneau de détail
 
