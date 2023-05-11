@@ -159,6 +159,9 @@ dnf install centreon-plugin-Cloud-Aws-Directconnect-Api
 
 ```bash
 dnf install centreon-plugin-Cloud-Aws-Directconnect-Api
+```
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
