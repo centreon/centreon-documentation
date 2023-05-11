@@ -172,7 +172,7 @@ apt install centreon-plugin-hardware-devices-hms-netbiter-argos-restapi
 4. Appliquez le modèle d'hôte **HW-Device-Hms-Netbiter-Argos-Restapi-custom-custom**.
 5. Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-| Mandatory | Macro        | Description                                                                              | Default |
+| Obligatoire | Macro        | Description                                                                              | Défaut |
 |:----------|:-------------|:-----------------------------------------------------------------------------------------|:--------|
 |           | APIACCESSKEY | For Access Key "direct" authentication method. Example: --access-key='ABCDEFG1234567890' |         |
 |           | APIPASSWORD  | For Username/Password authentication method. Must be used with --api-password option     |         |
