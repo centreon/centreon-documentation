@@ -26,7 +26,7 @@ It brings the following service templates:
 
 ### Discovery rules
 
-The pack provides a discovery rule to automatically discover Amazon Direct Connect resources:
+The pack provides a discovery rule to automatically discover **Amazon Direct Connect** resources:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-directconnect-provider.png)
 
