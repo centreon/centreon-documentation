@@ -134,7 +134,7 @@ apt install centreon-pack-cloud-aws-directconnect
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Amazon Direct Connect**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
