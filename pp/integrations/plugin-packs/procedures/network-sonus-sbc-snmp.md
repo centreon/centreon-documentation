@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack **Sonus SBC** brings a host template:
+The Centreon Monitoring Connector **Sonus SBC** brings a host template:
 
 * Net-Sonus-Sbc-SNMP-custom-custom
 
