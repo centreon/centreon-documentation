@@ -25,7 +25,7 @@ It brings the following service templates:
 | Disks           | Net-Sonus-Sbc-Disks-SNMP           | Check storage usage                                                                                                                                | X       |           |
 | Cpu-Detailed    | Net-Sonus-Sbc-Cpu-Detailed-SNMP    | Check the rate of utilization of CPU for the machine. This check can give further details on its utilization                                       | X       |           |
 | Channels        | Net-Sonus-Sbc-Channels-SNMP        | Check state and status of channels configured on the equipment                                                                                     | X       |           |
-| Call-Statistics | Net-Sonus-Sbc-Call-Statistics-SNMP | Check statistics of calls managed through this equipement                                                                                          | X       |           |
+| Call-Statistics | Net-Sonus-Sbc-Call-Statistics-SNMP | Check statistics of calls managed through this equipment                                                                                          | X       |           |
 | Cpu             | Net-Sonus-Sbc-Cpu-SNMP             | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |         |           |
 
 
