@@ -26,7 +26,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Ce pack propose une règle de découverte d'hôtes permettant de découvrir automatiquement des ressources Amazon Direct Connect :
+Ce pack propose une règle de découverte d'hôtes permettant de découvrir automatiquement des ressources Amazon Direct Connect.
 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery).
