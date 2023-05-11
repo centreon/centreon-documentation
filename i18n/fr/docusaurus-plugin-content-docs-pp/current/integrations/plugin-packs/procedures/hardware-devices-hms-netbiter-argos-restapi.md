@@ -118,7 +118,7 @@ apt install centreon-pack-hardware-devices-hms-netbiter-argos-restapi
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **HMS Netbiter Argos RestAPI**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
