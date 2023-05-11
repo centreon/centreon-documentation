@@ -256,7 +256,7 @@ apt install centreon-pack-cloud-outscale
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Outscale** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
