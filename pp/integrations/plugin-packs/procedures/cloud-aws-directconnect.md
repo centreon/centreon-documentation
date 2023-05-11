@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack **Amazon Direct Connect** brings a host template:
+The Centreon Monitoring Connector **Amazon Direct Connect** brings a host template:
 
 * Cloud-Aws-Directconnect-custom-custom
 
