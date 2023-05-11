@@ -21,12 +21,14 @@ Le connecteur apporte le modèle de service suivant (classés par modèle d'hôt
 
 | Alias | Modèle de service | Description |
 |:------|:------------------|:------------|
+| N/A   | N/A               | N/A         |
 
 </TabItem>
 <TabItem value="App-Protocol-Udp-Only" label="App-Protocol-Udp-Only">
 
 | Alias | Modèle de service | Description |
 |:------|:------------------|:------------|
+| N/A   | N/A               | N/A         |
 
 </TabItem>
 <TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
@@ -51,12 +53,6 @@ Coming soon
 
 </TabItem>
 </Tabs>
-
-## Prérequis
-
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
 
 ## Installation
 
@@ -203,14 +199,14 @@ sudo /usr/lib/centreon/plugins//centreon_protocol_udp.pl \
 	--plugin=apps::protocols::udp::plugin \
 	--mode=connection  \
 	--hostname='10.0.0.1' \
-	--port='' \
+	--port='161' \
 	
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: Connection success on port 161
 ```
 
 ### Modes disponibles

@@ -21,12 +21,14 @@ The connector brings the following service template (sorted by host template):
 
 | Service Alias | Service Template  | Service Description |
 |:--------------|:------------------|:--------------------|
+| N/A           | N/A               | N/A                 |
 
 </TabItem>
 <TabItem value="App-Protocol-Udp-Only" label="App-Protocol-Udp-Only">
 
 | Service Alias | Service Template  | Service Description |
 |:--------------|:------------------|:--------------------|
+| N/A           | N/A               | N/A                 |
 
 </TabItem>
 <TabItem value="No host template" label="No host template">
@@ -51,12 +53,6 @@ Coming soon
 
 </TabItem>
 </Tabs>
-
-## Prerequisites
-
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
 
 ## Setup
 
@@ -205,14 +201,14 @@ sudo /usr/lib/centreon/plugins//centreon_protocol_udp.pl \
 	--plugin=apps::protocols::udp::plugin \
 	--mode=connection  \
 	--hostname='10.0.0.1' \
-	--port='' \
+	--port='161' \
 	
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: Connection success on port 161
 ```
 
 ### Available modes
