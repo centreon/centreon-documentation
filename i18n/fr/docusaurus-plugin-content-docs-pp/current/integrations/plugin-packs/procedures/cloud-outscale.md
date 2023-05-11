@@ -43,7 +43,7 @@ Il apporte les modèles de service suivants :
 | Cloud-Outscale-Osccli-Quota-Type-Name       | Découvre les quotas et supervise le statut                 |
 | Cloud-Outscale-Osccli-Route-Table-Id        | Découvre les tables de routage et supervise le statut      |
 | Cloud-Outscale-Osccli-Subnet-Name           | Découvre les sous-réseaux et supervise le statut           |
-| Cloud-Outscale-Osccli-Virtual-Gateway-Name  | Découvre les paserrelles virtuelles et supervise le statut |
+| Cloud-Outscale-Osccli-Virtual-Gateway-Name  | Découvre les passerelles virtuelles et supervise le statut |
 | Cloud-Outscale-Osccli-Vm-Name               | Découvre les machines virtuelles et supervise le statut    |
 | Cloud-Outscale-Osccli-Volume-Id             | Découvre les volumes et supervise le statut                |
 | Cloud-Outscale-Osccli-Vpn-Connection-Name   | Découvre les connexions VPN et supervise le statut         |
