@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon **Sonus SBC** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Sonus SBC** apporte un modèle d'hôte :
 
 * Net-Sonus-Sbc-SNMP-custom-custom
 
