@@ -21,12 +21,14 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 
 | Alias | Modèle de service | Description |
 |:------|:------------------|:------------|
+| N/A   | N/A               | N/A         |
 
 </TabItem>
 <TabItem value="App-Protocol-Tcp-Only" label="App-Protocol-Tcp-Only">
 
 | Alias | Modèle de service | Description |
 |:------|:------------------|:------------|
+| N/A   | N/A               | N/A         |
 
 </TabItem>
 <TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
@@ -236,7 +238,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 	--plugin=apps::protocols::tcp::plugin \
 	--mode=response-time  \
 	--hostname='10.0.0.1' \
-	--port='' \
+	--port='80' \
 	--timeout='' \
 	--warning-rta='' \
 	--critical-rta='' \
@@ -252,7 +254,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:     | 'tcp.roundtrip.time.average.milliseconds'=52ms;;;0; 'tcp.roundtrip.time.maximum.milliseconds'=10ms;;;0; 'tcp.roundtrip.time.minimum.milliseconds'=80ms;;;0; 'tcp.packets.loss.percentage'=86%;;;0;100
+OK: TCP '10.0.0.1' port 80 rta 0.633ms, lost 0% | 'tcp.roundtrip.time.average.milliseconds'=0.633ms;;;0; 'tcp.roundtrip.time.maximum.milliseconds'=2.145ms;;;0; 'tcp.roundtrip.time.minimum.milliseconds'=0.193ms;;;0; 'tcp.packets.loss.percentage'=0%;;;0;100
 ```
 
 ### Modes disponibles
