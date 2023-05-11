@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Pack **Outscale** brings a host template:
+The Centreon Monitoring Connector **Outscale** brings a host template:
 
 * Cloud-Outscale-Osscli-custom
 
