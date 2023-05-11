@@ -21,12 +21,14 @@ The connector brings the following service templates (sorted by host template):
 
 | Service Alias | Service Template  | Service Description |
 |:--------------|:------------------|:--------------------|
+| N/A           | N/A               | N/A                 |
 
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
 
 | Service Alias | Service Template  | Service Description |
 |:--------------|:------------------|:--------------------|
+| N/A           | N/A               | N/A                 |
 
 </TabItem>
 <TabItem value="No host template" label="No host template">
@@ -93,8 +95,7 @@ Coming soon
 ### SNMP Configuration
 
 To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation from XXX:\
-* LINK
+Please refer to the official documentation of your equipement.
 
 ### Network flow
 
@@ -256,24 +257,17 @@ running the following command:
 ```bash
 /usr/lib/centreon/plugins//centreon_generic_snmp.pl \
 	--plugin=apps::protocols::snmp::plugin \
-	--mode=string-value \
+	--mode=uptime \
 	--hostname=10.0.0.1 \
 	--snmp-community='my-snmp-community' \
 	--snmp-version=2c  \
-	--oid='' \
-    --format-ok='' \
-    --format-warning='' \
-    --format-critical='' \
-    --format-unknown='' \
-    --warning-regexp= \
-    --critical-regexp= \
 	
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: System uptime is: 3m 25s | 'uptime'=205s;;;0;
 ```
 
 ### Available modes

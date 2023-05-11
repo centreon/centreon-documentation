@@ -21,12 +21,14 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 
 | Alias | Modèle de service | Description |
 |:------|:------------------|:------------|
+| N/A   | N/A               | N/A         |
 
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
 
 | Alias | Modèle de service | Description |
 |:------|:------------------|:------------|
+| N/A   | N/A               | N/A         |
 
 </TabItem>
 <TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
@@ -93,9 +95,7 @@ Coming soon
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent 
-sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent de l'équipement en s'appuyant sur la documentation de ce dernier.
 
 ### Flux réseau
 
@@ -255,24 +255,17 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
 ```bash
 /usr/lib/centreon/plugins//centreon_generic_snmp.pl \
 	--plugin=apps::protocols::snmp::plugin \
-	--mode=string-value \
+	--mode=uptime \
 	--hostname=10.0.0.1 \
 	--snmp-community='my-snmp-community' \
 	--snmp-version=2c  \
-	--oid='' \
-    --format-ok='' \
-    --format-warning='' \
-    --format-critical='' \
-    --format-unknown='' \
-    --warning-regexp= \
-    --critical-regexp= \
 	
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: System uptime is: 3m 25s | 'uptime'=205s;;;0; 
 ```
 
 ### Modes disponibles
