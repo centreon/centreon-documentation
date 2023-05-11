@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **HMS Netbiter Argos RestAPI** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **HMS Netbiter Argos RestAPI** apporte un modèle d'hôte :
 
 * HW-Device-Hms-Netbiter-Argos-Restapi-custom
 
