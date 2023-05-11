@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon **Amazon Direct Connect** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Amazon Direct Connect** apporte un modèle d'hôte :
 
 * Cloud-Aws-Directconnect-custom-custom
 
