@@ -1,6 +1,6 @@
 ---
 id: applications-protocol-udp
-title: UDP Protocol
+title: Protocol UDP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

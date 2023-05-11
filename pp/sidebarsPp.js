@@ -2090,6 +2090,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-udp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-whois'
         },
         {
@@ -2107,10 +2111,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-tftp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-udp'
         },
         {
           type: 'doc',
