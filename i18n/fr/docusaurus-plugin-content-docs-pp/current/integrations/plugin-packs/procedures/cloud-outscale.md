@@ -203,7 +203,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ## Prérequis
 
-Veuillez suivre la procédure officielle en réalisation l'installation de ```osc-cli``` pour l'utilisateur ```centreon-engine``` :
+Veuillez suivre la procédure officielle pour l'installation de ```osc-cli``` pour l'utilisateur ```centreon-engine``` :
 https://docs.outscale.com/fr/userguide/Installer-et-configurer-OSC-CLI.html
 
 Un utilisateur Outscale avec les droits suivants doit être utilisé :
