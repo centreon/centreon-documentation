@@ -32,6 +32,9 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Fix" label="Fix">
 
 - [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - Add policy-name macro - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.05.1-1
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - fix(pack) cloud-azure-policyinsights-policystates - changed command name - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.05.0-1
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - applications-monitoring-centreon-poller - fix options for Broker stats - Status:stable - centreon-pack-applications-monitoring-centreon-poller-23.05.1-1
+- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - centreon-pack-hardware-servers-xfusion-ibmc-snmp - wrong command - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-23.05.0-1
 
 </TabItem>
 </Tabs>
