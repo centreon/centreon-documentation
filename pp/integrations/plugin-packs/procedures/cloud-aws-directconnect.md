@@ -26,7 +26,7 @@ It brings the following service templates:
 
 ### Discovery rules
 
-The pack provides a discovery rule to automatically discover **Amazon Direct Connect** resources:
+The pack provides a discovery rule to automatically discover **Amazon Direct Connect** resources.
 
 
 More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
