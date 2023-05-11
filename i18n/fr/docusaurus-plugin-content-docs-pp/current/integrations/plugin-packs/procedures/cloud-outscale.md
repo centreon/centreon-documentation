@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Pack Centreon **Outscale** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Outscale** apporte un modèle d'hôte :
 
 * Cloud-Outscale-Osscli-custom
 
