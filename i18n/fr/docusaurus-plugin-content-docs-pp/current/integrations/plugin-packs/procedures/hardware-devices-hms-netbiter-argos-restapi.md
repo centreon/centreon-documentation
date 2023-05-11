@@ -57,7 +57,7 @@ Il apporte les modèles de service suivants :
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Metric Name            | Unit  |
+| Métrique            | Unité  |
 |:-----------------------|:------|
 | alarm.duration.seconds | s     |
 | alarms.total.count     | count |
