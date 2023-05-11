@@ -2,10 +2,9 @@ name: archive
 
 on:
   workflow_dispatch:
-    # inputs:
-    #   version:
-    #     required: true
-  pull_request: # to delete
+    inputs:
+      version:
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -13,9 +12,6 @@ concurrency:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        version: ["20.04", "20.10", "21.04"]
     runs-on: [self-hosted, infra]
     steps:
       - name: Checkout sources
@@ -39,8 +35,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build documentation for ${{ matrix.version }}
-        run: VERSION="${{ matrix.version }}" yarn build
+      - name: Build documentation for ${{ github.event.inputs.version }}
+        run: VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Copy to S3
-        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ matrix.version }}/
+        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ github.event.inputs.version }}/
