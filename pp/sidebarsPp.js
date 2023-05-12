@@ -1018,6 +1018,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-outscale'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
         },
         {
