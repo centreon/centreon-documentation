@@ -758,7 +758,7 @@ systemctl start httpd
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl start https
+systemctl start httpd
 ```
 
 </TabItem>
