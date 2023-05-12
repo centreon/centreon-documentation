@@ -2094,10 +2094,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-udp'
         },
         {
@@ -2114,7 +2110,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
+          id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
         },
         {
           type: 'doc',
