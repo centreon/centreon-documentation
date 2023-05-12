@@ -204,6 +204,10 @@ dnf install centreon-pack-network-sonus-sbc-snmp
 
 ```bash
 dnf install centreon-pack-network-sonus-sbc-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-network-sonus-sbc-snmp
@@ -237,6 +241,13 @@ Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Network-Sonus-SBC-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 dnf install centreon-plugin-Network-Sonus-SBC-Snmp
