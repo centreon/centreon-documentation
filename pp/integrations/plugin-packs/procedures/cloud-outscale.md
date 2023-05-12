@@ -218,7 +218,7 @@ A user Outscale with the following privileges should be used:
             "Effect": "Allow"
         }
     ]
-}
+
 ```
 
 ## Setup
@@ -243,6 +243,10 @@ dnf install centreon-pack-cloud-outscale
 
 ```bash
 dnf install centreon-pack-cloud-outscale
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-outscale
@@ -276,6 +280,13 @@ Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Outscale-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 dnf install centreon-plugin-Cloud-Outscale-Api

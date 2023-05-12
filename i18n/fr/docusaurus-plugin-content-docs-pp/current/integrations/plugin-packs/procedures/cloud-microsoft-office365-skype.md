@@ -1,4 +1,3 @@
-
 ---
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
