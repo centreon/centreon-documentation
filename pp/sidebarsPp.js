@@ -1696,6 +1696,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-keysight-nvos-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp'
         },
         {
