@@ -674,6 +674,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-directconnect'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-ebs'
         },
         {
