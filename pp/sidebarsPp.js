@@ -674,6 +674,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-directconnect'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-ebs'
         },
         {
@@ -1011,6 +1015,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-teams'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-outscale'
         },
         {
           type: 'doc',
@@ -1688,6 +1696,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-keysight-nvos-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp'
         },
         {
@@ -2031,10 +2043,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-ftp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
         },
         {
           type: 'doc',
@@ -2514,7 +2522,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-sonus-sbc-snmp'
         },
-        {
+          {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-xivo'
         }

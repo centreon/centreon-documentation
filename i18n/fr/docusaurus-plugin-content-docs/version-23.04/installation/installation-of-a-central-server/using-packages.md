@@ -353,7 +353,7 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -362,7 +362,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -758,7 +758,7 @@ systemctl start httpd
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl start https
+systemctl start httpd
 ```
 
 </TabItem>
