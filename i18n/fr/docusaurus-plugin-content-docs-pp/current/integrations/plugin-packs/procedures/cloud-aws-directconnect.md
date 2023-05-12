@@ -162,6 +162,13 @@ dnf install centreon-plugin-Cloud-Aws-Directconnect-Api
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Aws-Directconnect-Api
+```
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash

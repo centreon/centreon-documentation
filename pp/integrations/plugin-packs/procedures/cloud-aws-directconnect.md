@@ -29,7 +29,7 @@ It brings the following service templates:
 The pack provides a discovery rule to automatically discover **Amazon Direct Connect** resources.
 
 
-More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
 
@@ -109,6 +109,13 @@ with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-cloud-aws-directconnect
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 dnf install centreon-pack-cloud-aws-directconnect
