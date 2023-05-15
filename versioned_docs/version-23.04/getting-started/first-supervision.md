@@ -4,7 +4,7 @@ title: Prerequisites
 ---
 
 This topic proposes to install the monitoring templates supplied free of charge with the Centreon solution
-and then to implement them to monitor your first equipment.
+and then to implement them to monitor your first equipment...
 
 > If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.md) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.md).
 
