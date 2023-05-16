@@ -1,6 +1,6 @@
 ---
 id: monitoring
-title: Comment mettre une ressource en supervision?
+title: Comment mettre une ressource en supervision ?
 ---
 
 Pour mettre une ressource en supervision dans Centreon Cloud :
