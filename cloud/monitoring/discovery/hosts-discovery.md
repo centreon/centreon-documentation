@@ -7,10 +7,10 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 ## Create a discovery job
 
-1. Install the Plugin Pack for the resources you want to discover.
-    > The discovery providers are included in Plugin Packs (Azure,
+1. Install the Monitoring Connector for the resources you want to discover.
+    > The discovery providers are included in Monitoring Connectors (Azure,
     > Amazon AWS, VMware, etc.). To know the complete list, please go to
-    > the [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction)
+    > the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction)
     > catalog.
 
 2. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
@@ -227,7 +227,7 @@ There are nine types of mappers:
 |---------------|---------------------------------------------------------------------------------------------------------------------------|
 | Property      | Define a label (name, alias, IP address)                                                                                  |
 | Macro         | Define a custom macro for the host                                                                                        |
-| Template      | Add host templates (the template from the plugin pack is added automatically)                                             |
+| Template      | Add host templates (the template from the Monitoring Connector is added automatically)                                             |
 | Host group    | Link hosts to a host group                                                                                                |
 | Host category | Link a host to a category                                                                                                 |
 | Host severity | Prioritize the host according to a severity                                                                               |

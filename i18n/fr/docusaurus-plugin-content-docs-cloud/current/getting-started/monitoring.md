@@ -7,7 +7,7 @@ Pour mettre une ressource en supervision dans Centreon Cloud :
 
 1. Créez la ressource.
 2. Liez la ressource au collecteur qui la supervisera.
-3. Liez la ressource au modèle fourni par le [Plugin Pack](../monitoring/pluginpacks.md) correspondant.
+3. Liez la ressource au modèle fourni par le [connecteur de supervision](../monitoring/pluginpacks.md) correspondant.
 4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). La ressource apparaît à la page **Statut des ressources** : vous pouvez y suivre tout changement de statut.
 
 Voici quelques tutoriels pour vous aidez à mettre en place votre supervision :
