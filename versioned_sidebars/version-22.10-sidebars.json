@@ -528,6 +528,10 @@
         },
         {
           "type": "doc",
+          "id": "version-22.10/monitoring/basic-objects/customization"
+        },
+        {
+          "type": "doc",
           "id": "version-22.10/monitoring/basic-objects/contacts-create"
         },
         {
