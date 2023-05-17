@@ -403,6 +403,22 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 /etc/centreon-studio/configure.sh
 ```
 
+Voici ce que vous devez voir en sortie :
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+Ce script crée le fichier **studio-config.properties**.
+
+#### URI personnalisée 
+
+Si vous avez personnalisé une URI de connexion pour votre plateforme Centreon, vous devez éditer le fichier **studio-config.properties** en ajoutant la commande suivante et en utilisant l'URI personnalisée déjà définie [ici](../administration/secure-platform.md#uri-personnalisée) :
+
+```shell
+centreon.path=/your-custom-uri
+```
+
 Puis redémarrez le service **centreon-map** :
 
 ```shell
