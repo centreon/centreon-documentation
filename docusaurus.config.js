@@ -197,6 +197,11 @@ const config = {
           if (version) {
             return [
               {
+                type: 'html',
+                position: 'left',
+                value: `<h2 style="margin:0">Centreon OnPrem ${version}</h2>`,
+              },
+              {
                 type: 'localeDropdown',
                 position: 'right',
               },
