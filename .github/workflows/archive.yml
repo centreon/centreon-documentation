@@ -1,7 +1,6 @@
 name: archive
 
 on:
-  pull_request: # to delete
   workflow_dispatch:
     inputs:
       version:
@@ -14,9 +13,6 @@ concurrency:
 jobs:
   build:
     runs-on: [self-hosted, infra]
-    strategy:
-      matrix:
-        version: ["20.04", "20.10", "21.04"]
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -39,14 +35,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build documentation for ${{ matrix.version }}
-        run: VERSION="${{ matrix.version }}" yarn build
+      - name: Build documentation for ${{ github.event.inputs.version }}
+        run: VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Copy to S3
-        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ matrix.version }}/
-
-      # - name: Build documentation for ${{ github.event.inputs.version }}
-      #   run: VERSION="${{ github.event.inputs.version }}" yarn build
-
-      # - name: Copy to S3
-      #   run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ github.event.inputs.version }}/
+        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ github.event.inputs.version }}/
