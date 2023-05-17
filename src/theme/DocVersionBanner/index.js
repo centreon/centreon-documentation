@@ -6,11 +6,15 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate from '@docusaurus/Translate';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 
-export default function DocVersionBannerWrapper(props) {
-  const versionMetadata = useDocsVersion();
+export default function DocVersionBannerWrapper() {
+  const { banner, label } = useDocsVersion();
   const {
     siteConfig: {title: siteTitle},
   } = useDocusaurusContext();
+
+  if (banner !== 'unmaintained') {
+    return null;
+  }
 
   return (
     <div
@@ -26,7 +30,7 @@ export default function DocVersionBannerWrapper(props) {
           description="The label used to tell the user that he's browsing an unmaintained doc version"
           values={{
             siteTitle,
-            versionLabel: <b>{versionMetadata.label}</b>,
+            versionLabel: <b>{label}</b>,
           }}
         />
       </div>
