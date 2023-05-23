@@ -11,8 +11,7 @@ interface and how to help us to add new language in Centreon.
 
 ## Install translation environment
 
-Download the following [archive]( https://blog-centreon-wordpress.s3.amazonaws.com/wp-content/uploads/2017/05/centreon-translation.zip) and
-copy it on a Linux server.
+Contact us to obtain an archive of the contents to translate, then copy this archive to a Linux server.
 
 Execute the following commands:
 ```shell
