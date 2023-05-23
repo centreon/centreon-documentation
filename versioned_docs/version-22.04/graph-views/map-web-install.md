@@ -268,10 +268,25 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
-> You need to have a MariaDB database to store your Centreon MAP data, except if it has already been created at the central level.
+```shell
+echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+</TabItem>
+</Tabs>
+
+> If the URL does not work, you can manually find this package in the folder.
+
+> You need to have a MariaDB database to store your Centreon MAP data.
 
 To install MariaDB, execute the following command:
 
@@ -350,23 +365,6 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-To install the Centreon repository, execute the following command:
-
-```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
-Then import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-</TabItem>
-</Tabs>
-
-> If the URL does not work, you can manually find this package in the folder.
-
 Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
@@ -405,7 +403,7 @@ When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 17) if needed.
 
 </TabItem>
-<TabItem value="On existing Centreon-Map server Legacy" label="On existing Centreon-Map server Legacy">
+<TabItem value="On existing Centreon-Map Legacy server" label="On existing Centreon-Map Legacy server">
 
 > If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New Centreon-Map Engine server** tab.
 
