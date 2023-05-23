@@ -1,7 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './index.module.css';
 
 const basePathImg = './img/homepage/';
@@ -217,7 +219,18 @@ function SocialBlock() {
 }
 
 export default function Home() {
+  const { versions } = usePluginData('docusaurus-plugin-content-docs');
+  const defaultPath = versions?.[0]?.path ?? '/docs';
+  const defaultPage = versions?.[0]?.mainDocId ?? 'getting-started/installation-first-steps';
+  const defaultRoute = `${defaultPath}/${defaultPage}`;
+
   const { siteConfig } = useDocusaurusContext();
+  const { customFields: { version } } = siteConfig;
+
+  if (version) {
+    return <Redirect to={defaultRoute} />;
+  }
+
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
