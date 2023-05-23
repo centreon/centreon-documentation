@@ -9,7 +9,7 @@ Si vous voulez contribuer à traduire Centreon, ce tutoriel est pour vous ! Dé
 
 ## Installer l’environnement de traduction
 
-Téléchargez l’[archive](https://blog-centreon-wordpress.s3.amazonaws.com/wp-content/uploads/2017/05/centreon-translation.zip) suivante et copiez-la sur un serveur Linux.
+Contactez-nous afin d'obtenir une archive des contenus à traduire, puis copiez celle-ci sur un serveur Linux.
 
 Exécutez les commandes suivantes :
 
