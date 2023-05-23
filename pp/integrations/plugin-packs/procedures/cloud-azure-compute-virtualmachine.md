@@ -5,7 +5,7 @@ title: Azure Virtual Machine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Monitoring Connector Assets
+## Pack assets
 
 ### Templates
 
@@ -13,7 +13,7 @@ The Monitoring Connector **Azure Virtual Machine** brings a host template:
 
 * Cloud-Azure-Compute-VirtualMachine
 
-The connector brings the following service templates (sorted by host template):
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
 <TabItem value="Cloud-Azure-Compute-VirtualMachine" label="Cloud-Azure-Compute-VirtualMachine">
@@ -27,14 +27,14 @@ The connector brings the following service templates (sorted by host template):
 | Network       | Cloud-Azure-Compute-VirtualMachine-Cpu-Usage-Api | Check network usage         |
 
 </TabItem>
-<TabItem value="No host template" label="No host template">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
 | Service Alias   | Service Template                                       | Service Description               |
 |:----------------|:-------------------------------------------------------|:----------------------------------|
 | Cpu-Credit      | Cloud-Azure-Compute-VirtualMachine-Cpu-Credit-Api      | Check CPU credits usage           |
 | Vm-Sizes-Global | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api | Check vitual machines types count |
 
-> These services are not automatically created when the host template is applied.
+> These services are not created automatically when a host template is applied.
 
 </TabItem>
 </Tabs>
@@ -43,11 +43,11 @@ The connector brings the following service templates (sorted by host template):
 
 The Centreon Monitoring Connector **Azure Virtual Machine** includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
-to the Centreon configuration. This provider is named **Microsoft Azure Virtual Machine**:
+to the list of monitored hosts. This provider is named **Microsoft Azure Virtual Machine**.
 
-> This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
+> This discovery feature is only compatible with the [**api** custom mode. **azcli** is not supported](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+Go to the corresponding chapter to learn more about [discovering hosts automatically](/docs/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
 
@@ -116,9 +116,9 @@ on the [dedicated page](../getting-started/how-to-guides/azure-credential-config
 
 ## Setup
 
-### Monitoring Connector
+### Pack
 
-If the platform uses an *online* license, you can skip the package installation
+1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
@@ -139,13 +139,6 @@ dnf install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-cloud-azure-compute-virtualmachine
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -153,9 +146,16 @@ apt install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-cloud-azure-compute-virtualmachine
+```
+
+</TabItem>
 </Tabs>
 
-Whatever the license type (*online* or *offline*), install the **Azure Virtual Machine** connector through
+2. Whatever the license type (*online* or *offline*), install the **Azure Virtual Machine** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
@@ -164,8 +164,9 @@ Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' f
 When this feature is enabled, you can skip the installation part below.
 
 You still have to manually install the plugin on the poller(s) when:
+
 - Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet.
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
@@ -186,17 +187,17 @@ dnf install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-azure-compute-virtualmachine-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
 </TabItem>
@@ -254,9 +255,9 @@ apt install centreon-plugin-cloud-azure-compute-virtualmachine-api
 </TabItem>
 </Tabs>
 
-### Service 
+### Service
 
-Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+Once the service template is applied, fill in the corresponding macros. Some macros are mandatory.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">

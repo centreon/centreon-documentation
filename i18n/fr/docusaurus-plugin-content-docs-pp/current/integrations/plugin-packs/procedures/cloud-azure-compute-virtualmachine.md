@@ -5,7 +5,7 @@ title: Azure Virtual Machine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du connecteur de supervision
+## Contenu du pack
 
 ### Modèles
 
@@ -13,7 +13,7 @@ Le connecteur de supervision **Azure Virtual Machine** apporte un modèle d'hôt
 
 * Cloud-Azure-Compute-VirtualMachine
 
-Le connecteur apporte les modèles de service suivants (classés par modèle d'hôte):
+Le connecteur apporte les modèles de service suivants (classés selon le modèle d'hôte auquel ils sont rattachés):
 
 <Tabs groupId="sync">
 <TabItem value="Cloud-Azure-Compute-VirtualMachine" label="Cloud-Azure-Compute-VirtualMachine">
@@ -23,18 +23,18 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 | Cpu-Usage | Cloud-Azure-Compute-VirtualMachine-Network-Api   | Contrôle l'utilisation CPU           |
 | Diskio    | Cloud-Azure-Compute-VirtualMachine-Memory-Api    | Contrôle l'utilisation des écritures |
 | Health    | Cloud-Azure-Compute-VirtualMachine-Health-Api    | Contrôle le statut de la VM          |
-| Memory    | Cloud-Azure-Compute-VirtualMachine-Diskio-Api    | Contrôle l'utilisation de la memoire |
+| Memory    | Cloud-Azure-Compute-VirtualMachine-Diskio-Api    | Contrôle l'utilisation de la mémoire |
 | Network   | Cloud-Azure-Compute-VirtualMachine-Cpu-Usage-Api | Contrôle l'utilisation réseau        |
 
 </TabItem>
-<TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias           | Modèle de service                                      | Description                                                                |
 |:----------------|:-------------------------------------------------------|:---------------------------------------------------------------------------|
 | Cpu-Credit      | Cloud-Azure-Compute-VirtualMachine-Cpu-Credit-Api      | Contrôle l'utilisation des crédits CPU                                     |
 | Vm-Sizes-Global | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api | Contrôle permettant de remonter le nombre de machines virtuelles par types |
 
-> Ces services ne sont pas automatiquement créés lorsque le modèle d'hôte est appliqué.
+> Ces services ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué.
 
 </TabItem>
 </Tabs>
@@ -43,13 +43,13 @@ Le connecteur apporte les modèles de service suivants (classés par modèle d'h
 
 Le connecteur de supervision Centreon **Azure Virtual Machine** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Virtual Machine**. Celui-ci permet de découvrir l'ensemble des instances
-rattachées à une souscription Microsoft Azure donnée :
+rattachées à une souscription Microsoft Azure donnée et de les ajouter à la liste des hôtes supervisés.
 
-> Cette découverte n'est compatible qu'avec le mode **api**. Le mode **azcli** n'est pas supporté dans le cadre
+> Cette découverte n'est compatible qu'avec le [mode **api**. Le mode **azcli**](../getting-started/how-to-guides/azure-credential-configuration.md) n'est pas supporté dans le cadre
 > de cette utilisation.
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
-pour en savoir plus sur la découverte automatique d'hôtes.
+Rendez-vous sur la documentation dédiée
+pour en savoir plus sur la [découverte automatique d'hôtes](/docs/monitoring/discovery/hosts-discovery).
 
 ### Métriques & statuts collectés
 
@@ -118,12 +118,12 @@ les prérequis nécessaires pour interroger les API d'Azure.
 
 ## Installation
 
-### Connecteur de supervision
+### Pack
 
-Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
 
 <Tabs groupId="sync">
@@ -141,13 +141,6 @@ dnf install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-cloud-azure-compute-virtualmachine
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -155,9 +148,16 @@ apt install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-cloud-azure-compute-virtualmachine
+```
+
+</TabItem>
 </Tabs>
 
-Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Virtual Machine**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Virtual Machine**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -186,17 +186,17 @@ dnf install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-azure-compute-virtualmachine-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
 </TabItem>
@@ -211,7 +211,7 @@ apt install centreon-plugin-cloud-azure-compute-virtualmachine-api
 3. Appliquez le modèle d'hôte **Cloud-Azure-Compute-VirtualMachine-custom**.
 4. Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
 
-> Deux méthodes peuvent être utilisées lors de l'assignation des macros :
+> Deux méthodes peuvent être utilisées pour définir des macros :
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
 > * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
@@ -254,9 +254,9 @@ apt install centreon-plugin-cloud-azure-compute-virtualmachine-api
 </TabItem>
 </Tabs>
 
-### Service 
+### Service
 
-Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+Une fois le modèle de service appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
@@ -412,7 +412,6 @@ Le plugin apporte les modes suivants :
 | vm-sizes       | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api                                                  |
 | vms-state      | Not used in this Monitoring Connector                                                                   |
 
-
 ### Custom modes disponibles
 
 Tous les custom modes disponibles peuvent être affichés en ajoutant le paramètre
@@ -467,7 +466,7 @@ Le plugin apporte les custom modes suivants :
 
 #### Options des custom modes
 
-Les options spécifiques aux modes custom sont listées ci-dessus :
+Les options spécifiques aux modes custom sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="api" label="api">
@@ -527,7 +526,7 @@ Les options spécifiques aux modes custom sont listées ci-dessus :
 
 #### Options des modes
 
-Les options spécifiques aux modes sont listées ci-dessus :
+Les options spécifiques aux modes sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
