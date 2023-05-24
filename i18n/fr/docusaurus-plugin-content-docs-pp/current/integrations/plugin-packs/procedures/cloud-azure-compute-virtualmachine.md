@@ -5,13 +5,15 @@ title: Azure Virtual Machine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Le connecteur de supervision **Azure Virtual Machine** permet de superviser des instances Azure rattachées à une souscription Microsoft Azure donnée, en utilisant soit Azure CLI ou Azure RestAPI.
+
 ## Contenu du pack
 
 ### Modèles
 
 Le connecteur de supervision **Azure Virtual Machine** apporte un modèle d'hôte :
 
-* Cloud-Azure-Compute-VirtualMachine
+* **Cloud-Azure-Compute-VirtualMachine**
 
 Le connecteur apporte les modèles de service suivants (classés selon le modèle d'hôte auquel ils sont rattachés):
 
@@ -26,6 +28,8 @@ Le connecteur apporte les modèles de service suivants (classés selon le modèl
 | Memory    | Cloud-Azure-Compute-VirtualMachine-Diskio-Api    | Contrôle l'utilisation de la mémoire |
 | Network   | Cloud-Azure-Compute-VirtualMachine-Cpu-Usage-Api | Contrôle l'utilisation réseau        |
 
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Compute-VirtualMachine** est utilisé.
+
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
@@ -34,12 +38,14 @@ Le connecteur apporte les modèles de service suivants (classés selon le modèl
 | Cpu-Credit      | Cloud-Azure-Compute-VirtualMachine-Cpu-Credit-Api      | Contrôle l'utilisation des crédits CPU                                     |
 | Vm-Sizes-Global | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api | Contrôle permettant de remonter le nombre de machines virtuelles par types |
 
-> Ces services ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué.
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
 </TabItem>
 </Tabs>
 
 ### Règles de découverte
+
+#### Découverte d'hôtes
 
 Le connecteur de supervision Centreon **Azure Virtual Machine** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Virtual Machine**. Celui-ci permet de découvrir l'ensemble des instances
@@ -53,6 +59,8 @@ pour en savoir plus sur la [découverte automatique d'hôtes](/docs/monitoring/d
 
 ### Métriques & statuts collectés
 
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
 
@@ -61,8 +69,6 @@ pour en savoir plus sur la [découverte automatique d'hôtes](/docs/monitoring/d
 | azvm.cpu.credits.consumed.count  | count |
 | azvm.cpu.credits.remaining.count | count |
 | azvm.cpu.utilization.percentage  | %     |
-
-> L'option **--use-new-perfdata** est nécessaire pour avoir ce nouveau format de métrique (dans la macro de service **EXTRAOPTIONS**).
 
 </TabItem>
 <TabItem value="Cpu-Usage" label="Cpu-Usage">
@@ -111,12 +117,14 @@ Coming soon
 </TabItem>
 </Tabs>
 
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
 ## Prérequis
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azure-credential-configuration.md) afin d'obtenir
 les prérequis nécessaires pour interroger les API d'Azure.
 
-## Installation
+## Installer le connecteur de supervision
 
 ### Pack
 
@@ -202,19 +210,14 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-### Hôte
+### Utiliser un modèle d'hôte issu du connecteur
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
-3. Appliquez le modèle d'hôte **Cloud-Azure-Compute-VirtualMachine-custom**.
-4. Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires. Elles doivent être renseignées selon le *custom mode* utilisé.
-
-> Deux méthodes peuvent être utilisées pour définir des macros :
->
-> * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
-> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
+3. Appliquez le modèle d'hôte **Cloud-Azure-Compute-VirtualMachine-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'api.
 
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
@@ -223,17 +226,17 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 |:------------|:-------------------|:-------------------------------------------------------------------------------------------|:-----------------------------|
 |             | AZURECLIENTID      | Set Azure client ID                                                                        |                              |
 |             | AZURECLIENTSECRET  | Set Azure client secret                                                                    |                              |
-|             | AZURECUSTOMMODE    | Choose a custom mode                                                                       | api                          |
+|             | AZURECUSTOMMODE    | Choose a custom mode (either api or azcli)                                                                       | api                          |
 |             | AZURERESOURCE      | Set resource name or id                                                                    |                              |
 |             | AZURERESOURCEGROUP | Set resource group                                                                         |                              |
 |             | AZURESUBSCRIPTION  | Set Azure subscription                                                                     |                              |
 |             | AZURETENANT        | Set Azure tenant ID                                                                        |                              |
 |             | PROXYURL           | Proxy URL if any                                                                           |                              |
-|             | STATUSCRITICAL     | Set critical threshold for status . Can used special variables like: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |
-|             | STATUSOK           | Set ok threshold for status . Can used special variables like: %{status}, %{summary}       | %{status} =~ /^Available$/   |
-|             | STATUSUNKNOWN      | Set unknown threshold for status . Can used special variables like: %{status}, %{summary}  | %{status} =~ /^Unknown$/     |
-|             | STATUSWARNING      | Set warning threshold for status . Can used special variables like: %{status}, %{summary}  |                              |
-|             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (eg. a --verbose flag)          |                              |
+|             | STATUSCRITICAL     | Set critical threshold for status. Can use special variables like: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |
+|             | STATUSOK           | Set ok threshold for status. Can use special variables like: %{status}, %{summary}       | %{status} =~ /^Available$/   |
+|             | STATUSUNKNOWN      | Set unknown threshold for status. Can use special variables like: %{status}, %{summary}  | %{status} =~ /^Unknown$/     |
+|             | STATUSWARNING      | Set warning threshold for status. Can use special variables like: %{status}, %{summary}  |                              |
+|             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (e.g. a --verbose flag)          |                              |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
@@ -254,9 +257,18 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 </TabItem>
 </Tabs>
 
-### Service
+> Deux méthodes peuvent être utilisées pour définir l'authentification :
+>
+> * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
+> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
 
-Une fois le modèle de service appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparait dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Services
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services).
+
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
@@ -354,7 +366,7 @@ Une fois le modèle de service appliqué, les macros ci-dessous indiquées comme
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester que le connecteur arrive bien à superviser une instance Azure en utilisant une commande telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_compute_virtualmachine_api.pl \
@@ -386,6 +398,11 @@ La commande devrait retourner un message de sortie similaire à :
 ```bash
 OK: Credits consumed Credits remaining Percentage | 'azvm.cpu.credits.consumed.count'=30;;;0;;;;;  'azvm.cpu.credits.remaining.count'=0;;;0;;;;;  'azvm.cpu.utilization.percentage'=85%;;;0;;;;100;  
 ```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
 
 ### Modes disponibles
 
@@ -630,8 +647,3 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
     --help
 ```
-
-### Diagnostic des erreurs communes
-
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
-des plugins basés sur HTTP/API.

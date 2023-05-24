@@ -5,13 +5,15 @@ title: Azure Virtual Machine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The Monitoring Connector **Azure Virtual Machine** allows you to monitor Azure instances that are linked to a given Microsoft Azure subscription, using either Azure CLI or Azure RestAPI.
+
 ## Pack assets
 
 ### Templates
 
 The Monitoring Connector **Azure Virtual Machine** brings a host template:
 
-* Cloud-Azure-Compute-VirtualMachine
+* **Cloud-Azure-Compute-VirtualMachine**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
@@ -26,6 +28,8 @@ The connector brings the following service templates (sorted by the host templat
 | Memory        | Cloud-Azure-Compute-VirtualMachine-Diskio-Api    | Check memory usage          |
 | Network       | Cloud-Azure-Compute-VirtualMachine-Cpu-Usage-Api | Check network usage         |
 
+> The services listed above are created automatically when the **Cloud-Azure-Compute-VirtualMachine** host template is used.
+
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
@@ -34,12 +38,14 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu-Credit      | Cloud-Azure-Compute-VirtualMachine-Cpu-Credit-Api      | Check CPU credits usage           |
 | Vm-Sizes-Global | Cloud-Azure-Compute-VirtualMachine-Vm-Sizes-Global-Api | Check vitual machines types count |
 
-> These services are not created automatically when a host template is applied.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then appy the service template you want.
 
 </TabItem>
 </Tabs>
 
 ### Discovery rules
+
+#### Host discovery
 
 The Centreon Monitoring Connector **Azure Virtual Machine** includes a Host Discovery provider to
 automatically discover the Azure instances of a given subscription and add them
@@ -51,6 +57,8 @@ Go to the corresponding chapter to learn more about [discovering hosts automatic
 
 ### Collected metrics & status
 
+Here is the list of services for this connector, detailing all metrics linked to each service.
+
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
 
@@ -59,8 +67,6 @@ Go to the corresponding chapter to learn more about [discovering hosts automatic
 | azvm.cpu.credits.consumed.count  | count |
 | azvm.cpu.credits.remaining.count | count |
 | azvm.cpu.utilization.percentage  | %     |
-
-> The **--use-new-perfdata** option is necessary to get the new metric format (in the **EXTRAOPTIONS** service macro).
 
 </TabItem>
 <TabItem value="Cpu-Usage" label="Cpu-Usage">
@@ -109,12 +115,14 @@ Coming soon
 </TabItem>
 </Tabs>
 
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
 ## Prerequisites
 
 Please find all the prerequisites needed for Centreon to get information from Azure
 on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-## Setup
+## Installing the monitoring connector
 
 ### Pack
 
@@ -203,19 +211,14 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
-3. Apply the **Cloud-Azure-Compute-VirtualMachine-custom** template to the host.
-4. Once the template is applied, fill in the corresponding macros. Some macros are mandatory. These mandatory macros differ depending on the custom mode used.
-
-> Two methods can be used to set the macros:
->
-> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
-> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+3. Apply the **Cloud-Azure-Compute-VirtualMachine-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication cn be used with this resource: either using the command tool azcli, or by querying the API directly.
 
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
@@ -224,17 +227,17 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 |:------------|:-------------------|:-------------------------------------------------------------------------------------------|:-----------------------------|
 |             | AZURECLIENTID      | Set Azure client ID                                                                        |                              |
 |             | AZURECLIENTSECRET  | Set Azure client secret                                                                    |                              |
-|             | AZURECUSTOMMODE    | Choose a custom mode                                                                       | api                          |
+|             | AZURECUSTOMMODE    | Choose a custom mode (either api or azcli)                                                                     | api                          |
 |             | AZURERESOURCE      | Set resource name or id                                                                    |                              |
 |             | AZURERESOURCEGROUP | Set resource group                                                                         |                              |
 |             | AZURESUBSCRIPTION  | Set Azure subscription                                                                     |                              |
 |             | AZURETENANT        | Set Azure tenant ID                                                                        |                              |
 |             | PROXYURL           | Proxy URL if any                                                                           |                              |
-|             | STATUSCRITICAL     | Set critical threshold for status . Can used special variables like: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |
-|             | STATUSOK           | Set ok threshold for status . Can used special variables like: %{status}, %{summary}       | %{status} =~ /^Available$/   |
-|             | STATUSUNKNOWN      | Set unknown threshold for status . Can used special variables like: %{status}, %{summary}  | %{status} =~ /^Unknown$/     |
-|             | STATUSWARNING      | Set warning threshold for status . Can used special variables like: %{status}, %{summary}  |                              |
-|             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (eg. a --verbose flag)          |                              |
+|             | STATUSCRITICAL     | Set critical threshold for status. Can use special variables like: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |
+|             | STATUSOK           | Set ok threshold for status. Can use special variables like: %{status}, %{summary}       | %{status} =~ /^Available$/   |
+|             | STATUSUNKNOWN      | Set unknown threshold for status. Can use special variables like: %{status}, %{summary}  | %{status} =~ /^Unknown$/     |
+|             | STATUSWARNING      | Set warning threshold for status. Can use special variables like: %{status}, %{summary}  |                              |
+|             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (e.g. a --verbose flag)          |                              |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
@@ -246,18 +249,29 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 |             | AZURERESOURCEGROUP | Set resource group                                                                         |                              |
 |             | AZURESUBSCRIPTION  | Set Azure subscription                                                                     |                              |
 |             | PROXYURL           | Proxy URL if any                                                                           |                              |
-|             | STATUSCRITICAL     | Set critical threshold for status . Can used special variables like: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |
-|             | STATUSOK           | Set ok threshold for status . Can used special variables like: %{status}, %{summary}       | %{status} =~ /^Available$/   |
-|             | STATUSUNKNOWN      | Set unknown threshold for status . Can used special variables like: %{status}, %{summary}  | %{status} =~ /^Unknown$/     |
-|             | STATUSWARNING      | Set warning threshold for status . Can used special variables like: %{status}, %{summary}  |                              |
-|             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (eg. a --verbose flag)          |                              |
+|             | STATUSCRITICAL     | Set critical threshold for status. Can use special variables like: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |
+|             | STATUSOK           | Set ok threshold for status. Can use special variables like: %{status}, %{summary}       | %{status} =~ /^Available$/   |
+|             | STATUSUNKNOWN      | Set unknown threshold for status. Can use special variables like: %{status}, %{summary}  | %{status} =~ /^Unknown$/     |
+|             | STATUSWARNING      | Set warning threshold for status. Can use special variables like: %{status}, %{summary}  |                              |
+|             | EXTRAOPTIONS       | Any extra option you may want to add to every command line (e.g. a --verbose flag)          |                              |
 
 </TabItem>
 </Tabs>
 
+> Two methods can be used to define the authentication:
+>
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
 ### Service
 
 Once the service template is applied, fill in the corresponding macros. Some macros are mandatory.
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services).
+
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
 <TabItem value="Cpu-Credit" label="Cpu-Credit">
@@ -354,8 +368,7 @@ Once the service template is applied, fill in the corresponding macros. Some mac
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector is able to monitor an Azure instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_compute_virtualmachine_api.pl \
@@ -387,6 +400,11 @@ The expected command output is shown below:
 ```bash
 OK: Credits consumed Credits remaining Percentage | 'azvm.cpu.credits.consumed.count'=30;;;0;;;;;  'azvm.cpu.credits.remaining.count'=0;;;0;;;;;  'azvm.cpu.utilization.percentage'=85%;;;0;;;;100;  
 ```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
 ### Available modes
 
@@ -632,8 +650,3 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
     --help
 ```
-
-### Troubleshooting
-
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
