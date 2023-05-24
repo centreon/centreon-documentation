@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 ## Overview
 
 VerneMQ is a scalable and open source MQTT broker that connects IoT, M2M, Mobile, and web applications
-The VerneMQ Plugin-Pack monitors Clusters, Listeners, Plugins, and sessions using the RestAPI.
+The VerneMQ Monitoring Connector monitors Clusters, Listeners, Plugins, and sessions using the RestAPI.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -86,7 +86,7 @@ More information on VerneMQ HTTP API on : https://docs.vernemq.com/administratio
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *VerneMQ RestAPI* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,13 +97,13 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-vernemq-restapi.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *VerneMQ RestAPI* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *VerneMQ RestAPI* Monitoring Connector
 
 </TabItem>
 </Tabs>

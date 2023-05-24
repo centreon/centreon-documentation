@@ -57,7 +57,7 @@ Un compte en lecture seule (login/mot de passe) sur ```https://api.ip-label.net`
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
+2. Installer le connecteur de supervision depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -74,7 +74,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 yum install centreon-pack-applications-monitoring-iplabel-datametrie-restapi
 ```
 
-3. Installer le Plugin-Pack depuis la page Centreon Plugin-Pack "Configuration > Plugin packs > Manager"
+3. Installer le connecteur de supervision depuis la page Centreon connecteur de supervision **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

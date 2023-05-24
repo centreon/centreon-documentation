@@ -274,14 +274,14 @@ Complete!
 Now you can install the **centreon-release** package:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -308,7 +308,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL does not work, you can manually find this package in the folder.
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP Engine server using the following command:
@@ -487,6 +487,22 @@ If it is your first installation, we advise you to use the standard mode (intera
   /etc/centreon-map/configure.sh
   ```
 
+The output should look like this:
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+This script generates the **map-config.properties** file.
+
+#### Custom URI 
+
+If you have customized the URI for your Centreon platform, you need to edit the **map-config.properties** file by adding the following command using the custom URI already defined [here](../administration/secure-platform.md#custom-uri):
+
+```shell
+centreon.path=/your-custom-uri
+```
+
 Then restart the **centreon-map-engine** service:
 
 ```shell
@@ -540,7 +556,7 @@ the interface part of the extension.
 
 ### Step 1: Install the business repository
 
-Install the Centreon MAP repository, you can find it on the
+Install the Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Step 2: Install the MAP module
@@ -625,3 +641,10 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   ```
 
 You can now use the MAP module by accessing the **Monitoring > Map** page.
+
+## Secure MAP in HTTPS
+
+If you want to use MAP in HTTPS, you must both secure your Centreon platform and MAP.
+
+- Follow this [procedure](../administration/secure-platform.md) to secure your Centreon platform.
+- Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure MAP.

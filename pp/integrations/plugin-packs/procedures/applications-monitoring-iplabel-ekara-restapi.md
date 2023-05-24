@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **IP-Label Ekara Rest API** brings 1 host template:
+The Centreon Monitoring Connector **IP-Label Ekara Rest API** brings 1 host template:
 
 * App-Monitoring-Iplabel-Ekara-Restapi-custom
 
@@ -22,7 +22,7 @@ It brings the following Service Templates:
 
 ### Discovery rules
 
-The Centreon Plugin-Pack **IP-Label Ekara Rest API** includes a Host Discovery provider to automatically discover the Ekara scenarios and add them as hosts to the Centreon inventory.
+The Centreon Monitoring Connector **IP-Label Ekara Rest API** includes a Host Discovery provider to automatically discover the Ekara scenarios and add them as hosts to the Centreon inventory.
 This provider is named **IP-Label Ekara**.
 
 More information about the Host Discovery module is available in the Centreon documentation:
@@ -66,30 +66,30 @@ More information about the Host Discovery module is available in the Centreon do
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **IP-Label Ekara** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **IP-Label Ekara** resources:
 
   ```bash
   yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
   ```
 
-2. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **IP-Label Ekara** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **IP-Label Ekara** resources:
 
   ```bash
   yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
   ```
 
-2. Install the **IP-Label Ekara Rest API** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **IP-Label Ekara Rest API** Centreon Monitoring Connector RPM on the Centreon Central server:
 
   ```bash
   yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
   ```
 
-3. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

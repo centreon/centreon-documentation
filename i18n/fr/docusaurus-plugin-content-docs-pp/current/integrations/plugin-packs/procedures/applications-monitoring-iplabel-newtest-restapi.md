@@ -12,7 +12,7 @@ IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'u
 
 A partir de points représentatifs de votre entreprise, chaque Newtest Robot simule régulièrement des transactions métiers qui permettent de connaître à tout moment la disponibilité, les temps de réponse et la performance de vos services applicatifs critiques.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets Supervisés
 
@@ -57,7 +57,7 @@ lors de l'ajout de l'Hôte dans Centreon.
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer connecteur de supervision *IP-Label Newtest Rest API* au travers du menu **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,13 +68,13 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Installer le paquet RPM du Plugin Pack contenant les Modèles de supervision sur le serveur Centreon Central:
+2. Installer le paquet RPM du connecteur de supervision contenant les Modèles de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer connecteur de supervision *IP-Label Newtest Rest API* au travers du menu **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

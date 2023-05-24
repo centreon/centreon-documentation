@@ -5,7 +5,6 @@ title: Install Centreon MBI extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 This chapter presents the software architecture of the **Centreon MBI** extension
 and provides an overview of the integration of the extension with Centreon monitoring software.
 
@@ -68,7 +67,6 @@ reporting server for performance & isolation reasons.
 
 ### Central Centreon server
 
-
 #### Software requirements
 
 See the [software requirements](../installation/prerequisites.md#software).
@@ -76,7 +74,6 @@ See the [software requirements](../installation/prerequisites.md#software).
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
 considerations.
-
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -146,28 +143,113 @@ considerations.
 
 #### Hardware layer
 
-| Number of services supervised | Minimum CPU          | RAM           |
-|-------------------------------|----------------------|---------------|
-| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
-| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
-| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
-| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                     | > Contact Centreon   |               |
+<Tabs groupId="sync">
+<TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
-#### Storage space
-Use [the following file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 GB      |
 
-#### Partitioning
+This is how your MBI server should be partitioned:
 
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 233 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
 
+</TabItem>
+<TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
 
-| File system                    | Size                                                                                         |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| /                              | 5GB minimum                                                                                  |
-| /var (containing MariaDB data) | Use the result of the above disk space simulation file                                       |
-| MariaDB temporary folder       | Strongly recommended to place it in /var                                                     |
-| Volume group*                  | 5G minimum free space on the **Volume group** hosting the MariaDB **data**.                  |
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 GB      |
 
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 465 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 2,500 hosts" label="Up to 2,500 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 24 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 1163 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 5,000 hosts" label="Up to 5,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 24 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 2326 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Up to 10,000 hosts" label="Up to 10,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 12 vCPU    |
+| RAM                         | 32 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 1 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 4 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 4651 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+
+For very large amounts of data, contact your sales representative.
+
+</TabItem>
+</Tabs>
 
 To check the free space, use the following command by replacing **vg_data** with the name of the group volume:
 
@@ -213,7 +295,7 @@ Description of users, umask and user directory:
 
 The actions listed in this chapter must be performed on the **Centreon Central Server**.
 
-1. Install the MBI repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. Install the Business repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Then run the following command:
 
@@ -234,28 +316,6 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Install **gpg**:
-
-```shell
-apt install gpg
-```
-
-Import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Then install Centreon MBI:
-
 ```shell
 apt update && apt install centreon-bi-server
 ```
@@ -266,6 +326,8 @@ apt update && apt install centreon-bi-server
 ### Enable the extension
 
 The menu **Administration > Extension > Manager** allows you to install the different extensions detected by Centreon. Click on the **Centreon MBI** tile to install it.
+
+![image](../assets/reporting/installation/install_MBI_extension_EN.png)
 
 Then, download the license sent by the Centreon team to start configuring the general options.
 
@@ -334,7 +396,11 @@ Then, create the views manually on the slave server by running the following
 command:
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
+
+```bash
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Debian 11 specific configuration
@@ -397,7 +463,7 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
-1. To start installing the reporting server, install the MBI repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. To start installing the reporting server, install the Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Ensure a version of Java 17 (or 18) is installed.
        
@@ -505,6 +571,12 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
+Install the Centreon repository :
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
 
 Install the prerequisite packages:
 
@@ -687,39 +759,34 @@ Once the installation is complete, continue to the next chapter to configure the
 In some cases, SSH key exchange fails.
 To solve the problem, do the following manually:
 
-**On the monitoring server**. To start, switch to the `bash` environment of `centreonBI` :
+Switch to the `centreonBI` user :
 
 ```bash
 su - centreonBI
 ```
 
-Next, generate an SSH key to prepare the :
+Generate the SSH key :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
+ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -P "" -q
 ```
 
-Then, **on the reporting server**, switch to the `bash` environment of `centreonBI` :
+And print the `centreonBI` public key (in order to authorize it then on Centreon) : 
 
 ```bash
-su - centreonBI
+cat /home/centreonBI/.ssh/id_ed25519.pub
 ```
 
-Generate the SSH key:
+Now, **on the monitoring server** :
+
+Create a `.ssh` folder that `centreonBI` will own, restrict permissions on this folder and paste into the `authorized_keys` file the contents of its public key on the reporting server (shown earlier) :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
-cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@reporting pub key content@" > /home/centreonBI/.ssh/authorized_keys
 ```
 
-After executing these commands, copy the contents of the file that was displayed by the `cat` command and paste it into the **~/.ssh/authorized_keys** **file on the monitoring server**
-and then apply the correct permissions to the file (still as the `centreon` user) and then apply the correct permissions to the file (still as the `centreon` user):
-
-```bash
-chmod 600 ~/.ssh/authorized_keys
-```
-
-The key exchange must then be validated by a first connection that will accept the SSH server signature (always as the `centreonBI` user) **from the reporting server** :
+The key exchange must then be validated by a first connection that will accept the SSH server signature.
+As the `centreonBI` user **from the reporting server** :
 
 ```bash
 ssh centreonBI@@MONITORING_SERVER@

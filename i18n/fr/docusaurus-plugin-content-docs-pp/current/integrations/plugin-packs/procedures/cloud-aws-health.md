@@ -12,7 +12,7 @@ vous guide dans les modifications planifiées et accélère le dépannage de pro
 
 Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les métriques associées.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -84,7 +84,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Health* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -95,13 +95,13 @@ yum install centreon-plugin-Cloud-Aws-Health-Api
 yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *AWS Health*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *AWS Health*:
 
 ```bash
 yum install centreon-pack-cloud-aws-health.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Health* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -12,7 +12,7 @@ NSClient++ provides its own REST API using the webserver module.
 This REST API give the possibility to exploit monitoring data from Windows servers 
 through HTTPS connections.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -123,18 +123,18 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
+1. Install the Centreon package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Windows NSClient API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the *Windows NSClient API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
+1. Install the Centreon package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
@@ -146,7 +146,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the *Windows NSClient API* Pack on the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the *Windows NSClient API* Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

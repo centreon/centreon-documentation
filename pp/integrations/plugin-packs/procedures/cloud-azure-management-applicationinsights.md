@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure Applications Insights extends the functionality of Azure Monitor to
 observe applications in real time.
 
-The Centreon Plugin Pack *Azure Application Insights* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Application Insights* can rely on Azure API or Azure CLI to collect the metrics related to the
 Application Gateway service.
 
 ## Pack Assets
@@ -30,7 +30,7 @@ Application Gateway service.
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Application Insights* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Application Insights* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Insights**:
 
@@ -137,30 +137,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Insights resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Application Insights resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-ApplicationInsights-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Application Insights* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Application Insights* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Insights resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Application Insights resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-ApplicationInsights-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-management-applicationinsights.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Application Insights* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Application Insights* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **HP Proliant** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **HP Proliant** apporte un modèle d'hôte :
 
 * HW-Server-Hp-Server-SNMP-custom
 
@@ -98,7 +98,7 @@ Il apporte les modèles de service suivants :
 
 ### Configuration SNMP
 
-Pour utiliser ce Plugin pack, le service SNMP doit démarré et configuré sur le serveur **HP Proliant**.
+Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **HP Proliant**.
 
 ### Flux réseau
 
@@ -149,7 +149,7 @@ systemctl restart snmpd
 yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installez le Plugin Pack **HP Proliant** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installez le connecteur de supervision **HP Proliant** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -160,13 +160,13 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **HP Proliant** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **HP Proliant** :
 
 ```bash
 yum install centreon-pack-hardware-servers-hp-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installez le Plugin Pack **HP Proliant** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installez le connecteur de supervision **HP Proliant** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

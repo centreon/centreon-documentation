@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Cisco Umbrella** brings a host template:
+The Centreon Monitoring Connector **Cisco Umbrella** brings a host template:
 
 * Net-Cisco-Umbrella-SNMP-custom
 
@@ -115,30 +115,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Cisco Umbrella** resources:
+1. Install the package on every Centreon poller expected to monitor **Cisco Umbrella** resources:
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Cisco Umbrella** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cisco Umbrella** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Cisco Umbrella** resources:
+1. Install the package on every Centreon poller expected to monitor **Cisco Umbrella** resources:
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 ```
 
-2. Install the **Cisco Umbrella** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Cisco Umbrella** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-cisco-umbrella-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Cisco Umbrella** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cisco Umbrella** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

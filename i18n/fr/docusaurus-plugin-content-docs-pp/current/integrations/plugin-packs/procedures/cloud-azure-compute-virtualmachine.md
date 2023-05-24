@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Azure Virtual Machine** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Azure Virtual Machine** apporte un modèle d'hôte :
 
 * Cloud-Azure-Compute-VirtualMachine-custom
 
@@ -28,7 +28,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Azure Virtual Machine** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Azure Virtual Machine** inclut un fournisseur de découverte
 d'hôtes nommé **Microsoft Azure Virtual Machines**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une souscription Microsoft Azure donnée:
 
@@ -116,7 +116,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Virtual Machine** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Virtual Machine** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -127,13 +127,13 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Azure Virtual Machine** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Azure Virtual Machine** :
 
 ```bash
 yum install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Azure Virtual Machine** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Azure Virtual Machine** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

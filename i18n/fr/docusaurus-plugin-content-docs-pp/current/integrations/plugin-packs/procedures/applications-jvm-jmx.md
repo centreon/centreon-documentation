@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -107,7 +107,7 @@ Demander à votre administrateur de le déployer et de vous fournir l'URL.
 yum install centreon-plugin-Applications-Jvm-Jmx
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,7 +124,7 @@ yum install centreon-plugin-Applications-Jvm-Jmx
 yum install centreon-pack-applications-jvm-jmx
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

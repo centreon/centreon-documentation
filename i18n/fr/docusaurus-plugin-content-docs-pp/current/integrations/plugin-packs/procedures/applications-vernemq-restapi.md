@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 ## Vue d'ensemble
 
 VerneMQ est un gestionnaire MQTT évolutif et open source qui connecte l'IdO, le M2M, le mobile et les applications web.
-Le Plugin-Pack VerneMQ, supervise les Clusters, Listeners, Plugins et sessions en utilisant l'API Rest.
+Le connecteur de supervision VerneMQ, supervise les Clusters, Listeners, Plugins et sessions en utilisant l'API Rest.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -87,7 +87,7 @@ Plus d'informations sur l'API HTTP de VerneMQ sur : https://docs.vernemq.com/adm
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *VerneMQ Restapi* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *VerneMQ Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,20 +98,20 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-vernemq-restapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *VerneMQ Restapi* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *VerneMQ Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement VerneMQ
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par environnement VerneMQ
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Vernemq-Restapi-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

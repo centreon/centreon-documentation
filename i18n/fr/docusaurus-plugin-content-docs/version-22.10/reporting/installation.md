@@ -143,31 +143,116 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 ### Serveur de reporting dédié
 
-#### Couche Matériel
+<Tabs groupId="sync">
+<TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
-| Nombre de services supervisés | CPU minimum          | Mémoire Vive  |
-|-------------------------------|----------------------|---------------|
-| < 4 000                       | 2 CPU ( 3Ghz )       | 12Go minimum  |
-| < 20 000                      | 4 CPU (3GHz) minimum | 16 Go minimum |
-| >= 20 000 and < 40 000        | 4 CPU (3GHz) minimum | 24 Go minimum |
-| >= 40 000 and < 100 000       | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                     | > Contacter Centreon |               |
+| Élément                     | Valeur     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 Go      |
 
-#### Espace de stockage
+Votre serveur MBI doit être partitionné de la manière suivante :
 
-Utilisez [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 233 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
 
-#### Partition
+</TabItem>
+<TabItem value="Jusqu'à 1 000 hôtes" label="Jusqu'à 1 000 hôtes">
 
-| File system                    | Taille                                                                                       |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| /                              | 5GB minimum                                                                                  |
-| /var (containing MariaDB data) | utiliser le résultat du fichier de simulation de l'espace disque ci-dessus                   |
-| Dossier temporaire de MariaDB  | Fortement recommandé de le positionner dans /var                                             |
-| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB.       |
+| Élément                     | Valeur     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 16 Go      |
 
-Pour controler l'espace libre, utiliser la commande suivante en remplaçant
-**vg_data** par le nom du volume groupe:
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 465 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 2 500 hôtes" label="Jusqu'à 2 500 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 4 vCPU    |
+| RAM                         | 24 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 1163 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 5 000 hôtes" label="Jusqu'à 5 000 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 24 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 2326 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Jusqu'à 10 000 hôtes" label="Jusqu'à 10 000 hôtes">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 12 vCPU    |
+| RAM                         | 32 Go      |
+
+Votre serveur MBI doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | images de boot | 1 Go |
+|  vg_root | /                          | racine du système            | 20 Go                                |
+| vg_root | swap                       | swap | 4 Go                               |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
+| vg_data | /var/lib/mysql  | base de données | 4651 Go                               |
+| vg_data | /var/backup | répertoire de sauvegarde | 10 Go |
+| vg_data |   | Espace libre (non alloué) | 5 Go                               |
+
+</TabItem>
+<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+
+Pour de grosses volumétries de données, contactez votre commercial Centreon.
+
+</TabItem>
+</Tabs>
+
+Pour contrôler l'espace libre, utilisez la commande suivante en remplaçant
+**vg_data** par le nom du groupe de volumes :
 
 ```shell
 vgdisplay vg_data | grep -i free*
@@ -233,28 +318,6 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Installez **gpg**:
-
-```shell
-apt install gpg
-```
-
-Importez la clé du dépôt :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Ajoutez le dépôt externe suivant (pour Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Puis installez Centreon MBI:
-
 ```shell
 apt update && apt install centreon-bi-server
 ```
@@ -266,6 +329,8 @@ apt update && apt install centreon-bi-server
 
 Le menu **Administration > Extension > Gestionnaire** vous permet
 d'installer les différentes extensions détectées par Centreon. Cliquez sur la tuile  **Centreon MBI** pour l'installer.
+
+![image](../assets/reporting/installation/install_MBI_extension_FR.png)
 
 Par la suite, téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
@@ -333,7 +398,11 @@ Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
 ligne de commande suivante :
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
+
+```bash
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Configuration spécifique à Debian 11
@@ -502,6 +571,12 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
+
+Installez le dépôt Centreon :
+
+```shell
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
 
 Installez les paquets prérequis :
 
@@ -673,7 +748,7 @@ mysql_secure_installation
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-#### Commencer à configurer
+### Paramétrage
 
 Vérifiez que le MariaDB de reporting est bien démarré puis lancez les
 commandes ci dessous et répondez aux questions:
@@ -692,45 +767,39 @@ Une fois l'installation terminée, poursuivez au chapitre suivant pour configure
 Dans quelques cas, l'échange de clés SSH échoue.
 Afin de résoudre le problème, procédez manuellement comme suit :
 
-**Sur le serveur de supervision**. Pour commencer, passez dans l'environnement `bash` de `centreonBI` :
+Connectez-vous avec l'utilisateur `centreonBI` :
 
 ```bash
 su - centreonBI
 ```
 
-Ensuite, générez une clé SSH pour préparer l'environnement :
+Ensuite, générez une clé SSH :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
+ssh-keygen -t ed25519 -a 100 -f ~/.ssh/id_ed25519 -P "" -q
 ```
-
-Ensuite, **sur le serveur de reporting**, passez dans l'environnement `bash` de `centreonBI` :
+Et affichez la clé publique générée (afin de l'autoriser ensuite sur Centreon) :
 
 ```bash
-su - centreonBI
+cat /home/centreonBI/.ssh/id_ed25519.pub
 ```
 
-Générez la clé SSH :
+Maintenant, **sur le serveur de supervision** :
+
+Créez un dossier `.ssh` dont `centreonBI` sera propriétaire, restreingez les droits sur ce fichier et collez dans le fichier `authorized_keys` le contenu de sa clé publique sur le serveur de reporting (affichée précédemment) :
 
 ```bash
-ssh-keygen -t ed25519 -a 100
-cat ~/.ssh/id_ed25519.pub | tee ~/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@contenu de la clé publique@" > /home/centreonBI/.ssh/authorized_keys
 ```
 
-Après avoir exécuté ces commandes, copiez le contenu du fichier qui a été affiché par la commande `cat` et collez-le dans le fichier **~/.ssh/authorized_keys** **sur le serveur de supervision** et
-appliquez ensuite les permissions correctes au fichier (toujours en tant que l'utilisateur `centreon`) :
-
-```bash
-chmod 600 ~/.ssh/authorized_keys
-```
-
-L'échange de clés doit ensuite être validé par une première connexion qui acceptera la signature du serveur SSH (toujours en tant que l'utilisateur `centreonBI`) **depuis le serveur de reporting** :
+L'échange de clés doit enfin être validé par une première connexion qui acceptera la signature du serveur SSH.
+En tant que l'utilisateur `centreonBI` **depuis le serveur de reporting** :
 
 ```bash
 ssh centreonBI@@MONITORING_SERVER@
 ```
 
-Ensuite, quittez la session `centreonBI` avec `exit` ou `Ctrl-D` sur les deux serveurs.
+Vous pouvez maintenant quitter la session `centreonBI` avec `exit` ou `Ctrl-D`.
 
 Pour continuer, relancez le script d'installation (`/usr/share/centreon-bi/config/install.sh`) comme ci-dessus et répondez **Oui** lorsqu'on vous demande de procéder à l'échange de clés SSH.
 Vous aurez une erreur lors de la création de l'USER car il existe déjà. Ce n'est pas une étape bloquante.

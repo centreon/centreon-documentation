@@ -25,7 +25,7 @@ Il est possible d'utiliser les 2 modes de connexion aux API Azure proposés par 
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Container Registry* inclut un fournisseur de découverte
+Le connecteur de supervision Centreon *Azure Container Registry* inclut un fournisseur de découverte
 d'Hôtes nommé **Microsoft Azure Container Registry**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une *souscription* Microsoft Azure donnée:
 
@@ -63,7 +63,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 ```
 
-2. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Plugin packs > Gestionnaire**.
+2. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,7 +79,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 yum install centreon-pack-cloud-azure-storage-acr.noarch
 ```
 
-3. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Plugin packs > Gestionnaire**.
+3. Sur l'interface Web Centreon, installer le Pack *Azure Container Registry* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

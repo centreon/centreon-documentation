@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Le démon Gorgone est un gestionnaire de tâche en mode distribué (https://github.com/centreon/centreon-gorgone).
 
-## Plugin-Pack assets
+## connecteur de supervision assets
 
 ### Objets supervisés
 
@@ -69,7 +69,7 @@ modules:
 yum install centreon-plugin-Applications-Gorgone-Restapi
 ```
 
-2. Dans l'interface Centreon, rendez-vous dans le menu "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack 'Gorgone Rest API'
+2. Dans l'interface Centreon, rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision 'Gorgone Rest API'
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,13 +80,13 @@ yum install centreon-plugin-Applications-Gorgone-Restapi
 yum install centreon-plugin-Applications-Gorgone-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack RPM sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision RPM sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-gorgone-restapi.noarch
 ```
 
-3. Dans l'interface Centreon, rendez-vous dans le menu "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack 'Gorgone Rest API'
+3. Dans l'interface Centreon, rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision 'Gorgone Rest API'
 
 </TabItem>
 </Tabs>

@@ -1,4 +1,3 @@
-
 ---
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
@@ -18,7 +17,7 @@ Microsoft au travers d'une API de gestion Office 365.
 
 > Les données mises à disposition par l'API de gestion Office 365 ne sont pas en temps réel et sont basées sur une période de 7 jours.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -97,7 +96,7 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 ### Pack de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
@@ -128,7 +127,7 @@ apt install centreon-pack-cloud-microsoft-office365-skype
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Office365 Skype**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 

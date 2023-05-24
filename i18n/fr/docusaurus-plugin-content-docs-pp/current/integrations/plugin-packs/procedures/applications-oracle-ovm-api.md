@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le plugin-pack inclue la supervision File-servers, Manager, Server-pools, Servers et Vm.
+Le connecteur de supervision inclue la supervision File-servers, Manager, Server-pools, Servers et Vm.
 
 ### Métriques collectées
 
@@ -84,7 +84,7 @@ Afin de contrôler l'application Oracle VM Manager, l'API Rest doit être config
 yum install centreon-plugin-Applications-Oracle-Ovm-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle VM Manager API* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Oracle VM Manager API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -95,20 +95,20 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 yum install centreon-plugin-Applications-Oracle-Ovm-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-oracle-ovm-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Oracle VM Manager API* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Oracle VM Manager API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application Oracle VM Manager.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par application Oracle VM Manager.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Oracle-Ovm-Api-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

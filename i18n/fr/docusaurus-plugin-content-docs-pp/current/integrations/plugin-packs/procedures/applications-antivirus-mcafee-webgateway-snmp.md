@@ -12,11 +12,11 @@ McAfee Web Gateway est un proxy d'entreprise qui fournit une analyse proactive
 du trafic Web et une protection contre les logiciels malveillants grâce à des 
 techniques avancées d'inspection en temps réel.
 
-Le Centreon Plugin-Pack Centreon *McAfee Web Gateway* permet de récupérer les 
+Le Centreon connecteur de supervision Centreon *McAfee Web Gateway* permet de récupérer les 
 versions de signature des bases de données et les statistiques Web et de 
 détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Eléments supervisés
 
@@ -129,7 +129,7 @@ La communication doit être possible depuis le Collecteur Centreon vers le port 
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 ```
 
-2. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+2. Installer le connecteur de supervision 'McAfee Web Gateway' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -140,13 +140,13 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les Modèles de supervision sur le serveur Central Centreon :
+2. Installer le RPM du connecteur de supervision contenant les Modèles de supervision sur le serveur Central Centreon :
 
 ```bash
 yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 ```
 
-3. Installer le Plugin-Pack 'McAfee Web Gateway' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+3. Installer le connecteur de supervision 'McAfee Web Gateway' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>

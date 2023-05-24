@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack EMC PowerPath Management Appliance collects metrics for:
+The Monitoring Connector EMC PowerPath Management Appliance collects metrics for:
 * Hosts
 
 ### Collected Metrics
@@ -47,7 +47,7 @@ E.g: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Re
 yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Emc PPMA Rest API* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Emc PPMA Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -58,13 +58,13 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-emc-ppma-restapi
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Emc PPMA Rest API* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Emc PPMA Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>

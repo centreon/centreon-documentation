@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 BlueMind is a complete unified enterprise messaging and communications solution.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -144,30 +144,30 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:
+1. Install the Centreon package on every poller expected to monitor BlueMind servers:
 
 ```bash
 yum install centreon-plugin-Applications-Bluemind-Ssh
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:
+1. Install the Centreon package on every poller expected to monitor BlueMind servers:
 
 ```bash
 yum install centreon-plugin-Applications-Bluemind-Ssh
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Monitoring Connector RPM:
 
 ```bash
 yum install centreon-pack-applications-bluemind-ssh
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

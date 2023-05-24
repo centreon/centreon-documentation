@@ -285,7 +285,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL doesn't work, you can manualy find this package in the folder.
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
@@ -393,6 +393,22 @@ If it's your first installation, we advise you to use the standard mode
 /etc/centreon-studio/configure.sh
 ```
 
+The output should look like this:
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+This script generates the **studio-config.properties** file.
+
+#### Custom URI 
+
+If you have customized the URI for your Centreon platform, you need to edit the **studio-config.properties** file by adding the following command using the custom URI already defined [here](../administration/secure-platform.md#custom-uri):
+
+```shell
+centreon.path=/your-custom-uri
+```
+
 Then restart the **centreon-map** service:
 
 ```shell
@@ -444,7 +460,7 @@ the interface part of the extension.
 
 ### Central server
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:

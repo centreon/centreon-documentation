@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Versa Networks est un fournisseur d'architectures Cloud sécurisées.
 Versa Networks propose notamment des solutions SD-WAN (Software-Defined Wide Area Network).
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter, récupérer des informations
+Le connecteur de supervision Centreon utilise le protocole SNMP pour se connecter, récupérer des informations
 et des métriques relatives aux équipements Versa Networks
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -144,8 +144,8 @@ Versa Networks :
 yum install centreon-plugin-Network-Versa-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Versa SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -157,14 +157,14 @@ Versa Networks :
 yum install centreon-plugin-Network-Versa-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-network-versa-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP*
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Versa SNMP*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 </Tabs>

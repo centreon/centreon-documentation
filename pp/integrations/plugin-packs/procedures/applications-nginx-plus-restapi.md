@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 NGINX Plus is a software load balancer, web server, and content cache built on top of open source NGINX.
 
-The Centreon Plugin and Plugin-Packs rely on the Nginx Plus Rest API to collect the status of the Nginx resources.
+The Centreon Plugin and Monitoring Connectors rely on the Nginx Plus Rest API to collect the status of the Nginx resources.
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -75,7 +75,7 @@ More infomation is avaible in official Nginx documentation : https://docs.nginx.
 yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Nginx Plus* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -86,20 +86,20 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-nginx-plus-restapi.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Nginx Plus* Monitoring Connector
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-This Plugin-Pack is designed to have in Centreon one host per Nginx Plus environment.
+This Monitoring Connector is designed to have in Centreon one host per Nginx Plus environment.
 Adding a host into Centreon, link it to the template named *App-Nginx-Plus-Restapi-custom*.
 Once the template applied, some Macros have to be configured:
 

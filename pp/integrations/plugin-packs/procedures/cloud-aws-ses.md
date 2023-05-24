@@ -14,10 +14,10 @@ email service that enables developers to send mail from within any application.
 There is no charge for the Amazon SES metrics reported in CloudWatch. They're 
 provided as part of the Amazon SES service.
 
-The *Amazon SES* Centreon Plugin-Pack uses the Amazon Cloudwatch APIs to collect the
+The *Amazon SES* Centreon Monitoring Connector uses the Amazon Cloudwatch APIs to collect the
 related metrics and status.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -82,30 +82,30 @@ yum install awscli
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Amazon SES resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
-2. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Amazon SES* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Amazon SES resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-ses
 ```
 
-3. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Amazon SES* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

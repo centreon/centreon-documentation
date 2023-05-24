@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Plugin Pack allows you to get metrics and statuses collected thanks to the NSClient++
+This Monitoring Connector allows you to get metrics and statuses collected thanks to the NSClient++
 monitoring agent and its embedded NRPE Server.
 
 ## Pack assets
@@ -49,12 +49,12 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack **Dynamics 365** 
-from the **Configuration > Plugin Packs > Manager** page.
+from the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every poller:
+1. Install the Centreon package on every poller:
 
 ```bash
 yum install centreon-nrpe3-plugin
@@ -67,7 +67,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe centreon-pac
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack **Dynamics 365**
-from the **Configuration > Plugin Packs > Manager** page.
+from the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

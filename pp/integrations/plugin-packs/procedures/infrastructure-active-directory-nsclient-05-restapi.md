@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Plugin Pack monitors AD Domain Controller using local commands and the 
+This Monitoring Connector monitors AD Domain Controller using local commands and the 
 Centreon NSClient++ API to trigger their executions remotely.
 
 ## Pack assets
@@ -37,18 +37,18 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
+1. Install the Centreon package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Active Directory API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the *Active Directory API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
+1. Install the Centreon package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
@@ -60,7 +60,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the *Active Directory API* Pack on the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the *Active Directory API* Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

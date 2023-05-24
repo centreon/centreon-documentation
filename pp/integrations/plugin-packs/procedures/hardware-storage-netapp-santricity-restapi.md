@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 SANtricity is a data management software that powers and administers the NetApp E-Series storage arrays. 
 With the SANtricity operating system (OS), you can perform all your management tasks while the storage remains online, with complete read and write data access.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored Objects
 
@@ -94,30 +94,30 @@ More information about the setup steps and the service configuration can be foun
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netapp SANtricity:
+1. Install the Centreon package on every Centreon poller expected to monitor Netapp SANtricity:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 ```
 
-2. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netapp SANtricity:
+1. Install the Centreon package on every Centreon poller expected to monitor Netapp SANtricity:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

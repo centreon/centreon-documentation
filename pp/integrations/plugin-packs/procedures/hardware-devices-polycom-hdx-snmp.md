@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 The Polycom HDX Room system is an endpoint device that provides voice and video connectivity
 across collaboration networks. 
 
-This Plugin-Pack checks basic system health indicators and video/audio related protocols 
+This Monitoring Connector checks basic system health indicators and video/audio related protocols 
 performances during a call. 
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -109,32 +109,32 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom H
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Polycom HDX devices:
+1. Install the Centreon package on every Centreon Poller expected to monitor Polycom HDX devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Polycom HDX SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Polycom HDX SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Polycom HDX devices:
+1. Install the Centreon package on every Centreon Poller expected to monitor Polycom HDX devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 ```
 
-3. On the Centreon Web interface, install the *Polycom HDX SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Polycom HDX SNMP* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

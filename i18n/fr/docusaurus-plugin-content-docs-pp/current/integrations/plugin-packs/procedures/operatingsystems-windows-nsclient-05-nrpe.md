@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Ce Plugin Pack permet de récupérer les métriques et les statuts collectés grâce à l'agent de monitoring NSClient++ et son serveur NRPE embarqué. 
+Ce connecteur de supervision permet de récupérer les métriques et les statuts collectés grâce à l'agent de monitoring NSClient++ et son serveur NRPE embarqué. 
 
 ### Modèles
 
@@ -163,7 +163,7 @@ Veuillez suivre notre [documentation officielle](../getting-started/how-to-guide
 yum install centreon-nrpe3-plugin
 ```
 
-2. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon Plugin Pack sur la page **Configuration > Plugin Packs**.
+2. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon connecteur de supervision sur la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -180,7 +180,7 @@ yum install centreon-nrpe3-plugin
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon Plugin Pack sur la page **Configuration > Plugin Packs**.
+3. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon connecteur de supervision sur la page **Configuration > Gestionnaire de connecteurs de supervision**.
   
 </TabItem>
 </Tabs>

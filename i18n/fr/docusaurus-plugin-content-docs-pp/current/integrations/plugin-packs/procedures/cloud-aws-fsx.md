@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Amazon FSx apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Amazon FSx apporte 1 modèle d'hôte :
 * Cloud-Aws-Fsx-custom
 
 Il apporte les Modèles de Service suivants :
@@ -85,7 +85,7 @@ Configurer un compte de service ayant les autorisations suivantes :
 yum install centreon-plugin-Cloud-Aws-Fsx-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Amazon FSx** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Amazon FSx** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -102,7 +102,7 @@ yum install centreon-plugin-Cloud-Aws-Fsx-Api
 yum install centreon-pack-cloud-aws-fsx
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Amazon FSx** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Amazon FSx** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

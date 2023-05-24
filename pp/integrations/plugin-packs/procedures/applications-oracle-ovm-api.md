@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Servers and Vm.
+The Monitoring Connector includes monitoring of File-servers, Manager, Server-pools, Servers and Vm.
 
 ### Collected Metrics
 
@@ -86,7 +86,7 @@ E.g: https://docs.oracle.com/en/virtualization/oracle-vm/3.4/developer/vmapi-pre
 yum install centreon-plugin-Applications-Oracle-Ovm-Api
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle VM Manager API* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle VM Manager API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,13 +97,13 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 yum install centreon-plugin-Applications-Oracle-Ovm-Api
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-oracle-ovm-api
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle VM Manager API* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle VM Manager API* Monitoring Connector
 
 </TabItem>
 </Tabs>

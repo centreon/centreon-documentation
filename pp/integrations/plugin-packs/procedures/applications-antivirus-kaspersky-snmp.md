@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Kasperky is a cybersecurity and anti-virus provider founded in 1997 by Eugene
 Kaspersky, Natalya Kaspersky and Alexey De-Monderik.
 
-The Centreon Plugin-Pack *Kaspersky* aims to collect the condition of the 
+The Centreon Monitoring Connector *Kaspersky* aims to collect the condition of the 
 Administration Server and managed products with the SNMP protocol.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -96,30 +96,30 @@ UDP/161 SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
+1. Install the Centreon Kaspersky package on every Centreon poller expected to monitor a Kaspersky Security Center:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. On the centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the centreon Web interface, install the *Kaspersky* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
+1. Install the Centreon Kaspersky package on every Centreon poller expected to monitor a Kaspersky Security Center:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-3. On the Centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Kaspersky* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

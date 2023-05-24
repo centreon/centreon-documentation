@@ -14,11 +14,11 @@ SQL queries, visits to a website, etc.
 The tool is designed to visualize activity in the greatest possible detail, allowing the user to obtain an overview of what is happening and 
 what has just happened in their system or application.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored Objects
 
-The Netdata RestAPI Centreon Plugin-Pack allows to collect and monitor servers' key metrics by interacting with the Netdata agent RestAPI.
+The Netdata RestAPI Centreon Monitoring Connector allows to collect and monitor servers' key metrics by interacting with the Netdata agent RestAPI.
 The open-source and highly efficient Netdata agent can be used on the following platforms
 
 * Linux (Debian, Ubuntu, RedHat, CentOS, Fedora, Arch...)
@@ -29,7 +29,7 @@ The open-source and highly efficient Netdata agent can be used on the following 
 
 ### Available services
 
-The current version of the Netdata RestAPI Plugin-Pack can monitor the following services:
+The current version of the Netdata RestAPI Monitoring Connector can monitor the following services:
 
 * Alarms
 * CPU
@@ -124,7 +124,7 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 
 ### Netdata agent setup
 
-The Netdata agent has to be set up and configured on the targeted server in order to use the Plugin-Pack.
+The Netdata agent has to be set up and configured on the targeted server in order to use the Monitoring Connector.
 
 More information about how to get and install the agent is available in the official Netdata documentation:
 https://learn.netdata.cloud/docs/agent/packaging/installer
@@ -134,30 +134,30 @@ https://learn.netdata.cloud/docs/agent/packaging/installer
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netdata agents:
+1. Install the Centreon package on every Centreon poller expected to monitor Netdata agents:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 ```
 
-2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Netdata agents:
+1. Install the Centreon package on every Centreon poller expected to monitor Netdata agents:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 Cisco Identity Service Engine est une solution d'administration de réseaux qui
 permet de simplifier le contrôle d'accès réseaux sécurisés.
 
-Le Plugin-Pack Centreon *Cisco ISE* permet (par l'interrogation de l'API REST)
+Le connecteur de supervision Centreon *Cisco ISE* permet (par l'interrogation de l'API REST)
 de récupérer le nombre de sessions active et de sessions *profiler service* 
 ainsi que le nombre que le nombre de  *postured endpoints*.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -62,7 +62,7 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco ISE* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco ISE* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -73,13 +73,13 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Cisco ISE* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Cisco ISE* :
 
 ```bash
 yum install centreon-pack-applications-cisco-ise-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco ISE* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco ISE* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

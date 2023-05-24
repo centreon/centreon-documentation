@@ -12,10 +12,10 @@ Azure Front Door is a global, scalable entry-point that uses the Microsoft globa
 widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into
 robust, high-performing personalized modern applications with contents that reach a global audience through Azure.
 
-The Centreon Plugin-Pack *Azure Front Door* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Front Door* can rely on Azure API or Azure CLI to collect the metrics related to the
 Front Door service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -28,7 +28,7 @@ Front Door service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Front Door* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure Front Door* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Front Door**:
 
@@ -94,30 +94,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Front Door resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Front Door resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-FrontDoor-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Front Door* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Front Door* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Front Door resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Front Door resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-FrontDoor-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-frontdoor.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Front Door* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Front Door* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

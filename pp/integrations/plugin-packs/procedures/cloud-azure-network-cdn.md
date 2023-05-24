@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Azure Content Delivery Network is a solution designed for developers for 
 delivering high-bandwidth content to customers.
 
-The Centreon Plugin-Pack *Azure CDN* can rely on Azure API or Azure CLI to 
+The Centreon Monitoring Connector *Azure CDN* can rely on Azure API or Azure CLI to 
 collect the metrics related to CDN profile service.
 
 ## Pack assets
@@ -24,7 +24,7 @@ collect the metrics related to CDN profile service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure CDN* includes a Host Discovery *provider* to
+The Centreon Monitoring Connector *Azure CDN* includes a Host Discovery *provider* to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure CDN**:
 
@@ -78,30 +78,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure CDN* ressources:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Azure CDN* ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-CDN-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure CDN* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Azure CDN* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure CDN* ressources:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Azure CDN* ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-CDN-Api
 ```
 
-2. Install the *Azure CDN* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Azure CDN* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-cdn
 ```
 
-3. On the Centreon Web interface, install the *Azure CDN* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Azure CDN* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

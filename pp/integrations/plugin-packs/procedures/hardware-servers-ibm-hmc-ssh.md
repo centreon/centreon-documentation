@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack IBM HMC SSH collects metrics for:
+The Monitoring Connector IBM HMC SSH collects metrics for:
 * Hardware errors
 * Led status
 
@@ -47,7 +47,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *IBM HMC SSH* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *IBM HMC SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -58,13 +58,13 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *IBM HMC SSH* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *IBM HMC SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

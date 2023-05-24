@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Azure API Management allows you to create, manage and publish APIs for existing
 back-end services.
 
-The Centreon Plugin Pack *Azure API Management* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure API Management* can rely on Azure API or Azure CLI to collect the metrics related to the
 API Management service.
 
 ## Pack Assets
@@ -26,7 +26,7 @@ API Management service.
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure API Management* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure API Management* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure API Management**:
 
@@ -89,30 +89,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure API Management resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure API Management resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-ApiManagement-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure API Management* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure API Management* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure API Management resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure API Management resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-ApiManagement-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-management-apimanagement.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure API Management* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure API Management* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

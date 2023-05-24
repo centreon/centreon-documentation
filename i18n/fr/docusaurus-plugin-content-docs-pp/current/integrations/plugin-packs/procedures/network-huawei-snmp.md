@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Huawei** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Huawei** apporte un modèle d'hôte :
 
 * Net-Huawei-SNMP-custom
 
@@ -92,7 +92,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Network-Huawei-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Huawei** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Huawei** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,13 +103,13 @@ yum install centreon-plugin-Network-Huawei-Snmp
 yum install centreon-plugin-Network-Huawei-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Huawei** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Huawei** :
 
 ```bash
 yum install centreon-pack-network-huawei-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Huawei** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Huawei** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

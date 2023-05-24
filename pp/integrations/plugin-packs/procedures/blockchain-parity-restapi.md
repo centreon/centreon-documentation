@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Parity Blockchain is a fork of the Ethereum Blockchain. 
 
-The Centreon Plugin Pack *Parity API* aims to get information and metrics from the 
+The Centreon Monitoring Connector *Parity API* aims to get information and metrics from the 
 Parity API. 
 
 ## Pack assets
@@ -72,34 +72,34 @@ configured port (default: 8545).
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon package on every Centreon Poller expected to monitor 
 Parity network nodes:
 
 ```bash
 yum install centreon-plugin-Blockchain-Parity-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Parity API* Centreon Plugin-Pack on 
-the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Parity API* Centreon Monitoring Connector on 
+the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon package on every Centreon Poller expected to monitor 
 Blockchain Parity nodes:
 
 ```bash
 yum install centreon-plugin-Blockchain-Parity-Restapi
 ```
 
-2. Install the *Parity API* Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the *Parity API* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-blockchain-parity-restapi
 ```
 
-3. On the Centreon Web interface, install the *Parity API* Centreon Plugin-Pack on 
-the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Parity API* Centreon Monitoring Connector on 
+the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

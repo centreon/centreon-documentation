@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Monitored Objects
 
-The Plugin-Pack Ubiquiti Edge SNMP collects metrics for:
+The Monitoring Connector Ubiquiti Edge SNMP collects metrics for:
 * Cpu
 * Hardware
 * Interfaces
@@ -92,7 +92,7 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti Edge SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ubiquiti Edge SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,13 +103,13 @@ yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 yum install centreon-plugin-Network-Ubiquiti-Edge-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-ubiquiti-edge-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Ubiquiti Edge SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ubiquiti Edge SNMP* Pack
 
 </TabItem>
 </Tabs>
