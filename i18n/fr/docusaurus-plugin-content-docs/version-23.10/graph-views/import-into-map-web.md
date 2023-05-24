@@ -36,7 +36,7 @@ Si vous avez importé des images dans le client lourd (dans des dossiers personn
 Pour que les icônes s'affichent correctement après avoir migré vos cartes, vous devez mettre à jour votre MAP (legacy) en exécutant les commandes suivantes :
 
 ```shell
-yum stop centreon-map
+systemctl stop centreon-map
 yum update centreon-map-server
 systemctl daemon-reload
 systemctl start centreon-map
