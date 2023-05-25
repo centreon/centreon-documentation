@@ -106,7 +106,7 @@ Spécificité de **gate.useResourcesAccess** : Régler ce paramètre sur **False
 Pour configurer ces paramètres, vous devez modifier le fichier de configuration du serveur Centreon MAP suivant (modifier ou ajouter les paramètres manquants), puis redémarrer Centreon-Map :
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 systemctl restart centreon-map
 ```
 
