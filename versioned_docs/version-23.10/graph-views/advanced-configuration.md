@@ -206,7 +206,7 @@ Edit the studio-config.properties settings file located in
 /etc/centreon-studio:
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 ```
 
 Add the following line at the MAP SERVER section

@@ -1349,21 +1349,21 @@ To customize the Centreon URI:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-vim /etc/httpd/conf.d/10-centreon.conf
+vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-vim /etc/httpd/conf.d/10-centreon.conf
+vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-vim /etc/apache2/sites-available/centreon.conf
+vi /etc/apache2/sites-available/centreon.conf
 ```
 
 </TabItem>
