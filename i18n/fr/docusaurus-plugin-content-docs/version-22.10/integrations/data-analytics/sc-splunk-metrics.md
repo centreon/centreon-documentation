@@ -5,6 +5,8 @@ title: Splunk Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Le stream connector Splunk Metrics vous permet d'envoyer des données depuis Centreon vers des instances Splunk.
+
 ## Avant de commencer
 
 Si vous ne voulez récupérer que des métriques, utilisez le stream connector Splunk Metrics. Si vous voulez récupérer toutes les données des évènements, utilisez le stream connector Splunk Events.
@@ -15,7 +17,7 @@ Si vous ne voulez récupérer que des métriques, utilisez le stream connector S
 
 ## Installation
 
-Faite l'installation sur le serveur qui enverra les données à Splunk (serveur central, serveur distant, collecteur).
+Faites l'installation sur le serveur qui enverra les données à Splunk (serveur central, serveur distant, collecteur).
 
 ### Dépendances
 
