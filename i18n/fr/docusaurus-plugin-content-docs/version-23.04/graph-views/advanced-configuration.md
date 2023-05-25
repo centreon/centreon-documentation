@@ -187,7 +187,7 @@ systemctl stop centreon-map
 Modifiez le fichier de paramètres **studio-config.properties** situé dans **/etc/centreon-studio** :
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 ```
 
 Ajoutez la ligne suivante à la section MAP SERVER :
