@@ -5,6 +5,8 @@ title: Splunk Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The Splunk Metrics stream connector allows you to send data from Centreon to Splunk instances.
+
 ## Before starting
 
 If you want to retrieve only metrics, use the Splunk Metrics stream connector. If you want to retrieve all the data for the events, use the Splunk Events stream connector.
