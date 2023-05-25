@@ -183,7 +183,7 @@ Connect through SSH to your Centreon MAP server. Open the
 studio-config.properties file:
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 ```
 
 For the 'centreon.url' variable, check that there is a full path to your
@@ -326,7 +326,7 @@ server in SSH and execute the following commands:
 # systemctl stop centreon-map
 # mysqldump -uusername -p -h \<HOST\> centreon\_studio \> dump.sql
 # cp dump.sql dump-fixed.sql
-# vim dump-fixed.sql
+# vi dump-fixed.sql
 :%s/DEFAULT CHARACTER SET latin1/DEFAULT CHARACTER SET utf8 COLLATE
 utf8\_general\_ci/
 :%s/DEFAULT CHARSET=latin1/DEFAULT CHARSET=utf8/

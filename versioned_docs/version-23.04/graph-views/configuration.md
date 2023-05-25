@@ -133,7 +133,7 @@ MAP server configuration file (modify or add missing parameters), then
 restart centreon-map:
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 systemctl restart centreon-map
 ```
 
