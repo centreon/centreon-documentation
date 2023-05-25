@@ -14,9 +14,9 @@ aux relations d'appairage complexes. Il agit comme routeur cloud : chaque nouvel
 Grâce à sa position centrale, le AWS Transit Gateway Network Manager dispose d'une vue d'ensemble unique de votre réseau et se
 connecte même aux dispositifs de réseau étendu défini par logiciel (SD-WAN).
 
-Le Plugin-Pack Centreon *AWS Transit Gateway* s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Transit Gateway.
+Le connecteur de supervision Centreon *AWS Transit Gateway* s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Transit Gateway.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -110,7 +110,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Transit Gateway* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Transit Gateway* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -121,13 +121,13 @@ yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 ```
 
-2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *AWS Transit Gateway*:
+2.Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *AWS Transit Gateway*:
 
 ```bash
 yum install centreon-pack-cloud-aws-transitgateway.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Transit Gateway* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Transit Gateway* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

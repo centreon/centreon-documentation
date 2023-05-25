@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Clever PDU** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Clever PDU** apporte un modèle d'hôte :
 
 * HW-Pdu-Clever-SNMP-custom
 
@@ -57,7 +57,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Pdu-Clever-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Clever PDU** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Clever PDU** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,13 +68,13 @@ yum install centreon-plugin-Hardware-Pdu-Clever-Snmp
 yum install centreon-plugin-Hardware-Pdu-Clever-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Clever PDU** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Clever PDU** :
 
 ```bash
 yum install centreon-pack-hardware-pdu-clever-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Clever PDU** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Clever PDU** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

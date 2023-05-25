@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 The Dell EMC Networking X-Series is a family of smart managed 1GbE and 10GbE Ethernet switches designed 
 for small and medium businesses.
 	
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -72,7 +72,7 @@ The Centreon Poller should be able to reach the UDP/161 SNMP port of the Dell Xs
 yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
-2. Install the *Dell Xseries* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the *Dell Xseries* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -89,7 +89,7 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 yum install centreon-pack-network-switch-dell-xseries-snmp
 ```
 
-3. Install the *Dell Xseries* Centreon Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the *Dell Xseries* Centreon Pack from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

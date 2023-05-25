@@ -11,7 +11,7 @@ This pack helps you monitor your Linux server based on metrics exported by Node 
 
 ### Templates
 
-The Centreon Plugin Pack **Node Exporter Linux Metrics** brings a host template:
+The Centreon Monitoring Connector **Node Exporter Linux Metrics** brings a host template:
 
 * App-Monitoring-Node-Exporter-Linux-custom
 
@@ -97,30 +97,30 @@ To install Node exporter on your Linux server please refer to this documentation
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Node Exporter Linux Metrics** resources:
+1. Install the package on every Centreon poller expected to monitor **Node Exporter Linux Metrics** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Node Exporter Linux Metrics** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Linux Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Node Exporter Linux Metrics** resources:
+1. Install the package on every Centreon poller expected to monitor **Node Exporter Linux Metrics** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 ```
 
-2. Install the **Node Exporter Linux Metrics** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Node Exporter Linux Metrics** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-node-exporter-linux
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Node Exporter Linux Metrics** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Linux Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

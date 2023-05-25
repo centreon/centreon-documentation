@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack includes health monitoring of devices managed by Firepower Management Console
+The Monitoring Connector includes health monitoring of devices managed by Firepower Management Console
 
 ### Collected Metrics
 
@@ -47,7 +47,7 @@ E.g: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firep
 yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower FMC Rest API* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Firepower FMC Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -58,13 +58,13 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-cisco-firepower-fmc-restapi
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco Firepower FMC Rest API* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Firepower FMC Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>

@@ -10,14 +10,14 @@ import TabItem from '@theme/TabItem';
 
 Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon. Plus d'informations sont disponibles [ici](/docs/installation/installation-of-centreon-ha/overview).
 
-Le Plugin-Pack Centreon-HA s'appuie sur deux autre Plugin-Packs :
+Le connecteur de supervision Centreon-HA s'appuie sur deux autre connecteurs de supervision :
 
 * [Pacemaker](integrations/plugin-packs/procedures/applications-pacemaker-ssh.md)
 * [Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md)
 
-Par conséquent, il utilise les protocoles de ces deux Plugin-Packs - **SNMP** et **SSH** - pour se connecter aux nœuds du cluster Centreon-HA et récupérer informations et métriques relatives aux processus et à la santé du cluster.
+Par conséquent, il utilise les protocoles de ces deux connecteurs de supervision - **SNMP** et **SSH** - pour se connecter aux nœuds du cluster Centreon-HA et récupérer informations et métriques relatives aux processus et à la santé du cluster.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -73,7 +73,7 @@ Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster
 
 ### Configuration SNMP de l'équipement
 
-La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du Plugin-Pack Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
+La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du connecteur de supervision Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
 
 ### Configuration de la connexion SSH sans mot de passe
 
@@ -135,7 +135,7 @@ usermod -a -G haclient centreon-engine
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Centreon-HA* depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -146,13 +146,13 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Centreon-HA* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

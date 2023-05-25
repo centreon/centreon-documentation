@@ -97,18 +97,18 @@ The Centreon Pack supports the Rest APIv1 and APIv2. Services **Fans** and **Psu
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **EMC VPLEX** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **EMC VPLEX** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Emc-Vplex-Restapi
 ```
 
-2. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **EMC VPLEX** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **EMC VPLEX** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Emc-Vplex-Restapi
@@ -120,7 +120,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Vplex-Restapi
 yum install centreon-pack-hardware-storage-emc-vplex-restapi
 ```
 
-3. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

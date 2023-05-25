@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 Google Workspace, is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google.
 
-The Centreon Plugin Pack aims to collect the real-time status and availability of the services by requesting the
+The Centreon Monitoring Connector aims to collect the real-time status and availability of the services by requesting the
 dedicated Status API available on Google servers.
 
-## Plugin Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -57,18 +57,18 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Google Workspace* services:
+1. Install the Centreon package on every Centreon poller expected to monitor *Google Workspace* services:
 
 ```bash
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Google Workspace* services:
+1. Install the Centreon package on every Centreon poller expected to monitor *Google Workspace* services:
 
 ```bash
 yum install centreon-plugin-Applications-Google-Workspace-Api
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

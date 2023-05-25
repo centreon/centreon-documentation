@@ -12,10 +12,10 @@ Azure SQL Database elastic pools are a simple, cost-effective solution for manag
 varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of
 resources at a set price.
 
-The Centreon Plugin-Pack *Azure Elastic Pool* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure Elastic Pool* can rely on Azure API or Azure CLI to collect the metrics related to the
 Elastic Pool service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -23,7 +23,7 @@ Elastic Pool service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Elastic Pool* includes a Host Discovery *provider* to automatically discover Elastic Pools of a given
+The Centreon Monitoring Connector *Azure Elastic Pool* includes a Host Discovery *provider* to automatically discover Elastic Pools of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure SQL Elastic Pool**:
 
@@ -97,30 +97,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Elastic Pool resources:
+1.  Install the Centreon package on every Centreon poller expected to monitor Azure Elastic Pool resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Elastic Pool* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Elastic Pool* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Elastic Pool resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure Elastic Pool resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-database-elasticpool.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Elastic Pool* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Elastic Pool* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

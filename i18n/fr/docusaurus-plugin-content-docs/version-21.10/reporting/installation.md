@@ -184,7 +184,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le 
+1. Installez le dépôt Business, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante :
@@ -314,7 +314,7 @@ veillez à les connaître avant de commencer :
 
 #### Procédure
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le 
+1. Installez le dépôt Business, vous pouvez le trouver sur le 
 [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante:

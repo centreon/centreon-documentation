@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 By transforming a Windows Server into a quick cache, Azure Storage Sync service
 allows you to centralize your files share in Azure Files.
 
-The Centreon Plugin-Pack *Azure Storage Sync* can rely on Azure API or Azure CLI
+The Centreon Monitoring Connector *Azure Storage Sync* can rely on Azure API or Azure CLI
 to collect the metrics related to the Storage Sync service.
 
 ## Pack assets
@@ -24,7 +24,7 @@ to collect the metrics related to the Storage Sync service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Storage Sync* includes a Host Discovery *provider* to
+The Centreon Monitoring Connector *Azure Storage Sync* includes a Host Discovery *provider* to
 automatically discover the Azure instances of a given subscription and add them
 to the Centreon configuration. This provider is named **Microsoft Azure Storage Sync**:
 
@@ -75,30 +75,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 ```
 
-2. Install the *Azure Storage Sync* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Azure Storage Sync* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-storage-storagesync
 ```
 
-3. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

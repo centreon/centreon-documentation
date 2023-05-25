@@ -70,18 +70,18 @@ The following commands are used:
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Redis Sentinel** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Redis Sentinel** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Redis-Sentinel
 ```
 
-2. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Redis Sentinel** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Redis Sentinel** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Redis-Sentinel
@@ -93,7 +93,7 @@ yum install centreon-plugin-Applications-Redis-Sentinel
 yum install centreon-pack-applications-redis-sentinel
 ```
 
-3. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -31,29 +31,7 @@ Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous d
 
 > Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
-Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
-
-1. Mettez à jour les dépôts Centreon et Centreon MAP :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
-```
-
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
-
-2. Mettez à jour le serveur Centreon MAP :
-
-    ```shell
-    dnf update centreon-map-server
-    ```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-#### Prérequis de la version Java
+### Prérequis de la version Java
   > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
@@ -75,14 +53,36 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
   ```
 
   - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
-  
-Vous pouvez maintenant procéder à la mise à jour :
+
+### Procédure
+
+Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
+
+1. Mettez à jour les dépôts Centreon et Centreon Business :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+```
+
+> Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Mettez à jour le serveur Centreon MAP :
+
+    ```shell
+    dnf update centreon-map-server
+    ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+> Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP :
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 HAProxy is an open source software allowing high availability, load balancing 
 and proxying solutions for TCP and HTTP-based applications.
 
-The Centreon Plugin Pack *Haproxy SNMP* aims to collect backend/frontend status
+The Centreon Monitoring Connector *Haproxy SNMP* aims to collect backend/frontend status
 and sessions and traffic statistics using the SNMP protcol.
 
 ## Pack assets
@@ -61,30 +61,30 @@ https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor HAProxy ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor HAProxy ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Haproxy-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Haproxy SNMP* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Haproxy SNMP* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor HAProxy ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor HAProxy ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Haproxy-Snmp
 ```
 
-2. Install the *Haproxy SNMP* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *Haproxy SNMP* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-haproxy-snmp
 ```
 
-3. On the Centreon Web interface, install the *Haproxy SNMP* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Haproxy SNMP* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

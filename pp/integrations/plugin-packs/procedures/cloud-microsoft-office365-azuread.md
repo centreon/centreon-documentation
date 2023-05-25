@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Office 365 Azure AD** brings a host template:
+The Centreon Monitoring Connector **Office 365 Azure AD** brings a host template:
 
 * Cloud-Microsoft-Office365-AzureAD-Api-custom
 
@@ -54,30 +54,30 @@ Check out the endpoint documentation [here](https://docs.microsoft.com/en-us/gra
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Azure AD** resources:
+1. Install the package on every Centreon poller expected to monitor **Azure AD** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Office 365 Azure AD** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Office 365 Azure AD** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Azure AD** resources:
+1. Install the package on every Centreon poller expected to monitor **Azure AD** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 ```
 
-2. Install the **Office 365 Azure AD** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Office 365 Azure AD** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-azuread
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Office 365 Azure AD** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Office 365 Azure AD** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

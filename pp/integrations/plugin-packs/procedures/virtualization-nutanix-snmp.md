@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Nutanix** brings 4 different host templates:
+The Centreon Monitoring Connector **Nutanix** brings 4 different host templates:
 
 * Virt-Nutanix-SNMP-custom
 * Virt-Nutanix-VM-SNMP-custom
@@ -154,30 +154,30 @@ The network flows should be allowed from the Centreon poller to the Nutanix appl
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Nutanix** resources:
+1. Install the package on every Centreon poller expected to monitor **Nutanix** resources:
 
 ```bash
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Nutanix** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Nutanix** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Nutanix** resources:
+1. Install the package on every Centreon poller expected to monitor **Nutanix** resources:
 
 ```bash
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. Install the **Nutanix** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Nutanix** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-virtualization-nutanix-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Nutanix** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Nutanix** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

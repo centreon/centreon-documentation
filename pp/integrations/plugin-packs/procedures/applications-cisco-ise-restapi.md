@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 Cisco Identity Service Engine is network administration solution designed to 
 simplify and control security and access on your company's network.
 
-The Centreon Plugin-Pack *Cisco ISE* aims to collect the number of active and 
+The Centreon Monitoring Connector *Cisco ISE* aims to collect the number of active and 
 profiler service sessions and the number of postured endpoints by requesting the
 dedicated built-in REST API.
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -57,30 +57,30 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
+1. Install the Centreon package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
 ```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Cisco ISE* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Cisco ISE* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
+1. Install the Centreon package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
 ```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-cisco-ise-restapi
 ```
 
-3. On the Centreon Web interface, install the *Cisco ISE* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Cisco ISE* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

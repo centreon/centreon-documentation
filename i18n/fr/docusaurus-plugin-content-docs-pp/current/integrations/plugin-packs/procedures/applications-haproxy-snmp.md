@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 HAProxy est un logiciel libre fournissant, avec une haute disponiblité,
 un load balancer et un proxy pour des applications TCP et HTTP.
 
-Le Plugin Pack Centreon *Haproxy SNMP* permet de récuperer le status du backend
+Le connecteur de supervision Centreon *Haproxy SNMP* permet de récuperer le status du backend
 et du frontend ainsi que des métriques sur le nombre de sessions et le trafic par
 l'intermédiaire du protocole SNMP.
 
@@ -68,7 +68,7 @@ https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 yum install centreon-plugin-Applications-Haproxy-Snmp
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Haproxy SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -85,7 +85,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 yum install centreon-pack-applications-haproxy-snmp
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Haproxy SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Haproxy SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

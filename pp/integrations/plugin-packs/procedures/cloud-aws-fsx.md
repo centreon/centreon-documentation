@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Amazon FSx brings 1 host template:
+The Centreon Monitoring Connector Amazon FSx brings 1 host template:
 * Cloud-Aws-Fsx-custom
 
 It brings the following Service Templates:
@@ -79,30 +79,30 @@ Configure a service account (access/secret key combo) for which the following pr
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Amazon FSx** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Amazon FSx** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Fsx-Api
 ```
 
-2. On the Centreon Web interface, install the **Amazon FSx** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Amazon FSx** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Amazon FSx** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Amazon FSx** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Fsx-Api
 ```
 
-2. Install the **Amazon FSx** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Amazon FSx** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-fsx
 ```
 
-3. On the Centreon Web interface, install the **Amazon FSx** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Amazon FSx** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -12,7 +12,7 @@ Mulesoft offre une plateforme d'intégration la plus utilisée pour connecter le
 
 Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint afin de récupérer le statut de diverses ressources Mulesoft.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -106,7 +106,7 @@ et de l'organisation en question.
 yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Mulesoft Anypoint* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Mulesoft Anypoint* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,13 +117,13 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-mulesoft-restapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Mulesoft Anypoint* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Mulesoft Anypoint* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -132,7 +132,7 @@ yum install centreon-pack-applications-mulesoft-restapi.noarch
 
 ### Host
 
- Ce Plugin-Pack est concçu de manière à avoir dans Centreon un hôte par environnement/organisation
+ Ce connecteur de supervision est concçu de manière à avoir dans Centreon un hôte par environnement/organisation
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Mulesoft-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory | Name        | Description                                                       |

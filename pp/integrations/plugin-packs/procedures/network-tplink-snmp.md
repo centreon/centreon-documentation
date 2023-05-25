@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 TP-Link is a provider of network access solutions.
 
-The Centreon Plugin Pack *TP-Link SNMP* relies on the SNMP protocol to query and collect the status and metrics of the TP-Link equipment.
+The Centreon Monitoring Connector *TP-Link SNMP* relies on the SNMP protocol to query and collect the status and metrics of the TP-Link equipment.
 
-## Plugin Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -72,30 +72,30 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TP-Link e
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
+1. Install the Centreon package on every Centreon Poller expected to monitor TP-Link equipments:
 
 ```bash
 yum install centreon-plugin-Network-Tplink-Snmp
 ```
 
-2. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+2. On the Centreon Web interface, install the *TP-Link SNMP* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
+1. Install the Centreon package on every Centreon Poller expected to monitor TP-Link equipments:
 
 ```bash
 yum install centreon-plugin-Network-Tplink-Snmp
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-tplink-snmp
 ```
 
-3. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+3. On the Centreon Web interface, install the *TP-Link SNMP* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

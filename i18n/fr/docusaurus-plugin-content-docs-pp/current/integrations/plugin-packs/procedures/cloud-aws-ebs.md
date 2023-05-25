@@ -15,7 +15,7 @@ des systèmes de fichiers et des workflows multimédias, sont largement déploy�
 
 Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les métriques associées.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -33,7 +33,7 @@ Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les
 </TabItem>
 <TabItem value="Services" label="Services">
 
-Aucune règle de découverte de service n'est associée à ce Plugin-Pack. 
+Aucune règle de découverte de service n'est associée à ce connecteur de supervision. 
 
 </TabItem>
 </Tabs>
@@ -124,7 +124,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Ebs-Api
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface Centreon, installer le connecteur de supervision 'Amazon EBS' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -135,13 +135,13 @@ yum install centreon-plugin-Cloud-Aws-Ebs-Api
 yum install centreon-plugin-Cloud-Aws-Ebs-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack 'Amazon EBS':
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision 'Amazon EBS':
 
 ```bash
 yum install centreon-pack-cloud-aws-ebs.noarch
 ```
 
-3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface Web de Centreon, installer le connecteur de supervision 'Amazon EBS' depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

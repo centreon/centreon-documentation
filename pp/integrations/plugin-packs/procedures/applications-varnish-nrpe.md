@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Plugin Pack *Varnish* works with the NRPE monitoring agent on Linux to check 
+The Monitoring Connector *Varnish* works with the NRPE monitoring agent on Linux to check 
 the performance and behavior of a Varnish HTTP Cache Server. 
 
 ## Pack assets
@@ -77,12 +77,12 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
+1. Install the Centreon package on every Poller expected to monitor *Varnish*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -95,7 +95,7 @@ yum install centreon-pack-applications-varnish-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

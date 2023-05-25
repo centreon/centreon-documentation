@@ -12,7 +12,7 @@ Azure Application Gateway est un équilibreur de charge du trafic web qui vous p
 Les équilibreurs de charge traditionnels fonctionnent au niveau de la couche de transport (couche OSI 4 - TCP et UDP) et
 acheminent le trafic en fonction de l’adresse IP et du port sources, vers une adresse IP et un port de destination.
 
-Le Plugin Pack Centreon *Azure Application Gateway* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Application Gateway* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Application Gateway. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 Les versions 1 & 2 des ressources Application Gateway sont supportées.
@@ -41,7 +41,7 @@ Les versions 1 & 2 des ressources Application Gateway sont supportées.
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure Application Gateway* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Gateway**.
+Le connecteur de supervision Centreon *Azure Application Gateway* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Gateway**.
 Celui-ci permet de découvrir l'ensemble des instances *Application Gateway* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
@@ -162,7 +162,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Application Gateway* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Application Gateway* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -179,7 +179,7 @@ yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 yum install centreon-pack-cloud-azure-network-appgateway.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Application Gateway* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Application Gateway* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

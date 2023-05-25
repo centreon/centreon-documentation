@@ -8,6 +8,62 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### May
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - cloud-aws-directconnect - initial release - Status:stable - centreon-pack-cloud-aws-directconnect-23.05.0-1
+- [**HMS Netbiter Argos RestAPI**](../procedures/hardware-devices-hms-netbiter-argos-restapi.md) - hardware-devices-hms-netbiter-argos-restapi - initial release - Status:stable - centreon-pack-hardware-devices-hms-netbiter-argos-restapi-23.05.0-1
+- [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - network-keysight-nvos-restapi - initial release - Status:stable - centreon-pack-network-keysight-nvos-restapi-23.05.0-1
+- [**Outscale**](../procedures/cloud-outscale.md) - cloud-outscale - initial release - Status:stable - centreon-pack-cloud-outscale-23.05.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - applications-protocol-snmp - added a SNMP-based host template - Status:stable - centreon-pack-applications-protocol-snmp-23.05.1-1
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - operatingsystems-linux-ssh - updated diskio command options - Status:stable - centreon-pack-operatingsystems-linux-ssh-23.05.0-1
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - applications-databases-mysql - added a collection service - Status:stable - centreon-pack-applications-databases-mysql-23.05.0-1
+- [**Protocol TCP**](../procedures/applications-protocol-tcp.md) - applications-protocol-tcp - added a TCP-based host template - Status:stable - centreon-pack-applications-protocol-tcp-23.05.0-1
+- [**Protocol UDP**](../procedures/applications-protocol-udp.md) - applications-protocol-udp - added a UDP-based host template - Status:stable - centreon-pack-applications-protocol-udp-23.05.2-1
+- [**Sonus SBC **](../procedures/network-sonus-sbc-snmp.md) - network-sonus-sbc-snmp - change thresholds names - Status:stable - centreon-pack-network-sonus-sbc-snmp-23.05.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - Add policy-name macro - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.05.1-1
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - fix(pack) cloud-azure-policyinsights-policystates - changed command name - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.05.0-1
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - applications-monitoring-centreon-poller - fix options for Broker stats - Status:stable - centreon-pack-applications-monitoring-centreon-poller-23.05.1-1
+- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - centreon-pack-hardware-servers-xfusion-ibmc-snmp - wrong command - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-23.05.0-1
+
+</TabItem>
+</Tabs>
+
+### April
+
+> In the Monitoring Connectors Manager, you may notice that all connectors have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - network-aruba-cppm-snmp - initial release - Status:stable - centreon-pack-network-aruba-cppm-snmp-23.04.0-1
+- [**Opengear SNMP**](../procedures/network-opengear-snmp.md) - network-opengear-snmp - initial release - Status:stable - centreon-pack-network-opengear-snmp-23.04.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - applications-controlm-restapi - service jobs add option --job-name - Status:stable - centreon-pack-applications-controlm-restapi-23.04.0-1
+- [**Fortinet Fortigate**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - added default value for CRITICALSTATUS macro in Traffic-Global - Status:stable - centreon-pack-network-firewalls-fortinet-fortigate-snmp-23.04.0-1
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - added `ip_vmanagement` and `ip_vmotion` to Host Discovery attributes - Status:stable - centreon-pack-virtualization-vmware2-vm-23.04.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - added various improvements - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.04.0-1
+
+</TabItem>
+</Tabs>
+
 ### March
 
 <Tabs groupId="sync">
@@ -103,7 +159,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Stormshield API**](../procedures/network-stormshield-api.md) - network-stormshield-api - initial release - Status:stable - centreon-pack-network-stormshield-api-22.12.0-1
-- [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Add Patton Snmp plugin pack - Status:stable - centreon-pack-network-patton-smartnode-snmp-22.12.0-1
+- [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Add Patton Snmp Monitoring Connector - Status:stable - centreon-pack-network-patton-smartnode-snmp-22.12.0-1
 - [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - hardware-sensors-apc-snmp - initial release - Status:stable - centreon-pack-hardware-sensors-apc-snmp-22.12.0-1
 
 </TabItem>
@@ -136,12 +192,12 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Himoinsa UPS**](../procedures/hardware-ups-himoinsa-snmp.md) - Adding Himoinsa Plugin pack - Status:stable - centreon-pack-hardware-ups-himoinsa-snmp-22.11.0-1
+- [**Himoinsa UPS**](../procedures/hardware-ups-himoinsa-snmp.md) - Adding Himoinsa Monitoring Connector - Status:stable - centreon-pack-hardware-ups-himoinsa-snmp-22.11.0-1
 - [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - New monitoring pack - Status:stable - centreon-pack-cloud-azure-datafactory-factories-22.11.2-1
 - [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-22.11.0-1
 - [**Enterasys SNMP**](../procedures/network-enterasys-snmp.md) - New monitoring pack - Status:stable - centreon-pack-network-enterasys-snmp-22.11.0-1
 - [**Avaya CM SNMP**](../procedures/hardware-telephony-avaya-cm-snmp.md) - New monitoring pack - Status:stable - centreon-pack-hardware-telephony-avaya-cm-snmp-22.11.0-1
-- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Adding Pica8 PICOS plugin pack - Status:stable - centreon-pack-operatingsystems-picos-snmp-22.11.0-1
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Adding Pica8 PICOS Monitoring Connector - Status:stable - centreon-pack-operatingsystems-picos-snmp-22.11.0-1
 - [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - New monitoring pack - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-22.11.0-1
 - [**PineApp Mail Secure**](../procedures/applications-pineapp-securemail-snmp.md) - Add new Pineapp Secure mail Pack - Status:stable - centreon-pack-applications-pineapp-securemail-snmp-22.11.0-1
 
@@ -179,7 +235,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**VMware VCSA SNMP**](../procedures/applications-vmware-vcsa-snmp.md) - New Pack to check VMWare vCenter Appliance OS with SNMP - Status:stable - centreon-pack-applications-vmware-vcsa-snmp-22.10.0-1
-- [**Splunk**](../procedures/applications-monitoring-splunk-api.md) - Adding Splunk Plugin pack - Status:stable - centreon-pack-applications-monitoring-splunk-api-22.10.0-1
+- [**Splunk**](../procedures/applications-monitoring-splunk-api.md) - Adding Splunk Monitoring Connector - Status:stable - centreon-pack-applications-monitoring-splunk-api-22.10.0-1
 - [**Aruba Orchestrator Rest API**](../procedures/network-aruba-orchestrator-restapi.md) - New Pack monitoring the orchestrator using its restapi - Status:stable - centreon-pack-network-aruba-orchestrator-restapi-22.10.0-1
 
 </TabItem>

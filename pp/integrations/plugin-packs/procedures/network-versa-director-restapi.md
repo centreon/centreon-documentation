@@ -11,13 +11,13 @@ import TabItem from '@theme/TabItem';
 Versa Director provides the management, monitoring and orchestration capabilities
 needed to deliver Versa’s VNF-based network and security services.
 
-The Centreon Plugin-Pack relies on the Versa Director API to query and
+The Centreon Monitoring Connector relies on the Versa Director API to query and
 collect status and metrics of the Versa equipments managed by the Director.
 
 You can find more information about the Versa Director API on the official documentation:
 https://apidocs.versa-networks.com/
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -86,34 +86,34 @@ The Centreon Poller must be able to reach the TCP/9182 HTTPS port of the Versa D
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+1. Install the Centreon package on every Centreon Poller expected to monitor 
 Versa devices trough Versa Director API:
 
 ```bash
 yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Versa Director Restapi* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
+1. Install the Centreon package on every Centreon Poller expected to monitor
 Versa devices trough Versa Director API 
 
 ```bash
 yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-versa-director-restapi
 ```
 
-3. On the Centreon Web interface, install the *Versa Director Restapi* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Versa Director Restapi* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

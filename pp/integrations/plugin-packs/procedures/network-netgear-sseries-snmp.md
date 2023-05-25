@@ -99,19 +99,19 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Netgear Smart Switches** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Netgear Smart Switches** resources:
 
 ```bash
 yum install centreon-plugin-Network-Netgear-Sseries-Snmp
 ```
 
-2. On the Centreon web interface, install the **Netgear SSeries SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Netgear SSeries SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Netgear Smart Switches** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Netgear Smart Switches** resources:
 
 ```bash
 yum install centreon-plugin-Network-Netgear-Sseries-Snmp
@@ -123,7 +123,7 @@ yum install centreon-plugin-Network-Netgear-Sseries-Snmp
 yum install centreon-pack-network-netgear-sseries-snmp
 ```
 
-3. On the Centreon web interface, install the **Netgear SSeries SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Netgear SSeries SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

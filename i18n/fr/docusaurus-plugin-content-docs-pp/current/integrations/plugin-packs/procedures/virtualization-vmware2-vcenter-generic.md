@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 
 VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
 
-Le Plugin-Pack Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter.
+Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter.
 
 Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -239,7 +239,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Installer le Plugin-Pack 'Vmware vCenter' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+2. Installer le connecteur de supervision 'Vmware vCenter' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -250,13 +250,13 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision :
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision :
 
 ```bash
 yum install centreon-pack-virtualization-vmware2-vcenter-generic.noarch
 ```
 
-3. Installer le Plugin-Pack 'Vmware vCenter' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+3. Installer le connecteur de supervision 'Vmware vCenter' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 </Tabs>

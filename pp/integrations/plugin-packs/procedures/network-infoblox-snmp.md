@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack Infoblox SNMP collects metrics for:
+The Monitoring Connector Infoblox SNMP collects metrics for:
 * Dhcp
 * Dns
 * Interfaces
@@ -115,7 +115,7 @@ The Poller should be able to perform SNMP requests toward the Infoblox device ov
 yum install centreon-plugin-Network-Infoblox-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Infoblox SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -126,13 +126,13 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 yum install centreon-plugin-Network-Infoblox-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-infoblox-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Infoblox SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

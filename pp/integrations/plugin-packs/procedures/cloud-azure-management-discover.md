@@ -8,21 +8,21 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Plugin Pack *Azure Discover* is a *super* Pack allowing to discover a whole Azure infrastructure for a given
+The Centreon Monitoring Connector *Azure Discover* is a *super* Pack allowing to discover a whole Azure infrastructure for a given
 subscription.
-This Pack relies on the Azure Monitor API to fetch the resources of the Azure infrastructure and on all of the Centreon Plugin Packs
+This Pack relies on the Azure Monitor API to fetch the resources of the Azure infrastructure and on all of the Centreon Monitoring Connectors
 for Azure to set templates and proper monitoring indicators for each type of resource.
 
-> This Plugin Pack is only compatible with the 'api' custom-mode. 'azcli' is not supported for this usage.
+> This Monitoring Connector is only compatible with the 'api' custom-mode. 'azcli' is not supported for this usage.
 
 ## Pack Assets
 
-> The Centreon Plugin Pack *Azure Discover* is only a *discovery* pack. It doesn't natively provide any templates nor
+> The Centreon Monitoring Connector *Azure Discover* is only a *discovery* pack. It doesn't natively provide any templates nor
 > indicators to monitor Azure resources
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Discover* includes a Host Discovery *provider* to automatically discover all of the Azure resources
+The Centreon Monitoring Connector *Azure Discover* includes a Host Discovery *provider* to automatically discover all of the Azure resources
 of a given subscription and add them to the Centreon configuration using the dedicated Host Templates.
 This provider is named **Microsoft Azure Management Discover**.
 
@@ -46,8 +46,8 @@ Please find all the prerequisites needed for Centreon to get information from Az
 yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Discover* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
-You'll be prompted to install several other Azure Plugin Packs as dependencies (they will be used to set the proper templates/indicators
+2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
 </TabItem>
@@ -59,15 +59,15 @@ on the discovered elements).
 yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server, install all of the Centreon Plugin Packs for Azure, in order
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server, install all of the Centreon Monitoring Connectors for Azure, in order
 to make all the dependencies available:
 
 ```bash
 yum install centreon-pack-cloud-azure\*
 ```
 
-3. On the Centreon Web interface, install the *Azure Discover* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
-You'll be prompted to install several other Azure Plugin Packs as dependencies (they will be used to set the proper templates/indicators
+3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
 </TabItem>
@@ -113,7 +113,7 @@ If necessary, adjust the following settings:
 
 ### Run the discovery job and display results
 
-The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Plugin Pack comes along with predefined **mappers** that
+The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Monitoring Connector comes along with predefined **mappers** that
 don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
 [this documentation](/docs/monitoring/discovery/hosts-discovery#how-to-use-the-mappers) to do so.
 
@@ -128,7 +128,7 @@ corresponding to the discovered Azure resources will be automatically set, like 
 
 > Some discovered elements may come up without any predefined Host Template; this is usually due to the following reasons:
 > - These elements are not supposed to be monitored (Azure *technical* assets or dependencies of other assets)
-> - These ressources cannot yet be monitored using the Centreon Plugin Packs
+> - These ressources cannot yet be monitored using the Centreon Monitoring Connectors
 
 Just select the elements you want to add to the Centreon configuration and click on *save*. And... you're done !
 

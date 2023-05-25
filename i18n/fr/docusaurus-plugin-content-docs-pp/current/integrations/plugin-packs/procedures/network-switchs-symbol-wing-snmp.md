@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Symbol WiNG switch SNMP apporte 1 modèle d'hôte :
 * Net-Symbol-Wing-SNMP
 
 Il apporte les modèles de services suivants :
@@ -80,7 +80,7 @@ Centreon vers l'équipement supervisé.
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 yum install centreon-pack-network-switchs-symbol-wing-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Symbol WiNG switch SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

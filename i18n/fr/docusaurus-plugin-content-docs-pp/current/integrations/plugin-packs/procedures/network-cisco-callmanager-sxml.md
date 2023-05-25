@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-En utilisant le SXML, ce Plugin-Pack Cisco Call Manager, supervise les alertes du composant Cisco Unified Communications.
+En utilisant le SXML, ce connecteur de supervision Cisco Call Manager, supervise les alertes du composant Cisco Unified Communications.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -45,7 +45,7 @@ de Cisco Callmanager : https://www.cisco.com/c/en/us/support/docs/unified-commun
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Callmanager SXML* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Callmanager SXML* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -56,20 +56,20 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-network-cisco-callmanager-sxml.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco Callmanager SXML* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Callmanager SXML* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Cisco Callmanager
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par environnement Cisco Callmanager
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Callmanager-Sxml-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

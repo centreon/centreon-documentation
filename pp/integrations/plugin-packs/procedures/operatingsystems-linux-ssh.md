@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 
 Linux is a family of open source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds. 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-This Plugin-Pack provides assets to monitor all types of Linux based systems with a SSH server enabled:
+This Monitoring Connector provides assets to monitor all types of Linux based systems with a SSH server enabled:
 * Centos 
 * Redhat
 * Debian
@@ -262,7 +262,7 @@ After setting the Name, Alias, IP, and Host Template parameters, you need to set
 yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Linux SSH* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Linux SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -273,13 +273,13 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-ssh.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Linux SSH* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Linux SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

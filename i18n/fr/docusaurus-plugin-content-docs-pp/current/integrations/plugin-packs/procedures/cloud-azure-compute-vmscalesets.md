@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Azure Virtual Machine Scale Sets apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon Azure Virtual Machine Scale Sets apporte 1 modèle d'hôte :
 * Cloud-Azure-Compute-Vmscalesets-custom
 
 Il apporte les Modèles de Service suivants :
@@ -25,7 +25,7 @@ Il apporte les Modèles de Service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure Virtual Machine Scale Sets* inclut un fournisseur de découverte
+Le connecteur de supervision Centreon *Azure Virtual Machine Scale Sets* inclut un fournisseur de découverte
 d'Hôtes nommé **Microsoft Azure Virtual Machine Scale Setss**. Celui-ci permet de découvrir l'ensemble des instances
 rattachées à une *souscription* Microsoft Azure donnée:
 
@@ -95,7 +95,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Compute-Vmscalesets-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Azure Virtual Machine Scale Sets** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Azure Virtual Machine Scale Sets** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -112,7 +112,7 @@ yum install centreon-plugin-Cloud-Azure-Compute-Vmscalesets-Api
 yum install centreon-pack-cloud-azure-compute-vmscalesets
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Azure Virtual Machine Scale Sets** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Azure Virtual Machine Scale Sets** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

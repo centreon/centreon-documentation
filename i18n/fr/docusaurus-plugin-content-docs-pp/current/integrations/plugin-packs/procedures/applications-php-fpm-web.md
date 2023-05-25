@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon PHP FPM apporte 1 modèle d'hôte :
+Le connecteur de supervision Centreon PHP FPM apporte 1 modèle d'hôte :
 * App-Php-Fpm-Web
 
 Il apporte le Modèle de Service suivant :
@@ -51,7 +51,7 @@ les Macros d'Hôte dans la partie [Configuration](#Configuration).
 yum install centreon-plugin-Applications-Php-Fpm-Web
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP FPM* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *PHP FPM* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,7 +68,7 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 yum install centreon-pack-applications-php-fpm-web
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *PHP FPM* depuis la page **Configuration > Packs de plugins**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *PHP FPM* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 </Tabs>

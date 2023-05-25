@@ -191,19 +191,19 @@ copy centreon-engine public key:
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **HP 3PAR** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **HP 3PAR** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 ```
 
-2. On the Centreon web interface, install the **HP 3PAR SSH** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **HP 3PAR SSH** Centreon Pack on the **Configuration > Monitoring Connectors** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **HP 3PAR** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **HP 3PAR** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
@@ -215,7 +215,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 yum install centreon-pack-hardware-storage-hp-3par-ssh
 ```
 
-3. On the Centreon web interface, install the **HP 3PAR SSH** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **HP 3PAR SSH** Centreon Pack on the **Configuration > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>

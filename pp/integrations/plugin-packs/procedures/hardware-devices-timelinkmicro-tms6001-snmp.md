@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 TimeLink microsystems provides solutions based on a complete line of COTS products and 
 design specific equipment or system on user's requirements. 
 
-## Plugin-Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -79,32 +79,32 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TMS devic
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Timelinkmicro devices:
+1. Install the Centreon package on every Centreon Poller expected to monitor Timelinkmicro devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Timelinkmicro devices:
+1. Install the Centreon package on every Centreon Poller expected to monitor Timelinkmicro devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 ```
 
-3. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Monitoring Connector 
+through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

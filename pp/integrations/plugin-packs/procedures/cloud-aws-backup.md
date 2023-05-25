@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Amazon Backup Vault brings a host template:
+The Centreon Monitoring Connector Amazon Backup Vault brings a host template:
 * Cloud-Aws-Backup-Vault-custom
 
 It brings the following Service Template:
@@ -86,30 +86,30 @@ sudo ./aws/install
 <Tabs groupId="setup">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AWS Backup Vault* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *AWS Backup Vault* resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Backup-Api
 ```
 
-2. On the Centreon Web interface, install the **Amazon Backup Vault** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Amazon Backup Vault** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *AWS Backup Vault* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *AWS Backup Vault* resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Backup-Api
 ```
 
-2. Install the **Amazon Backup Vault** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Amazon Backup Vault** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-backup
 ```
 
-3. On the Centreon Web interface, install the **Amazon Backup Vault** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Amazon Backup Vault** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

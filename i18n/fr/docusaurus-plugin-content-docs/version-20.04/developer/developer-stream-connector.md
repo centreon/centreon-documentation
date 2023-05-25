@@ -48,7 +48,7 @@ In this how-to, we will write two scripts:
 ### Programming language
 
 Centreon chose the Lua programming language to let you handle, aggregate and transfer data. Lua is a programming language
-that is easy to use. You can find more information with the [Lua official documentation](https://www.lua.org/docs).
+that is easy to use. You can find more information with the [Lua official documentation](https://www.lua.org/docs.html).
 
 ### Storage of Lua scripts
 

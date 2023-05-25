@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 Aruba Networks est un fournisseur de solutions d'accès réseau.
 
-Le Plugin Pack *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux bornes d'accès sans fil de marque Aruba.
+Le connecteur de supervision *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux bornes d'accès sans fil de marque Aruba.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -63,7 +63,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Aruba Instant SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Aruba Instant SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -74,13 +74,13 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Aruba Instant SNMP* :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Aruba Instant SNMP* :
 
 ```bash
 yum install centreon-pack-network-aruba-instant-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Aruba Instant SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Aruba Instant SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

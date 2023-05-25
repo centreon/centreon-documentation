@@ -18,7 +18,7 @@ Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau 
 | `centreon_linux_local.pl` | Script Perl        | Serveur supervisé | S'exécute localement et retourne un statut, un message d'information et des métriques                   |
 | `centreon-nrpe3`          | Service/daemon     | Serveur supervisé | Écoute sur le port 5666 et exécute les commandes demandées si elles sont définies dans sa configuration |
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -103,7 +103,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 
 ## Prérequis
 
-Les prérequis ci-dessous sont indispendables pour que le plugin pack puisse fonctionner correctement.
+Les prérequis ci-dessous sont indispendables pour que le connecteur de supervision puisse fonctionner correctement.
 
 ### Flux réseau
 
@@ -189,25 +189,25 @@ systemctl restart centreon-nrpe3.service
 
 ## Installation
 
-### Plugin-Pack
+### connecteur de supervision
 
-L'installation du Plugin-Pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
+L'installation du connecteur de supervision en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
 
 <Tabs groupId="sync">
 <TabItem value="Licence IMP/EPP Online & IT-100 Editions" label="Licence IMP/EPP Online & IT-100 Editions">
 
-Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
+Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Licence IMP/EPP Offline" label="Licence IMP/EPP Offline">
 
-1. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
+1. Installer le RPM du connecteur de supervision contenant les modèles de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-nrpe3
 ```
 
-2. Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
+2. Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

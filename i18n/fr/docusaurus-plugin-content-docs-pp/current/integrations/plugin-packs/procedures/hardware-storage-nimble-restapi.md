@@ -13,7 +13,7 @@ HPE Nimble Storage est une technologie de solutions de stockage de données sur 
 Nimble Storage produit des solutions matérielles et logicielles pour le stockage de données en utilisant les protocoles
 iSCSI et Fiber Channel. Des solutions de sauvegarde et de protection de données sont également disponibles.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -21,7 +21,7 @@ iSCSI et Fiber Channel. Des solutions de sauvegarde et de protection de données
 
 ### Services disponibles
 
-Le Plugin-Pack Nimble SNMP offre les Services suivants:
+Le connecteur de supervision Nimble SNMP offre les Services suivants:
 
 * Arrays
 * Hardware
@@ -89,7 +89,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
+2. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble Rest API*
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -100,13 +100,13 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 yum install centreon-plugin-Hardware-Storage-Nimble-Restapi.noarch
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
+3. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble Rest API*
 
 </TabItem>
 </Tabs>
