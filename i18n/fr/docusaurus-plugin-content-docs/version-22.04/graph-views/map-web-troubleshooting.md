@@ -9,15 +9,15 @@ Cette page présente quelques recommandations pour résoudre des incidents lors 
 
 ## La configuration MAP ne fonctionne pas en HTTPS
 
-### Symptôme
+#### Symptôme
 
 La configuration du module MAP ne fonctionne pas. Ce problème se produit lorsque le module MAP est installé sur le serveur central Centreon alors que la plateforme MAP est sécurisée en HTTPS.
 
-### Problème
+#### Problème
 
 La configuration MAP n'est pas définie en TLS.
 
-### Solution
+#### Solution
 
 Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4. 
 

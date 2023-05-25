@@ -12,7 +12,7 @@ IBM develops, manufactures and sells hardware, middleware, software and other
 services and products. Created in 2002, IBM BladeCenter was IBM's blade server
 architecture. 
 
-## Plugin-Pack assests
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -96,13 +96,13 @@ Poller on the UDP/161 SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Plugin package on every Centreon poller expected to monitor an IBM BladeCenter switch module:
+1. Install the package on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
 ```bash
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,13 +113,13 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-ibm-bladecenter-snmp
 ```
 
-3. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

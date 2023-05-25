@@ -14,10 +14,10 @@ instances du pool de back-ends. Ces flux dépendent des règles d’équilibrage
 instances de pool de back-ends peuvent être des machines virtuelles Azure ou des instances d’un groupe de machines virtuelles
 identiques. 
 
-Le Plugin-Pack Centreon *Azure Load Balancer* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Load Balancer* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Load Balancer. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -25,7 +25,7 @@ Load Balancer. Il est possible d'utiliser les 2 modes proposés par Microsoft: R
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Load Balancer* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Load Balancer**.
+Le connecteur de supervision Centreon *Azure Load Balancer* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Load Balancer**.
 Celui-ci permet de découvrir l'ensemble des *Load Balancers* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer-provider.png)
@@ -87,7 +87,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-LoadBalancer-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Load Balancer* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Load Balancer* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,13 +98,13 @@ yum install centreon-plugin-Cloud-Azure-Network-LoadBalancer-Api
 yum install centreon-plugin-Cloud-Azure-Network-LoadBalancer-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Load Balancer*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Load Balancer*:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-loadbalancer.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Load Balancer* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Load Balancer* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

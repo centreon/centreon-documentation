@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Microsoft WSUS** brings 2 different host templates:
+The Centreon Monitoring Connector **Microsoft WSUS** brings 2 different host templates:
 
 * App-Wsus-NRPE-custom
 * App-Wsus-NSClient-05-Restapi-custom
@@ -118,7 +118,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 If the platform uses an *online* license, you can skip the package installation
 instructions below as it is not required in order to have the pack displayed within the
-**Configuration > Plugin Packs > Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 
 > If you want to use the **NRPE** host template, please install centreon-nrpe3 package.
 
@@ -150,7 +150,7 @@ apt install centreon-pack-applications-wsus-nsclient
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Microsoft WSUS** Pack through
-the **Configuration > Plugin Packs > Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Amazon SQS** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Amazon SQS** apporte un modèle d'hôte :
 * Cloud-Aws-Sqs-custom
 
 Il apporte le modèle de service suivant :
@@ -98,7 +98,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Amazon SQS** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Amazon SQS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -109,13 +109,13 @@ yum install centreon-plugin-Cloud-Aws-Sns-Api
 yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Amazon SQS** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Amazon SQS** :
 
 ```bash
 yum install centreon-pack-cloud-aws-sns
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Amazon SQS** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Amazon SQS** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

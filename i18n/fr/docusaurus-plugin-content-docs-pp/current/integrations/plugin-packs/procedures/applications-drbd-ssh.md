@@ -12,7 +12,7 @@ DRBD est une architecture de stockage distribuée pour GNU/Linux, permettant la 
 (disques, partitions, volumes logiques etc.) entre des serveurs.
 DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un module noyau et d'outils d'administration. 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -62,7 +62,7 @@ doit avoir assez de privilèges pour executer la commande `/usr/sbin/drbdsetup`.
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *DRBD SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -73,20 +73,20 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install ccentreon-pack-applications-drbd-ssh.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *DRBD SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un Hôte par environnement DRBD
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un Hôte par environnement DRBD
 Lorsque vous ajoutez un Hôte à Centreon, appliquez-lui le modèle *App-Drbd-SSH-custom*.
 Une fois celui-ci configuré, certaines Macros doivent être renseignées:
 

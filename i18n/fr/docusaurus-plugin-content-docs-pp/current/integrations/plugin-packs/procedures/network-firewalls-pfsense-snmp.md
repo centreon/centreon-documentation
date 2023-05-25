@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 pfSense est un routeur/pare-feu open source basé sur FreeBSD et
 entièrement configurable via une interface Web.
 
-Le Plugin-Pack Centreon *pfSense* permet de récupérer le status des interfaces
+Le connecteur de supervision Centreon *pfSense* permet de récupérer le status des interfaces
 réseaux ainsi que les informations sur le nombre de packets différents par
 secondes par l'intermédiaire du protocole SNMP.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -103,7 +103,7 @@ SNMP (UDP/161) du serveur Kaspersky Security Center.
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *pfSense* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *pfSense* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -114,13 +114,13 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon connecteur de supervision RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-firewalls-pfsense-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *pfSense* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *pfSense* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

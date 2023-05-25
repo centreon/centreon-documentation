@@ -17,6 +17,78 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.12
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
+### 22.04.11
+
+Release date: `February 20, 2023`
+
+#### Bug fixes
+
+- [Authentication] Added LDAP connection timeout to avoid infinite connection.
+- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
+- [CLAPI] Removed mandatory password for LDAP users creation.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an installation error when the chrony package is already installed.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [Core] Fixed SQL queries when databases names contain dash.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
+- [Install] Added missing gettext dependency for Debian.
+- [Install] Fixed an SQL error with MySQL 8.
+- [Install] Removed app_key field from configuration database.
+- [LDAP] Fixed auto-import of users.
+- [Provider] Fixed a fatal PHP error on iTop rule form when group is not an array.
+- [ResourceStatus] Fixed date picker causing duplicated dates.
+- [ResourceStatus] Fixed an issue that made the acknowledgement still active in Resource Status after a disacknowledgement or when service/host returned to OK/UP status.
+- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+- [UX] Fixed visual inconsistencies in some menus.
+
+#### Enhancements
+
+- Optimized queries used to display the services monitoring page.
+- Optimized queries used to display the hosts monitoring page.
+- Optimized queries used to display the services grid monitoring page.
+
+#### Security
+
+- [CLAPI] Fixed encoding issue.
+- Fixed XSS vulnerability reflected in service-monitoring widget.
+
+### 22.04.10
+
+Release date: `February 6, 2023`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
+
+### 22.04.9
+
+Release date: `January 31, 2023`
+
+#### Bug fixes
+
+- [Install] Fixed app_key error during upgrade
+
 ### 22.04.8
 
 Release date: `January 16, 2023`
@@ -353,6 +425,59 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.3
+
+Release date: `April 3, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- [Configuration] Fixed an issue with configuration objects for tags and severities. 
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Performance] Fixed a stability issue related to metric cache.
+- [Performance] Fixed memory allocation issues.
+
+### 22.04.2
+
+Release date: `February 7, 2023`
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
+- Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
+
+#### Centreon Broker
+
+##### Improvements
+
+- Improved Broker's behaviour when trying to insert negative values in unsigned columns of the storage database.
+- Improved network connection stability by sending tcpkeepalive packet every 30s on tcp stream.
+- Improved the manner of sending bulk data by Broker on MariaDB databases.
+- It is now possible to use empty strings for parameter values in stream connectors.
+
+##### Bug fixes
+
+- Fixed an issue causing pollers to be displayed as running, and resources to be displayed in Resources Status after stopping centengine.
+- Fixed a bug where deleted host groups and service groups weren’t available in the filter menu.
+- Fixed a deadlock issue due to new Broker stats engine.
+- Fixed a deadlock issue when a query fails while inserting a value out of range for the column type.
+- Fixed an issue due to a data type mismatch that could block Broker.
+- Fixed the way Broker handled numbers with an out of range value for the column type.
+- Fixed a bug that made deleted acknowledgements come back after restarting Centengine.
+- Fixed an issue in RRD rebuild that recreated the RRD files for every 24 hours of data, resulting in keeping only the last day's data.
+- Fixed the issue with RRD rebuild compatibility with rrdcached.
+- Fixed a stability issue that could cause Broker to crash when a host was deleted.
+- Fixed log flushing issues in Engine and Broker by improving the reliability and configurability of the flush period.
+- Fixed an issue where Broker displayed the expected warning message “Deprecated endpoint found in the output configuration: 'file' endpoint is deprecated and should not be used anymore” instead of an error.
+- Fixed a defect in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.04.1
 

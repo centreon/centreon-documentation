@@ -14,7 +14,7 @@ les solutions de communication et de collaboration d’entreprise dans les salle
 
 Pexip Infinity comprend une API de gestion qui permet à des tiers de contrôler, de configurer et d'obtenir des informations sur l'état de la plate-forme Pexip Infinity.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -66,7 +66,7 @@ Plus d'informations sont disponible sur la documentation officielle de Pexip Inf
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity ManagementAPI* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -77,20 +77,20 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity ManagementAPI* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Pexip Infinity ManagementAPI
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par environnement Pexip Infinity ManagementAPI
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-Pexip-Infinity-Managementapi-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

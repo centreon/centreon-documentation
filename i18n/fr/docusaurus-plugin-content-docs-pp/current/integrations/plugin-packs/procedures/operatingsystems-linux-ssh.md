@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 
 Linux est une famille de systèmes d'exploitation à source ouverte de type Unix basée sur le noyau Linux, un noyau de système d'exploitation publié pour la première fois le 17 septembre 1991 par Linus Torvalds. 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un daemon SSH installé :
+Ce connecteur de supervision est compatible avec n'importe quelle distribution Linux avec un daemon SSH installé :
 
 * Serveur
 * Centos 
@@ -264,7 +264,7 @@ Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d
 yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Linux SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -275,13 +275,13 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-ssh.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Linux SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

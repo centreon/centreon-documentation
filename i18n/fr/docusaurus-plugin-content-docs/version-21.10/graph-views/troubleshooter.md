@@ -150,6 +150,8 @@ systemctl stop iptables
 
 ### My images from Centreon Web are not displayed in Centreon MAP
 
+> Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
+
 Centreon MAP automatically imports all images from Centreon Web into its
 own database. On your desktop client, you should see all your files from
 Centreon Web under the Media tab panel in the "Centreon" folder. If not,

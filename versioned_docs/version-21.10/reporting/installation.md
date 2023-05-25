@@ -83,6 +83,8 @@ considerations.
 
 **Software**
 
+See the [software requirements](../installation/prerequisites.md#software).
+
 - Centreon 21.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -103,7 +105,6 @@ considerations.
 | User       | umask  | home             |
 |------------|--------|------------------|
 | centreonBI |  0002  | /home/centreonBI |
-
 
 ### Reporting dedicated server
 
@@ -169,7 +170,7 @@ Description of users, umask and home directory:
 The tasks explained in this chapter must be performed on the Centreon
 central server.
 
-1. Install the Centreon MBI repository, you can find it on the 
+1. Install the Centreon Business repository, you can find it on the 
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Then run the following command:
@@ -300,7 +301,7 @@ installation process:
 
 #### Procedure
 
-1. To start installing the reporting server, install the MBI repository, you can find it on the 
+1. To start installing the reporting server, install the Business repository, you can find it on the 
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Then execute the following command:

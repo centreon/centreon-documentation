@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-NRPE (Nagios Remote Plugin Executor) est un protocole qui a été conçu pour lancer à distance des commandes de supervision locales sur les serveurs supervisés. 
+NRPE (Nagios Remote Plugin Executor) est un protocole qui a été conçu pour lancer à distance des commandes de supervision locales sur les serveurs supervisés.
 
 Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau ci-dessous.
 
@@ -18,7 +18,7 @@ Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau 
 | `centreon_linux_local.pl` | Script Perl        | Serveur supervisé | S'exécute localement et retourne un statut, un message d'information et des métriques                   |
 | `centreon-nrpe3`          | Service/daemon     | Serveur supervisé | Écoute sur le port 5666 et exécute les commandes demandées si elles sont définies dans sa configuration |
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -33,31 +33,23 @@ Seules les métriques sont détaillées dans cette section, mais sachez qu'un gr
 
 * Cmd-Generic :  Vérifier le retour d'une commande
 * Connections-Generic : Vérifier les connections TCP/UDP
-* Cpu-Detailed : Vérifier l'utilisation moyenne des CPU (User, Nice, System,
-Idle, Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
+* Cpu-Detailed : Vérifier l'utilisation moyenne des CPU (User, Nice, System, Idle, Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
 * Disk-Generic-Name : Vérifier l'utilisation des disques (une seule partition)
-* Disk-Global : Vérifier l'utilisation des disques (toutes les partitions ou
-filtrage par expression régulière)
+* Disk-Global : Vérifier l'utilisation des disques (toutes les partitions ou filtrage par expression régulière)
 * Disk-IO-Generic-Name : Vérifier les IO disques (une seule partition)
-* Disk-IO-Global : Vérifier les IO disques (toutes les partitions ou filtrage
-par expression régulière)
-* File-Date-Generic : Vérifier la date (modification, création) d'un fichier ou
-d'un répertoire
+* Disk-IO-Global : Vérifier les IO disques (toutes les partitions ou filtrage par expression régulière)
+* File-Date-Generic : Vérifier la date (modification, création) d'un fichier ou d'un répertoire
 * File-Size-Generic : Vérifier la taille d'un fichier ou d'un répertoire
 * Inodes-Generic-Name : Vérifier l'utilisation des inodes (une seule partition)
-* Inodes-Global : Vérifier l'utilisation des inodes (toutes les partitions ou 
-filtrage par expression régulière)
+* Inodes-Global : Vérifier l'utilisation des inodes (toutes les partitions ou filtrage par expression régulière)
 * Is-File-Generic : Vérifier la présence d'un fichier
 * Is-Not-File-Generic : Vérifier l'absence d'un fichier
-* Packet-Errors-Generic-Name : Vérifier le nomdre de paquets réseau en erreur
-(une seule interface)
-* Packet-Errors-Global : Vérifier le nomdre de paquets réseau en erreur (toutes
-les partitions ou filtrage par expression régulière)
+* Packet-Errors-Generic-Name : Vérifier le nomdre de paquets réseau en erreur (une seule interface)
+* Packet-Errors-Global : Vérifier le nomdre de paquets réseau en erreur (toutes les partitions ou filtrage par expression régulière)
 * Process-Generic : Vérifier qu'un processus est en cours d'exécution
 * Systemd-Sc-Status : Vérifier l'état des services gérés par *systemd*
 * Traffic-Generic-Name : Vérifier la consommation de bande passante sur une interface
-* Traffic-Global : Vérifier la consommation de bande passante (toutes les 
-partitions ou filtrage par expression régulière)
+* Traffic-Global : Vérifier la consommation de bande passante (toutes les partitions ou filtrage par expression régulière)
 
 Voici les métriques collectées pour les services liés au modèle dhôte par défaut :
 
@@ -111,7 +103,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 
 ## Prérequis
 
-Les prérequis ci-dessous sont indispendables pour que le plugin pack puisse fonctionner correctement.
+Les prérequis ci-dessous sont indispendables pour que le connecteur de supervision puisse fonctionner correctement.
 
 ### Flux réseau
 
@@ -134,26 +126,49 @@ Installer les paquets suivants :
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
+
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el8.noarch.rpm` et `https://yum.centreon.com/standard/22.10/el8/stable/x86_64/RPMS/centreon-nrpe3-plugin-4.0.3-0.el8.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
+
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/22.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+# Ajout de l'utilisateur centreon-engine user
+useradd --create-home centreon-engine
+# Installation de gpg
+apt install gpg
+# Ajout du dépôt Centreon
+wget -qO- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
+echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon.list
+apt update
+# Installation de centreon-nrpe3-daemon
+apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
+# Création du répertoire pour le cache du plugin
+mkdir -p /var/lib/centreon/centplugins/
+chown centreon-engine: /var/lib/centreon/centplugins/
+```
+
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-plugin-operatingsystems-linux-local%2Fcentreon-plugin-operatingsystems-linux-local_20221215-102705-bullseye_amd64.deb` et `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-nrpe3-daemon%2Fcentreon-nrpe3-daemon_4.0.3-1_amd64.deb` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `apt update`**.
 
 </TabItem>
 </Tabs>
 
-> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/21.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
-
 ### Configuration de NRPE
 
-Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` 
+Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` :
 
 ```ini
 [...]
@@ -174,25 +189,25 @@ systemctl restart centreon-nrpe3.service
 
 ## Installation
 
-### Plugin-Pack
+### connecteur de supervision
 
-L'installation du Plugin-Pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
+L'installation du connecteur de supervision en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
 
 <Tabs groupId="sync">
 <TabItem value="Licence IMP/EPP Online & IT-100 Editions" label="Licence IMP/EPP Online & IT-100 Editions">
 
-Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
+Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Licence IMP/EPP Offline" label="Licence IMP/EPP Offline">
 
-1. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
+1. Installer le RPM du connecteur de supervision contenant les modèles de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-nrpe3
 ```
 
-2. Installer le Plugin-Pack "Linux NRPE3" depuis la page "Configuration > Plugin Packs > Manager".
+2. Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
 </TabItem>
 </Tabs>
@@ -216,14 +231,14 @@ Si tout a été correctement installé et configuré, la commande :
 devrait aboutir au résultat suivant :
 
 ```text
-NRPE v3.2.1
+NRPE v4.0.3
 ```
 
 Dans le cas contraire, se référer à la section [troubleshooting](#troubleshooting).
 
 ## Configuration de l'hôte dans Centreon
 
-Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Linux-NRPE3-custom". 
+Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Linux-NRPE3-custom".
 
 Une fois le modèle appliqué, il est possible de modifier les macros suivantes :
 
@@ -277,7 +292,7 @@ Si le message retourné est le suivant :
 connect to address x.x.x.x port 5666: Connection refused
 ```
 
-C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (*ie.* le poller) n'est pas autorisée à interroger l'agent NRPE. 
+C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (c'est-à-dire celle du poller) n'est pas autorisée à interroger l'agent NRPE.
 
 Il faut alors vérifier le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` ([*cf* plus haut](#configuration-de-nrpe).
 

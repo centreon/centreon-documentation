@@ -17,6 +17,52 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.14
+
+Release date: `March 15, 2023`
+
+#### Bug fixes
+
+- [API] Fixed API access when user doesn't have access to UI.
+- [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Configuration] Fixed an ACL issue with user modification permissions.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed possibility to disable Contact/Contactgroup additive inheritance if not yet configured.
+- [Core] Fixed blank page after login.
+- [ResourceStatus] Fixed the display of commands in the service details panel.
+- [UI] Fixed date picker causing duplicated dates.
+- [UI] Fixed an issue where the service icons on the widgets were not visible. 
+- [UI] Fixed an issue that caused months to be missing from the calendar selection.
+- [Widget] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+
+#### Security fixes
+
+- [Configuration] Fixed vulnerabilities in host form.
+- [Configuration] Fixed vulnerabilities in services listing.
+- [Configuration] Sanitized queries when displaying logos.
+- [Configuration] Sanitized queries in service categories.
+- [Configuration] Sanitized queries in the list of service groups.
+- [Configuration] Sanitized queries in the list of host categories.
+- [Configuration] Sanitized queries in the list of meta services.
+- [Configuration] Sanitized queries in the list of broker configurations.
+- [Configuration] Sanitized queries in the list of commands.
+- [Configuration] Sanitized queries in the list of trap groups.
+- [Core] Fixed vulnerabilities in ajaxLdapSearch.js file.
+- [Core] Fixed vulnerabilities in rename.php.
+- [Core] Fixed vulnerabilities in functions.js file.
+- [Core] Fixed vulnerabilities in pathway.php.
+- [Core] Fixed vulnerabilities in color_picker.php.
+- [Core] Fixed vulnerabilities in color_picker_mb.php.
+- [Core] Fixed vulnerabilities in centreonAPI.class.php.
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerabilities in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in service monitoring widget.
+
+#### Others
+
+- [Monitoring] Removed obsolete code for exporting a graph in CSV.
+
 ### 21.10.13
 
 Release date: `October 12, 2022`
@@ -406,6 +452,16 @@ By:
 - Preparing Debian 11 support
 
 ## Centreon Collect
+
+### 21.10.5
+
+Release date: `February 20, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a calculation error on BAM boolean rules impact.
 
 ### 21.10.4
 

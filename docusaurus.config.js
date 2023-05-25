@@ -4,19 +4,26 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const versions = require('./versions.json');
+const version = process.env.VERSION ? process.env.VERSION : null;
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
+  customFields: {
+    version: version ?? null,
+  },
+
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
-  favicon: 'img/logo-centreon.png',
+  baseUrl: version ? `${version}/` : '/',
+  onBrokenLinks: version ? 'log' : 'throw',
+  onBrokenMarkdownLinks: version ? 'log' : 'throw',
+  favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
   trailingSlash: true,
-  
+
   noIndex: false,
 
   i18n: {
@@ -44,10 +51,20 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['22.10', '22.04', '21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: (() => {
+            if (version) {
+              return [version];
+            }
+            return versions;
+          })(),
           versions: {
+            23.04: {
+              label: '⭐ 23.04',
+              banner:'none',
+            },
             '22.10': {
-              label: '⭐ 22.10',
+              label: '22.10',
+              banner:'none',
             },
             22.04: {
               label: '22.04',
@@ -83,14 +100,6 @@ const config = {
     ],
   ],
 
-  scripts: [
-    {
-      src: '/js/fix-location.js',
-      async: false,
-      defer: false,
-    },
-  ],
-  
   themes: [],
 
   plugins: [
@@ -106,7 +115,7 @@ const config = {
       },
     ],
     'plugin-image-zoom',
-	[
+	  [
       '@docusaurus/plugin-content-docs',
       {
         id: 'cloud',
@@ -135,12 +144,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        appId: '3WEC6XPLDB',
-        apiKey: 'be499306058f3e54012bab278e6e6d86',
-        indexName: 'centreon',
-        contextualSearch: true,
-      },
+      algolia: version
+        ? undefined
+        : {
+          appId: '3WEC6XPLDB',
+          apiKey: 'be499306058f3e54012bab278e6e6d86',
+          indexName: 'centreon',
+          contextualSearch: true,
+        },
 
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
@@ -178,124 +189,117 @@ const config = {
         title: '',
         logo: {
           alt: 'Logo Centreon Docs',
-          src: 'img/logo-centreon.png',
+          src: 'img/logo_centreon_dark.png',
+          srcDark: 'img/logo_centreon.png',
           href: '/',
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'getting-started/welcome',
-            position: 'left',
-            label: 'Centreon OnPrem',
-          },
-		     {
-            to: '/cloud/getting-started/architecture',
-            label: 'Centreon Cloud',
-            position: 'left',
-            activeBaseRegex: '/cloud/',
-          },
-          {
-            to: '/pp/integrations/plugin-packs/getting-started/introduction',
-            label: 'Plugin Packs',
-            position: 'left',
-            activeBaseRegex: '/pp/',
-          },
-          {
-            type: 'search',
-            position: 'right',
-          },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownActiveClassDisabled: true,
-            dropdownItemsAfter: [
+        items: (() => {
+          if (version) {
+            return [
               {
-                to: 'https://docs-older.centreon.com',
-                label: 'Older',
+                type: 'html',
+                position: 'left',
+                value: `<h2 style="margin:0">Centreon OnPrem ${version}</h2>`,
               },
-            ],
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-        ],
+              {
+                type: 'localeDropdown',
+                position: 'right',
+              },
+            ];
+          }
+          return [
+            {
+              type: 'doc',
+              docId: 'getting-started/welcome',
+              position: 'left',
+              label: 'Centreon OnPrem',
+            },
+            {
+              to: '/cloud/getting-started/architecture',
+              label: 'Centreon Cloud',
+              position: 'left',
+              activeBaseRegex: '/cloud/',
+            },
+            {
+              to: '/pp/integrations/plugin-packs/getting-started/introduction',
+              label: 'Monitoring Connectors',
+              position: 'left',
+              activeBaseRegex: '/pp/',
+            },
+            {
+              type: 'search',
+              position: 'right',
+            },
+            {
+              type: 'docsVersionDropdown',
+              position: 'right',
+              dropdownActiveClassDisabled: true,
+              dropdownItemsAfter: [
+                {
+                  to: 'https://docs-older.centreon.com',
+                  label: 'Older',
+                },
+              ],
+            },
+            {
+              type: 'localeDropdown',
+              position: 'right',
+            },
+          ];
+        })(),
       },
+
       footer: {
-        style: 'dark',
         links: [
           {
-            title: 'Documentation',
-            items: [
-              {
-                label: 'Getting Started',
-                to: '/docs/getting-started/welcome',
-              },
-              {
-                label: 'API References',
-                to: '/docs/api/introduction',
-              },
-              {
-                label: 'Releases',
-                to: '/docs/releases/introduction',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
             items: [
               {
                 label: 'Corporate Website',
                 href: 'https://www.centreon.com/en/',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'Blog',
                 href: 'https://www.centreon.com/en/blog/',
               },
+            ],
+          },
+          {
+            items: [
               {
                 label: 'Download',
                 href: 'https://download.centreon.com/',
               },
             ],
           },
-          {
-            title: 'Follow us',
-            items: [
-              {
-                label: 'Github',
-                href: 'https://github.com/centreon/centreon',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/Centreon',
-              },
-            ],
-          },
         ],
         logo: {
           alt: 'Centreon Open Source Logo',
-          src: 'img/logo-centreon.png',
+          src: 'img/logo_centreon.png',
         },
         copyright: `Copyright © 2005 - 2023 Centreon`,
       },
     }),
-    webpack: {
-      jsLoader: (isServer) => ({
-        loader: require.resolve('swc-loader'),
-        options: {
-          jsc: {
-            "parser": {
-              "syntax": "typescript",
-              "tsx": true
-            },
-            target: 'es2017',
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve('swc-loader'),
+      options: {
+        jsc: {
+          "parser": {
+            "syntax": "typescript",
+            "tsx": true
           },
-          module: {
-            type: isServer ? 'commonjs' : 'es6',
-          }
+          target: 'es2017',
         },
-      }),
-    },
+        module: {
+          type: isServer ? 'commonjs' : 'es6',
+        }
+      },
+    }),
+  },
 };
 
 module.exports = config;

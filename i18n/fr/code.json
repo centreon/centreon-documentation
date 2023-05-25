@@ -140,11 +140,11 @@
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "Ceci est la documentation de Centreon {versionLabel}. Cette version n'est plus supportée, et sa documentation n'est plus maintenue.",
+    "message": "Ceci est la documentation de {siteTitle} {versionLabel}. Cette version n'est plus supportée, et sa documentation n'est plus maintenue.",
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "Consultez la {latestVersionLink} ({versionLabel}).",
+    "message": "Consultez la {latestVersionLink}.",
     "description": "The label used to tell the user to check the latest version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
@@ -404,5 +404,10 @@
   "theme.IdealImageMessage.error": {
     "message": "Erreur. Cliquez pour recharger",
     "description": "When the image fails to load for unknown error"
+  },
+  "theme.common.feedback": {
+    "message": "Envoyer du feedback sur cette page",
+    "description": "To give feedback"
   }
+  
 }

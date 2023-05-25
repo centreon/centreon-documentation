@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack OpenVPN OMI brings 1 host template :
+The Centreon Monitoring Connector OpenVPN OMI brings 1 host template :
 * App-Openvpn-OMI-custom
 
 It brings the following Service Template:
@@ -43,30 +43,30 @@ A user and password dedicated to monitoring is needed for security reasons.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Open VPN* server:
+1. Install the Centreon package on every Centreon poller expected to monitor your *Open VPN* server:
 
 ```bash
 yum install centreon-plugin-Applications-Openvpn-Omi
 ```
 
-2. On the Centreon Web interface, install the *OpenVPN OMI* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+2. On the Centreon Web interface, install the *OpenVPN OMI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Open VPN* server:
+1. Install the Centreon package on every Centreon poller expected to monitor your *Open VPN* server:
 
 ```bash
 yum install centreon-plugin-Applications-Openvpn-Omi
 ```
 
-2. Install the *OpenVPN OMI* Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the *OpenVPN OMI* Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-openvpn-omi
 ```
 
-3. On the Centreon Web interface, install the *OpenVPN OMI* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
+3. On the Centreon Web interface, install the *OpenVPN OMI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

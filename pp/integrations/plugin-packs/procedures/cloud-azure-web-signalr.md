@@ -12,10 +12,10 @@ Azure SignalR Service simplifies the process of adding real-time web functionali
 This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile
 application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
-The Centreon Plugin-Pack *Azure SignalR* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Monitoring Connector *Azure SignalR* can rely on Azure API or Azure CLI to collect the metrics related to the
 SignalR service.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -26,7 +26,7 @@ SignalR service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure SignalR* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Monitoring Connector *Azure SignalR* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure SignalR**:
 
@@ -75,30 +75,30 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure SignalR resources:
+1.  Install the Centreon package on every Centreon poller expected to monitor Azure SignalR resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Web-SignalR-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure SignalR* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure SignalR* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure SignalR resources:
+1. Install the Centreon package on every Centreon poller expected to monitor Azure SignalR resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Web-SignalR-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-web-signalr.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure SignalR* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure SignalR* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

@@ -5,7 +5,6 @@ title: Alcatel Omniswitch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack Assets
 
 ### Templates
@@ -16,34 +15,27 @@ The Centreon Pack **Alcatel Omniswitch** brings a host template:
 
 It brings the following service templates:
 
-| Service Alias              | Service Template                                       | Service Description                          | Default |
-|:---------------------------|:-------------------------------------------------------|:---------------------------------------------|:--------|
-| Traffic-Global             | Net-Alcatel-Omniswitc-Traffic-Global-SNMP              | Check traffic of multiple network interfaces |         |
-| Cpu                        | Net-Alcatel-Omniswitch-Cpu-SNMP                        | Check CPU usage                              | X       |
-| Flash-Memory               | Net-Alcatel-Omniswitch-Flash-Memory-SNMP               | Check Flash memory usage                     | X       |
-| Hardware                   | Net-Alcatel-Omniswitch-Hardware-SNMP                   | Check hardware state                         | X       |
-| Memory                     | Net-Alcatel-Omniswitch-Memory-SNMP                     | Check memory usage                           | X       |
-| Packet-Errors-Generic-Id   | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Id-SNMP   | Check packets on errors                      |         |
-| Packet-Errors-Generic-Name | Net-Alcatel-Omniswitch-Packet-Errors-Generic-Name-SNMP | Check packets on errors                      |         |
-| Packet-Errors-Global       | Net-Alcatel-Omniswitch-Packet-Errors-Global-SNMP       | Check packets on errors                      |         |
-| Spanning-Tree              | Net-Alcatel-Omniswitch-SpanningTree-SNMP               | Check Spanning Tree state on interfaces      |         |
-| Traffic-Generic-Id         | Net-Alcatel-Omniswitch-Traffic-Generic-Id-SNMP         | Check traffic of an network interface        |         |
-| Traffic-Generic-Name       | Net-Alcatel-Omniswitch-Traffic-Generic-Name-SNMP       | Check traffic of an network interface        |         |
-| Traffic-Global             | Net-Alcatel-Omniswitch-Traffic-Global-SNMP             | Check traffic of an network interface        |         |
-| Virtual-Chassis            | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP            | Check virtual chassis                        |         |
+| Service Alias   | Service Template                            | Service Description                     | Default |
+|:----------------|:--------------------------------------------|:----------------------------------------|:--------|
+| Cpu             | Net-Alcatel-Omniswitch-Cpu-SNMP             | Check CPU usage                         | X       |
+| Flash-Memory    | Net-Alcatel-Omniswitch-Flash-Memory-SNMP    | Check Flash memory usage                | X       |
+| Hardware        | Net-Alcatel-Omniswitch-Hardware-SNMP        | Check hardware state                    | X       |
+| Interfaces      | Net-Alcatel-Omniswitch-Interfaces-SNMP      | Check interfaces                        |         |
+| Memory          | Net-Alcatel-Omniswitch-Memory-SNMP          | Check memory usage                      | X       |
+| Spanning-Tree   | Net-Alcatel-Omniswitch-SpanningTree-SNMP    | Check Spanning Tree state on interfaces |         |
+| Virtual-Chassis | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP | Check virtual chassis                   |         |
 
 ### Discovery rules
 
 <Tabs groupId="sync">
 <TabItem value="Service" label="Service">
 
-| Rule Name                                      | Description                                                           |
-|:-----------------------------------------------|:----------------------------------------------------------------------|
-| Net-Alcatel-Omniswitch-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
-| Net-Alcatel-Omniswitch-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Rule Name                                  | Description                                                   |
+|:-------------------------------------------|:--------------------------------------------------------------|
+| Net-Alcatel-Omniswitch-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+and in the [following chapter](/docs/monitoring/discovery/services-discovery#discovery-rules).
 
 </TabItem>
 </Tabs>
@@ -73,34 +65,17 @@ Could not retrieve metrics
 Could not retrieve metrics
 
 </TabItem>
-<TabItem value="Packet-Errors-Generic-Id" label="Packet-Errors-Generic-Id">
+<TabItem value="Interfaces" label="Interfaces">
 
-| Metric Name                                    | Unit  |
-|:-----------------------------------------------|:------|
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
-
-</TabItem>
-<TabItem value="Packet-Errors-Generic-Name" label="Packet-Errors-Generic-Name">
-
-| Metric Name                                    | Unit  |
-|:-----------------------------------------------|:------|
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
-
-</TabItem>
-<TabItem value="Packet-Errors-Global" label="Packet-Errors-Global">
-
-| Metric Name                                    | Unit  |
-|:-----------------------------------------------|:------|
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
+| Metric Name                                               | Unit  |
+|:--------------------------------------------------------- |:----- |
+| status                                                    |       |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
@@ -108,30 +83,6 @@ Could not retrieve metrics
 | Metric Name            | Unit  |
 |:-----------------------|:------|
 | *spanningtrees*#status |       |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
-
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
-
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
-
-</TabItem>
-<TabItem value="Traffic-Global" label="Traffic-Global">
-
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| *int*#interface.traffic.in.bitspersecond  | b/s   |
-| *int*#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 <TabItem value="Virtual-Chassis" label="Virtual-Chassis">
@@ -162,30 +113,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
 
 ```bash
 yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Alcatel Omniswitch** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
 
 ```bash
 yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 ```
 
-2. Install the **Alcatel Omniswitch** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Alcatel Omniswitch** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Alcatel Omniswitch** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

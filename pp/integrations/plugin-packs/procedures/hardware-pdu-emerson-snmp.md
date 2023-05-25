@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **Emerson PDU** brings a host template:
+The Centreon Monitoring Connector **Emerson PDU** brings a host template:
 
 * HW-Pdu-Emerson-SNMP-custom
 
@@ -75,30 +75,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Emerson PDU** resources:
+1. Install the package on every Centreon poller expected to monitor **Emerson PDU** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Emerson PDU** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Emerson PDU** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Emerson PDU** resources:
+1. Install the package on every Centreon poller expected to monitor **Emerson PDU** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 ```
 
-2. Install the **Emerson PDU** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Emerson PDU** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-hardware-pdu-emerson-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Emerson PDU** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Emerson PDU** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

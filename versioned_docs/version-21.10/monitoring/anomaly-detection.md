@@ -5,10 +5,7 @@ title: Anomaly detection
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-> Centreon Anomaly Detection is currently in **closed-beta phase** and require a
-> valid token provided by Centreon. We will soon open the beta phase to the
-> public under certain conditions.
+> Centreon Anomaly Detection is a Centreon extension that requires a valid [license](../administration/licenses.md). To purchase one and retrieve the necessary repositories and access token, contact [Centreon](mailto:sales@centreon.com).
 
 ## Description
 
@@ -323,18 +320,6 @@ The anomaly detection service is currently in closed beta test phase as describe
 purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
 During this phase, Centreon will improve the anomaly detection feature based on users feedback. No SLA will be available
 during this phase.
-
-### What are the selection criteria for the beta test program? for what duration and volume?
-
-A participation form is available to Centreon customers. Based on the answers to the form, Centreon will select the
-candidates to participate in the closed beta test phase.
-
-### What is the defined process for the beta test program?
-
-Once the candidates have been selected, Centreon will contact them to indicate the procedure to follow. Regular meetings
-will be scheduled to assess the effectiveness of the feature on the customers' platform. Remote handling sessions may be
-necessary.
-An update of the functionality may also be requested to validate the changes made following the feedback.
 
 ### How long is the data stored?
 

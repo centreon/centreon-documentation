@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Microsoft WSUS** apporte 2 modèles d'hôte différents :
+Le connecteur de supervision Centreon **Microsoft WSUS** apporte 2 modèles d'hôte différents :
 
 * App-Wsus-NRPE-custom
 * App-Wsus-NSClient-05-Restapi-custom
@@ -116,7 +116,7 @@ Veuillez suivre notre [documentation officielle](../getting-started/how-to-guide
 ### Pack de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Plugin Packs > Gestionnaire**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 > Si vous souhaitez utiliser le modèle d'hôte **NRPE**, installez le paquet centreon-nrpe3. 
 
@@ -149,7 +149,7 @@ apt install centreon-pack-applications-wsus-nsclient
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Microsoft WSUS**
-depuis l'interface web et le menu **Configuration > Plugin Packs > Gestionnaire**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 

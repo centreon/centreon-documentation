@@ -73,6 +73,8 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
+Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -210,7 +212,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
 
-1. Installez le dépôt MBI, vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+1. Installez le dépôt Business, vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Puis lancez la commande suivante :
 
@@ -317,9 +319,12 @@ replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 
 Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
 ligne de commande suivante :
+```bash
+wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
+```
 
 ```bash
-mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
+mysql centreon < /tmp/view_creation.sql
 ```
 
 #### Configuration spécifique à Debian 11
@@ -379,9 +384,25 @@ processus d'installation :
 
 #### Procédure
 
-1. Pour commencer l'installation du serveur de reporting, installez le dépôt MBI. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+1. Pour commencer l'installation du serveur de reporting, installez le dépôt Business. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-2. Puis lancez la commande suivante:
+2. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
+   
+3. Puis lancez la commande suivante:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">

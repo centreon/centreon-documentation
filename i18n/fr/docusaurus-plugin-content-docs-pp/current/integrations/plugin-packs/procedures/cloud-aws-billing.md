@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon AWS Billing apporte un modèle d'hôte :
+Le connecteur de supervision Centreon AWS Billing apporte un modèle d'hôte :
 
 * Cloud-Aws-Billing-custom
 
@@ -22,7 +22,7 @@ Il apporte le modèle de service suivant :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **AWS Billing** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **AWS Billing** inclut un fournisseur de découverte
 d'hôtes nommé **Amazon Billing**. Celui-ci permet de découvrir l'ensemble des services générant des coûts :
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-billing-provider.png)
@@ -89,7 +89,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Billing-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **AWS Billing** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS Billing** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -100,13 +100,13 @@ yum install centreon-plugin-Cloud-Aws-Billing-Api
 yum install centreon-plugin-Cloud-Aws-Billing-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **AWS Billing** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **AWS Billing** :
 
 ```bash
 yum install centreon-pack-cloud-aws-billing
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **AWS Billing** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS Billing** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

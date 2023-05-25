@@ -96,9 +96,7 @@ cliquez sur **Download**.
 3. Connectez-vous en `root` au serveur depuis une autre machine avec le terminal de votre choix, à l'aide de l'adresse IP obtenue précédemment.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
-configuration :
-
-   ![image](../../assets/installation/terminal_centreon.png)
+configuration.
 
    Définissez les paramètres suivants :
 
@@ -193,7 +191,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 `http://addresse_ip/centreon` ou `http://FQDN/centreon`. (Par exemple, une URL valide serait
 `http://192.168.1.44/centreon`.)
 
-7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon123!`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
+7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon!123`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
 8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md).
 
@@ -205,7 +203,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 ## Identifiants par défaut
 
-- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon123!`.
+- Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`Centreon!123`.
 - Le compte d'administration du serveur (via SSH) est: `root`/`centreon`.
 - Le mot de passe root du SGBD n'est pas initialisé.
 

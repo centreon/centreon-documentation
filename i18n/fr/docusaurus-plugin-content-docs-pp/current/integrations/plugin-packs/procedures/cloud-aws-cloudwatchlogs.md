@@ -18,7 +18,7 @@ les archiver en toute sécurité à des fins d’analyse ultérieure.
 > Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` and ```--stream-name```) afin
 > de limiter les résultats retournés par l'API.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -86,7 +86,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Amazon CloudWatch Logs* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,13 +97,13 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon CloudWatch Logs*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Amazon CloudWatch Logs*:
 
 ```bash
 yum install centreon-pack-cloud-aws-cloudwatchlogs
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Amazon CloudWatch Logs* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

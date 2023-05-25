@@ -118,7 +118,7 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 yum install centreon-plugin-Applications-Bluemind-Ssh
 ```
 
-Installer le Plugin-Pack 'BlueMind SSH' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+Installer le connecteur de supervision 'BlueMind SSH' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -135,7 +135,7 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 yum install centreon-pack-applications-bluemind-ssh
 ```
 
-3. Installer le Plugin-Pack 'BlueMind' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+3. Installer le connecteur de supervision 'BlueMind' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 </Tabs>

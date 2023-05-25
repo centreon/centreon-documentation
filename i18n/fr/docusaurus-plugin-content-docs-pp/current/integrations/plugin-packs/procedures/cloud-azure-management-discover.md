@@ -8,22 +8,20 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le Plugin Pack Centreon *Azure Discover* permet de découvrir l'ensemble des resources Azure rattachées à une souscription donnée.
-Il s'appuie sur les API Azure Monitor afin de récuperer les éléments de l'infrastructure. Il s'appuie sur la collection des Plugin Pack
+Le connecteur de supervision Centreon *Azure Discover* permet de découvrir l'ensemble des resources Azure rattachées à une souscription donnée.
+Il s'appuie sur les API Azure Monitor afin de récuperer les éléments de l'infrastructure. Il s'appuie sur la collection des connecteur de supervision
 afin de modéliser une infrastructure Azure dans Centreon
 
-> Le Plugin Pack Centreon *Azure Discover* est uniquement compatible avec le *custom-mode* 'api'.
+> Le connecteur de supervision Centreon *Azure Discover* est uniquement compatible avec le *custom-mode* 'api'.
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
-> Le Plugin Pack *Azure Discover* est un pack de *découverte*. Il ne fournit pas de modèles ni d'indicateurs de supervision en propre.
+> Le connecteur de supervision *Azure Discover* est un pack de *découverte*. Il ne fournit pas de modèles ni d'indicateurs de supervision en propre.
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon *Azure Discover* fournit un *provider* de découverte d'Hôtes nommé **Microsoft Azure Management Discover**
+Le connecteur de supervision Centreon *Azure Discover* fournit un *provider* de découverte d'Hôtes nommé **Microsoft Azure Management Discover**
 Celui-ci permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée:
-
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-provider.png)
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
@@ -31,6 +29,41 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 ## Prérequis
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azure-credential-configuration.md) afin d'obtenir les prérequis nécessaires pour interroger les API d'Azure.
+
+## Configuration 
+
+<Tabs groupId="sync">
+<TabItem value="Online License" label="Online License">
+
+1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+2. Sur l'interface Web de Centreon, installez le Azure Discover Centreon Plugin Pack sur la page "Configuration > Plugin Packs > Manager" Vous serez invité à installer plusieurs autres Azure Plugin Packs en dépendances (ils serviront à définir les bons templates/indicateurs sur les éléments découverts).
+
+
+</TabItem>
+<TabItem value="Offline License" label="Offline License">
+
+1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+2. Installez le Centreon Plugin Pack RPM sur le serveur Centreon Central, installez tous les Centreon Plugin Packs pour Azure, afin de rendre toutes les dépendances disponibles :
+
+```bash
+yum install centreon-pack-cloud-azure\*
+```
+
+3. Sur l'interface Web de Centreon, installez le Azure Discover Centreon Plugin Pack sur la page "Configuration > Plugin Packs > Manager" Vous serez invité à installer plusieurs autres Azure Plugin Packs en dépendances (ils serviront à définir les bons templates/indicateurs sur les éléments découverts).
+
+
+</TabItem>
+</Tabs>
 
 ## Paramétrer une découverte
 
@@ -73,7 +106,7 @@ Renseignez si besoin les information ci-après:
 
 ### Lancement de la découverte et affichage des résultats
 
-L'étape 4 permet d'ajuster les *mappers*; ceux-ci sont déjà prédéfinis par le Plugin Pack, il n'est normalement pas
+L'étape 4 permet d'ajuster les *mappers*; ceux-ci sont déjà prédéfinis par le connecteur de supervision, il n'est normalement pas
 nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
 [documentation des mappers](/docs/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
 
@@ -87,7 +120,7 @@ Azure sont automatiquement appliqués:
 
 > Certains éléments peuvent ne pas avoir de modèle appliqué dans la liste des résultats:
 > - les éléments ne sont pas des ressources pouvant être supervisées
-> - ces ressources ne sont pas couvertes par les Plugin Pack Centreon
+> - ces ressources ne sont pas couvertes par les connecteur de supervision Centreon
 
 Sélectionnez les éléments à modéliser dans Centreon et *Sauvegardez*.
 

@@ -19,6 +19,72 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.7
+
+Release date: `March 2, 2023`
+
+#### Bug fixes
+
+- [CLAPI] Fixed an issue not to consider password expiration policy for excluded users.
+- [Configuration] Fixed an issue in the recurrent downtimes form that caused service relations to be lost.
+- [Configuration] Fixed global configuration export button in banner with OIDC authentication.
+- [Configuration] Fixed an issue preventing an escalation from being updated.
+- [Configuration] Fixed an issue preventing a service group from being updated.
+- [Core] Fixed a blank page issue after login.
+- [UI] Fixed an issue where a popup was not displayed in a legacy page with graphs.
+- [UI] Fixed the issue where 99+ was displayed instead of the exact value on the top counter for values under 1000.
+
+#### Vulnerabilities
+
+- [Security] Fixed SQLi in Monitoring Servicegroups widget.
+- [Security] Fixed SQLi in legacy monitoring pages.
+- [Security] Fixed XSS vulnerability in a legacy monitoring page.
+
+### 22.10.6
+
+Release date: `February 22, 2023`
+
+#### Bug fixes
+
+- [Authentication] Added an LDAP connection timeout to avoid infinite connection.
+- [Authentication] Added possibility to use token endpoint to get list of roles and groups for mapping.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
+- [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
+- [Authentication] Fixed a PHP error in IDP response with a string instead of an array for roles list.
+- [AnomalyDetection] Fixed an envelope computation error. 
+- [CLAPI] Removed mandatory password for LDAP users creation.
+- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an installation error when the chrony package is already installed.
+- [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
+- [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
+- [Core] Replaced an SQL statement to fix a database compatibility limitation in an update script.
+- [Install] Fixed an error indicating that the timezone was not initialized during Debian package installation.
+- [Install] Fixed an SQL error with MySQL 8.
+- [Install] Fixed an app_key error during upgrade.
+- [Install] Fixed a PHP error when using API to perform an upgrade.
+- [Install] Fixed an error which prevented access to the update wizard after packages update.
+- [LDAP] Fixed auto-import of users.
+- [ResourceStatus] Fixed an issue where the date picker displayed duplicated dates, resulting in day shifts.
+- [UI] Fixed an aesthetic issue in Resource Status table header.
+- [UI] Fixed buttons and radio buttons in administration pages.
+- [UI] Fixed an issue with "display last comment" option that caused high loads and caused the interface to become unresponsive.
+- [UX] Fixed an issue that affected the "Pending" status in the top counter filter: when it was selected, the filter was not applied to deprecated pages.
+
+#### Enhancements
+
+- [Administration] Added a display of remaining disk free space where images are stored.
+- Optimized queries used to display the services monitoring page.
+- Optimized queries used to display the hosts monitoring page.
+- Optimized queries used to display the services grid monitoring page.
+
+### 22.10.5
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed a PHP quote escaping issue that occurred after upgrading to PHP 8.1
+
 ### 22.10.4
 
 Release date: `January 10, 2023`
@@ -144,6 +210,15 @@ Release date: `October 26, 2022`
 
 
 ## Centreon Collect
+
+### 22.10.1
+
+Release date: `March 16, 2023`
+
+#### Centreon Broker
+
+##### Bug fix
+- Fixed an issue in the Stream Connector mechanism that would not handle the BBDO v3 RRD rebuild events.
 
 ### 22.10.0
 

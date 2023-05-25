@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon Amazon Backup Vault apporte un modèle d'hôte :
+Le connecteur de supervision Centreon Amazon Backup Vault apporte un modèle d'hôte :
 * Cloud-Aws-Backup-Vault-custom
 
 Il apporte le Modèle de Service suivant :
@@ -93,7 +93,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Backup-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack **Amazon Backup Vault** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision **Amazon Backup Vault** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -110,7 +110,7 @@ yum install centreon-plugin-Cloud-Aws-Backup-Api
 yum install centreon-pack-cloud-aws-backup
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack **Amazon Backup Vault** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision **Amazon Backup Vault** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

@@ -12,7 +12,7 @@ RADIUS (Remote Authentication Dial-In User Service) permet de
 centraliser l'authentification par l'intermedaire du protocol AAA 
 (Authentication, Authorization, Accounting).
 
-Le Plugin Pack Centreon *Radius Service* permet de récupérer le status et le
+Le connecteur de supervision Centreon *Radius Service* permet de récupérer le status et le
 temps de réponse d'une connexion à un serveur RADIUS
 
 ## Contenu du Pack
@@ -36,7 +36,7 @@ temps de réponse d'une connexion à un serveur RADIUS
 
 ## Prérequis
 
-Pour faire fonctionner le Plugin Pack, il est nécessaire d'avoir :
+Pour faire fonctionner le connecteur de supervision, il est nécessaire d'avoir :
 
 * Un serveur RADIUS
 * Un utilisateur ainsi que son mot de passe pour l'authentification
@@ -53,7 +53,7 @@ Pour faire fonctionner le Plugin Pack, il est nécessaire d'avoir :
 yum install centreon-plugin-Applications-Protocol-Radius
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Radius Service* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Radius Service* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,7 +70,7 @@ yum install centreon-plugin-Applications-Protocol-Radius
 yum install centreon-pack-applications-protocol-radius
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Radius Service* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Radius Service* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

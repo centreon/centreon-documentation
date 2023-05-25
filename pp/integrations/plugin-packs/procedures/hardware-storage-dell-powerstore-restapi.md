@@ -19,6 +19,7 @@ It brings the following service templates:
 | Alerts        | HW-Storage-Dell-Powerstore-Alerts-Restapi   | Check alerts   | X       |
 | Clusters      | HW-Storage-Dell-Powerstore-Clusters-Restapi | Check clusters | X       |
 | Hardware      | HW-Storage-Dell-Powerstore-Hardware-Restapi | Check hardware | X       |
+| Memory        | HW-Storage-Dell-Powerstore-Memory-Restapi   | Check memory   | X       |
 
 ### Collected metrics & status
 
@@ -81,6 +82,15 @@ It brings the following service templates:
 | sfp status          |       |
 
 </TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Metric name                            | Unit  |
+| :------------------------------------- | :---- |
+| *appliance_id*#memory.usage.bytes      | B     |
+| *appliance_id*#memory.free.bytes       | B     |
+| *appliance_id*#memory.usage.percentage | %     |
+
+</TabItem>
 </Tabs>
 
 ## Prerequisites
@@ -93,18 +103,18 @@ E.g: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell PowerStore** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Dell PowerStore** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 ```
 
-2. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Dell PowerStore** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Dell PowerStore** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
@@ -116,7 +126,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Powerstore-Restapi
 yum install centreon-pack-hardware-storage-dell-powerstore-restapi
 ```
 
-3. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Dell PowerStore Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

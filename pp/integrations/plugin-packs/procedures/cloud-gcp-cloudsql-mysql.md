@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Google CloudSQL MySQL collects metrics for:
+The Monitoring Connector Google CloudSQL MySQL collects metrics for:
 * Cpu
 * Innodb
 * Network
@@ -19,7 +19,7 @@ The Plugin-Pack Google CloudSQL MySQL collects metrics for:
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Google CloudSQL MySQL* includes a Host Discovery *provider* to automatically discover databases
+The Centreon Monitoring Connector *Google CloudSQL MySQL* includes a Host Discovery *provider* to automatically discover databases
 for a given Google Cloud Project. 
 
 This provider is named **Google CloudSQL MySQL**:
@@ -120,7 +120,7 @@ should be readable by centreon-engine poller.
 yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google CloudSQL MySQL* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google CloudSQL MySQL* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -131,13 +131,13 @@ yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-cloud-gcp-cloudsql-mysql
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Google CloudSQL MySQL* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google CloudSQL MySQL* Monitoring Connector
 
 </TabItem>
 </Tabs>

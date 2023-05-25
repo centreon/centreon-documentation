@@ -33,6 +33,28 @@ module.exports = {
               id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
             }
           ]
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/releases/release-notes'
+        },
+        {
+          type: 'category',
+          label: 'Developers Center',
+          items: [
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/introduction'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
+            }
+          ]
         }
       ]
     },
@@ -43,10 +65,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-3cx-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-awa-jmx'
         },
         {
           type: 'doc',
@@ -78,11 +96,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-voip-asterisk-ami'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-asterisk-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-voip-asterisk-ami'
+          id: 'integrations/plugin-packs/procedures/applications-awa-jmx'
         },
         {
           type: 'doc',
@@ -123,6 +145,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-commvault-commserve-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-controlm-restapi'
         },
         {
           type: 'doc',
@@ -190,15 +216,19 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc'
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-ipfabric-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi'
         },
         {
           type: 'doc',
@@ -210,11 +240,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi'
+          id: 'integrations/plugin-packs/procedures/applications-jboss-jmx'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-jboss-jmx'
+          id: 'integrations/plugin-packs/procedures/applications-jenkins'
         },
         {
           type: 'doc',
@@ -223,10 +253,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-jvm-jmx'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-jenkins'
         },
         {
           type: 'doc',
@@ -247,10 +273,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-lync-2013-mssql'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-biztalk'
         },
         {
           type: 'doc',
@@ -318,6 +340,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-biztalk'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-mulesoft-restapi'
         },
         {
@@ -378,15 +404,11 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-oracle-ucp-jmx'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-oracle-ovm-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-php-apc-web'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-php-fpm-web'
         },
         {
           type: 'doc',
@@ -399,6 +421,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-pfsense-fauxapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-php-apc-web'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-php-fpm-web'
         },
         {
           type: 'doc',
@@ -438,15 +468,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-salesforce-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-scom-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-salesforce-restapi'
         },
         {
           type: 'doc',
@@ -514,14 +544,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-vmware-vcsa-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-varnish-nrpe'
         },
         {
@@ -539,6 +561,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-vernemq-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-vmware-vcsa-snmp'
         },
         {
           type: 'doc',
@@ -594,10 +624,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-ha'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx'
         },
         {
@@ -615,6 +641,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-sql-metrics'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-ha'
         }
       ]
     },
@@ -640,11 +670,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatchlogs'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatchlogs'
+          id: 'integrations/plugin-packs/procedures/cloud-aws-directconnect'
         },
         {
           type: 'doc',
@@ -656,11 +686,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-elasticache'
+          id: 'integrations/plugin-packs/procedures/cloud-aws-efs'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-aws-efs'
+          id: 'integrations/plugin-packs/procedures/cloud-aws-elasticache'
         },
         {
           type: 'doc',
@@ -696,6 +726,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-elb'
         },
         {
@@ -716,11 +750,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-apimanagement'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-management-apimanagement'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appservice'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan'
         },
         {
           type: 'doc',
@@ -736,19 +778,19 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-management-costs'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appservice'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-redis'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-cdn'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
         },
         {
           type: 'doc',
@@ -756,11 +798,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-management-discover'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-database-elasticpool'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-datafactory-factories'
         },
         {
           type: 'doc',
@@ -769,6 +807,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-mysql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-discover'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-database-elasticpool'
         },
         {
           type: 'doc',
@@ -788,15 +834,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-aks'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-frontdoor'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-compute-functions'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-frontdoor'
         },
         {
           type: 'doc',
@@ -808,6 +850,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-aks'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer'
         },
         {
@@ -816,15 +862,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-management-costs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-management-monitor'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-cdn'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-network-networkinterface'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-network-networkinterface'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-policyinsights-policystates'
         },
         {
           type: 'doc',
@@ -860,14 +910,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-storage-acr'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-classicstorage-storageaccount'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount'
         },
         {
@@ -880,11 +922,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine'
+          id: 'integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets'
         },
         {
           type: 'doc',
@@ -893,26 +935,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-network-vpngateway'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-azure-datafactory-factories'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-gcp-storage'
         },
         {
           type: 'doc',
@@ -932,6 +954,22 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-gcp-storage'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ibm-softlayer-api'
         },
         {
@@ -945,6 +983,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-node-exporter-api'
         },
         {
           type: 'doc',
@@ -976,6 +1018,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-outscale'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
         },
         {
@@ -984,11 +1030,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-prometheus-node-exporter-api'
-        },
-        {
-           type: 'doc',
-           id: 'integrations/plugin-packs/procedures/cloud-talend-tmc-api'
+          id: 'integrations/plugin-packs/procedures/cloud-talend-tmc-api'
         },
         {
           type: 'doc',
@@ -1072,15 +1114,15 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'hardware-server',
+      label: 'Hardware-server',
       items: [
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp'
         },
         {
           type: 'doc',
@@ -1112,6 +1154,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-idrac-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-dell-omem-snmp'
         },
         {
@@ -1124,10 +1170,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-dell-idrac-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-eltek-enexus-snmp'
         },
         {
@@ -1136,7 +1178,23 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-hikvision-nvr-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-hms-netbiter-argos-restapi'
         },
         {
           type: 'doc',
@@ -1157,18 +1215,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-hp-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-hikvision-nvr-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp'
         },
         {
           type: 'doc',
@@ -1302,6 +1348,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-aruba-cppm-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-aruba-instant-snmp'
         },
         {
@@ -1330,10 +1380,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-bgp-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-barracuda-cloudgen-snmp'
         },
         {
@@ -1343,6 +1389,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-beeware-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-bgp-snmp'
         },
         {
           type: 'doc',
@@ -1362,11 +1412,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp'
+          id: 'integrations/plugin-packs/procedures/network-cisco-apic-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cisco-apic-restapi'
+          id: 'integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp'
         },
         {
           type: 'doc',
@@ -1434,15 +1484,15 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-cisco-wlc-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cisco-waas-snmp'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cisco-wap-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cisco-wlc-snmp'
         },
         {
           type: 'doc',
@@ -1546,14 +1596,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiswitch-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp'
         },
         {
@@ -1563,6 +1605,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiswitch-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp'
         },
         {
           type: 'doc',
@@ -1582,6 +1632,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
         },
         {
@@ -1595,10 +1649,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hp-vc-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
         },
         {
           type: 'doc',
@@ -1647,6 +1697,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-loadbalancers-kemp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-keysight-nvos-restapi'
         },
         {
           type: 'doc',
@@ -1711,6 +1765,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oneaccess-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-opengear-snmp'
         },
         {
           type: 'doc',
@@ -1826,11 +1884,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-tplink-snmp'
+          id: 'integrations/plugin-packs/procedures/network-teltonika-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-teltonika-snmp'
+          id: 'integrations/plugin-packs/procedures/network-tplink-snmp'
         },
         {
           type: 'doc',
@@ -1880,12 +1938,8 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Operating System',
+      label: 'Operating-system',
       items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/base-generic'
-        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-aix-snmp'
@@ -1896,11 +1950,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/operatingsystems-as400-connector'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/operatingsystems-as400'
+          id: 'integrations/plugin-packs/procedures/base-generic'
         },
         {
           type: 'doc',
@@ -1909,6 +1959,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-hpux-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-as400'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-as400-connector'
         },
         {
           type: 'doc',
@@ -1992,10 +2050,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-http'
         },
         {
@@ -2044,11 +2098,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
+          id: 'integrations/plugin-packs/procedures/applications-protocol-udp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-udp'
+          id: 'integrations/plugin-packs/procedures/applications-protocol-whois'
         },
         {
           type: 'doc',
@@ -2060,15 +2114,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-telnet'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-tftp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-whois'
         },
         {
           type: 'doc',
@@ -2094,11 +2148,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-sensors-geist-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-comet-p8000-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-sensors-comet-p8000-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-geist-snmp'
         },
         {
           type: 'doc',
@@ -2232,10 +2286,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-hcp-snmp'
         },
         {
@@ -2281,6 +2331,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp'
         },
         {
           type: 'doc',
@@ -2417,12 +2471,16 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-violin-3000-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-wd-nas-snmp'
         }
       ]
     },
     {
       type: 'category',
-      label: 'Toip Voip',
+      label: 'Toip-voip',
       items: [
         {
           type: 'doc',
@@ -2468,7 +2526,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-sonus-sbc-snmp'
         },
-        {
+          {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-xivo'
         }
@@ -2476,7 +2534,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Ups Pdu',
+      label: 'Ups-pdu',
       items: [
         {
           type: 'doc',
@@ -2524,11 +2582,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-ups-hp-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-ups-himoinsa-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-ups-himoinsa-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-ups-hp-snmp'
         },
         {
           type: 'doc',
@@ -2549,6 +2607,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-pdu-raritan-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-riello-snmp'
         },
         {
           type: 'doc',
@@ -2615,28 +2677,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
-        }
-      ]
-    },
-    {
-      type: 'doc',
-      id: 'integrations/plugin-packs/releases/release-notes'
-    },
-    {
-      type: 'category',
-      label: 'Developers Center',
-      items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/introduction'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
         }
       ]
     }

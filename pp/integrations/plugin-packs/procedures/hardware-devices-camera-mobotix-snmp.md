@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack Mobotix SNMP collects metrics for:
+The Monitoring Connector Mobotix SNMP collects metrics for:
 * Interfaces
 * System
 
@@ -74,7 +74,7 @@ The Poller should be able to perform requests against the Mobotix device over SN
 yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Mobotix Camera* Plugin Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mobotix Camera* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -85,13 +85,13 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Mobotix Camera* Plugin Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mobotix Camera* Monitoring Connector
 
 </TabItem>
 </Tabs>

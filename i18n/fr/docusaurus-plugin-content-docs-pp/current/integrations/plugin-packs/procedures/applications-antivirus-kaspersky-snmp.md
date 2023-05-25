@@ -12,11 +12,11 @@ Kaspersky est une société privée qui fournit des solutions de cybersécurité
 antivirus. Elle a été fondée en 1997 par Eugene Kaspersky, Natalya Kaspersky et
 Alexey De-Monderik.
 
-Le Plugin-Pack Centreon Kaspersky permet de récupérer, par l'intermédiaire du
+Le connecteur de supervision Centreon Kaspersky permet de récupérer, par l'intermédiaire du
 protocole SNMP, le statut du Serveur d'Administration et des applications 
 administrées.
 
-## Contenu du Plugin-Pack 
+## Contenu du connecteur de supervision 
 
 ### Elément supervisés
 
@@ -104,7 +104,7 @@ SNMP (UDP/161) du Kaspersky Security Center.
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. Installer le Plugin-Pack 'Kaspersky' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+2. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -115,13 +115,13 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les Modèles de supervision sur le serveur Central Centreon :
+2. Installer le RPM du connecteur de supervision contenant les Modèles de supervision sur le serveur Central Centreon :
 
 ```bash
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-3. Installer le Plugin-Pack 'Kaspersky' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+3. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>

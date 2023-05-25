@@ -152,6 +152,10 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "version-22.04/installation/offline"
+        },
+        {
           "type": "category",
           "label": "Installation of Centreon HA",
           "items": [
@@ -1121,10 +1125,6 @@
             {
               "type": "doc",
               "id": "version-22.04/integrations/event-management/sc-signl4-events"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.04/integrations/event-management/sc-servicenow-mid-server"
             }
           ]
         },

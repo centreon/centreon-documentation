@@ -68,6 +68,6 @@ the following table:
 | Alias                                | *Host description*                   |
 | IP                                   | *Host IP Address*                    |
 | Monitored from                       | *Monitoring Poller to use*           |
-| Host Multiple Templates              | Template provided by the plugin-pack |
+| Host Multiple Templates              | Template provided by the Monitoring Connector |
 
 Click on the *Save* button.

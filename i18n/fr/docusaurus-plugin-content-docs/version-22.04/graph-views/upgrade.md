@@ -31,9 +31,34 @@ Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous d
 
 > Si vous utilisez toujours la version **4.0.X**, vous **devez d'abord installer et exécuter le serveur dans la version 4.1.X avant de passer à la dernière version**.
 
+### Prérequis de la version Java
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  Puis redémarrez le service :
+  ```shell
+  systemctl restart centreon-map
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+
+### Procédure
+
 Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
 
-1. Mettez à jour les dépôts Centreon et Centreon MAP :
+1. Mettez à jour les dépôts Centreon et Centreon Business :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -42,7 +67,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+> Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP :
 
@@ -57,7 +82,7 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
-> Installer le dépôt Centreon MAP, vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+> Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 2. Mettez à jour le serveur Centreon MAP :
 
@@ -128,6 +153,8 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
 > Cette configuration fonctionne également avec une base MySQL.
 
 ## Étape 5 : base de données MariaDB
+
+> Les erreurs de modification des fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
 1. Arrêtez le service **centreon-map** :
 

@@ -18,6 +18,48 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.5
+
+Release date: `April 24, 2023`
+
+> You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#step-6--execute-the-configuresh-script) in order to apply some fixes provided by this release.
+
+#### Bug fixes
+- [API] Fixed an issue with create element in view that could break default icon.
+- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed view edition with some links having corrupted bend points.
+- [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
+- [Install] Fixed the **configure.sh** script to include storage event from Broker output.
+- [Monitoring] Fixed an issue where MAP was not supporting performance data returned by Cisco ASA plugin.
+- [Server] Fixed a migration issue with images that could stop the migration process.
+- [Server] Fixed an issue that caused server to crash on corrupted metrics.
+- [Server] Fixed an issue that prevented the migration between MAP Legacy and MAP.
+- [Server] Fixed an issue that prevented access to MAP in HTTPS.
+- [Server] Fixed an issue to allow more than 25 maps to be migrated.
+- [Server] Fixed an issue with authentication when several sessions are active.
+- [Server] Fixed an issue with insert an object in a link prevented the map from being saved.
+- [Server] Fixed an issue with map sharing.
+- [Server] Fixed an issue that made new hosts and services unavailable until restart.
+- [Server] Fixed an issue with the server startup error caused by platform without virtual hosts.
+- [UI] Fixed an issue where tooltips were not displayed for "old perfdata" plugin in the graph.
+- [UI] Fixed an issue where updating a resource was not displaying the new resource name.
+- [UI] Fixed an issue where Host and Service icons configuration was not handled properly.
+- [UI] Fixed an issue where some old media in maps were not displayed correctly, when custom URI is set.
+- [UI] Fixed an issue where a blank page was displayed when the user clicked on a host name inside a map.
+- [UI] Fixed an issue where dark theme was not applied on tooltips in Geo views.
+- [UI] Fixed issues and improved the map display (visibility, background and breadcrumb color).
+- [UI] Fixed the background layout that was not fitting large maps.
+- [Viewer] Fixed an issue that caused the unit not matching the axis on graph widget.
+- [Viewer] Fixed an issue with colors for a "Text" type element that was ignored by the viewer.
+
+#### Enhancements
+
+- [API] Improved the API response when server is starting up.
+- [Editor] You can now manage font properties in the editor.
+- [Editor] You can now manage the view background color.
+- [Editor] Updated dependencies to avoid security issues.
+- [UI] Added resource parent name in graph.
+
 ### 22.10.4
 
 Release date : `January 17, 2023`
@@ -58,15 +100,21 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.5
+
+Release date: `April 24, 2023`
+
+- No change.
+
 ### 22.10.4
 
-Release date : `January 17, 2023`
+Release date: `January 17, 2023`
 
 - No change.
 
 ### 22.10.3
 
-Release date: `December 16, 2022`
+Release date:  `December 16, 2022`
 
 - No change.
 
@@ -101,6 +149,29 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.2
+
+Release date: `April 24, 2023`
+
+#### Bug fixes
+
+- [KPI] Fixed a flaw in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- [Reporting] Fixed an export issue that prevented Remote Servers from displaying BAM reporting stats.
+- [Rules] Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- [UI] Fixed a cosmetic issue in BAM table header.
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- Fixed an issue where 0 as a value was not displayed in BA notification fields.
+
+#### Enhancements
+
+- It is now possible to use BAM notifications commands via CLAPI.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -108,6 +179,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+#### Bug fixes
+
+- [ETL] Fixed the name of the scripts called by the ETL.
 
 ### 22.10.0
 
@@ -121,6 +200,12 @@ Release date: `October 26, 2022`
 - Move to Java 17
 
 ## Centreon Auto Discovery
+
+### 22.10.1
+
+Release date: `April 24, 2023`
+
+- [UI] Fixed a cosmetic issue in BAM and Autodiscovery table header.
 
 ### 22.10.0
 
@@ -150,6 +235,20 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.2
+
+Release date: `April 24, 2023`
+
+#### Bug fixes
+
+- [Install] Fixed a packaging issue that prevented Anomaly Detection from being installed.
+
+### 22.10.1
+
+Release date: `February 9, 2023`
+
+- Fixed an issue that caused the interface to become stuck in a loading state.
 
 ### 22.10.0
 

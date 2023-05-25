@@ -211,7 +211,7 @@ apt upgrade centreon
 
 ### Mettre à jour une configuration Apache personnalisée
 
-Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -657,15 +657,8 @@ apt upgrade centreon-poller
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-Démarrez et activez **gorgoned**:
+Redémarrez **centreon** :
 
 ```shell
-systemctl start gorgoned
-systemctl enable gorgoned
-```
-
-Redémarrez **centengine**:
-
-```shell
-systemctl restart centengine
+systemctl restart centreon
 ```

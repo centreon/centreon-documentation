@@ -140,7 +140,7 @@ serveurs Windows:
   yum install centreon-plugin-Operatingsystems-Windows-Snmp
   ```
 
-2. Installer le pack depuis la page `Configuration > Plugin Packs`
+2. Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -158,7 +158,7 @@ serveurs Windows:
     yum install centreon-pack-operatingsystems-windows-snmp
     ```
 
-3. Installer le pack depuis la page `Configuration > Plugin Packs`
+3. Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

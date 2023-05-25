@@ -13,10 +13,10 @@ de collaboration. Grâce à des algorithmes intelligents, DMA achemine les appel
 sécurisé en fonction de la priorité, du niveau de service, de la disponibilité des ressources et des pannes réseau, avec un
 équilibrage de charge hautement efficace et une virtualisation des ressources de pont. 
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
+Le connecteur de supervision Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
 Polycom DMA.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -114,8 +114,8 @@ https://documents.polycom.com/bundle/dma-ops-9-0/page/dma-ops-help/snmp/TOC_Conf
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom DMA SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom DMA SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -126,14 +126,14 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom DMA SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom DMA SNMP* 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

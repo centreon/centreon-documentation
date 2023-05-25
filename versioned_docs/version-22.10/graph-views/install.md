@@ -100,29 +100,15 @@ children which must be included in the count.
 
 #### Software
 
-| Version                  | Installation mode                                      |
-|--------------------------|--------------------------------------------------------|
-| Alma Linux 8             | RPM packages, sources                                  |
-| RHEL 8                   | RPM packages, sources                                  |
-| Debian 11                | DEB packages                                           |
-| *CentOS 7/RHEL 7         | RPM packages, virtual machine , sources                |
-
-*Not recommended (due to end of support from Centreon 23.04)
-
-| Software | Version |
-|----------|---------|
-| MariaDB  | 10.5.x  |
-
-- Firewall: Disabled
-- SELinux: Disabled
+See the [software requirements](../installation/prerequisites.md#software).
 
 #### Information required during configuration
 
 - Centreon Web login with admin rights.
 
-> Even with a correctly sized server, you should have in mind the best
-> practices & recommendations when creating views so you don't face
-> performance issues.
+> Even with a correctly sized server, you should have in mind the best practices & recommendations when creating views so you don't face performance issues.
+
+> If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
 ### Centreon MAP (Legacy) Web interface
 
@@ -238,6 +224,26 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP (Legacy) server
 
+#### Java version requirement
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+
+#### Procedure
+
 If you installed your Centreon MAP (Legacy) server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
@@ -259,7 +265,7 @@ Installed:
 Complete!
 ```
 
-Then install the **centreon-release** package:
+Now you can install the **centreon-release** package:
 
 ```shell
 dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
@@ -268,34 +274,12 @@ dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-#### Java version requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
-
-Now you can install the **centreon-release** package:
-
 ```shell
 yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
-
-Install the following dependencies:
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
@@ -317,7 +301,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL doesn't work, you can manually find this package in the folder.
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP (Legacy) server using the following command:
@@ -425,6 +409,22 @@ If it's your first installation, we advise you to use the standard mode
 /etc/centreon-studio/configure.sh
 ```
 
+The output should look like this:
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+This script generates the **studio-config.properties** file.
+
+#### Custom URI 
+
+If you have customized the URI for your Centreon platform, you need to edit the **studio-config.properties** file by adding the following command using the custom URI already defined [here](../administration/secure-platform.md#custom-uri):
+
+```shell
+centreon.path=/your-custom-uri
+```
+
 Then restart the **centreon-map** service:
 
 ```shell
@@ -476,7 +476,7 @@ the interface part of the extension.
 
 ### Central server
 
-Install Centreon MAP repository, you can find it on the
+Install Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:

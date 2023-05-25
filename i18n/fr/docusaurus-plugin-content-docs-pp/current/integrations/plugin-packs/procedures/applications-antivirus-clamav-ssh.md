@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 ### Configuration SSH
 
-L'utilisation de ce Plugin Pack requiert la création d'un utilisateur sur le
+L'utilisation de ce connecteur de supervision requiert la création d'un utilisateur sur le
 serveur ClamAV, lequel sera utilisé par le collecteur Centreon pour
 s'authentifier et exécuter les requêtes SSH. Les privilèges `sudo` ou `root` ne
 sont pas nécessaires, un utilisateur 'simple' est suffisant.
@@ -37,7 +37,7 @@ Deux méthodes de connexion SSH sont possibles:
 yum install centreon-plugin-Applications-Clamav-Ssh
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Antivirus ClamAV* depuis la page **Configuration > Packs de plugins**
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Antivirus ClamAV* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -54,7 +54,7 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 yum install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Antivirus ClamAV* depuis la page **Configuration > Packs de plugins**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Antivirus ClamAV* depuis la page **Configuration > Packs de plugins**
 
 </TabItem>
 </Tabs>
