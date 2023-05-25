@@ -1,32 +1,26 @@
 ---
 id: hosts-switch-poller
-title: Switch poller
+title: Change the monitoring server for a host
 ---
+
+If you want to change the monitoring server that is monitoring a host, you need to edit the host's configuration, and deploy the configuration for both the new poller and the one it used to be monitored by.
 
 ## Switch for one host
 
-If you want that your host to be monitored by another poller than it is curently, you need to edit the host's configuration, and export the configuration to its new poller **AND the one it came from** :
+1. On page **Configuration > Hosts > Hosts**, click the host you want to make changes to.
 
-1. Change the host configuration :
+2. On tab **Host configuration**, in section **Host basic information**, update the **Monitoring server** field.
 
-![image](../../assets/configuration/switch_poller.png)
-
-2. [Deploy](../monitoring-servers/deploying-a-configuration.md) the configuration to the pollers :
-
-![image](../../assets/configuration/export_conf_button.png)
+3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md) for both the former monitoring server and the new one.
 
 ## Switch for multiple hosts
 
-You can use the [massive change](../generic-actions.md#massive-change) feature in order to change the monitoring poller for multiple hosts :
+If you want to define the same new monitoring server for several hosts:
 
-1. Select the hosts and use the massive change function :
+1. On page **Configuration > Hosts**, select all the hosts you want to change.
 
-![image](../../assets/configuration/massive_change_button.png)
+2. In the **More actions** menu, select **Massive change**.
 
-2. Change the configuration :
+3. On tab **Host configuration**, in section **Host basic information**, update the **Monitoring server** field.
 
-![image](../../assets/configuration/massive_change_host_conf.png)
-
-3. [Deploy](../monitoring-servers/deploying-a-configuration.md) the configuration to the pollers :
-
-![image](../../assets/configuration/export_conf_button.png)
+4. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md) for both the former monitoring server and the new one.

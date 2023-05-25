@@ -1,32 +1,26 @@
 ---
 id: hosts-switch-poller
-title: Modifier le poller
+title: Modifier le serveur de supervision pour un hôte
 ---
+
+Si vous voulez modifier le serveur de supervision qui supervise un hôte, vous devez éditer la configuration de l'hôte, puis déployer la configuration de l'ancien et du nouveau serveur de supervision.
 
 ## Modification pour un hôte
 
-Si vous souhaitez que votre hôte soit supervisé par une autre poller que celui qui le supervise actuellement, vous devez modifier la configuration de votre hôte, puis exporter la configuration vers le nouveau poller **ainsi que vers celui dont il provient** :
+1. À la page **Configuration > Hôtes > Hôtes**, cliquez sur l'hôte dont vous voulez changer le serveur de supervision.
 
-1. Modifier la configuration sur l'hôte :
+2. Dans l'onglet **Configuration de l'hôte**, dans la section **Information de base sur l'hôte**, mettez à jour le champ **Serveur de supervision**.
 
-![image](../../assets/configuration/switch_poller.png)
-
-2. [Déployer](../monitoring-servers/deploying-a-configuration.md) les configurations vers les pollers :
-
-![image](../../assets/configuration/export_conf_button.png)
+3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md) de l'ancien serveur de supervision et du nouveau.
 
 ## Modification pour plusieurs hôtes
 
-Vous pouvez utiliser les [changements massifs](../generic-actions.md#changement-massif) afin de changer le poller pour plusieurs hôtes :
+Si vous voulez définir le même serveur de supervision pour plusieurs hôtes :
 
-1. Sélectionner les hôtes, puis utiliser "Changement massif" depuis le menu déroulant" :
+1. À la page **Configuration > Hôtes > Hôtes**, sélectionnez tous les hôtes que vous voulez modifier.
 
-![image](../../assets/configuration/massive_change_button.png)
+2. Dans le menu **Plus d'actions**, sélectionnez **Changement massif**.
 
-2. Modifier la configuration :
+3. Dans l'onglet **Configuration de l'hôte**, dans la section **Information de base sur l'hôte**, mettez à jour le champ **Serveur de supervision**.
 
-![image](../../assets/configuration/massive_change_host_conf.png)
-
-3. [Déployer](../monitoring-servers/deploying-a-configuration.md) la configuration vers les pollers :
-
-![image](../../assets/configuration/export_conf_button.png)
+4. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md) des anciens serveurs de supervision et du nouveau.
