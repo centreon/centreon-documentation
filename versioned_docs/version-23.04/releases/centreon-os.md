@@ -82,6 +82,7 @@ Release date: `May 26, 2023`
 
 #### Bug fixes
 
+- [Administration] Removed deprecated "Image Directory" option which suppresses warning messages when generating configuration
 - [Server] Fixed an SQL query that prevented the process from starting.
 
 ### 23.04.0
