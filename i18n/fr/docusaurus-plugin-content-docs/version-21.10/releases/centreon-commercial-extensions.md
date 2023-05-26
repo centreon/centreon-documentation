@@ -15,6 +15,20 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.9
+
+Release date: `May 26, 2023`
+
+#### Bug fixes
+
+- [API] Fix an issue preventing to create MAP with API.
+
+#### Enhancements
+
+- [UI] Aligned "Submit button" inside the Map configuration modal.
+- [UI] Added spacing to the title inside Map configuration modal.
+- [Editor] Make viewer and editor rendering more consistent.
+
 ### 21.10.8
 
 Release date: `December 28, 2022`
@@ -109,7 +123,7 @@ may have to be recreated after updating Map to version 21.10.3.
 
 Release date: `December 20, 2021`
 
-#### Security fixes 
+#### Security fixes
 
 - Log4J version updated to 2.17.0
 
@@ -140,6 +154,20 @@ Release date: `December 16, 2021`
 
 ## Centreon BAM
 
+### 21.10.3
+
+Release date: `May 26, 2023`
+
+#### Bug fixes
+
+- [Install] Fixed installation of module when 24x7 timeperiod was missing
+- [Monitoring] Fixed an issue in the BA monitoring redirection.
+- [Rules] Fixed an issue in the BA monitoring redirection.
+- [BA] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
+- [KPI] Fixed a bug in the BAM KPI configuration menu that could result in deleting a KPI when modifying it.
+- [Banner] Fixed display of empty skeleton.
+- [Widget] Fixed an issue that made links to Business Activities broken on BAM - Live Business Activity Tree.
+
 ### 21.10.2
 
 Release date: `February 18, 2022`
@@ -157,6 +185,14 @@ Release date: `December 7, 2021`
 - [Configuration] Warn the user for unsaved changes on BA/BV
 
 ## Centreon MBI
+
+### 21.10.3
+
+Release date: `May 23, 2023`
+
+#### Bug fixes
+
+- [Install] Replaced 'switch' with 'if' to better fit RHEL 8 deployment.
 
 ### 21.10.2
 
@@ -198,6 +234,14 @@ Release date: `February 18, 2022`
 - Compatibility with other 21.10 components.
 
 ## Centreon Auto Discovery
+
+### 21.10.4
+
+Release date: `May 26, 2023`
+
+#### Bug fixes
+
+- [Configuration] For some host discovery providers where no credentials were actually required, the job creation wizard still demanded to enter credentials.
 
 ### 21.10.3
 
