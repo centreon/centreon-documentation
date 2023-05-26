@@ -19,6 +19,15 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.1
+
+Release date: `May 26, 2023`
+
+#### Bug fixes
+
+- [Administration] Removed deprecated "Image Directory" option which deleted warning messages when generating configuration.
+- [Authentication] Fixed retrieval of information for applying conditions, roles and groups with OpenID Connect.
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
@@ -67,6 +76,14 @@ Compatibility with other 23.04 components.
 - Converted all BBDO messages to Protobuf: the BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
 
 ## Centreon Gorgone
+
+### 23.04.1
+
+Release date: `May 26, 2023`
+
+#### Bug fixes
+
+- [Server] Fixed an SQL query that prevented the process from starting.
 
 ### 23.04.0
 
