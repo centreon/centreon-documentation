@@ -26,7 +26,7 @@ Release date: `May 26, 2023`
 #### Bug fixes
 
 - [Administration] Removed deprecated "Image Directory" option which deleted warning messages when generating configuration.
-- [Authentication] Fixed retrieval of information for applying conditions, roles and groups with OpenID connect.
+- [Authentication] Fixed retrieval of information for applying conditions, roles and groups with OpenID Connect.
 
 ### 23.04.0
 
