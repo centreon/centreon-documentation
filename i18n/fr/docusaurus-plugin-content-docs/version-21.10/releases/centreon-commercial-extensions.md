@@ -21,13 +21,13 @@ Release date: `May 26, 2023`
 
 #### Bug fixes
 
-- [API] Fix an issue preventing to create MAP with API.
+- [API] Fixed an issue preventing users to create a map with the API.
 
 #### Enhancements
 
-- [UI] Aligned "Submit button" inside the Map configuration modal.
-- [UI] Added spacing to the title inside Map configuration modal.
-- [Editor] Make viewer and editor rendering more consistent.
+- [Editor] Aligned "Submit button" inside the MAP configuration modal.
+- [Editor] Added spacing to the title inside the MAP configuration modal.
+- [Viewer] Made viewer and editor rendering more consistent.
 
 ### 21.10.8
 
@@ -160,13 +160,12 @@ Release date: `May 26, 2023`
 
 #### Bug fixes
 
-- [Install] Fixed installation of module when 24x7 timeperiod was missing
+- [Install] Fixed an issue preventing the module installation when the 24x7 timeperiod parameter was not set.
 - [Monitoring] Fixed an issue in the BA monitoring redirection.
-- [Rules] Fixed an issue in the BA monitoring redirection.
-- [BA] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
-- [KPI] Fixed a bug in the BAM KPI configuration menu that could result in deleting a KPI when modifying it.
-- [Banner] Fixed display of empty skeleton.
-- [Widget] Fixed an issue that made links to Business Activities broken on BAM - Live Business Activity Tree.
+- [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
+- [Server] Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- [Banner] Fixed the display of empty skeleton.
+- [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
 
 ### 21.10.2
 
@@ -241,7 +240,7 @@ Release date: `May 26, 2023`
 
 #### Bug fixes
 
-- [Configuration] For some host discovery providers where no credentials were actually required, the job creation wizard still demanded to enter credentials.
+- [Configuration] For some host discovery providers where no credentials were actually required, the job creation wizard no longer demands to enter credentials.
 
 ### 21.10.3
 
