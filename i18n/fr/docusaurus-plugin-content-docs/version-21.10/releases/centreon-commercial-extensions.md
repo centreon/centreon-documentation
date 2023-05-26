@@ -187,7 +187,7 @@ Release date: `December 7, 2021`
 
 ### 21.10.3
 
-Release date: `May 23, 2023`
+Release date: `May 26, 2023`
 
 #### Bug fixes
 
