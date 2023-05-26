@@ -26,9 +26,10 @@ Release date: `May 26, 2023`
 
 #### Enhancements
 
-- [Editor] Aligned "Submit button" inside the MAP configuration modal.
 - [Editor] Added spacing to the title inside the MAP configuration modal.
+- [Editor] Aligned "Submit button" inside the MAP configuration modal.
 - [Viewer] Made viewer and editor rendering more consistent.
+
 ### 21.10.8
 
 Release date: `December 28, 2022`
@@ -160,11 +161,11 @@ Release date: `May 26, 2023`
 
 #### Bug fixes
 
+- [Banner] Fixed the display of empty skeleton.
 - [Install] Fixed an issue preventing the module installation when the 24x7 timeperiod parameter was not set.
 - [Monitoring] Fixed an issue in the BA monitoring redirection.
-- [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
 - [Server] Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
-- [Banner] Fixed the display of empty skeleton.
+- [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
 - [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
 
 ### 21.10.2
