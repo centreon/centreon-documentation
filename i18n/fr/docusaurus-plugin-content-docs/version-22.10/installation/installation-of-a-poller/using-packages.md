@@ -214,7 +214,7 @@ yum install -y centos-release-scl
 Installez les dépendances suivantes :
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
 </TabItem>
