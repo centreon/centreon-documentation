@@ -96,10 +96,8 @@ cliquez sur **Download**.
 3. Connectez-vous en `root` au serveur depuis une autre machine avec le terminal de votre choix, à l'aide de l'adresse IP obtenue précédemment.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
-configuration :
-
-   ![image](../../assets/installation/terminal_centreon.png)
-
+configuration.
+ 
    Définissez les paramètres suivants :
 
 - Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
