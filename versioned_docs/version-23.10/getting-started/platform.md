@@ -6,7 +6,7 @@ title: Elements of a Centreon platform
 According to your needs, your platform can consist of several elements: a [central server](#central-server), one or several [remote servers](#remote-server), and one or several [pollers](#poller).
 
 - If you are only monitoring a few resources, you will only need a central server.
-- If you are monitoring a large number of resources, spread the charge across a [distributed architecture](#distributed-architecture).
+- If you are monitoring a large number of resources, spread the load across a [distributed architecture](#distributed-architecture).
 
 ## Central server
 

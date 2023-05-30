@@ -7,14 +7,14 @@ import TabItem from '@theme/TabItem';
 
 ## First login
 
-To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** by the IP address or FQDN of your Centreon web server.)
+To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** with the IP address or FQDN of your Centreon web server.)
 
-Fill in your user name and associated password and click on the **Connect** button:
+Enter your user name and password, and click the **Connect** button:
 
 ![image](../assets/getting-started/aconnection.png)
 
 >If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon123!**.
-Otherwise, the default login is **admin** and the password is the one you have defined at [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
+Otherwise, the default login is **admin** and the password is the one you defined in [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
 
 You are now connected to the Centreon web interface.
 
@@ -31,7 +31,7 @@ The Centreon web interface contains several menus, each with a specific function
   to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
   performance graphics.
-* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
+* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** lets you access your user account.
 
@@ -52,16 +52,16 @@ Click the **pollers** icon to expand the menu. On the menu, click **Configure po
 
 ![image](../assets/getting-started/top_counters.png)
 
-Beside the pollers section, statistics show the number of resources that are being monitored, with a specific status:
+Beside the pollers section, statistics show the number of resources being monitored that have a specific status:
 
 * For services: number of services with a **Critical**, **Warning**, **Unknown** and **OK** status.
 * For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
 
 These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
 
-Click on a circle representing a status:
+Click a circle representing a status:
 
-* Page **Monitoring > Resources status** opens.
+* The **Monitoring > Resources status** page opens.
 * The page is filtered according to the type of resource and the corresponding status.
 
 Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.
@@ -70,7 +70,7 @@ Click the **hosts** or **services** icon to expand the menu and display the deta
 
 When you first connect to the interface, Centreon is displayed in light mode by default.
 
-On the banner, click on the profile icon and use the switch button to turn on the dark mode.
+On the banner, click the profile icon and use the switch button to turn on dark mode.
 Next time you connect to the interface, the mode you previously selected remains on.
 
 - Light mode:
@@ -83,18 +83,18 @@ Next time you connect to the interface, the mode you previously selected remains
 
 ## Change the user interface language
 
-On the banner, click on the profile icon, then click on **Edit profile**:
+On the banner, click the profile icon, then click **Edit profile**:
 
 ![image](../assets/getting-started/menu_edit_profile.png)
 
-In the language select box, choose your language:
+In the language selection box, choose your language:
 
 ![image](../assets/getting-started/change_language.png)
 
-Then click on **Save**. Your interface is now translated.
+Then click **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon.md).
+> the web interface. For more details, go to  [How to translate Centreon](../developer/developer-translate-centreon.md).
 
 ## Reset your password
 
@@ -105,7 +105,7 @@ next to the profile icon:
 
 ![image](../assets/administration/password_will_expire.png)
 
-Click on **Edit profile**, then change your password:
+Click **Edit profile**, then change your password:
 
 ![image](../assets/administration/password_expiration.png)
 
@@ -116,7 +116,7 @@ to a dedicated page where you can update it:
 
 ![image](../assets/administration/password_expired.png)
 
-Fill in your current password, define a new one and then click on **Reset Password**.
+Input your current password, define a new one, and then click **Reset Password**.
 
 ## Define a default page after login
 
@@ -151,15 +151,15 @@ Follow this procedure to set a default page:
 
 ### Using CLAPI commands
 
-> First you need to get the "topology page" number associated to the default page in the interface. In this example, we need to get the number associated to the Resource Status page.
+> First, you need the "topology page" number associated with the default page in the interface. In this example, we need the number associated with the Resource Status page.
 
 1. From your terminal, connect to **MariaDB** and run the following command:
   
   ```shell
-  use centreon ;
+  use centreon;
   ```
   
-2. Get the "topology page" number for the Resource Status page:
+2. Obtain the "topology page" number for the Resource Status page:
   
   ```shell
   SELECT topology_page FROM topology WHERE topology_name = "Resources Status";
@@ -179,13 +179,13 @@ Follow this procedure to set a default page:
 <Tabs groupId="sync">
 <TabItem value="For a user" label="For a user">
 
-- By editing an existing user (where `200` is the number associated to the Resource Status page):
+- By editing an existing user (where `200` is the number associated with the Resource Status page):
   
 ```shell
 centreon -u admin -p 'centreon' -o contact -a setparam -v "contact alias;default_page;200"
 ```
 
-- By adding a new user (where `200` is the number associated to the Resource Status page):
+- By adding a new user (where `200` is the number associated with the Resource Status page):
 
 ```shell
 centreon -u admin -p 'centreon' -o CONTACT -a ADD -v "user;user;user@mail.com;mypassword;1;1;en_US;local;200"
@@ -194,7 +194,7 @@ centreon -u admin -p 'centreon' -o CONTACT -a ADD -v "user;user;user@mail.com;my
 </TabItem>
 <TabItem value="For a contact template" label="For a contact template">
 
-Where `200` is the number associated to the Resource Status page:
+Where `200` is the number associated with the Resource Status page:
 
 ```shell
 centreon -u Admin -p 'centreon' -o CONTACTTPL -a ADD -v "new_template;new_template;user@mail.com;mypassword;1;1;en_US;local;200"

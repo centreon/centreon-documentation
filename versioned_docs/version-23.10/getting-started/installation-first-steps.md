@@ -3,9 +3,9 @@ id: installation-first-steps
 title: First steps
 ---
 
-Hello & Welcome! We are excited to help you begin your Centreon journey.
+Hello and welcome! We are excited to help you begin your Centreon journey.
 
-In this chapter, you will find information on how to quickly start on Centreon. Find out how to:
+In this chapter, you will find information on how to start quickly on Centreon. Find out how to:
 
 * [Know which installation to choose](which-install.md)
 * [Get your free IT-100 trial edition](it100.md)
@@ -16,4 +16,4 @@ In this chapter, you will find information on how to quickly start on Centreon. 
 * [Model your IT services (Service Mapping)](model-it-services.md)
 * [Analyze resources availability (Reporting)](analyze-resources-availability.md)
 
-You may also want to have a look at our [glossary of Centreon concepts](../resources/glossary.md).
+You may also want to look at our [glossary of Centreon concepts](../resources/glossary.md).
