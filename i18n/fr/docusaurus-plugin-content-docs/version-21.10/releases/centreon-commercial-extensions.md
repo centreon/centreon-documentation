@@ -142,7 +142,7 @@ Release date: `December 16, 2021`
 
 ### 21.10.3
 
-Release date: `May 26, 2023`
+Release date: `May 30, 2023`
 
 #### Bug fixes
 
@@ -173,7 +173,7 @@ Release date: `December 7, 2021`
 
 ### 21.10.3
 
-Release date: `May 26, 2023`
+Release date: `May 30, 2023`
 
 #### Bug fixes
 
@@ -222,7 +222,7 @@ Release date: `February 18, 2022`
 
 ### 21.10.4
 
-Release date: `May 26, 2023`
+Release date: `May 30, 2023`
 
 #### Bug fixes
 
