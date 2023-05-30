@@ -38,7 +38,7 @@ Edit this widget by clicking the wrench icon:
 
 ![image](../assets/getting-started/cv_6.png)
 
-In the popin, uncheck following items:
+In the popin, uncheck the following items:
 
 * **Display Pending**
 * **Display Duration**
