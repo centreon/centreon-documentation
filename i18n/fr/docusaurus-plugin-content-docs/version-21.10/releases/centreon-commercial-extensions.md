@@ -15,19 +15,6 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
-### 21.10.9
-
-Release date: `May 26, 2023`
-
-#### Bug fixes
-
-- [API] Fixed an issue preventing users to create a map with the API.
-
-#### Enhancements
-
-- [Editor] Added spacing to the title inside the MAP configuration modal.
-- [Editor] Aligned "Submit button" inside the MAP configuration modal.
-
 ### 21.10.8
 
 Release date: `December 28, 2022`
