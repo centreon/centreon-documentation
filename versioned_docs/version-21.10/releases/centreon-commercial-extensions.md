@@ -28,7 +28,6 @@ Release date: `May 26, 2023`
 
 - [Editor] Added spacing to the title inside the MAP configuration modal.
 - [Editor] Aligned "Submit button" inside the MAP configuration modal.
-- [Viewer] Made viewer and editor rendering more consistent.
 
 ### 21.10.8
 
