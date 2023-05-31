@@ -8,8 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Centreon Business Activity Monitoring (Centreon-BAM) is an extension for modeling
-IT services and applications, ideally, from an end user’s point of view. It reports on the
-status of a aggregated indicators in real time, tracking any changes, thereby allowing you to
+IT services and applications, ideally, from an end userâ€™s point of view. It reports on the
+status of aggregated indicators in real time, tracking any changes, thereby allowing you to
 measure results against business-oriented service level agreements (SLAs) with
 internal or external users.
 
