@@ -145,9 +145,7 @@ Les autorisations ne sont pas appliquées de manière récursive, vous devrez do
 * Root/WMI
 * Root/CIMv2/Security/MicrosoftTpm
 
-Cliquez sur **Appliquer** et **OK**. Fermez la fenêtre WMImgmt.
-
-Redémarrer le service **WinRM**.
+Cliquez sur **Appliquer** et **OK**. Fermez la fenêtre WMImgmt.WMI
 
 ### Autoriser l'exécution de scripts
 
@@ -594,6 +592,8 @@ Et accordez les autorisations suivantes :
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-7.png)
 
 * Cliquez sur **OK** sur chaque fenêtre ouverte
+
+* Redémarrer le service **WinRM**
 
 #### Créer un fichier de modèle de sécurité WMI
 
