@@ -64,7 +64,7 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager**, s
 
 ## Configure the host and deploy the configuration
 
-1. Go to the **Configuration > Hosts > Hosts** menu and click **Add**:
+1. Go to **Configuration > Hosts > Hosts** and click **Add**:
 
   ![image](../assets/getting-started/quick_start_cisco_1.gif)
 
