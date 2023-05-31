@@ -593,6 +593,8 @@ And allow the following permissions:
 
 * Click on **OK** on each open windows
 
+* Restart the service **WinRM**
+
 #### Create WMI security template file
 
 On the same server, run the following command line in PowerShell
@@ -919,33 +921,24 @@ realm join --user=administrator <YOUR_DOMAIN>
 ```
 
 You will be asked to type your domain admin account password.
-When done, run the following commands to allow centreon-engine and centreon-gorgone to perform the authentication:
-
-``` bash
-su - centreon-engine
-kinit <SERVICE_USERNAME>
-logout
-su - centreon-gorgone
-kinit <SERVICE_USERNAME>
-```
 
 In our example, it looks like this:
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-centreon-kerberos-1.png)
 
-#### Renew Kerberos ticket
+#### Kerberos ticket
 
 Kerberos authentication tickets expire every 10h, disconnecting the centreon-engine user and disabling the authentication process.
 On top of it, Kerberos tickets have a lifetime of 7 days.
 We will automatically renew the authentication ticket every 9h, as well as reinitialize lifetime every Saturday through a cron job to work around this issue.
 
-You will have to create a "keytab" file associated with your service account to allow reconnection without a password for the reinitialization part.
+You will have to create a "keytab" file associated with your service account to allow connection without a password.
 
 Run the following command line replacing **@USERNAME@** with the correct value.
 
 ``` bash
 ktutil
-addent -password -p @USERNAME@ -k 1 -e RC4-HMAC
+addent -password -p @USERNAME@ -k 1 -e aes256-cts
 wkt /var/lib/centreon-engine/@USERNAME@.keytab
 q
 ```
@@ -955,13 +948,22 @@ Copy the "keytab" in the home directory of the centreon-engine and centreon-gorg
 Run the following command line replacing **@USERNAME@** with the correct value.
 
 ``` bash
-cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-engine/
-chmod centreon-engine. /var/lib/centreon-engine/@USERNAME@.keytab
+cp @USERNAME@.keytab /var/lib/centreon-engine/
+chown centreon-engine. /var/lib/centreon-engine/@USERNAME@.keytab
 
 cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-gorgone/
-chmod centreon-gorgone. /var/lib/centreon-gorgone/@USERNAME@.keytab
+chown centreon-gorgone. /var/lib/centreon-gorgone/@USERNAME@.keytab
 ```
 
+When done, run the following commands to allow centreon-engine and centreon-gorgone to perform the authentication:
+
+``` bash
+su - centreon-engine
+kinit -k -t @USERNAME@.keytab @USERNAME@
+logout
+su - centreon-gorgone
+kinit -k -t @USERNAME@.keytab @USERNAME@
+```
 
 Create cron job, replacing **@USERNAME@** with the correct value
 
