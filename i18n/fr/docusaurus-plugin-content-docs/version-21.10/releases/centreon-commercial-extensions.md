@@ -149,6 +149,7 @@ Release date: `May 30, 2023`
 - [Banner] Fixed the display of empty skeleton.
 - [Install] Fixed an issue preventing the module installation when the 24x7 timeperiod parameter was not set.
 - [Monitoring] Fixed an issue in the BA monitoring redirection.
+- [Rules] Fixed an error message in boolean rules when a host name was longer than 15 characters.
 - [Server] Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
 - [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
 - [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
