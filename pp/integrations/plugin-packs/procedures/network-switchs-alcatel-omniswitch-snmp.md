@@ -113,30 +113,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
 
 ```bash
 yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Alcatel Omniswitch** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel Omniswitch** resources:
 
 ```bash
 yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 ```
 
-2. Install the **Alcatel Omniswitch** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **Alcatel Omniswitch** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **Alcatel Omniswitch** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

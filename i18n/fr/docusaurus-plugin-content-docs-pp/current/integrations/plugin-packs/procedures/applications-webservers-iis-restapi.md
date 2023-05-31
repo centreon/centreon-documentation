@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Internet Information Services (IIS, anciennement Internet Information Server) est un serveur Web extensible créé par Microsoft pour une utilisation sous Windows Server. IIS prend en charge HTTP, HTTP/2, HTTPS, FTP, FTPS, SMTP et NNTP.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Elements supervisés
 
@@ -52,7 +52,7 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 
 ### Configuration IIS
 
-Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administration. Microsoft fournit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
+Pour utiliser ce connecteur de supervision, vous devez activer l'API Microsoft IIS Administration. Microsoft fournit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
 
 ## Installation
 
@@ -65,7 +65,7 @@ Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administrat
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack *Microsoft IIS Server Restapi* depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface Centreon, installer le connecteur de supervision *Microsoft IIS Server Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -76,13 +76,13 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-webservers-iis-restapi.noarch
 ```
 
-3. Dans l'interface Centreon, installer le Plugin-Pack *Microsoft IIS Server Restapi* depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface Centreon, installer le connecteur de supervision *Microsoft IIS Server Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

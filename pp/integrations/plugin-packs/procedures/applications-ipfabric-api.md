@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **IP Fabric API** brings a host template:
+The Centreon Monitoring Connector **IP Fabric API** brings a host template:
 
 * App-Ipfabric-Api-custom
 
@@ -22,7 +22,7 @@ It brings the following service template:
 
 ### Discovery rules
 
-The IP Fabric Plugin Pack includes a Host discovery provider to automatically discover network hosts registered in IP Fabric. 
+The IP Fabric Monitoring Connector includes a Host discovery provider to automatically discover network hosts registered in IP Fabric. 
 
 ![image](../../../assets/integrations/plugin-packs/procedures/applications-ipfabric-api-provider.png)
 
@@ -53,30 +53,30 @@ Ensure you have a IP Fabric API Key with required privileges and IP Fabric's API
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **IP Fabric** resources:
+1. Install the package on every Centreon poller expected to monitor **IP Fabric** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Ipfabric-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **IP Fabric API** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **IP Fabric API** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **IP Fabric** resources:
+1. Install the package on every Centreon poller expected to monitor **IP Fabric** resources:
 
 ```bash
 yum install centreon-plugin-Applications-Ipfabric-Api
 ```
 
-2. Install the **IP Fabric API** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **IP Fabric API** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-applications-ipfabric-api
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **IP Fabric API** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **IP Fabric API** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

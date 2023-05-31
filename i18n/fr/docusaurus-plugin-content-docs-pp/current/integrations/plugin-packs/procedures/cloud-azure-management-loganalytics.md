@@ -11,12 +11,12 @@ import TabItem from '@theme/TabItem';
 Log Analytics est un outil Azure permettant de réaliser des requêtes dans les
 journaux d'événements collectés par l'agent Azure Monitor Logs.
 
-Le Plugin-Pack *Azure Log Analytics* permet de réaliser des requêtes et d'afficher
+Le connecteur de supervision *Azure Log Analytics* permet de réaliser des requêtes et d'afficher
 le nombre d'enregistrement retournés pour une requête donnée.
 
 Il peut s'appuyer sur l'API Azure Management Monitor ou l'Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -50,7 +50,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Log Analytics* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Log Analytics* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -61,13 +61,13 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 ```
 
-2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Log Analytics*:
+2.Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Log Analytics*:
 
 ```bash
 yum install centreon-pack-cloud-azure-management-log-analytics-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Log Analytics* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Log Analytics* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

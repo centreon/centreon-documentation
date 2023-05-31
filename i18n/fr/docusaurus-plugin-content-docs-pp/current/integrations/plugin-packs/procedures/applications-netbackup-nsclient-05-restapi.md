@@ -12,7 +12,7 @@ know and ping us on [slack](https://centreon.slack.com)
 
 ## Overview 
 
-The Plugin Pack Symantec Netbackup works with the Centreon NSClient++ monitoring agent 
+The Monitoring Connector Symantec Netbackup works with the Centreon NSClient++ monitoring agent 
 to check Netbackup backup solutions using the Windows agent's API. 
 
 ## Pack assets
@@ -55,18 +55,18 @@ Using `|` character in your Centreon Macro definitions is not supported.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
+2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
+1. Install the Centreon package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
@@ -78,7 +78,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-infrastructure-netbackup-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the *Symantec Netbackup* Pack on the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the *Symantec Netbackup* Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

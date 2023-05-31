@@ -90,7 +90,7 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 ```bash
 yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 ```
-Installer le Plugin-Pack 'Eltek eNexus' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+Installer le connecteur de supervision 'Eltek eNexus' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 

@@ -107,19 +107,19 @@ port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **OneAccess SNMP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **OneAccess SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Oneaccess-Snmp
 ```
 
-2. On the Centreon web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **OneAccess SNMP** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **OneAccess SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Oneaccess-Snmp
@@ -131,7 +131,7 @@ yum install centreon-plugin-Network-Oneaccess-Snmp
 yum install centreon-pack-network-oneaccess-snmp
 ```
 
-3. On the Centreon web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **OneAccess SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack BDT MutliStak SNMP collects metrics for:
+The Monitoring Connector BDT MultiStak SNMP collects metrics for:
 * Hardware
 
 ### Collected Metrics
@@ -43,7 +43,7 @@ To monitor your BDT MultiStak device, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin ¨Packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
+2. On the Centreon Web interface in "Configuration > Plugin ¨Packs > Manager", install the *BDT MultiStak SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -54,13 +54,13 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *BDT MultiStak SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

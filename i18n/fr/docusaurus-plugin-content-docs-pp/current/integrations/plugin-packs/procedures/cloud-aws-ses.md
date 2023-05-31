@@ -14,9 +14,9 @@ messages à partir de n'importe quelle application.
 
 Les métriques Amazon SES rapportées dans CloudWatch ne sont pas facturées. Elles sont fournies dans le cadre du service Amazon SES.
 
-Le Plugin-Pack Centreon *Amazon SES* s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Amazon SES.
+Le connecteur de supervision Centreon *Amazon SES* s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Amazon SES.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -90,7 +90,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Amazon SES* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,13 +101,13 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
-2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SES*:
+2.Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Amazon SES*:
 
 ```bash
 yum install centreon-pack-cloud-aws-ses.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Amazon SES* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

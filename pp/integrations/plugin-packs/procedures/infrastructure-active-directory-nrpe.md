@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This Plugin Pack monitors AD Domain Controller using local commands and the 
+This Monitoring Connector monitors AD Domain Controller using local commands and the 
 Centreon NSClient++ agent to trigger their executions remotely.
 
 ## Pack assets
@@ -44,12 +44,12 @@ yum install centreon-nrpe-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Active Directory* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Active Directory*:
+1. Install the Centreon package on every Poller expected to monitor *Active Directory*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -62,7 +62,7 @@ yum install centreon-pack-infrastructure-active-directory-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Active Directory* 
-from the **Configuration > Plugin Packs > Manager** page
+from the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

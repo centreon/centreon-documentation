@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack **AWS VPN** brings a host template:
+The Centreon Monitoring Connector **AWS VPN** brings a host template:
 
 * Cloud-Aws-Vpn-custom
 
@@ -88,30 +88,30 @@ sudo ./aws/install
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **AWS VPN** resources:
+1. Install the package on every Centreon poller expected to monitor **AWS VPN** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS VPN** Centreon Plugin Pack.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS VPN** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the plugin package on every Centreon poller expected to monitor **AWS VPN** resources:
+1. Install the package on every Centreon poller expected to monitor **AWS VPN** resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. Install the **AWS VPN** Centreon Plugin Pack RPM on the Centreon central server:
+2. Install the **AWS VPN** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-vpn
 ```
 
-3. On the Centreon web interface, on page **Configuration > Plugin Packs**, install the **AWS VPN** Centreon Plugin Pack.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS VPN** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

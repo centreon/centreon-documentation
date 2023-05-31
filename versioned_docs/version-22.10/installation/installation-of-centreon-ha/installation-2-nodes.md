@@ -1361,7 +1361,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 <TabItem value="REHL 7 / CentOS 7" label="REHL 7 / CentOS 7">
 
 ```bash
-pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+pcs constraint colocation add master "centreon" with "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
 ```
 

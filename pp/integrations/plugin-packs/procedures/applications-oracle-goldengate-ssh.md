@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes thanks to GGSCI command-line utility. 
+The Monitoring Connector includes monitoring of status and lags of Oracle GG Processes thanks to GGSCI command-line utility. 
 
 ### Collected Metrics
 
@@ -41,7 +41,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle GoldenGate SSH* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle GoldenGate SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -52,13 +52,13 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-oracle-goldengate-ssh
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Oracle GoldenGate SSH* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle GoldenGate SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

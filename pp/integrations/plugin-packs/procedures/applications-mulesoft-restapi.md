@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 Anypoint Platform helps you build a structured application network that connects applications, data, and devices with reusable APIs. 
 The unified Anypoint Platform makes it easy to discover, create, and manage APIs in a modular, organized layer. 
 Instead of retrieving random and possibly unstable code snippets, you can “shop” for APIs created using the industry’s best practices.
-The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to collect the status of the Mulesoft resources.
+The Centreon Plugin and Monitoring Connectors rely on the Mulesoft Anypoint Rest API to collect the status of the Mulesoft resources.
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
@@ -104,7 +104,7 @@ This account has to own the privileges to manage Applications, Servers, Clusters
 yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mulesoft Anypoint* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -115,20 +115,20 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-applications-mulesoft-restapi.noarch
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mulesoft Anypoint* Monitoring Connector
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-The Plugin-Pack is designed to monitor resources based on one host per Mulesoft environment/organization.
+The Monitoring Connector is designed to monitor resources based on one host per Mulesoft environment/organization.
 Adding a host into Centreon, link it to the template named *App-Mulesoft-Restapi-custom*. 
 Once the template applied, some Macros have to be configured:
 

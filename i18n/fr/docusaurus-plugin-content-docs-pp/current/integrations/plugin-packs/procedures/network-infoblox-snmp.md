@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin Pack Infoblox SNMP collecte les données pour:
+Le connecteur de supervision Infoblox SNMP collecte les données pour:
 * Dhcp
 * Dns
 * Interfaces
@@ -117,7 +117,7 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 yum install centreon-plugin-Network-Infoblox-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Infoblox SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Infoblox SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -128,13 +128,13 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 yum install centreon-plugin-Network-Infoblox-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-network-infoblox-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Infoblox SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Infoblox SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

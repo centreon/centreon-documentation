@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
-Le Plugin-Pack inclut la supervision de l'état de santé des équipements Réseaux et des Sites.
+Le connecteur de supervision inclut la supervision de l'état de santé des équipements Réseaux et des Sites.
 
 ### Métriques collectées
 
@@ -58,7 +58,7 @@ Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configu
 yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco DNA Center Rest API* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco DNA Center Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -69,20 +69,20 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
 
 ```bash
 yum install centreon-pack-applications-cisco-dnac-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco DNA Center Rest API* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco DNA Center Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application Cisco DNA Center.
+Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par application Cisco DNA Center.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-Dnac-Restapi-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 

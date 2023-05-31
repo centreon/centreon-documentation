@@ -11,7 +11,7 @@ Ce pack permet la supervision d'un hôte Linux basée sur les métriques remont�
 
 ### Modèles
 
-Le Plugin Pack Centreon **Node Exporter Linux Metrics** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Node Exporter Linux Metrics** apporte un modèle d'hôte :
 
 * App-Monitoring-Node-Exporter-Linux-custom
 
@@ -103,7 +103,7 @@ Pour installer l'exporteur de métriques Node exporter, vous pouvez suivre cette
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Node Exporter Linux Metrics** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Node Exporter Linux Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -114,13 +114,13 @@ yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Node Exporter Linux Metrics** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Node Exporter Linux Metrics** :
 
 ```bash
 yum install centreon-pack-applications-monitoring-node-exporter-linux
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Node Exporter Linux Metrics** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Node Exporter Linux Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

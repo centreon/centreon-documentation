@@ -19,30 +19,30 @@ To install the required Plugin and Pack, take the following steps:
 <Tabs groupId="sync">
 <TabItem value="Online Licence" label="Online Licence">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to use the **Nmap** binary to discover resources:
+1. Install the Centreon package on every Centreon Poller expected to use the **Nmap** binary to discover resources:
 
 ```bash
 yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
-2. On the Centreon Web interface, install the **Nmap CLI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon Web interface, install the **Nmap CLI** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor **Nmap** ressources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Nmap** ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
-2. Install the **Nmap CLI** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Nmap CLI** Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-nmap-cli
 ```
 
-3. On the Centreon Web interface, install the **Nmap CLI** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon Web interface, install the **Nmap CLI** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

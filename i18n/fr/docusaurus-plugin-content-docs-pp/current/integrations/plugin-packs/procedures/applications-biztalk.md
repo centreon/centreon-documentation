@@ -17,7 +17,7 @@ You need a read access to the MSSQL database :
 
   - BizTalkMgmtDb.
 
-Please read the monitoring procedure of plugin-pack MSSQL.
+Please read the monitoring procedure of the MSSQL Monitoring Connector.
 
 ## Centreon Configuration
 

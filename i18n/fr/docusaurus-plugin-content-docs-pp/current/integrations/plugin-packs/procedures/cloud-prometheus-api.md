@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Prometheus Server** apporte 2 modèles d'hôte différents :
+Le connecteur de supervision Centreon **Prometheus Server** apporte 2 modèles d'hôte différents :
 
 * Cloud-Prometheus-Api-custom
 * Cloud-Prometheus-Target-Name-Api-custom
@@ -24,7 +24,7 @@ Il apporte les modèles de service suivants :
 
 ### Règles de découverte
 
-Le Plugin Pack Centreon **Prometheus Server** inclut un fournisseur de découverte
+Le connecteur de supervision Centreon **Prometheus Server** inclut un fournisseur de découverte
 d'hôtes nommé **Prometheus Targets**. Celui-ci permet de découvrir l'ensemble targets supervisés par un serveur Prometheus :
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-prometheus-api-provider.png)
@@ -83,7 +83,7 @@ Serveur Prometheus.
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Prometheus Server** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Prometheus Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,13 +94,13 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Prometheus Server** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Prometheus Server** :
 
 ```bash
 yum install centreon-pack-cloud-prometheus-api
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Prometheus Server** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Prometheus Server** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

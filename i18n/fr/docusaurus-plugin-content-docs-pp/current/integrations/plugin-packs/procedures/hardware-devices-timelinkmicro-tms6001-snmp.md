@@ -12,7 +12,7 @@ TimeLink microsystems fournit des solutions basées sur une gamme complète de p
 systèmes spécifiques selon les besoins des utilisateurs. Le modèle Tms6001 est unserveur Serveur NTP performant & sécurisé 
 avec référence GNSS et IRIGB
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Elements supervisés
 
@@ -87,7 +87,7 @@ Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipemen
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* sur la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Timelinkmicro-Tms6001-Snmp* sur la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,13 +98,13 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central::
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central::
 
 ```bash
 yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 ```
 
-3. Installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
+3. Installer le connecteur de supervision *Timelinkmicro-Tms6001-Snmp* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web. 
 
 </TabItem>
 </Tabs>

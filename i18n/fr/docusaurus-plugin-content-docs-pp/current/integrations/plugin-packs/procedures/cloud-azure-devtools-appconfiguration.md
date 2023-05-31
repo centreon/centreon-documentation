@@ -12,12 +12,12 @@ App Configuration permet de gérer les paramètres des applications et à en
 contrôler l'accès de manière centralisée en stockant  leurs configurations dans 
 un emplacement hébergé universel.
 
-Le Plugin-Pack Centreon *Azure App Configuration* s'appuie sur les API Azure Monitor 
+Le connecteur de supervision Centreon *Azure App Configuration* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
 App Configuration. Il est possible d'utiliser les 2 modes proposés par 
 Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -25,7 +25,7 @@ Microsoft: RestAPI ou Azure CLI.
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure App Configuration* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure App Configuration**.
+Le connecteur de supervision Centreon *Azure App Configuration* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure App Configuration**.
 Celui-ci permet de découvrir l'ensemble des instances *App Configuration* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration-provider.png)
@@ -65,7 +65,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Configuration* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure App Configuration* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -76,13 +76,13 @@ yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure App Configuration*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure App Configuration*:
 
 ```bash
 yum install centreon-pack-cloud-azure-devtools-appconfiguration.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure App Configuration* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure App Configuration* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

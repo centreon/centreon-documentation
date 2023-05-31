@@ -274,14 +274,14 @@ Complete!
 Now you can install the **centreon-release** package:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -486,6 +486,22 @@ If it is your first installation, we advise you to use the standard mode (intera
   ```shell
   /etc/centreon-map/configure.sh
   ```
+
+The output should look like this:
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+This script generates the **map-config.properties** file.
+
+#### Custom URI 
+
+If you have customized the URI for your Centreon platform, you need to edit the **map-config.properties** file by adding the following command using the custom URI already defined [here](../administration/secure-platform.md#custom-uri):
+
+```shell
+centreon.path=/your-custom-uri
+```
 
 Then restart the **centreon-map-engine** service:
 

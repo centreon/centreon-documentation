@@ -265,14 +265,14 @@ Complete!
 Ensuite installez le paquet **centreon-release** :
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -475,6 +475,22 @@ Si c'est votre première installation, nous vous conseillons d'utiliser le mode 
 
 ```shell
 /etc/centreon-map/configure.sh
+```
+
+Voici ce que vous devez voir en sortie :
+
+  ```shell
+  Configuration completed, enjoy !
+  ```
+
+Ce script crée le fichier **map-config.properties**.
+
+#### URI personnalisée 
+
+Si vous avez personnalisé une URI de connexion pour votre plateforme Centreon, vous devez éditer le fichier **map-config.properties** en ajoutant la commande suivante et en utilisant l'URI personnalisée déjà définie [ici](../administration/secure-platform.md#uri-personnalisée) :
+
+```shell
+centreon.path=/your-custom-uri
 ```
 
 Puis redémarrez le service **centreon-map-engine** :

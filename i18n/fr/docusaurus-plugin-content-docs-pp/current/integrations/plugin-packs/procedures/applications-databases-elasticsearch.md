@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Elasticsearch est un moteur de recherche et d'analyse distribué et en open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées. Elasticsearch a été conçu à partir d'Apache Lucene et a été lancé en 2010 par Elasticsearch N. V. (maintenant appelé Elastic). 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -114,7 +114,7 @@ Pour pouvoir communiquer avec le collecteurs Centreon poller, l'API du noeud Ela
 yum install centreon-plugin-Applications-donnéebases-Elasticsearch
 ```
 
-2. Installer le Plugin-Pack *Elasticsearch* dans la page *Configuration  \>  Packs de plugins*  de l'interface Web Centreon
+2. Installer le connecteur de supervision *Elasticsearch* dans la page *Configuration  \>  Packs de plugins*  de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Licenses hors lignes" label="Licenses hors lignes">
@@ -125,13 +125,13 @@ yum install centreon-plugin-Applications-donnéebases-Elasticsearch
 yum install centreon-plugin-Applications-donnéebases-Elasticsearch
 ```
 
-2. Installer le Plugin-Pack RPM sur le serveur Centreon  **Central**:
+2. Installer le connecteur de supervision RPM sur le serveur Centreon  **Central**:
 
 ```bash
 yum install centreon-pack-applications-donnéebases-elasticsearch
 ```
 
-3. Dans la page *Configuration  \> Packs de plugins* de l'interface Web Centreon, installer le Plugin-Pack *Elasticsearch*
+3. Dans la page *Configuration  \> Packs de plugins* de l'interface Web Centreon, installer le connecteur de supervision *Elasticsearch*
 
 </TabItem>
 </Tabs>

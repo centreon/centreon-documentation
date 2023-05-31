@@ -11,7 +11,7 @@ Ce pack permet la supervision d'un hôte Windows basée sur les métriques remon
 
 ### Modèles
 
-Le Plugin Pack Centreon **Node Exporter Windows Metrics** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Node Exporter Windows Metrics** apporte un modèle d'hôte :
 
 * App-Monitoring-Node-Exporter-Windows-custom
 
@@ -100,7 +100,7 @@ Ce pack est basé sur l'exporteur Prometheus community pour les machines Windows
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Node Exporter Windows Metrics** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Node Exporter Windows Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -111,13 +111,13 @@ yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Node Exporter Windows Metrics** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Node Exporter Windows Metrics** :
 
 ```bash
 yum install centreon-pack-applications-monitoring-node-exporter-windows
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Node Exporter Windows Metrics** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Node Exporter Windows Metrics** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit
 d’un service de pare-feu avec état intégral, doté d’une haute disponibilité intégrée et d’une scalabilité illimitée dans le cloud.
 
-Le Plugin-Pack Centreon *Azure Firewall* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Firewall* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Firewall. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -22,7 +22,7 @@ Firewall. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAP
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Firewall* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Firewall**.
+Le connecteur de supervision Centreon *Azure Firewall* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Firewall**.
 Celui-ci permet de découvrir l'ensemble des *Firewalls* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-firewall-provider.png)
@@ -76,7 +76,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Network-Firewall-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Firewall* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Firewall* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -87,13 +87,13 @@ yum install centreon-plugin-Cloud-Azure-Network-Firewall-Api
 yum install centreon-plugin-Cloud-Azure-Network-Firewall-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Firewall*:
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision *Azure Firewall*:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-firewall.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Firewall* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Azure Firewall* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -9,11 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ONTAP ou Data ONTAP ou Clustered Data ONTAP (cDOT) ou Data ONTAP 7-Mode est un système d'exploitation proriétaire NetApp utilisé sur le stockage de données.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Éléments supervisés
 
-Le Plugin-Pack permet de superviser les ressources:
+Le connecteur de supervision permet de superviser les ressources:
 
 * Aggregates
 * Cluster
@@ -129,7 +129,7 @@ Un compte en lecture est requis (user/password).
 yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *NetApp Ontap Rest API* depuis la page "Configuration > Plugin Packs > Manager"
+2. Depuis l'interface Web de Centreon, installer le connecteur de supervision *NetApp Ontap Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -140,13 +140,13 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *NetApp Ontap Rest API* depuis la page "Configuration > Plugin Packs > Manager"
+3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *NetApp Ontap Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

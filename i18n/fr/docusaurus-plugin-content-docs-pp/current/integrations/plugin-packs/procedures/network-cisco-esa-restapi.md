@@ -46,7 +46,7 @@ Afin de contrôler votre équipement Cisco ESA, l'API Rest doit être configuré
 yum install centreon-plugin-Network-Cisco-Esa-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -63,7 +63,7 @@ yum install centreon-plugin-Network-Cisco-Esa-Restapi
 yum install centreon-pack-network-cisco-esa-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

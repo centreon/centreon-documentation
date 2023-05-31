@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 
 Aruba Networks is a provider of network access solutions for enterprises.
 
-The Centreon Plugin Pack *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics of the Aruba Wireless Access Point equipments. 
+The Centreon Monitoring Connector *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics of the Aruba Wireless Access Point equipments. 
 
 
-## Plugin Pack assets
+## Monitoring Connector assets
 
 ### Monitored objects
 
@@ -62,30 +62,30 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Aruba dev
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Aruba Wireless Access Point equipments:
+1. Install the Centreon package on every Centreon Poller expected to monitor Aruba Wireless Access Point equipments:
 
 ```bash
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Aruba Instant SNMP* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Aruba Wireless Access Point equipments :
+1. Install the Centreon package on every Centreon Poller expected to monitor Aruba Wireless Access Point equipments :
 
 ```bash
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-aruba-instant-snmp
 ```
 
-3. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Aruba Instant SNMP* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

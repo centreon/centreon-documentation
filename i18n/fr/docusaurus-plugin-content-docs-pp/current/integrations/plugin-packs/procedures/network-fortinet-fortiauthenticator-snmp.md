@@ -11,10 +11,10 @@ import TabItem from '@theme/TabItem';
 FortiAuthenticator est une solution physique ou virtuelle de gestion d'identités et d'authentification sécurisée distribuée par
 la société Fortinet.
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter et récupérer les informations
+Le connecteur de supervision Centreon utilise le protocole SNMP pour se connecter et récupérer les informations
 et métriques relatives aux équipements FortiAuthenticator.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -104,8 +104,8 @@ Sur l'équipement FortiAuthenticator, configurez et activez l'agent SNMP en suiv
 yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Fortinet Fortiauthenticator SNMP*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -116,14 +116,14 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Fortinet Fortiauthenticator SNMP*
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Fortinet Fortiauthenticator SNMP*
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin Pack Hikvision SNMP collects metrics for:
+The Monitoring Connector Hikvision SNMP collects metrics for:
 * Cpu
 * Disk
 * Memory
@@ -70,7 +70,7 @@ The Poller should be able to perform requests against the Hikvision device over 
 yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Hikvision camera SNMP* Plugin Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Hikvision camera SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,13 +81,13 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Hikvision camera SNMP* Plugin Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Hikvision camera SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

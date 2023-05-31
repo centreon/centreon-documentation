@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Cisco développe et fabrique des équipements de télécommunications, réseaux et logiciels. Les solutions proposées répondent à de multiples usages (mobiles, IOT, routage, ...). 
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Elements supervisés
 
@@ -113,7 +113,7 @@ Il est possible d'utiliser l'option ```--absent-problem``` si vous souhaitez avo
 
 ### Configuration de l'équipement
 
-Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Cisco: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
+Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Cisco: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 
 Voici un exemple: 
 
@@ -148,7 +148,7 @@ Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
-2. Installer le Plugin-Pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
+2. Installer le connecteur de supervision 'Cisco-Standard-Snmp' depuis l'interface Web et la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -159,13 +159,13 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
-2. Installer le RPM pour avoir à disposition le Plugin-Pack dans l'interface Web de Centreon:
+2. Installer le RPM pour avoir à disposition le connecteur de supervision dans l'interface Web de Centreon:
 
 ```bash
 yum install centreon-pack-network-cisco-standard-snmp
 ```
 
-3. Installer le Plugin-Pack 'Cisco-Standard-Snmp' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
+3. Installer le connecteur de supervision 'Cisco-Standard-Snmp' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web. 
 
 </TabItem>
 </Tabs>

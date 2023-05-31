@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Cisco Umbrella** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Cisco Umbrella** apporte un modèle d'hôte :
 
 * Net-Cisco-Umbrella-SNMP-custom
 
@@ -126,7 +126,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Cisco Umbrella** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Cisco Umbrella** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -137,13 +137,13 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Cisco Umbrella** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Cisco Umbrella** :
 
 ```bash
 yum install centreon-pack-network-cisco-umbrella-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Cisco Umbrella** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Cisco Umbrella** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

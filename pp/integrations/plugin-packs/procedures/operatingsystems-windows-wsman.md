@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Plugin Pack Windows WSMAN brings 1 host template:
+The Centreon Monitoring Connector Windows WSMAN brings 1 host template:
 
 * OS-Windows-WSMAN-custom
 
@@ -165,30 +165,30 @@ To monitor Windows Servers through WSMAN, please follow our [official documentat
 <Tabs groupId="setup">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Windows WSMAN** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Windows WSMAN** resources:
 
   ```bash
   yum install centreon-plugin-Operatingsystems-Windows-Wsman
   ```
 
-2. On the Centreon web interface, install the **Windows WSMAN** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+2. On the Centreon web interface, install the **Windows WSMAN** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon plugin package on every Centreon poller expected to monitor **Windows WSMAN** resources:
+1. Install the Centreon package on every Centreon poller expected to monitor **Windows WSMAN** resources:
 
   ```bash
   yum install centreon-plugin-Operatingsystems-Windows-Wsman
   ```
 
-2. Install the **Windows WSMAN** Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the **Windows WSMAN** Centreon Monitoring Connector RPM on the Centreon Central server:
 
   ```bash
   yum install centreon-pack-operatingsystems-windows-wsman
   ```
 
-3. On the Centreon web interface, install the **Windows WSMAN** Centreon Plugin Pack on the **Configuration > Plugin Packs** page.
+3. On the Centreon web interface, install the **Windows WSMAN** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 </Tabs>

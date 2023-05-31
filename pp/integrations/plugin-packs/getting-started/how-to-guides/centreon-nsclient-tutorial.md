@@ -22,8 +22,8 @@ Veeam and many others, thanks to the usage of a specific release of the Centreon
 These Plugins, parts of the [centreon-plugins project](https://github.com/centreon/centreon-plugins) are provided as a standalone and Windows compatible
 package named *centreon_plugins.exe*. This executable file is automatically deployed during the agent installation and ready to use afterwards.
 
-> The list of the Plugin Packs that can be used with the *centreon-nsclient* agent is avaiblable on the 
-> official [Centreon Plugin Packs catalog](https://www.centreon.com/catalogue-plugins-packs/)
+> The list of the Monitoring Connectors that can be used with the *centreon-nsclient* agent is avaiblable on the 
+> official [Centreon Monitoring Connectors catalog](https://www.centreon.com/catalogue-plugins-packs/)
 
 The following tutorial will help you to understand how to use the **centreon-nsclient** agent on your Windows servers.
 

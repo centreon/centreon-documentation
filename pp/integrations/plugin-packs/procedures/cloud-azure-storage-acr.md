@@ -54,18 +54,18 @@ Please find all the prerequisites needed for Centreon to get information from Az
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure Container Registry* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Azure Container Registry* resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Plugin Packs > Manager** page.
+2. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Monitoring Connectors Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure Container Registry* resources:
+1. Install the Centreon package on every Centreon poller expected to monitor *Azure Container Registry* resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
@@ -77,7 +77,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-ContainerRegistry-Api
 yum install centreon-pack-cloud-azure-storage-acr.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Plugin Packs > Manager** page
+3. On the Centreon Web interface, install the *Azure Container Registry* Pack on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
 </Tabs>

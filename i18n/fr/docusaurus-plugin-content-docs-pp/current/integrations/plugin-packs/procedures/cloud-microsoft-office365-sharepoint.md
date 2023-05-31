@@ -16,7 +16,7 @@ Microsoft au travers d'une API de gestion Office 365.
 
 > Les données mises à disposition par l'API de gestion Office 365 ne sont pas en temps réel et sont basées sur une période de 7 jou
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -109,7 +109,7 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Sharepoint* depuis la page "Configuration > Plugin packs > Manager" 
+2. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Office365 Sharepoint* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -120,13 +120,13 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack 'Office365 Sharepoint' :
+2. Sur le serveur Central Centreon, installer le RPM du connecteur de supervision 'Office365 Sharepoint' :
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-sharepoint
 ```
 
-3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Sharepoint* depuis la page "Configuration > Plugin packs > Manager"
+3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Office365 Sharepoint* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 </Tabs>

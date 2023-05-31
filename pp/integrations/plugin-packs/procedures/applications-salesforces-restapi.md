@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Salesforce.com, Inc. is an American cloud-based software company headquartered in San Francisco, California. It provides customer-relationship management (CRM) service and also sells a complementary suite of enterprise applications focused on customer service, marketing automation, analytics, and application development. 
 
-## Plugin-pack assets
+## Monitoring Connector assets
 
 ### Monitored objects 
 
@@ -43,7 +43,7 @@ To monitoring your Salesforce instance, the Centreon poller must be allowed to r
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Install the Salesforce Plugin-Pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
+2. Install the Salesforce Monitoring Connector on **Configuration > Monitoring Connectors Manager**Centreon Web UI page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -54,13 +54,13 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Monitoring Connector RPM:
 
 ```bash
 yum install centreon-pack-applications-salesforce-restapi
 ```
 
-3. Install the Salesforce Plugin-Pack on "Configuration > Plugin packs > Manager" Centreon Web UI page:
+3. Install the Salesforce Monitoring Connector on **Configuration > Monitoring Connectors Manager**Centreon Web UI page:
 
 </TabItem>
 </Tabs>

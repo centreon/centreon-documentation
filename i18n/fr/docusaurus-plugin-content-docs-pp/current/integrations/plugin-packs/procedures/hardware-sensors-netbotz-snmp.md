@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **Netbotz Sensor** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Netbotz Sensor** apporte un modèle d'hôte :
 
 * HW-Sensor-Netbotz-SNMP-custom
 
@@ -53,7 +53,7 @@ Centreon vers le serveur supervisé.
 yum install centreon-plugin-Hardware-Sensors-Netbotz-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **Netbotz Sensor** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Netbotz Sensor** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -64,13 +64,13 @@ yum install centreon-plugin-Hardware-Sensors-Netbotz-Snmp
 yum install centreon-plugin-Hardware-Sensors-Netbotz-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **Netbotz Sensor** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Netbotz Sensor** :
 
 ```bash
 yum install centreon-pack-hardware-sensors-netbotz-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **Netbotz Sensor** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Netbotz Sensor** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

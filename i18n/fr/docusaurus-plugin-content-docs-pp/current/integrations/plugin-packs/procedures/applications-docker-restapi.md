@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Docker permet d'embarquer une application dans un ou plusieurs containers logiciels qui pourront s'exécuter sur n'importe quel système d'exploitation hôte. Docker fonctionne sous Linux comme Windows Server. C'est une technologie qui a pour but de faciliter les déploiements d'application et la gestion du dimensionnement de l'infrastructure sous-jacente.
 
-## Contenu du Plugin-Pack
+## Contenu du connecteur de supervision
 
 ### Objets supervisés
 
@@ -78,7 +78,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
+2. Installer le connecteur de supervision "Docker" depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web de Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -89,13 +89,13 @@ yum install centreon-plugin-Applications-Docker-Restapi
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Installer le RPM du connecteur de supervision contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-applications-docker-restapi
 ```
 
-3. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
+3. Installer le connecteur de supervision "Docker" depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web de Centreon
 
 </TabItem>
 </Tabs>

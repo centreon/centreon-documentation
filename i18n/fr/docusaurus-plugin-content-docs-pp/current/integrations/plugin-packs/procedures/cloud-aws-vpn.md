@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le Plugin Pack Centreon **AWS VPN** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **AWS VPN** apporte un modèle d'hôte :
 
 * Cloud-Aws-Vpn-custom
 
@@ -101,7 +101,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. Sur l'interface web de Centreon, installez le Plugin Pack **AWS VPN** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS VPN** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -112,13 +112,13 @@ yum install centreon-plugin-Cloud-Aws-Vpn-Api
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du Plugin Pack **AWS VPN** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **AWS VPN** :
 
 ```bash
 yum install centreon-pack-cloud-aws-vpn
 ```
 
-3. Sur l'interface web de Centreon, installez le Plugin Pack **AWS VPN** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **AWS VPN** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

@@ -6,11 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Plugin-Pack Assets
+## Monitoring Connector Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Athonet ePC SNMP collects metrics for:
+The Monitoring Connector Athonet ePC SNMP collects metrics for:
 * aggregate
 * apns
 * interfaces (diameter, GA, GTPC, LTE)
@@ -154,7 +154,7 @@ To control your Athonet ePC equipments, the SNMP must be configured.
 yum install centreon-plugin-Network-Athonet-Epc-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Athonet ePC SNMP* Plugin-Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Athonet ePC SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -165,13 +165,13 @@ yum install centreon-plugin-Network-Athonet-Epc-Snmp
 yum install centreon-plugin-Network-Athonet-Epc-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
 
 ```bash
 yum install centreon-pack-network-athonet-epc-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Athonet ePC SNMP* Plugin-Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Athonet ePC SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>
