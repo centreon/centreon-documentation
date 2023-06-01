@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.9
 
-Release date: `May 30, 2023`
+Release date: `June 1st, 2023`
 
 No changes.
 
@@ -149,7 +149,7 @@ Release date: `December 16, 2021`
 
 ### 21.10.3
 
-Release date: `May 30, 2023`
+Release date: `June 1st, 2023`
 
 #### Bug fixes
 
@@ -181,7 +181,7 @@ Release date: `December 7, 2021`
 
 ### 21.10.3
 
-Release date: `May 30, 2023`
+Release date: `June 1st, 2023`
 
 #### Bug fixes
 
@@ -230,7 +230,7 @@ Release date: `February 18, 2022`
 
 ### 21.10.4
 
-Release date: `May 30, 2023`
+Release date: `June 1st, 2023`
 
 #### Bug fixes
 
