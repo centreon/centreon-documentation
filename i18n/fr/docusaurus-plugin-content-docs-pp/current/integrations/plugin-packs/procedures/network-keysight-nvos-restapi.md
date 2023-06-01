@@ -63,7 +63,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Ports" label="Ports">
 
-| Metric Name                                 | Unité |
+| Métrique                                    | Unité |
 |:--------------------------------------------|:------|
 | license status                              |       |
 | link status                                 |       |
