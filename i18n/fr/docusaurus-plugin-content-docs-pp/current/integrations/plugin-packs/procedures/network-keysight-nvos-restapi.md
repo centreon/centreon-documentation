@@ -85,7 +85,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric Name           | Unité |
+| Métrique              | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
 
