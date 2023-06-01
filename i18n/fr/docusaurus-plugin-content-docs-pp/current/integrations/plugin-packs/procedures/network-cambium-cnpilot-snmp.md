@@ -34,7 +34,7 @@ Il apporte les modèles de service suivants :
 
 | Nom de la règle                      | Description |
 |:-------------------------------------|:------------|
-| Net-Cambium-Cnpilot-SNMP-Radios-Name |             |
+| Net-Cambium-Cnpilot-SNMP-Radios-Name | Découverte et mise en supervision automatique des radios disponibles |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
