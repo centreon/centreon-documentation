@@ -16,6 +16,12 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.10.9
+
+Release date: `May 30, 2023`
+
+No changes.
+
 ### 21.10.8
 
 Release date: `December 28, 2022`
