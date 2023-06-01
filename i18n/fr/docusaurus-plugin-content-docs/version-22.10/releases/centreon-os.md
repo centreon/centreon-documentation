@@ -286,6 +286,15 @@ Release date: `October 26, 2022`
 
 ## Centreon Open Tickets
 
+### 22.10.1
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [API] Fixed auto close API.
+- [Server] Fixed an issue on automatic ticket creation.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
