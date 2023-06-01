@@ -252,6 +252,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.1
+
+Release date: `soon`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
+- [Compatibility] Fixed bug for no purge option missing in eventstatisticbuilder ans perfdatastatisticBuilder scripts.
+- [Compatibility] Fixed an issue which prevent to rebuild MBI partial data.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
