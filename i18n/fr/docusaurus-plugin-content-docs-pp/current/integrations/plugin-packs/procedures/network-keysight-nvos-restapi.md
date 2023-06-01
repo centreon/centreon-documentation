@@ -77,7 +77,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Time" label="Time">
 
-| Metric Name         | Unité |
+| Métrique            | Unité |
 |:--------------------|:------|
 | ntp status          |       |
 | time.offset.seconds | s     |
