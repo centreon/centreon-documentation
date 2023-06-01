@@ -53,7 +53,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric Name                  | Unité |
+| Métrique                     | Unité |
 |:-----------------------------|:------|
 | temperature status           |       |
 | hardware.temperature.celsius | C     |
