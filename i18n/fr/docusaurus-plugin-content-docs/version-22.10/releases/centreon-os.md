@@ -296,7 +296,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Compatibility] Fixed bug for no purge option missing in eventstatisticbuilder ans perfdatastatisticBuilder scripts.
+- [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
 - [Compatibility] Fixed an issue which prevent to rebuild MBI partial data.
 
 #### Enhancements
