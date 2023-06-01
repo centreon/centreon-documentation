@@ -191,7 +191,7 @@ apt install centreon-plugin-network-keysight-nvos-restapi
 3. Appliquez le modèle d'hôte **Net-Keysight-Nvos-Restapi-custom**.
 4. Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-| Mandatory      | Macro                       | Description                                                                       | Défaut     |
+| Obligatoire    | Macro                       | Description                                                                       | Défaut     |
 |:---------------|:----------------------------|:----------------------------------------------------------------------------------|:-----------|
 |                | KEYSIGHTNVOSAPIPORT         | Port used                                                                         | 8000       |
 |                | KEYSIGHTNVOSAPIPROTO        | Specify https if needed                                                           | https      |
