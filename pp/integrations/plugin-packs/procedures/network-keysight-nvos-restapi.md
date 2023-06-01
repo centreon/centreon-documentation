@@ -87,7 +87,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 | Metric Name           | Unit  |
 |:----------------------|:------|
-| system.uptime.seconds |       |
+| system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
