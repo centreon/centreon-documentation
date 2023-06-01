@@ -87,7 +87,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 | Metric Name           | Unité |
 |:----------------------|:------|
-| system.uptime.seconds |       |
+| system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
