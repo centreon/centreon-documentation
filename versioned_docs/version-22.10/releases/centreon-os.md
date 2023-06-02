@@ -27,7 +27,6 @@ Release date: `soon`
 
 - [API] Fixed PHP error messages on APIs authentication.
 - [API] Fixed code errors and messages to improve the endpoint of password renewal.
-- [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
 - [Authentication] Fixed an LDAP authentication issue that made LDAP users in Organisational Unit with special characters unable to authenticate.
 - [Authentication] Made error messages generic to improve security.
 - [Authentication] Fixed a broken URL issue by removing extra spaces in endpoint definition.
@@ -43,7 +42,6 @@ Release date: `soon`
 - [RessourceStatus] Fixed the h.name filter that was not returning hosts.
 - [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
 - [UI] Unifomized buttons size on legacy pages.
-- [UX] Improved dark theme management.
 - [UI] Fixed the MBI widget visibility by adding CSS in global style files.
 - [UI] Fixed a bug blocking the "Export Configuration" process from the top banner's button when a self-signed certificate was used.
 - [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
@@ -54,7 +52,9 @@ Release date: `soon`
 
 #### Enhancements
 
+- [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
 - [Packaging] Improved default configuration for Debian packages.
+- [UX] Improved dark theme management.
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 ### 22.10.7
