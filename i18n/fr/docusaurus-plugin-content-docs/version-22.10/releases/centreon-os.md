@@ -41,7 +41,6 @@ Release date: `soon`
 - [RessourceStatus] Fixed the h.name filter that was not returning hosts.
 - [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
 - [UI] Unifomized buttons size on legacy pages.
-- [UX] Improved dark theme management.
 - [UI] Fixed the MBI widget visibility by adding CSS in global style files.
 - [UI] Fixed a bug blocking the "Export Configuration" process from the top banner's button when a self-signed certificate was used.
 - [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
