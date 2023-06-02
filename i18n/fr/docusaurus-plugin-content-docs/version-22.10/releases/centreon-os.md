@@ -60,13 +60,6 @@ Release date: `soon`
 - [UI] Removed the option to change them from User profile.
 - [UI] Unifomized buttons size on legacy pages.
 
-#### Enhancements
-
-- [Administration] Added button to unblock users through UI (for local authentication)
-- [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
-- [Packaging] Improved default configuration for Debian packages.
-- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
-
 ### 22.10.7
 
 Release date: `March 2, 2023`
