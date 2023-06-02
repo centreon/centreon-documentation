@@ -52,6 +52,7 @@ Release date: `soon`
 
 #### Enhancements
 
+- [Administration] Added button to unblock users through UI (for local authentication)
 - [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
 - [Packaging] Improved default configuration for Debian packages.
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
