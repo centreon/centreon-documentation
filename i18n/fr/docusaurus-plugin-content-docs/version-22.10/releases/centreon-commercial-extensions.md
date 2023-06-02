@@ -148,6 +148,15 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.3
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Rules] Fixed an issue that would make the image drop down for BAM edition panel reset when scrolling.
+- [Rules] Fixed boolean rules when resource contains boolean operator in its name.
+
 ### 22.10.2
 
 Release date: `April 24, 2023`
