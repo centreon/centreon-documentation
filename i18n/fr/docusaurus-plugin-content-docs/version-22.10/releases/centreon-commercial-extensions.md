@@ -23,17 +23,17 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Server] Fixed an issue causing images in views to not be displayed after an update.
+- [Server] Fixed an issue preventing images from being displayed in views after an update.
 - [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
 - [Server] Fixed an issue preventing to save a map with "not a diagram" error message.
-- [Server] Fix critical error when editing a geo view.
-- [Server] Enable to parse metric from broker neb packets.
+- [Server] Fixed a critical error when editing a Geo view.
+- [Server] Enable to parse metric from Broker NEB packets.
 - [UI] Fixed view freezes beyond 500 elements.
 
 #### New Features
 
-- [UI] Change the label of the metric link modal.
-- [UX] Allow user to duplicate maps.
+- [UI] You can now change the label of the metric link modal.
+- [UX] You can now duplicate maps.
 
 ### 22.10.5
 
@@ -269,7 +269,7 @@ Release date: `soon`
 
 #### Enhancements
 
-- [UI] Improved upload of licenses modale.
+- [UI] Improved license upload modal.
 
 ### 22.10.0
 
