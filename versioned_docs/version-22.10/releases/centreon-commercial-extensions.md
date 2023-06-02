@@ -189,6 +189,15 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.2
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Core] Improved database column size.
+- [UI] Fixed empty "Current usage" column in mbi-storage-list-near-saturation widget.
+
 ### 22.10.1
 
 Release date: `February 9, 2023`
