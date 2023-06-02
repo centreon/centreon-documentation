@@ -236,6 +236,14 @@ Release date: `October 26, 2022`
 
 ## Centreon License Manager
 
+### 22.10.1
+
+Release date: `soon`
+
+#### Enhancements
+
+- [UI] Improved upload of licenses modale.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
