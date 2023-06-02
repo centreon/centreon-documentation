@@ -17,6 +17,24 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.6
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Server] Fixed an issue causing images in views to not be displayed after an update.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing to save a map with "not a diagram" error message.
+- [Server] Fix critical error when editing a geo view.
+- [Server] Enable to parse metric from broker neb packets.
+- [UI] Fixed view freezes beyond 500 elements.
+
+#### New Features
+
+- [UI] Change the label of the metric link modal.
+- [UX] Allow user to duplicate maps.
+
 ### 22.10.5
 
 Release date: `April 24, 2023`
