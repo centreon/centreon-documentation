@@ -23,11 +23,11 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Server] Fixed an issue preventing images from being displayed in views after an update.
-- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
-- [Server] Fixed an issue preventing to save a map with "not a diagram" error message.
-- [Server] Fixed a critical error when editing a Geo view.
 - [Server] Enable to parse metric from Broker NEB packets.
+- [Server] Fixed a critical error when editing a Geo view.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing images from being displayed in views after an update.
+- [Server] Fixed an issue preventing to save a map with "not a diagram" error message.
 - [UI] Fixed view freezes beyond 500 elements.
 
 #### New Features
