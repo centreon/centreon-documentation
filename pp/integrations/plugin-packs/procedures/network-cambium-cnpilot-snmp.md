@@ -34,7 +34,7 @@ It brings the following service templates:
 
 | Rule Name                            | Description |
 |:-------------------------------------|:------------|
-| Net-Cambium-Cnpilot-SNMP-Radios-Name |             |
+| Net-Cambium-Cnpilot-SNMP-Radios-Name | Discover and dynamically monitor radios |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -88,7 +88,7 @@ Coming soon
 
 To use this pack, the SNMP service must be properly configured on your ressource.
 Please refer to the official documentation from XXX:
-* LINK
+* [Configuring SNMP on cnPilot E-series](https://community.cambiumnetworks.com/t/configuring-snmp-on-cnpilot-e-series/51324)
 
 ### Network flow
 
