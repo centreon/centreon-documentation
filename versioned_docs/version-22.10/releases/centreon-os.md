@@ -48,13 +48,13 @@ Release date: `soon`
 - [UI] Fixed the alignment of the top counter's export button.
 - [UI] Fixed the highlight color of acknowledgement and downtime lines and changed the font color in Resources Status in dark mode.
 - [UI] Fixed an issue preventing from saving a new filter on Resources Status with the Anomaly-detection type.
+- [UI] Removed the option to change them from User profile.
 - [Server] Fixed a monitoring issue by updating the user running cron tasks on Debian.
 
 #### Enhancements
 
 - [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
 - [Packaging] Improved default configuration for Debian packages.
-- [UX] Improved dark theme management.
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 ### 22.10.7
