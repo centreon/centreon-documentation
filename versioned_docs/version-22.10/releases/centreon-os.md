@@ -25,32 +25,32 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [API] Fixed PHP error messages on authentication APIs
-- [API] Improved error codes and messages for the renewing password endpoint.
+- [API] Fixed PHP error messages on APIs authentication.
+- [API] Fixed code errors and messages to improve the endpoint of password renewal.
 - [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
-- [Authentication] Fixed an LDAP authentication issue that made LDAP users in OU with special characters unable to authenticate.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users in Organisational Unit with special characters unable to authenticate.
 - [Authentication] Made error messages generic to improve security.
-- [Authentication] Removed extra spaces in endpoint definition.
+- [Authentication] Fixed a broken URL issue by removing extra spaces in endpoint definition.
 - [Backup] Fixed errors with distant DBMS in logs.
 - [Configuration] Fixed a bug in trap relations with services by host groups.
-- [Core] Fixed an error when accessing to the install wizard on new installation.
+- [Core]  Fixed an issue when accessing the installation wizard for a new installation.
 - [Install] Added missing update scripts.
 - [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
-- [Install] Removed a displayed error during update.
-- [LDAP] Fixed LDAP groups listing in contactgroups form.
-- [Resource Status] Fixed an error when opening detail panel of a resource in downtime.
-- [Resources Status] Fixed a filtering issue for hosts in pending state.
-- [Ressources Status] Fixed h.name filter not returning hosts.
-- [UI] Fixed refresh icon positionnement in "Administration > ACL > Reload ACL" menu.
+- [Install] Removed a displayed error during an update.
+- [LDAP] Fixed LDAP groups listing in contact groups form.
+- [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
+- [ResourceStatus] Fixed a filtering issue for hosts in pending state.
+- [RessourceStatus] Fixed the h.name filter that was not returning hosts.
+- [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
 - [UI] Unifomized buttons size on legacy pages.
 - [UX] Improved dark theme management.
-- [UI] Added CSS in global style files to fix Mbi widget visibility.
+- [UI] Fixed the MBI widget visibility by adding CSS in global style files.
 - [UI] Fixed a bug blocking the "Export Configuration" process from the top banner's button when a self-signed certificate was used.
-- [UI] Fixed a bug that prevented non-admin users to select host groups in some areas of Centreon (eg. Host Discovery mappers).
-- [UI] Fixed the alignment of the Top counter's export button.
-- [UI] Fixed the highlight color of ACK and DOWNTIME lines and change font color in Resources Status in dark mode.
-- [UI] Fixed the issue when its not possible to save a new filter on resources status with Anomaly-detection type.
-- [Server] Fixed user running cron tasks on debian.
+- [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
+- [UI] Fixed the alignment of the top counter's export button.
+- [UI] Fixed the highlight color of acknowledgement and downtime lines and changed the font color in Resources Status in dark mode.
+- [UI] Fixed an issue preventing from saving a new filter on Resources Status with the Anomaly-detection type.
+- [Server] Fixed a monitoring issue by updating the user running cron tasks on Debian.
 
 #### Enhancements
 
@@ -299,7 +299,7 @@ Release date: `soon`
 #### Bug fixes
 
 - [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
-- [Compatibility] Fixed an issue which prevent to rebuild MBI partial data.
+- [Compatibility] Fixed an issue preventing the rebuild of MBI partial data.
 
 #### Enhancements
 
@@ -347,7 +347,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [API] Fixed auto close API.
+- [API] Fixed an auto close issue in the API endpoint.
 - [Server] Fixed an issue on automatic ticket creation.
 
 ### 22.10.0
