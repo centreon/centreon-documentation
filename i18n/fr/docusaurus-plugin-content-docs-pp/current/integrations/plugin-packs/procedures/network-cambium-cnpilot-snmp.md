@@ -87,7 +87,7 @@ Coming soon
 ### Configuration SNMP
 
 Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* LINK
+* [LINK](https://community.cambiumnetworks.com/t/configuring-snmp-on-cnpilot-e-series/51324)
 
 ### Flux réseau
 
