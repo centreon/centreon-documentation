@@ -54,7 +54,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Privilèges AWS
 
-Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS :
+Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
 
 | AWS Privilege             | Description                                                                               |
 |:--------------------------|:------------------------------------------------------------------------------------------|
