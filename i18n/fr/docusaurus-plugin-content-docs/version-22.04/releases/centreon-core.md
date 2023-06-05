@@ -16,6 +16,30 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.13
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [API] Fixed PHP error messages on authentication APIs.
+- [API] Improved error codes and messages for the renewing password endpoint.
+- [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users in OU with special characters unable to authenticate.
+- [Authentication] Made error messages generic to improve security.
+- [Authentication] Removed extra spaces in endpoint definition.
+- [Backup] Fixed errors with distant DBMS in logs.
+- [Configuration] Fixed a bug in trap relations with services by host groups.
+- [Configuration] Fixed deletion of images when importing a configuration on a Remote Server with Map installed.
+- [Core] Fixed an error when accessing to the install wizard on new installation.
+- [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
+- [Install] Removed a displayed error during update.
+- [LDAP] Fixed LDAP groups listing in contactgroups form.
+- [Packaging] Improved default configuration for Debian packages.
+- [ResourceStatus] Fixed an error when opening detail panel of a resource in downtime.
+- [Server] Fixed a bug that prevented non-admin users to select host groups in some areas of Centreon (eg. Host Discovery mappers).
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
+
 ### 22.04.12
 
 Release date: `March 2, 2023`
