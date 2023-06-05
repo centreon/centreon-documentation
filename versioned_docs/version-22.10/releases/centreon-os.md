@@ -47,7 +47,7 @@ Release date: `June 5, 2023`
 - [LDAP] Fixed LDAP groups listing in contact groups form.
 - [ResourceStatus] Fixed a filtering issue for hosts in pending state.
 - [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
-- [RessourceStatus] Fixed the h.name filter that was not returning hosts.
+- [ResourceStatus] Fixed the h.name filter that was not returning hosts.
 - [Server] Fixed a monitoring issue by updating the user running cron tasks on Debian.
 - [UI] Added CSS in global style files to fix Mbi widget visibility.
 - [UI] Fixed a bug blocking the "Export Configuration" process from the top banner's button when a self-signed certificate was used.
