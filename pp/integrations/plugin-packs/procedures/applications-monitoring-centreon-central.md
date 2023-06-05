@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Central Monitoring Connector will help you set up monitoring for your Centreon Central server. To be the most accurate, the central server should be monitored by a poller if you have one. 
+The Centreon Central Monitoring Connector will help you set up monitoring for your Centreon Central server. 
+
+> The best practice is to have the central server monitored by a poller if you have one. If not, you will need to add the `--hostname=''` option to the host's `EXTRAOPTIONS` macro to avoid host key verification issues.
 
 ## Pack Assets
 
