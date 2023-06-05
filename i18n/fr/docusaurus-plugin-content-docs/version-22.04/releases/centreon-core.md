@@ -20,6 +20,10 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 Release date: `soon`
 
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages
+
 #### Bug fixes
 
 - [API] Fixed PHP error messages on authentication APIs.
@@ -35,7 +39,6 @@ Release date: `soon`
 - [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
 - [Install] Removed a displayed error during update.
 - [LDAP] Fixed LDAP groups listing in contactgroups form.
-- [Packaging] Improved default configuration for Debian packages.
 - [ResourceStatus] Fixed an error when opening detail panel of a resource in downtime.
 - [Server] Fixed a bug that prevented non-admin users to select host groups in some areas of Centreon (eg. Host Discovery mappers).
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
@@ -574,6 +577,14 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ## Centreon Gorgone
 
+### 22.04.2
+
+Release date: `soon`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
+
 ### 22.04.1
 
 Release date: `September 23, 2022`
@@ -603,3 +614,13 @@ Release date: `September 23, 2022`
 - Added new httpsserverng module
 - Added the possibility for the poller to communicate using the socket web client instead of using the ZMQ protocol
 - Extended configuration to add multiple directories at the same time
+
+## Centreon DSM
+
+### 22.04.1
+
+Release date: `soon`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
