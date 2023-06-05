@@ -21,6 +21,14 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 Release date: `June 5, 2023`
 
+#### New Features
+
+- [UX] You can now duplicate maps.
+
+#### Enhancements
+
+- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+
 #### Bug fixes
 
 - [Server] Enable to parse metric from Broker NEB packets.
@@ -29,14 +37,6 @@ Release date: `June 5, 2023`
 - [Server] Fixed an issue preventing images from being displayed in views after an update.
 - [Server] Fixed an issue preventing to save a map with "not a diagram" error message.
 - [UI] Fixed view freezes beyond 500 elements.
-
-#### New Features
-
-- [UX] You can now duplicate maps.
-
-#### Enhancements
-
-- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 
 ### 22.10.5
 
