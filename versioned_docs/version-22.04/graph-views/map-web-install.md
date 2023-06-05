@@ -211,24 +211,6 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 ### Step 3: Install MAP Engine server
 
-#### Java version requirement
-> Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-
-- If you need to check the Java version, enter the following command:
-
-```shell
-java -version
-```
-
-- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-
-- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-```shell
-sudo update-alternatives --config java
-```
-
-- If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
-
 #### Package installation
 
 If you installed your Centreon MAP server from a "fresh OS installation" you need to install the **centreon-release** package:
@@ -286,7 +268,24 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL does not work, you can manually find this package in the folder.
 
-#### MariaDB installation
+#### Business repository installation
+
+Install Centreon Business repository, you can find it on the
+[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+#### MAP Engine server installation
+
+You have two possibilities for the installation:
+
+- on a new server (without existing Centreon MAP packages),
+- or on an existing Centreon MAP server legacy.
+
+Select the right tab below and install the Centreon MAP Engine server:
+
+<Tabs groupId="sync">
+<TabItem value="New MAP Engine server" label="New MAP Engine server">
+
+#### MariaDB requirement
 
 > You need to have a MariaDB database to store your Centreon MAP data.
 
@@ -316,27 +315,27 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 </Tabs>
 
-Then install MariaDB server and client:
+Then install MariaDB server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mariadb-client mariadb-server
+dnf install mariadb-server
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install mariadb-client mariadb-server
+yum install mariadb-server
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt install mariadb-client mariadb-server
+apt update && apt install mariadb-server
 ```
 
 > MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
@@ -365,22 +364,7 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-#### Business repository installation
-
-Install Centreon Business repository, you can find it on the
-[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-#### MAP Engine server installation
-
-You have two possibilities for the installation:
-
-- on a new server (without existing Centreon MAP packages),
-- or on an existing Centreon MAP server legacy.
-
-Select the right tab below and install the Centreon MAP Engine server:
-
-<Tabs groupId="sync">
-<TabItem value="New MAP Engine server" label="New MAP Engine server">
+Now you can install Centreon MAP Engine.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -406,13 +390,12 @@ apt update && apt install centreon-map-engine
 </TabItem>
 </Tabs>
 
-When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 17) if needed.
-
 </TabItem>
 <TabItem value="Existing MAP Legacy server" label="Existing MAP Legacy server">
 
 > If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New MAP Engine server** tab.
+
+> You can use the existing MariaDB database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
 
 This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
 
@@ -502,6 +485,25 @@ This procedure is to ensure that the configuration file can be used for both MAP
    
 </TabItem>
 </Tabs>
+
+When installing Centreon MAP Engine server, it will automatically install java (OpenJDK 17) if needed.
+
+> Ensure a version of Java 17 (or 18) is correctly installed and activated.
+
+- If you need to check the Java version, enter the following command:
+
+```shell
+java -version
+```
+
+- If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+- If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+```shell
+sudo update-alternatives --config java
+```
+
+- If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 ### Step 4: Check the database configuration
 
