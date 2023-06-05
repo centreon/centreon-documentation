@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias                 | Service Template                            | Service Description     |
 |:------------------------------|:--------------------------------------------|:------------------------|
-| Cloudtrail-Check-Trail-Status | Cloud-Aws-Cloudtrail-Count-Events-Api       | Check trail status      |
-| Cloudtrail-Count-Events       | Cloud-Aws-Cloudtrail-Check-Trail-Status-Api | Check cloudtrail events |
+| Cloudtrail-Check-Trail-Status | Cloud-Aws-Cloudtrail-Check-Trail-Status-Api | Check trail status      |
+| Cloudtrail-Count-Events       | Cloud-Aws-Cloudtrail-Count-Events-Api       | Check cloudtrail events |
 
 > The services listed above are created automatically when the **Cloud-Aws-CloudTrail** host template is used.
 
@@ -55,10 +55,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 Configure a service account (access/secret key combo) for which the following privileges have to be granted:
 
-| AWS Privilege                  | Description                                                     |
-| :----------------------------- | :-------------------------------------------------------------- |
-| XXXXX:XXXXXXXXXXXXXXXX         | Get XXXXX.                                                      |
-| cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch.           |
+| AWS Privilege                  | Description                                                                               |
+| :----------------------------- |:------------------------------------------------------------------------------------------|
+| cloudtrail:GetTrailStatus | Returns a JSON-formatted list of information about the specified trail.                   |
+| cloudtrail:LookupEvents   | Looks up management events or CloudTrail Insights events that are captured by CloudTrail. |
 
 ### Plugin dependencies
 
@@ -182,42 +182,42 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 3. Apply the **Cloud-Aws-CloudTrail-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro         | Description                                                                                               | Default value     | Mandatory   |
-|:--------------|:----------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AWSACCESSKEY  | Set AWS access key                                                                                        |                   |             |
-| AWSASSUMEROLE | Set arn of the role to be assumed                                                                         |                   |             |
-| AWSCUSTOMMODE | Choose a custom mode                                                                                      |                   |             |
-| AWSREGION     | Set the region name                                                                                       |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                        |                   |             |
-| PROXYURL      | Proxy URL if any                                                                                          |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to every command line (eg. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro         | Description                                                                                           | Default value     | Mandatory   |
+|:--------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
+| AWSACCESSKEY  | Set AWS access key                                                                                    |                   |             |
+| AWSASSUMEROLE | Set arn of the role to be assumed                                                                     |                   |             |
+| AWSCUSTOMMODE | Choose a custom mode                                                                                  |                   |             |
+| AWSREGION     | Set the region name                                                                                   |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                    |                   |             |
+| PROXYURL      | Proxy URL if any                                                                                      |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 ### Using a service template provided by the connector
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services).
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
 <TabItem value="Cloudtrail-Check-Trail-Status" label="Cloudtrail-Check-Trail-Status">
 
-| Macro        | Description                                                                                             | Default value     | Mandatory   |
-|:-------------|:--------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TRAILNAME    | Filter by trail name                                                                                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command line (eg. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| TRAILNAME    | Filter by trail name                                                                                |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Cloudtrail-Count-Events" label="Cloudtrail-Count-Events">
 
-| Macro         | Description                                                                                             | Default value     | Mandatory   |
-|:--------------|:--------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| EVENTTYPE     | Filter by event type                                                                                    |                   |             |
-| ERRORMESSAGE  | Filter on an error message pattern                                                                      |                   |             |
-| DELTA         | Time depth for search (minutes)                                                                         |                   |             |
-| WARNINGCOUNT  | Set warning threshold for the number of events                                                          |                   |             |
-| CRITICALCOUNT | Set critical threshold for the number of events                                                         |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command line (eg. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro         | Description                                                                                         | Default value     | Mandatory   |
+|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| EVENTTYPE     | Filter by event type                                                                                |                   |             |
+| ERRORMESSAGE  | Filter on an error message pattern                                                                  |                   |             |
+| DELTA         | Time depth for search (minutes)                                                                     |                   |             |
+| WARNINGCOUNT  | Set warning threshold for the number of events                                                      |                   |             |
+| CRITICALCOUNT | Set critical threshold for the number of events                                                     |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 </Tabs>
@@ -247,7 +247,7 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 The expected command output is shown below:
 
 ```bash
-OK:  | 
+OK: Trail is logging: 1 | 'trail_is_logging'=1;;;0;
 ```
 
 ### Troubleshooting
@@ -275,7 +275,7 @@ The plugin brings the following modes:
 
 ### Available custom modes
 
-This connector offers several ways (CLI, library, etc.) called **custom modes** to connect to the resource. 
+This connector offers several ways to connect to the resource (CLI, library, etc.), called **custom modes**.
 All available custom modes can be displayed by adding the `--list-custommode` parameter to
 the command:
 
@@ -332,7 +332,7 @@ All generic options are listed here:
 
 #### Custom modes options
 
-All custom modes specific options are listed here:
+All **custom modes** specific options are listed here:
 
 <Tabs groupId="sync">
 <TabItem value="awscli" label="awscli">

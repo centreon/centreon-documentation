@@ -21,8 +21,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                         | Modèle de service                           | Description                           |
 |:------------------------------|:--------------------------------------------|:--------------------------------------|
-| Cloudtrail-Check-Trail-Status | Cloud-Aws-Cloudtrail-Count-Events-Api       | Contrôle l'état d'un journal de suivi |
-| Cloudtrail-Count-Events       | Cloud-Aws-Cloudtrail-Check-Trail-Status-Api | Contrôle les événements CloudTrail    |
+| Cloudtrail-Check-Trail-Status | Cloud-Aws-Cloudtrail-Check-Trail-Status-Api | Contrôle l'état d'un journal de suivi |
+| Cloudtrail-Count-Events       | Cloud-Aws-Cloudtrail-Count-Events-Api       | Contrôle les événements CloudTrail    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-CloudTrail** est utilisé.
 
@@ -56,10 +56,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS :
 
-| AWS Privilege                  | Description                                                     |
-| :----------------------------- | :-------------------------------------------------------------- |
-| XXXXX:XXXXXXXXXXXXXXXX         | Get XXXXX.                                                      |
-| cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch.           |
+| AWS Privilege             | Description                                                                               |
+|:--------------------------|:------------------------------------------------------------------------------------------|
+| cloudtrail:GetTrailStatus | Returns a JSON-formatted list of information about the specified trail.                   |
+| cloudtrail:LookupEvents   | Looks up management events or CloudTrail Insights events that are captured by CloudTrail. |
 
 ### Dépendances du Plugin
 
@@ -181,42 +181,42 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 3. Appliquez le modèle d'hôte **Cloud-Aws-CloudTrail-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro         | Description                                                                                               | Valeur par défaut | Obligatoire |
-|:--------------|:----------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AWSACCESSKEY  | Set AWS access key                                                                                        |                   |             |
-| AWSASSUMEROLE | Set arn of the role to be assumed                                                                         |                   |             |
-| AWSCUSTOMMODE | Choose a custom mode                                                                                      |                   |             |
-| AWSREGION     | Set the region name                                                                                       |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                        |                   |             |
-| PROXYURL      | Proxy URL if any                                                                                          |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to every command line (eg. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro         | Description                                                                                           | Valeur par défaut | Obligatoire |
+|:--------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
+| AWSACCESSKEY  | Set AWS access key                                                                                    |                   |             |
+| AWSASSUMEROLE | Set arn of the role to be assumed                                                                     |                   |             |
+| AWSCUSTOMMODE | Choose a custom mode                                                                                  |                   |             |
+| AWSREGION     | Set the region name                                                                                   |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                    |                   |             |
+| PROXYURL      | Proxy URL if any                                                                                      |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparait dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
 ### Utiliser un modèle de service issu du connecteur
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Cloudtrail-Check-Trail-Status" label="Cloudtrail-Check-Trail-Status">
 
-| Macro        | Description                                                                                             | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TRAILNAME    | Filter by trail name                                                                                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command line (eg. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| TRAILNAME    | Filter by trail name                                                                                |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Cloudtrail-Count-Events" label="Cloudtrail-Count-Events">
 
-| Macro         | Description                                                                                             | Valeur par défaut | Obligatoire |
-|:--------------|:--------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| EVENTTYPE     | Filter by event type                                                                                    |                   |             |
-| ERRORMESSAGE  | Filter on an error message pattern                                                                      |                   |             |
-| DELTA         | Time depth for search (minutes)                                                                         |                   |             |
-| WARNINGCOUNT  | Set warning threshold for the number of events                                                          |                   |             |
-| CRITICALCOUNT | Set critical threshold for the number of events                                                         |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command line (eg. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| EVENTTYPE     | Filter by event type                                                                                |                   |             |
+| ERRORMESSAGE  | Filter on an error message pattern                                                                  |                   |             |
+| DELTA         | Time depth for search (minutes)                                                                     |                   |             |
+| WARNINGCOUNT  | Set warning threshold for the number of events                                                      |                   |             |
+| CRITICALCOUNT | Set critical threshold for the number of events                                                     |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
@@ -228,7 +228,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur peut bien superviser une instance AWS en utilisant une commande
+que le connecteur arrive bien à superviser une instance AWS en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
@@ -248,7 +248,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:  | 
+OK: Trail is logging: 1 | 'trail_is_logging'=1;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -276,7 +276,7 @@ Le plugin apporte les modes suivants :
 
 ### Custom modes disponibles
 
-Ce connecteur offre plusieurs méthodes (CLI, bibliothèque, etc.) appelées **custom modes** pour se connecter à la ressource.
+Ce connecteur offre plusieurs méthodes pour se connecter à la ressource (CLI, bibliothèque, etc.), appelées **custom modes**.
 Tous les custom modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-custommode` à la commande :
 
@@ -333,7 +333,7 @@ Les options génériques aux modes sont listées ci-dessous :
 
 #### Options des custom modes
 
-Les options spécifiques aux modes custom sont listées ci-dessous :
+Les options spécifiques aux **custom modes** sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="awscli" label="awscli">
