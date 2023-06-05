@@ -33,7 +33,7 @@ Release date: `June 5, 2023`
 
 #### New Features
 
-- [UI] You can now change the label of the metric link modal.
+- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 - [UX] You can now duplicate maps.
 
 ### 22.10.5
