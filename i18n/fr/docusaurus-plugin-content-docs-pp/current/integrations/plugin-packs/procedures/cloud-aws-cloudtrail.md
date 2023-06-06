@@ -365,7 +365,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 | --aws-secret-key    | Set AWS secret key.                                                                               | Paws |
 | --aws-access-key    | Set AWS access key.                                                                               | Paws |
 | --aws-session-token | Set AWS session token.                                                                            | Paws |
-| --aws-role-arn      | Set arn of the role to be assumed.                                                                | Paws |
+| --aws-role-arn      | Set ARN of the role to be assumed.                                                                | Paws |
 | --region            | Set the region name (Required).                                                                   | Paws |
 | --period            | Set period in seconds.                                                                            | Paws |
 | --timeframe         | Set timeframe in seconds.                                                                         | Paws |
