@@ -951,10 +951,10 @@ Une fois cette étape terminée, exécutez les commandes suivantes pour permettr
 
 ``` bash
 su - centreon-engine
-kinit <SERVICE_USERNAME>
+kinit -k -t @USERNAME@.keytab @USERNAME@
 logout
 su - centreon-gorgone
-kinit <SERVICE_USERNAME
+kinit -k -t @USERNAME@.keytab @USERNAME@
 ```
 
 Créez une tâche cron en remplaçant **@USERNAME@** par la valeur correcte :
