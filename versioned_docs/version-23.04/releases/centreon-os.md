@@ -113,6 +113,10 @@ Release date : `soon`
 
 - [Packaging] Improved default configuration for Debian packages.
 
+#### Bug fixes
+
+- Fixed recurring unexpected disconnection between pollers.
+
 ### 23.04.1
 
 Release date: `May 26, 2023`
