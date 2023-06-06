@@ -145,7 +145,7 @@ Les autorisations ne sont pas appliquées de manière récursive, vous devrez do
 * Root/WMI
 * Root/CIMv2/Security/MicrosoftTpm.
 
-Cliquez sur **Appliquer**, puis sur **OK**. Fermez la fenêtre **WMImgmt**.
+Cliquez sur **Appliquer**, puis sur **OK**. Fermez la fenêtre **WMImgmt.WMI**.
 
 ### Autoriser l'exécution de scripts
 
@@ -586,6 +586,8 @@ Cliquez sur **Ajouter...**, sélectionnez l'utilisateur du service (ici **sa_cen
 
 * Cliquez sur **OK** pour chaque fenêtre ouverte.
 
+* Redémarrer le service **WinRM**.
+
 #### Créer un fichier de modèle de sécurité WMI
 
 Sur le même serveur, exécutez la commande suivante dans PowerShell :
@@ -911,33 +913,24 @@ realm join --user=administrator <YOUR_DOMAIN>
 ```
 
 Il vous sera demandé de saisir le mot de passe de votre compte d'administrateur de domaine.
-Une fois cette étape terminée, exécutez les commandes suivantes pour permettre à **centreon-engine** et **centreon-gorgone** d'effectuer l'authentification :
-
-``` bash
-su - centreon-engine
-kinit <SERVICE_USERNAME>
-logout
-su - centreon-gorgone
-kinit <SERVICE_USERNAME
-```
 
 Dans notre exemple, voici le résultat :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-centreon-kerberos-1.png)
 
-#### Renouveler le ticket Kerberos
+#### Ticket Kerberos
 
 Les tickets d'authentification Kerberos expirent toutes les 10 heures, déconnectant l'utilisateur **centreon-engine** et désactivant l'authentification.
 De plus, le ticket Kerberos a une durée de vie de 7 jours.
 Pour contourner ce problème, nous renouvellerons automatiquement le ticket d'authentification toutes les 9 heures, et nous réinitialiserons la durée de vie du ticket tous les samedis via une tâche cron.
 
-Pour la partie réinitialisation, vous devrez créer un fichier "keytab" associé à votre compte de service pour pouvoir vous reconnecter sans mot de passe.
+Pour la partie réinitialisation, vous devrez créer un fichier "keytab" associé à votre compte de service pour pouvoir vous connecter sans mot de passe.
 
 Exécutez la commande suivante en remplaçant **@USERNAME@** par la valeur correcte pour créer le fichier "keytab".
 
 ``` bash
 ktutil
-addent -password -p @USERNAME@ -k 1 -e RC4-HMAC
+addent -password -p @USERNAME@ -k 1 -e aes256-cts
 wkt /var/lib/centreon-engine/@USERNAME@.keytab
 q
 ```
@@ -948,10 +941,20 @@ Exécutez la commande suivante en remplaçant **@USERNAME@** par la valeur corre
 
 ``` bash
 cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-engine/
-chmod centreon-engine. /var/lib/centreon-engine/@USERNAME@.keytab
+chown centreon-engine. /var/lib/centreon-engine/@USERNAME@.keytab
 
 cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-gorgone/
-chmod centreon-gorgone. /var/lib/centreon-gorgone/@USERNAME@.keytab
+chown centreon-gorgone. /var/lib/centreon-gorgone/@USERNAME@.keytab
+```
+
+Une fois cette étape terminée, exécutez les commandes suivantes pour permettre à **centreon-engine** et **centreon-gorgone** d'effectuer l'authentification :
+
+``` bash
+su - centreon-engine
+kinit <SERVICE_USERNAME>
+logout
+su - centreon-gorgone
+kinit <SERVICE_USERNAME
 ```
 
 Créez une tâche cron en remplaçant **@USERNAME@** par la valeur correcte :

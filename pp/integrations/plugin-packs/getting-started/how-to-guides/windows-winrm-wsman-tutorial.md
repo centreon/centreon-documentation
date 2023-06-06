@@ -145,7 +145,7 @@ The permissions are not applied recursively, so you will have to repeat the prev
 * Root/WMI
 * Root/CIMv2/Security/MicrosoftTpm
 
-Click **Apply** and **OK**. Close the **WMImgmt** window.
+Click **Apply** and **OK**. Close the **WMImgmt.WMI** window.
 
 ### Allow script execution
 
@@ -592,6 +592,8 @@ Click on **Add...**, select the service user (here, **sa_centreon**), and allow 
 
 * Click on **OK** for each open window.
 
+* Restart the service **WinRM**.
+
 #### Create a WMI security template file
 
 On the same server, run the following command in PowerShell:
@@ -907,32 +909,23 @@ realm join --user=administrator <YOUR_DOMAIN>
 ```
 
 You will be asked to type your domain admin account password.
-When done, run the following commands to allow **centreon-engine** and **centreon-gorgone** to perform the authentication:
-
-``` bash
-su - centreon-engine
-kinit <SERVICE_USERNAME>
-logout
-su - centreon-gorgone
-kinit <SERVICE_USERNAME>
-```
 
 In our example, it looks like this:
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-centreon-kerberos-1.png)
 
-#### Renew the Kerberos ticket
+#### Kerberos ticket
 
 Kerberos authentication tickets expire every 10 hours, disconnecting the **centreon-engine** user and disabling the authentication. Additionally, Kerberos tickets have a lifetime of 7 days.
 We will automatically renew the authentication ticket every 9 hours, as well as reinitialize the lifetime every Saturday through a cron job to work around this issue.
 
-You will have to create a "keytab" file associated with your service account to allow reconnection without a password for the reinitialization part.
+You will have to create a "keytab" file associated with your service account to allow connection without a password.
 
 Run the following command, replacing **@USERNAME@** with the correct value.
 
 ``` bash
 ktutil
-addent -password -p @USERNAME@ -k 1 -e RC4-HMAC
+addent -password -p @USERNAME@ -k 1 -e aes256-cts
 wkt /var/lib/centreon-engine/@USERNAME@.keytab
 q
 ```
@@ -947,6 +940,16 @@ chown centreon-engine. /var/lib/centreon-engine/@USERNAME@.keytab
 
 cp /var/lib/centreon-engine/@USERNAME@.keytab /var/lib/centreon-gorgone/
 chown centreon-gorgone. /var/lib/centreon-gorgone/@USERNAME@.keytab
+```
+
+When done, run the following commands to allow centreon-engine and centreon-gorgone to perform the authentication:
+
+``` bash
+su - centreon-engine
+kinit -k -t @USERNAME@.keytab @USERNAME@
+logout
+su - centreon-gorgone
+kinit -k -t @USERNAME@.keytab @USERNAME@
 ```
 
 Create the cron job, replacing **@USERNAME@** with the correct value.
