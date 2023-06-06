@@ -62,9 +62,9 @@ Configure a service account (access/secret key combo) for which the following pr
 
 ### Plugin dependencies
 
-To interact with Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
+To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
 
-> For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs.
+> For now, it is not possible to use *paws* if you are using a proxy to reach the AWS Cloudwatch APIs.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -182,17 +182,17 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 3. Apply the **Cloud-Aws-CloudTrail-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro         | Description                                                                                           | Default value     | Mandatory   |
-|:--------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AWSACCESSKEY  | Set AWS access key                                                                                    |                   |             |
-| AWSASSUMEROLE | Set arn of the role to be assumed                                                                     |                   |             |
-| AWSCUSTOMMODE | Choose a custom mode                                                                                  |                   |             |
-| AWSREGION     | Set the region name                                                                                   |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                    |                   |             |
-| PROXYURL      | Proxy URL if any                                                                                      |                   |             |
+| Macro         | Description                                                                                                                      | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:------------|
+| AWSACCESSKEY  | Set AWS access key                                                                                                               |                   |             |
+| AWSASSUMEROLE | Set ARN of the role to be assumed                                                                                                |                   |             |
+| AWSCUSTOMMODE | Choose a custom mode                                                                                                             |                   |             |
+| AWSREGION     | Set the region name                                                                                                              |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                               |                   |             |
+| PROXYURL      | Proxy URL if any                                                                                                                 |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 ### Using a service template provided by the connector
 
@@ -222,7 +222,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -233,15 +233,13 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_cloudtrail_api.pl \
 	--plugin=cloud::aws::cloudtrail::plugin \
-	--custommode='' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
-	--aws-role-arn='' \
-	--region='' \
-	--proxyurl=''  \
+	--custommode='awscli' \
+	--aws-secret-key='***' \
+	--aws-access-key='***' \
+	--region='eu-west-1' \
+	--proxyurl='http://myproxy.mycompany.org:8080' \
 	--mode=checktrailstatus \
-	--trail-name='' \
-	
+	--trail-name='my-trail'
 ```
 
 The expected command output is shown below:
@@ -379,7 +377,7 @@ All **custom modes** specific options are listed here:
 
 #### Modes options
 
-All  modes specific options are listed here:
+All modes specific options are listed here:
 
 <Tabs groupId="sync">
 <TabItem value="Cloudtrail-Check-Trail-Status" label="Cloudtrail-Check-Trail-Status">

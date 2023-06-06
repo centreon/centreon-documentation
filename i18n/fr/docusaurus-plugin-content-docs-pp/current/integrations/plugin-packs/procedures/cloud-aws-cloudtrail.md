@@ -65,7 +65,7 @@ Configurez un compte de service (via une combinaison d'access et secret key) et 
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
 
-> **Attention** il n'est pas possible d'utiliser *paws* si la connexion s'effectue au travers d'un proxy.
+> **Attention**, il n'est pas possible d'utiliser *paws* si la connexion s'effectue au travers d'un proxy.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -90,10 +90,10 @@ sudo ./aws/install
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquets
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
 
 <Tabs groupId="sync">
@@ -181,17 +181,17 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 3. Appliquez le modèle d'hôte **Cloud-Aws-CloudTrail-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro         | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:--------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AWSACCESSKEY  | Set AWS access key                                                                                    |                   |             |
-| AWSASSUMEROLE | Set arn of the role to be assumed                                                                     |                   |             |
-| AWSCUSTOMMODE | Choose a custom mode                                                                                  |                   |             |
-| AWSREGION     | Set the region name                                                                                   |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                    |                   |             |
-| PROXYURL      | Proxy URL if any                                                                                      |                   |             |
+| Macro         | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:------------|
+| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   |             |
+| AWSASSUMEROLE | Set ARN of the role to be assumed                                                                                                        |                   |             |
+| AWSCUSTOMMODE | Choose a custom mode                                                                                                                     |                   |             |
+| AWSREGION     | Set the region name                                                                                                                      |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   |             |
+| PROXYURL      | Proxy URL if any                                                                                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparait dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
 ### Utiliser un modèle de service issu du connecteur
 
@@ -221,7 +221,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparait dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
@@ -234,15 +234,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_cloudtrail_api.pl \
 	--plugin=cloud::aws::cloudtrail::plugin \
-	--custommode='' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
-	--aws-role-arn='' \
-	--region='' \
-	--proxyurl=''  \
+	--custommode='awscli' \
+	--aws-secret-key='***' \
+	--aws-access-key='***' \
+	--region='eu-west-1' \
+	--proxyurl='http://myproxy.mycompany.org:8080' \
 	--mode=checktrailstatus \
-	--trail-name='' \
-	
+	--trail-name='my-trail'
 ```
 
 La commande devrait retourner un message de sortie similaire à :
