@@ -236,14 +236,14 @@ Complete!
 Now you can install the **centreon-release** package:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -344,14 +344,17 @@ apt update && apt install mariadb-server
 > /etc/mysql/mariadb.conf.d/50-server.cnf
 > ```
 > 
-> Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
-> 
-> ```shell
-> systemctl restart mariadb
-> ```
+> Set the **bind-address** parameter to **0.0.0.0**.
 
 </TabItem>
 </Tabs>
+
+Then enable and restart mariadb
+
+```shell
+systemctl enable mariadb
+systemctl restart mariadb
+```
 
 Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
 
