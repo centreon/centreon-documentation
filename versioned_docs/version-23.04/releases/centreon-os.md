@@ -77,6 +77,14 @@ Compatibility with other 23.04 components.
 
 ## Centreon Gorgone
 
+### 23.04.2
+
+Release date : `soon`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
+
 ### 23.04.1
 
 Release date: `May 26, 2023`
@@ -100,6 +108,14 @@ Release date: `April 26, 2023`
 - Compatibility with other 23.04 components.
 
 ## Centreon DSM
+
+### 23.04.1
+
+Release date: `soon`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
 
 ### 23.04.0
 
