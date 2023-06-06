@@ -18,6 +18,34 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.2
+
+Release date: `soon`
+
+#### Enhancements
+
+- [Administration] Added button to unblock users through UI (for local authentication).
+- [Authentication] Fixed custom endpoint definition for OpenID Connect.
+- [Install] Removed PHP warning during installation wizard.
+- [Packaging] Improved default configuration for Debian packages.
+
+#### Bug fixes
+
+- [API] Improved error codes and messages for the renewing password endpoint.
+- [Authentication] Fixed custom endpoint call with OpenId Connect.
+- [Authentication] fixed HTTP method for custom endpoints for OpenId.
+- [Authentication] Removed password expiration policy for LDAP authentication.
+- [Configuration] Fixed a bug in trap relations with services by host groups.
+- [Core] Improved the display of error messages regarding connection to DBMS.
+- [Install] Fixed snmptrapd configuration for Debian.
+- [LDAP] Fixed LDAP groups listing in contactgroups form.
+- [ResourcesStatus] Fixed a filtering issue for hosts in pending state.
+- [RessourcesStatus] Fixed h.name filter not returning hosts.
+- [UI] Fixed a bug that prevented non-admin users to select host groups in some areas of Centreon (eg. Host Discovery mappers).
+- [UI] Fixed refresh icon positionnement in "Administration > ACL > Reload ACL" menu.
+- [UI] Unifomized buttons size on legacy pages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
+
 ### 23.04.1
 
 Release date: `May 26, 2023`
@@ -123,6 +151,18 @@ Release date: `April 26, 2023`
 - Compatibility with other 23.04 components.
 
 ## Centreon Open Tickets
+
+### 23.04.1
+
+Release date: `soon`
+
+#### New feature
+
+- [Widget] Added possibility to filter by poller.
+
+#### Bug fixes
+
+- [API] Fixed an auto close issue in the API endpoint.
 
 ### 23.04.0
 
