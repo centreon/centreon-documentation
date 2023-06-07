@@ -681,7 +681,7 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | --statefile-key        | Key to encrypt/decrypt cache.                                                                                | Retention |
 | --statefile-cipher     | Cipher to encrypt cache (Default: 'AES').                                                                    | Retention |
 | --warning              | Warning threshold.                                                                                           | Mode      |
-| --critical             | Threshold critical.                                                                                          | Mode      |
+| --critical             | Critical threshold .                                                                                          | Mode      |
 | --lookback             | Threshold isn't on the percent calculated from the difference ('bufferpool\_hitrate\_now').                  | Mode      |
 
 </TabItem>
