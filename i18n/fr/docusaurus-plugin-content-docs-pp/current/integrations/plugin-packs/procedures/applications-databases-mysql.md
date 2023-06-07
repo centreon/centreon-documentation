@@ -396,7 +396,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | SECONDS       | The minimum execution time in seconds for a long query (Default: 60)                                | 60                |             |
 | FILTERCOMMAND | Filter by command (can be a regexp. Default: '^(?!(sleep)$)')                                       | ^(?!(sleep)$)     |             |
 | FILTERUSER    | Filter by user (can be a regexp)                                                                    |                   |             |
-| WARNING       | Threshold warning (number of long queries)                                                          |                   |             |
+| WARNING       | Warning threshold (number of long queries)                                                          |                   |             |
 | CRITICAL      | Threshold critical (number of long queries)                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
