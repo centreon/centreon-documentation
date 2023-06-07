@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias             | Modèle de service                          | Description                       |
 |:------------------|:-------------------------------------------|:----------------------------------|
 | Connection status | Net-Cambium-Cnpilot-Connection-status-SNMP | Contrôle les status de connection |
-| Cpu               | Net-Cambium-Cnpilot-Cpu-SNMP               | Contrôle les cpu                  |
+| Cpu               | Net-Cambium-Cnpilot-Cpu-SNMP               | Contrôle les CPU                  |
 | Memory            | Net-Cambium-Cnpilot-Memory-SNMP            | Contrôle les mémoires             |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cambium-cnPilot-SNMP** est utilisé.
