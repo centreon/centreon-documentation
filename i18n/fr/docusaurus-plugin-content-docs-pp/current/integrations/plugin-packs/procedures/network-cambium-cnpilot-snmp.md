@@ -293,7 +293,7 @@ yum install centreon-plugin-Network-Cambium-cnPilot-Snmp
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparait dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
