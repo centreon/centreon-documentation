@@ -341,7 +341,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| WARNING      | Threshold warning in milliseconds                                                                   |                   |             |
+| WARNING      | Warning threshold in milliseconds                                                                   |                   |             |
 | CRITICAL     | Threshold critical in milliseconds                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
