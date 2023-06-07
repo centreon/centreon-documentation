@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ### 23.04.2
 
-Release date: `soon`
+Release date: `June 7, 2023`
 
 #### Enhancements
 
@@ -106,7 +106,7 @@ Compatibility with other 23.04 components.
 
 ### 23.04.2
 
-Release date : `soon`
+Release date : `June 7, 2023`
 
 #### Enhancement
 
@@ -142,7 +142,7 @@ Release date: `April 26, 2023`
 
 ### 23.04.1
 
-Release date: `soon`
+Release date: `June 7, 2023`
 
 #### Enhancement
 
@@ -158,7 +158,7 @@ Release date: `April 26, 2023`
 
 ### 23.04.1
 
-Release date: `soon`
+Release date: `June 7, 2023`
 
 #### New feature
 
