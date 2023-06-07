@@ -762,7 +762,7 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | --statefile-format     | Format used to store cache (can be: 'dumper', 'storable', 'json').                                           | Retention |
 | --statefile-key        | Key to encrypt/decrypt cache.                                                                                | Retention |
 | --statefile-cipher     | Cipher to encrypt cache (Default: 'AES').                                                                    | Retention |
-| --warning              | Threshold warning.                                                                                           | Mode      |
+| --warning              | Warning threshold.                                                                                           | Mode      |
 | --critical             | Threshold critical.                                                                                          | Mode      |
 | --lookback             | Threshold isn't on the percent calculated from the difference ('qcache\_hitrate\_now').                      | Mode      |
 
