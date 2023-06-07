@@ -44,7 +44,7 @@ Le connecteur apporte les modèles de service suivants
 | Password-Expiration  | App-DB-MySQL-Password-Expiration          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateur                                                        |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate               | Contrôle permettant de vérifier le taux d'utilisation du 'query cache'                                                             |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                        |
-| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                    |
+| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères                                    |
 | Uptime               | App-DB-MySQL-Uptime                       | Contrôle permettant d'indiquer le temps de fonctionnement du serveur depuis son dernier démarrage. Ce temps est exprimé en minutes |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
