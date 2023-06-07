@@ -33,27 +33,27 @@ winrm s winrm/config/service/auth '@{Basic="true"}'
 
 ### Configuration du firewall
 
-* Ouvrez le **Gestionnaire de serveur**.
-* Dans le menu **Outils**, sélectionnez **Pare-feu Windows Defender avec sécurité avancée**.
-* Cliquez sur **Règles entrantes**.
-* Cliquez sur **Nouvelle règle...**.
-* Cliquez sur **Port**, puis sur **Suivant**.
+* Ouvrez le **Server Manager**.
+* Dans le menu **Tools**, sélectionnez **Windows Defender Firewall with Advanced Security**.
+* Cliquez sur **Inbound Rules**.
+* Cliquez sur **New Rule**.
+* Cliquez sur **Port**, puis sur **Next**.
 
   ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-firewall-1.png)
 
-* Saisissez la valeur **5986** dans le champ **Ports locaux spécifiques** et cliquez sur **Suivant**.
+* Saisissez la valeur **5986** dans le champ **Specific local ports** et cliquez sur **Next**.
 
   ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-firewall-2.png)
 
-* Vérifiez que **Autoriser la connexion** est sélectionné, puis cliquez sur **Suivant**.
+* Vérifiez que **Allow the connection** est sélectionné, puis cliquez sur **Next**.
 
   ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-firewall-3.png)
 
-* Sur la page suivante, sélectionnez les profils de pare-feu pour lesquels la règle doit s'appliquer, puis cliquez sur **Suivant**.
+* Sur la page suivante, sélectionnez les profils de pare-feu pour lesquels la règle doit s'appliquer, puis cliquez sur **Next**.
 
   ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-firewall-4.png)
 
-* Sur la page suivante, donnez un nom à la règle, puis cliquez sur **Terminer**.
+* Sur la page suivante, donnez un nom à la règle, puis cliquez sur **Finish**.
 
   ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-firewall-5.png)
 
@@ -96,7 +96,7 @@ net user @USERNAME@ @PASSWORD@ /add
 
 ### Configuration des groupes
 
-Dans **Gestion de l'ordinateur**, ajoutez votre utilisateur dans les groupes suivants :
+Dans **Computer Management**, ajoutez votre utilisateur dans les groupes suivants :
 
 * Distributed COM Users
 * Event Log Readers
@@ -114,26 +114,26 @@ Dans PowerShell, exécutez la commande suivante :
 WMImgmt.msc
 ```
 
-Faites un clic droit sur **Contrôle WMI**, puis cliquez sur **Propriétés** :
+Faites un clic droit sur **WMI Control**, puis cliquez sur **Properties** :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-wmi-configuration-1.png)
 
-Cliquez sur **Sécurité** :
+Cliquez sur **Security** :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-wmi-configuration-2.png)
 
-Sélectionnez **Root** et cliquez sur **Sécurité** :
+Sélectionnez **Root** et cliquez sur **Security** :
 
 ![image]![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-wmi-configuration-3.png)
 
-Cliquez sur **Ajouter...**, sélectionnez le groupe **Remote Management Users** et définissez les autorisations suivantes :
+Cliquez sur **Add**, sélectionnez le groupe **Remote Management Users** et définissez les autorisations suivantes :
 
-* Activer le compte
-* Appel à distance autorisé.
+* Enable Account
+* Remote Enabled.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-wmi-configuration-4.png)
 
-Cliquez sur **Appliquer**, puis sur **OK**.
+Cliquez sur **Apply**, puis sur **OK**.
 
 Les autorisations ne sont pas appliquées de manière récursive, vous devrez donc répéter le processus précédent sur les répertoires suivants :
 
@@ -145,7 +145,7 @@ Les autorisations ne sont pas appliquées de manière récursive, vous devrez do
 * Root/WMI
 * Root/CIMv2/Security/MicrosoftTpm.
 
-Cliquez sur **Appliquer**, puis sur **OK**. Fermez la fenêtre **WMImgmt.WMI**.
+Cliquez sur **Apply**, puis sur **OK**. Fermez la fenêtre **WMImgmt.WMI**.
 
 ### Autoriser l'exécution de scripts
 
@@ -159,8 +159,8 @@ Ajoutez le groupe **Remote Management Users**.
 
 Définissez les droits suivants :
 
-* Lecture(Get,Enumerate,Subscribe)
-* Exécution(Invoke)
+* Read(Get,Enumerate,Subscribe)
+* Execute(Invoke)
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-tutorial/windows-winrm-wsman-script-execution.png)
 
@@ -221,31 +221,31 @@ Dans cet exemple :
 
 ### Activer et configurer WinRM via une GPO
 
-* Ouvrez le **Gestionnaire de stratégie de groupe**.
-* Étendez **Forêt > Domaines > @DOMAIN_NAME@**.
-* Faites un clic droit sur **@DOMAIN_NAME@** et cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici...**
+* Ouvrez le **Group Policy Manager**.
+* Étendez **Forest > Domains > @DOMAIN_NAME@**.
+* Faites un clic droit sur **@DOMAIN_NAME@** et cliquez sur **Create a GPO in this domain, and link it here**
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-create-gpo.png)
 
-* Nommez votre GPO. Dans cet exemple, nous l'appellerons **Activer WinRM**.
-* Faites un clic droit sur la nouvelle GPO (**Activer WinRM**), puis cliquez sur **Modifier...**.
+* Nommez votre GPO. Dans cet exemple, nous l'appellerons **Enable WinRM**.
+* Faites un clic droit sur la nouvelle GPO (**Enable WinRM**), puis cliquez sur **Edit**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-edit.png)
 
-* Dans l'**Éditeur de gestion des stratégies de groupe**, accédez à **Configuration ordinateur > Stratégies > Modèles d'administration > Gestion à distance de Windows (WinRM) > Service WinRM**.
+* Dans l'**Group Policy Editor**, accédez à **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-winrm.png)
 
-* Activez la règle **Autoriser la gestion de serveur distant via WinRM**.
-* Ajoutez "\*" dans **Filtre IPv4** et **Filtre IPv6**.
+* Activez la règle **Allow remote server management through WinRM**.
+* Ajoutez "\*" dans **IPv4 filter** et **IPv6 filter**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-enable-remote.png)
 
 * Désactivez les règles suivantes :
 
-    * **Autoriser l'authentification de base**
-    * **Autoriser l'authentification CredSSP**
-    * **Autoriser le trafic non chiffré**.
+    * **Allow Basic authentication**
+    * **Allow CredSSP authentication**
+    * **Allow unencrypted traffic**.
     
 Le résultat doit ressembler à ceci :
 
@@ -253,82 +253,82 @@ Le résultat doit ressembler à ceci :
 
 ### Démarrer automatiquement le service WinRM via une GPO
 
-Dans la même règle GPO (**Activer WinRM**), allez dans **Configuration ordinateur > Préférences > Paramètres du panneau de configuration > Services**.
+Dans la même règle GPO (**Enable WinRM**), allez dans **Computer Configuration > Preferences > Control Panel Settings > Services**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-enable-service-1.png)
 
-* Faites un clic droit dans le panneau de droite, puis sélectionnez **Nouveau** et **Service**.
-* Dans **Démarrage**, sélectionnez **Automatique**.
-* Dans **Nom du service**, tapez **WinRM**.
-* Dans **Action de service**, sélectionnez **Démarrer le service**.
+* Faites un clic droit dans le panneau de droite, puis sélectionnez **New** et **Service**.
+* Dans **Startup**, sélectionnez **Automatic**.
+* Dans **Service name**, tapez **WinRM**.
+* Dans **Service action**, sélectionnez **Start service**.
 * Cliquez sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-enable-service-2.png)
 
 ### Configurer la règle de pare-feu HTTPS WSMAN via une GPO
 
-Dans la même règle GPO (**Activer WinRM**), accédez à **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Pare-feu Windows Defender avec fonctions avancées de sécurité  > Pare-feu Windows Defender > Règles de trafic entrant** :
+Dans la même règle GPO (**Enable WinRM**), accédez à **Computer Configuration > Policies > Windows Settiengs > Security Settings > Windows Defender Firewall with Advanced Security > Windows Defender > Inbound Rules** :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-firewall-1.png)
 
-* Faites un clic droit sur le panneau de droite et cliquez sur **Nouvelle règle...**.
-* Cliquez sur **Port**, puis sur **Suivant**.
+* Faites un clic droit sur le panneau de droite et cliquez sur **New Rule**.
+* Cliquez sur **Port**, puis sur **Next**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-1.png)
 
-* Saisissez la valeur **5986** dans le champ **Ports locaux spécifiques** et cliquez sur **Suivant**.
+* Saisissez la valeur **5986** dans le champ **Specific local ports** et cliquez sur **Next**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-2.png)
 
-* Vérifiez que **Autoriser la connexion** est sélectionné, puis cliquez sur **Suivant**.
+* Vérifiez que **Allow the connection** est sélectionné, puis cliquez sur **Next**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-3.png)
 
-* Sur la page suivante, sélectionnez les profils de pare-feu pour lesquels la règle doit s'appliquer, puis cliquez sur **Suivant**.
+* Sur la page suivante, sélectionnez les profils de pare-feu pour lesquels la règle doit s'appliquer, puis cliquez sur **Next**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-firewall-4.png)
 
-* Sur la page suivante, donnez un nom à la règle, puis cliquez sur **Terminer**.
+* Sur la page suivante, donnez un nom à la règle, puis cliquez sur **Finish**.
 
 ### Créer un modèle de certificat d'inscription automatique
 
 #### Serveur de certificats
 
-* Ouvrez le gestionnaire **Autorité de certification**.
-* Étendez le panneau de gauche, faites un clic droit sur **Modèles de certificat**, puis cliquez sur **Gérer**.
+* Ouvrez le gestionnaire **Certification Authority**.
+* Étendez le panneau de gauche, faites un clic droit sur **Certificate Templates**, puis cliquez sur **Manage**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-1.png)
 
-* Faites un clic droit sur le modèle **Web Server**, puis cliquez sur **Dupliquer le modèle**.
-* Dans l'onglet **Général**, nommez votre modèle et cochez les cases suivantes :
+* Faites un clic droit sur le modèle **Web Server**, puis cliquez sur **Duplicate Template**.
+* Dans l'onglet **General**, nommez votre modèle et cochez les cases suivantes :
 
-    * **Publier le certificat dans Active Directory**
-    * **Ne pas se réinscrire automatiquement...**.
+    * **Publish certificate in Active Directory**
+    * **Do not automatically reenroll...**.
     
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-2.png)
 
-* Accédez à l'onglet **Gestion des demandes**.
-* Cochez l'option **Autoriser l'exportation de la clé privée**.
+* Accédez à l'onglet **Request Handling**.
+* Cochez l'option **Allow private key to be exported**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-3.png)
 
-* Accédez à l'onglet **Sécurité**.
-* Cliquez sur **Ajouter...**, puis tapez **Domain Computers**.
+* Accédez à l'onglet **Security**.
+* Cliquez sur **Add**, puis tapez **Domain Computers**.
 * Définissez les autorisations suivantes :
 
-    * **Lis**
-    * **Inscrivez-vous**
-    * **Inscription automatique**.
+    * **Read**
+    * **Enroll**
+    * **Autoenroll**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-4.png)
 
-* Accédez à l'onglet **Nom du sujet**.
+* Accédez à l'onglet **Subject Name**.
 * Configurez comme indiqué ci-dessous :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-5.png)
 
-* Cliquez sur **OK** et fermez la **console de modèle de certificat**.
-* Dans la fenêtre **crtsrv**, faites un clic droit sur **Modèles de certificat**, puis cliquez sur **Nouveau** puis sur **Modèle de certificat à émettre**.
+* Cliquez sur **OK** et fermez la fenêtre **Certificate Template Console**.
+* Dans la fenêtre **crtsrv**, faites un clic droit sur **Certificate Templates**, puis cliquez sur **New** puis sur **Certificate Template to Issue**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-6.png)
 
@@ -339,38 +339,38 @@ Dans la même règle GPO (**Activer WinRM**), accédez à **Configuration ordina
 
 > Si une GPO à inscription automatique est déjà configurée sur votre domaine, vous pouvez ignorer cette partie.
 
-* Dans le **Gestionnaire de stratégies de groupe**, créez une nouvelle stratégie pour l'inscription automatique.
-* Faites un clic droit sur cette politique et cliquez sur **Modifier...**.
+* Dans le gestionnaire **Group Policy Manager**, créez une nouvelle stratégie pour l'inscription automatique.
+* Faites un clic droit sur cette politique et cliquez sur **Edit**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-7.png)
 
-* Dans l'**Éditeur de gestion des stratégies de groupe**, accédez à **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Stratégies de clé publique**.
+* Dans la fenêtre **Group Policy Management Editor**, accédez à **Computer Configuration > Policies > Windows Settings > Security Settings > Public Key Policies**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-8.png)
 
-* Double-cliquez sur **Client des services de certificats - Stratégies d'inscription des certificats**.
-* Définissez **Modèle de configuration** sur **Activé**.
+* Double-cliquez sur **Certificate Service Client - Certificate Enrollement Policy**.
+* Définissez **Configuration Model** sur **Enabled**.
 * Cliquez ensuite sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-9.png)
 
-* Double-cliquez sur **Client des services de certificats - Inscription automatique**
-* Définissez **Modèle de configuration** comme **Activé**.
+* Double-cliquez sur **Certificate Services Client - Auto-Enrollment**
+* Définissez **Configuration Model** comme **Enabled**.
 * Cochez les options suivantes :
 
-    * **Renouveler les certificats expirés...**
-    * **Mettre à jour les certificats...**
+    * **Renew expired certificates...**
+    * **Update certificates...**
 
 * Cliquez sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-10.png)
 
-* Fermez l'**Éditeur du gestionnaire de stratégie de groupe**.
-* Dans **Gestion des stratégies de groupe**, faites un clic droit sur la stratégie d'inscription automatique et cliquez sur **Appliquée**.
+* Fermez la fenêtre **Group Policy Manager Editor**.
+* Dans **Group Policy Mangement**, faites un clic droit sur la stratégie d'inscription automatique et cliquez sur **Enforced**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-certificate-11.png)
 
-* Définissez également la règle **Activer WinRM** comme **Appliquée**.
+* Définissez également la règle **Enable WinRM** comme **Enforced**.
 
 Un certificat dédié sera émis pour chaque serveur faisant partie de votre domaine. Ces certificats serviront à chiffrer la communication entre Centreon et vos serveurs Windows en utilisant WSMAN et le protocole HTTPS.
 
@@ -413,43 +413,43 @@ Dans notre cas, voilà le résultat :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-1.png)
 
-* Retournez dans votre politique **Activer WinRM**.
-* Accédez à **Configuration ordinateur > Préférences > Paramètres Windows > Fichiers**.
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Fichiers**.
+* Retournez dans votre politique **Enable WinRM**.
+* Accédez à **Computer Configuration > Preferences > Windows Settings > Files**.
+* Faites un clic droit sur le panneau de droite puis cliquez sur **New > Files**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-2.png)
 
-* Sélectionnez le **fichier(s) source(s)** et le **fichier de destination** :
+* Sélectionnez le(s) fichier(s) source(s) et le fichier de destination :
     * Dans cet exemple :
-        * Fichier source : **\\contoso.local\SYSVOL\contoso.local\scripts\WinRM-HTTPS.ps1**
-        * Fichier de destination : **C:\Windows\Temp\WinRM-HTTPS.ps1**.
+        * **Source file(s)** : **\\contoso.local\SYSVOL\contoso.local\scripts\WinRM-HTTPS.ps1**
+        * **Destination file** : **C:\Windows\Temp\WinRM-HTTPS.ps1**.
 
-* Cliquez sur **Appliquer** puis sur **OK**.
+* Cliquez sur **Apply** puis sur **OK**.
 
 #### Créer une tâche planifiée
 
-* Allez dans le menu **Configuration ordinateur > Préférences > Paramètres du panneau de configuration > Tâches planifiées**
+* Allez dans le menu **Computer Configuration > Preferences > Control Panel Settings > Schedule Task**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
 
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Tâche planifiée (au minimum Windows 7)**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > Scheduled Task (At least Windows 7)**.
 * Nommez votre tâche.
 * Sélectionnez l'utilisateur **NT Authority\Systems**.
-* Sélectionnez **Exécuter si l'utilisateur est connecté ou non**.
-* Cochez **Exécuter avec les privilèges les plus élevés**.
+* Sélectionnez **Run whether user is logged on or not**.
+* Cochez **Run with highest privileges**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-5.png)
 
-* Allez dans l'onglet **Déclencheurs**.
+* Allez dans l'onglet **Triggers**.
 * Ajouter un nouveau déclencheur.
-* En haut, sélectionnez **Lors de la création/modification de la tâche**.
-* Cochez **Répéter la tâche tous les :** :
+* En haut, sélectionnez **At task creation/modification**.
+* Cochez **Repeat task every** :
     * Sélectionnez **5 minutes**
-    * et **Pour une durée de 30 minutes**.
-* Cochez **Activé**.
+    * et **For a duration of 30 minutes**.
+* Cochez **Enabled**.
 * Cliquez sur **OK**.
 
-> Le paramètre **Répéter la tâche** est nécessaire pour prendre en compte de nouveaux serveurs rejoignant le domaine.
+> Le paramètre **Repeat task** est nécessaire pour prendre en compte de nouveaux serveurs rejoignant le domaine.
 > En effet, le script peut être exécuté avant que le certificat ne soit émis.
 > Avec ce paramètre, nous nous assurons que la tâche sera exécutée au moins une fois après l'émission du certificat WinRM.
 
@@ -458,7 +458,7 @@ Dans notre cas, voilà le résultat :
 * Allez dans l'onglet **Actions**.
 * Ajoutez une nouvelle action.
 * Spécifiez le paramètre suivant :
-    * Action : **Démarrer un programme**.
+    * Action : **Start a program**.
     * Programme/script : **PowerShell.exe**.
     * Ajouter arguments : **-file C:\Windows\Temp\WinRM-HTTPS.ps1**.
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré.
@@ -476,9 +476,9 @@ Dans notre cas, voilà le résultat :
 
 Sur votre serveur Active Directory :
 
-* Ouvrez **Utilisateurs et ordinateurs Active Directory**.
+* Ouvrez **Active Directory Users and Computers**.
 * Dans le panneau de gauche, sélectionnez **@NOM DU DOMAINE@ > Users**.
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Utilisateur**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > User**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-1.png)
 
@@ -487,13 +487,13 @@ Sur votre serveur Active Directory :
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-2.png)
 
 * Configurez le mot de passe.
-* Décochez l'option **L'utilisateur doit changer de mot de passe à la prochaine ouverture de session**.
+* Décochez l'option **User must change password at next logon**.
 * Cochez les options :
 
-    * **L'utilisateur ne peut pas changer de mot de passe**
-    * **Le mot de passe n'expire jamais**.
+    * **User cannot change password**
+    * **Password never expires**.
 
-* Cliquez sur **Suivant**, puis sur **Terminer**
+* Cliquez sur **Next**, puis sur **Finish**
     
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-3.png)
 
@@ -507,16 +507,16 @@ Sur votre serveur Active Directory :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-4.png)
 
-* Retournez au **Gestionnaire de stratégie de groupe** et modifiez la règle **Activer WinRM**.
-* Accédez à **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Groupes restreints**.
+* Retournez à la fenêtre **Group Policy Manager** et modifiez la règle **Enable WinRM**.
+* Accédez à **Computer Configuration > Policies > Windows Settings > Security Settings > Restricted Groups**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-5.png)
 
-* Faites un clic droit sur le panneau de droite et cliquez sur **Ajouter un groupe...**.
-* Cliquez sur **Parcourir...**.
-* Tapez **Distributed COM Users**, puis cliquez sur **Vérifier les noms**, puis sur **OK**.
+* Faites un clic droit sur le panneau de droite et cliquez sur **Add Group**.
+* Cliquez sur **Browse**.
+* Tapez **Distributed COM Users**, puis cliquez sur **Check Names**, puis sur **OK**.
 * Cliquez à nouveau sur **OK...**.
-* Ajoutez ensuite votre utilisateur de service dans la section **Membre de ce groupe**.
+* Ajoutez ensuite votre utilisateur de service dans la section **Members of this group**.
 * Cliquez sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-user-6.png)
@@ -543,21 +543,21 @@ Dans PowerShell, exécutez la commande suivante :
 WmiMgmt.msc
 ```
 
-Faites un clic droit sur **Contrôle WMI**, puis sur **Propriétés**.
+Faites un clic droit sur **WMI Control**, puis sur **Properties**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-1.png)
 
-Cliquez sur **Sécurité**.
+Cliquez sur **Security**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-2.png)
 
-Sélectionnez **Root** et cliquez sur **Sécurité**.
+Sélectionnez **Root** et cliquez sur **Security**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-3.png)
 
-Cliquez sur **Ajouter...**, sélectionnez l'utilisateur du service (ici **sa_centreon**), puis accordez les autorisations suivantes :
-* **Activer le compte**
-* **Appel à distance autorisé**.
+Cliquez sur **Add...**, sélectionnez l'utilisateur du service (ici **sa_centreon**), puis accordez les autorisations suivantes :
+* **Enable Account**
+* **Remote Enabled**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-4.png)
 
@@ -572,15 +572,15 @@ Cliquez sur **Ajouter...**, sélectionnez l'utilisateur du service (ici **sa_cen
 > * **Root/WMI**
 > * **Root/CIMv2/Security/MicrosoftTpm**.
 
-* Cliquez sur **Avancé**.
+* Cliquez sur **Advanced**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-5.png)
 
-* Cliquez sur votre utilisateur de service, puis sur **Modifier**.
+* Cliquez sur votre utilisateur de service, puis sur **Edit**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-6.png)
 
-* Sur la ligne **S'applique à :**, sélectionnez **Cet espace de noms et tous les sous-espaces de noms**.
+* Sur la ligne **Applies to**, sélectionnez **This namespace and all subnamespaces**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-7.png)
 
@@ -626,47 +626,47 @@ Dans notre cas, le résultat est le suivant :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-1.png)
 
-* Retournez dans votre politique **Activer WinRM**.
-* Accédez à **Configuration ordinateur > Préférences > Paramètres Windows > Fichiers**.
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Fichiers**.
+* Retournez dans votre politique **Enable WinRM**.
+* Accédez à **Computer Configuration > Preferences > Windows Settings > Files**.
+* Faites un clic droit sur le panneau de droite, puis cliquez sur **New > Files**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-2.png)
 
-* Sélectionnez le **fichier(s) source(s)** et le **fichier de destination**.
+* Sélectionnez le(s) fichier(s) source(s) et le fichier de destination.
     * Dans cet exemple :
-        * Fichier source : **\\contoso.local\SYSVOL\contoso.local\scripts\Set-WMINameSpaceSecurity.ps1**
-        * Fichier de destination : **C:\Windows\Temp\Set-WMINameSpaceSecurity.ps1**.
+        * **Source file(s)** : **\\contoso.local\SYSVOL\contoso.local\scripts\Set-WMINameSpaceSecurity.ps1**
+        * **Destination file** : **C:\Windows\Temp\Set-WMINameSpaceSecurity.ps1**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-8.png)
 
-* Cliquez sur **Appliquer**, puis sur **OK**.
+* Cliquez sur **Apply**, puis sur **OK**.
 
 * Répétez ce processus pour le fichier **sdlist.txt**
-* Sélectionnez le **fichier(s) source(s)** et le **fichier de destination**.
+* Sélectionnez le(s) fichier(s) source(s) et le fichier de destination.
     * Dans cet exemple :
-        * Fichier source : **\\contoso.local\SYSVOL\contoso.local\scripts\sdlist.txt**
-        * Fichier de destination : **C:\Windows\Temp\sdlist.txt**.
+        * **Source file(s)** : **\\contoso.local\SYSVOL\contoso.local\scripts\sdlist.txt**
+        * **Destination file** : **C:\Windows\Temp\sdlist.txt**.
         
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-9.png)
 
 #### Exécuter le modèle de sécurité WMI via GPO
 
-* Allez dans le menu **Configuration ordinateur > Préférences > Paramètres du panneau de configuration > Tâche planifiées**.
+* Allez dans le menu **Computer Configuration > Preferences > Control Panel Settings > Schedule Task**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
 
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Tâche planifiée (au minimum Windows 7)**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > Scheduled Task (At least Windows 7)**.
 * Nommez votre tâche.
 * Sélectionnez l'utilisateur **NT Authority\Systems**.
-* Sélectionnez **Exécuter si l'utilisateur est connecté ou non**.
-* Cochez **Exécuter avec les privilèges les plus élevés**.
+* Sélectionnez **Run whether user is logged on or not**.
+* Cochez **Run with highest privileges**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-10.png)
 
-* Allez dans l'onglet **Déclencheurs**.
+* Allez dans l'onglet **Triggers**.
 * Ajoutez un nouveau déclencheur.
-* En haut, sélectionnez **Lors de la création/modification de la tâche**.
-* Cochez **Activé**.
+* En haut, sélectionnez **At task creation/modification**.
+* Cochez **Enabled**.
 * Cliquez sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-11.png)
@@ -674,10 +674,10 @@ Dans notre cas, le résultat est le suivant :
 * Allez dans l'onglet **Actions**.
 * Ajoutez une nouvelle action.
 * Spécifiez les paramètres suivants :
-    * Action : **Démarrer un programme**
+    * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
     * Ajouter arguments : **-file C:\Windows\Temp\Set-WMINameSpaceSecurity.ps1**
-        * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré.
+        * Ajustez ce paramètre pour qu'il corresponde au paramètre **Destination file** précédemment configuré.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-12.png)
 
@@ -723,37 +723,37 @@ Invoke-Expression -Command:$SetPermissionsCommand
 \\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
 ```
 
-* Retournez dans votre politique **Activer WinRM**.
-* Accédez à **Configuration ordinateur > Préférences > Paramètres Windows > Fichiers**.
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Fichiers**.
+* Retournez dans votre politique **Enable WinRM**.
+* Accédez à **Computer Configuration > Preferences > Windows Settings > Files**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > Files**.
 
-* Sélectionnez le **fichier(s) source(s)** et le **fichier de destination**.
+* Sélectionnez le(s) fichier(s) source(s) et le fichier de destination.
     * Dans cet exemple :
-        * Fichier source : **\\contoso.local\SYSVOL\contoso.local\scripts\system-services.ps1**
-        * Fichier de destination : **C:\Windows\Temp\system-services.ps1**.
+        * **Source file(s)** : **\\contoso.local\SYSVOL\contoso.local\scripts\system-services.ps1**
+        * **Destination file** : **C:\Windows\Temp\system-services.ps1**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-services-permissions-1.png)
 
-* Cliquez sur **Appliquer**, puis sur **OK**.
+* Cliquez sur **Apply**, puis sur **OK**.
 
 #### Création d'une tâche planifiée
 
-* Allez dans le menu **Configuration ordinateur > Préférences > Paramètres du panneau de configuration > Tâche planifiées**.
+* Allez dans le menu **Computer Configuration > Preferences > Control Panel Settings > Schedule Task**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
 
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Tâche planifiée (au minimum Windows 7)**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > Scheduled Task (At least Windows 7)**.
 * Nommez votre tâche.
 * Sélectionnez l'utilisateur **NT Authority\Systems**.
-* Sélectionnez **Exécuter si l'utilisateur est connecté ou non**.
-* Cochez **Exécuter avec les privilèges les plus élevés**.
+* Sélectionnez **Run whether user is logged on or not**.
+* Cochez **Run with highest privileges**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-services-permissions-2.png)
 
-* Allez dans l'onglet **Déclencheurs**.
+* Allez dans l'onglet **Triggers**.
 * Ajoutez un nouveau déclencheur.
-* En haut, sélectionnez **Lors de la création/modification de la tâche**.
-* Cochez **Activé**.
+* En haut, sélectionnez **At task creation/modification**.
+* Cochez **Enabled**.
 * Cliquez sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-11.png)
@@ -761,7 +761,7 @@ Invoke-Expression -Command:$SetPermissionsCommand
 * Allez dans l'onglet **Actions**.
 * Ajoutez une nouvelle action.
 * Spécifiez les paramètres suivants :
-    * Action : **Démarrer un programme**
+    * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
     * Ajouter arguments : **-file C:\Windows\Temp\system-services.ps1**
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré.
@@ -780,7 +780,7 @@ Comme dans la section précédente, les autorisations doivent être gérées loc
 
 Sur votre contrôleur de domaine, créez le script **RootSDDL-Permision.ps1**.
 
-> Ce script accordera l'autorisation **Exécution** et **Lire** à votre utilisateur de service via WinRM.
+> Ce script accordera l'autorisation **Execution** et **Read** à votre utilisateur de service via WinRM.
 
 Script:
 
@@ -825,37 +825,37 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 \\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
 ```
 
-* Retournez dans votre politique **Activer WinRM**.
-* Accédez à **Configuration ordinateur > Préférences > Paramètres Windows > Fichiers**.
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Fichiers**.
+* Retournez dans votre politique **Enable WinRM**.
+* Accédez à **Computer Configuration > Preferences > Windows Settings > Files**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > Files**.
 
-* Sélectionnez le **fichier(s) source(s)** et le **fichier de destination**.
+* Sélectionnez le(s) fichier(s) source(s) et le fichier de destination.
     * Dans cet exemple :
-        * Fichier source : **\\contoso.local\SYSVOL\contoso.local\scripts\RootSDDL-Permision.ps1**
-        * Fichier de destination : **C:\Windows\Temp\RootSDDL-Permision.ps1**.
+        * **Source file(s)** : **\\contoso.local\SYSVOL\contoso.local\scripts\RootSDDL-Permision.ps1**
+        * **Destination file** : **C:\Windows\Temp\RootSDDL-Permision.ps1**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-1.png)
 
-* Cliquez sur **Appliquer**, puis sur **OK**.
+* Cliquez sur **Apply**, puis sur **OK**.
 
 #### Création d'une tâche planifiée
 
-* Allez dans le menu **Configuration ordinateur > Préférences > Paramètres du panneau de configuration > Tâche planifiées**.
+* Allez dans le menu **Computer Configuration > Preferences > Control Panel Settings > Schedule Task**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-https-4.png)
 
-* Faites un clic droit sur le panneau de droite et sélectionnez **Nouveau > Tâche planifiée (au minimum Windows 7)**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **New > Scheduled Task (At least Windows 7)**.
 * Nommez votre tâche.
 * Sélectionnez l'utilisateur **NT Authority\Systems**.
-* Sélectionnez **Exécuter si l'utilisateur est connecté ou non**.
-* Cochez **Exécuter avec les privilèges les plus élevés**.
+* Sélectionnez **Run whether user is logged on or not**.
+* Cochez **Run with highest privileges**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 
-* Allez dans l'onglet **Déclencheurs**.
+* Allez dans l'onglet **Triggers**.
 * Ajouter un nouveau déclencheur.
-* En haut, sélectionnez **Lors de la création/modification de la tâche**.
-* Cochez **Activé**.
+* En haut, sélectionnez **At task creation/modification**.
+* Cochez **Enabled**.
 * Cliquez sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-wmi-configuration-11.png)
@@ -863,7 +863,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Allez dans l'onglet **Actions**.
 * Ajoutez une nouvelle action.
 * Spécifiez les paramètres suivants :
-    * Action : **Démarrer un programme**
+    * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
     * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**<span style={{color:'#FF0000'}}>**@SERVICE_USERNAME@**</span>
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
@@ -879,9 +879,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 
 Sur votre contrôleur de domaine :
 
-* Retournez dans votre politique **Activer WinRM**.
-* Accédez à **Configuration ordinateur > Stratégies > Paramètres Windows > Paramètres de sécurité > Système de fichiers**.
-* Faites un clic droit sur le panneau de droite et sélectionnez **Ajouter un fichier...**.
+* Retournez dans votre politique **Enable WinRM**.
+* Accédez à **Computer Configuration > Policies> Windows settigns > Security Settings > File System**.
+* Faites un clic droit sur le panneau de droite et sélectionnez **Add File...**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-1.png)
 
@@ -889,12 +889,12 @@ Sur votre contrôleur de domaine :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-2.png)
 
-* Cliquez sur **Ajouter...**, puis sélectionnez votre utilisateur de service.
+* Cliquez sur **Add...**, puis sélectionnez votre utilisateur de service.
 * Définissez les autorisations suivantes :
-    * **Lire et exécuter**
-    * **Liste du contenu du dossier**
-    * **Lecture**.
-* Cliquez sur **Appliquer**, puis sur **OK**.
+    * **Read and Execute**
+    * **List Folder Contents**
+    * **Read**.
+* Cliquez sur **Apply **, puis sur **OK**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-file-system-3.png)
 
