@@ -13,19 +13,31 @@ Le connecteur de supervision **Keysight NVOS Rest API** apporte un modèle d'hô
 
 * Net-Keysight-Nvos-Restapi-custom
 
-Le connecteur apporte les modèles de service suivants :
+Le connecteur apporte les modèles de service suivants (classés par modèle d'hôte) :
 
-| Alias           | Modèle de service                         | Description                                                 | Défaut | Découverte |
-|:----------------|:------------------------------------------|:------------------------------------------------------------|:-------|:-----------|
-| Dynamic-Filters | Net-Keysight-Nvos-Dynamic-Filters-Restapi | Contrôle les filtres dynamiques                             |        | X          |
-| Hardware        | Net-Keysight-Nvos-Hardware-Restapi        | Contrôle l'état du matériel                                 | X      |            |
-| Ports           | Net-Keysight-Nvos-Ports-Restapi           | Contrôle les ports                                          |        | X          |
-| Time            | Net-Keysight-Nvos-Time-Restapi            | Contrôle le décalage de temps                               | X      |            |
-| Uptime          | Net-Keysight-Nvos-Uptime-Restapi          | Durée depuis laquelle l'équipement tourne sans interruption | X      |            |
+<Tabs groupId="sync">
+<TabItem value="Net-Keysight-Nvos-Restapi" label="Net-Keysight-Nvos-Restapi">
 
-> Les services par **Défaut** sont créés automatiquement lorsque le modèle d'hôte est appliqué.
+| Alias           | Modèle de service                         | Description                                                 |
+|:----------------|:------------------------------------------|:------------------------------------------------------------|
+| Hardware        | Net-Keysight-Nvos-Hardware-Restapi        | Contrôle l'état du matériel                                 |
+| Time            | Net-Keysight-Nvos-Time-Restapi            | Contrôle le décalage de temps                               |
+| Uptime          | Net-Keysight-Nvos-Uptime-Restapi          | Durée depuis laquelle l'équipement tourne sans interruption |
+
+</TabItem>
+<TabItem value="Sans modèle d'hôte" label="Sans modèle d'hôte">
+
+| Alias           | Modèle de service                         | Description                     | Découverte |
+|:----------------|:------------------------------------------|:--------------------------------|:-----------|
+| Dynamic-Filters | Net-Keysight-Nvos-Dynamic-Filters-Restapi | Contrôle les filtres dynamiques | X          |
+| Ports           | Net-Keysight-Nvos-Ports-Restapi           | Contrôle les ports              | X          |
+
+> Ces services ne sont pas automatiquement créés lorsque le modèle d'hôte est appliqué.
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
+</TabItem>
+</Tabs>
 
 ### Règles de découverte
 
@@ -198,6 +210,95 @@ apt install centreon-plugin-network-keysight-nvos-restapi
 | X              | KEYSIGHTNVOSAPIUSERNAME     | API username                                                                      |            |
 | X              | KEYSIGHTNVOSAPIPASSWORD     | API password                                                                      |            |
 |                | KEYSIGHTNVOSAPIEXTRAOPTIONS | Any extra option you may want to add to every command line (eg. a --verbose flag) | --insecure |
+
+### Service 
+
+Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Dynamic-Filters" label="Dynamic-Filters">
+
+| Obligatoire | Macro                 | Description                                      | Défaut    |
+|:------------|:----------------------|:-------------------------------------------------|:----------|
+|             | FILTERNAME            | Filter dynamic filters by name (can be a regexp) |           |
+|             | WARNINGPACKETSDENIED  |                                                  |           |
+|             | CRITICALPACKETSDENIED |                                                  |           |
+|             | WARNINGPACKETSINSP    |                                                  |           |
+|             | CRITICALPACKETSINSP   |                                                  |           |
+|             | WARNINGPACKETSPASS    |                                                  |           |
+|             | CRITICALPACKETSPASS   |                                                  |           |
+|             | WARNINGTRAFFICINSP    |                                                  |           |
+|             | CRITICALTRAFFICINSP   |                                                  |           |
+|             | WARNINGTRAFFICPASS    |                                                  |           |
+|             | CRITICALTRAFFICPASS   |                                                  |           |
+|             | EXTRAOPTIONS          |                                                  | --verbose |
+
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
+| Obligatoire | Macro                     | Description                                                                                                                 | Défaut                 |
+|:------------|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------|
+|             | UNKNOWNTEMPERATURESTATUS  | Set unknown threshold for status (Default : '%{status} eq "unknown"'). Can used special variables like: %{status}, %{class} | %{status} eq "unknown" |
+|             | WARNINGFANSFAILED         |                                                                                                                             |                        |
+|             | CRITICALFANSFAILED        |                                                                                                                             |                        |
+|             | CRITICALPSUSTATUS         |                                                                                                                             | %{status} eq "bad"     |
+|             | WARNINGPSUSTATUS          | Set warning threshold for status. Can used special variables like: %{status}, %{name}                                       |                        |
+|             | WARNINGTEMPERATURE        |                                                                                                                             |                        |
+|             | CRITICALTEMPERATURE       |                                                                                                                             |                        |
+|             | WARNINGTEMPERATURESTATUS  | Set warning threshold for status (Default : '%{status} eq "warn"'). Can used special variables like: %{status}, %{class}    | %{status} eq "warn"    |
+|             | CRITICALTEMPERATURESTATUS | Set critical threshold for status (Default: '%{status} eq "hot"'); Can used special variables like: %{status}, %{class}     | %{status} eq "hot"     |
+|             | EXTRAOPTIONS              |                                                                                                                             | --verbose              |
+
+</TabItem>
+<TabItem value="Ports" label="Ports">
+
+| Obligatoire | Macro                  | Description                                                                                                                                                                                 | Défaut                                                       |
+|:------------|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
+|             | FILTERNAME             | Filter ports by name (can be a regexp)                                                                                                                                                      |                                                              |
+|             | WARNINGLICENSESTATUS   | Set warning threshold for status (Default: '%{status} =~ /invalid\_software\_version/'). Can used special variables like: %{status}, %{name}                                                | %{status} =~ /invalid_software_version/                      |
+|             | CRITICALLICENSESTATUS  | Set critical threshold for status. Can used special variables like: %{status}, %{name}                                                                                                      |                                                              |
+|             | CRITICALLINKSTATUS     | Set critical threshold for status (Default: '%{adminStatus} eq "enabled" and %{operationalStatus} ne "up"'). Can used special variables like: %{adminStatus}, %{operationalStatus}, %{name} | %{adminStatus} eq "enabled" and %{operationalStatus} ne "up" |
+|             | WARNINGLINKSTATUS      | Set warning threshold for status. Can used special variables like: %{adminStatus}, %{operationalStatus}, %{name}                                                                            |                                                              |
+|             | WARNINGPACKETSDROPPED  |                                                                                                                                                                                             |                                                              |
+|             | CRITICALPACKETSDROPPED |                                                                                                                                                                                             |                                                              |
+|             | WARNINGPACKETSINSP     |                                                                                                                                                                                             |                                                              |
+|             | CRITICALPACKETSINSP    |                                                                                                                                                                                             |                                                              |
+|             | WARNINGPACKETSOUT      |                                                                                                                                                                                             |                                                              |
+|             | CRITICALPACKETSOUT     |                                                                                                                                                                                             |                                                              |
+|             | WARNINGPACKETSPASS     |                                                                                                                                                                                             |                                                              |
+|             | CRITICALPACKETSPASS    |                                                                                                                                                                                             |                                                              |
+|             | WARNINGTRAFFICOUT      |                                                                                                                                                                                             |                                                              |
+|             | CRITICALTRAFFICOUT     |                                                                                                                                                                                             |                                                              |
+|             | WARNINGTRAFFICOUTPRCT  |                                                                                                                                                                                             |                                                              |
+|             | CRITICALTRAFFICOUTPRCT |                                                                                                                                                                                             |                                                              |
+|             | EXTRAOPTIONS           |                                                                                                                                                                                             | --verbose                                                    |
+
+</TabItem>
+<TabItem value="Time" label="Time">
+
+| Obligatoire | Macro             | Description                                                                                                                     | Défaut                          |
+|:------------|:------------------|:--------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
+|             | TIMEZONE          | Override the timezone of distant equipment. Can use format: 'Europe/London' or '+0100'                                          |                                 |
+|             | NTPHOSTNAME       | Set the ntp hostname (if not set, localtime is used)                                                                            |                                 |
+|             | NTPPORT           | Set the ntp port (Default: 123)                                                                                                 |                                 |
+|             | CRITICALNTPSTATUS | Set thresholds for status (Default critical: '%{status} !~ /in\_reach\|in\_sync/i')  Can used special variables like: %{status} | %{status} !~ /in_reach|in_sync/ |
+|             | WARNINGNTPSTATUS  |                                                                                                                                 |                                 |
+|             | WARNINGOFFSET     | Time offset warning threshold (in seconds)                                                                                      |                                 |
+|             | CRITICALOFFSET    | Time offset critical Threshold (in seconds)                                                                                     |                                 |
+|             | EXTRAOPTIONS      |                                                                                                                                 | --verbose                       |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Obligatoire | Macro          | Description                                                                                                                                                 | Défaut  |
+|:------------|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|
+|             | UNIT           | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |         |
+|             | WARNINGUPTIME  | Threshold warning                                                                                                                                           |         |
+|             | CRITICALUPTIME | Threshold critical                                                                                                                                          |         |
+|             | EXTRAOPTIONS   | Any extra option you may want to add to the command line (eg. a --verbose flag)                                                                             |         |
+
+</TabItem>
+</Tabs>
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
