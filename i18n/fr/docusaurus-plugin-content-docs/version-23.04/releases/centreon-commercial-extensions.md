@@ -25,6 +25,14 @@ Release date: `April 26, 2023`
 
 ## Centreon BAM
 
+### 23.04.1
+
+Release date: `soon`
+
+#### Bug fixes
+
+-
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
