@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias     | Service Template                           | Service Description     |
 |:------------------|:-------------------------------------------|:------------------------|
 | Connection status | Net-Cambium-Cnpilot-Connection-status-SNMP | Check connection status |
-| Cpu               | Net-Cambium-Cnpilot-Cpu-SNMP               | Check cpu hardware      |
+| Cpu               | Net-Cambium-Cnpilot-Cpu-SNMP               | Check CPU hardware      |
 | Memory            | Net-Cambium-Cnpilot-Memory-SNMP            | Check memory hardware   |
 
 > The services listed above are created automatically when the **Net-Cambium-cnPilot-SNMP** host template is used.
