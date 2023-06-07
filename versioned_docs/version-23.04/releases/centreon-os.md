@@ -21,7 +21,7 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ### 23.04.2
 
-Release date: `soon`
+Release date: `June 7, 2023`
 
 #### Enhancements
 
@@ -29,6 +29,7 @@ Release date: `soon`
 - [Authentication] Fixed the custom endpoint definition for OpenID Connect.
 - [Install] Removed PHP warning during the installation wizard.
 - [Packaging] Improved the default configuration for Debian packages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 #### Bug fixes
 
@@ -45,7 +46,6 @@ Release date: `soon`
 - [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
 - [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
 - [UI] Uniformized the buttons size on legacy pages.
-- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 ### 23.04.1
 
@@ -107,7 +107,7 @@ Compatibility with other 23.04 components.
 
 ### 23.04.2
 
-Release date : `soon`
+Release date : `June 7, 2023`
 
 #### Enhancement
 
@@ -143,7 +143,7 @@ Release date: `April 26, 2023`
 
 ### 23.04.1
 
-Release date: `soon`
+Release date: `June 7, 2023`
 
 #### Enhancement
 
@@ -159,7 +159,7 @@ Release date: `April 26, 2023`
 
 ### 23.04.1
 
-Release date: `soon`
+Release date: `June 7, 2023`
 
 #### New feature
 
