@@ -164,7 +164,7 @@ Release date: `soon`
 
 - [Widget] Added the possibility to filter by poller.
 
-#### Bug fixes
+#### Bug fix
 
 - [API] Fixed an auto close issue in the API endpoint.
 
