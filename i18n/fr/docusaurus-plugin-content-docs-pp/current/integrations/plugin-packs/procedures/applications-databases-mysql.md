@@ -689,7 +689,7 @@ Les options spécifiques aux modes sont listées ci-dessus :
 
 | Option           | Description                                                             | Type |
 |:-----------------|:------------------------------------------------------------------------|:-----|
-| --warning        | Threshold warning (number of long queries).                             | Mode |
+| --warning        | Warning threshold (number of long queries).                             | Mode |
 | --critical       | Threshold critical (number of long queries).                            | Mode |
 | --seconds        | The minimum execution time in seconds for a long query (Default: 60).   | Mode |
 | --filter-user    | Filter by user (can be a regexp).                                       | Mode |
