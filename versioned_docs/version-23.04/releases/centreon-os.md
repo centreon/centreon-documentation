@@ -147,7 +147,7 @@ Release date: `soon`
 
 #### Enhancement
 
-- [Packaging] Improved default configuration for Debian packages.
+- [Packaging] Improved the default configuration for Debian packages.
 
 ### 23.04.0
 
