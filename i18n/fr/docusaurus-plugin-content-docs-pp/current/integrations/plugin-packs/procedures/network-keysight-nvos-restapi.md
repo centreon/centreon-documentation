@@ -65,7 +65,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric Name                  | Unité |
+| Métrique                     | Unité |
 |:-----------------------------|:------|
 | temperature status           |       |
 | hardware.temperature.celsius | C     |
@@ -75,7 +75,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Ports" label="Ports">
 
-| Metric Name                                 | Unité |
+| Métrique                                    | Unité |
 |:--------------------------------------------|:------|
 | license status                              |       |
 | link status                                 |       |
@@ -89,7 +89,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Time" label="Time">
 
-| Metric Name         | Unité |
+| Métrique            | Unité |
 |:--------------------|:------|
 | ntp status          |       |
 | time.offset.seconds | s     |
@@ -97,9 +97,9 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric Name           | Unité |
+| Métrique              | Unité |
 |:----------------------|:------|
-| system.uptime.seconds |       |
+| system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
@@ -203,7 +203,7 @@ apt install centreon-plugin-network-keysight-nvos-restapi
 3. Appliquez le modèle d'hôte **Net-Keysight-Nvos-Restapi-custom**.
 4. Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (**Obligatoire**) doivent être renseignées.
 
-| Mandatory      | Macro                       | Description                                                                       | Défaut     |
+| Obligatoire    | Macro                       | Description                                                                       | Défaut     |
 |:---------------|:----------------------------|:----------------------------------------------------------------------------------|:-----------|
 |                | KEYSIGHTNVOSAPIPORT         | Port used                                                                         | 8000       |
 |                | KEYSIGHTNVOSAPIPROTO        | Specify https if needed                                                           | https      |
