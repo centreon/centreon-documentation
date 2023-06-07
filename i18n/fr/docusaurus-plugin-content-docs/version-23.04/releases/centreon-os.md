@@ -27,23 +27,23 @@ Release date: `soon`
 - [Administration] Added a button to unblock users through the user interface (for local authentication).
 - [Authentication] Fixed the custom endpoint definition for OpenID Connect.
 - [Install] Removed PHP warning during the installation wizard.
-- [Packaging] Improved default configuration for Debian packages.
+- [Packaging] Improved the default configuration for Debian packages.
 
 #### Bug fixes
 
-- [API] Improved error codes and messages for the renewing password endpoint.
-- [Authentication] Fixed custom endpoint call with OpenId Connect.
-- [Authentication] Fixed HTTP method for custom endpoints for OpenId.
-- [Authentication] Removed password expiration policy for LDAP authentication.
+- [API] Fixed code errors and messages to improve the password renewal endpoint.
+- [Authentication] Fixed the custom endpoint call with OpenID Connect.
+- [Authentication] Fixed the HTTP method for custom endpoints for OpenID.
+- [Authentication] Removed the password expiration policy for LDAP authentication.
 - [Configuration] Fixed a bug in trap relations with services by host groups.
-- [Core] Improved the display of error messages regarding connection to DBMS.
-- [Install] Fixed snmptrapd configuration for Debian.
-- [LDAP] Fixed LDAP groups listing in contactgroups form.
-- [ResourcesStatus] Fixed a filtering issue for hosts in pending state.
-- [ResourcesStatus] Fixed h.name filter not returning hosts.
-- [UI] Fixed a bug that prevented non-admin users to select host groups in some areas of Centreon (eg. Host Discovery mappers).
-- [UI] Fixed refresh icon positionnement in "Administration > ACL > Reload ACL" menu.
-- [UI] Uniformized buttons size on legacy pages.
+- [Core] Fixed the display of error messages regarding the connection to DBMS.
+- [Install] Fixed the snmptrapd configuration for Debian.
+- [LDAP] Fixed the LDAP groups listing in the contactgroups form.
+- [ResourceStatus] Fixed a filtering issue for hosts in pending state.
+- [ResourceStatus] Fixed the h.name filter that was not returning hosts.
+- [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
+- [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
+- [UI] Uniformized the buttons size on legacy pages.
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 ### 23.04.1
@@ -60,13 +60,13 @@ Release date: `May 26, 2023`
 Release date: `April 26, 2023`
 
 - [API] We have started extending Centreon's Configuration REST API. The first endpoints available in this release allow you to manage:
-   - Time periods.
-   - Host groups.
-   - Host categories.
-   - Host severities.
-   - Service groups.
-   - Service categories.
-   - Service severities.
+  - Time periods.
+  - Host groups.
+  - Host categories.
+  - Host severities.
+  - Service groups.
+  - Service categories.
+  - Service severities.
 - [Authentication] Added SAML authentication. With SAML, you can:
   - Use conditions to access Centreon.
   - Import users automatically.
@@ -77,10 +77,10 @@ Release date: `April 26, 2023`
 - [Resources Status] You can now switch between extended and compact mode in the Resources Status page.
 - [Resources Status] Both simple and forced check options are provided in Resources Status.
 - [Resources Status] Various user interface improvements in Resources Status :
-   - Aligned column contents with labels.
-   - The icon that allows you to reorder columns is now displayed only on mouseover.
-   - The columns displayed by default have been changed.
-   - Listing pagination icons are now displayed at the same time as the resource details panel.
+  - Aligned column contents with labels.
+  - The icon that allows you to reorder columns is now displayed only on mouseover.
+  - The columns displayed by default have been changed.
+  - Listing pagination icons are now displayed at the same time as the resource details panel.
 - [Terminology] Renamed “problems” to “alerts” in Resources Status.
 - [Terminology] Renamed “Plugin Pack” to “Monitoring Connectors” in the user interface.
 - [UI] Improved Top Counter responsiveness.
@@ -108,13 +108,13 @@ Compatibility with other 23.04 components.
 
 Release date : `soon`
 
-#### Enhancements
+#### Enhancement
 
-- [Packaging] Improved default configuration for Debian packages.
+- [Packaging] Improved the default configuration for Debian packages.
 
-#### Bug fixes
+#### Bug fix
 
-- Fixed recurring unexpected disconnection between pollers.
+- Fixed a recurring unexpected disconnection between pollers.
 
 ### 23.04.1
 
@@ -144,9 +144,9 @@ Release date: `April 26, 2023`
 
 Release date: `soon`
 
-#### Enhancements
+#### Enhancement
 
-- [Packaging] Improved default configuration for Debian packages.
+- [Packaging] Improved the default configuration for Debian packages.
 
 ### 23.04.0
 
@@ -162,7 +162,7 @@ Release date: `soon`
 
 #### New feature
 
-- [Widget] Added possibility to filter by poller.
+- [Widget] Added the possibility to filter by poller.
 
 #### Bug fixes
 
