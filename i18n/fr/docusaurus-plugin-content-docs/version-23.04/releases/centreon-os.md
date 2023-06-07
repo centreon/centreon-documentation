@@ -26,7 +26,7 @@ Release date: `soon`
 
 - [Administration] Added a button to unblock users through the user interface (for local authentication).
 - [Authentication] Fixed the custom endpoint definition for OpenID Connect.
-- [Install] Removed PHP warning during installation wizard.
+- [Install] Removed PHP warning during the installation wizard.
 - [Packaging] Improved default configuration for Debian packages.
 
 #### Bug fixes
