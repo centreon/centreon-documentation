@@ -397,7 +397,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | FILTERCOMMAND | Filter by command (can be a regexp. Default: '^(?!(sleep)$)')                                       | ^(?!(sleep)$)     |             |
 | FILTERUSER    | Filter by user (can be a regexp)                                                                    |                   |             |
 | WARNING       | Warning threshold (number of long queries)                                                          |                   |             |
-| CRITICAL      | Threshold critical (number of long queries)                                                         |                   |             |
+| CRITICAL      | Critical threshold (number of long queries)                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
