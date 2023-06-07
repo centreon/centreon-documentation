@@ -197,7 +197,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Voici la liste des privilèges utilisateur nécessaire par service :
+Voici la liste des privilèges utilisateur nécessaires par service :
 
 | Service             | Privilèges                  | Base de données  |
 |:--------------------|:----------------------------|:-----------------|
