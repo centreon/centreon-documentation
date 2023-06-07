@@ -115,7 +115,7 @@ Release date : `soon`
 
 #### Bug fix
 
-- Fixed recurring unexpected disconnection between pollers.
+- Fixed a recurring unexpected disconnection between pollers.
 
 ### 23.04.1
 
