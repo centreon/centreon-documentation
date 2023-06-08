@@ -24,6 +24,7 @@ Release date: `soon`
 #### Enhancements
 
 - [Packaging] Improved default configuration for Debian packages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 #### Bug fixes
 
@@ -42,7 +43,6 @@ Release date: `soon`
 - [LDAP] Fixed LDAP groups listing in contact groups form.
 - [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
 - [Server] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
-- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 ### 22.04.12
 
