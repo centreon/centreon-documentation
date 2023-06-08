@@ -5,7 +5,7 @@ title: Prerequisites
 
 ## OS
 
-The poller should be installed on a dedicated fresh Alma Linux 8 server. Even if still supported, we encourage you not to use CentOS 7, as end of support is close. 
+The poller should be installed on a dedicated fresh Alma Linux 8 server. 
 
 ## Hardware
 
