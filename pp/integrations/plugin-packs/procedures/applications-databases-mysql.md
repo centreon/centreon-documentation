@@ -22,10 +22,10 @@ The connector brings the following service templates (sorted by the host templat
 |:-------------------|:--------------------------------|:-----------------------------------------------------------------------------------------|
 | Connection-Time    | App-DB-MySQL-Connection-Time    | Check the connection time to the server. This time is given in seconds                   |
 | Connections-Number | App-DB-MySQL-Connections-Number | Check the number of open connections                                                     |
-| Database-Size      | App-DB-MySQL-Database-Size      | Check size of databases. No Alerts by default                                            |
+| Database-Size      | App-DB-MySQL-Database-Size      | Check the size of databases. No alerts by default                                            |
 | Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache    | Check the hit rate of the MyISAM tables                                                  |
 | Open-Files         | App-DB-MySQL-Open-Files         | Check the number of files that currently are open                                        |
-| Queries            | App-DB-MySQL-Queries            | Check the average of queries per second                                                  |
+| Queries            | App-DB-MySQL-Queries            | Check the average number of queries per second                                                  |
 | Slowqueries        | App-DB-MySQL-Slowqueries        | Check the number of slow queries since the last check. Gives the average rate per second |
 
 > The services listed above are created automatically when the **App-DB-MySQL** host template is used.
@@ -44,7 +44,7 @@ The connector brings the following service templates (sorted by the host templat
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate               | Check query cache hitrate                                                                          |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic        | Check allowing to execute a custom SQL request with a digital answer                               |
 | Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic | Check allowing to execute a custom SQL request with a string answer                                |
-| Uptime               | App-DB-MySQL-Uptime                       | This check indicates the operation time since the server is running. This time in given in minutes |
+| Uptime               | App-DB-MySQL-Uptime                       | This check indicates for how long the server has been running. This time is given in minutes |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then appy the service template you want.
 
@@ -318,7 +318,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | MYSQLUSERNAME     | User name used to connect to the database                                                             | USERNAME          |             |
 | MYSQLEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 ### Using a service template provided by the connector
 
@@ -511,7 +511,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
