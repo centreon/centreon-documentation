@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.13
 
-Release date: `soon`
+Release date: `June 8, 2023`
 
 #### Enhancements
 
@@ -580,7 +580,7 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ### 22.04.2
 
-Release date: `soon`
+Release date: `June 8, 2023`
 
 #### Enhancements
 
@@ -620,7 +620,7 @@ Release date: `September 23, 2022`
 
 ### 22.04.1
 
-Release date: `soon`
+Release date: `June 8, 2023`
 
 #### Enhancements
 
