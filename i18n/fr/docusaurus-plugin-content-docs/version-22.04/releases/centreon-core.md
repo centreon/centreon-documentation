@@ -22,17 +22,17 @@ Release date: `June 8, 2023`
 
 #### Enhancements
 
-- [Packaging] Improved default configuration for Debian packages.
+- [Authentication] Added the possibility to define a redirect URI for OpenID Connect authentication.
+- [Packaging] Improved the default configuration for Debian packages.
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 #### Bug fixes
 
 - [API] Fixed PHP error messages on authentication APIs.
 - [API] Fixed code errors and messages to improve the password renewal endpoint.
-- [Authentication] Added the possibility to define a redirect URI for OpenID Connect authentication.
 - [Authentication] Fixed an LDAP authentication issue that made LDAP users in Organisational Units with special characters unable to authenticate.
 - [Authentication] Made error messages generic to improve security.
-- [Authentication] Fixed a broken URL issue by removing extra spaces in endpoint definition.
+- [Authentication] Fixed a broken URL issue by removing extra spaces in endpoint the definition.
 - [Backup] Fixed errors with distant DBMS in logs.
 - [Configuration] Fixed a bug in trap relations with services by host groups.
 - [Configuration] Fixed the deletion of images when importing a configuration on a Remote Server with MAP installed.
