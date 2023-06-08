@@ -157,25 +157,6 @@ For very large amounts of data, contact your sales representative.
 </TabItem>
 </Tabs>
 
-#### Memory for Java
-
-To correctly implement the dedicated memory:
-
-1. Edit the *JAVA\_OPTS* parameter in the Centreon Map configuration file
-`/etc/centreon-map/centreon-map.conf`:
-
-   ```text
-   JAVA_OPTS="-Xms512m -Xmx4G"
-   ```
-
-   > The Xmx value depends on the amount of memory indicated in the tables in the [Hardware](#hardware) section.
-
-2. Restart the service:
-
-   ```shell
-   systemctl restart centreon-map-engine
-   ```
-
 #### Information required during configuration
 
 - Centreon web login with administration rights.
@@ -248,7 +229,7 @@ in order to create new Centreon Broker output. It will be revoked later.
   
   - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
-#### Procedure
+#### Package installation
 
 If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the **centreon-release** package:
@@ -307,7 +288,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 Install the following dependencies:
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
 To install the Centreon repository, execute the following command:
@@ -328,10 +309,102 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL does not work, you can manually find this package in the folder.
 
+#### MariaDB installation
+
+> You need to have a MariaDB database to store your Centreon MAP data.
+
+First you need to add the MariaDB repository:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+</Tabs>
+
+Then install MariaDB server and client:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt install mariadb-client mariadb-server
+```
+
+> MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> 
+> ```shell
+> /etc/mysql/mariadb.conf.d/50-server.cnf
+> ```
+> 
+> Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
+> 
+> ```shell
+> systemctl restart mariadb
+> ```
+
+</TabItem>
+</Tabs>
+
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
+
+```shell
+mysql_secure_installation
+```
+
+* Answer **yes** to all questions except "Disallow root login remotely?".
+* It is mandatory to set a password for the **root** user of the database.
+
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+#### Business repository installation
+
 Install the Centreon Business repository, you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-Then install Centreon MAP Engine server using the following command:
+#### MAP Engine server installation
+
+You have two possibilities for the installation:
+
+- on a new server (without existing Centreon MAP packages),
+- or on an existing Centreon MAP server legacy.
+
+Select the right tab below and install the Centreon MAP Engine server:
+
+<Tabs groupId="sync">
+<TabItem value="New MAP Engine server" label="New MAP Engine server">
+
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -351,41 +424,108 @@ dnf install centreon-map-engine
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
-apt install centreon-map-engine
+apt update && apt install centreon-map-engine
 ```
 
 </TabItem>
 </Tabs>
 
 When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 11) if needed.
-
-> You need to have a MariaDB database to store your Centreon MAP data, except if it has already been created at the central level.
-
-To install MariaDB, execute the following command:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install MariaDB-client MariaDB-server
-```
+(OpenJDK 17) if needed.
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Existing MAP Legacy server" label="Existing MAP Legacy server">
 
-```shell
-dnf install MariaDB-client MariaDB-server
-```
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New MAP Engine server** tab.
 
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+> You can use the existing MariaDB database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
 
-```shell
-apt install MariaDB-client MariaDB-server
-```
+This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
 
+1. Make a backup of the **map.cnf** file:
+
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
+   ```
+   
+   </TabItem>
+   <TabItem value="CentOS 7" label="CentOS 7">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 11" label="Debian 11">
+   
+   ```shell
+   cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
+   ```
+   
+   </TabItem>
+   </Tabs>
+
+2. Install the centreon-map-engine package
+   
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="CentOS 7" label="CentOS 7">
+   
+   ```shell
+   yum install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 11" label="Debian 11">
+   
+   ```shell
+   apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
+   ```
+   
+   </TabItem>
+   </Tabs>
+
+3. Retrieve the configuration file backup:
+  
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
+   ```
+   
+   </TabItem>
+   <TabItem value="CentOS 7" label="CentOS 7">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 11" label="Debian 11">
+   
+   ```shell
+   cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
+   ```
+   
+   </TabItem>
+   </Tabs>
+
+4. Answer **Y** when prompted. Then restart MySQL:
+   
+   ```shell
+   systemctl restart mariadb
+   ```
+   
 </TabItem>
 </Tabs>
 

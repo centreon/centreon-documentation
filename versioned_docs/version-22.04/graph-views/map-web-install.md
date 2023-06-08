@@ -491,6 +491,8 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 When installing Centreon MAP Engine server, it will automatically install java (OpenJDK 17) if needed.
 
+#### Java requirement
+
 > Ensure a version of Java 17 (or 18) is correctly installed and activated.
 
 - If you need to check the Java version, enter the following command:
