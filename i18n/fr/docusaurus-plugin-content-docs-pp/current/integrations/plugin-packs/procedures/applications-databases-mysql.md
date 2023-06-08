@@ -314,7 +314,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:------------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
 | MYSQLPASSWORD     | Password for the defined user name                                                                    | PASSWORD          | X           |
 | MYSQLPORT         |                                                                                                       |                   | X           |
-| MYSQLUSERNAME     | User name used to connect to the database                                                             | USERNAME          
+| MYSQLUSERNAME     | User name used to connect to the database                                                             | USERNAME          | X           |
 | MYSQLEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
