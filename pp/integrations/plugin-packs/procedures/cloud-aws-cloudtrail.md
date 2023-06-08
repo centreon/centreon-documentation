@@ -182,15 +182,15 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 3. Apply the **Cloud-Aws-CloudTrail-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro         | Description                                                                                                                      | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AWSACCESSKEY  | Set AWS access key                                                                                                               |                   |             |
-| AWSASSUMEROLE | Set ARN of the role to be assumed                                                                                                |                   |             |
-| AWSCUSTOMMODE | Choose a custom mode                                                                                                             |                   |             |
-| AWSREGION     | Set the region name                                                                                                              |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                               |                   |             |
-| PROXYURL      | Proxy URL if any                                                                                                                 |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro         | Description                                                                                                                      | Default value     | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:----------|
+| AWSACCESSKEY  | Set AWS access key                                                                                                               |                   | X         |
+| AWSASSUMEROLE | Set ARN of the role to be assumed                                                                                                |                   |           |
+| AWSCUSTOMMODE | Choose a custom mode                                                                                                             |                   | X         |
+| AWSREGION     | Set the region name                                                                                                              |                   | X         |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                               |                   | X         |
+| PROXYURL      | Proxy URL if any                                                                                                                 |                   |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -202,10 +202,10 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 <Tabs groupId="sync">
 <TabItem value="Cloudtrail-Check-Trail-Status" label="Cloudtrail-Check-Trail-Status">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TRAILNAME    | Filter by trail name                                                                                |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                         | Default value     | Mandatory |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:----------|
+| TRAILNAME    | Filter by trail name                                                                                |                   | X         |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |           |
 
 </TabItem>
 <TabItem value="Cloudtrail-Count-Events" label="Cloudtrail-Count-Events">

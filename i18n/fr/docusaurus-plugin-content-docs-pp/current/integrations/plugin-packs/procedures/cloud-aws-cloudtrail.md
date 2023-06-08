@@ -183,11 +183,11 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 
 | Macro         | Description                                                                                                                              | Valeur par défaut | Obligatoire |
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   | X           |
 | AWSASSUMEROLE | Set ARN of the role to be assumed                                                                                                        |                   |             |
-| AWSCUSTOMMODE | Choose a custom mode                                                                                                                     |                   |             |
-| AWSREGION     | Set the region name                                                                                                                      |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   |             |
+| AWSCUSTOMMODE | Choose a custom mode                                                                                                                     |                   | X           |
+| AWSREGION     | Set the region name                                                                                                                      |                   | X           |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
@@ -203,7 +203,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 
 | Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TRAILNAME    | Filter by trail name                                                                                |                   |             |
+| TRAILNAME    | Filter by trail name                                                                                |                   | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
