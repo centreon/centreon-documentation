@@ -8,6 +8,33 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Juin
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - initial release - Status:stable - centreon-pack-cloud-aws-cloudtrail-23.06.0-1
+- [**Cambium cnPilot SNMP**](../procedures/network-cambium-cnpilot-snmp.md) - initial release - Status:stable - centreon-pack-network-cambium-cnpilot-snmp-23.06.7-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Palo Alto firewall SSH**](../procedures/network-firewalls-paloalto-standard-ssh.md) - added new licences mode - Status:stable - centreon-pack-network-firewalls-paloalto-standard-ssh-23.06.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Updated default NRPE client and options - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-23.06.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Adva FSP 3000 SNMP**](../procedures/network-adva-fsp3000-snmp.md) - Fixed options for interfaces mode - Status:stable - centreon-pack-network-adva-fsp3000-snmp-23.06.0-1
+- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - Fixed option in virtual-volumes-quotas mode - Status:stable - centreon-pack-hardware-storage-hitachi-hnas-snmp-23.06.0-1
+
+</TabItem>
+</Tabs>
+
 ### Mai
 
 <Tabs groupId="sync">
