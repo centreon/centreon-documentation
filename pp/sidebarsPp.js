@@ -726,6 +726,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudtrail'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover'
         },
         {
@@ -1401,6 +1405,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-brocade-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cambium-cnpilot-snmp'
         },
         {
           type: 'doc',
@@ -2526,7 +2534,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-sonus-sbc-snmp'
         },
-          {
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-xivo'
         }
