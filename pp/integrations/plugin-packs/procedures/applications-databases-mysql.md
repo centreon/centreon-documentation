@@ -362,7 +362,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro              | Description                                                                                         | Default value                                     | Mandatory   |
 |:-------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------|:------------|
-| FILTERDATABASE     | Filter database to checks (Can be a regexp)                                                         | ^(?!(information_schema|performance_schema|test)) |             |
+| FILTERDATABASE     | Filter database to checks (Can be a regexp)                                                         | ^(?!(information_schema\|performance_schema\|test)) |             |
 | FILTERPERFDATA     |                                                                                                     | database                                          |             |
 | WARNINGDBFREE      | Thresholds (                                                                                        |                                                   |             |
 | CRITICALDBFREE     | Thresholds (                                                                                        |                                                   |             |
