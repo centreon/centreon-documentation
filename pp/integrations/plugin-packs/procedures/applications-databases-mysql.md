@@ -313,9 +313,9 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro             | Description                                                                                           | Default value     | Mandatory   |
 |:------------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| MYSQLPASSWORD     | Password for the defined user name                                                                    | PASSWORD          |             |
-| MYSQLPORT         |                                                                                                       |                   |             |
-| MYSQLUSERNAME     | User name used to connect to the database                                                             | USERNAME          |             |
+| MYSQLPASSWORD     | Password for the defined user name                                                                    | PASSWORD          |       X     |
+| MYSQLPORT         |                                                                                                       |                   |      X      |
+| MYSQLUSERNAME     | User name used to connect to the database                                                             | USERNAME          |   X   |
 | MYSQLEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
