@@ -40,7 +40,11 @@ Release date: `June 8, 2023`
 - [Core] Fixed an issue when accessing the installation wizard for a new installation.
 - [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
 - [Install] Removed a displayed error during an update.
+- [Install] Fixed rights on the centreon_traps directory for Debian.
+- [Install] Fixed the snmptrapd configuration for Debian.
 - [LDAP] Fixed LDAP groups listing in contact groups form.
+- [Packaging] Fixed an unreplaced variable in the cron definition.
+- [Packaging] Fixed the packaging of the PHP configuration file for Debian.
 - [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
 - [Server] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
 
