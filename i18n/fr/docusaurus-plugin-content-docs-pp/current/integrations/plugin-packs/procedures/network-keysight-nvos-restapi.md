@@ -290,7 +290,7 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | TIMEZONE          | Override the timezone of distant equipment. Can use format: 'Europe/London' or '+0100'                                              |                                 |             |
 | NTPHOSTNAME       | Set the ntp hostname (if not set, localtime is used)                                                                                |                                 |             |
 | NTPPORT           | Set the ntp port (Default: 123)                                                                                                     |                                 |             |
-| CRITICALNTPSTATUS | Set thresholds for status (Default critical: '%{status} !~ /in\_reach\|in\_sync/i')  You can use the following variables: %{status} | %{status} !~ /in_reach|in_sync/ |             |
+| CRITICALNTPSTATUS | Set thresholds for status (Default critical: '%{status} !~ /in\_reach\|in\_sync/i')  You can use the following variables: %{status} | %{status} !~ /in_reach\|in_sync/ |             |
 | WARNINGNTPSTATUS  |                                                                                                                                     |                                 |             |
 | WARNINGOFFSET     | Time offset warning threshold (in seconds)                                                                                          |                                 |             |
 | CRITICALOFFSET    | Time offset critical Threshold (in seconds)                                                                                         |                                 |             |
