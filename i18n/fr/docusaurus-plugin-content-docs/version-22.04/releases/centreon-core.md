@@ -16,6 +16,37 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.13
+
+Release date: `June 8, 2023`
+
+#### Enhancements
+
+- [Authentication] Added the possibility to define a redirect URI for OpenID Connect authentication.
+- [Packaging] Improved the default configuration for Debian packages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
+
+#### Bug fixes
+
+- [API] Fixed PHP error messages on authentication APIs.
+- [API] Fixed code errors and messages to improve the password renewal endpoint.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users in Organisational Units with special characters unable to authenticate.
+- [Authentication] Made error messages generic to improve security.
+- [Authentication] Fixed a broken URL issue by removing extra spaces in endpoint the definition.
+- [Backup] Fixed errors with distant DBMS in logs.
+- [Configuration] Fixed a bug in trap relations with services by host groups.
+- [Configuration] Fixed the deletion of images when importing a configuration on a Remote Server with MAP installed.
+- [Core] Fixed an issue when accessing the installation wizard for a new installation.
+- [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
+- [Install] Removed a displayed error during an update.
+- [Install] Fixed rights on the centreon_traps directory for Debian.
+- [Install] Fixed the snmptrapd configuration for Debian.
+- [LDAP] Fixed LDAP groups listing in contact groups form.
+- [Packaging] Fixed an unreplaced variable in the cron definition.
+- [Packaging] Fixed the packaging of the PHP configuration file for Debian.
+- [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
+- [Server] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
+
 ### 22.04.12
 
 Release date: `March 2, 2023`
@@ -550,6 +581,14 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ## Centreon Gorgone
 
+### 22.04.2
+
+Release date: `June 8, 2023`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
+
 ### 22.04.1
 
 Release date: `September 23, 2022`
@@ -579,3 +618,13 @@ Release date: `September 23, 2022`
 - Added new httpsserverng module
 - Added the possibility for the poller to communicate using the socket web client instead of using the ZMQ protocol
 - Extended configuration to add multiple directories at the same time
+
+## Centreon DSM
+
+### 22.04.1
+
+Release date: `June 8, 2023`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.

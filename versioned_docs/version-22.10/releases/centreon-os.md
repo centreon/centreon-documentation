@@ -25,9 +25,9 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [Administration] Added a button to unblock users through UI (for local authentication).
-- [Authentication] Added the possibility to define redirect uri for OpenID Connect authentication.
-- [Packaging] Improved default configuration for Debian packages.
+- [Administration] Added a button to unblock users through the user interface (for local authentication).
+- [Authentication] Added the possibility to define a redirect URI for OpenID Connect authentication.
+- [Packaging] Improved the default configuration for Debian packages.
 - [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
 
 #### Bug fixes
@@ -307,7 +307,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [Packaging] Improved default configuration for Debian packages.
+- [Packaging] Improved the default configuration for Debian packages.
 
 ### 22.10.0
 
@@ -335,7 +335,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [Packaging] Improved default configuration for Debian packages.
+- [Packaging] Improved the default configuration for Debian packages.
 
 ### 22.10.0
 
