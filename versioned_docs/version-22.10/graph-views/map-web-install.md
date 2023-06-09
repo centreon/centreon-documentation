@@ -405,6 +405,8 @@ apt update && apt install centreon-map-engine
 
 > If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New MAP Engine server** tab.
 
+> You can use the existing MariaDB database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
+
 This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
 
 1. Make a backup of the **map.cnf** file:
