@@ -259,13 +259,10 @@ Release date: `soon`
 
 #### Centreon Broker
 
-##### New features
-
-- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
-
 ##### Enhancements
 
 - On MariaDB, metrics are now inserted with a bulk prepared statement in data_bin table to improve performance.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
 
 ##### Bug fixes
 
