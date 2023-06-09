@@ -155,25 +155,6 @@ Pour de grosses volumétries de données, contactez votre commercial Centreon.
 </TabItem>
 </Tabs>
 
-#### Mémoire pour Java
-
-Pour implémenter correctement la mémoire dédiée :
-
-1. Modifiez le paramètre **JAVA_OPTS** dans le fichier de configuration Centreon MAP
-`/etc/centreon-map/centreon-map.conf`:
-
-   ```text
-   JAVA_OPTS="-Xms512m -Xmx4G"
-   ```
-
-   > La valeur Xmx dépend de la quantité de mémoire indiquée dans les tableaux dans la section [Matériel](#matériel).
-
-2. Redémarrez le service :
-
-   ```shell
-   systemctl restart centreon-map-engine
-   ```
-
 #### Informations requises lors de la configuration
 
 - Connexion à Centreon Web avec des droits d'administrateur.
@@ -222,27 +203,9 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 ### Étape 3 : installer le serveur MAP Engine
 
-#### Prérequis de la version Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
-  
-  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-  
-  ```shell
-  java -version
-  ```
-  
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+#### Installation des paquets
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-  ```shell
-  sudo update-alternatives --config java
-  ```
-
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
-
-#### Procédure
-
-Si vous installez votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet **centreon-release** :
+Si vous installez votre serveur Centreon MAP à partir d'une "installation OS fraîche", vous devez installer le paquet **centreon-release** :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -301,7 +264,104 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
+#### Installation du dépôt Business
+
 Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+#### Installation du serveur MAP Engine
+
+Vous avez deux possibilités pour l'installation :
+
+- sur un nouveau serveur (sans paquets Centreon MAP existants),
+- ou sur un serveur Centreon MAP Legacy.
+
+Sélectionnez l'onglet adéquat ci-dessous et installez le serveur Centreon MAP Engine :
+
+<Tabs groupId="sync">
+<TabItem value="Nouveau serveur MAP Engine" label="Nouveau serveur MAP Engine">
+
+#### Prérequis MariaDB
+
+> Vous devez disposer d'une base de données MariaDB pour stocker les données de Centreon MAP.
+
+Vous devez d'abord installer le dépôt MariaDB :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+```
+
+</TabItem>
+</Tabs>
+
+Ensuite installez le serveur MariaDB :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mariadb-server
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install mariadb-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update && apt install mariadb-server
+```
+
+> MariaDB doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Modifiez le fichier suivant :
+> 
+> ```shell
+> /etc/mysql/mariadb.conf.d/50-server.cnf
+> ```
+> 
+> Définir le paramètre **bind-address** à **0.0.0.0**.
+
+</TabItem>
+</Tabs>
+
+Ensuite, activez et redémarrez MariaDB :
+
+```shell
+systemctl enable mariadb
+systemctl restart mariadb
+```
+
+Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+
+```shell
+mysql_secure_installation
+```
+``
+
+* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?
+* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 Installez ensuite le serveur Centreon MAP Engine à l'aide de la commande suivante :
 
@@ -323,42 +383,40 @@ yum install centreon-map-engine
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
-apt install centreon-map-engine
+apt update && apt install centreon-map-engine
 ```
 
 </TabItem>
 </Tabs>
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 11) sera automatiquement installé, si nécessaire.
-
-> Vous devez disposer d'une base de données MariaDB pour stocker les données de Centreon MAP, sauf si elle a déjà été créée côté central.
-
-Pour installer MariaDB, exécutez la commande suivante :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install mariadb-client mariadb-server
-```
-
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Serveur MAP Legacy existant" label="Serveur MAP Legacy existant">
 
-```shell
-yum install mariadb-client mariadb-server
-```
+> Si vous avez déjà MAP Legacy et que vous installez MAP Engine sur le même serveur, vous devez suivre la procédure suivante. Sinon, passez à l'onglet **Nouveau serveur MAP Engine**.
 
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+> Vous pouvez utiliser la base de données MariaDB existante de Centreon MAP Legacy pour le nouveau serveur MAP Engine. Il n'est donc pas nécessaire d'installer une nouvelle base de données.
 
-```shell
-apt install mariadb-client mariadb-server
-```
+Cette procédure permet de s'assurer que le fichier de configuration peut être utilisé à la fois pour MAP Engine et MAP Legacy.
 
-</TabItem>
-</Tabs>
+Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
+
+#### Prérequis Java
+  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  
+  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+  
+  ```shell
+  java -version
+  ```
+  
+  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  ```shell
+  sudo update-alternatives --config java
+  ```
+
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 ### Étape 4 : vérifier la configuration de la base de données
 
@@ -375,17 +433,7 @@ Ensuite, redémarrez MariaDB :
 systemctl restart mariadb
 ```
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
-```shell
-mysql_secure_installation
-```
-``
-
-* Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?
-* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
-
-> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ### Étape 5 - optionnelle : si MAP Engine et MAP Legacy sont installés sur le même serveur
 
@@ -396,7 +444,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
-1. Faites une sauvegarde du fichier **/etc/my.cnf.d/map.cnf** :
+1. Faites une sauvegarde du fichier **map.cnf** :
 
   ```shell
   cp map.cnf map.cnf.bk
@@ -498,6 +546,24 @@ Puis redémarrez le service **centreon-map-engine** :
 ```shell
 systemctl restart centreon-map-engine
 ```
+#### Mémoire pour Java
+
+Pour implémenter correctement la mémoire dédiée :
+
+1. Modifiez le paramètre **JAVA_OPTS** dans le fichier de configuration Centreon MAP
+`/etc/centreon-map/centreon-map.conf`:
+
+   ```text
+   JAVA_OPTS="-Xms512m -Xmx4G"
+   ```
+
+   > La valeur Xmx dépend de la quantité de mémoire indiquée dans les tableaux dans la section [Matériel](#matériel).
+
+2. Redémarrez le service :
+
+   ```shell
+   systemctl restart centreon-map-engine
+   ```
 
 ### Étape 7 : redémarrer Centreon Broker
 
