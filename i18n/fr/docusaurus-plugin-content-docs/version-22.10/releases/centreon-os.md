@@ -251,6 +251,39 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.2
+
+Release date: `June 9, 2023`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- On MariaDB, metrics are now inserted with a bulk prepared statement in data_bin table to improve performance.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+
+##### Bug fixes
+
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed a memory corruption in MySQL connection.
+- Fixed a typo in the "DELETE FROM services" query.
+- Fixed an incorrect query used to send perfdata with BBDO v2.
+- Fixed an issue in the initial evaluation of BAs with a "ratio" type.
+- Fixed concurrent access on bulk bind in unified_sql outputs.
+- Fixed deadlock on TCP async use.
+- Fixed inconsistency between Broker and Engine v2 loggers to fix a logger issue.
+- Fixed RTDOWNTIMES external commands handling. The duration is not required anymore for fixed downtimes.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the monitoring stream acknowledgement and its type tracing.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+- Fixed uncatched exceptions in thread that broke I/O context.
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+
 ### 22.10.1
 
 Release date: `March 16, 2023`
