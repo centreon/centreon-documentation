@@ -33,7 +33,7 @@ Go to **Configuration \> Services \> Services by host**. A set of indicators has
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
-Then go to the **Monitoring \> Status Details \> Services** menu and select the value **All** for the **Service Status**
+Then go to **Monitoring \> Status Details \> Services** and select the value **All** for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
 ![image](../assets/getting-started/quick_start_printer_4.png)
