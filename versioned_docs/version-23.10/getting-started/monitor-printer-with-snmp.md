@@ -27,7 +27,7 @@ Your device has been added to the monitoring configuration:
 
 ![image](../assets/getting-started/quick_start_printer_2.png)
 
-Go to the **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
+Go to **Configuration \> Services \> Services by host**. A set of indicators has been automatically deployed:
 
 ![image](../assets/getting-started/quick_start_printer_3.png)
 
