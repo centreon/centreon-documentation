@@ -465,7 +465,7 @@ Release date: `soon`
 
 ##### Enhancements
 
-- New grpc function to modify live the flush period.
+- Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
 
 ##### Bug fixes
 
