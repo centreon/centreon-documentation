@@ -457,6 +457,35 @@ By:
 
 ## Centreon Collect
 
+### 22.04.4
+
+Release date: `June 12, 2023`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+- On MariaDB, metrics are now inserted with a bulk prepared statement in the data_bin table to improve performance.
+
+##### Bug fixes
+
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+
+#### Centreon Engine
+
+##### Enhancements
+
+- Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
+
+##### Bug fixes
+
+- Fixed an issue when an Anomaly Detection service based on a metaservice was rechecked.
+
 ### 22.04.3
 
 Release date: `April 3, 2023`
