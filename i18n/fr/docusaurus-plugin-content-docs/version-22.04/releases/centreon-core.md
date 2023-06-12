@@ -465,6 +465,8 @@ Release date: `soon`
 ##### Enhancements
 
 - Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+- On MariaDB, metrics are now inserted with a bulk prepared statement in the data_bin table to improve performance.
 
 ##### Bug fixes
 
@@ -477,8 +479,7 @@ Release date: `soon`
 
 ##### Enhancements
 
-- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
-- On MariaDB, metrics are now inserted with a bulk prepared statement in the data_bin table to improve performance.
+- Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
 
 ##### Bug fixes
 
