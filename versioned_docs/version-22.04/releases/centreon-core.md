@@ -459,7 +459,7 @@ By:
 
 ### 22.04.4
 
-Release date: `soon`
+Release date: `June 12, 2023`
 
 #### Centreon Broker
 
