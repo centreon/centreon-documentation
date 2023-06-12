@@ -14,7 +14,7 @@ The Centreon web interface is compatible with the following web browsers:
 * Apple Safari (latest version at the time of Centreon software release and above)
 * Microsoft Edge Chromium (latest version at the time of Centreon software release and above)
 
-If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
+If an update to those supported browsers were to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Although other browsers might work, Centreon will not attempt to resolve problems with browsers other than those listed above.
 
 Your screen resolution must be at least 1280 x 768.
 
@@ -32,7 +32,7 @@ Centreon supports the following operating systems: AlmaLinux/RedHat/OracleLinux 
 | Debian 11                | DEB packages                                           |
 
 Open Source users, without a support contract, can use another GNU/Linux operating system.
-This will require installing the platform from source files and therefore be more complex.
+This will require installing the platform from source files and will therefore be more complex.
 Bear in mind that IT Edition and Business Edition modules do not work yet on unsupported distributions.
 
 > Only 64-bit operating systems (x86_64) are supported.

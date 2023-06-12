@@ -3,7 +3,7 @@ id: offline
 title: Offline installation
 ---
 
-To be able to install Centreon on servers with no internet access, create a local copy of the Centreon repository on a server that has an internet access, then make your offline Centreon servers point to it.
+To be able to install Centreon on servers with no internet access, create a local copy of the Centreon repository on a server that has an internet access, and then make your offline Centreon servers point to it.
 
 ## Creating a local copy of the Centreon repository
 
@@ -79,18 +79,18 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
    enabled=1
    ```
 
-   > Replace `<mirror_ip_address>` by the actual address of your local repository.
+   > Replace `<mirror_ip_address>` with the actual address of your local repository.
 
-## Keeping your local repository up-to-date
+## Keeping your local repository up to date
 
-To synchronize regularly your mirror with the Centreon repository, create a cron file:
+To synchronize your mirror with the Centreon repository regularly, create a cron file:
 
 ```shell
 cd  /var/spool/cron
 crontab -e
 ```
 
-The following commands will schedule a synchronization every day at 2 for the **centreon-stable-noarch** repository, and every day at 3 for the **centreon-stable** repository :
+The following commands will schedule a synchronization every day at 2 for the **centreon-stable-noarch** repository, and every day at 3 for the **centreon-stable** repository:
 
 ```shell
 * 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
