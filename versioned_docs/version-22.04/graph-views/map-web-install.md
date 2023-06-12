@@ -249,9 +249,13 @@ yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/ce
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install the following dependencies:
+
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
+
+To install the Centreon repository, run the following command:
 
 ```shell
 echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -356,7 +360,7 @@ systemctl enable mariadb
 systemctl restart mariadb
 ```
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
+Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the MAP server:
 
 ```shell
 mysql_secure_installation

@@ -338,27 +338,27 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 </Tabs>
 
-Then install MariaDB server and client:
+Then install MariaDB server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install MariaDB-client MariaDB-server
+dnf install MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install MariaDB-client MariaDB-server
+dnf install MariaDB-server
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt install mariadb-client mariadb-server
+apt update && apt install mariadb-server
 ```
 
 > MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
@@ -439,7 +439,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="CentOS 7" label="CentOS 7">
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
    cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
@@ -465,10 +465,10 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="CentOS 7" label="CentOS 7">
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
-   yum install centreon-map-engine
+   dnf install centreon-map-engine
    ```
    
    </TabItem>
@@ -491,7 +491,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="CentOS 7" label="CentOS 7">
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
    cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
@@ -628,7 +628,6 @@ Remove the INSERT privilege from user **centreon_map**:
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-
 Then restart the **centreon-map-engine** service:
 
 ```shell
@@ -741,32 +740,6 @@ By default, the MAP module is not enabled. Perform the following procedure to en
 
   ```shell
   systemctl restart cbd
-  ```
-
-8. Now the configuration is correct, you can start the server by running this command:
-
-  ```shell
-  systemctl start centreon-map-engine
-  ```
-
-9. Run the following command to check that the **centreon-map-engine** service is properly started:
-  
-  ```shell
-  systemctl status centreon-map-engine
-  ```
-
-  This is an example of results:
-
-  ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
-   Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
-   Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
- Main PID: 39103 (centreon-map-en)
-    Tasks: 50 (limit: 23465)
-   Memory: 598.1M
-   CGroup: /system.slice/centreon-map-engine.service
-           ├─39103 /bin/bash /usr/share/centreon-map-engine/bin/centreon-map-engine
-           └─39119 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map
   ```
 
 You can now use the MAP module by accessing the **Monitoring > Map** page.
