@@ -483,7 +483,7 @@ Release date: `soon`
 
 ##### Bug fixes
 
-- Fixed an issue when an anomaly detection service based on a meta service was rechecked.
+- Fixed an issue when an Anomaly Detection service based on a metaservice was rechecked.
 
 ### 22.04.3
 
