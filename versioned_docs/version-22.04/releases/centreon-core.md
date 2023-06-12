@@ -457,6 +457,34 @@ By:
 
 ## Centreon Collect
 
+### 22.04.4
+
+Release date: `soon`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- New grpc function to modify live the flush period.
+
+##### Bug fixes
+
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+
+#### Centreon Engine
+
+##### Enhancements
+
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+- On MariaDB, metrics are now inserted with a bulk prepared statement in the data_bin table to improve performance.
+
+##### Bug fixes
+
+- Fixed an issue when an anomaly detection service based on a meta service was rechecked.
+
 ### 22.04.3
 
 Release date: `April 3, 2023`
