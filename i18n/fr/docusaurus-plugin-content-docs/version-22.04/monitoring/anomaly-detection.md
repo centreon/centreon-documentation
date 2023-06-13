@@ -33,7 +33,7 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 
   - Centreon en version minimale 20.04
   - Un jeton fourni par Centreon pour accéder à la plateforme Centreon Cloud
-  - Une connexion Internet depuis le serveur Centreon Central
+  - Une connexion Internet depuis le serveur Centreon Central. Le central doit pouvoir dialoguer avec le domaine `api.a.prod.mycentreon.com` sur le port 443.
   - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
 
       ```
