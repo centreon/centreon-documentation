@@ -41,7 +41,7 @@ thresholds to highlight deviations and generate alerts. Data received during dow
 To use Anomaly Detection, you will need:
 
 - A token provided by Centreon to access the Centreon SaaS platform,
-- An internet connection from the Centreon central server
+- An internet connection from the Centreon central server. The central server must be able to reach `api.a.prod.mycentreon.com` on port 443.
 - The SHELL environment variable [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) must not be set, or be set to `C`. To check the value of this variable, enter:
 
    ```
