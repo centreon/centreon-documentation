@@ -282,7 +282,7 @@ Les méthodes disponibles sont les suivantes :
 13. `get_servicegroups(host_id, service_id)` qui obtient la liste des groupes de services contenant le service correspondant à la paire *host\_id* / *service\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
 14. `get_notes(host_id[,service_id])` qui récupère les notes configurées dans l’hôte ou le service. Le *service\_id* est facultatif. S’il est fourni, vous obtenez les notes d’un service, sinon celles d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
 15. `get_notes_url(host_id[, service_id])` qui récupère l’URL des notes configurée dans l’hôte ou le service. Le *service\_id* est facultatif. S’il est fourni, vous obtenez l’*URL des notes* d’un service, sinon celle d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-16. `get_action_url(host_id)` qui obtient l’URL d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons l’*URL d’action* d’un service, sinon nous la voulons d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+16. `get_action_url(host_id)` qui obtient l’URL d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif. S’il est fourni, vous obtenez l’*URL d’action* d’un service, sinon celle d'un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
 17. `get_severity(host_id[,service_id])` qui obtient la sévérité d’un hôte ou d’un service. Si vous ne fournissez que l’*host\_id*, nous supposons que vous voulez obtenir une sévérité d’hôte. Si un hôte ou un service n’a pas de sévérité, la fonction renvoie une valeur *nil*.
 
 ## La fonction init()
