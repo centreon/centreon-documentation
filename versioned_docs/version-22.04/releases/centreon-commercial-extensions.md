@@ -132,19 +132,19 @@ Release date : `January 20, 2023`
 
 Release date: `December 16, 2022`
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed a connection problem between MAP desktop client and MAP server that could lead to timeouts on large maps.
 - Fixed an issue with Java 17 that caused MAP server to fail to start.
 - Fixed an issue with the API preventing an authenticated user from creating a resource with an image.
 - Fixed an issue with the display of line charts if the period and precision values of the chart were too large.
 
-### Security fixes
+#### Security fixes
 
 - Actuator endpoints are now disabled by default, except for health and metrics.
 - Fixed the security issue CVE-2022-42889 (Text4shell vulnerability).
 
-### Enhancements
+#### Enhancements
 
 - Updated the diagnostic.sh script to handle Java 17 installation instead of returning an error.
 - MAP extension configuration now requires only one MAP server address to be configured.
