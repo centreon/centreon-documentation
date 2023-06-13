@@ -41,7 +41,7 @@ pour mettre en évidence les écarts et générer des alertes. Pour ne pas fauss
 Pour utiliser **Anomaly Detection**, vous aurez besoin des éléments suivants :
 
 - Un jeton fourni par Centreon pour accéder à la plateforme SaaS de Centreon,
-- Une connexion internet depuis le serveur Centreon central.
+- Une connexion internet depuis le serveur Centreon central. Le central doit pouvoir dialoguer avec le domaine `api.a.prod.mycentreon.com` sur le port 443.
 - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
 
   ```
