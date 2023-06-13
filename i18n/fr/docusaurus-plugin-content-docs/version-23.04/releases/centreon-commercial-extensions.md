@@ -32,7 +32,7 @@ Release date: `June 13, 2023`
 ### Bug fixes
 
 - Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
-- Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during BA creation by a non-admin user.
+- Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
 
 ### 23.04.0
 
@@ -88,7 +88,7 @@ Release date: `June 13, 2023`
 ### Bug fixes
 
 - Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
-- Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during BA creation by a non-admin user.
+- Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
 
 ### 23.04.0
 
