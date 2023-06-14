@@ -1,3 +1,4 @@
+
 ---
 id: centreon-commercial-extensions
 title: Extensions Commerciales
@@ -14,6 +15,30 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
 
 ## Centreon MAP
+
+### 22.04.7 ###
+
+Release date: `soon`
+
+#### New features
+
+- [Editor] You can now edit styles on multiple resources at once.
+- [Editor] You can now manage font properties in the editor.
+- [UI] Made metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [Viewer] Resources now have a unique status.
+
+#### Bug fixes
+
+- [Server] Enable to parse metric from Broker NEB packets.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing images from being displayed in views after an update.
+- [Server] Fixed an issue that prevented access to MAP in HTTPS.
+- [UI] Fixed a timeout issue when loading the homepage.
+- [UI] Fixed missing icons on maps in the homepage when migrating.
+- [UI] Fixed view freezes beyond 500 elements.
+- [Viewer] Fixed an error message on a call failure.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+- [Viewer] Fixed broken or missing images after an update to MAP 22.10.5.
 
 ### 22.04.6 ###
 
