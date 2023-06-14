@@ -233,6 +233,14 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.4
+
+Release date: `soon`
+
+#### Bug fix
+
+- [Core] Improved the size of the database column.
+
 ### 22.04.3
 
 Release date: `October 25, 2022`
