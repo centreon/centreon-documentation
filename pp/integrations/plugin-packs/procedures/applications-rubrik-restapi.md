@@ -5,67 +5,125 @@ title: Rubrik Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Pack assets
 
-## Monitoring Connector assets
+### Templates
 
-The Centreon Monitoring Connector *Rubrik Rest API* aims to collect (thanks to the Restful API) 
-the execution status of the backup tasks and the health of the components supporting it 
-like Cluster, Nodes, Disks, etc.
+The Monitoring Connector **Rubrik Rest API** brings a host template:
 
-## Monitored metrics 
+* **App-Rubrik-Restapi**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Disk" label="Disk">
+<TabItem value="App-Rubrik-Restapi" label="App-Rubrik-Restapi">
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| cluster.disks.total.count                            | Total number cluster disks                       |      |
-| cluster.disks.active.count                           | Number of active disks                           | ms   |
+| Service Alias | Service Template              | Service Description             |
+|:--------------|:------------------------------|:--------------------------------|
+| Cluster       | App-Rubrik-Cluster-Restapi    | Check cluster                   |
+| Compliance    | App-Rubrik-Compliance-Restapi | Check backup objects compliance |
+| Disks         | App-Rubrik-Disks-Restapi      | Check cluster disks             |
+| Nodes         | App-Rubrik-Nodes-Restapi      | Check cluster nodes             |
+| Storage       | App-Rubrik-Storage-Restapi    | Check storage system            |
+| Tasks         | App-Rubrik-Tasks-Restapi      | Check tasks                     |
+
+> The services listed above are created automatically when the **App-Rubrik-Restapi** host template is used.
 
 </TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template        | Service Description | Discovery  |
+|:--------------|:------------------------|:--------------------|:-----------|
+| Jobs          | App-Rubrik-Jobs-Restapi | Check jobs          | X          |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then appy the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
+</Tabs>
+
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                   | Description                      |
+|:----------------------------|:---------------------------------|
+| App-Rubrik-Restapi-Job-Name | Discover jobs and monitor status |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
+
+<Tabs groupId="sync">
 <TabItem value="Cluster" label="Cluster">
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| cluster.io.read.usage.bytespersecond                 | Usage of cluster read I/Os                       | B/s  |
-| cluster.io.write.usage.bytespersecond                | Usage of cluster write I/Os                      | B/s  |
-| cluster.io.read.usage.iops                           | Usage of cluster read I/Os                       | iops |
-| cluster.io.write.usage.iops                          | Usage IOPS of cluster write I/Os                 | iops |
+| Metric name                                          | Unit  |
+|:-----------------------------------------------------|:------|
+| cluster status                                       |       |
+| *cluster_name*#cluster.io.read.usage.bytespersecond  | B/s   |
+| *cluster_name*#cluster.io.write.usage.bytespersecond | B/s   |
+| *cluster_name*#cluster.io.read.usage.iops            | iops  |
+| *cluster_name*#cluster.io.write.usage.iops           | iops  |
 
 </TabItem>
 <TabItem value="Compliance" label="Compliance">
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| backup.objects.incompliance.24h.count                | Number of backup objects compliance in 24h       |      |
-| backup.objects.noncompliance.24h.count               | Number of backup objects no compliance in 24h    |      |
+| Metric name                            | Unit  |
+|:---------------------------------------|:------|
+| backup.objects.incompliance.24h.count  |       |
+| backup.objects.noncompliance.24h.count |       |
 
 </TabItem>
-<TabItem value="Node" label="Node">
+<TabItem value="Disks" label="Disks">
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| cluster.nodes.total.count                            | Total number of node in the cluster              |      |
-| cluster.nodes.ok.count                               | Number of node "OK" in the cluster               |      |
+| Metric name                               | Unit  |
+|:------------------------------------------|:------|
+| *cluster_name*#cluster.disks.total.count  |       |
+| *cluster_name*#cluster.disks.active.count |       |
+| cluster disk status                       |       |
+
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
+
+| Metric name                                 | Unit  |
+|:--------------------------------------------|:------|
+| jobs.executions.detected.count              |       |
+| *job_name*#job.executions.failed.percentage | %     |
+| *job_name*#job.execution.last.seconds       | s     |
+| *job_name*#job.running.duration.seconds     | s     |
+| last job execution status                   |       |
+
+</TabItem>
+<TabItem value="Nodes" label="Nodes">
+
+| Metric name                              | Unit  |
+|:-----------------------------------------|:------|
+| *cluster_name*#cluster.nodes.total.count |       |
+| *cluster_name*#cluster.nodes.ok.count    |       |
+| cluster node status                      |       |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| storage.space.usage.bytes                            | Usage space storage                              | B    |
-| storage.space.free.bytes                             | Free space storage                               | B    |
-| storage.space.usage.percentage                       | Percentage usage space storage                   | %    |
-| storage.full.remaining.days.count                    | Number of remaining day storage full             | d    |
+| Metric name                       | Unit  |
+|:----------------------------------|:------|
+| storage.space.usage.bytes         | B     |
+| storage.space.free.bytes          | B     |
+| storage.space.usage.percentage    | %     |
+| storage.full.remaining.days.count |       |
 
 </TabItem>
-<TabItem value="Task" label="Task">
+<TabItem value="Tasks" label="Tasks">
 
-| Metric name                                          | Description                                      | Unit |
-|:---------------------------------------------------- |:------------------------------------------------ |:---- |
-| tasks.succeeded.24h.count                            | Number of task succeeded in 24h                  |      |
-| tasks.failed.24h.count                               | Number of task failed in 24h                     |      |
-| tasks.canceled.24h.count                             | Number of task canceled in 24h                   |      |
+| Metric name               | Unit  |
+|:--------------------------|:------|
+| tasks.succeeded.24h.count |       |
+| tasks.failed.24h.count    |       |
+| tasks.canceled.24h.count  |       |
 
 </TabItem>
 </Tabs>
@@ -79,60 +137,239 @@ https://{{node_ip}}/docs/{{{v1|v2|internal}}/playground
 
 Information about its configuration is available on github: https://github.com/rubrikinc/api-documentation
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connectors Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Rubrik-Restapi
+dnf install centreon-pack-applications-rubrik-restapi
 ```
-
-2. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Monitoring Connector 
-on the **Configuration > Monitoring Connectors Manager** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor *Rubrik Rest API* resources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Rubrik-Restapi
+dnf install centreon-pack-applications-rubrik-restapi
 ```
 
-2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-rubrik-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-rubrik-restapi
 ```
 
-3. On the Centreon Web interface, install the *Rubrik Rest API* Centreon Monitoring Connector 
-on the **Configuration > Monitoring Connectors Manager** page
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Rubrik Rest API** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Rubrik-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Rubrik-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-applications-rubrik-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Rubrik-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-* Log into Centreon and add a new Host through "Configuration > Hosts". 
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your Rubrik App settings 
-* Select and apply the *App-Rubrik-Restapi-custom* Host Template
-* Set the the Host Macros marked as *mandatory* hereafter:
+### Using a host template provided by the connector
 
-| Mandatory | Name                       | Description                                                                        |
-|:----------|:-------------------------- |:-----------------------------------------------------------------------------------|
-| X         | RUBRIKAPIPORT              | RestAPI port of the Rubrik RestAPI (Default: '443')                                |
-| X         | RUBRIKAPIPROTO             | Protocol used to reach the Rubrik RestAPI (Default: 'https')                       |
-|           | RUBRIKAPIEXTRAOPTIONS      | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **App-Rubrik-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-## FAQ
+| Macro                 | Description                                                                                           | Default value     | Mandatory   |
+|:----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
+| RUBRIKAPIPASSWORD     | API password                                                                                          |                   |             |
+| RUBRIKAPIPORT         | Port used                                                                                             | 443               |             |
+| RUBRIKAPIPROTO        | Specify https if needed                                                                               | https             |             |
+| RUBRIKAPIUSERNAME     | API username                                                                                          |                   |             |
+| RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin 
-by running the following command (some of the parameters such as ```--proxyurl``` have to be adjusted):
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Cluster" label="Cluster">
+
+| Macro             | Description                                                                                                                | Default value      | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------|:-------------------|:------------|
+| CLUSTERID         | Which cluster to check (Default: 'me')                                                                                     | me                 |             |
+| UNKNOWNSTATUS     | Set unknown threshold for status. You can use the following variables: %{status}, %{name}                                  |                    |             |
+| WARNINGREAD       | Thresholds                                                                                                                 |                    |             |
+| CRITICALREAD      | Thresholds                                                                                                                 |                    |             |
+| WARNINGREADIOPS   | Thresholds                                                                                                                 |                    |             |
+| CRITICALREADIOPS  | Thresholds                                                                                                                 |                    |             |
+| CRITICALSTATUS    | Set critical threshold for status (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{name} | %{status} !~ /ok/i |             |
+| WARNINGSTATUS     | Set warning threshold for status. You can use the following variables: %{status}, %{name}                                  |                    |             |
+| WARNINGWRITE      | Thresholds                                                                                                                 |                    |             |
+| CRITICALWRITE     | Thresholds                                                                                                                 |                    |             |
+| WARNINGWRITEIOPS  | Thresholds                                                                                                                 |                    |             |
+| CRITICALWRITEIOPS | Thresholds                                                                                                                 |                    |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                        | --verbose          |             |
+
+</TabItem>
+<TabItem value="Compliance" label="Compliance">
+
+| Macro                 | Description                                                                                         | Default value     | Mandatory   |
+|:----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| WARNINGINCOMPLIANCE   | Thresholds                                                                                          |                   |             |
+| CRITICALINCOMPLIANCE  | Thresholds                                                                                          |                   |             |
+| WARNINGNONCOMPLIANCE  | Thresholds                                                                                          |                   |             |
+| CRITICALNONCOMPLIANCE | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Macro                      | Description                                                                                                                  | Default value          | Mandatory   |
+|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------|:------------|
+| CLUSTERID                  | Which cluster to check (Default: 'me')                                                                                       | me                     |             |
+| FILTERDISKID               | Filter disks by disk id (can be a regexp)                                                                                    |                        |             |
+| UNKNOWNDISKSTATUS          |                                                                                                                              |                        |             |
+| WARNINGCLUSTERDISKSACTIVE  | Thresholds                                                                                                                   |                        |             |
+| CRITICALCLUSTERDISKSACTIVE | Thresholds                                                                                                                   |                        |             |
+| WARNINGCLUSTERDISKSTOTAL   | Thresholds                                                                                                                   |                        |             |
+| CRITICALCLUSTERDISKSTOTAL  | Thresholds                                                                                                                   |                        |             |
+| CRITICALDISKSTATUS         | Set critical threshold for status (Default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{id} | %{status} !~ /active/i |             |
+| WARNINGDISKSTATUS          | Set warning threshold for status. You can use the following variables: %{status}, %{id}                                      |                        |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                          | --verbose              |             |
+
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
+
+| Macro                           | Description                                                                                                                                         | Default value           | Mandatory   |
+|:--------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:------------|
+| FILTERJOBID                     | Filter jobs by job ID                                                                                                                               |                         |             |
+| FILTERJOBNAME                   | Filter jobs by job name                                                                                                                             |                         |             |
+| FILTERJOBTYPE                   | Filter jobs by job type                                                                                                                             |                         |             |
+| FILTERLOCATIONNAME              | Filter jobs by location name                                                                                                                        |                         |             |
+| CRITICALEXECUTIONSTATUS         | Set critical threshold for last job execution status (Default: %{status} =~ /Failure/i). You can use the following variables: %{status}, %{jobName} | %{status} =~ /failure/i |             |
+| WARNINGEXECUTIONSTATUS          | Set warning threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                     |                         |             |
+| WARNINGJOBEXECUTIONLAST         | Thresholds                                                                                                                                          |                         |             |
+| CRITICALJOBEXECUTIONLAST        | Thresholds                                                                                                                                          |                         |             |
+| WARNINGJOBEXECUTIONSFAILEDPRCT  | Thresholds                                                                                                                                          |                         |             |
+| CRITICALJOBEXECUTIONSFAILEDPRCT | Thresholds                                                                                                                                          |                         |             |
+| WARNINGJOBRUNNINGDURATION       | Thresholds                                                                                                                                          |                         |             |
+| CRITICALJOBRUNNINGDURATION      | Thresholds                                                                                                                                          |                         |             |
+| WARNINGJOBSEXECUTIONSDETECTED   | Thresholds                                                                                                                                          |                         |             |
+| CRITICALJOBSEXECUTIONSDETECTED  | Thresholds                                                                                                                                          |                         |             |
+| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                 | --verbose               |             |
+
+</TabItem>
+<TabItem value="Nodes" label="Nodes">
+
+| Macro                     | Description                                                                                                                              | Default value      | Mandatory   |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:------------|
+| CLUSTERID                 | Which cluster to check (Default: 'me')                                                                                                   | me                 |             |
+| FILTERNODEID              | Filter nodes by node id (can be a regexp)                                                                                                |                    |             |
+| UNKNOWNNODESTATUS         | Set unknown threshold for status. You can use the following variables: %{status}, %{ip\_address}, %{id}                                  |                    |             |
+| WARNINGCLUSTERNODESOK     | Thresholds                                                                                                                               |                    |             |
+| CRITICALCLUSTERNODESOK    | Thresholds                                                                                                                               |                    |             |
+| WARNINGCLUSTERNODESTOTAL  | Thresholds                                                                                                                               |                    |             |
+| CRITICALCLUSTERNODESTOTAL | Thresholds                                                                                                                               |                    |             |
+| CRITICALNODESTATUS        | Set critical threshold for status (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{ip\_address}, %{id} | %{status} !~ /ok/i |             |
+| WARNINGNODESTATUS         | Set warning threshold for status. You can use the following variables: %{status}, %{ip\_address}, %{id}                                  |                    |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                      | --verbose          |             |
+
+</TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Macro                     | Description                                                                                         | Default value     | Mandatory   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| WARNINGFULLREMAININGDAYS  | Thresholds                                                                                          |                   |             |
+| CRITICALFULLREMAININGDAYS | Thresholds                                                                                          |                   |             |
+| WARNINGUSAGE              | Thresholds                                                                                          |                   |             |
+| CRITICALUSAGE             | Thresholds                                                                                          |                   |             |
+| WARNINGUSAGEFREE          | Thresholds                                                                                          |                   |             |
+| CRITICALUSAGEFREE         | Thresholds                                                                                          |                   |             |
+| WARNINGUSAGEPRCT          | Thresholds                                                                                          |                   |             |
+| CRITICALUSAGEPRCT         | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Tasks" label="Tasks">
+
+| Macro             | Description                                                                                         | Default value     | Mandatory   |
+|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| WARNINGCANCELED   | Thresholds                                                                                          |                   |             |
+| CRITICALCANCELED  | Thresholds                                                                                          |                   |             |
+| WARNINGFAILED     | Thresholds                                                                                          |                   |             |
+| CRITICALFAILED    | Thresholds                                                                                          |                   |             |
+| WARNINGSUCCEEDED  | Thresholds                                                                                          |                   |             |
+| CRITICALSUCCEEDED | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a server using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
@@ -147,7 +384,7 @@ by running the following command (some of the parameters such as ```--proxyurl``
     --verbose
 ```
 
-Expected command output is shown below: 
+The expected command output is shown below:
 
 ```bash
 OK: cluster 'RubrikOne' nodes are ok | 'RubrikOne#cluster.nodes.total.count'=7;;;0; 'RubrikOne#cluster.nodes.ok.count'=7;;;0;7
@@ -161,34 +398,194 @@ node 'RVMHM194S00XXXX' [ip address: 172.10.69.96] status: ok
 node 'RVMHM194S00XXXX' [ip address: 172.10.69.97] status: ok
 ```
 
-The Plugin mode collects the status of the nodes (```--plugin=apps::backup::rubrik::restapi::plugin --mode=nodes```)
-linked to a cluster reachable at its IP Address *10.0.0.1* on port *443* (```--hostname='10.0.0.1' --port='443'```).
+### Troubleshooting
 
-All the filters that can be used as well as all the available thresholds parameters 
-can be displayed by adding the  ```--help``` parameter to the command:
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
-    --plugin=apps::backup::rubrik::restapi::plugin \
-    --mode=nodes \
-    --help
+	--plugin=apps::backup::rubrik::restapi::plugin \
+    --list-mode
 ```
 
-### Why do I get the following message: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```
+The plugin brings the following modes:
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Rubriik App RestAPI.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. 
-This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
+| Mode       | Linked service template       |
+|:-----------|:------------------------------|
+| cluster    | App-Rubrik-Cluster-Restapi    |
+| compliance | App-Rubrik-Compliance-Restapi |
+| disks      | App-Rubrik-Disks-Restapi      |
+| jobs       | App-Rubrik-Jobs-Restapi       |
+| list-jobs  | Used for service discovery    |
+| nodes      | App-Rubrik-Nodes-Restapi      |
+| storage    | App-Rubrik-Storage-Restapi    |
+| tasks      | App-Rubrik-Tasks-Restapi      |
 
-If a self-signed certificate is used, you must add the following options to ignore its validity:
-```--http-backend='curl' --ssl-opt='SSL_verify_mode => SSL_VERIFY_NONE'```
+### Available options
 
-### Why do I get the following message: ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+#### Generic options
 
-When using a proxy to connect to the Alyvix Server RestAPI, this error
-message means that the Centreon Plugin library does not support the proxy
-connection protocol.
+All generic options are listed here:
 
-In order to prevent this issue, use the *curl* HTTP backend by adding the
-following option to the command: ```--http-backend='curl'```.
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type         |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Global       |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Global       |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Global       |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Global       |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Global       |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get the an information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Global       |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Global       |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Global       |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Global       |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Output       |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output       |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Output       |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          | Output       |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   | Output       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Output       |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Output       |
+| --range-perfdata                           | Change perfdata range thresholds display: 1 = start value equals to '0' is removed, 2 = threshold range is not display.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Output       |
+| --filter-uom                               | Masks the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Output       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output       |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Output       |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output       |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Output       |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output       |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Output       |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Output       |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output       |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Output       |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Rubrik Rest API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Output       |
+| --hostname                                 | Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Api          |
+| --port                                     | Port used (Default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Api          |
+| --proto                                    | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Api          |
+| --service-account                          | Service account ID (with --secret and --organization-id options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Api          |
+| --secret                                   | Service account secret (with --service-account and --organization-id options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Api          |
+| --organization-id                          | Organization ID (with --service-account and --secret options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Api          |
+| --api-username                             | API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Api          |
+| --api-password                             | API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Api          |
+| --token                                    | Use token authentication. If option is empty, token is created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Api          |
+| --timeout                                  | Set timeout in seconds (Default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Api          |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Http global  |
+| --proxyurl                                 | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Http global  |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Http global  |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Http global  |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Http global  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Backend lwp  |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Backend curl |
+| --memcached                                | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Retention    |
+| --redis-server                             | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Retention    |
+| --redis-attribute                          | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Retention    |
+| --redis-db                                 | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Retention    |
+| --failback-file                            | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Retention    |
+| --memexpiration                            | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Retention    |
+| --statefile-dir                            | Directory for statefile (Default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Retention    |
+| --statefile-suffix                         | Add a suffix for the statefile name (Default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Retention    |
+| --statefile-concat-cwd                     | Concat current working directory with option '--statefile-dir'. Useful on Windows when plugin is compiled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Retention    |
+| --statefile-format                         | Format used to store cache (can be: 'dumper', 'storable', 'json').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Retention    |
+| --statefile-key                            | Key to encrypt/decrypt cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Retention    |
+| --statefile-cipher                         | Cipher to encrypt cache (Default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Retention    |
+
+#### Modes options
+
+All modes specific options are listed here:
+
+<Tabs groupId="sync">
+<TabItem value="Cluster" label="Cluster">
+
+| Option                   | Description                                                                                                                  | Type |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-----|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                         | Mode |
+| --cluster-id             | Which cluster to check (Default: 'me').                                                                                      | Mode |
+| --unknown-status         | Set unknown threshold for status. You can use the following variables: %{status}, %{name}                                    | Mode |
+| --warning-status         | Set warning threshold for status. You can use the following variables: %{status}, %{name}                                    | Mode |
+| --critical-status        | Set critical threshold for status (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{name}   | Mode |
+| --warning-* --critical-* | Thresholds. Can be: 'read' (B/s), 'write' (B/s), 'read-iops', 'write-iops'.                                                  | Mode |
+
+</TabItem>
+<TabItem value="Compliance" label="Compliance">
+
+| Option                   | Description                                                                                   | Type |
+|:-------------------------|:----------------------------------------------------------------------------------------------|:-----|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='noncompliance'   | Mode |
+| --warning-* --critical-* | Thresholds. Can be: 'incompliance', 'noncompliance'.                                          | Mode |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Option                   | Description                                                                                                                    | Type |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:-----|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='disk-status'                                      | Mode |
+| --cluster-id             | Which cluster to check (Default: 'me').                                                                                        | Mode |
+| --filter-disk-id         | Filter disks by disk id (can be a regexp).                                                                                     | Mode |
+| --unknown-disks-status   | Set unknown threshold for status. You can use the following variables: %{status}, %{id}                                        | Mode |
+| --warning-disk-status    | Set warning threshold for status. You can use the following variables: %{status}, %{id}                                        | Mode |
+| --critical-disk-status   | Set critical threshold for status (Default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{id}   | Mode |
+| --warning-* --critical-* | Thresholds. Can be: 'cluster-disks-total', 'cluster-disks-active'.                                                             | Mode |
+
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
+
+| Option                      | Description                                                                                                                                                  | Type |
+|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
+| --filter-job-id             | Filter jobs by job ID.                                                                                                                                       | Mode |
+| --filter-job-name           | Filter jobs by job name.                                                                                                                                     | Mode |
+| --filter-job-type           | Filter jobs by job type.                                                                                                                                     | Mode |
+| --filter-location-name      | Filter jobs by location name.                                                                                                                                | Mode |
+| --unit                      | Select the unit for last execution time threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   | Mode |
+| --unknown-execution-status  | Set unknown threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                              | Mode |
+| --warning-execution-status  | Set warning threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                              | Mode |
+| --critical-execution-status | Set critical threshold for last job execution status (Default: %{status} =~ /Failure/i). You can use the following variables: %{status}, %{jobName}          | Mode |
+| --warning-* --critical-*    | Thresholds. Can be: 'jobs-executions-detected', 'job-executions-failed-prct', 'job-execution-last', 'job-running-duration'.                                  | Mode |
+
+</TabItem>
+<TabItem value="Nodes" label="Nodes">
+
+| Option                   | Description                                                                                                                                | Type |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-----|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='node-status'                                                  | Mode |
+| --cluster-id             | Which cluster to check (Default: 'me').                                                                                                    | Mode |
+| --filter-node-id         | Filter nodes by node id (can be a regexp).                                                                                                 | Mode |
+| --unknown-node-status    | Set unknown threshold for status. You can use the following variables: %{status}, %{ip\_address}, %{id}                                    | Mode |
+| --warning-node-status    | Set warning threshold for status. You can use the following variables: %{status}, %{ip\_address}, %{id}                                    | Mode |
+| --critical-node-status   | Set critical threshold for status (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{ip\_address}, %{id}   | Mode |
+| --warning-* --critical-* | Thresholds. Can be: 'cluster-nodes-total', 'cluster-nodes-ok'.                                                                             | Mode |
+
+</TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Option                   | Description                                                                                    | Type |
+|:-------------------------|:-----------------------------------------------------------------------------------------------|:-----|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='remaining'        | Mode |
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'full-remaining-days'.    | Mode |
+
+</TabItem>
+<TabItem value="Tasks" label="Tasks">
+
+| Option                   | Description                                                                            | Type |
+|:-------------------------|:---------------------------------------------------------------------------------------|:-----|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='failed'   | Mode |
+| --warning-* --critical-* | Thresholds. Can be: 'succeeded', 'failed', 'canceled'.                                 | Mode |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
+	--plugin=apps::backup::rubrik::restapi::plugin \
+	--mode=cluster \
+    --help
+```
