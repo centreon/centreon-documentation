@@ -37,7 +37,7 @@ Release date: `soon`
 - [UI] Fixed view freezes beyond 500 elements.
 - [Viewer] Fixed an error message on a call failure.
 - [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
-- [Viewer] Fixed broken or missing images after an update to MAP 22.10.5.
+- [Viewer] Fixed broken or missing images after an update.
 
 ### 22.04.6 ###
 
