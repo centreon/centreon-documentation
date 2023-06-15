@@ -24,6 +24,7 @@ Release date: `soon`
 - [Editor] You can now edit styles on multiple resources at once.
 - [Editor] You can now manage font properties in the editor.
 - [UI] Made metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [Viewer] You can now define a label for a URL shape.
 - [Viewer] Resources now have a unique status.
 
 #### Bug fixes
