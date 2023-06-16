@@ -18,6 +18,14 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.3
+
+Release date: `June 16, 2023`
+
+#### Security fix
+
+-[Security] Fixed DDOS vulnerability in Centreon that was overwriting the index.html file.
+
 ### 23.04.2
 
 Release date: `June 7, 2023`
