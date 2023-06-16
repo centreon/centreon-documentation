@@ -89,7 +89,7 @@ Votre branche doit être basée sur la branche **staging**. Depuis cette branche
    git clone https://github.com/centreon/centreon-documentation.git
    ```
 
-2. Rendez-vous dans le dosier **centreon-documentation**. Vous êtes sur la branche **staging**.
+2. Rendez-vous dans le dossier **centreon-documentation**. Vous êtes sur la branche **staging**.
 3. Créez une nouvelle branche basée sur **staging**: donnez-lui un nom parlant. Pour créer une branche et vous positionner dessus :
 
    ```shell
