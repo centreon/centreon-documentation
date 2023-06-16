@@ -239,8 +239,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURECUSTOMMODE    | When a plugin offers several ways  to get the an information the desired one must be defined with this option | api               |             |
 | AZURERESOURCE      | Set resource name or id . It is the database name                                                             |                   |             |
 | AZURERESOURCEGROUP | Set resource group                                                                                            |                   |             |
-| AZURESERVER        | Set server name                                                                                               |                   |             |
-| AZURESQLSERVERNAME |                                                                                                               |                   |             |
+| AZURESQLSERVERNAME | Set server name                                                                                               |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   |             |
 | AZURETENANT        | Set Azure tenant ID                                                                                           |                   |             |
 | PROXYURL           | Proxy URL if any                                                                                              |                   |             |
@@ -254,8 +253,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURECUSTOMMODE    | When a plugin offers several ways  to get the an information the desired one must be defined with this option | api               |             |
 | AZURERESOURCE      | Set resource name or id . It is the database name                                                             |                   |             |
 | AZURERESOURCEGROUP | Set resource group                                                                                            |                   |             |
-| AZURESERVER        | Set server name                                                                                               |                   |             |
-| AZURESQLSERVERNAME |                                                                                                               |                   |             |
+| AZURESQLSERVERNAME | Set server name                                                                                               |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   |             |
 | PROXYURL           | Proxy URL if any                                                                                              |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)         |                   |             |
@@ -430,7 +428,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 The expected command output is shown below:
 
 ```bash
-OK: App CPU percent  App Memory percent | 'sqldatabase.serverless.app.cpu.percentage'=6%;;;0; 'sqldatabase.serverless.app.memory.percentage'=23%;;;0; 
+OK: App CPU percent  App Memory percent | 'sqldatabase.serverless.app.cpu.percentage'=96%;;;0; 'sqldatabase.serverless.app.memory.percentage'=85%;;;0; 
 ```
 
 ### Troubleshooting
