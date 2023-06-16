@@ -23,7 +23,7 @@ Release date: `June 16, 2023`
 
 #### Security fix
 
--[Security] Fixed DDOS vulnerability in Centreon that was overwriting the index.html file.
+-[Security] Fixed the base URI change detection mechanism.
 
 ### 21.10.14
 
