@@ -17,6 +17,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.14
+
+Release date: `June 16, 2023`
+
+#### Security fix
+
+-[Security] Fixed DDOS vulnerability in Centreon that was overwriting the index.html file.
+
 ### 22.04.13
 
 Release date: `June 8, 2023`
