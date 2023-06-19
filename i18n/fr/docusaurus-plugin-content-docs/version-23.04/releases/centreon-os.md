@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ### 23.04.3
 
-Release date: `June 16, 2023`
+Release date: `June 19, 2023`
 
 #### Security fix
 
