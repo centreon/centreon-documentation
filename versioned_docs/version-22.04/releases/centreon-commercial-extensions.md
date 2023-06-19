@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.7 ###
 
-Release date: `soon`
+Release date: `June 19, 2023`
 
 #### New features
 
@@ -132,7 +132,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.7 ###
 
-Release date: `soon`
+Release date: `June 19, 2023`
 
 - No change.
 
@@ -241,7 +241,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.4
 
-Release date: `soon`
+Release date: `June 19, 2023`
 
 #### Bug fix
 
