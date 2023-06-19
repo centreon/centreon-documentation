@@ -284,7 +284,7 @@ The diagram below summarizes the architecture:
 
 ### Remote DBMS
 
-The distributed architecture with remote DBMSincludes three types of entities:
+The distributed architecture with remote DBMS includes three types of entities:
 
 * A central Centreon server to display information
 * A DBMS server to store collected data
