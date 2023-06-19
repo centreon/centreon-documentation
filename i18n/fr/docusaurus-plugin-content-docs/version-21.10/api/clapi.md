@@ -860,7 +860,7 @@ Columns are the following:
 | 1      | Parameter key of the I/O   |
 | 2      | Parameter value of the I/O |
 
-#### Addinputa and Addoutput
+#### Addinput and Addoutput
 
 In order to add a new I/O object, use one of the following commands:
 
@@ -870,13 +870,16 @@ In order to add a new I/O object, use one of the following commands:
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -v "broker cfg for poller test;/var/log/centreon-broker/central-module.log;file"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a addoutput -v "broker cfg for poller test;MyFileOutput;file"
 ```
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -v "broker cfg for poller test"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a listoutput -v "broker cfg for poller test"
 id;name
-1;/var/log/centreon-broker/central-module.log
+1;Storage
+2;RRD
+3;PerfData
+4:MyFileOutput
 ```
 
 Arguments are composed of the following columns:
@@ -897,7 +900,7 @@ In order to remove an I/O object from the Centreon Broker configuration, use one
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -v "broker cfg for poller test;1"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a deloutput -v "broker cfg for poller test;4"
 ```
 
 The I/O ID is used for identifying the object to delete.
@@ -912,7 +915,7 @@ In order to set parameters of an I/O object, use one of the following commands:
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -v "broker cfg for poller test;1;debug;no"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a setoutput -v "broker cfg for poller test;1;retry_interval;5'"
 ```
 
 Arguments are composed of the following columns:
