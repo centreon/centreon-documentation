@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.15
+
+Release date: `June 19, 2023`
+
+#### Security fix
+
+-[Security] Fixed the base URI change detection mechanism.
+
 ### 21.10.14
 
 Release date: `March 15, 2023`
