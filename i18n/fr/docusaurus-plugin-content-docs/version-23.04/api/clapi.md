@@ -900,7 +900,7 @@ In order to remove an I/O object from the Centreon Broker configuration, use one
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a dellogger -v "broker cfg for poller test;1"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a deloutput -v "broker cfg for poller test;4"
 ```
 
 The I/O ID is used for identifying the object to delete.
