@@ -21,7 +21,7 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ### 23.04.3
 
-Release date: `June 16, 2023`
+Release date: `June 19, 2023`
 
 #### Security fix
 
