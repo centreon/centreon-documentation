@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.10.15
 
-Release date: `June 16, 2023`
+Release date: `June 19, 2023`
 
 #### Security fix
 
