@@ -17,6 +17,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.15
+
+Release date: `June 19, 2023`
+
+#### Security fix
+
+-[Security] Fixed the base URI change detection mechanism.
+
 ### 21.10.14
 
 Release date: `March 15, 2023`
