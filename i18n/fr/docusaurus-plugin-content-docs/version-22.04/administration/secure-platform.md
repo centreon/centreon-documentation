@@ -1421,14 +1421,13 @@ apt install nghttp2
 ...
 ```
 
-4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/apache2/sites-available/00-mpm.conf** :
+4. Exécutez les commandes suivantes :
 
-```diff
--LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-
--#LoadModule mpm_event_module modules/mod_mpm_event.so
-+LoadModule mpm_event_module modules/mod_mpm_event.so
+```shell
+a2dismod php8.1
+a2dismod mpm_prefork
+a2enmod mpm_event
+a2enmod http2
 ```
 
 5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
