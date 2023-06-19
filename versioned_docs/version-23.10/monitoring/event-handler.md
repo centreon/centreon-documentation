@@ -73,7 +73,7 @@ Follow [this procedure to create a command](./basic-objects/commands.md#adding-a
 Go to the **Configuration > Pollers > Engine configuration** menu and edit all your Centreon Engine configuration on
 which you want to enable auto remediation.
 
-In the **Check Opyions** tab, enable the **Event Handler Option** option:
+In the **Check Options** tab, enable the **Event Handler Option** option:
 
 ![image](../assets/configuration/enableeventhnadleronpoller.png)
 
