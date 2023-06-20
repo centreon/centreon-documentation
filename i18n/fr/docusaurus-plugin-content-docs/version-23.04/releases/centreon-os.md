@@ -18,6 +18,14 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.4
+
+Release date: `June 20, 2023`
+
+#### Bug fix
+
+- Fix topology_url_substitute error due to missing request in update scripts.
+
 ### 23.04.3
 
 Release date: `June 19, 2023`
