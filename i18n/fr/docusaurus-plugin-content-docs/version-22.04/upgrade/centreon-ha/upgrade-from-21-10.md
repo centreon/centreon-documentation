@@ -180,6 +180,18 @@ rm -rf /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
+Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf** :
+
+```shell
+expire_logs_days=7
+```
+
+Si ce n'est pas le cas, ajoutez-la et redémarrez la ressource **ms_mysql** :
+
+```shell
+pcs resource restart ms_mysql
+```
+
 ### Réinitialiser les autorisations de la ressource centreon_central_sync
 
 L'upgrade RPM remet les permissions en place sur les serveurs centraux. Modifiez-les en utilisant ces commandes :

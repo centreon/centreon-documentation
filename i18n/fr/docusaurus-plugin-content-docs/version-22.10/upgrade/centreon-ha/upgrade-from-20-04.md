@@ -285,6 +285,18 @@ rm -rf /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
+Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf** :
+
+```shell
+expire_logs_days=7
+```
+
+Si ce n'est pas le cas, ajoutez-la et redémarrez la ressource **ms_mysql** :
+
+```shell
+pcs resource restart ms_mysql
+```
+
 ### Changez les permissions pour la resource centreon_central_sync
 
 La mise à jour des RPMs à modifié les permissions sur certains fichiers synchronisés par *_centreon_central_sync_*. Il est nécesssaire de les modifier :

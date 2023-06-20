@@ -47,6 +47,18 @@ rm /etc/cron.d/centreon-auto-disco
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
+As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file:
+
+```shell
+expire_logs_days=7
+```
+
+If the line is not there, add it, then restart the **ms_mysql** resource:
+
+```shell
+pcs resource restart ms_mysql
+```
+
 ### Updating Centreon extensions
 
 The Centreon extensions are also to be updated *via* the WUI, from the "Administration > Extensions > Manager" menu by clicking the "Update all" button.
