@@ -22,7 +22,7 @@ Release date: `June 19, 2023`
 
 #### Security fix
 
--[Security] Fixed the base URI change detection mechanism.
+- [Security] Fixed the base URI change detection mechanism.
 
 ### 21.10.14
 
