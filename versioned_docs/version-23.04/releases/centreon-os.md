@@ -25,7 +25,7 @@ Release date: `June 20, 2023`
 
 #### Bug fix
 
-- Fix topology_url_substitute error due to missing request in update scripts that caused blank screens after update from 23.04.1.
+- [Update] Fixed a topology_url_substitute error due to a missing request in update scripts that caused a blank screen after an update from 23.04.1.
 
 ### 23.04.3
 
