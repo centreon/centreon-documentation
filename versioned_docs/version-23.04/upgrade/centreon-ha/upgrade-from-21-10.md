@@ -57,6 +57,7 @@ The RPM upgrade puts cron jobs back in place on the central and databases server
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Reset the permissions for centreon_central_sync resource

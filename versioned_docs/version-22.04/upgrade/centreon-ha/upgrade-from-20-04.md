@@ -301,6 +301,7 @@ The RPM upgrade puts cron job back in place. Remove them to avoid concurrent exe
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Reset the permissions for centreon_central_sync resource

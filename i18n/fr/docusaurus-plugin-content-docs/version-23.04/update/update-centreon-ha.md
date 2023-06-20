@@ -50,6 +50,7 @@ Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les su
 rm /etc/cron.d/centreon
 rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Mise à jour des extensions

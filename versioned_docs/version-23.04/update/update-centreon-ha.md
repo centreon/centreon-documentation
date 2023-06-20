@@ -52,6 +52,7 @@ The RPM upgrade puts cron job back in place. Remove them to avoid concurrent exe
 rm /etc/cron.d/centreon
 rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Updating Centreon extensions

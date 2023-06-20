@@ -62,11 +62,12 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Suppression des tâches cron
 
-La mise à jour RPM remet en place les cron jobs sur les serveurs Central et Databases. Supprimez-les pour éviter les exécutions simultanées : 
+La mise à jour RPM remet en place les cron jobs sur les serveurs Central et Databases. Supprimez-les pour éviter les exécutions simultanées :
 
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Réinitialiser les autorisations pour la ressource centreon_central_sync

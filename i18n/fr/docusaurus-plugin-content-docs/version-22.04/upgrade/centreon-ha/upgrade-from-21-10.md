@@ -177,6 +177,7 @@ La mise à jour RPM remet en place les crons sur les serveurs Central et Bases d
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Réinitialiser les autorisations de la ressource centreon_central_sync

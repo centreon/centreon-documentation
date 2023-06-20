@@ -160,6 +160,7 @@ Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les su
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Changez les permissions pour la resource centreon_central_sync
