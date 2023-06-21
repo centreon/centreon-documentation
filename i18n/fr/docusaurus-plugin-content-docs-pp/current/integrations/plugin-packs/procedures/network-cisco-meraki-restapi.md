@@ -183,7 +183,7 @@ Une fois l'API activée, allez dans le menu *my profile* pour générer une *API
 Vous pouvez générer, révoquer et regénérer une API Key pour votre profil.
 
 > Sauvegardez votre *API Key* en lieu sûr puisqu'elle contient des informations d'authentification pour toute votre organisation.
-> Il est possible de regénérer l '*API Key* à tout moment, cela révoquera l'existante.
+> Il est possible de regénérer l'*API Key* à tout moment, cela révoquera la clé existante.
 
 ## Installer le connecteur de supervision
 
