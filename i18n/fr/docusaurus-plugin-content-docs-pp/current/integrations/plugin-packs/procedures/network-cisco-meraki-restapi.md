@@ -307,7 +307,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                   | api.meraki.com    |             |
 | MERAKIAPIPORT         | Port used                                                                                             | 443               |             |
 | MERAKIAPIPROTO        | Specify https if needed                                                                               | https             |             |
-| MERAKIAPITOKEN        | Meraki api token                                                                                      |                   |             |
+| MERAKIAPITOKEN        | Meraki API token                                                                                      |                   |             |
 | MERAKIDEVICENAME      | Filter devices by name                                                                                |                   |             |
 | PROXYURL              | Proxy URL. Eg: http://my.proxy:3128                                                                   |                   |             |
 | MERAKIAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
