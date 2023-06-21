@@ -712,7 +712,7 @@ All modes specific options are listed here:
 
 | Option                     | Description                                                                                                                                                | Type |
 |:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| --filter-network-name      | Filter network name (Can be a regexp).                                                                                                                     | Mode |
+| --filter-network-name      | Filter network name (can be a regexp).                                                                                                                     | Mode |
 | --filter-organization-id   | Filter networks by organization id (Can be a regexp).                                                                                                      | Mode |
 | --filter-organization-name | Filter networks by organization name (Can be a regexp).                                                                                                    | Mode |
 | --warning-* --critical-*   | Thresholds. Can be: 'connections-success', 'connections-auth', 'connections-assoc', 'connections-dhcp', 'connections-dns', 'traffic-in', 'traffic-out'.    | Mode |
