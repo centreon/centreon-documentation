@@ -304,7 +304,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 
 | Macro                 | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| MERAKIAPIHOSTNAME     | Meraki api hostname                                                                                   | api.meraki.com    |             |
+| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                   | api.meraki.com    |             |
 | MERAKIAPIPORT         | Port used                                                                                             | 443               |             |
 | MERAKIAPIPROTO        | Specify https if needed                                                                               | https             |             |
 | MERAKIAPITOKEN        | Meraki api token                                                                                      |                   |             |
