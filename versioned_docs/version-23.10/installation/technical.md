@@ -284,7 +284,7 @@ The diagram below summarizes the architecture:
 
 ### Remote DBMS
 
-The distributed architecture with remote DBMSincludes three types of entities:
+The distributed architecture with remote DBMS includes three types of entities:
 
 * A central Centreon server to display information
 * A DBMS server to store collected data
@@ -333,7 +333,7 @@ Many components are used to build a central Centreon server:
 Many components are used to build a poller:
 
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by a monitoring engine
+* Collected data are sent to Centreon Broker SQL by the monitoring engine, using cbmod
 
 #### Architecture
 
