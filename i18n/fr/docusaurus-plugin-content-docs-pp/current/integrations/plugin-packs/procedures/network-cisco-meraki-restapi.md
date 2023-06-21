@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                     | Description                            |
 |:-------------|:------------------------------------------------------|:---------------------------------------|
-| Api-Requests | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi | Contrôle l'utilisation de l'API meraki |
+| Api-Requests | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi | Contrôle l'utilisation de l'API Meraki |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Meraki-Cloudcontroller-Restapi** est utilisé.
 
