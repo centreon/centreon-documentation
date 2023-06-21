@@ -309,7 +309,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | MERAKIAPIPROTO        | Specify https if needed                                                                               | https             |             |
 | MERAKIAPITOKEN        | Meraki API token                                                                                      |                   |             |
 | MERAKIDEVICENAME      | Filter devices by name                                                                                |                   |             |
-| PROXYURL              | Proxy URL. Eg: http://my.proxy:3128                                                                   |                   |             |
+| PROXYURL              | Proxy URL. E.g.: http://my.proxy:3128                                                                   |                   |             |
 | MERAKIAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
