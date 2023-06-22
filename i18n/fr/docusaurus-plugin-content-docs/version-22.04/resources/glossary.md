@@ -89,7 +89,7 @@ Ces fichiers permettent de conserver les données de supervision quand elles n�
 
 ## Fichiers RRD
 
-Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les graphiques de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
+Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les [graphiques](#graphique) de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
 
 ## FQDN
 
