@@ -382,8 +382,7 @@ yum install centreon-map-engine
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
-apt install centreon-map-engine
+apt update && apt install centreon-map-engine
 ```
 
 </TabItem>
