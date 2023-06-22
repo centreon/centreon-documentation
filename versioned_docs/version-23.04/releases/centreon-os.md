@@ -121,9 +121,17 @@ Compatibility with other 23.04 components.
 
 ## Centreon Gorgone
 
+### 23.04.3
+
+Release date: `June 22, 2023`
+
+#### Bug fix
+
+- [Core] Fixed recurring unexpected disconnection between pollers.
+
 ### 23.04.2
 
-Release date : `June 7, 2023`
+Release date: `June 7, 2023`
 
 #### Enhancement
 
