@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 ## Vue d'ensemble
 
 Graylog est une solution de gestion de log permettant stocker ces derniers et de
-les analyser en temps réél. 
+les analyser en temps réel. 
 
 Le connecteur de supervision Centreon *Graylog* permet (par l'interrogation de l'API Rest)
 de récupérer le nombre de notifications système par sévérité ainsi que le nombre
@@ -51,7 +51,7 @@ notifications systèmes. Cependant, un compte avec le rôle "admin" est nécessa
 pour effectuer les requêtes Lucène sur le serveur Graylog.
 
 Plus d'informations sur le site officiel de Graylog : 
-https://docs.graylog.org/en/latest/pages/configuration/rest_api.
+https://go2docs.graylog.org/5-1/setting_up_graylog/rest_api.html.
 
 ## Installation
 
