@@ -126,7 +126,7 @@ Release date: `June 22, 2023`
 
 #### Bug fix
 
-- [Core] Fixed recurring unexpected disconnection between pollers.
+- [Core] Fixed a recurring unexpected disconnection between pollers caused by an internal key rotation.
 
 ### 23.04.2
 
