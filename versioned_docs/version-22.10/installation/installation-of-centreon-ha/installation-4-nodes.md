@@ -797,6 +797,7 @@ In high-availability setup, gorgone daemon manages all cron-based scheduled task
 rm -f /etc/cron.d/centreon
 rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Permission modifications

@@ -282,6 +282,19 @@ Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les su
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
+```
+
+Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf** :
+
+```shell
+expire_logs_days=7
+```
+
+Si ce n'est pas le cas, ajoutez-la et redémarrez la ressource **ms_mysql** :
+
+```shell
+pcs resource restart ms_mysql
 ```
 
 ### Changez les permissions pour la resource centreon_central_sync
