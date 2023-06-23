@@ -228,10 +228,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-iplabel-ekara-restapi'
         },
         {
