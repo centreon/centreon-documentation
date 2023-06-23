@@ -13,6 +13,6 @@ On this page you can perform the following actions (hover over the resource's st
 
    Acknowledging a resource does not mean that the incident is over. It will be over when the resource is back to its nominal state (OK or UP).
 
-- **Plan a downtime**: Downtime is a period during which notifications are disabled for a resource. When you know that a specific resource is going to be down for maintenance, set downtime on it to avoid receiving unnecessary alerts.
+- **Plan downtime**: Downtime is a period during which notifications are disabled for a resource. When you know that a specific resource is going to be down for maintenance, set downtime on it to avoid receiving unnecessary alerts.
 
 - **Perform a check on a resource**: Execute the check command for the resource immediately. Its status will be refreshed shortly.
