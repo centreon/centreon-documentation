@@ -301,7 +301,7 @@ dnf update
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-To install the Centreon repository, execute following command line:
+To install the Centreon repository, execute the following command line:
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -392,7 +392,7 @@ Then follow instructions by
     please enter the password for 192.168.0.1:
     ```
 
-2. Select the IP adress if multiple network interfaces exist:
+2. Select the IP address if multiple network interfaces exist:
 
     ```shell
     Which IP do you want to use as CURRENT NODE IP?
