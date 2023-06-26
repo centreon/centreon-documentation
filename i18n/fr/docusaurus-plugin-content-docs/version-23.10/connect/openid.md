@@ -157,7 +157,7 @@ et un groupe d'accès défini dans Centreon :
 }
 ```
 
-> Lors de la récupération des attributs, Centreon va fusionner les attributs récupérés dans le JWT (JSON Web Tokens)
+> Lors de la récupération des attributs, Centreon va fusionner les attributs récupérés dans le JWT (JSON Web Token)
 > avec ceux récupérés dans le point d'entrée sélectionné en donnant priorité aux attributs du JWT. Ainsi, si un attribut
 > est disponible dans le JWT et dans le point d'entrée sélectionné, alors l'attribut retenu sera celui provenant du JWT.
 
