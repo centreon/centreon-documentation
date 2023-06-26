@@ -135,7 +135,7 @@ between the value **centreon-editor** and a defined access group in Centreon:
 ```
 
 > When retrieving attributes, Centreon will merge the attributes retrieved from the JWT (JSON Web Token) with those
-> retrieved in the selected entry point, giving priority to the JWT attributes. Thus, if an attribute is available in
+> retrieved from the selected entry point, giving priority to the JWT attributes. Thus, if an attribute is available in
 > the JWT and in the selected entry point, then the attribute selected will be the one coming from the JWT.
 
 > Each time the user logs in, authorization management is reinitialized to take into account any new information from the
