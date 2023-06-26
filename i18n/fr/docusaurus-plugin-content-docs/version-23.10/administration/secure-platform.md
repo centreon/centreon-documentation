@@ -1578,7 +1578,13 @@ et sorties **IPv4**:
 
 ### Communication Centreon Gorgone
 
-La [documentation officielle de Centreon gorgone](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore) vous permettra de sécuriser la communication entre les processus Gorgone.
+Par défaut, les communications ZMQ sont sécurisées, à la fois celles externes (avec le collecteur) et celles internes (entre processus gorgone).
+
+Cependant, l'API gorgone HTTP n'est pas sécurisée par défaut. Seul localhost peut communiquer avec gorgone, mais il n'utilise pas SSL.
+
+Vous pouvez [configurer SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
+
+Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 
