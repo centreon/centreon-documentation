@@ -148,14 +148,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: version
-        ? undefined
-        : {
-          appId: '3WEC6XPLDB',
-          apiKey: 'be499306058f3e54012bab278e6e6d86',
-          indexName: 'centreon',
-          contextualSearch: true,
-        },
+      algolia: {
+        appId: '3WEC6XPLDB',
+        apiKey: 'be499306058f3e54012bab278e6e6d86',
+        indexName: 'centreon',
+        contextualSearch: true,
+      },
 
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
@@ -204,6 +202,10 @@ const config = {
                 type: 'html',
                 position: 'left',
                 value: `<h2 style="margin:0">Centreon OnPrem ${version}</h2>`,
+              },
+              {
+                type: 'search',
+                position: 'right',
               },
               {
                 type: 'localeDropdown',
