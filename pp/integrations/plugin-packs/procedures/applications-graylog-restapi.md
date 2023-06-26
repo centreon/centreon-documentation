@@ -51,7 +51,7 @@ the "Reader" role is sufficient to access system notifications
 but an admin account is needed to perform the Lucene queries on the Graylog server.
 
 More information on the official Graylog site:
-https://docs.graylog.org/en/latest/pages/configuration/rest_api.
+https://go2docs.graylog.org/5-1/setting_up_graylog/rest_api.html.
 
 ## Installation
 
