@@ -8,6 +8,64 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### June
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - initial release - Status:stable - centreon-pack-cloud-aws-cloudtrail-23.06.0-1
+- [**Cambium cnPilot SNMP**](../procedures/network-cambium-cnpilot-snmp.md) - initial release - Status:stable - centreon-pack-network-cambium-cnpilot-snmp-23.06.7-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Palo Alto firewall SSH**](../procedures/network-firewalls-paloalto-standard-ssh.md) - added new licences mode - Status:stable - centreon-pack-network-firewalls-paloalto-standard-ssh-23.06.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Updated default NRPE client and options - Status:stable - centreon-pack-operatingsystems-windows-nsclient-05-nrpe-23.06.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Adva FSP 3000 SNMP**](../procedures/network-adva-fsp3000-snmp.md) - Fixed options for interfaces mode - Status:stable - centreon-pack-network-adva-fsp3000-snmp-23.06.0-1
+- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - Fixed option in virtual-volumes-quotas mode - Status:stable - centreon-pack-hardware-storage-hitachi-hnas-snmp-23.06.0-1
+
+</TabItem>
+</Tabs>
+
+### May
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - cloud-aws-directconnect - initial release - Status:stable - centreon-pack-cloud-aws-directconnect-23.05.0-1
+- [**HMS Netbiter Argos RestAPI**](../procedures/hardware-devices-hms-netbiter-argos-restapi.md) - hardware-devices-hms-netbiter-argos-restapi - initial release - Status:stable - centreon-pack-hardware-devices-hms-netbiter-argos-restapi-23.05.0-1
+- [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - network-keysight-nvos-restapi - initial release - Status:stable - centreon-pack-network-keysight-nvos-restapi-23.05.0-1
+- [**Outscale**](../procedures/cloud-outscale.md) - cloud-outscale - initial release - Status:stable - centreon-pack-cloud-outscale-23.05.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - applications-protocol-snmp - added a SNMP-based host template - Status:stable - centreon-pack-applications-protocol-snmp-23.05.1-1
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - operatingsystems-linux-ssh - updated diskio command options - Status:stable - centreon-pack-operatingsystems-linux-ssh-23.05.0-1
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - applications-databases-mysql - added a collection service - Status:stable - centreon-pack-applications-databases-mysql-23.05.0-1
+- [**Protocol TCP**](../procedures/applications-protocol-tcp.md) - applications-protocol-tcp - added a TCP-based host template - Status:stable - centreon-pack-applications-protocol-tcp-23.05.0-1
+- [**Protocol UDP**](../procedures/applications-protocol-udp.md) - applications-protocol-udp - added a UDP-based host template - Status:stable - centreon-pack-applications-protocol-udp-23.05.2-1
+- [**Sonus SBC **](../procedures/network-sonus-sbc-snmp.md) - network-sonus-sbc-snmp - change thresholds names - Status:stable - centreon-pack-network-sonus-sbc-snmp-23.05.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - Add policy-name macro - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.05.1-1
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - fix(pack) cloud-azure-policyinsights-policystates - changed command name - Status:stable - centreon-pack-cloud-azure-policyinsights-policystates-23.05.0-1
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - applications-monitoring-centreon-poller - fix options for Broker stats - Status:stable - centreon-pack-applications-monitoring-centreon-poller-23.05.1-1
+- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - centreon-pack-hardware-servers-xfusion-ibmc-snmp - wrong command - Status:stable - centreon-pack-hardware-servers-xfusion-ibmc-snmp-23.05.0-1
+
+</TabItem>
+</Tabs>
+
 ### April
 
 > In the Monitoring Connectors Manager, you may notice that all connectors have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.

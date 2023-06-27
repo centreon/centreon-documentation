@@ -1,6 +1,6 @@
 ---
 id: which-install
-title: Quelle installation choisir?
+title: Quelle installation choisir ?
 ---
 
 Centreon propose plusieurs modes d'installation. Lequel choisir?

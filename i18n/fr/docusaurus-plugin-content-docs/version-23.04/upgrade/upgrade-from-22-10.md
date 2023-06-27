@@ -388,12 +388,26 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-Mettez à jour les permissions sur les fichiers de configurations de cenreon-broker.
+Mettez à jour les permissions sur les fichiers de configurations de centreon-broker.
 
-  ```shell
-  usermod -a -G centreon-broker www-data
-  usermod -a -G www-data centreon-broker
-  ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+usermod -a -G centreon-broker www-data
+usermod -a -G www-data centreon-broker
+```
+
+</TabItem>
+</Tabs>
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.md) pour le mettre à jour.

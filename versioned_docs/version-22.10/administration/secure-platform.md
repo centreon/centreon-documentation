@@ -277,6 +277,8 @@ Execute the following commands:
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
 ```
 
 </TabItem>
@@ -1490,8 +1492,13 @@ and enable for **IPv4** inputs and outputs:
 
 ### Centreon Gorgone communication
 
-This the official [Centreon gorgone documentation](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore)
-to secure the communication.
+By default, ZMQ communications are secured, both external (with the poller) and internal (between gorgone processes).
+
+However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone but the communication is not done using SSL.
+
+You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
+
+Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
 
 ## Security Information and Event Management - SIEM
 

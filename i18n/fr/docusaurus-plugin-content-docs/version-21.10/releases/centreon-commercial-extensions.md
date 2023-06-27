@@ -15,6 +15,12 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.9
+
+Release date: `June 1, 2023`
+
+No changes.
+
 ### 21.10.8
 
 Release date: `December 28, 2022`
@@ -109,7 +115,7 @@ may have to be recreated after updating Map to version 21.10.3.
 
 Release date: `December 20, 2021`
 
-#### Security fixes 
+#### Security fixes
 
 - Log4J version updated to 2.17.0
 
@@ -140,6 +146,20 @@ Release date: `December 16, 2021`
 
 ## Centreon BAM
 
+### 21.10.3
+
+Release date: `June 1, 2023`
+
+#### Bug fixes
+
+- [Banner] Fixed the display of empty skeleton.
+- [Install] Fixed an issue preventing the module installation when the 24x7 timeperiod parameter was not set.
+- [Monitoring] Fixed an issue in the BA monitoring redirection.
+- [Rules] Fixed an error message in boolean rules when a host name was longer than 15 characters.
+- [Server] Fixed an issue in the KPI configuration export process to Remote Servers that caused the KPIs' states to be reset at each export of the configuration.
+- [Server] Fixed an issue that prevented the children Business Activities from being displayed on Remote Servers.
+- [Widget] Fixed an issue that made links to Business Activities broken on **BAM - Live Business Activity Tree**.
+
 ### 21.10.2
 
 Release date: `February 18, 2022`
@@ -157,6 +177,14 @@ Release date: `December 7, 2021`
 - [Configuration] Warn the user for unsaved changes on BA/BV
 
 ## Centreon MBI
+
+### 21.10.3
+
+Release date: `June 1, 2023`
+
+#### Bug fixes
+
+- [Install] Replaced 'switch' with 'if' to better fit RHEL 8 deployment.
 
 ### 21.10.2
 
@@ -198,6 +226,14 @@ Release date: `February 18, 2022`
 - Compatibility with other 21.10 components.
 
 ## Centreon Auto Discovery
+
+### 21.10.4
+
+Release date: `June 1, 2023`
+
+#### Bug fixes
+
+- [Configuration] For some host discovery providers where no credentials were actually required, the job creation wizard no longer demands to enter credentials.
 
 ### 21.10.3
 

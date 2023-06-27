@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Windows server will be monitored using the Windows SNMP Plugin Pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
+Your Windows server will be monitored using the Windows SNMP Monitoring Connector. (More about Monitoring Connectors [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 ### On the central server
 
-In the web interface, go to **Configuration > Plugin Packs** and install the **Windows SNMP** Plugin Pack:
+In the web interface, go to **Configuration > Monitoring Connectors Manager** and install the **Windows SNMP** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_windows_snmp_10.gif)
 
@@ -135,7 +135,7 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
 ### To go further
 
-The **Windows SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates (simplified)** to know the complete list:
+The **Windows SNMP** Monitoring Connector provides several monitoring templates. Go to **Configuration > Services > Templates (simplified)** to know the complete list:
 
    ![image](../assets/getting-started/quick_start_windows_snmp_18.png)
 

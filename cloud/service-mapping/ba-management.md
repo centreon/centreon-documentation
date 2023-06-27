@@ -378,19 +378,6 @@ You can filter and apply thresholds, collectively one by one:
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring |
 | Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring |
 
-#### Load .ssv file (deprecated)
-
-To add several KPIs loading an .ssv file, click on **Load .ssv file**:
-
-![image](../assets/service-mapping/guide/ssv.png)
-
-| Column         | Description                                                     |
-| -------------- | --------------------------------------------------------------- |
-| .ssv File      | Opens a file browser                                            |
-| KPI Type       | Type of indicator (KPI) to load                                 |
-| Format         | Formats of the SSV file depending on the chosen indicators type |
-| Manual Filling | Possibility to fill the field instead of loading a file         |
-
 ### Boolean Rules
 
 To create a boolean rule, go to:

@@ -372,6 +372,8 @@ Exécutez les commandes suivantes :
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
 ```
 
 </TabItem>
@@ -1343,21 +1345,21 @@ Pour personnaliser l'URI de Centreon :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-vim /etc/httpd/conf.d/10-centreon.conf
+vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-vim /etc/httpd/conf.d/10-centreon.conf
+vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-vim /etc/apache2/sites-available/centreon.conf
+vi /etc/apache2/sites-available/centreon.conf
 ```
 
 </TabItem>
@@ -1576,7 +1578,13 @@ et sorties **IPv4**:
 
 ### Communication Centreon Gorgone
 
-La [documentation officielle de Centreon gorgone](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore) vous permettra de sécuriser la communication entre les processus Gorgone.
+Par défaut, les communications ZMQ sont sécurisées, à la fois celles externes (avec le collecteur) et celles internes (entre processus gorgone).
+
+Cependant, l'API gorgone HTTP n'est pas sécurisée par défaut. Seul localhost peut communiquer avec gorgone, mais il n'utilise pas SSL.
+
+Vous pouvez [configurer SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
+
+Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

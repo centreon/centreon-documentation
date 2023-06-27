@@ -17,6 +17,45 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.14
+
+Release date: `June 19, 2023`
+
+#### Security fix
+
+- [Security] Fixed the base URI change detection mechanism.
+
+### 22.04.13
+
+Release date: `June 8, 2023`
+
+#### Enhancements
+
+- [Authentication] Added the possibility to define a redirect URI for OpenID Connect authentication.
+- [Packaging] Improved the default configuration for Debian packages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
+
+#### Bug fixes
+
+- [API] Fixed PHP error messages on authentication APIs.
+- [API] Fixed code errors and messages to improve the password renewal endpoint.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users in Organisational Units with special characters unable to authenticate.
+- [Authentication] Made error messages generic to improve security.
+- [Authentication] Fixed a broken URL issue by removing extra spaces in the endpoint definition.
+- [Backup] Fixed errors with distant DBMS in logs.
+- [Configuration] Fixed a bug in trap relations with services by host groups.
+- [Configuration] Fixed the deletion of images when importing a configuration on a Remote Server with MAP installed.
+- [Core] Fixed an issue when accessing the installation wizard for a new installation.
+- [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
+- [Install] Removed a displayed error during an update.
+- [Install] Fixed rights on the centreon_traps directory for Debian.
+- [Install] Fixed the snmptrapd configuration for Debian.
+- [LDAP] Fixed LDAP groups listing in contact groups form.
+- [Packaging] Fixed an unreplaced variable in the cron definition.
+- [Packaging] Fixed the packaging of the PHP configuration file for Debian.
+- [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
+- [Server] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
+
 ### 22.04.12
 
 Release date: `March 2, 2023`
@@ -426,6 +465,35 @@ By:
 
 ## Centreon Collect
 
+### 22.04.4
+
+Release date: `June 12, 2023`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+- On MariaDB, metrics are now inserted with a bulk prepared statement in the data_bin table to improve performance.
+
+##### Bug fixes
+
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+
+#### Centreon Engine
+
+##### Enhancements
+
+- Added a new gRPC API endpoint to modify the flush period of Engine's and Broker's loggers without reloading or restarting the services.
+
+##### Bug fixes
+
+- Fixed an issue when an Anomaly Detection service based on a metaservice was rechecked.
+
 ### 22.04.3
 
 Release date: `April 3, 2023`
@@ -551,6 +619,14 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ## Centreon Gorgone
 
+### 22.04.2
+
+Release date: `June 8, 2023`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.
+
 ### 22.04.1
 
 Release date: `September 23, 2022`
@@ -580,3 +656,13 @@ Release date: `September 23, 2022`
 - Added new httpsserverng module
 - Added the possibility for the poller to communicate using the socket web client instead of using the ZMQ protocol
 - Extended configuration to add multiple directories at the same time
+
+## Centreon DSM
+
+### 22.04.1
+
+Release date: `June 8, 2023`
+
+#### Enhancements
+
+- [Packaging] Improved default configuration for Debian packages.

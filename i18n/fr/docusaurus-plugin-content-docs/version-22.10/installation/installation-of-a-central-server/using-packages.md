@@ -239,7 +239,7 @@ yum-config-manager --enable remi-php81
 Installez les dépendances suivantes :
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
 #### Installer le dépôt Sury APT pour PHP 8.1

@@ -15,6 +15,30 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.7 ###
+
+Release date: `June 19, 2023`
+
+#### New features
+
+- [Editor] You can now edit styles on multiple resources at once.
+- [Editor] You can now manage font properties in the editor.
+- [UI] Made metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [Viewer] You can now define a label for a URL shape.
+- [Viewer] Resources now have a unique status.
+
+#### Bug fixes
+
+- [Server] Enable to parse metric from Broker NEB packets.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing images from being displayed in views after an update.
+- [Server] Fixed an issue that prevented access to MAP in HTTPS.
+- [UI] Fixed a timeout issue when loading the homepage.
+- [UI] Fixed missing icons on maps in the homepage when migrating.
+- [UI] Fixed view freezes beyond 500 elements.
+- [Viewer] Fixed an error message on a call failure.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+
 ### 22.04.6 ###
 
 Release date: `April 6, 2023`
@@ -108,6 +132,12 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.7 ###
+
+Release date: `June 19, 2023`
+
+- No change.
+
 ### 22.04.6 ###
 
 Release date: `April 6, 2023`
@@ -134,19 +164,19 @@ Release date : `January 20, 2023`
 
 Release date: `December 16, 2022`
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed a connection problem between MAP desktop client and MAP server that could lead to timeouts on large maps.
 - Fixed an issue with Java 17 that caused MAP server to fail to start.
 - Fixed an issue with the API preventing an authenticated user from creating a resource with an image.
 - Fixed an issue with the display of line charts if the period and precision values of the chart were too large.
 
-### Security fixes
+#### Security fixes
 
 - Actuator endpoints are now disabled by default, except for health and metrics.
 - Fixed the security issue CVE-2022-42889 (Text4shell vulnerability).
 
-### Enhancements
+#### Enhancements
 
 - Updated the diagnostic.sh script to handle Java 17 installation instead of returning an error.
 - MAP extension configuration now requires only one MAP server address to be configured.
@@ -209,6 +239,14 @@ Release date: `May 25, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon MBI
+
+### 22.04.4
+
+Release date: `June 19, 2023`
+
+#### Bug fix
+
+- [Core] Improved the size of the database column.
 
 ### 22.04.3
 

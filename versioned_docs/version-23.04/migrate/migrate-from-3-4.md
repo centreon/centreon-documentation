@@ -2,6 +2,8 @@
 id: migrate-from-3-4
 title: Migrate from a Centreon 3.4 platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 

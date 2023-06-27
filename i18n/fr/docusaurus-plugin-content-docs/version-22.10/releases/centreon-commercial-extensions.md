@@ -17,6 +17,27 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.6
+
+Release date: `June 5, 2023`
+
+#### New Features
+
+- [UX] You can now duplicate maps.
+
+#### Enhancements
+
+- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+
+#### Bug fixes
+
+- [Server] Enable to parse metric from Broker NEB packets.
+- [Server] Fixed a critical error when editing a Geo view.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing images from being displayed in views after an update.
+- [Server] Fixed an issue preventing to save a map with "not a diagram" error message.
+- [UI] Fixed view freezes beyond 500 elements.
+
 ### 22.10.5
 
 Release date: `April 24, 2023`
@@ -148,6 +169,15 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.3
+
+Release date: `June 5, 2023`
+
+#### Bug fixes
+
+- [Rules] Fixed an issue that would make the image drop down for BAM edition panel reset when scrolling.
+- [Rules] Fixed boolean rules when resource contains boolean operator in its name.
+
 ### 22.10.2
 
 Release date: `April 24, 2023`
@@ -178,6 +208,15 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.2
+
+Release date: `June 5, 2023`
+
+#### Bug fixes
+
+- [Core] Improved database column size.
+- [UI] Fixed empty "Current usage" column in mbi-storage-list-near-saturation widget.
 
 ### 22.10.1
 
@@ -226,6 +265,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon License Manager
+
+### 22.10.1
+
+Release date: `June 5, 2023`
+
+#### Enhancements
+
+- [UI] Improved license upload modal.
 
 ### 22.10.0
 

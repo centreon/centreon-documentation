@@ -674,6 +674,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-directconnect'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-ebs'
         },
         {
@@ -719,6 +723,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-aws-billing'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-aws-cloudtrail'
         },
         {
           type: 'doc',
@@ -1014,6 +1022,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-outscale'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
         },
         {
@@ -1183,6 +1195,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-hms-netbiter-argos-restapi'
         },
         {
           type: 'doc',
@@ -1389,6 +1405,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-brocade-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-cambium-cnpilot-snmp'
         },
         {
           type: 'doc',
@@ -1685,6 +1705,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-loadbalancers-kemp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-keysight-nvos-restapi'
         },
         {
           type: 'doc',
@@ -2034,10 +2058,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-http'
         },
         {
@@ -2086,10 +2106,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-udp'
         },
         {
@@ -2103,6 +2119,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-smtp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
         },
         {
           type: 'doc',

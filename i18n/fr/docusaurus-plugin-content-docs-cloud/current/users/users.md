@@ -22,7 +22,7 @@ Dans Centreon Cloud, les utilisateurs peuvent avoir 3 rôles, chacun avec des dr
   * créer des hôtes et des services, des méta-services, des modèles, des catégories...
   * annuler un acquittement, soumettre un résultat...
   * voir la liste des collecteurs et exporter la configuration
-  * installer des plugin packs.
+  * installer des connecteurs de supervision.
 
 * **Administrator**. Les administrateurs peuvent faire les mêmes choses que les éditeurs, mais ils peuvent également inviter des utilisateurs via le CIAM.
 

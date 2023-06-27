@@ -19,6 +19,56 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.9
+
+Release date: `June 19, 2023`
+
+#### Security fix
+
+- [Security] Fixed the base URI change detection mechanism.
+
+### 22.10.8
+
+Release date: `June 5, 2023`
+
+#### Enhancements
+
+- [Administration] Added a button to unblock users through the user interface (for local authentication).
+- [Authentication] Added the possibility to define a redirect URI for OpenID Connect authentication.
+- [Packaging] Improved the default configuration for Debian packages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
+
+#### Bug fixes
+
+- [API] Fixed code errors and messages to improve the endpoint of password renewal.
+- [API] Fixed PHP error messages on APIs authentication.
+- [Authentication] Fixed a broken URL issue by removing extra spaces in endpoint definition.
+- [Authentication] Fixed an LDAP authentication issue that made LDAP users in Organisational Unit with special characters unable to authenticate.
+- [Authentication] Made error messages generic to improve security.
+- [Authentication] Removed extra spaces in endpoint definition.
+- [Backup] Fixed errors with distant DBMS in logs.
+- [Configuration] Fixed a bug in trap relations with services by host groups.
+- [Core] Fixed an issue when accessing the installation wizard for a new installation.
+- [Install] Added missing update scripts.
+- [Install] Fixed an SQL error when installing a new platform using MySQL 8 as DBMS.
+- [Install] Removed a displayed error during an update.
+- [LDAP] Fixed LDAP groups listing in contact groups form.
+- [ResourceStatus] Fixed a filtering issue for hosts in pending state.
+- [ResourceStatus] Fixed an error when opening the detail panel of a resource in downtime.
+- [ResourceStatus] Fixed the h.name filter that was not returning hosts.
+- [Server] Fixed a monitoring issue by updating the user running cron tasks on Debian.
+- [UI] Added CSS in global style files to fix Mbi widget visibility.
+- [UI] Fixed a bug blocking the "Export Configuration" process from the top banner's button when a self-signed certificate was used.
+- [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
+- [UI] Fixed an issue preventing from saving a new filter on Resources Status with the Anomaly-detection type.
+- [UI] Fixed the alignment of the top counter's export button.
+- [UI] Fixed the highlight color of acknowledgement and downtime lines and changed the font color in Resources Status in dark mode.
+- [UI] Fixed the issue when its not possible to save a new filter on resources status with Anomaly-detection type.
+- [UI] Fixed the MBI widget visibility by adding CSS in global style files.
+- [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
+- [UI] Removed the option to change them from User profile.
+- [UI] Unifomized buttons size on legacy pages.
+
 ### 22.10.7
 
 Release date: `March 2, 2023`
@@ -211,6 +261,39 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.2
+
+Release date: `June 9, 2023`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- On MariaDB, metrics are now inserted with a bulk prepared statement in data_bin table to improve performance.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+
+##### Bug fixes
+
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed a memory corruption in MySQL connection.
+- Fixed a typo in the "DELETE FROM services" query.
+- Fixed an incorrect query used to send perfdata with BBDO v2.
+- Fixed an issue in the initial evaluation of BAs with a "ratio" type.
+- Fixed concurrent access on bulk bind in unified_sql outputs.
+- Fixed deadlock on TCP async use.
+- Fixed inconsistency between Broker and Engine v2 loggers to fix a logger issue.
+- Fixed RTDOWNTIMES external commands handling. The duration is not required anymore for fixed downtimes.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the monitoring stream acknowledgement and its type tracing.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+- Fixed uncatched exceptions in thread that broke I/O context.
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+
 ### 22.10.1
 
 Release date: `March 16, 2023`
@@ -254,6 +337,19 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.1
+
+Release date: `June 5, 2023`
+
+#### Bug fixes
+
+- [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
+- [Compatibility] Fixed an issue preventing the rebuild of MBI partial data.
+
+#### Enhancements
+
+- [Packaging] Improved the default configuration for Debian packages.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -270,6 +366,18 @@ Release date: `October 26, 2022`
 
 ## Centreon DSM
 
+### 22.10.1
+
+Release date: `June 5, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed dsmd configuration files on Debian.
+
+#### Enhancements
+
+- [Packaging] Improved the default configuration for Debian packages.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -277,6 +385,15 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.1
+
+Release date: `June 5, 2023`
+
+#### Bug fixes
+
+- [API] Fixed an auto close issue in the API endpoint.
+- [Server] Fixed an issue on automatic ticket creation.
 
 ### 22.10.0
 

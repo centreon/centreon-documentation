@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle.
 
-La supervision d'un serveur Windows en SNMP se fait via le Plugin Pack Windows SNMP. (Vous pouvez obtenir plus d'informations sur les Plugin Packs [ici](../monitoring/pluginpacks.md)).
+La supervision d'un serveur Windows en SNMP se fait via le connecteur de supervision Windows SNMP. (Vous pouvez obtenir plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -92,7 +92,7 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
 ### Sur le serveur central
 
-Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
+Dans l'interface Web, accédez à **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
 
@@ -140,7 +140,7 @@ Dans l'interface Web, accédez à **Configuration > Plugin Packs** et installez 
 
 ### Pour aller plus loin
 
-Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles (simplifiés)** et trouvez la liste complète:
+Le connecteur de supervision **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles (simplifiés)** et trouvez la liste complète:
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
 

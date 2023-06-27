@@ -20,6 +20,14 @@ You can add or remove columns, and sort by the column of your choice.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Compact or extended view
+
+You can display the view in the mode that suits you best, by changing the visual presentation of lines in tables.
+
+Click the dedicated button to improve the readability of information contained in tables:
+- Compact view mode ![image](../assets/alerts/resources-status/compact-icon.png)
+- Extended view mode ![image](../assets/alerts/resources-status/extended-icon.png)
+
 ## Take actions on events
 
 ### Acknowledge an event
@@ -36,15 +44,13 @@ your team that the problem is handled. You can do that in two ways:
 
 When a resource is acknowledged:
 
-- The alert is not visible anymore in the **Unhandled problems** filter
+- The alert is not visible anymore in the **Unhandled alerts** filter
 - [Notifications](notif-configuration.md) for this resource are stopped
 - The color of the line for acknowledged resources is changed
 to yellow.
 
 The acknowledgement can also be cancelled, in which case the event will be included again in the list 
-of **Unhandled Problems** and its notifications will resume: in the **More actions** menu, select **Disacknowledge**.
-
-![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
+of **Unhandled alerts** and its notifications will resume: in the **More actions** menu, select **Disacknowledge**.
 
 ### Set a planned downtime
 
@@ -57,10 +63,8 @@ When a maintenance is planned on one or multiple resources, you can set a
     above the table.
 
 When a resource is in planned downtime, the alert is not visible anymore in the
-**Unhandled problems** filter and notifications for this resource are stopped. The
+**Unhandled alerts** filter and notifications for this resource are stopped. The
 color of lines for resources with a planned downtime is changed to light purple.
-
-![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
 ### Refresh a status
 
@@ -83,26 +87,23 @@ to submit a result, i.e. a status, an output and metrics, in order to
 reset the event.
 This can be achieved using the **Submit Status** action, available when a single passive service is selected.
 
-![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
-
 ## Filtering events
 
 The various filters are added using an AND criterion: results will match all criteria.
 
 ### Pre-defined filters
 
-When you open the **Resource status** page, the default filter is **Unhandled
-problems**. This filter quickly shows all problems/alerts that are not yet
-handled so you can focus on choosing the most relevant alerts to take
-care of. You can choose two other filters that are **Resources problems**
+When you open the **Resource status** page, the default filter is **Unhandled alerts**. This filter quickly shows all alerts that are not 
+yet handled so you can focus on choosing the most relevant ones to take
+care of. You can choose two other filters that are **All alerts**
 and **All**.
 
 The following rules apply:
 
-- **Unhandled problems**: resource status is **Warning** or **Critical** or
+- **Unhandled alerts**: resource status is **Warning** or **Critical** or
     **Unknown** or **Down** AND the resource is not acknowledged nor in planned
     downtime
-- **Resource problems**: resource status is **Warning** or **Critical** or **Unknown**
+- **All alerts**: resource status is **Warning** or **Critical** or **Unknown**
     or **Down** (whether or not the resource has been acknowleged/a downtime has been set)
 - **All**: All resources.
 
@@ -128,15 +129,10 @@ You can filter the list of resources according to a number of predefined criteri
     - [**Service severity**](../monitoring/categories.md): name of the service severity
     - **Service severity level**
 
-    ![image](../assets/alerts/resources-status/search-popup.png)
-
+    
 2. Click on a search criterion: a list of all possible values is displayed.
 
-3. Select the values you want. The search bar displays the text for the filter you have applied, and a figure on the left of the criterion shows how many values are selected.
-
-    ![image](../assets/alerts/resources-status/search-criteria.png)
-
-    You can click the 'x' on the right of a criterion to deselect all values.
+3. Select the values you want. The search bar displays the text for the filter you have applied, and a figure on the left of the criterion shows how many values are selected. You can click the 'x' on the right of a criterion to deselect all values.
 
 4. Click **Search**, or click outside the pop-up. The list of resources is filtered.
 
@@ -188,8 +184,6 @@ The search bar shows all applied criteria, as text. Autocomplete helps you enter
 
 2. According to the type of criterion, autocomplete can suggest possible values for this criterion (e.g. for criterion **Type**, the possible values are **Host**, **Service** and **Metaservice**). Select the value you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection. It is possible to set several values for a criterion. The values should be separated by commas. The search will retrieve all values, using an OR criterion, e.g. **type:service,metaservice** will retrieve all services and metaservices.
 
-    ![image](../assets/alerts/resources-status/search_tab.gif)
-
 3. Use spaces between search criteria. Criteria are added using an AND criterion: results will match all criteria. 
 
    * You can use regular expressions. Wildcards are not supported: a search pattern starting with a * is not valid.
@@ -218,11 +212,7 @@ Use the **gear icon** next to **Filter** to:
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
 categorized under **My Filter**.
 
-![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
-
 By clicking on the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
-
-![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
 
 ## Detail panel
 
