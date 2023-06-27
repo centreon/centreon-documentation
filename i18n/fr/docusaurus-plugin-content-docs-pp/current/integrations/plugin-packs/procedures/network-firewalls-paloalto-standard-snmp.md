@@ -298,7 +298,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Snmp
 | CRITICALTUNNELSUSAGEFREE | Thresholds                                                                                          |                   |             |
 | WARNINGTUNNELSUSAGEPRCT  | Thresholds                                                                                          |                   |             |
 | CRITICALTUNNELSUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
