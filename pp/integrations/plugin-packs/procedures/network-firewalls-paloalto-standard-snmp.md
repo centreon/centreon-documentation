@@ -16,7 +16,7 @@ The Monitoring Connector **Palo Alto firewall SNMP** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-PaloAlto-Standard-SNMP" label="Net-PaloAlto-Standard-SNMP">
+<TabItem value="Net-PaloAlto-Standard-SNMP-custom" label="Net-PaloAlto-Standard-SNMP-custom">
 
 | Service Alias | Service Template                    | Service Description                                       |
 |:--------------|:------------------------------------|:----------------------------------------------------------|
