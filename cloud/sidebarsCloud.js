@@ -2,11 +2,15 @@ module.exports = {
   cloud: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with your Centreon Cloud Trial',
       items: [
         {
+          type: 'category',
+          label: 'Before starting your trial',
+          items: [
+        {
           type: 'doc',
-          id: 'getting-started/architecture',
+          id: 'getting-started/cc-trial',
         },
         {
           type: 'doc',
@@ -14,44 +18,45 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'getting-started/concepts',
+          id: 'getting-started/architecture',
         },
         {
           type: 'doc',
-          id: 'getting-started/monitoring',
-        },
-        {
-          type: 'category',
-          label: 'Tutorials',
-          items: [
-            {
-              type: 'doc',
-              id: 'getting-started/monitor-linux-server-with-snmp',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/monitor-windows-server-with-snmp',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/monitor-cisco-router-with-snmp',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/monitor-mysql-server',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/autodisco-aws',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/create-custom-view',
-            },
-          ],
-          
+          id: 'getting-started/concepts',
         },
       ],
+      },
+      {
+      type: 'category',
+      label: 'Setting your platform',
+      items: [
+    {
+      type: 'doc',
+      id: 'getting-started/start-with-pollers',
+    },
+    {
+      type: 'doc',
+      id: 'getting-started/start-with-connectors',
+    },
+  ],   
+},
+{
+  type: 'doc',
+  id: 'getting-started/first-host',
+},
+{
+  type: 'doc',
+  id: 'getting-started/first-dashboard',
+},
+{
+  type: 'doc',
+  id: 'getting-started/trial-questions',
+},
+{
+  type: 'doc',
+  id: 'getting-started/cloud-beyond-basics',
+},
+],   
     },
     {
       type: 'category',
