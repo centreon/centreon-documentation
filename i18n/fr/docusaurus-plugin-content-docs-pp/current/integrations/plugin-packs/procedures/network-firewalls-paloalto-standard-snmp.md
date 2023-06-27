@@ -637,7 +637,7 @@ Les options spécifiques aux modes sont listées ci-dessous :
 | --regexp-isensitive    | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                                                                      | Mode      |
 | --reload-cache-time    | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                   | Mode      |
 | --show-cache           | Display cache storage datas.                                                                                                                                                                                                                  | Mode      |
-| --filter-storage-type  | Filter storage types with a regexp (Default: '^(hrStorageRam\|hrStorageFlashMemory)$').                                                                                                                                                       | Mode      |
+| --filter-storage-type  | Filter storage types with a regexp (default: '^(hrStorageRam\|hrStorageFlashMemory)$').                                                                                                                                                       | Mode      |
 
 </TabItem>
 <TabItem value="Panorama" label="Panorama">
