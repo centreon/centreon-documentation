@@ -26,7 +26,7 @@ Le connecteur apporte les modèles de service suivants
 | Memory   | Net-PaloAlto-Standard-Memory-SNMP   | Contrôle l'utilisation mémoire                             |
 | Sessions | Net-PaloAlto-Standard-Sessions-SNMP | Contrôle les sessions                                      |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-PaloAlto-Standard-SNMP** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-PaloAlto-Standard-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
