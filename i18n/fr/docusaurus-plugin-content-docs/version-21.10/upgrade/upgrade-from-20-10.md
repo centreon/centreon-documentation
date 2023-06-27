@@ -66,6 +66,11 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 </TabItem>
 </Tabs>
 
+> Si vous avez une licence offline, installez le dépôt correspondant pour les plugin packs.
+> Si vous avez une édition Business, installez également le dépôt Business.
+> Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+
 ### Montée de version de PHP
 
 Centreon 21.10 utilise PHP en version 8.0.
