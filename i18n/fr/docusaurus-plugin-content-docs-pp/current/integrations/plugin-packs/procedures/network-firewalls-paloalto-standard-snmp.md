@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **Palo Alto firewall SNMP** apporte un modèle d'hôte :
 
-* **Net-PaloAlto-Standard-SNMP**
+* **Net-PaloAlto-Standard-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
