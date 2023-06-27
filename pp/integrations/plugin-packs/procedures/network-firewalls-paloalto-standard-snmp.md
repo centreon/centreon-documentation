@@ -25,7 +25,7 @@ The connector brings the following service templates (sorted by the host templat
 | Memory        | Net-PaloAlto-Standard-Memory-SNMP   | Check memory usage                                        |
 | Sessions      | Net-PaloAlto-Standard-Sessions-SNMP | Check sessions                                            |
 
-> The services listed above are created automatically when the **Net-PaloAlto-Standard-SNMP** host template is used.
+> The services listed above are created automatically when the **Net-PaloAlto-Standard-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
