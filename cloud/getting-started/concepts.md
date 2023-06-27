@@ -28,7 +28,7 @@ Once hosts and services are monitored, they have a status in Centreon (e.g. **OK
 
 You can also use custom views to create dashboards.
 
-If a problem occurs (not-OK/not-UP status), [contacts/users](../users/users.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set time periods.
+If an alert occurs (not-OK/not-UP status), [contacts/users](../users/users.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set time periods.
 
 ## What features can I use to help me monitor hosts?
 

@@ -31,7 +31,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 | <span style={{color:'#ff9a13'}}>ALERTE</span>      | Le service a dépassé le seuil d'alerte                                 |
 | <span style={{color:'#e00b3d'}}>CRITIQUE</span>    | Le service a dépassé le seuil critique                                 |
 | <span style={{color:'#bcbdc0'}}>INCONNU</span>     | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
-| <span style={{color:'#2ad1d4'}}>EN ATTENTE</span>  |  Le service vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
+| <span style={{color:'#2ad1d4'}}>EN ATTENTE</span>  | Le service vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
 ## États
 
