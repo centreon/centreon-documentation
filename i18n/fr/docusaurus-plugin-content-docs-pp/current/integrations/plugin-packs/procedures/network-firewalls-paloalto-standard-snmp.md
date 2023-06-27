@@ -285,7 +285,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Snmp
 | CRITICALDATAPLANE       | Thresholds                                                                                          |                   |             |
 | WARNINGMANAGEMENTPLANE  | Thresholds                                                                                          |                   |             |
 | CRITICALMANAGEMENTPLANE | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Global-Protect-Tunnels" label="Global-Protect-Tunnels">
