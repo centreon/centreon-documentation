@@ -368,7 +368,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Snmp
 
 | Macro         | Description                                                                                         | Default value     | Mandatory   |
 |:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| WARNINGUSAGE  | Threshold warning                                                                                   |                   |             |
+| WARNINGUSAGE  | Warning threshold |                   |             |
 | CRITICALUSAGE | Critical threshold                                                                                  |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
