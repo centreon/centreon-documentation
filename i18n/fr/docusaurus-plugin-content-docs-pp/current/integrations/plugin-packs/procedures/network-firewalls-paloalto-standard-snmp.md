@@ -387,7 +387,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Snmp
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:------------|
 | WARNINGACTIVE  | Thresholds. Global: 'active', 'active-prct', (%), 'active-tcp', 'active-udp', 'active-icmp', Per vsys: 'vsys-active', 'vsys-active-prct' (%), 'vsys-active-tcp' 'vsys-active-udp' 'vsys-active-other' |                   |             |
 | CRITICALACTIVE | Thresholds. Global: 'active', 'active-prct', (%), 'active-tcp', 'active-udp', 'active-icmp', Per vsys: 'vsys-active', 'vsys-active-prct' (%), 'vsys-active-tcp' 'vsys-active-udp' 'vsys-active-other' |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                                   | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                   | --verbose         |             |
 
 </TabItem>
 <TabItem value="Signatures" label="Signatures">
