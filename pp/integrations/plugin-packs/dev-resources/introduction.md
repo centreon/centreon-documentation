@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Getting started - Plugin development!
+title: Getting started - Plugin development
 ---
 
 import Tabs from '@theme/Tabs';

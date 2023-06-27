@@ -1,6 +1,6 @@
 ---
 id: create-custom-view
-title: Comment créer une vue personnalisée?
+title: Comment créer une vue personnalisée ?
 ---
 
 Rendez-vous au menu **Home > Custom Views** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
@@ -25,7 +25,7 @@ Le deuxième widget se place automatiquement sur la deuxième colonne :
 
 ![image](../assets/getting-started/cv_4.png)
 
-Cliquez de nouveau sur le bouton **+ Add widget**, saisissez le titre **Unhandled Problems** et sélectionnez le
+Cliquez de nouveau sur le bouton **+ Add widget**, saisissez le titre **Alertes non traitées** et sélectionnez le
 widget **Services Monitoring**. Cliquez ensuite sur le bouton **Submit** :
 
 ![image](../assets/getting-started/cv_5.png)
