@@ -86,5 +86,9 @@
   "sidebar.cloud.category.Graphical views": {
     "message": "Vues graphiques",
     "description": "The label for category Graphical views in sidebar cloud"
+  },
+  "sidebar.cloud.link.Monitoring Connectors": {
+    "message": "Connecteurs de supervision",
+    "description": "The label for link Monitoring Connectors in sidebar cloud, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   }
 }

@@ -8,7 +8,7 @@ title: Centreon basics
 Centreon provides you with a ready-to-use [central server](architecture.md). Before you can [start monitoring resources](monitoring.md), all you have to do is to:
 
 1. [Install your pollers](../installation/deploy-poller.md) (following the [prerequisites](../installation/prerequisites.md)). They will monitor your resources.
-2. Install the [plugin packs](../monitoring/pluginpacks.md) you will need to monitor your resources.
+2. Install the [Monitoring Connectors](../monitoring/pluginpacks.md) you will need to monitor your resources.
 
 ## What does Centreon monitor?
 
@@ -36,6 +36,6 @@ In Centreon, monitoring is made easy by the following elements:
 
 * Host templates and service templates, that allow you to define default values so as to speed up the creation of these objects.
 
-* [Plugin Packs](../monitoring/pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
+* [Monitoring Connectors](../monitoring/pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Monitoring Connector templates to a host for it to be monitored.
 
 * The autodiscovery feature for hosts and services, that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.

@@ -7,7 +7,7 @@ title: Monitor your first Linux host
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Linux server will be monitored using the Linux SNMP Plugin Pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
+Your Linux server will be monitored using the Linux SNMP Monitoring Connector. (More about Monitoring Connectors [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ systemctl enable snmpd
 
 ### On the central server
 
-On the web interface, go to **Configuration > Plugin Packs** and install the **Linux SNMP** Plugin Pack:
+On the web interface, go to **Configuration > Monitoring Connectors Manager** and install the **Linux SNMP** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_linux_0.gif)
 

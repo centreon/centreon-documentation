@@ -1,6 +1,6 @@
 ---
 id: create-custom-view
-title: Comment créer une vue personnalisée?
+title: Comment créer une vue personnalisée ?
 ---
 
 Rendez-vous au menu **Home > Custom Views** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
