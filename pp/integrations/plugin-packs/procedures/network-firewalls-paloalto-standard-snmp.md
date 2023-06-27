@@ -558,7 +558,7 @@ All modes specific options are listed here:
 | --component          | Which component to check (Default: '.*'). Can be: 'device'.                                                                                                                                      | Mode |
 | --filter             | Exclude some parts (comma separated list). Can also exclude specific instance: --filter=device,network.*                                                                                          | Mode |
 | --no-component       | Return an error if no compenents are checked. If total (with skipped) is 0. (Default: 'critical' returns).                                                                                       | Mode |
-| --threshold-overload | Set to overload default threshold values (syntax: section,\[instance,\]status,regexp) It used before default thresholds (order stays). Example: --threshold-overload='device.network,OK,down'    | Mode |
+| --threshold-overload | Use this option to overload the default threshold values (syntax: section,\[instance,\]status,regexp). It can be used before default thresholds (order stays). Example: --threshold-overload='device.network,OK,down'    | Mode |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
