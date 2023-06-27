@@ -360,7 +360,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Snmp
 | CRITICALTOTALOPERUP    | Thresholds                                                                                                                                                                               |                                                      |             |
 | WARNINGTOTALPORT       | Thresholds                                                                                                                                                                               |                                                      |             |
 | CRITICALTOTALPORT      | Thresholds                                                                                                                                                                               |                                                      |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                      | --verbose --use-new-perfdata                         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                      | --verbose --use-new-perfdata                         |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
