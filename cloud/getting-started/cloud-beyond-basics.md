@@ -3,12 +3,11 @@ id: cloud-beyond-basics
 title: Centreon Cloud beyond basics
 ---
 
-Now that you have learned the basics about Centreon Cloud, you would like to know more about how to use it.
-
-Read the following procedures to extend the experience.
+Now that you have learned the basics about Centreon Cloud, you would like to know more about how to use it. So read the following procedures to extend the experience!
 
 ## Invite other users
- [short paragraph and link to CIAM page]
+
+Get information about the [CIAM](../ciam/ciam.md) (Customer Identity and Access Management): a module to manage the users authentication.
 
 ## Organize your monitoring
  [short paragraph and link to Organizing hosts and services]

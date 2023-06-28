@@ -1,12 +1,21 @@
 module.exports = {
-  cloud: [
-    {
-      type: 'category',
-      label: 'Getting started with your Centreon Cloud Trial',
+  cloud: [    
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Getting started with your Centreon Cloud trial",
+        "link": {
+          "type": "generated-index",
+          "description": "Welcome to the Centreon Cloud trial documentation!",
+                },
       items: [
         {
-          type: 'category',
-          label: 'Before starting your trial',
+          "collapsed": true,
+        "type": "category",
+        "label": "Before starting your trial",
+        "link": {
+          "type": "generated-index",
+                          },
           items: [
         {
           type: 'doc',
@@ -27,8 +36,13 @@ module.exports = {
       ],
       },
       {
-      type: 'category',
-      label: 'Setting your platform',
+        "collapsed": true,
+      "type": "category",
+      "label": "Setting your platform",
+      "link": {
+        "type": "generated-index",
+        "description": "Here are the two steps to follow before you can monitor your resources.",
+                        },
       items: [
     {
       type: 'doc',
@@ -56,9 +70,34 @@ module.exports = {
   type: 'doc',
   id: 'getting-started/cloud-beyond-basics',
 },
-],   
-    },
-    {
+{
+  type: 'category',
+  label: 'Use cases',
+  items: [
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-linux-server-with-snmp',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-windows-server-with-snmp',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-cisco-router-with-snmp',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-mysql-server',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/autodisco-aws',
+  },
+], 
+},  
+
+      {
       type: 'category',
       label: 'Managing Centreon Cloud users',
       items: [
@@ -443,4 +482,6 @@ module.exports = {
         ]
       }
   ],
-};
+},
+],
+}
