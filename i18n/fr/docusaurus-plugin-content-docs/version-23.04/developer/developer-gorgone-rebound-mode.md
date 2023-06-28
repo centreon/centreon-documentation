@@ -64,7 +64,7 @@ gorgone:
 
 ### Prérequis d'installation
 
-Le serveur CentOS 7 doit être installé.
+Assurez-vous d'avoir un [OS supporté](../installation/compatibility.md#operating-systems).
 
 Installez le démon Gorgone en utilisant les commandes suivantes :
 
