@@ -3,11 +3,11 @@ id: first-host
 title: Monitoring your first host
 ---
 
-This topic describes how to add a host and how to monitor a resource in Centreon Cloud.
+Centreon allows you to monitor resources. Resources can be hosts or services. This topic describes how to add a host and how to monitor a resource in Centreon Cloud.
 
 ## Adding a host
 
-> You need first to read the definition of a host [here](../resources/glossary.md#host).
+> You can read the definition of a host [here](../resources/glossary.md#host).
 
 - Follow this [tutorial](https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P) to add a host automatically.
 

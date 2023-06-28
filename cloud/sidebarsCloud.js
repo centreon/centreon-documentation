@@ -96,6 +96,8 @@ module.exports = {
   },
 ], 
 },  
+], 
+},
 
       {
       type: 'category',
@@ -482,6 +484,4 @@ module.exports = {
         ]
       }
   ],
-},
-],
 }

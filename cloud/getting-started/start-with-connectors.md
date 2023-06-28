@@ -9,7 +9,7 @@ title: Getting started with Monitoring Connectors
 
 ## Procedure
 
-Follow this [tutorial](https://app.arcade.software/share/R93jqJ7xI4abpgn1yZTd) to understand how to search, install, update and remove Monitoring Connectors.
+Follow this [tutorial](https://app.arcade.software/share/R93jqJ7xI4abpgn1yZTd) to see how to search, install, update and remove Monitoring Connectors.
 
 ## Troubleshooting
 
