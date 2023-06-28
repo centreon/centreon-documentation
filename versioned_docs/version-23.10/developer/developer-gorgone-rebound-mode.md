@@ -3,12 +3,16 @@ id: developer-gorgone-rebound-mode
 title : Configuring Gorgone in rebound mode
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This procedure describes how to configure Gorgone between a distant poller and a central server, via a rebound server.
 
 > Note: In our case, we have the configuration described below (you have to adapt the procedure to your configuration).
 
 Central server:
 - address: 10.30.2.203
+
 Rebound server:
 - id: 1024 (This id is an arbitrary number and must be unique).
 - address: 10.30.2.67
@@ -26,6 +30,7 @@ Distant Poller:
 Ensure the distant poller and Gorgone are already installed.
 
 ### Configuration
+
 Configure the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
 
 ```shell
@@ -59,14 +64,56 @@ gorgone:
 
 ### Installation requirements
 
-Ensure you have installed a CentOS 7 server.
+Ensure you have installed a server with a [supported OS](../installation/compatibility.md#operating-systems).
 
 Then install the Gorgone daemon using the following commands:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+
 ```shell
-yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
-yum install centreon-gorgone
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
+dnf install centreon-gorgone
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
+dnf install centreon-gorgone
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+To install the Centreon repository, execute the following command:
+
+```shell
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
+```
+
+Then install gorgone:
+
+```shell
+apt install centreon-gorgone
+```
+
+</TabItem>
+</Tabs>
 
 ### Configuration
 
