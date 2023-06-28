@@ -104,11 +104,11 @@ Description des logiciels et utilisateurs liés :
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
-|-------------------|------------------|------------------|-----------------|
-| Apache            | httpd24-httpd    | apache           | automatic start |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |

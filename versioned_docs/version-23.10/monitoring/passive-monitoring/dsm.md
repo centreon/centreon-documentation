@@ -3,7 +3,10 @@ id: dsm
 title: Dynamic Service Management
 ---
 
-Centreon module, Dynamic Service Management (Centreon-DSM) is an extension to manage alarms with an eventlogs system.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+The Centreon module, Dynamic Service Management (Centreon-DSM) is an extension to manage alarms with an eventlogs system.
 With DSM, Centreon can receive events such as SNMP traps resulting from the detection of a problem and assign events
 dynamically to a slot defined in Centreon, like a tray events.
 
@@ -25,9 +28,29 @@ main server.
 
 Run the command:
 
-```shell
-yum install centreon-dsm-server centreon-dsm-client
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-dsm-server centreon-dsm-client
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-dsm-server centreon-dsm-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-dsm-server centreon-dsm-client
+```
+
+</TabItem>
+</Tabs>
 
 After installing the rpm, you have to finish the module installation through the web frontend. Go to
 **Administration > Extensions > Manager** menu and search for **dsm**. Click on **Install selection**.
@@ -46,9 +69,29 @@ This part is to install **Centreon DSM** on a poller. Only client will be instal
 
 Run the command:
 
-```shell
-yum install centreon-dsm-client
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-dsm-client
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-dsm-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-dsm-client
+```
+
+</TabItem>
+</Tabs>
 
 You now have to create an access from the poller to the DBMS server on the **centreon_storage** database.
 
