@@ -6,8 +6,7 @@ module.exports = {
         "label": "Getting started with your Centreon Cloud trial",
         "link": {
           "type": "generated-index",
-          "description": "Welcome to the Centreon Cloud trial documentation!",
-                },
+                          },
       items: [
         {
           "collapsed": true,
@@ -41,8 +40,7 @@ module.exports = {
       "label": "Setting your platform",
       "link": {
         "type": "generated-index",
-        "description": "Here are the two steps to follow before you can monitor your resources.",
-                        },
+                                },
       items: [
     {
       type: 'doc',
