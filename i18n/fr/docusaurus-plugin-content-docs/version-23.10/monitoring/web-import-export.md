@@ -3,6 +3,9 @@ id: web-import-export
 title: Import/Export
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Le module Centreon API Web Import/Export (AWIE) a été conçu pour aider les utilisateurs à configurer plusieurs plateformes Centreon Web de manière plus rapide et plus facile, grâce à son mécanisme d'import/export.
 
 À partir d'un environnement source correctement configuré, vous pouvez utiliser le module AWIE pour exporter des objets choisis vers un environnement cible. Ces objets seront répliqués.
@@ -15,9 +18,29 @@ Centreon AWIE est basé sur les commandes CLAPI mais sa valeur ajoutée est de p
 
 Exécutez les commandes suivantes en tant qu'utilisateur privilégié :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ``` shell
-yum install centreon-awie
+dnf install centreon-awie
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-awie
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-awie
+```
+
+</TabItem>
+</Tabs>
 
 ### Installer le module via l'interface
 

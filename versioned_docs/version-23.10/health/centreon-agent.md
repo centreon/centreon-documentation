@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The Centreon Agent is a light piece of software that monitors its host machine and the services that run on it.
 
-The Agent can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.).
+The Agent can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.). The Agent is available on Alma/RHEL/Oracle Linux 8 and 9.
 
 The data is sent to the Centreon Cloud Platform. No personal data is collected.
 
@@ -60,14 +60,18 @@ The data is sent to the Centreon Cloud Platform. No personal data is collected.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
@@ -84,13 +88,13 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 1. Install **centreon-helios**:
 
     ```
-    yum install centreon-helios
+    dnf install centreon-helios
     ```
 
 2. Install the Agent:
 
     ```
-    yum install centreon-agent
+    dnf install centreon-agent
     ```
 
 3. If this is the first time you are installing the Agent on the server, generate the yaml configuration file with the following Shell command:
@@ -188,7 +192,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 1. Install the Agent:
 
     ```
-    yum install centreon-agent
+    dnf install centreon-agent
     ```
 
 2. If this is the first time you are installing the Agent on the machine, configure the `centreon-agent.yml` file:
@@ -539,9 +543,9 @@ centreon-agent --help
 To update the Agent, enter:
 
 ```
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 ```
-yum update centreon-agent
+dnf update centreon-agent
 ```
