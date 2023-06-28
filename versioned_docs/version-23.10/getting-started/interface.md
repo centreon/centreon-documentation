@@ -7,14 +7,14 @@ import TabItem from '@theme/TabItem';
 
 ## First login
 
-To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** by the IP address or FQDN of your Centreon web server.)
+To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** with the IP address or FQDN of your Centreon web server.)
 
-Fill in your user name and associated password and click on the **Connect** button:
+Enter your user name and password, and click the **Connect** button:
 
 ![image](../assets/getting-started/aconnection.png)
 
 >If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon123!**.
-Otherwise, the default login is **admin** and the password is the one you have defined at [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
+Otherwise, the default login is **admin** and the password is the one you defined in [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
 
 You are now connected to the Centreon web interface.
 
@@ -31,7 +31,7 @@ The Centreon web interface contains several menus, each with a specific function
   to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
   performance graphics.
-* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
+* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** lets you access your user account.
 
@@ -52,16 +52,16 @@ Click the **pollers** icon to expand the menu. On the menu, click **Configure po
 
 ![image](../assets/getting-started/top_counters.png)
 
-Beside the pollers section, statistics show the number of resources that are being monitored, with a specific status:
+Beside the pollers section, statistics show the number of resources being monitored that have a specific status:
 
 * For services: number of services with a **Critical**, **Warning**, **Unknown** and **OK** status.
 * For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
 
 These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
 
-Click on a circle representing a status:
+Click a circle representing a status:
 
-* Page **Monitoring > Resources status** opens.
+* The **Monitoring > Resources status** page opens.
 * The page is filtered according to the type of resource and the corresponding status.
 
 Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.

@@ -5,9 +5,9 @@ title: Anomaly Detection
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Centreon Anomaly Detection est actuellement en **phase de bêta fermée** et
-> nécessite un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
-> phase bêta au public sous certaines conditions.
+> Anomaly Detection est une **extension** Centreon qui requiert une [licence](../administration/licenses.md)
+> valide. Pour en acheter une et récupérer les dépôts et le jeton d'accès nécessaires, contactez
+> [Centreon](mailto:sales@centreon.com).
 
 ## Description
 
@@ -41,7 +41,7 @@ pour mettre en évidence les écarts et générer des alertes. Pour ne pas fauss
 Pour utiliser **Anomaly Detection**, vous aurez besoin des éléments suivants :
 
 - Un jeton fourni par Centreon pour accéder à la plateforme SaaS de Centreon,
-- Une connexion internet depuis le serveur Centreon central.
+- Une connexion internet depuis le serveur Centreon central. Le central doit pouvoir dialoguer avec le domaine `api.a.prod.mycentreon.com` sur le port 443.
 - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
 
   ```
@@ -325,18 +325,6 @@ Le service de détection d'anomalies est actuellement en phase de bêta test fer
 fermée est de tester nos algorithmes de calcul de prédictions (seuils flottants). Au cours de cette phase, Centreon
 améliorera la fonctionnalité de détection d'anomalies en fonction du retour d'expérience des utilisateurs. Aucun SLA ne sera disponible
 pendant cette phase.
-
-### Quels sont les critères de sélection pour le programme de bêta ? Pour quelle durée et pour quel volume ?
-
-Un formulaire de participation est disponible pour les clients Centreon. À partir des réponses, Centreon
-sélectionnera les candidats pour participer à la phase de test bêta fermée.
-
-### Quel est le processus défini pour le programme de test bêta ?
-
-Une fois les candidats sélectionnés, Centreon les contactera pour leur indiquer la procédure à suivre. Des réunions
-régulières seront programmées pour évaluer l'efficacité de la fonctionnalité sur la plateforme des clients. Des
-sessions de prise en main à distance peuvent être nécessaires. Une mise à jour de la fonctionnalité peut également
-être demandée pour valider les modifications apportées suite au retour d'expérience.
 
 ### Combien de temps les données sont-elles hébergées ?
 
