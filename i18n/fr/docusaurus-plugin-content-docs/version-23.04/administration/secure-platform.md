@@ -1509,18 +1509,13 @@ apt install nghttp2
 ...
 ```
 
-4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/apache2/sites-available/00-mpm.conf** :
-
-Commentez la ligne suivante :
+4. Exécutez les commandes suivantes :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-```
-
-Décommentez la ligne suivante :
-
-```shell
-LoadModule mpm_event_module modules/mod_mpm_event.so
+a2dismod php8.1
+a2dismod mpm_prefork
+a2enmod mpm_event
+a2enmod http2
 ```
 
 5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
@@ -1578,7 +1573,13 @@ et sorties **IPv4**:
 
 ### Communication Centreon Gorgone
 
-La [documentation officielle de Centreon gorgone](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore) vous permettra de sécuriser la communication entre les processus Gorgone.
+Par défaut, les communications ZMQ sont sécurisées, à la fois celles externes (avec le collecteur) et celles internes (entre processus gorgone).
+
+Cependant, l'API gorgone HTTP n'est pas sécurisée par défaut. Seul localhost peut communiquer avec gorgone, mais il n'utilise pas SSL.
+
+Vous pouvez [configurer SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
+
+Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

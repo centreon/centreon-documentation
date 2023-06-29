@@ -87,6 +87,7 @@
     "message": "Vues graphiques",
     "description": "The label for category Graphical views in sidebar cloud"
   },
+
   "sidebar.cloud.category.Before starting your trial": {
     "message": "Avant de commencer votre offre d'essai",
     "description": "The label for category Before starting your trial in sidebar cloud"
@@ -98,5 +99,9 @@
   "sidebar.cloud.category.Use cases": {
     "message": "Cas d'utilisation",
     "description": "The label for category Use cases in sidebar cloud"
+
+  "sidebar.cloud.link.Monitoring Connectors": {
+    "message": "Connecteurs de supervision",
+    "description": "The label for link Monitoring Connectors in sidebar cloud, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   }
 }

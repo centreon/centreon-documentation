@@ -19,6 +19,14 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.9
+
+Release date: `June 19, 2023`
+
+#### Security fix
+
+- [Security] Fixed the base URI change detection mechanism.
+
 ### 22.10.8
 
 Release date: `June 5, 2023`

@@ -7,7 +7,7 @@ title: Monitor your first Cisco router
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Cisco router will be monitored using the Cisco standard plugin pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
+Your Cisco router will be monitored using the Cisco standard Monitoring Connector. (More about Monitoring Connectors [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 
 ### On the central server
 
-In the web interface, go to **Configuration > Plugin Packs**, search for the **Cisco standard** Plugin Pack and install it:
+In the web interface, go to **Configuration > Monitoring Connectors Manager**, search for the **Cisco standard** Monitoring Connector and install it:
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 

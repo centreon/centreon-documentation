@@ -18,7 +18,7 @@ Afin de mesurer chaque indicateur, on utilise des sondes de supervision (plugin 
 
 Une fois les hôtes et services mis en supervision, ceux-ci ont un statut dans Centreon (**OK**, **Alerte**, **Critique**...). Vous pouvez suivre leur évolution à la page **Statut des ressources**.
 
-En cas de problème (statut non-OK/non-DISPONIBLE), les [contacts](../users/users.md) pourront recevoir des [notifications](../alerts-notifications/notif-configuration.md).
+En cas d'alerte (statut non-OK/non-DISPONIBLE), les [contacts](../users/users.md) pourront recevoir des [notifications](../alerts-notifications/notif-configuration.md).
 
 ## Quelles fonctionnalités m'aident à superviser des ressources?
 
@@ -26,6 +26,6 @@ Avec Centreon, la supervision est rendue facile par les éléments suivants :
 
 * les modèles d'hôtes et de services, qui permettent de définir des valeurs par défaut afin d’accélérer la création de ces objets.
 
-* les [Plugin Packs](../monitoring/pluginpacks.md), qui fournissent des modèles d'hôtes et de services prêts à l'emploi. Ceux-ci simplifient énormément la configuration des hôtes et des services : par exemple, il suffit d'appliquer les modèles issus d'un Plugin Pack à un hôte afin de mettre celui-ci en supervision.
+* les [connecteurs de supervision](../monitoring/pluginpacks.md), qui fournissent des modèles d'hôtes et de services prêts à l'emploi. Ceux-ci simplifient énormément la configuration des hôtes et des services : par exemple, il suffit d'appliquer les modèles issus d'un connecteur de supervision à un hôte afin de mettre celui-ci en supervision.
 
 * la fonctionnalité d'autodécouverte d'hôtes et de services qui permet d'obtenir une liste des nouveaux hôtes ou services et de les ajouter automatiquement à la liste des ressources supervisées.

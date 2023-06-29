@@ -1,6 +1,6 @@
 ---
 id: actions
-title: Quelles actions effectuer pour superviser?
+title: Quelles actions effectuer pour superviser ?
 ---
 
 Une fois vos ressources [mises en supervision](first-supervision.md), allez à la page **Supervision > Statut des ressources** pour suivre le statut des ressources en temps réel.

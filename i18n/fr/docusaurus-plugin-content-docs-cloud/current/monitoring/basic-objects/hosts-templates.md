@@ -10,7 +10,7 @@ d’objets similaires.
 
 Un modèle peut hériter des propriétés d’un autre modèle.
 
-Les modèles issus de Plugin Packs permettent de mettre facilement un hôte en supervision
+Les modèles issus de connecteurs de supervision permettent de mettre facilement un hôte en supervision
 car ils fournissent les [commandes](commands.md) de vérification appropriées.
 
 ## Héritage

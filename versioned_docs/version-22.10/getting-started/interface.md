@@ -64,63 +64,11 @@ Click on a circle representing a status:
 
 Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.
 
-### Switch to dark mode
+## Customization features
 
-When you first connect to the interface, Centreon is displayed in light mode by default.
+You can benefit from [customization features](../monitoring/basic-objects/customization.md) for a better use of Centreon:
 
-On the banner, click on the profile icon and use the switch button to turn on the dark mode.
-Next time you connect to the interface, the mode you previously selected remains on.
+- [Switch to dark mode](../monitoring/basic-objects/customization.md#switch-to-dark-mode)
+- [Change the user interface language](../monitoring/basic-objects/customization.md#change-the-user-interface-language)
+- [Reset your password](../monitoring/basic-objects/customization.md#reset-your-password)
 
-- Light mode:
-
-![image](../assets/getting-started/menu_light_mode.png)
-
-- Dark mode:
-
-![image](../assets/getting-started/menu_dark_mode.png)
-
-You can also switch to dark mode by changing the theme in the account parameters.
-
-Go to **Administration > Parameters > My Account** and select the **General Information** tab.
-Select **Light** or **Dark** in the **Front-end Theme** field.
-
-![image](../assets/getting-started/front-end_theme_mode.png)
-
-Then click on **Save**. The theme is now in the mode you have chosen.
-
-### Change the user interface language
-
-On the banner, click on the profile icon, then click on **Edit profile**:
-
-![image](../assets/getting-started/menu_edit_profile.png)
-
-In the language select box, choose your language:
-
-![image](../assets/getting-started/change_language.png)
-
-Then click on **Save**. Your interface is now translated.
-
-> If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon.md).
-
-## Reset your password
-
-### Reset your password before expiration
-
-When your password is going to expire in the next 7 days, an orange dot appears in the banner on the right
-next to the profile icon:
-
-![image](../assets/administration/password_will_expire.png)
-
-Click on **Edit profile**, then change your password:
-
-![image](../assets/administration/password_expiration.png)
-
-### Reset your password when expired
-
-If you have not changed your password before it expires, you will be redirected after login
-to a dedicated page where you can update it:
-
-![image](../assets/administration/password_expired.png)
-
-Fill in your current password, define a new one and then click on **Reset Password**.

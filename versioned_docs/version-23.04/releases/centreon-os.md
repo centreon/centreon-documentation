@@ -19,6 +19,22 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.4
+
+Release date: `June 20, 2023`
+
+#### Bug fix
+
+- [Update] Fixed a topology_url_substitute error caused by a missing request in update scripts that resulted in a blank screen after an update from 23.04.1.
+
+### 23.04.3
+
+Release date: `June 19, 2023`
+
+#### Security fix
+
+- [Security] Fixed the base URI change detection mechanism.
+
 ### 23.04.2
 
 Release date: `June 7, 2023`
@@ -105,9 +121,17 @@ Compatibility with other 23.04 components.
 
 ## Centreon Gorgone
 
+### 23.04.3
+
+Release date: `June 22, 2023`
+
+#### Bug fix
+
+- [Core] Fixed a recurring unexpected disconnection between pollers caused by an internal key rotation.
+
 ### 23.04.2
 
-Release date : `June 7, 2023`
+Release date: `June 7, 2023`
 
 #### Enhancement
 

@@ -21,7 +21,7 @@ Once hosts and services are monitored, they have a status in Centreon (e.g. **OK
 
 You can also use custom views to create dashboards.
 
-If a problem occurs (not-OK/not-UP status), [contacts/users](../users/users.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set time periods.
+If an alert occurs (not-OK/not-UP status), [contacts/users](../users/users.md) will be able to receive [notifications](../alerts-notifications/notif-configuration.md), within set time periods.
 
 ## What features can I use to help me monitor hosts?
 
@@ -29,6 +29,6 @@ In Centreon, monitoring is made easy by the following elements:
 
 * Host templates and service templates, that allow you to define default values so as to speed up the creation of these objects.
 
-* [Plugin Packs](../monitoring/pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
+* [Monitoring Connectors](../monitoring/pluginpacks.md), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Monitoring Connector templates to a host for it to be monitored.
 
 * The autodiscovery feature for hosts and services, that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.
