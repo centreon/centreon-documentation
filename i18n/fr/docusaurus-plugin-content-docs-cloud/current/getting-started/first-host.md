@@ -3,26 +3,26 @@ id: first-host
 title: Superviser votre premier hôte
 ---
 
-Centreon allows you to monitor resources. Resources can be hosts or services. This topic describes how to add a host and how to monitor a resource in Centreon Cloud.
+Centreon vous permet de superviser vos ressources. Les ressources peuvent être des hôtes ou des services. Cette page décrit comment ajouter un hôte et comment superviser une ressource dans Centreon Cloud.
 
-## Adding a host
+## Ajouter un hôte
 
-> You can read the definition of a host [here](../resources/glossary.md#host).
+> Vous pouvez consulter la définition d'un hôte [ici](../resources/glossary.md#hôte).
 
-- Follow this [tutorial](https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P) to add a host automatically.
+- Suivez ce [tutoriel](https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P) pour ajouter un hôte automatiquement.
 
-- Follow this [tutorial](https://app.arcade.software/share/xg4VORcWXdNBogHle80U) to add a host manually.
+- Suivez ce [tutoriel](https://app.arcade.software/share/xg4VORcWXdNBogHle80U) pour ajouter un hôte manuellement.
 
-## Monitoring a resource
+## Superviser une ressource
 
-To monitor a resource in Centreon Cloud:
+Pour mettre une ressource en supervision dans Centreon Cloud :
 
-1. Create the resource.
-2. Link the resource to the poller you want it to be monitored by.
-3. Link the resource to the correct template provided by a [Plugin Pack](../monitoring/pluginpacks.md).
-4. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The resource appears in the **Monitoring > Resources status** page, where you can track any changes in status.
+1. Créez la ressource.
+2. Liez la ressource au collecteur qui la supervisera.
+3. Liez la ressource au modèle fourni par le [Plugin Pack](../monitoring/pluginpacks.md) correspondant.
+4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). La ressource apparaît à la page **Statut des ressources** : vous pouvez y suivre tout changement de statut.
 
-You may also find the following articles interesting (on our community platform The Watch):
+Les articles suivants peuvent également être intéressants (en anglais sur notre plateforme communautaire **The Watch**):
 
 * [Analyze the response time of your websites with precision with Curl and Centreon](https://thewatch.centreon.com/product-how-to-21/analyze-the-response-time-of-your-websites-with-precision-with-curl-and-centreon-113)
 * [Monitoring Microsoft Azure with Centreon](https://thewatch.centreon.com/product-how-to-21/monitoring-microsoft-azure-with-centreon-114)

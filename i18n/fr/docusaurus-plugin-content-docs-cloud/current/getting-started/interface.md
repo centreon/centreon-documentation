@@ -3,18 +3,18 @@ id: interface
 title: Aperçu de l'interface Centreon
 ---
 
-> You need first to understand the different [user roles](../users/users.md#user-roles) in Centreon Cloud.
+> Vous devez d'abord comprendre les différents [rôles utilisateur](../users/users.md#rôles-des-utilisateurs) dans Centreon Cloud.
 
-Take a tour of the interface to get familiar with the product. Follow the links below to access the interface introduction tutorials (this opens a new tab).
+Parcourez l'interface pour vous familiariser avec le produit. Suivez les liens ci-dessous pour accéder aux tutoriels d'introduction à l'interface (cela ouvre un nouvel onglet).
 
-### As an Editor
+### En tant que Editor
 
-- [Discover the main menu](https://app.arcade.software/share/piyJh7IO1OtnMvuHEh5o)
+- [Découvrir le menu principal](https://app.arcade.software/share/3asg2bObpD9nH31r1jvR)
 
-- [Discover the top banner](https://app.arcade.software/share/rlazq3RJUcApVO6Vw3V3)
+- [Découvrir le bandeau supérieur](https://app.arcade.software/share/fdCcspkyOLIsHehIBOHZ)
 
-### As a User
+### En tant que User
 
-- [Discover the main menu](https://app.arcade.software/share/j1cCyYghLIVpGAs2wW0x)
+- [Découvrir le menu principal](https://app.arcade.software/share/8xmtVdestemqeYPvKtGy)
 
-- [Discover the top banner](https://app.arcade.software/share/I7RA2Mj8n4BNi22LVTbr)
+- [Découvrir le bandeau supérieur](https://app.arcade.software/share/qvZAsg23B2q4MEe8T2Sl)

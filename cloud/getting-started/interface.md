@@ -11,10 +11,10 @@ Take a tour of the interface to get familiar with the product. Follow the links 
 
 - [Discover the main menu](https://app.arcade.software/share/piyJh7IO1OtnMvuHEh5o)
 
-- [Discover the top banner](https://app.arcade.software/share/rlazq3RJUcApVO6Vw3V3)
+- [Discover the top banner](https://app.arcade.software/share/j1cCyYghLIVpGAs2wW0x)
 
 ### As a User
 
-- [Discover the main menu](https://app.arcade.software/share/j1cCyYghLIVpGAs2wW0x)
+- [Discover the main menu](https://app.arcade.software/share/rlazq3RJUcApVO6Vw3V3)
 
 - [Discover the top banner](https://app.arcade.software/share/I7RA2Mj8n4BNi22LVTbr)

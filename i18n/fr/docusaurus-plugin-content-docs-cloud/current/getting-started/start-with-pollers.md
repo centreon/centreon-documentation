@@ -3,19 +3,19 @@ id: start-with-pollers
 title: Débuter avec les collecteurs
 ---
 
-## Definition and architecture
+## Définition et architecture
 
-> You need first to read the definition of a poller [here](../resources/glossary.md#poller).
+> Vous devez d'abord lire la définition du collecteur [ici](../resources/glossary.md#collecteur).
 
-Go to this documentation [page](./architecture.md) or follow this [tutorial](https://app.arcade.software/share/Zml96xdwdRboKG99sIKm) to understand how the poller works in the Centreon infrastructure.
+Consultez cette [page](./architecture.md) de documentation ou suivez ce [tutoriel](https://app.arcade.software/share/pq9FlsSHupZM83M8x7pw) pour comprendre le fonctionnement du collecteur dans l'infrastructure Centreon.
 
 ## Installation
 
-1. Before you install a poller, you need to make sure the [requirements](../installation/prerequisites.md) are met.
+1. Avant d'installer un collecteur, vous devez vous assurer que les [prérequis](../installation/prerequisites.md) sont respectés.
 
-2. Then you can follow the [installation](../installation/deploy-poller.md) procedure.
+2. Vous pouvez ensuite suivre la procédure d'[installation](../installation/deploy-poller.md).
 
-## Troubleshooting
+## Dépannage
 
-In case of issues about pollers, troubleshooting [articles](https://thewatch.centreon.com/search?tags%5B0%5D=poller) are available to users on our community platform The Watch.
-Feel free to explore them or ask any questions you may have to the [dedicated group](https://thewatch.centreon.com/groups/centreon-cloud-trial-55).
+En cas d'incident concernant les collecteurs, des [articles](https://thewatch.centreon.com/search?tags%5B0%5D=poller) de dépannage sont à la disposition des utilisateurs sur notre plateforme communautaire The Watch.
+N'hésitez pas à les consulter ou à poser vos questions au [groupe dédié](https://thewatch.centreon.com/groups/centreon-cloud-trial-55).

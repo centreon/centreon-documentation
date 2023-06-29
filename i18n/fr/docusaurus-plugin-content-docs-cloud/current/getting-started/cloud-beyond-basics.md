@@ -3,30 +3,32 @@ id: cloud-beyond-basics
 title: Pour aller plus loin dans Centreon Cloud
 ---
 
-Now that you have learned the basics about Centreon Cloud, you are ready to know more about how to use it. This list of features allows you to extend the experience!
+Maintenant que vous avez acquis les bases de Centreon Cloud, vous êtes prêt à en savoir plus sur son utilisation.
 
-## Invite other users
+Cette liste de fonctionnalités vous permet de poursuivre l'expérience !
 
-Get information about the [CIAM](../ciam/ciam.md) (Customer Identity and Access Management): a module to manage user accounts.
+## Inviter d'autres utilisateurs
 
-## Organize your monitoring
+Informez-vous sur le [CIAM](../ciam/ciam.md) (Customer Identity and Access Management) : le module pour gérer les comptes d'utilisateurs.
 
-Optimize your monitoring by grouping your resources strategically. Follow our [recommendations](../monitoring/groups.md) to better organize your hosts and services.
+## Organiser la supervision
 
-## Get an email when an alert occurs
+Optimisez votre supervision en regroupant vos ressources de manière stratégique. Suivez nos [recommandations](../monitoring/groups.md) pour mieux organiser vos hôtes et services.
 
-Benefit from the [notification](../alerts-notifications/notif-configuration.md) feature to be informed when the status of your resource becomes critical for instance.
+## Recevoir un email en cas d'incident
 
-## Experiment Auto Discovery
+Utilisez la fonctionnalité [notification](../alerts-notifications/notif-configuration.md) pour être informé lorsque l'état de votre ressource devient critique, par exemple.
 
-Add your new hosts and services automatically to your platform using a discovery mechanism. Get information about the [Auto Discovery](../monitoring/discovery/introduction.md) module.
+## Expérimenter la découverte automatique
 
-## Review the APIs
+Ajoutez automatiquement de nouveaux hôtes et services à votre plateforme en utilisant un mécanisme de découverte. Informez-vous sur le module [Auto Discovery](../monitoring/discovery/introduction.md).
 
-If you are interested in running the platform using APIs, see this [documentation](https://docs-api.centreon.com/api/centreon-web/23.04/).
+## Examiner les API
 
-## Discover Business Edition features
+Si vous souhaitez utiliser la plateforme à l'aide d'APIs, consultez cette [documentation](https://docs-api.centreon.com/api/centreon-web/23.04/).
 
-The Centreon platform also provides Business modules allowing you to monitor more complex business IT flows. The service mapping, graphical views, and reporting modules help you handle IT issues more efficiently and respect your SLAs.
+## Découvrir les fonctionnalités de la Business Edition
 
-Visit this [page](https://www.centreon.com/centreon-editions/) for more information.
+La plateforme Centreon propose également des modules Business (tels que le service mapping, les vues graphiques) permettant de superviser des flux informatiques plus complexes. Ces modules vous aident à gérer les incidents informatiques plus efficacement et à respecter vos accords de niveaux de service (SLA).
+
+Visitez cette [page](https://www.centreon.com/fr/editions-centreon/) pour plus d'informations.

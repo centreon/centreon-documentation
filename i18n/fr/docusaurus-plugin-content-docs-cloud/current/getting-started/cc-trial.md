@@ -3,9 +3,9 @@ id: cc-trial
 title: Que comprend l'offre d'essai Centreon Cloud ?
 ---
 
-Get started with Centreon Cloud to benefit from the Centreon monitoring platform in a SaaS version, for an experience free of installation and maintenance constraints.
+Débutez avec Centreon Cloud afin de profiter de la plateforme de monitoring Centreon en version SaaS, pour une expérience qui ne requiert aucune contrainte d'installation et de maintenance.
 
-Centreon Cloud trial is a **free 14-day** license and this version is including the IT Edition with a monitoring capacity limited to 100 resources.
+La formule d'essai de Centreon Cloud est une licence **gratuite de 14 jours** et cette version comprend l'édition IT avec une capacité de supervision jusqu'à 100 ressources.
 
-> Visit the [Editions](https://www.centreon.com/centreon-editions/) page to explore Centreon edition functionalities.
+> Consultez la page [Éditions](https://www.centreon.com/fr/editions-centreon/) pour découvrir les fonctionnalités des éditions Centreon.
 

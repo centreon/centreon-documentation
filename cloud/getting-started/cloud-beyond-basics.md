@@ -3,11 +3,13 @@ id: cloud-beyond-basics
 title: Centreon Cloud beyond basics
 ---
 
-Now that you have learned the basics about Centreon Cloud, you are ready to know more about how to use it. This list of features allows you to extend the experience!
+Now that you have learned the basics about Centreon Cloud, you are ready to know more about how to use it.
+
+This list of features allows you to extend the experience!
 
 ## Invite other users
 
-Get information about the [CIAM](../ciam/ciam.md) (Customer Identity and Access Management): a module to manage user accounts.
+Get information about the [CIAM](../ciam/ciam.md) (Customer Identity and Access Management): the module to manage user accounts.
 
 ## Organize your monitoring
 
@@ -27,4 +29,6 @@ If you are interested in running the platform using APIs, see this [documentatio
 
 ## Discover Business Edition features
 
-The Centreon platform also provides Business modules allowing you to monitor more complex business IT flows. The service mapping, graphical views, and reporting modules help you handle IT issues more efficiently and respect your SLAs. Visit this [page](https://www.centreon.com/centreon-editions/) for more information.
+The Centreon platform also provides Business modules (such as service mapping, graphical views) allowing you to monitor more complex business IT flows. These modules help you handle IT issues more efficiently and respect your SLAs.
+
+Visit this [page](https://www.centreon.com/centreon-editions/) for more information.

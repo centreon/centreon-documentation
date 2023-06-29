@@ -3,8 +3,8 @@ id: first-dashboard
 title: Créer votre premier tableau de bord
 ---
 
-Dashboards are custom views created with [widgets](../resources/glossary.md#widget). 
+Les tableaux de bord sont des vues personnalisées créées à l'aide de [widgets](../resources/glossary.md#widget). 
 
-- Follow this [tutorial](https://app.arcade.software/share/XPrZGOCuvcsgcoKe1vFM) to discover widgets.
+- Suivez ce [tutoriel](https://app.arcade.software/share/quGjHWoPfTn1rVTOqBd1) pour découvrir les widgets.
 
-- Follow this [tutorial](https://app.arcade.software/share/ITgrnj8q0Mycu3piChAT) to see how to manage custom views.
+- Suivez ce [tutoriel](https://app.arcade.software/share/U8me4yoZFo7pD4tj4xbU) pour découvrir comment gérer les vues personnalisées.
