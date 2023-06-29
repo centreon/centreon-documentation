@@ -3,6 +3,9 @@ id: known-issues
 title: Known issues
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Below is a list of know issues and/or bugs you may encounter.
 We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
@@ -78,20 +81,6 @@ Autologin is currently not supported on the following pages :
 #### Workaround
 
 There is currently no workaround.
-
-### The content of the pages is not translated according to the language of the user
-
-#### Workaround
-
-You must install the languages on your operating system with the following command:
-```shell
-yum install -y glibc-all-langpacks
-```
-
-Then restart PHP using the following command:
-```shell
-systemctl restart php-fpm
-```
 
 ## Centreon MBI
 

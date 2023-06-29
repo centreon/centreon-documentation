@@ -342,7 +342,7 @@ module.exports = {
       {
         "type": "link",
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
-        "label": "Plugin Packs"
+        "label": "Monitoring Connectors"
       },
 
       {

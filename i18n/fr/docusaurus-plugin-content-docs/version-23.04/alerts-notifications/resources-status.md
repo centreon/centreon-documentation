@@ -227,7 +227,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
 
-En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant) :
+En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant).
 
 ## Panneau de détail
 

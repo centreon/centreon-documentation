@@ -26,7 +26,7 @@ The second widget is automatically placed on the second column:
 
 ![image](../assets/getting-started/cv_4.png)
 
-Click on **+ Add widget**, then enter **Unhandled Problems** and select **Services Monitoring**. Click on **Submit**:
+Click on **+ Add widget**, then enter **Unhandled alerts** and select **Services Monitoring**. Click on **Submit**:
 
 ![image](../assets/getting-started/cv_5.png)
 
