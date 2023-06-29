@@ -5,6 +5,9 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const versions = require('./versions.json');
+
+const archivedVersions = require('./archivedVersions.json');
+
 const version = process.env.VERSION ? process.env.VERSION : null;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -73,18 +76,6 @@ const config = {
             '21.10': {
               label: '21.10',
               banner:'none',
-            },
-            21.04: {
-              label: '21.04',
-              banner:'unmaintained',
-            },
-            '20.10': {
-              label: '20.10',
-              banner:'unmaintained',
-            },
-            20.04: {
-              label: '20.04',
-              banner:'unmaintained',
             },
           },
         },
@@ -259,9 +250,25 @@ const config = {
               dropdownActiveClassDisabled: true,
               dropdownItemsAfter: [
                 {
-                  to: 'https://docs-older.centreon.com',
-                  label: 'Older',
+                  type: 'html',
+                  value: '<hr class="dropdown-separator">',
                 },
+                {
+                  type: 'html',
+                  className: 'dropdown-archived-versions',
+                  value: (() => {
+                    switch (process.env.DOCUSAURUS_CURRENT_LOCALE) {
+                      case "fr": return "<b>Versions archivées</b>";
+                      default: return "<b>Archived versions</b>";
+                    }
+                  })(),
+                },
+                ...Object.entries(archivedVersions).map(
+                  ([versionName, versionUrl]) => ({
+                    label: versionName,
+                    href: versionUrl,
+                  }),
+                ),
               ],
             },
             {
