@@ -3,6 +3,9 @@ id: known-issues
 title: Problèmes connus
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
@@ -77,20 +80,6 @@ L'autologin n'est actuellement pas géré pour les pages suivantes :
 #### Contournement
 
 Il n'existe actuellement pas de contournement.
-
-### Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
-
-#### Contournement
-
-Vous devez installer les langues sur votre système d'exploitation avec la commande suivante :
-```shell
-yum install -y glibc-all-langpacks
-```
-
-Puis redémarrer PHP à l'aide de la commande suivante :
-```shell
-systemctl restart php-fpm
-```
 
 ## Centreon MBI
 
