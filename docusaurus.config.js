@@ -123,7 +123,16 @@ const config = {
     ];
 
     if (version) {
-      return plugins;
+      return [
+        ...plugins,
+        [
+          require.resolve("@cmfcmf/docusaurus-search-local"),
+          {
+            indexBlog: false,
+            language: ["en", "fr"],
+          },
+        ],
+      ];
     }
 
     return [
