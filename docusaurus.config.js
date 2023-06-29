@@ -106,44 +106,63 @@ const config = {
 
   themes: [],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-ideal-image',
-      {
-        quality: 70,
-        max: 1030, // max resized image's size.
-        min: 640, // min resized image's size. if original is lower, use that size.
-        steps: 2, // the max number of images generated between min and max (inclusive)
-        // Use false to debug, but it incurs huge perf costs
-        disableInDev: true,
-      },
-    ],
-    'plugin-image-zoom',
-	  [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'cloud',
-        path: 'cloud',
-        routeBasePath: 'cloud',
-        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
-        breadcrumbs: false,
-        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-        editLocalizedFiles: true,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'pp',
-        path: 'pp',
-        routeBasePath: 'pp',
-        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
-        breadcrumbs: false,
-        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-        editLocalizedFiles: true,
-      },
-    ],
-  ],
+  plugins: (() => {
+    let plugins = [
+      [
+        '@docusaurus/plugin-ideal-image',
+        {
+          quality: 70,
+          max: 1030, // max resized image's size.
+          min: 640, // min resized image's size. if original is lower, use that size.
+          steps: 2, // the max number of images generated between min and max (inclusive)
+          // Use false to debug, but it incurs huge perf costs
+          disableInDev: true,
+        },
+      ],
+      'plugin-image-zoom',
+    ];
+
+    if (version) {
+      return [
+        ...plugins,
+        [
+          require.resolve("@cmfcmf/docusaurus-search-local"),
+          {
+            indexBlog: false,
+            language: ["en", "fr"],
+          },
+        ],
+      ];
+    }
+
+    return [
+      ...plugins,
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'cloud',
+          path: 'cloud',
+          routeBasePath: 'cloud',
+          sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+          breadcrumbs: false,
+          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+          editLocalizedFiles: true,
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'pp',
+          path: 'pp',
+          routeBasePath: 'pp',
+          sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+          breadcrumbs: false,
+          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+          editLocalizedFiles: true,
+        },
+      ],
+    ];
+  })(),
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
