@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Cisco Meraki Rest API** brings 3 host templates:
 
-* **Net-Cisco-Meraki-Cloudcontroller-Restapi**
-* **Net-Cisco-Meraki-Device-Restapi**
-* **Net-Cisco-Meraki-Network-Restapi**
+* **Net-Cisco-Meraki-Cloudcontroller-Restapi-custom**
+* **Net-Cisco-Meraki-Device-Restapi-custom**
+* **Net-Cisco-Meraki-Network-Restapi-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
