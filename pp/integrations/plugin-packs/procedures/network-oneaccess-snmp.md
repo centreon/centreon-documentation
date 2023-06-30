@@ -211,7 +211,7 @@ yum install centreon-plugin-Network-Oneaccess-Snmp
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **Net-Oneaccess-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
