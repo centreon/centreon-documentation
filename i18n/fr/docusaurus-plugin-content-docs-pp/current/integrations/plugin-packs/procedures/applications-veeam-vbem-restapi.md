@@ -184,7 +184,7 @@ yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 | VBEMAPIUSERNAME     | Set username                                                                                          |                   | X           |
 | VBEMAPIPASSWORD     | Set password                                                                                          |                   | X           |
 | VBEMAPIPORT         | Port used                                                                                             | 9398              |             |
-| VBEMAPIPROTOCOL     | Specify https if needed                                                                               | https             |             |
+| VBEMAPIPROTOCOL     | Specify HTTPS if needed                                                                               | https             |             |
 | VBEMAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
