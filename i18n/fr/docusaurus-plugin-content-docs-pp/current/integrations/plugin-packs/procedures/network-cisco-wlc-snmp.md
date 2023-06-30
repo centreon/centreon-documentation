@@ -313,7 +313,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 | WLCHOSTNAME         | Name or address of the host to monitor                                                                |                   |             |
 | WLCSNMPCOMMUNITY    | SNMP community . It is recommended to use a read-only community                                       |                   |             |
 | WLCSNMPVERSION      | Version of the SNMP protocol. 1 for SNMP v1 , 2 for SNMP v2c, 3 for SNMP v3                           |                   |             |
-| WLCSNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| WLCSNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
