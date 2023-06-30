@@ -23,7 +23,7 @@ Le connecteur apporte le modèle de service suivant
 |:------------------|:-----------------------------------|:--------------------------------------------------|
 | Path-Verification | App-Ipfabric-Path-Verification-Api | Contrôle permettant de vérifier l'état des routes |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Ipfabric-Api** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Ipfabric-Api-custom** est utilisé.
 
 </TabItem>
 </Tabs>
