@@ -16,7 +16,7 @@ The Monitoring Connector **Veeam Backup Enterprise Manager Rest API** brings a h
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Veeam-Vbem-Restapi" label="App-Veeam-Vbem-Restapi">
+<TabItem value="App-Veeam-Vbem-Restapi-custom" label="App-Veeam-Vbem-Restapi-custom">
 
 | Service Alias | Service Template                    | Service Description | Discovery  |
 |:--------------|:------------------------------------|:--------------------|:-----------|
