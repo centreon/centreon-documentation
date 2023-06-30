@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Unit-Status   | HW-Sensors-Rittal-Cmc3-Unit-Status-SNMP | Check unit status                                    |
 | Uptime        | HW-Sensors-Rittal-Cmc3-Uptime-SNMP      | Time since the server has been working and available |
 
-> The services listed above are created automatically when the **HW-Sensor-Rittal-Cmc3-SNMP** host template is used.
+> The services listed above are created automatically when the **HW-Sensor-Rittal-Cmc3-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
