@@ -16,7 +16,7 @@ The Monitoring Connector **IP Fabric API** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Ipfabric-Api" label="App-Ipfabric-Api">
+<TabItem value="App-Ipfabric-Api-custom" label="App-Ipfabric-Api-custom">
 
 | Service Alias     | Service Template                   | Service Description |
 |:------------------|:-----------------------------------|:--------------------|
