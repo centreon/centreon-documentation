@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **OneAccess SNMP** apporte un modèle d'hôte :
 
-* **Net-Oneaccess-SNMP**
+* **Net-Oneaccess-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
