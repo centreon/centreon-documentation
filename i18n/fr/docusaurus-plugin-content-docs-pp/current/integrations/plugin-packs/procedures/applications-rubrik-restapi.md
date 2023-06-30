@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Rubrik-Restapi" label="App-Rubrik-Restapi">
+<TabItem value="App-Rubrik-Restapi-custom" label="App-Rubrik-Restapi-custom">
 
 | Alias      | Modèle de service             | Description                            |
 |:-----------|:------------------------------|:---------------------------------------|
