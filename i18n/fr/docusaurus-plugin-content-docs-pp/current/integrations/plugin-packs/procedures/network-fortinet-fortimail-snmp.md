@@ -510,7 +510,7 @@ Les options génériques aux modes sont listées ci-dessous :
 
 #### Options des modes
 
-Les options spécifiques aux modes sont listées ci-dessus :
+Les options spécifiques aux modes sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
