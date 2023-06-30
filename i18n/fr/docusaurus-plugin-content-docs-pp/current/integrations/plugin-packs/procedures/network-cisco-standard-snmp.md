@@ -484,7 +484,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALCORE5M    | Thresholds                                                                                          | 95                |             |
 | WARNINGCORE5S     | Thresholds                                                                                          |                   |             |
 | CRITICALCORE5S    | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
