@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Fortinet-Fortimail-SNMP" label="Net-Fortinet-Fortimail-SNMP">
+<TabItem value="Net-Fortinet-Fortimail-SNMP-custom" label="Net-Fortinet-Fortimail-SNMP-custom">
 
 | Alias    | Modèle de service                    | Description                                            |
 |:---------|:-------------------------------------|:-------------------------------------------------------|
