@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Storage       | App-Rubrik-Storage-Restapi    | Check storage system            |
 | Tasks         | App-Rubrik-Tasks-Restapi      | Check tasks                     |
 
-> The services listed above are created automatically when the **App-Rubrik-Restapi** host template is used.
+> The services listed above are created automatically when the **App-Rubrik-Restapi-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
