@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Veeam-Vbem-Restapi" label="App-Veeam-Vbem-Restapi">
+<TabItem value="App-Veeam-Vbem-Restapi-custom" label="App-Veeam-Vbem-Restapi-custom">
 
 | Alias        | Modèle de service                   | Description         | Découverte |
 |:-------------|:------------------------------------|:--------------------|:-----------|
