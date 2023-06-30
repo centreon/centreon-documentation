@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **IP Fabric API** brings a host template:
 
-* **App-Ipfabric-Api**
+* **App-Ipfabric-Api-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
