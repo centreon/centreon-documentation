@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 | Load          | Net-Fortinet-Fortimail-Load-SNMP     | Check system load                                    |
 | Memory        | Net-Fortinet-Fortimail-Memory-SNMP   | Check memory usage                                   |
 
-> The services listed above are created automatically when the **Net-Fortinet-Fortimail-SNMP** host template is used.
+> The services listed above are created automatically when the **Net-Fortinet-Fortimail-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
