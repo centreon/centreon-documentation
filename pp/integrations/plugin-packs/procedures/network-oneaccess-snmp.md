@@ -16,7 +16,7 @@ The Monitoring Connector **OneAccess SNMP** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Oneaccess-SNMP" label="Net-Oneaccess-SNMP">
+<TabItem value="Net-Oneaccess-SNMP-custom" label="Net-Oneaccess-SNMP-custom">
 
 | Service Alias | Service Template          | Service Description                                  |
 |:--------------|:--------------------------|:-----------------------------------------------------|
