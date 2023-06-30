@@ -441,7 +441,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALDUPLICATEMACADDR | Thresholds                                                                                          |                   |             |
 | WARNINGTOTALENTRIES      | Thresholds                                                                                          |                   |             |
 | CRITICALTOTALENTRIES     | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Bgp" label="Bgp">
