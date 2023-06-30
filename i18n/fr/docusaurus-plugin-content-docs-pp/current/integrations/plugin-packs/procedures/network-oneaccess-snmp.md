@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Oneaccess-SNMP" label="Net-Oneaccess-SNMP">
+<TabItem value="Net-Oneaccess-SNMP-custom" label="Net-Oneaccess-SNMP-custom">
 
 | Alias  | Modèle de service         | Description                                         |
 |:-------|:--------------------------|:----------------------------------------------------|
