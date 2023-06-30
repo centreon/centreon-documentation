@@ -299,7 +299,7 @@ yum install centreon-plugin-Network-Oneaccess-Snmp
 | CRITICALPROBECOMPLETIONTIME | Thresholds                                                                                                                                                                       |                                                  |             |
 | CRITICALPROBESTATUS         | Set critical threshold for status (Default: '%{adminStatus} eq "active" and %{status} ne "ok"'). You can use the following variables: %{adminStatus}, %{status}, %{type}, %{tag} | %{adminStatus} eq "active" and %{status} ne "ok" |             |
 | WARNINGPROBESTATUS          |                                                                                                                                                                                  |                                                  |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                              | --verbose                                        |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                              | --verbose                                        |             |
 
 </TabItem>
 </Tabs>
