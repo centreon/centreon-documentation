@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Cisco Standard** brings a host template:
 
-* **Net-Cisco-Standard-SNMP**
+* **Net-Cisco-Standard-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
