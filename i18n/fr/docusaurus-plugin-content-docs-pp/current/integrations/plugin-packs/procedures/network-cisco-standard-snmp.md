@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Cisco-Standard-SNMP" label="Net-Cisco-Standard-SNMP">
+<TabItem value="Net-Cisco-Standard-SNMP-custom" label="Net-Cisco-Standard-SNMP-custom">
 
 | Alias       | Modèle de service                   | Description                                                                                                               |
 |:------------|:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
