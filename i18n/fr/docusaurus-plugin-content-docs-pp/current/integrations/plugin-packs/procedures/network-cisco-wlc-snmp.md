@@ -445,7 +445,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 | CRITICALIN    | Thresholds                                                                                          | 90                |             |
 | WARNINGOUT    | Thresholds                                                                                          | 80                |             |
 | CRITICALOUT   | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
