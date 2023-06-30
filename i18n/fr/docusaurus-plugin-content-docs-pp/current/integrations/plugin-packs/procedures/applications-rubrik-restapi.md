@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Storage    | App-Rubrik-Storage-Restapi    | Contrôle le système de stockage        |
 | Tasks      | App-Rubrik-Tasks-Restapi      | Contrôle les tâches                    |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Rubrik-Restapi** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Rubrik-Restapi-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
