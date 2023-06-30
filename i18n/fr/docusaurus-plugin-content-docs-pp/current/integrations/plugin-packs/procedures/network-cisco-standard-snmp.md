@@ -631,7 +631,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALTOTALDROP      | Threshold critical                                                                                                                                   |                   |             |
 | WARNINGTOTALTRAFFIC    | Threshold warning                                                                                                                                    |                   |             |
 | CRITICALTOTALTRAFFIC   | Threshold critical                                                                                                                                   |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                  | --verbose         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                  | --verbose         |             |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
