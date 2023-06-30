@@ -594,7 +594,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | FILTERPOOL   | Filter pool to check (can use regexp)                                                               |                   |             |
 | CRITICAL     | Threshold critical in percent                                                                       | 90                |             |
 | WARNING      | Threshold warning in percent                                                                        | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory-Flash" label="Memory-Flash">
