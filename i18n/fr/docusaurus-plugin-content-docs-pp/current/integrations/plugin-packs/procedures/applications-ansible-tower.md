@@ -450,7 +450,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 
 | Option           | Description                                                                                                                        | Type         |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------|:-------------|
-| --hostname       | Santricity hostname.                                                                                                               | Api          |
+| --hostname       | Host address.                                                                                                               | Api          |
 | --port           | Port used (Default: 80)                                                                                                            | Api          |
 | --proto          | Specify https if needed (Default: 'http')                                                                                          | Api          |
 | --username       | API username.                                                                                                                      | Api          |
