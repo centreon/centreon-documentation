@@ -236,10 +236,10 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 
 | Macro                 | Description                                                                                           | Default value     | Mandatory   |
 |:----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| RUBRIKAPIPASSWORD     | API password                                                                                          |                   |             |
+| RUBRIKAPIUSERNAME     | API username                                                                                          |                   | X           |
+| RUBRIKAPIPASSWORD     | API password                                                                                          |                   | X           |
 | RUBRIKAPIPORT         | Port used                                                                                             | 443               |             |
 | RUBRIKAPIPROTO        | Specify https if needed                                                                               | https             |             |
-| RUBRIKAPIUSERNAME     | API username                                                                                          |                   |             |
 | RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
