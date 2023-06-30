@@ -36,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------|:--------------------|:-----------|
 | Jobs          | App-Rubrik-Jobs-Restapi | Check jobs          | X          |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then appy the service template you want.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 > If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
