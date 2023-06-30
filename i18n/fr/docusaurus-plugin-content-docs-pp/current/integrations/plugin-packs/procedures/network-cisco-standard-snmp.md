@@ -428,7 +428,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALOUTUCAST | Thresholds                                                                                                                                                                                              |                   |             |
 | WARNINGOUTUCAST  | Thresholds                                                                                                                                                                                              |                   |             |
 | CRITICALSTATUS   | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display} |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                                     | --verbose         |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                     | --verbose         |             |
 
 </TabItem>
 <TabItem value="Arp" label="Arp">
