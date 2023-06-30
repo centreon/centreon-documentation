@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Cisco-Meraki-Cloudcontroller-Restapi-custom" label="Net-Cisco-Meraki-Cloudcontroller-Restapi-custom">
 
-| Service Alias | Service Template                                      | Service Description    |
-|:--------------|:------------------------------------------------------|:-----------------------|
-| Api-Requests  | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi | Check Meraki API usage |
+| Service Alias | Service Template                                             | Service Description    |
+|:------------- |:------------------------------------------------------------ |:---------------------- |
+| Api-Requests  | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Check Meraki API usage |
 
 > The services listed above are created automatically when the **Net-Cisco-Meraki-Cloudcontroller-Restapi** host template is used.
 
