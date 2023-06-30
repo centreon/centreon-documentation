@@ -16,7 +16,7 @@ The Monitoring Connector **Rubrik Rest API** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Rubrik-Restapi" label="App-Rubrik-Restapi">
+<TabItem value="App-Rubrik-Restapi-custom" label="App-Rubrik-Restapi-custom">
 
 | Service Alias | Service Template              | Service Description             |
 |:--------------|:------------------------------|:--------------------------------|
