@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 | Jobs          | App-Ansible-Tower-Jobs-Api          | Contrôle les jobs           |
 | Schedules     | App-Ansible-Tower-Schedules-Api     | Contrôle les scheduled jobs |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Ansible-Tower** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Ansible-Tower-custom** est utilisé.
 
 </TabItem>
 </Tabs>
