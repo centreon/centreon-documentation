@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="HW-Sensor-Rittal-Cmc3-SNMP" label="HW-Sensor-Rittal-Cmc3-SNMP">
+<TabItem value="HW-Sensor-Rittal-Cmc3-SNMP-custom" label="HW-Sensor-Rittal-Cmc3-SNMP-custom">
 
 | Alias       | Modèle de service                       | Description                                               |
 |:------------|:----------------------------------------|:----------------------------------------------------------|
