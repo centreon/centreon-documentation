@@ -39,9 +39,9 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Net-Cisco-Meraki-Network-Restapi" label="Net-Cisco-Meraki-Network-Restapi">
 
-| Alias   | Modèle de service                                | Description                        |
-|:--------|:-------------------------------------------------|:-----------------------------------|
-| Network | Net-Cisco-Meraki-Cloudcontroller-Network-Restapi | Contrôle l'utilisation des réseaux |
+| Alias   | Modèle de service                                       | Description                        |
+|:--------|:--------------------------------------------------------|:-----------------------------------|
+| Network | Net-Cisco-Meraki-Cloudcontroller-Network-Restapi-custom | Contrôle l'utilisation des réseaux |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Meraki-Network-Restapi** est utilisé.
 
