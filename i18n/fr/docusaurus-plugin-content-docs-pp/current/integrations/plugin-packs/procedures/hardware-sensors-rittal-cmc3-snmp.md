@@ -93,7 +93,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
+Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP v2 ou v3
+sur la ressource comme indiqué sur la documentation officielle du constructeur.
 
 ### Flux réseau
 
