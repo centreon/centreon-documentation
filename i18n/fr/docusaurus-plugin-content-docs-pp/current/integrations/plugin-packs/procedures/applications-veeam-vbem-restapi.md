@@ -214,7 +214,7 @@ yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 | CRITICALJOBRUNNINGDURATION      | Thresholds                                                                                                                                                |                         |             |
 | WARNINGJOBSEXECUTIONSDETECTED   | Thresholds                                                                                                                                                |                         |             |
 | CRITICALJOBSEXECUTIONSDETECTED  | Thresholds                                                                                                                                                |                         |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                       | --verbose               |             |
+| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                       | --verbose               |             |
 
 </TabItem>
 <TabItem value="Repositories" label="Repositories">
