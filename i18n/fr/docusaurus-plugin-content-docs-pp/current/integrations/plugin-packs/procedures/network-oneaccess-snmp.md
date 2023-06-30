@@ -254,7 +254,7 @@ yum install centreon-plugin-Network-Oneaccess-Snmp
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
 | WARNING      | Threshold warning in percent                                                                        |                   |             |
 | CRITICAL     | Threshold critical in percent                                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
