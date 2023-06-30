@@ -214,7 +214,7 @@ yum install centreon-plugin-Applications-Ansible-Tower
 | WARNINGJOBSTATUS  | Set warning threshold for status. You can use the following variables: %{last\_job\_status}, %{display}                                                |                                 |             |
 | WARNINGTOTAL      | Thresholds                                                                                                                                             |                                 |             |
 | CRITICALTOTAL     | Thresholds                                                                                                                                             |                                 |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                    | --verbose                       |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                    | --verbose                       |             |
 
 </TabItem>
 <TabItem value="Inventories" label="Inventories">
