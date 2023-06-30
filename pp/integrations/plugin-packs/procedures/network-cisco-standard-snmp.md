@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:--------------------------------------|:----------------------------------------------|:-----------|
 | Aaa-Servers   | Net-Cisco-Standard-Aaa-Servers-SNMP   | Check AAA servers                             | X          |
 | Anycast       | Net-Cisco-Standard-Anycast-SNMP       | Check traffic types                           |            |
-| Arp           | Net-Cisco-Standard-Arp-SNMP           | Check arp table                               |            |
+| Arp           | Net-Cisco-Standard-Arp-SNMP           | Check ARP table                               |            |
 | Bgp           | Net-Cisco-Standard-Bgp-SNMP           | Check BGP                                     |            |
 | Configuration | Net-Cisco-Standard-Configuration-SNMP | Check Cisco changed and saved configurations  |            |
 | Hsrp          | Net-Cisco-Standard-Hsrp-SNMP          | Check Cisco HSRP status                       |            |
