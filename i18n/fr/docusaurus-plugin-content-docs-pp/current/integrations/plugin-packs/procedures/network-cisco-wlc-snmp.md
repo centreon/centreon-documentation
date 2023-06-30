@@ -408,7 +408,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 | Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
 | COMPONENT    | Which component to check (Default: '.*'). Can be: 'psu'                                             | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
