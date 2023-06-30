@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                      | Service Description    |
 |:--------------|:------------------------------------------------------|:-----------------------|
-| Api-Requests  | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi | Check meraki API usage |
+| Api-Requests  | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi | Check Meraki API usage |
 
 > The services listed above are created automatically when the **Net-Cisco-Meraki-Cloudcontroller-Restapi** host template is used.
 
