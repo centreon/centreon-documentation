@@ -47,11 +47,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                  | Service Description  | Discovery  |
-|:--------------|:--------------------------------------------------|:---------------------|:-----------|
-| Cache         | Net-Cisco-Meraki-Cloudcontroller-Cache-Restapi    | Generate cache files |            |
-| Devices       | Net-Cisco-Meraki-Cloudcontroller-Devices-Restapi  | Check devices usage  | X          |
-| Networks      | Net-Cisco-Meraki-Cloudcontroller-Networks-Restapi | Check networks usage |            |
+| Service Alias | Service Template                                         | Service Description  | Discovery |
+|:------------- |:-------------------------------------------------------- |:-------------------- |:--------- |
+| Cache         | Net-Cisco-Meraki-Cloudcontroller-Cache-Restapi-custom    | Generate cache files |           |
+| Devices       | Net-Cisco-Meraki-Cloudcontroller-Devices-Restapi-custom  | Check devices usage  | X         |
+| Networks      | Net-Cisco-Meraki-Cloudcontroller-Networks-Restapi-custom | Check networks usage |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then appy the service template you want.
 
