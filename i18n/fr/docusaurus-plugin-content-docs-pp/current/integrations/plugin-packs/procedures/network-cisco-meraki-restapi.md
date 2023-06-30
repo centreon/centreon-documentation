@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **Cisco Meraki Rest API** apporte 3 modèles d'hôte :
 
-* **Net-Cisco-Meraki-Cloudcontroller-Restapi**
-* **Net-Cisco-Meraki-Device-Restapi**
-* **Net-Cisco-Meraki-Network-Restapi**
+* **Net-Cisco-Meraki-Cloudcontroller-Restapi-custom**
+* **Net-Cisco-Meraki-Device-Restapi-custom**
+* **Net-Cisco-Meraki-Network-Restapi-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
