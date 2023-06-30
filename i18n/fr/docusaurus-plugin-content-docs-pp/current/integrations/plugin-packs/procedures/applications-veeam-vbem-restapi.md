@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **Veeam Backup Enterprise Manager Rest API** apporte un modèle d'hôte :
 
-* **App-Veeam-Vbem-Restapi**
+* **App-Veeam-Vbem-Restapi-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
