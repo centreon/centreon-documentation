@@ -89,7 +89,7 @@ Coming soon
 
 ## Prérequis
 
-Pour utiliser le custom-mode `towercli` le plugin requiert que l'outil en ligne de commande `tower-cli` soit installé.
+Pour utiliser le custom mode `towercli`, le plugin requiert que l'outil en ligne de commande `tower-cli` soit installé.
 Se référer à [la documentation officielle de tower-cli](https://tower-cli.readthedocs.io/en/latest/install.html) pour l'installation.
 
 ## Installer le connecteur de supervision
