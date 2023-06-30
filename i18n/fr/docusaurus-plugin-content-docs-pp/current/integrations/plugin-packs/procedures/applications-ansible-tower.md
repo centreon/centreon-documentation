@@ -265,7 +265,7 @@ yum install centreon-plugin-Applications-Ansible-Tower
 | CRITICALSUCCESSFUL | Thresholds                                                                                                                                             |                                 |             |
 | WARNINGTOTAL       | Thresholds                                                                                                                                             |                                 |             |
 | CRITICALTOTAL      | Thresholds                                                                                                                                             |                                 |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                    | --verbose                       |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                    | --verbose                       |             |
 
 </TabItem>
 <TabItem value="Jobs" label="Jobs">
