@@ -689,7 +689,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALACTIVE5MAVERAGE       | Thresholds                                                                                          |                   |             |
 | WARNINGCONNECTIONCALLSACTIVE  | Thresholds                                                                                          |                   |             |
 | CRITICALCONNECTIONCALLSACTIVE | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS                  | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS                  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 </Tabs>
