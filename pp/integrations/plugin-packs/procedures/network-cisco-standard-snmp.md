@@ -16,7 +16,7 @@ The Monitoring Connector **Cisco Standard** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Cisco-Standard-SNMP" label="Net-Cisco-Standard-SNMP">
+<TabItem value="Net-Cisco-Standard-SNMP-custom" label="Net-Cisco-Standard-SNMP-custom">
 
 | Service Alias | Service Template                    | Service Description                                                                                           |
 |:--------------|:------------------------------------|:--------------------------------------------------------------------------------------------------------------|
