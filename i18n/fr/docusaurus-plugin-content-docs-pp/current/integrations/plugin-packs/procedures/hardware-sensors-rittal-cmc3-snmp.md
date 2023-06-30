@@ -25,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Unit-Status | HW-Sensors-Rittal-Cmc3-Unit-Status-SNMP | Contrôle le statut de l'unité                             |
 | Uptime      | HW-Sensors-Rittal-Cmc3-Uptime-SNMP      | Durée depuis laquelle le serveur tourne sans interruption |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Sensor-Rittal-Cmc3-SNMP** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Sensor-Rittal-Cmc3-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
