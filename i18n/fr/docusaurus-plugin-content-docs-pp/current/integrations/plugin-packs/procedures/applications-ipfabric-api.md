@@ -17,7 +17,7 @@ Le connecteur apporte le modèle de service suivant
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Ipfabric-Api" label="App-Ipfabric-Api">
+<TabItem value="App-Ipfabric-Api-custom" label="App-Ipfabric-Api-custom">
 
 | Alias             | Modèle de service                  | Description                                       |
 |:------------------|:-----------------------------------|:--------------------------------------------------|
