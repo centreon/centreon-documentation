@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **Rittal CMC3 SNMP** apporte un modèle d'hôte :
 
-* **HW-Sensor-Rittal-Cmc3-SNMP**
+* **HW-Sensor-Rittal-Cmc3-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
