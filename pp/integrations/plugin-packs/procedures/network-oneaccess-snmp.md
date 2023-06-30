@@ -23,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu           | Net-Oneaccess-Cpu-SNMP    | Check the rate of utilization of CPU for the machine |
 | Memory        | Net-Oneaccess-Memory-SNMP | Check the rate of the utilization of memory          |
 
-> The services listed above are created automatically when the **Net-Oneaccess-SNMP** host template is used.
+> The services listed above are created automatically when the **Net-Oneaccess-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
