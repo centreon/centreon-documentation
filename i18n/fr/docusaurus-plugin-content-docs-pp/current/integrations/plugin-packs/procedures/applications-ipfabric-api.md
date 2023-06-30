@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **IP Fabric API** apporte un modèle d'hôte :
 
-* **App-Ipfabric-Api**
+* **App-Ipfabric-Api-custom**
 
 Le connecteur apporte le modèle de service suivant
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
