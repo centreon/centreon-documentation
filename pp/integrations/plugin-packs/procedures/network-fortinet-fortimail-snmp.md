@@ -16,7 +16,7 @@ The Monitoring Connector **Fortinet FortiMail SNMP** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Fortinet-Fortimail-SNMP" label="Net-Fortinet-Fortimail-SNMP">
+<TabItem value="Net-Fortinet-Fortimail-SNMP-custom" label="Net-Fortinet-Fortimail-SNMP-custom">
 
 | Service Alias | Service Template                     | Service Description                                  |
 |:--------------|:-------------------------------------|:-----------------------------------------------------|
