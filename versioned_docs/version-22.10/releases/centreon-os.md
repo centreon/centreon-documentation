@@ -261,6 +261,22 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+## 22.10.3
+
+Release date: `June 3, 2023`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- With AND/OR boolean operators, we do not have always to wait for nodes to be known. An OR is always true if one of its children is true and An AND is always false if one of its children is false. This is now implemented in broker and allows result to appear faster.
+BAM trace/debug logs have also been added to boolean rules computations.
+
+##### Bug fixes
+
+- Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Restored the $ADMINEMAIL$ and $ADMINPAGER$ global macros.
+
 ### 22.10.2
 
 Release date: `June 9, 2023`
