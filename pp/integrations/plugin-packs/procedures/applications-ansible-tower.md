@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Ansible Tower** brings a host template:
 
-* **App-Ansible-Tower**
+* **App-Ansible-Tower-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
