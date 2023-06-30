@@ -19,7 +19,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Cisco-Meraki-Cloudcontroller-Restapi" label="Net-Cisco-Meraki-Cloudcontroller-Restapi">
+<TabItem value="Net-Cisco-Meraki-Cloudcontroller-Restapi-custom" label="Net-Cisco-Meraki-Cloudcontroller-Restapi-custom">
 
 | Alias        | Modèle de service                                     | Description                            |
 |:-------------|:------------------------------------------------------|:---------------------------------------|
