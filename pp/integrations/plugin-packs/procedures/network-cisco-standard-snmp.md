@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Environment   | Net-Cisco-Standard-Environment-SNMP | Check hardware environment                                                                                    |
 | Memory        | Net-Cisco-Standard-Memory-SNMP      | Check machine memory usage                                                                                    |
 
-> The services listed above are created automatically when the **Net-Cisco-Standard-SNMP** host template is used.
+> The services listed above are created automatically when the **Net-Cisco-Standard-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
