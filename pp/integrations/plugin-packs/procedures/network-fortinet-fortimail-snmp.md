@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Fortinet FortiMail SNMP** brings a host template:
 
-* **Net-Fortinet-Fortimail-SNMP**
+* **Net-Fortinet-Fortimail-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
