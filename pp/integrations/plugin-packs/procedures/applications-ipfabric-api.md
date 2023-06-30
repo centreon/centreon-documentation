@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:------------------|:-----------------------------------|:--------------------|
 | Path-Verification | App-Ipfabric-Path-Verification-Api | Check paths status |
 
-> The services listed above are created automatically when the **App-Ipfabric-Api** host template is used.
+> The services listed above are created automatically when the **App-Ipfabric-Api-custom** host template is used.
 
 </TabItem>
 </Tabs>
