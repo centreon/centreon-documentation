@@ -59,7 +59,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-Ensure you have a IP Fabric API Key with required privileges and IP Fabric's API address.
+Ensure you have an IP Fabric API Key with required privileges and IP Fabric's API address.
 
 ## Installing the monitoring connector
 
