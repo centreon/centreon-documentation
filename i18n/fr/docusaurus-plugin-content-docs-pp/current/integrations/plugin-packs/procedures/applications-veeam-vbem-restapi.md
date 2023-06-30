@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------|:------------------------------------|:--------------------|:-----------|
 | Repositories | App-Veeam-Vbem-Restapi-Repositories | Contrôle les dépôts | X          |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Veeam-Vbem-Restapi** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Veeam-Vbem-Restapi-custom** est utilisé.
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
