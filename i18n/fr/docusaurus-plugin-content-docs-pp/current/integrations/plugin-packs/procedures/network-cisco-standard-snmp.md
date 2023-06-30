@@ -25,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Environment | Net-Cisco-Standard-Environment-SNMP | Contrôle l'état du matériel                                                                                               |
 | Memory      | Net-Cisco-Standard-Memory-SNMP      | Contrôle l'utilisation mémoire du matériel                                                                                |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Standard-SNMP** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Standard-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
