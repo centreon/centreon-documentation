@@ -189,7 +189,7 @@ yum install centreon-plugin-Applications-Ansible-Tower
 
 | Macro                    | Description                                                                                                   | Default value     | Mandatory   |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| ANSIBLETOWERCUSTOMMODE   | When a plugin offers several ways  to get the an information the desired one must be defined with this option | api               |             |
+| ANSIBLETOWERCUSTOMMODE   | When a plugin offers several ways to get information the desired one must be defined with this option | api               |             |
 | ANSIBLETOWERPASSWORD     | API password                                                                                                  |                   |             |
 | ANSIBLETOWERUSERNAME     | API username                                                                                                  |                   |             |
 | ANSIBLETOWEREXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)         |                   |             |
