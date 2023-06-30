@@ -24,7 +24,7 @@ Le connecteur apporte les modèles de service suivants
 | Cpu    | Net-Oneaccess-Cpu-SNMP    | Contrôle du taux d'utilisation du CPU de la machine |
 | Memory | Net-Oneaccess-Memory-SNMP | Contrôle du taux d'utilisation de la mémoire vive   |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Oneaccess-SNMP** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Oneaccess-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
