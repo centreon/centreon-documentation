@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Rittal CMC3 SNMP** brings a host template:
 
-* **HW-Sensor-Rittal-Cmc3-SNMP**
+* **HW-Sensor-Rittal-Cmc3-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
