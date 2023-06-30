@@ -16,7 +16,7 @@ The Monitoring Connector **Ansible Tower** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Ansible-Tower" label="App-Ansible-Tower">
+<TabItem value="App-Ansible-Tower-custom" label="App-Ansible-Tower-custom">
 
 | Service Alias | Service Template                    | Service Description |
 |:--------------|:------------------------------------|:--------------------|
