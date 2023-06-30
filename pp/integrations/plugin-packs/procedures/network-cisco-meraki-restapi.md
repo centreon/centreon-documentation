@@ -18,7 +18,7 @@ The Monitoring Connector **Cisco Meraki Rest API** brings 3 host templates:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Cisco-Meraki-Cloudcontroller-Restapi" label="Net-Cisco-Meraki-Cloudcontroller-Restapi">
+<TabItem value="Net-Cisco-Meraki-Cloudcontroller-Restapi-custom" label="Net-Cisco-Meraki-Cloudcontroller-Restapi-custom">
 
 | Service Alias | Service Template                                      | Service Description    |
 |:--------------|:------------------------------------------------------|:-----------------------|
