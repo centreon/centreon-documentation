@@ -465,7 +465,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:------------|
 | CRITICALSTATUS | Set critical threshold for status (Default: '%{running\_last\_changed} \> %{running\_last\_saved}'). You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %{startup\_last\_changed} | %{running_last_changed} > %{running_last_saved} |             |
 | WARNINGSTATUS  | Set warning threshold for status (Default: ''). You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %{startup\_last\_changed}                                                      |                                                 |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                                                     |                                                 |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                     |                                                 |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
