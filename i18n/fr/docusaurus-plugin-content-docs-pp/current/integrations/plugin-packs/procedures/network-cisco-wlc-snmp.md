@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Le connecteur de supervision **Cisco WLC** apporte 2 modèles d'hôte :
 
 * **Net-Cisco-Wlc-SNMP-custom**
-* **Net-Cisco-Wlc-SNMP-Access-Point**
+* **Net-Cisco-Wlc-SNMP-Access-Point-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
