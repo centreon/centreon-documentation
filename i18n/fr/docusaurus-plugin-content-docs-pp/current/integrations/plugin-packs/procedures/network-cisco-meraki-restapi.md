@@ -48,11 +48,11 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias    | Modèle de service                                 | Description                                         | Découverte |
-|:---------|:--------------------------------------------------|:----------------------------------------------------|:-----------|
-| Cache    | Net-Cisco-Meraki-Cloudcontroller-Cache-Restapi    | Service permettant de générer les fichiers de cache |            |
-| Devices  | Net-Cisco-Meraki-Cloudcontroller-Devices-Restapi  | Contrôle l'utilisation des équipements              | X          |
-| Networks | Net-Cisco-Meraki-Cloudcontroller-Networks-Restapi | Contrôle l'utilisation des réseaux                  |            |
+| Alias    | Modèle de service                                        | Description                                         | Découverte |
+|:---------|:---------------------------------------------------------|:----------------------------------------------------|:-----------|
+| Cache    | Net-Cisco-Meraki-Cloudcontroller-Cache-Restapi-custom    | Service permettant de générer les fichiers de cache |            |
+| Devices  | Net-Cisco-Meraki-Cloudcontroller-Devices-Restapi-custom  | Contrôle l'utilisation des équipements              | X          |
+| Networks | Net-Cisco-Meraki-Cloudcontroller-Networks-Restapi-custom | Contrôle l'utilisation des réseaux                  |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
