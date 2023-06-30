@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Veeam Backup Enterprise Manager Rest API** brings a host template:
 
-* **App-Veeam-Vbem-Restapi**
+* **App-Veeam-Vbem-Restapi-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
