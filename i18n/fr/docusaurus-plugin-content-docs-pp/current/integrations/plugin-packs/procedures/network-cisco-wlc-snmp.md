@@ -356,7 +356,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:------------|
 | CRITICALSTATUS | Set critical threshold for status (Default: '%{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/'). You can use the following variables: %{admstatus}, %{opstatus}, %{display} | %{admstatus} eq "enable" and %{opstatus} !~ /associated|downloading/ |             |
 | WARNINGSTATUS  | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                     |                                                                      |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                              | --verbose                                                            |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                              | --verbose                                                            |             |
 
 </TabItem>
 <TabItem value="Ap-Status-Global" label="Ap-Status-Global">
