@@ -641,7 +641,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | FILTERPORT     | Filter on port description (can be a regexp)                                                                                                                                                              | .*                            |             |
 | CRITICALSTATUS | Set critical threshold for status (Default: '%{op\_status} =~ /up/ && %{state} =~ /blocking\|broken/'). You can use the following variables: %{state}, %{op\_status}, %{admin\_status}, %{port}, %{index} | %{state} =~ /blocking|broken/ |             |
 | WARNINGSTATUS  | Set warning threshold for status. You can use the following variables: %{state}, %{op\_status}, %{admin\_status}, %{port}, %{index}                                                                       |                               |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                                       | --verbose                     |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                       | --verbose                     |             |
 
 </TabItem>
 <TabItem value="Stack" label="Stack">
