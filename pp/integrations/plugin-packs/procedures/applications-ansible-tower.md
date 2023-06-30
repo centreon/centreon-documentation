@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 | Jobs          | App-Ansible-Tower-Jobs-Api          | Check jobs          |
 | Schedules     | App-Ansible-Tower-Schedules-Api     | Check schedules     |
 
-> The services listed above are created automatically when the **App-Ansible-Tower** host template is used.
+> The services listed above are created automatically when the **App-Ansible-Tower-custom** host template is used.
 
 </TabItem>
 </Tabs>
