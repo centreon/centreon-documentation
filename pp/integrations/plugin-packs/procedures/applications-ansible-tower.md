@@ -37,7 +37,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name         | Description                                          |
 |:------------------|:-----------------------------------------------------|
-| Ansible Tower CLI | Discover hosts by requesting Ansible Tower using CLI |
+| Ansible Tower CLI | Discover hosts by querying Ansible Tower using the CLI |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
