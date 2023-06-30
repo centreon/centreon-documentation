@@ -139,7 +139,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this Pack, the SNMP service must be properly configured on your device.
+To use this connector, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
