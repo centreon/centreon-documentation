@@ -99,7 +99,7 @@ Référez-vous à [la documentation officielle de tower-cli](https://tower-cli.r
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquets
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
 
 <Tabs groupId="sync">
