@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Ansible-Tower" label="App-Ansible-Tower">
+<TabItem value="App-Ansible-Tower-custom" label="App-Ansible-Tower-custom">
 
 | Alias         | Modèle de service                   | Description                 |
 |:--------------|:------------------------------------|:----------------------------|
