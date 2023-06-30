@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 | Load     | Net-Fortinet-Fortimail-Load-SNMP     | Contrôle la charge système                             |
 | Memory   | Net-Fortinet-Fortimail-Memory-SNMP   | Contrôle du taux d'utilisation mémoire                 |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Fortinet-Fortimail-SNMP** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Fortinet-Fortimail-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
