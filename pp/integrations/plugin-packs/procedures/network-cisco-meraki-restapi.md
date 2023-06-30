@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 > The services listed above are created automatically when the **Net-Cisco-Meraki-Cloudcontroller-Restapi** host template is used.
 
 </TabItem>
-<TabItem value="Net-Cisco-Meraki-Device-Restapi" label="Net-Cisco-Meraki-Device-Restapi">
+<TabItem value="Net-Cisco-Meraki-Device-Restapi-custom" label="Net-Cisco-Meraki-Device-Restapi-custom">
 
 | Service Alias | Service Template                                | Service Description |
 |:--------------|:------------------------------------------------|:--------------------|
