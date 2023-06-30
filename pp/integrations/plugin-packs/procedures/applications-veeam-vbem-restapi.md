@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------------------|:--------------------|:-----------|
 | Repositories  | App-Veeam-Vbem-Restapi-Repositories | Check repositories  | X          |
 
-> The services listed above are created automatically when the **App-Veeam-Vbem-Restapi** host template is used.
+> The services listed above are created automatically when the **App-Veeam-Vbem-Restapi-custom** host template is used.
 
 > If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
