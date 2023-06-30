@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **Fortinet FortiMail SNMP** apporte un modèle d'hôte :
 
-* **Net-Fortinet-Fortimail-SNMP**
+* **Net-Fortinet-Fortimail-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
