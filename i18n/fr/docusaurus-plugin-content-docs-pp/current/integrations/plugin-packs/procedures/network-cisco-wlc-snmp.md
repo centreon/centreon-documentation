@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 | Hardware-Global  | Net-Cisco-Wlc-Hardware-Global-SNMP  | Contrôle l'ensemble du matériel                    |            |
 | Memory           | Net-Cisco-Wlc-Memory-SNMP           | Contrôle du taux d'utilisation de la mémoire vive  |            |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wlc-SNMP** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wlc-SNMP-custom** est utilisé.
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
