@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Rubrik Rest API** brings a host template:
 
-* **App-Rubrik-Restapi**
+* **App-Rubrik-Restapi-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
