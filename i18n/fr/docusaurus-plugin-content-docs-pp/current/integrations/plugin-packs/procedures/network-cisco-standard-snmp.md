@@ -456,7 +456,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALPEERUPDATELAST | Thresholds                                                                                                                                                                                                     |                                                        |             |
 | CRITICALSTATUS         | Set critical threshold for status (Default: '%{adminStatus} =~ /start/ && %{state} !~ /established/'). You can use the following variables: %{adminStatus}, %{state}, %{localAddr}, %{remoteAddr}, %{remoteAs} | %{adminStatus} =~ /start/ && %{state} !~ /established/ |             |
 | WARNINGSTATUS          | Set warning threshold for status. You can use the following variables: %{adminStatus}, %{state}, %{localAddr}, %{remoteAddr}, %{remoteAs}                                                                      |                                                        |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                                            | --verbose                                              |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                            | --verbose                                              |             |
 
 </TabItem>
 <TabItem value="Configuration" label="Configuration">
