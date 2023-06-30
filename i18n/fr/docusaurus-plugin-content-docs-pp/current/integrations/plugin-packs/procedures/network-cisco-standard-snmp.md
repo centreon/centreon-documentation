@@ -506,7 +506,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALCOUNTTEMPERATURE |                                                                                                                          |                                                                 |             |
 | WARNINGCOUNTVOLTAGE      |                                                                                                                          |                                                                 |             |
 | CRITICALCOUNTVOLTAGE     |                                                                                                                          |                                                                 |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                      | --verbose  --filter-perfdata='^(sensor\.(celsius_|rpm_)|temp_)' |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      | --verbose  --filter-perfdata='^(sensor\.(celsius_|rpm_)|temp_)' |             |
 
 </TabItem>
 <TabItem value="Hsrp" label="Hsrp">
