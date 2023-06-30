@@ -39,7 +39,7 @@ Le connecteur apporte les modèles de service suivants
 | Ap-Status | Net-Cisco-Wlc-Ap-Status-SNMP-Access-Point | Contrôle le statut du point d'accès                          |
 | Ap-Users  | Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point  | Contrôle le nombre d'utilisateurs du point d'accès           |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wlc-SNMP-Access-Point** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wlc-SNMP-Access-Point-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
