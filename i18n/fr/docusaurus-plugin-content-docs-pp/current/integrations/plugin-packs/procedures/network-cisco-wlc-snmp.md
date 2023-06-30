@@ -391,7 +391,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 | FILTERGROUP   | Filter by access point group (can be a regexp)                                                      |                   |             |
 | WARNINGTOTAL  | Thresholds                                                                                          |                   |             |
 | CRITICALTOTAL | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
