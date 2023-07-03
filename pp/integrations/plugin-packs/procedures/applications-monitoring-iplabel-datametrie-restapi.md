@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Warning
 
-This plugin pack has been marked as deprecated, since the Datamétrie online 
+This connector is deprecated, as the Datamétrie online 
 service is not available any more.
 
 ## Overview
