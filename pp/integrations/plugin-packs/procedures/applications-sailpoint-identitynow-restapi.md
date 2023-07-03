@@ -352,7 +352,7 @@ All generic options are listed here:
 
 #### Modes options
 
-All modes specific options are listed here:
+All mode-specific options are listed here:
 
 <Tabs groupId="sync">
 <TabItem value="Search-Count" label="Search-Count">
