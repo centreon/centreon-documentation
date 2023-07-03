@@ -340,7 +340,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | STATUSUNKNOWN  | Set unknown threshold for status (Default: '%{status} =~ /^Unknown$/').  You can use the following variables: %{status}, %{summary}      |                              |             |
 | STATUSCRITICAL | Set critical threshold for status (Default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |             |
 | STATUSWARNING  | Set warning threshold for status (Default: '').  You can use the following variables: %{status}, %{summary}                              |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                      |                              |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                      |                              |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
