@@ -17,7 +17,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Cloud-Azure-Database-SqlDatabase" label="Cloud-Azure-Database-SqlDatabase">
+<TabItem value="Cloud-Azure-Database-SqlDatabase-custom" label="Cloud-Azure-Database-SqlDatabase-custom">
 
 | Alias  | Modèle de service                       | Description                                                                       |
 |:-------|:----------------------------------------|:----------------------------------------------------------------------------------|
