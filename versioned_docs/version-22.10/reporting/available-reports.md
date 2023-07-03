@@ -865,7 +865,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 > - Retrieve and store certificate:
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 >   The *servername* option value must be the exact hostname defined in the
@@ -942,7 +942,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 > - Retrieve and store certificate:
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 >   The *servername* option value must be the exact hostname defined in the
