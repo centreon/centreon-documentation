@@ -78,7 +78,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ## Prérequis
 
 
-Pour la supervision, un utilisateur avec des droits de lecture sur l'[API](https://developer.sailpoint.com/idn/api/getting-started) SailPoint IdentityNow est nécessaire.
+Pour la supervision, un utilisateur avec des droits de lecture sur l'[API SailPoint IdentityNow](https://developer.sailpoint.com/idn/api/getting-started) est nécessaire.
 
 ## Installer le connecteur de supervision
 
