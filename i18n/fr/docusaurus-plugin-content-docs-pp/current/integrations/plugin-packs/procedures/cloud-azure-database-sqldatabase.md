@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision **Azure SQL Database** apporte un modèle d'hôte :
 
-* **Cloud-Azure-Database-SqlDatabase**
+* **Cloud-Azure-Database-SqlDatabase-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
