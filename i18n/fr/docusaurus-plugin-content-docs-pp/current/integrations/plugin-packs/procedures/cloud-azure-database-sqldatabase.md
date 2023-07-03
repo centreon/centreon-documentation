@@ -393,7 +393,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AGGREGATION     |                                                                                                     | Average           |             |
 | WARNINGWORKERS  | Warning threshold                                                                                   |                   |             |
 | CRITICALWORKERS | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
