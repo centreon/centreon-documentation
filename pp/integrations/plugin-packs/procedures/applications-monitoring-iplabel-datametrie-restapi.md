@@ -5,6 +5,10 @@ title: IP-Label datametrie API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Warning
+
+This plugin pack has been marked as deprecated, since the Datamétrie online 
+service is not available any more.
 
 ## Overview
 
