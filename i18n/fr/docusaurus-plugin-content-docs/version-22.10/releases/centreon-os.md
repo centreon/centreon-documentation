@@ -272,7 +272,7 @@ BAM trace/debug logs have also been added to boolean rules computations.
 
 ##### Bug fixes
 
-- Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed an exception-catching issue that caused Broker to fail inserting resources when the check_attempt was too high for the database column type.
 - Restored the $ADMINEMAIL$ and $ADMINPAGER$ global macros.
 
 ### 22.10.2
