@@ -267,7 +267,7 @@ Release date: `July 3, 2023`
 
 ##### Enhancements
 
-- With AND/OR boolean operators, we do not have always to wait for nodes to be known. An OR is always true if one of its children is true and An AND is always false if one of its children is false. This is now implemented in broker and allows result to appear faster.
+- Improved the evaluation process of BAM KPIs based on boolean expressions: if an OK result is part of an OR operation, or a CRITICAL result is part of an AND operation, Broker will return the results without waiting for the other members of the operation.
 BAM trace/debug logs have also been added to boolean rules computations.
 
 ##### Bug fixes
