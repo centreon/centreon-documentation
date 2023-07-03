@@ -198,7 +198,7 @@ yum install centreon-plugin-Applications-Sailpoint-Identitynow-Restapi
 | Macro                | Description                                                                                         | Valeur par défaut           | Obligatoire |
 |:---------------------|:----------------------------------------------------------------------------------------------------|:----------------------------|:------------|
 | OUTPUT               | Output to print after retrieving the count of results (Default: "Number of results: %{count}")      | Number of results: %{count} |             |
-| QUERY                | Query parameters used to construct an Elasticsearch query object(see documentation)                 |                             |             |
+| QUERY                | Query parameters used to construct an Elasticsearch query object (see documentation)                 |                             |             |
 | WARNINGRESULTSCOUNT  |                                                                                                     |                             |             |
 | CRITICALRESULTSCOUNT |                                                                                                     |                             |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                             |             |
