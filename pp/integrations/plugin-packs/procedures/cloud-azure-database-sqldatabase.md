@@ -227,7 +227,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
 3. Apply the **Cloud-Azure-Database-SqlDatabase-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication cn be used with this resource: either using the command tool azcli, or by querying the API directly.
+4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication can be used with this resource: either using the command tool azcli, or by querying the API directly.
 
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
