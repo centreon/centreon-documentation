@@ -16,7 +16,7 @@ The Monitoring Connector **Azure SQL Database** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Cloud-Azure-Database-SqlDatabase" label="Cloud-Azure-Database-SqlDatabase">
+<TabItem value="Cloud-Azure-Database-SqlDatabase-custom" label="Cloud-Azure-Database-SqlDatabase-custom">
 
 | Service Alias | Service Template                        | Service Description                               |
 |:--------------|:----------------------------------------|:--------------------------------------------------|
