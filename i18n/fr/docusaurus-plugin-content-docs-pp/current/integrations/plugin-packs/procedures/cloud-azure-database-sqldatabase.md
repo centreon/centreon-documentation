@@ -243,7 +243,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   |             |
 | AZURETENANT        | Set Azure tenant ID                                                                                           |                   |             |
 | PROXYURL           | Proxy URL if any                                                                                              |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)         |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)         |                   |             |
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
