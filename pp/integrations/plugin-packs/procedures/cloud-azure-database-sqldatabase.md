@@ -18,25 +18,25 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Azure-Database-SqlDatabase-custom" label="Cloud-Azure-Database-SqlDatabase-custom">
 
-| Service Alias | Service Template                        | Service Description                               |
-|:--------------|:----------------------------------------|:--------------------------------------------------|
-| Cpu           | Cloud-Azure-Database-SqlDatabase-Cpu    | Check Azure Database for Sqldatabase CPU usage    |
-| Health        | Cloud-Azure-Database-SqlDatabase-Health | Check database state                              |
-| Memory        | Cloud-Azure-Database-SqlDatabase-Memory | Check Azure Database for SqlDatabase memory usage |
+| Service Alias | Service Template                               | Service Description                               |
+|:--------------|:-----------------------------------------------|:--------------------------------------------------|
+| Cpu           | Cloud-Azure-Database-SqlDatabase-Cpu-custom    | Check Azure Database for Sqldatabase CPU usage    |
+| Health        | Cloud-Azure-Database-SqlDatabase-Health-custom | Check database state                              |
+| Memory        | Cloud-Azure-Database-SqlDatabase-Memory-custom | Check Azure Database for SqlDatabase memory usage |
 
 > The services listed above are created automatically when the **Cloud-Azure-Database-SqlDatabase-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                               | Service Description               |
-|:--------------|:-----------------------------------------------|:----------------------------------|
-| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources | Check App CPU and memory metrics  |
-| Connections   | Cloud-Azure-Database-SqlDatabase-Connections   | Check the number of connections   |
-| Deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks     | Check database for deadlocks      |
-| Sessions      | Cloud-Azure-Database-SqlDatabase-Sessions      | Check sessions usage              |
-| Storage       | Cloud-Azure-Database-SqlDatabase-Storage       | Check database size               |
-| Workers       | Cloud-Azure-Database-SqlDatabase-Workers       | Check the number of workers       |
+| Service Alias | Service Template                                      | Service Description               |
+|:--------------|:------------------------------------------------------|:----------------------------------|
+| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources-custom | Check App CPU and memory metrics  |
+| Connections   | Cloud-Azure-Database-SqlDatabase-Connections-custom   | Check the number of connections   |
+| Deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     | Check database for deadlocks      |
+| Sessions      | Cloud-Azure-Database-SqlDatabase-Sessions-custom      | Check sessions usage              |
+| Storage       | Cloud-Azure-Database-SqlDatabase-Storage-custom       | Check database size               |
+| Workers       | Cloud-Azure-Database-SqlDatabase-Workers-custom       | Check the number of workers       |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -93,7 +93,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Health" label="Health">
 
-Coming soon
+| Metric name | Unit  |
+|:------------|:------|
+| status      | N/A   |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -233,15 +237,15 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
 | Macro              | Description                                                                                                   | Default value     | Mandatory   |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AZURECLIENTID      | Set Azure client ID                                                                                           |                   |             |
-| AZURECLIENTSECRET  | Set Azure client secret                                                                                       |                   |             |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| AZURECLIENTID      | Set Azure client ID                                                                                           |                   | X           |
+| AZURECLIENTSECRET  | Set Azure client secret                                                                                       |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways  to get the an information the desired one must be defined with this option | api               |             |
 | AZURERESOURCE      | Set resource name or id . It is the database name                                                             |                   |             |
 | AZURERESOURCEGROUP | Set resource group                                                                                            |                   |             |
 | AZURESQLSERVERNAME | Set server name                                                                                               |                   |             |
-| AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   |             |
-| AZURETENANT        | Set Azure tenant ID                                                                                           |                   |             |
+| AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   | X           |
+| AZURETENANT        | Set Azure tenant ID                                                                                           |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                              |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)         |                   |             |
 
@@ -249,12 +253,12 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
 | Macro              | Description                                                                                                   | Default value     | Mandatory   |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------|:------------------|:------------|
-| AZURECUSTOMMODE    | When a plugin offers several ways to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID. It is the database name                                                             |                   |             |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| AZURECUSTOMMODE    | When a plugin offers several ways  to get the an information the desired one must be defined with this option | api               |             |
+| AZURERESOURCE      | Set resource name or ID . It is the database name                                                             |                   |             |
 | AZURERESOURCEGROUP | Set resource group                                                                                            |                   |             |
 | AZURESQLSERVERNAME | Set server name                                                                                               |                   |             |
-| AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   |             |
+| AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                              |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)         |                   |             |
 
@@ -277,10 +281,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="App-Resources" label="App-Resources">
 
 | Macro             | Description                                                                                         | Default value     | Mandatory   |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TIMEFRAME         |                                                                                                     | 900               |             |
-| INTERVAL          |                                                                                                     | PT5M              |             |
-| AGGREGATION       |                                                                                                     | Total             |             |
+|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAPPCPU     | Warning threshold where '*'                                                                         |                   |             |
 | CRITICALAPPCPU    | Critical threshold where '*'                                                                        |                   |             |
 | WARNINGAPPMEMORY  | Warning threshold where '*'                                                                         |                   |             |
@@ -291,10 +292,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Connections" label="Connections">
 
 | Macro                        | Description                                                                                         | Default value     | Mandatory   |
-|:-----------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TIMEFRAME                    |                                                                                                     | 900               |             |
-| INTERVAL                     |                                                                                                     | PT5M              |             |
-| AGGREGATION                  |                                                                                                     | Total             |             |
+|:-----------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGCONNECTIONBLOCKED     |                                                                                                     |                   |             |
 | CRITICALCONNECTIONBLOCKED    |                                                                                                     |                   |             |
 | WARNINGCONNECTIONFAILED      | Warning threshold where '*'                                                                         |                   |             |
@@ -307,7 +305,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Cpu" label="Cpu">
 
 | Macro                | Description                                                                                         | Default value     | Mandatory   |
-|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | TIMEFRAME            |                                                                                                     | 900               |             |
 | INTERVAL             |                                                                                                     | PT5M              |             |
 | AGGREGATION          |                                                                                                     | Total             |             |
@@ -320,10 +318,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Deadlocks" label="Deadlocks">
 
 | Macro             | Description                                                                                         | Default value     | Mandatory   |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TIMEFRAME         |                                                                                                     | 900               |             |
-| INTERVAL          |                                                                                                     | PT5M              |             |
-| AGGREGATION       |                                                                                                     | Total             |             |
+|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGDEADLOCKS  | Warning threshold                                                                                   |                   |             |
 | CRITICALDEADLOCKS | Critical threshold                                                                                  |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
@@ -332,11 +327,8 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Health" label="Health">
 
 | Macro          | Description                                                                                                                              | Default value                | Mandatory   |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:------------|
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | STATUSOK       | Set ok threshold for status (Default: '%{status} =~ /^Available$/').  You can use the following variables: %{status}, %{summary}         | %{status} =~ /^Available$/   |             |
-| TIMEFRAME      |                                                                                                                                          | 900                          |             |
-| INTERVAL       |                                                                                                                                          | PT5M                         |             |
-| AGGREGATION    |                                                                                                                                          | Total                        |             |
 | STATUSUNKNOWN  | Set unknown threshold for status (Default: '%{status} =~ /^Unknown$/').  You can use the following variables: %{status}, %{summary}      |                              |             |
 | STATUSCRITICAL | Set critical threshold for status (Default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |             |
 | STATUSWARNING  | Set warning threshold for status (Default: '').  You can use the following variables: %{status}, %{summary}                              |                              |             |
@@ -345,26 +337,21 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                | Description                                                                                         | Default value                | Mandatory   |
-|:---------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------|:------------|
-| TIMEFRAME            |                                                                                                     | 900                          |             |
-| INTERVAL             |                                                                                                     | PT5M                         |             |
-| AGGREGATION          |                                                                                                     | Total                        |             |
-| STATUSOK             |                                                                                                     | %{status} =~ /^Available$/   |             |
-| FILTERMETRIC         |                                                                                                     |                              |             |
-| STATUSCRITICAL       |                                                                                                     | %{status} =~ /^Unavailable$/ |             |
-| WARNINGUSAGEPERCENT  | Thresholds where '*'                                                                                |                              |             |
-| CRITICALUSAGEPERCENT | Thresholds where '*'                                                                                |                              |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                              |             |
+| Macro                | Description                                                                                         | Default value     | Mandatory   |
+|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME            |                                                                                                     | 900               |             |
+| INTERVAL             |                                                                                                     | PT5M              |             |
+| AGGREGATION          |                                                                                                     | Total             |             |
+| FILTERMETRIC         |                                                                                                     |                   |             |
+| WARNINGUSAGEPERCENT  | Thresholds where '*'                                                                                |                   |             |
+| CRITICALUSAGEPERCENT | Thresholds where '*'                                                                                |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
 | Macro            | Description                                                                                         | Default value     | Mandatory   |
-|:-----------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TIMEFRAME        |                                                                                                     | 900               |             |
-| INTERVAL         |                                                                                                     | PT5M              |             |
-| AGGREGATION      |                                                                                                     | Average           |             |
+|:-----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGSESSIONS  | Warning threshold                                                                                   |                   |             |
 | CRITICALSESSIONS | Critical threshold                                                                                  |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
@@ -373,10 +360,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Storage" label="Storage">
 
 | Macro                | Description                                                                                         | Default value     | Mandatory   |
-|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TIMEFRAME            |                                                                                                     | 900               |             |
-| INTERVAL             |                                                                                                     | PT5M              |             |
-| AGGREGATION          |                                                                                                     | Maximum           |             |
+|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUSAGEBYTES    | Warning threshold where '*'                                                                         |                   |             |
 | CRITICALUSAGEBYTES   | Critical threshold where '*'                                                                        |                   |             |
 | WARNINGUSAGEPERCENT  | Warning threshold where '*'                                                                         |                   |             |
@@ -387,10 +371,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 <TabItem value="Workers" label="Workers">
 
 | Macro           | Description                                                                                         | Default value     | Mandatory   |
-|:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| TIMEFRAME       |                                                                                                     | 900               |             |
-| INTERVAL        |                                                                                                     | PT5M              |             |
-| AGGREGATION     |                                                                                                     | Average           |             |
+|:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGWORKERS  | Warning threshold                                                                                   |                   |             |
 | CRITICALWORKERS | Critical threshold                                                                                  |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
@@ -398,7 +379,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -428,7 +409,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 The expected command output is shown below:
 
 ```bash
-OK: App CPU percent  App Memory percent | 'sqldatabase.serverless.app.cpu.percentage'=96%;;;0; 'sqldatabase.serverless.app.memory.percentage'=85%;;;0; 
+OK: App CPU percent  App Memory percent | 'sqldatabase.serverless.app.cpu.percentage'=28%;;;0; 'sqldatabase.serverless.app.memory.percentage'=1%;;;0;  
 ```
 
 ### Troubleshooting
@@ -449,22 +430,26 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode          | Linked service template                        |
-|:--------------|:-----------------------------------------------|
-| app-resources | Cloud-Azure-Database-SqlDatabase-App-Resources |
-| connections   | Cloud-Azure-Database-SqlDatabase-Connections   |
-| cpu           | Cloud-Azure-Database-SqlDatabase-Cpu           |
-| deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks     |
-| discovery     | Used for host discovery                        |
-| health        | Cloud-Azure-Database-SqlDatabase-Health        |
-| memory        | Cloud-Azure-Database-SqlDatabase-Memory        |
-| sessions      | Cloud-Azure-Database-SqlDatabase-Sessions      |
-| storage       | Cloud-Azure-Database-SqlDatabase-Storage       |
-| workers       | Cloud-Azure-Database-SqlDatabase-Workers       |
+| Mode          | Linked service template                               |
+|:--------------|:------------------------------------------------------|
+| app-resources | Cloud-Azure-Database-SqlDatabase-App-Resources-custom |
+| connections   | Cloud-Azure-Database-SqlDatabase-Connections-custom   |
+| cpu           | Cloud-Azure-Database-SqlDatabase-Cpu-custom           |
+| deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     |
+| discovery     | Used for host discovery                               |
+| health        | Cloud-Azure-Database-SqlDatabase-Health-custom        |
+| memory        | Cloud-Azure-Database-SqlDatabase-Memory-custom        |
+| sessions      | Cloud-Azure-Database-SqlDatabase-Sessions-custom      |
+| storage       | Cloud-Azure-Database-SqlDatabase-Storage-custom       |
+| workers       | Cloud-Azure-Database-SqlDatabase-Workers-custom       |
 
 ### Available custom modes
 
-This connector offers several ways to connect to the resource (CLI, library, etc.), called **custom modes**.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
 All available custom modes can be displayed by adding the `--list-custommode` parameter to
 the command:
 
@@ -695,5 +680,6 @@ All available options for a given mode can be displayed by adding the
 /usr/lib/centreon/plugins//centreon_azure_database_sqldatabase_api.pl \
 	--plugin=cloud::azure::database::sqldatabase::plugin \
 	--mode=app-resources \
+	--custommode='azcli \
     --help
 ```
