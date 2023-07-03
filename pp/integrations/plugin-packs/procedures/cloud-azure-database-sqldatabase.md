@@ -282,10 +282,10 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 
 | Macro             | Description                                                                                         | Default value     | Mandatory   |
 |:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAPPCPU     | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALAPPCPU    | Critical threshold where '*'                                                                        |                   |             |
-| WARNINGAPPMEMORY  | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALAPPMEMORY | Critical threshold where '*'                                                                        |                   |             |
+| WARNINGAPPCPU     | Warning threshold for app-cpu                                                                       |                   |             |
+| CRITICALAPPCPU    | Critical threshold for app-cpu                                                                      |                   |             |
+| WARNINGAPPMEMORY  | Warning threshold for app-memory                                                                    |                   |             |
+| CRITICALAPPMEMORY | Critical threshold for app-memory                                                                   |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -295,10 +295,10 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 |:-----------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGCONNECTIONBLOCKED     |                                                                                                     |                   |             |
 | CRITICALCONNECTIONBLOCKED    |                                                                                                     |                   |             |
-| WARNINGCONNECTIONFAILED      | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALCONNECTIONFAILED     | Critical threshold where '*'                                                                        |                   |             |
-| WARNINGCONNECTIONSUCCESSFUL  | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALCONNECTIONSUCCESSFUL | Critical threshold where '*'                                                                        |                   |             |
+| WARNINGCONNECTIONFAILED      | Warning threshold for connection-failed                                                             |                   |             |
+| CRITICALCONNECTIONFAILED     | Critical threshold for connection-failed                                                            |                   |             |
+| WARNINGCONNECTIONSUCCESSFUL  | Warning threshold for connection-successful                                                         |                   |             |
+| CRITICALCONNECTIONSUCCESSFUL | Critical threshold for connection-successful                                                        |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -310,8 +310,8 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | INTERVAL             |                                                                                                     | PT5M              |             |
 | AGGREGATION          |                                                                                                     | Total             |             |
 | FILTERMETRIC         |                                                                                                     |                   |             |
-| WARNINGUSAGEPERCENT  | Thresholds where '*'                                                                                |                   |             |
-| CRITICALUSAGEPERCENT | Thresholds where '*'                                                                                |                   |             |
+| WARNINGUSAGEPERCENT  | Thresholds for usage-percent                                                                        |                   |             |
+| CRITICALUSAGEPERCENT | Thresholds for usage-percent                                                                        |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -361,10 +361,10 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 
 | Macro                | Description                                                                                         | Default value     | Mandatory   |
 |:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEBYTES    | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALUSAGEBYTES   | Critical threshold where '*'                                                                        |                   |             |
-| WARNINGUSAGEPERCENT  | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALUSAGEPERCENT | Critical threshold where '*'                                                                        |                   |             |
+| WARNINGUSAGEBYTES    | Warning threshold for usage-bytes                                                                   |                   |             |
+| CRITICALUSAGEBYTES   | Critical threshold for usage-bytes                                                                  |                   |             |
+| WARNINGUSAGEPERCENT  | Warning threshold for usage-percent                                                                 |                   |             |
+| CRITICALUSAGEPERCENT | Critical threshold for usage-percent                                                                |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
