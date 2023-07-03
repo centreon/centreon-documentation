@@ -26,10 +26,10 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                | Service Description                                     | Discovery  |
-|:--------------|:------------------------------------------------|:--------------------------------------------------------|:-----------|
-| Search-Count  | App-Sailpoint-Identitynow-Restapi-Search-Count  | Performs a search with a provided query and returns the |            |
-| Source-Health | App-Sailpoint-Identitynow-Restapi-Source-Health | Check sources health status                             | X          |
+| Service Alias | Service Template                                | Service Description                                                      | Discovery  |
+|:--------------|:------------------------------------------------|:-------------------------------------------------------------------------|:-----------|
+| Search-Count  | App-Sailpoint-Identitynow-Restapi-Search-Count  | Performs a search with a provided query and returns the count of results |            |
+| Source-Health | App-Sailpoint-Identitynow-Restapi-Source-Health | Check sources health status                                              | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
