@@ -63,7 +63,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor, a user with read privileges on the Tosca Commander REST Webservice [API](https://documentation.tricentis.com/devcorner/1000/tcrsapi/) is required.
+To monitor this type of resource, a user with read privileges on the Tosca Commander REST Webservice [API](https://documentation.tricentis.com/devcorner/1000/tcrsapi/) is required.
 
 ## Installing the monitoring connector
 
