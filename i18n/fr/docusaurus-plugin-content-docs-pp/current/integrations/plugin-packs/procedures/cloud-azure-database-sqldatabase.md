@@ -241,7 +241,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                           |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                       |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways to get information, the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or id . It is the database name                                                             |                   |             |
+| AZURERESOURCE      | Set resource name or ID . It is the database name                                                             |                   |             |
 | AZURERESOURCEGROUP | Set resource group                                                                                            |                   |             |
 | AZURESQLSERVERNAME | Set server name                                                                                               |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription                                                                                        |                   | X           |
