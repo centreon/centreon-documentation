@@ -587,7 +587,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 
 #### Options des modes
 
-Les options spécifiques aux modes sont listées ci-dessus :
+Les options spécifiques aux modes sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="App-Resources" label="App-Resources">
