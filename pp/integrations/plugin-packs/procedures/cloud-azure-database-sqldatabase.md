@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The Monitoring Connector **Azure SQL Database** brings a host template:
 
-* **Cloud-Azure-Database-SqlDatabase**
+* **Cloud-Azure-Database-SqlDatabase-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
