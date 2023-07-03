@@ -355,7 +355,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | STATUSCRITICAL       |                                                                                                     | %{status} =~ /^Unavailable$/ |             |
 | WARNINGUSAGEPERCENT  | Thresholds where '*'                                                                                |                              |             |
 | CRITICALUSAGEPERCENT | Thresholds where '*'                                                                                |                              |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles) |                              |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                              |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
