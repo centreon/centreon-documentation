@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Health        | Cloud-Azure-Database-SqlDatabase-Health | Check database state                              |
 | Memory        | Cloud-Azure-Database-SqlDatabase-Memory | Check Azure Database for SqlDatabase memory usage |
 
-> The services listed above are created automatically when the **Cloud-Azure-Database-SqlDatabase** host template is used.
+> The services listed above are created automatically when the **Cloud-Azure-Database-SqlDatabase-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
