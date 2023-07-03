@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Attention
 
-Ce plugin-pack a été référencé obsolète, désormais le service Datamétrie 
+Ce connecteur est obsolète, car le service Datamétrie 
 online n'est plus disponible.
 
 ## Vue d'ensemble
