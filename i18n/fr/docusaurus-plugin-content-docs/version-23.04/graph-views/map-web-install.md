@@ -345,13 +345,6 @@ dnf install mariadb-server
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install mariadb-server
-```
-
-</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
