@@ -338,6 +338,13 @@ dnf install mariadb-server
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install mariadb-server
+```
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
