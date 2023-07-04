@@ -261,7 +261,7 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
-## 22.10.3
+### 22.10.3
 
 Release date: `July 3, 2023`
 
