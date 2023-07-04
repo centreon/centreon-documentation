@@ -63,7 +63,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric Name                               | Unit  |
+| Métrique                                  | Unité |
 |:------------------------------------------|:------|
 | cpu.utilization.percentage                | %     |
 | *cpu_num*#core.cpu.utilization.percentage | %     |
@@ -71,7 +71,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Metric Name                            | Unit  |
+| Métrique                               | Unité |
 |:---------------------------------------|:------|
 | *hostname*#disk.space.usage.bytes      | B     |
 | *hostname*#disk.space.free.bytes       | B     |
@@ -80,7 +80,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric Name                                               | Unit  |
+| Métrique                                                  | Unité |
 |:--------------------------------------------------------- |:----- |
 | status                                                    |       |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
@@ -93,7 +93,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric Name                        | Unit  |
+| Métrique                           | Unité |
 |:-----------------------------------|:------|
 | *hostname*#memory.usage.bytes      | B     |
 | *hostname*#memory.free.bytes       | B     |
@@ -102,7 +102,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Radius" label="Radius">
 
-| Metric Name                                      | Unit  |
+| Métrique                                         | Unité |
 |:-------------------------------------------------|:------|
 | *hostname*#radius.policy.evaluation.milliseconds | ms    |
 | *hostname*#radius.requests.count                 |       |
@@ -113,7 +113,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Repositories" label="Repositories">
 
-| Metric Name                                                      | Unit  |
+| Métrique                                                         | Unité |
 |:-----------------------------------------------------------------|:------|
 | *source_name*#authentication_repository.requests.milliseconds    | ms    |
 | *source_name*#authentication_repository.requests.count           |       |
@@ -123,7 +123,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name           | Unit  |
+| Métrique              | Unité |
 |:----------------------|:------|
 | swap.usage.bytes      | B     |
 | swap.free.bytes       | B     |
@@ -132,7 +132,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Tacacs" label="Tacacs">
 
-| Metric Name                                                                | Unit  |
+| Métrique                                                                   | Unité |
 |:---------------------------------------------------------------------------|:------|
 | *hostname*#tacacs.authentication.service.policy.evaluation.milliseconds    | ms    |
 | *hostname*#tacacs.authentication.requests.count                            |       |
