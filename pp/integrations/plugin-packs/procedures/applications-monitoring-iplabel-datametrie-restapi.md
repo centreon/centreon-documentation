@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Warning
 
-This connector is deprecated, as the Datamétrie online 
-service is not available any more.
+> This connector is deprecated, as the Datamétrie online 
+> service is not available any more.
 
 ## Overview
 
