@@ -400,7 +400,7 @@ Many components are used to build a remote server:
 Many components are used to build a poller:
 
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by a monitoring engine
+* Collected data are sent to Centreon Broker SQL by the monitoring engine, using cbmod 
 
 #### Architecture
 
