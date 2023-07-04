@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Attention
 
-Ce connecteur est obsolète, car le service Datamétrie 
-online n'est plus disponible.
+> Ce connecteur est obsolète, car le service Datamétrie 
+> online n'est plus disponible.
 
 ## Vue d'ensemble
 
