@@ -69,7 +69,7 @@ The Centreon setup wizard creates a configuration file and database structure:
 
 When done, click **Next**.
 
-### Step 8: Module installation
+### Step 8: Installation of the modules
 
 Select the available modules and widgets to be installed. Then click **Install**.
 
