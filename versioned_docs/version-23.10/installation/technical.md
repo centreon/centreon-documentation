@@ -343,7 +343,7 @@ The diagram below summarizes the architecture:
 
 ### Remote Server
 
-The distributed architecture with Remote sever includes three types of entities:
+The distributed architecture with Remote server includes three types of entities:
 
 * A Centreon Central server to configure monitoring and to display and operate on collected data
 * One or more Centreon Remote servers to display and operate on a subset of collected data
