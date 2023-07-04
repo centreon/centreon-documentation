@@ -261,7 +261,7 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
-## 22.10.3
+### 22.10.3
 
 Release date: `July 3, 2023`
 
@@ -275,6 +275,11 @@ BAM trace/debug logs have also been added to boolean rules computations.
 ##### Bug fixes
 
 - Fixed an exception-catching issue that caused Broker to fail inserting resources when the check_attempt was too high for the database column type.
+
+#### Centreon Engine
+
+##### Bug fixes
+
 - Restored the $ADMINEMAIL$ and $ADMINPAGER$ global macros.
 
 ### 22.10.2
