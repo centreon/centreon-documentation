@@ -122,7 +122,7 @@ Release date: `July 7, 2023`
 
 ##### Enhancements
 
-- On mariadb data in data_bin table are now inserted with a bulk prepared statement.
+- On MariaDB, data in data_bin table are now inserted with a bulk prepared statement.
 - The check_command field had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](https://docs.centreon.com/docs/developer/developer-broker-stream-connector/#the-broker_cache-object).
 - Improved the evaluation process of BAM KPIs based on boolean expressions: if an OK result is part of an OR operation, or a CRITICAL result is part of an AND operation, Broker will return the results without waiting for the other members of the operation.
 - New performance counters have been added to the gRPC API in order to track the longest queries and statements.
