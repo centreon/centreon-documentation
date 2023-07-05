@@ -23,6 +23,7 @@ Vous devez disposer :
 
 3. Rendez les connecteurs de supervision disponibles :
 
+    - Si vous avez une licence en ligne, les connecteurs de supervision sont déjà disponibles dans l'interface.
     - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
 <Tabs groupId="sync">
@@ -49,8 +50,6 @@ apt install centreon-pack-*
 </TabItem>
 
 </Tabs>
-
-    - Si vous avez une licence en ligne, les connecteurs de supervision sont déjà disponibles dans l'interface.
 
 4. Pour installer le connecteur de supervision Amazon EC2, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
 
