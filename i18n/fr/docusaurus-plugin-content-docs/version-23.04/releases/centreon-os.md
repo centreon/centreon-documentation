@@ -106,6 +106,35 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.1
+
+Release date: `July 5, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Changed the default value of `deletion_time` for acknowledgements to `null` to avoid displaying abnormal dates in the interface.
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed an exception-catching issue that caused Broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+
+##### Enhancements
+
+- In MariaDB, data in the data_bin table are now inserted with a bulk prepared statement.
+- The check_command field had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](../developer/developer-broker-stream-connector.md#the-broker_cache-object).
+- Improved the evaluation process of BAM KPIs based on boolean expressions: if an OK result is part of an OR operation, or a CRITICAL result is part of an AND operation, Broker will return the results without waiting for the other members of the operation.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+
+#### Centreon Engine
+
+##### Bug fixes
+
+- [Packaging] Added the `/var/log/centreon-engine/archives` directory that was missing on Debian installations.
+- Fixed the handling of RTDOWNTIMES external commands. The duration is not required anymore for fixed downtimes.
+- Restored the $ADMINEMAIL$ and $ADMINPAGER$ global macros.
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
