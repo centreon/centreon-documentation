@@ -108,7 +108,7 @@ Release date: `April 26, 2023`
 
 ### 23.04.1
 
-Release date: `July 7, 2023`
+Release date: `July 5, 2023`
 
 #### Centreon Broker
 
