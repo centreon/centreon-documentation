@@ -22,6 +22,7 @@ You must have:
 
 3. Make the Monitoring Connectors available:
 
+    - If you have an online license, the Monitoring Connectors are already available in the interface.
     - If you have an offline licence, in your central server's terminal, enter:
      
 <Tabs groupId="sync">
@@ -49,8 +50,6 @@ apt install centreon-pack-*
 
 </Tabs>
 
-
-    - If you have an online license, the Monitoring Connectors are already available in the interface.
 
 4. To install the Amazon EC2 Monitoring Connector, go to **Configuration > Monitoring Connectors Manager**.
 
