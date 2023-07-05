@@ -120,11 +120,11 @@ Release date: `July 7, 2023`
 - Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
 - Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
 - Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
-- On mariadb data in data_bin table are inserted with a bulk prepared statement now.
 
 ##### Enhancements
 
-- The check_command had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](https://docs.centreon.com/docs/developer/developer-broker-stream-connector/#the-broker_cache-object).
+- On mariadb data in data_bin table are inserted with a bulk prepared statement now.
+- The check_command field had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](https://docs.centreon.com/docs/developer/developer-broker-stream-connector/#the-broker_cache-object).
 - Improved the evaluation process of BAM KPIs based on boolean expressions: if an OK result is part of an OR operation, or a CRITICAL result is part of an AND operation, Broker will return the results without waiting for the other members of the operation.
 - New performance counters have been added to the gRPC API in order to track the longest queries and statements.
 
