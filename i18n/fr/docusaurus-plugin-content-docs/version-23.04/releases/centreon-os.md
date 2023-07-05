@@ -116,7 +116,7 @@ Release date: `July 7, 2023`
 
 - Changed the default value of `deletion_time` for acknowledgements to `null` to avoid displaying abnormal dates in the interface.
 - Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
-- Fixed an exception-catching issue that caused broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed an exception-catching issue that caused Broker to fail inserting resources when the check_attempt was too high for the database column type.
 - Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
 - Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
 - On mariadb data in data_bin table are inserted with a bulk prepared statement now.
