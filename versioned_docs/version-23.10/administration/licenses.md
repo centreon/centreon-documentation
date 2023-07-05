@@ -14,8 +14,8 @@ import TabItem from '@theme/TabItem';
 ## Types of licenses
 
 According to your [Centreon edition](https://www.centreon.com/en/editions/), your license can be:
-- offline: uses one or several license files
 - online: uses a token. Your Centreon platform must be connected to the internet.
+- offline: uses one or several license files
 
 ## Which modules require a license?
 
@@ -37,25 +37,6 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 ## Adding a license to your Centreon platform
 
 <Tabs groupId="sync">
-<TabItem value="Offline licenses" label="Offline licenses">
-
-1. To request your license:
-
-    1. Go to **Administration > Extensions > Manager**.
-
-    2. Click on **Get fingerprint**.
-
-    3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
-
-2. Once you have received your license, in the **Administration > Extensions > Manager** page, click on **Upload license**.
-
-5. Browse to the file and then click **OK**. The license is applied and the corresponding modules display their validity date:
-    
-    ![image](../assets/administration/license_valid.png)
-
-6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
-
-</TabItem>
 <TabItem value="Online licenses" label="Online licenses">
 
 > Refer to the [tables of network flows](../installation/technical.md#tables-of-network-flows) to integrate your monitoring platform.
@@ -91,6 +72,25 @@ Make sure your Centreon platform is allowed to reach the internet:
     ![image](../assets/administration/license_valid.png)
 
     The **Add token** button changes to become a **View license** button.
+
+</TabItem>
+<TabItem value="Offline licenses" label="Offline licenses">
+
+1. To request your license:
+
+    1. Go to **Administration > Extensions > Manager**.
+
+    2. Click on **Get fingerprint**.
+
+    3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
+
+2. Once you have received your license, in the **Administration > Extensions > Manager** page, click on **Upload license**.
+
+5. Browse to the file and then click **OK**. The license is applied and the corresponding modules display their validity date:
+    
+    ![image](../assets/administration/license_valid.png)
+
+6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
 
 </TabItem>
 </Tabs>

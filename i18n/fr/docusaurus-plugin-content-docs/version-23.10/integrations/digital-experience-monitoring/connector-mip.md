@@ -29,7 +29,7 @@ Afin de pouvoir interroger l'API, il est nécessaire d'avoir à disposition une 
 ### Centreon
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="Licence en ligne" label="Licence en ligne>
 
 1. Installer le Plugin Sur chaque collecteur se connectant à une instance MIP:
 
@@ -42,7 +42,7 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 ![install\_epp](../../assets/integrations/external/mip-epp-install.png)
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
+<TabItem value="Licence hors ligne" label="Licence hors ligne">
 
 1. Installer le Plugin Sur chaque collecteur se connectant à une instance MIP:
 
