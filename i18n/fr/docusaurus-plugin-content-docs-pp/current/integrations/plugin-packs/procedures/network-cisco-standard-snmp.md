@@ -30,21 +30,26 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias         | Modèle de service                            | Description                                            | Découverte |
-|:--------------|:---------------------------------------------|:-------------------------------------------------------|:----------:|
-| Aaa-Servers   | Net-Cisco-Standard-Aaa-Servers-SNMP-custom   | Contrôle les serveurs AAA                              | X          |
-| Anycast       | Net-Cisco-Standard-Anycast-SNMP-custom       | Contrôle le type de trafic                             |            |
-| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table ARP                                  |            |
-| Bgp           | Net-Cisco-Standard-Bgp-SNMP-custom           | Contrôle le BGP                                        |            |
-| Configuration | Net-Cisco-Standard-Configuration-SNMP-custom | Contrôle si la configuration "running" est sauvegardée |            |
-| Hsrp          | Net-Cisco-Standard-Hsrp-SNMP-custom          | Contrôle Cisco HSRP                                    |            |
-| Interfaces    | Net-Cisco-Standard-Interfaces-SNMP-custom    | Contrôle les interfaces                                | X          |
-| Ipsla         | Net-Cisco-Standard-Ipsla-SNMP-custom         | Contrôle "Cisco Round-Trip Time Monitor"               |            |
-| Memory-Flash  | Net-Cisco-Standard-Memory-Flash-SNMP-custom  | Contrôle l'utilisation de la mémoire flash             |            |
-| Qos-Usage     | Net-Cisco-Standard-Qos-Usage-SNMP-custom     | Contrôle la QoS                                        |            |
-| Spanning-Tree | Net-Cisco-Standard-SpanningTree-SNMP-custom  | Contrôle l'état du spanning tree sur les interfaces    |            |
-| Stack         | Net-Cisco-Standard-Stack-SNMP-custom         | Contrôle l'état de la "stack" Cisco                    |            |
-| Voice-Call    | Net-Cisco-Standard-Voice-Call-SNMP-custom    | Contrôle les statistiques d'appels                     |            |
+| Alias                      | Modèle de service                                         | Description                                               | Découverte |
+|:---------------------------|:----------------------------------------------------------|:----------------------------------------------------------|:----------:|
+| Aaa-Servers                | Net-Cisco-Standard-Aaa-Servers-SNMP-custom                | Contrôle les serveurs AAA                                 | X          |
+| Anycast                    | Net-Cisco-Standard-Anycast-SNMP-custom                    | Contrôle le type de trafic                                |            |
+| Arp                        | Net-Cisco-Standard-Arp-SNMP-custom                        | Contrôle la table arp                                     |            |
+| Bgp                        | Net-Cisco-Standard-Bgp-SNMP-custom                        | Contrôle le BGP                                           |            |
+| Configuration              | Net-Cisco-Standard-Configuration-SNMP-custom              | Contrôle si la configuration "running" est sauvegardée    |            |
+| Hsrp                       | Net-Cisco-Standard-Hsrp-SNMP-custom                       | Contrôle Cisco HSRP                                       |            |
+| Ipsla                      | Net-Cisco-Standard-Ipsla-SNMP-custom                      | Contrôle "Cisco Round-Trip Time Monitor"                  |            |
+| Memory-Flash               | Net-Cisco-Standard-Memory-Flash-SNMP-custom               | Contrôle l'utilisation de la mémoire flash                |            |
+| Packet-Errors-Generic-Id   | Net-Cisco-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur              |            |
+| Packet-Errors-Generic-Name | Net-Cisco-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur              |            |
+| Packet-Errors-Global       | Net-Cisco-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur              | X          |
+| Qos-Usage                  | Net-Cisco-Standard-Qos-Usage-SNMP-custom                  | Contrôle la QoS                                           |            |
+| Spanning-Tree              | Net-Cisco-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du spanning tree sur les interfaces       |            |
+| Stack                      | Net-Cisco-Standard-Stack-SNMP-custom                      | Contrôle l'état de la "stack" Cisco                       |            |
+| Traffic-Generic-Id         | Net-Cisco-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name       | Net-Cisco-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau         |            |
+| Traffic-Global             | Net-Cisco-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Voice-Call                 | Net-Cisco-Standard-Voice-Call-SNMP-custom                 | Contrôle les statistiques d'appels                        |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -123,6 +128,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique             | Unité |
 |:---------------------|:------|
+| status               | N/A   |
 | running_last_changed | s     |
 | running_last_saved   | s     |
 | startup_last_changed | s     |
@@ -212,6 +218,18 @@ Coming soon
 | *partition_name*#memory.flash.usage.bytes      | B     |
 | *partition_name*#memory.flash.free.bytes       | B     |
 | *partition_name*#memory.flash.usage.percentage | %     |
+</TabItem>
+<TabItem value="Packet-Errors-*" label="Packet-Errors-*">
+
+| Métrique                                | Unité |
+|:----------------------------------------|:------|
+| int#status                              | N/A   |
+| int#interface.packets.in.discard.count  | count |
+| int#interface.packets.in.error.count    | count |
+| int#interface.packets.out.discard.count | count |
+| int#interface.packets.out.error.count   | count |
+
+> Concerne les modèles de service suivants : Packet-Errors-Generic-Id, Packet-Errors-Generic-Name, Packet-Errors-Global
 
 </TabItem>
 <TabItem value="Qos-Usage" label="Qos-Usage">
@@ -252,6 +270,17 @@ Coming soon
 | members#status   | N/A   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Traffic-*" label="Traffic-*">
+
+| Métrique                                | Unité |
+|:----------------------------------------|:------|
+| int#status                              | N/A   |
+| int#interface.traffic.in.bitspersecond  |       |
+| int#interface.traffic.out.bitspersecond |       |
+
+> Concerne les modèles de service suivants : Traffic-Generic-Name, Traffic-Generic-Id, Traffic-Global
 
 </TabItem>
 <TabItem value="Voice-Call" label="Voice-Call">
@@ -628,6 +657,67 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                    |                   |             |
 
 </TabItem>
+<TabItem value="Packet-Errors-Generic-Id" label="Packet-Errors-Generic-Id">
+
+| Macro              | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID        | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| WARNINGINCRC       | Thresholds                                                                                          |                   |             |
+| CRITICALINCRC      | Thresholds                                                                                          |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                          |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                          |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                          |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                          |                   |             |
+| WARNINGINFCSERROR  | Thresholds                                                                                          |                   |             |
+| CRITICALINFCSERROR | Thresholds                                                                                          |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                          |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                          |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                          |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Packet-Errors-Generic-Name" label="Packet-Errors-Generic-Name">
+
+| Macro              | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME      | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| WARNINGINCRC       | Thresholds                                                                                          |                   |             |
+| CRITICALINCRC      | Thresholds                                                                                          |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                          |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                          |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                          |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                          |                   |             |
+| WARNINGINFCSERROR  | Thresholds                                                                                          |                   |             |
+| CRITICALINFCSERROR | Thresholds                                                                                          |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                          |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                          |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                          |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Packet-Errors-Global" label="Packet-Errors-Global">
+
+| Macro              | Description                                                                                                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER             | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                               | .*                |             |
+| WARNINGINCRC       | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALINCRC      | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                                         |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                                                                                                         |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                                                                                                         |                   |             |
+| WARNINGINFCSERROR  | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALINFCSERROR | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                                         |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                                         |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                                         |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display} |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                | --verbose         |             |
+
+</TabItem>
 <TabItem value="Qos-Usage" label="Qos-Usage">
 
 | Macro                  | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
@@ -690,6 +780,43 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | WARNINGWAITING          | Set thresholds on members count for each states. (                                                                                                                                                                                                                                                                                                                                                 |                                                  |             |
 | CRITICALWAITING         | Set thresholds on members count for each states. (                                                                                                                                                                                                                                                                                                                                                 |                                                  |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                                                                                                                                                | --verbose                                        |             |
+
+</TabItem>
+<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID  | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| CRITICALIN   | Thresholds                                                                                          | 90                |             |
+| WARNINGIN    | Thresholds                                                                                          | 80                |             |
+| CRITICALOUT  | Thresholds                                                                                          | 90                |             |
+| WARNINGOUT   | Thresholds                                                                                          | 80                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
+
+| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| CRITICALIN    | Thresholds                                                                                          | 90                |             |
+| WARNINGIN     | Thresholds                                                                                          | 80                |             |
+| CRITICALOUT   | Thresholds                                                                                          | 90                |             |
+| WARNINGOUT    | Thresholds                                                                                          | 80                |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Traffic-Global" label="Traffic-Global">
+
+| Macro          | Description                                                                                                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER         | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                               | .*                |             |
+| CRITICALIN     | Thresholds                                                                                                                                                                                                                         | 90                |             |
+| WARNINGIN      | Thresholds                                                                                                                                                                                                                         | 80                |             |
+| CRITICALOUT    | Thresholds                                                                                                                                                                                                                         | 90                |             |
+| WARNINGOUT     | Thresholds                                                                                                                                                                                                                         | 80                |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display} |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                | --verbose         |             |
 
 </TabItem>
 <TabItem value="Voice-Call" label="Voice-Call">
@@ -1000,7 +1127,50 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --role        | If role is 'primary', an error if HSRPs are 'standby' states. Ifrole is 'secondary', an error if HSRPs are 'active' states. (Default: 'primary')    |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<TabItem value="Ipsla" label="Ipsla">
+
+| Option                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                      |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --filter-tag           | Filter tag (Default: '.*')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --threshold-overload   | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,status,regexp). Example: --threshold-overload='opersense,CRITICAL,^(?!(ok)$)'                                                                                                                                                                                                                                                                                                  |
+| --warning-*            | Warning threshold. Can be: 'CompletionTime', 'NumberOverThresholds', 'AverageDelaySD', 'AverageDelayDS', 'PacketLossRatio', 'PercentagePacketsPositiveJitter', 'AverageJitterPerPacketPositiveJitter', 'PercentagePacketsNegativeJitter', 'AverageJitterPerPacketNegativeJitter', 'AverageJitter', 'RTTStandardDeviation', 'DelaySource2DestinationStandardDeviation', 'DelayDestination2SourceStandardDeviation', 'JitterSource2DestinationStandardDeviation', 'JitterDestination2SourceStandardDeviation'.     |
+| --critical-*           | Critical threshold. Can be: 'CompletionTime', 'NumberOverThresholds', 'AverageDelaySD', 'AverageDelayDS', 'PacketLossRatio', 'PercentagePacketsPositiveJitter', 'AverageJitterPerPacketPositiveJitter', 'PercentagePacketsNegativeJitter', 'AverageJitterPerPacketNegativeJitter', 'AverageJitter', 'RTTStandardDeviation', 'DelaySource2DestinationStandardDeviation', 'DelayDestination2SourceStandardDeviation', 'JitterSource2DestinationStandardDeviation', 'JitterDestination2SourceStandardDeviation'.    |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option           | Description                                                                                                                                                                                |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-usage  | Warning threshold in percent.                                                                                                                                                              |
+| --critical-usage | Critical threshold in percent.                                                                                                                                                             |
+| --filter-pool    | Filter pool to check (can use regexp).                                                                                                                                                     |
+| --check-order    | Check memory in standard cisco mib. If you have some issue (wrong memory information in a specific mib), you can change the order (Default: 'enhanced\_pool,pool,process,system\_ext').    |
+
+</TabItem>
+<TabItem value="Memory-Flash" label="Memory-Flash">
+
+| Option                   | Description                                                                                                                                                     |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /readOnly/i'). You can use the following variables: %{status}, %{display}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %{display}                           |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %{display}                          |
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                            |
+| --filter-name            | Filter partition name (can be a regexp).                                                                                                                        |
+
+</TabItem>
+<TabItem value="Packet-Errors-*" label="Packet-Errors-*">
 
 | Option                   | Description                                                                                                                                                                                                                                                                                                                                                  |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1049,49 +1219,6 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                                                                                               |
 
 </TabItem>
-<TabItem value="Ipsla" label="Ipsla">
-
-| Option                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                      |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --filter-tag           | Filter tag (Default: '.*')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --threshold-overload   | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,status,regexp). Example: --threshold-overload='opersense,CRITICAL,^(?!(ok)$)'                                                                                                                                                                                                                                                                                                  |
-| --warning-*            | Warning threshold. Can be: 'CompletionTime', 'NumberOverThresholds', 'AverageDelaySD', 'AverageDelayDS', 'PacketLossRatio', 'PercentagePacketsPositiveJitter', 'AverageJitterPerPacketPositiveJitter', 'PercentagePacketsNegativeJitter', 'AverageJitterPerPacketNegativeJitter', 'AverageJitter', 'RTTStandardDeviation', 'DelaySource2DestinationStandardDeviation', 'DelayDestination2SourceStandardDeviation', 'JitterSource2DestinationStandardDeviation', 'JitterDestination2SourceStandardDeviation'.     |
-| --critical-*           | Critical threshold. Can be: 'CompletionTime', 'NumberOverThresholds', 'AverageDelaySD', 'AverageDelayDS', 'PacketLossRatio', 'PercentagePacketsPositiveJitter', 'AverageJitterPerPacketPositiveJitter', 'PercentagePacketsNegativeJitter', 'AverageJitterPerPacketNegativeJitter', 'AverageJitter', 'RTTStandardDeviation', 'DelaySource2DestinationStandardDeviation', 'DelayDestination2SourceStandardDeviation', 'JitterSource2DestinationStandardDeviation', 'JitterDestination2SourceStandardDeviation'.    |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Option           | Description                                                                                                                                                                                |
-|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-usage  | Warning threshold in percent.                                                                                                                                                              |
-| --critical-usage | Critical threshold in percent.                                                                                                                                                             |
-| --filter-pool    | Filter pool to check (can use regexp).                                                                                                                                                     |
-| --check-order    | Check memory in standard cisco mib. If you have some issue (wrong memory information in a specific mib), you can change the order (Default: 'enhanced\_pool,pool,process,system\_ext').    |
-
-</TabItem>
-<TabItem value="Memory-Flash" label="Memory-Flash">
-
-| Option                   | Description                                                                                                                                                     |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /readOnly/i'). You can use the following variables: %{status}, %{display}   |
-| --warning-status         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %{display}                           |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %{display}                          |
-| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                            |
-| --filter-name            | Filter partition name (can be a regexp).                                                                                                                        |
-
-</TabItem>
 <TabItem value="Qos-Usage" label="Qos-Usage">
 
 | Option                 | Description                                                                                                                                                                                                                                   |
@@ -1137,6 +1264,55 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-status        | Set critical threshold for member status (Default: '%{state} !~ /ready/ && %{state} !~ /provisioned/'). You can use the following variables: %{name}, %{role}, %{state}  Role can be: 'master', 'member', 'notMember', 'standby'.  State can be: 'waiting', 'progressing', 'added', 'ready', 'sdmMismatch', 'verMismatch', 'featureMismatch', 'newMasterInit', 'provisioned', 'invalid', 'removed'.    |
 
 </TabItem>
+<TabItem value="Traffic-*" label="Traffic-*">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                   |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                              |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                      |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                                                                                                                                    |
+| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                         |
+| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                               |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                       |
+| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                               |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                  |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                        |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                 |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                           |
+| --add-global             | Check global port statistics (By default if no --add-* option is set).                                                                                                                                                                                                                                                                                       |
+| --add-status             | Check interface status.                                                                                                                                                                                                                                                                                                                                      |
+| --add-duplex-status      | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                           |
+| --add-err-disable        | Check error disable (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                           |
+| --add-traffic            | Check interface traffic.                                                                                                                                                                                                                                                                                                                                     |
+| --add-errors             | Check interface errors.                                                                                                                                                                                                                                                                                                                                      |
+| --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                                                                                        |
+| --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                                                                                       |
+| --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                                                                                        |
+| --add-qos-limit          | Check QoS traffic limit rate.                                                                                                                                                                                                                                                                                                                                |
+| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                                                                                             |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display}                                                                                                                                                                                      |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display}                                                                                                                           |
+| --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-traffic-limit', 'out-traffic-limit', 'in-crc', 'in-fcserror', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
+| --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                                                                                        |
+| --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                            |
+| --units-cast             | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                        |
+| --nagvis-perfdata        | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                                                                                                |
+| --interface              | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                                                                                        |
+| --name                   | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                                                                                                 |
+| --speed                  | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                   |
+| --speed-in               | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                                                                                            |
+| --speed-out              | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                            |
+| --force-counters32       | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                                                                                     |
+| --reload-cache-time      | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                                                                                  |
+| --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                                  |
+| --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                         |
+| --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                                                                                       |
+| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                                                                                       |
+| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                                                                                       |
+| --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                                                                                               |
+
+</TabItem>
 <TabItem value="Voice-Call" label="Voice-Call">
 
 | Option                   | Description                                                                                                       |
@@ -1152,6 +1328,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
 	--plugin=network::cisco::standard::snmp::plugin \
-	--mode=aaa-server \
-    --help
+	--mode=aaa-servers \
+	--help
 ```
