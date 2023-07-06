@@ -463,7 +463,7 @@ All **custom modes** specific options are listed here:
 
 | Option           | Description                                                                                                                        |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------|
-| --hostname       | Santricity hostname.                                                                                                               |
+| --hostname       | Ansible Tower hostname.                                                                                                               |
 | --port           | Port used (Default: 80)                                                                                                            |
 | --proto          | Specify https if needed (Default: 'http')                                                                                          |
 | --username       | API username.                                                                                                                      |
