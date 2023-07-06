@@ -786,7 +786,7 @@ Then follow instructions by
     type: remote
     address: 192.168.0.2
 
-    Do you want to register this server with that information? (y/n)y
+    Do you want to register this server with the previous information? (y/n)y
     ```
 
 4. Add additional information to enable future communication between your Remote Server and its Central,
