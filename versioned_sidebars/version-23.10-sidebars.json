@@ -239,6 +239,10 @@
             {
               "type": "doc",
               "id": "version-23.10/monitoring/basic-objects/hosts-templates"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/monitoring/basic-objects/hosts-switch-poller"
             }
           ]
         },
@@ -485,6 +489,10 @@
         {
           "type": "doc",
           "id": "version-23.10/monitoring/basic-objects/contacts"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.10/monitoring/basic-objects/customization"
         },
         {
           "type": "doc",

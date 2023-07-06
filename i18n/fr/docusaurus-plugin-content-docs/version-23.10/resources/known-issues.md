@@ -78,20 +78,6 @@ L'autologin n'est actuellement pas géré pour les pages suivantes :
 
 Il n'existe actuellement pas de contournement.
 
-### Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
-
-#### Contournement
-
-Vous devez installer les langues sur votre système d'exploitation avec la commande suivante :
-```shell
-yum install -y glibc-all-langpacks
-```
-
-Puis redémarrer PHP à l'aide de la commande suivante :
-```shell
-systemctl restart php-fpm
-```
-
 ## Centreon MBI
 
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
