@@ -768,7 +768,7 @@ Then follow instructions by
     Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
-    1.
+    1
     ```
 
 3. Then validate the information:
