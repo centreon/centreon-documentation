@@ -534,7 +534,7 @@ Finding Apache group:                                     www-data
 ### Centreon user and group
 
 The **centreon** group of applications is used for access rights
-Between the various programs of the Centreon suite:
+between the various programs of the Centreon suite:
 
 ``` shell
 What is the Centreon group? [centreon]
