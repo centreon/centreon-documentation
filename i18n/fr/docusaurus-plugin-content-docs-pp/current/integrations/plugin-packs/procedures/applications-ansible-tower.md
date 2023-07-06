@@ -464,7 +464,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 
 | Option           | Description                                                                                                                        |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------|
-| --hostname       | Santricity hostname.                                                                                                               |
+| --hostname       | Ansible Tower hostname.                                                                                                               |
 | --port           | Port used (Default: 80)                                                                                                            |
 | --proto          | Specify https if needed (Default: 'http')                                                                                          |
 | --username       | API username.                                                                                                                      |
