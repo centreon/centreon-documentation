@@ -827,7 +827,7 @@ You will receive the validation of the Centreon central server:
 ### Main error messages
 
 ``` shell
-2020-10-20T10:11:15 PM+02:00 [ERROR]: Invalid credentials
+2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
 > Your credentials are incorrect for the **<API_ACCOUNT>**.
