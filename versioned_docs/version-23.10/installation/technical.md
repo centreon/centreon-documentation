@@ -392,7 +392,7 @@ Many components are used to build a remote server:
 * MariaDB databases to store monitoring and performance data
 * The Centreon Gorgone process is used to operate on collected data
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by a monitoring engine
+* Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
 * Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD locally. All information is forwarded to the Centreon central server.
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
