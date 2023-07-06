@@ -358,7 +358,7 @@ hostnamectl set-hostname central
 ## Centreon
 
 Download the latest version from the [Centreon download web site](https://download.centreon.com)
-In the **Custom Platforms** tab, and then the **Web** tab.
+in the **Custom Platforms** tab, and then the **Web** tab.
 
 Extract the Centreon archive:
 
