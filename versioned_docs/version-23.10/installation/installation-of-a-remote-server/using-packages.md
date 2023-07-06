@@ -731,7 +731,7 @@ systemctl start apache2
 
 > During web installation, it is not necessary to install the Autodiscovery module.
 
-> In the step **Initialization of the monitoring**, only Actions 6 to 8 need to be done.
+> In the step **Initialization of the monitoring**, only actions 6 to 8 need to be done.
 
 ## Step 5: Register the server
 
