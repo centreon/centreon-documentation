@@ -416,7 +416,7 @@ Then follow instructions by
     type: poller
     address: 192.168.0.2
     
-    Do you want to register this server with that information? (y/n)y
+    Do you want to register this server with the previous information? (y/n)y
     ```
 
 You will receive the validation of the Centreon central or the Remote Server server:
