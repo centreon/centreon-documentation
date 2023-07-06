@@ -260,7 +260,7 @@ Additional commands are necessary to configure the environment correctly:
 ```
 
 If you can’t access the Internet directly but have to go via a proxy,
-Use the following command:
+use the following command:
 ```shell
 /bin/pear config-set http_proxy http://my_proxy.com:port
 ```
