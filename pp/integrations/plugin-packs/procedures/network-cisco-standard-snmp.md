@@ -268,7 +268,7 @@ Router(config)#
 Router(config)#snmp-server community public RO 
 ```
 
-In the example above, 'public' is your snmp community. You do now want to use it in production ;)  
+In the example above, 'public' is your snmp community. Do not use it in production.
 ### Network flow
 
 The target server must be reachable from the Centreon poller on the UDP/161
