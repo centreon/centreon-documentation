@@ -317,7 +317,7 @@ Then exit the `mysql` session using `exit` or `Ctrl-D`.
 
 For the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this, we will set up a Master-Slave replication.
 
-Since Centreon 22.04, mariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
+Since Centreon 22.04, MariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
 
 **Note:** unless otherwise stated, each of the following steps must be performed **on both database nodes**.
 
