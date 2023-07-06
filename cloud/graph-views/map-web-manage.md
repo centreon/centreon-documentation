@@ -18,6 +18,11 @@ You can perform actions on each standard map and geographic view you have access
 
 > The features to share and to copy a map URL are not available on a geographic view.
 
+### Duplicate a map
+
+Click the **three vertical dots** menu at the top-right of the map, then click on **Duplicate**.
+A new map is automatically created, with "- copy" added to the initial name.
+
 ### Delete a map
 
 Click the **trash** button and confirm the deletion by clicking the **Delete** button.
