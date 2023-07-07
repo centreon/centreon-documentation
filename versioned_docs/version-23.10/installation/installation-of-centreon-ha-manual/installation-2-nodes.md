@@ -571,7 +571,7 @@ This script does the following:
 This script is very verbose, and not everything that is displayed is understandable, but to make sure that it has run to completion, just make sure that the end looks like this:
 
 ```text
-Unmount and Delete LVM snapshot
+Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 OK
