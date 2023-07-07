@@ -229,6 +229,14 @@ Release date: `April 26, 2023`
 
 ## Centreon DSM
 
+### 23.04.2
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed unreplaced variable in cron definition.
+
 ### 23.04.1
 
 Release date: `June 7, 2023`
