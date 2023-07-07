@@ -25,34 +25,34 @@ Release date: `soon`
 
 #### Enhancements
 
-- [Authentication] Added user attributes received from IdP in Centreon login file id debug is enabled.
-- [CEIP] Improved retrieving of OS name and version.
-- [Configuration] Fixed icon size for resources.
-- [UX] Improved tooltip description in Centreon Engine configuration form for Service Check Timeout option.
+- [Authentication] User attributes received from the Identity Provider are now added to the Centreon login file when debug is enabled.
+- [CEIP] Improved the retrieval of Operating System name and version.
+- [Configuration] Improved the icon size to adapt to resources.
+- [UX] Improved the Service Check Timeout tooltip in **Configuration > Pollers > Engine configuration > Log options**.
 
 #### Bug fixes
 
-- [API] Fixed API for Centreon modules management.
-- [Authentication] Fixed groups mapping management with OpenID Connect.
-- [Authentication] Fixed groups mapping relations with SAML.
-- [Authentication] Fixed JWT base64url tokens decoding.
-- [Authentication] fixed redirect logout.
-- [Authentication] Fixed the disconnection the user from the interface when the refresh token expires for OIDC sessions.
-- [Backup] Fixed partial backup for AlmaLinux 8 and Debian 11.
-- [Configuration] Fixed deletion/activation/deactivation/duplication of contact using French langage in UI.
+- [ACL] Fixed an issue when a recurrent downtime is edited by a user under ACL.
+- [API] Fixed an API issue for the Centreon modules management.
+- [Authentication] Fixed an issue in the groups mapping management with OpenID Connect.
+- [Authentication] Fixed an issue in groups mapping relations with SAML.
+- [Authentication] Fixed an issue with JWT decoding when encoded in base64url.
+- [Authentication] Fixed a "URL not found" error message when logging out.
+- [Authentication] Fixed the user's logout when the refresh token has expired for OIDC sessions.
+- [Backup] Fixed partial backup that was not working in AlmaLinux 8 and Debian 11.
+- [Configuration] Fixed deletion/activation/deactivation/duplication of a contact when made with a French profile.
 - [Install] Fixed missing central ID in Centreon Gorgone configuration file.
-- [Install] Fixed permissions on symfony cache.
+- [Install] Fixed permissions issue on Symfony cache.
 - [Install] Fixed rights on centreon_traps directory for Debian.
 - [Install] Fixed rights on logs directory for Debian.
 - [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
-- [ResourcesStatus] Fixed search in filter not working.
-- [ResourcesStatus] Fixes filters definition to display all services including anomaly detection and meta services from top counter links.
-- [UX] Fixed space between buttons.
-- [Web] Fix about page display.
+- [ResourcesStatus] Fixed the search in filter that was not working.
+- [ResourcesStatus] Fixed filters definition to display all services including Anomaly Detection and Meta Services from top counter links.
 - [ResourcesStatus] Fixed a bug in the disacknowledgment process that made the user interface display the wrong acknowledgement comment.
 - [ResourcesStatus] Fixed an issue on filter combination in Resources Status.
-- [ACL] Fixed an issue when recurrent downtime is edited by an user under ACL.
 - [UI] Fixed the column name display in the acknowledgment description pop-up.
+- [UX] Fixed a space issue between buttons.
+- [Web] Fixed the About page display.
 
 ### 23.04.4
 
@@ -235,7 +235,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- Fixed unreplaced variable in cron definition.
+- Fixed an unreplaced variable in cron definition.
 
 ### 23.04.1
 
