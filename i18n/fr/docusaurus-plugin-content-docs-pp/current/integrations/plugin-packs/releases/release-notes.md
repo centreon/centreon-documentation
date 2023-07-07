@@ -8,6 +8,38 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Juillet
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Fortinet FortiMail SNMP**](../procedures/network-fortinet-fortimail-snmp.md) - network-fortinet-fortimail-snmp - initial release - Status:stable - centreon-pack-network-fortinet-fortimail-snmp-23.07.0-1
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - applications-veeam-vbem-restapi - initial release - Status:stable - centreon-pack-applications-veeam-vbem-restapi-23.07.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - network-aruba-cppm-snmp - added swap monitoring - Status:stable - centreon-pack-network-aruba-cppm-snmp-23.07.0-1
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - cloud-azure-database-sqldatabase - added Cpu and Memory monitoring - Status:stable - centreon-pack-cloud-azure-database-sqldatabase-23.07.4-1
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - network-cisco-meraki-restapi - added thresholds for Devices monitoring - Status:stable - centreon-pack-network-cisco-meraki-restapi-23.07.0-1
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - network-cisco-standard-snmp - added Interfaces monitoring - Status:stable - centreon-pack-network-cisco-standard-snmp-23.07.0-1
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - network-cisco-wlc-snmp - added a host discovery rule - Status:stable - centreon-pack-network-cisco-wlc-snmp-23.07.0-1
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - applications-protocol-snmp - refreshed dependencies to make host discovery work in any case others - Status:stable - centreon-pack-applications-protocol-snmp-23.07.0-1
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) -  applications-ipfabric-api - update path verification service  - Status:stable - centreon-pack-applications-ipfabric-api-23.07.0-1
+- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - network-oneaccess-snmp - added options to Cells-Radio monitoring - Status:stable - centreon-pack-network-oneaccess-snmp-23.07.0-1
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - network-firewalls-paloalto-standard-snmp - added Interfaces monitoring - Status:stable - centreon-pack-network-firewalls-paloalto-standard-snmp-23.07.0-1
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - applications-rubrik-restapi - added jobs monitoring - Status:stable - centreon-pack-applications-rubrik-restapi-23.07.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - cloud-aws-elb - fixed the host discovery unicity  - Status:stable - centreon-pack-cloud-aws-elb-23.07.0-1
+- [**IP-Label Datametrie Rest API**](../procedures/applications-monitoring-iplabel-datametrie-restapi.md) - applications-monitoring-iplabel-datametrie-restapi - marked as deprecated (service end of life)  - Status:deprecated - centreon-pack-applications-monitoring-iplabel-datametrie-restapi-23.07.0-1
+- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - hardware-storage-dell-powerstore-restapi - fixed bug on Memory - Status:stable - centreon-pack-hardware-storage-dell-powerstore-restapi-23.07.0-1
+
+</TabItem>
+</Tabs>
+
 ### Juin
 
 <Tabs groupId="sync">
