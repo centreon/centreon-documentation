@@ -382,4 +382,4 @@ For very large amounts of data, contact your sales representative.
 
 ## Network flows
 
-If you have firewalls or security devices in place, check the [table of network flows](./technical.md#tables-of-network-flows).
+If you have firewalls or security resources in place, check the [table of network flows](./technical.md#tables-of-network-flows).

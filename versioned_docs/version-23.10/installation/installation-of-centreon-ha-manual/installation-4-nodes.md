@@ -364,7 +364,7 @@ Then exit the `mysql` session using `exit` or `Ctrl-D`.
 
 For the two nodes to be interchangeable at any time, the two databases must be continuously replicated. To do this, we will set up a Master-Slave replication.
 
-Since Centreon 22.04, mariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
+Since Centreon 22.04, MariaDB Replication is now based on  **[GTID](https://mariadb.com/kb/en/gtid/)**.
 
 **Note:** unless otherwise stated, each of the following steps must be performed **on both database nodes**.
 
@@ -491,7 +491,7 @@ CENTREON_DB='centreon'
 CENTREON_STORAGE_DB='centreon_storage'
 
 ##########################################
-# Manual failover additional information #
+# Manual failover additional informations #
 ##########################################
 
 CENTRAL_VIP_IPADDR='@CENTRAL_VIP_IPADDR@'
@@ -618,7 +618,7 @@ This script does the following:
 This script is very verbose, and not everything that is displayed is understandable, but to make sure that it has run to completion, just make sure that the end looks like this:
 
 ```text
-Unmount and Delete LVM snapshot
+Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 OK

@@ -22,7 +22,7 @@ you will need to open the following flows:
 | Active Central Server          | Passive Central Server         | SSH      | TCP 22   | Synchronization of configuration files (Must also be open from passive to active node) |
 | Active Central Server          | Passive Central Server         | BDDO     | TCP 5670 | RRDs synchronization (Must also be open from passive to active node)                   |
 | Active Database Server         | Passive Database Server        | MySQL    | TCP 3306 | MySQL synchronization (Must also be open from passive to active node)                  |
-| Active Database Server         | Passive Database Server        | SSH      | TCP 22   | MySQL synchronization (Must be also be open from passive to active node)                  |
+| Active Database Server         | Passive Database Server        | SSH      | TCP 22   | MySQL synchronization (Must also be open from passive to active node)                  |
 | Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
 | Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
 | Central Servers + DB + QDevice | Central Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
@@ -51,7 +51,7 @@ In order to keep the cluster safe from split-brain issues, a third server is man
 In order to adhere to best practices and be as resilient as possible, the Quorum server
 should be at a different site than the two primary nodes, with independent network connections.
 
-> **WARNING:** Make sure Selinux and Firewalld are disabled.
+> **WARNING:** Make sure SELinux and Firewalld are disabled.
 
 ### Defining hosts' names and addresses
 
@@ -496,7 +496,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTE
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@';
 ```
 
-Optionally, you can allow these privileges to be used from Central Cluster.  This will make some administration scripts runnable from every node.
+Optionally, you can allow these privileges to be used from the Central Cluster.  This will make some administration scripts runnable from every node.
 
 ```sql
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
@@ -529,7 +529,7 @@ GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION 
 TO '@MARIADB_REPL_USER@'@'@DATABASE_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
-Optionally, you can allow these privileges to be used from Central Cluster. This will make some administration scripts runnable from every node.
+Optionally, you can allow these privileges to be used from the Central Cluster. This will make some administration scripts runnable from every node.
 
 ```sql
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
@@ -1388,15 +1388,15 @@ You can monitor the cluster's resources in real time using the `crm_mon -fr` com
 Cluster Summary:
   * Stack: corosync
   * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
-  * Last updated: Wed Sep 22 3:00:13 PM 2021
-  * Last change:  Wed Sep 15 4:26:53 PM 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * Last updated: Wed Sep 22 15:00:13 2021
+  * Last change:  Wed Sep 15 16:26:53 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
   * 4 nodes configured
   * 21 resource instances configured
 
 Node List:
   * Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
-Active resources:
+Active Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @DATABASE_MASTER_NAME@ ]
     * Slaves: [ @DATABASE_SLAVE_NAME@ ]
@@ -1423,15 +1423,15 @@ Active resources:
 Cluster Summary:
   * Stack: corosync
   * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
-  * Last updated: Wed Sep 22 3:00:13 PM 2021
-  * Last change:  Wed Sep 15 4:26:53 PM 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * Last updated: Wed Sep 22 15:00:13 2021
+  * Last change:  Wed Sep 15 16:26:53 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
   * 4 nodes configured
   * 21 resource instances configured
 
 Node List:
   * Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
-Active resources:
+Active Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @DATABASE_MASTER_NAME@ ]
     * Slaves: [ @DATABASE_SLAVE_NAME@ ]

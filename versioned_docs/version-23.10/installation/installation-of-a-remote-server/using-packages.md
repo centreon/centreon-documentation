@@ -748,7 +748,7 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** wth ithe IP of the central server, as seen by the remote server.
+> Replace **<IP_TARGET_NODE>** with the IP of the central server, as seen by the remote server.
 
 > The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
@@ -839,7 +839,7 @@ You will receive the validation of the Centreon central server:
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-Failed to connect to 192.168.0.1:444; Connection refused
+Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
 > Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.

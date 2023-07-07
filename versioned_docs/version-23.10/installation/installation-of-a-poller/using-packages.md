@@ -398,7 +398,7 @@ Then follow instructions by
     Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
-    1.
+    1
     ```
 
 3. Then validate the information:
@@ -428,7 +428,7 @@ You will receive the validation of the Centreon central or the Remote Server ser
 ### Main error messages
 
 ``` shell
-2023-05-20T10:11:15 PM+02:00 [ERROR]: Invalid credentials
+2023-05-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
 > Your credentials are incorrect for the **<API_ACCOUNT>**.
@@ -440,7 +440,7 @@ You will receive the validation of the Centreon central or the Remote Server ser
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-Failed to connect to 192.168.0.1:444; Connection refused
+Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
 > Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.
