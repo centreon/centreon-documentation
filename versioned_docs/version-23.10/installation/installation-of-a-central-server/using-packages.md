@@ -87,7 +87,7 @@ apt update && apt upgrade
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -115,7 +115,7 @@ Disabled
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -396,7 +396,7 @@ apt update
 
 This section describes how to install a Centreon central server.
 
-You can install this server with a local database on the server, or
+You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
 <Tabs groupId="sync">
@@ -437,7 +437,7 @@ systemctl restart mariadb
 <TabItem value="With a remote database" label="With a remote database">
 
 > If installing the database on a dedicated server, this server should also have
-> the prerequired repositories.
+> the prerequisite repositories.
 
 Run the following command on the Central server:
 
@@ -527,9 +527,9 @@ FLUSH PRIVILEGES;
 
 > Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by the user's credentials.
+> Replace **<USER\>** and **<PASSWORD\>** with the user's credentials.
 
-This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
+This user will only be used for the installation process; once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 
 ```SQL
 DROP USER '<USER>'@'<CENTRAL_SERVER_IP>';
@@ -545,7 +545,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
  to be used with Centreon.
 
 > If this package is not installed, system limitation **LimitNOFILE** should be
-> at least set to **32000** using a dedicated configuration file, example:
+> at least set to **32000** using a dedicated configuration file; for example:
 >
 > ```shell
 > $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
@@ -585,7 +585,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > open_files_limit=32000
 > ```
 > 
-> MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> MariaDB must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
 > 
 > ```shell
 > /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -600,7 +600,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 </TabItem>
 </Tabs>
 
-> In addition to the directives above, it's strongly recommended to tune the
+> In addition to the directives above, it is strongly recommended to tune the
 > database configuration with the following parameters:
 >
 > ```shell
@@ -615,13 +615,13 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 >
 > Optionally, tune the memory and buffer utilization of the InnoDB engine powered
-> tables. The example below applies to a database server with 8Gb RAM
+> tables. The example below applies to a database server with 8 GB RAM
 >
 > ```shell
 > innodb_buffer_pool_size=1G
 > ```
 >
-> Remember to restart MariaDB after a change to configuration.
+> Remember to restart MariaDB after changing the configuration.
 
 </TabItem>
 </Tabs>
@@ -630,13 +630,13 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 
 ### Server name
 
-If you want, you can change the server's hostname using the following command:
+If you want to change the server's hostname, use the following command:
 
 ```shell
 hostnamectl set-hostname new-server-name
 ```
 
-Replace **new-server-name** by the name you want. Example:
+Replace **new-server-name** with the name of your choice. Example:
 
 ```shell
 hostnamectl set-hostname central
@@ -646,7 +646,7 @@ hostnamectl set-hostname central
 
 You are required to set the PHP time zone.
 
-> Replace **Europe/Paris** by your time zone. You can find the list of
+> Replace **Europe/Paris** with your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
 <Tabs groupId="sync">
@@ -697,7 +697,7 @@ systemctl restart php8.1-fpm
 </TabItem>
 </Tabs>
 
-### Services startup during system bootup
+### Service startup during system bootup
 
 To make services start automatically during system bootup, run these commands
 on the central server:
@@ -746,7 +746,7 @@ If you are using a local database, run the following command on the central serv
 mysql_secure_installation
 ```
 
-* Answer **yes** to all questions except "Disallow root login remotely?".
+* Answer **yes** to all the questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).

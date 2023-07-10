@@ -5,7 +5,7 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and in OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
 The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
@@ -13,9 +13,9 @@ The VM uses the **Thin Provision** option to save as much free space as possible
 
 The host machine must have the following characteristics:
 
-- Processor: any recent Intel or AMD processor with at least 2 vCPUs.
+- Processor: any recent Intel or AMD processor with at least two vCPUs.
 - Memory: depending on your operating system, you will need at least 1 GB of RAM. To fully enjoy the Centreon experience, you need at least 2 GB of free memory.
-- Hard Disk storage: The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want keep using Centreon, it is recommended to have at least 10 GB as its size will grow over time.
+- Hard disk storage: The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want keep using Centreon, it is recommended to have at least 10 GB, because it will grow over time.
 
 ## Step 1: Downloading the virtual machine
 
@@ -31,18 +31,18 @@ The host machine must have the following characteristics:
 
     - Otherwise, click **Direct download**.
 
-5. The file you have downloaded is an archive file: extract its contents to the folder you want.
+5. The file you have downloaded is an archive file. Extract its contents to the folder you want.
 
-## Step 2 : Installing the virtual machine
+## Step 2: Installing the virtual machine
 
 <Tabs groupId="sync">
 <TabItem value="VMware environment" label="VMware environment">
 
-1. Import the **centreon-central.ova** file into VMWare. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
+1. Import the **centreon-central.ova** file into VMWare. A terminal window opens; wait for the server to start. When it is ready, the terminal shows the following message:
 
     ![image](../../assets/installation/VMW1.png)
 
-2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is an example of configuration in VSphere 6:
+2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is a configuration example in VSphere 6:
 
     ![image](../../assets/installation/VMW_network_adapter.png)
 
@@ -57,7 +57,7 @@ The host machine must have the following characteristics:
 
 3. On the **System** tab, check the **Hardware Clock in UTC Time** box.
 
-4. According to how your network is set up, add a network adapter and select the network through which the virtual machine can communicate with the resources it will supervise. For instance:
+4. According to how your network is set up, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. For instance:
 
     1. On the **Network** tab, select **Enable Network Adapter**.
 
@@ -67,28 +67,28 @@ The host machine must have the following characteristics:
 
 5. Click **OK**.
 
-6. In the right-hand panel, click **Start** to start the VM. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
+6. In the right-hand panel, click **Start** to start the VM. A terminal window opens; wait for the server to start. When it is ready, the terminal shows the following message:
 
     ![image](../../assets/installation/terminal_ready.png)
 
 </TabItem>
 </Tabs>
 
-## Step 3 : Completing the configuration
+## Step 3: Completing the configuration
 
 1. Log in to the Centreon server using the following credentials: login: `root`, password: `centreon`.
 
-2. To know your server's IP address, type `ip addr`. (By default, the VM has a qwerty keyboard: if you have an azerty keyboard, enter `ip qddr`.) The VM is configured to obtain an IP address from the DHCP server automatically.
+2. To find out your server's IP address, type `ip addr`. (By default, the VM has a qwerty keyboard. If you have an azerty keyboard, enter `ip qddr`.) The VM is configured to obtain an IP address from the DHCP server automatically.
 
     ![image](../../assets/installation/ip_addr.png)
 
-3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained at the previous step.
+3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained in the previous step.
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
    
     Change the following settings:
 
-    - The timezone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
+    - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
 
         Use the following command:
 
@@ -96,19 +96,19 @@ The host machine must have the following characteristics:
         timedatectl set-timezone your_timezone
         ```
 
-        For example, to set the timezone to Europe/London, type:
+        For example, to set the time zone to Europe/London, type:
 
         ```shell
         timedatectl set-timezone Europe/London
         ```
 
-        You can get a list of all available timezones using this command:
+        You can obtain a list of all available timezones using this command:
 
         ```shell
         timedatectl list-timezones
         ```
 
-    - The timezone for the php server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
+    - The time zone for the php server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
 
         1. Open the following file:
 
@@ -116,7 +116,7 @@ The host machine must have the following characteristics:
             /etc/php.d/50-centreon.ini
             ```
 
-        2. In `date.timezone`, define the timezone you want.
+        2. In `date.timezone`, define the time zone you want.
 
         3. Restart the php server:
 
@@ -136,7 +136,7 @@ The host machine must have the following characteristics:
         hostnamectl set-hostname supervision
         ```
 
-5. Add a MariaDB table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
+5. Add a MariaDB table partition. This step is mandatory. Your Centreon server will not work if this isn't done.
 
     1. Connect as user `centreon`:
 
@@ -154,7 +154,7 @@ The host machine must have the following characteristics:
 
         ![image](../../assets/installation/partition_created.png)
 
-    3. Connect back as user `root`:
+    3. Connect again as user `root`:
 
         ```shell
         exit

@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 
 Centreon-HA is the only official and supported solution to set up a highly available monitoring cluster. It 
 includes the following: 
-* Documentation, mainly, to describe how to set up your Cluster on top of your Centreon solution.
-* Script collection enabling safe and efficient management of Centreon related resources.
-* Additionnal files extending default Centreon capabilities. 
+* Documentation, mainly to describe how to set up your Cluster on top of your Centreon solution.
+* Script collection enabling safe and efficient management of Centreon-related resources.
+* Additional files that extend the default Centreon capabilities. 
 
 Its architecture relies on the [ClusterLabs](https://clusterlabs.org/) components pacemaker and corosync, 
-allowing fault-tolerance on the following components: 
+allowing fault tolerance on the following components: 
 
 * Central Server applicative daemons
   * centreon-engine (scheduler)
@@ -27,7 +27,7 @@ allowing fault-tolerance on the following components:
   * apache server (webserver)
 * Databases
   * Active/Passive binlog replication (storage)
-* Hosts failures
+* Host failures
   * Virtual machines or Physical servers
 
 > **Warning:** If you have an IT or Business subscription, please get in touch with your Centreon Sales 
@@ -61,7 +61,7 @@ All these resources are described in the table below.
 
 | Name                    | Type                 | Description                                          |
 | ----------------------- | -------------------- | ---------------------------------------------------- |
-| `ms_mysql`              | multi-state resource | Handles `mysql` process and the data replication     |
+| `ms_mysql`              | multi-state resource | Handles the `mysql` process and data replication     |
 | `ms_mysql-master`       | location             | Set MariaDB Master server rule preference            |
 | `php8`                  | clone service        | FastCGI Process Manager service (`php-fpm`)          |
 | `cbd_rrd`               | clone service        | Broker RRD service (`cbd`)                           |
@@ -69,7 +69,7 @@ All these resources are described in the table below.
 | `vip`                   | primitive service    | VIP address for centreon                             |
 | `http`                  | primitive service    | Apache service (`httpd24-httpd`)                     |
 | `gorgone`               | primitive service    | Gorgone service (`gorgoned`)                         |
-| `centreon_central_sync` | primitive service    | Files synchronization service                        |
+| `centreon_central_sync` | primitive service    | File synchronization service                        |
 | `cbd_central_broker`    | primitive service    | Central Broker service (`cbd-sql`)                   |
 | `centengine`            | primitive service    | Centreon-Engine service (`centengine`)               |
 | `centreontrapd`         | primitive service    | SNMP Traps management service (`centreontrapd`)      |
@@ -77,7 +77,7 @@ All these resources are described in the table below.
 
 **Note:** The resources of the `centreon` group are started one after the other in the list order.
 
-### Resources constraints
+### Resource constraints
 
 Pacemaker offers various types of constraints:
 * Location: where the resource should or shouldn't run.
@@ -97,9 +97,9 @@ to elect a master node or resource role.
 
 ## Support
 
-### Softwares & operating systems 
+### Software & operating systems 
 
-Centreon officially supports Clustering on the following products: 
+Centreon officially supports clustering on the following products: 
 
 * Any Centreon Licensed Editions 
 * Centreon Map Server 
@@ -115,19 +115,19 @@ the _Red Hat Enterprise Linux High Availability_ licensed repository.
 The only official database server Centreon supports is MariaDB. 
 
 Nevertheless, note that we validated that the whole solution can run on MySQL 8 *with some 
-modifications*, only the [community](https://github.com/centreon-ha/issues) (or your DBAs) 
-can help and support you in running a Cluster on top of an Oracle MySQL server.
+modifications*; only the [community](https://github.com/centreon-ha/issues) (or your DBAs) 
+can help and support you in running a cluster on top of an Oracle MySQL server.
 
-For both MariaDB and Oracle MySQL, the replication configuration might be intrusive. We *strongly discourage you* setting 
-up a cluster on a server holding other application databases, we won't support it. 
+For both MariaDB and Oracle MySQL, the replication configuration might be intrusive. We *strongly discourage you* from setting 
+up a cluster on a server holding other application databases, and we won't support it. 
 
 ### Architectures
 
-Centreon supports both 2 and 4 nodes architectures. We recommend using a two nodes architecture except
-if your organization requires a systematic split of front and back servers or your monitoring 
+Centreon supports both two- and four-node architectures. We recommend using a two-node architecture, unless
+your organization requires a systematic split of front and back servers or your monitoring 
 scope is above 5k Hosts. 
 
-Schemas below show both architecture flavor and network flows between servers. To get the complete network 
+The schemas below show both the architecture flavor and network flows between servers. To get the complete network 
 flow matrix, refer to the architecture dedicated installation page.
 
 <Tabs groupId="sync">
@@ -135,41 +135,41 @@ flow matrix, refer to the architecture dedicated installation page.
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-2-nodes.md) to start your two nodes setup! 
+Go to [this page](../../installation/installation-of-centreon-ha/installation-2-nodes.md) to start your two-node setup! 
 
 </TabItem>
 <TabItem value="Four-nodes-cluster" label="Four-nodes-cluster">
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.md) to start your four nodes setup!
+Go to [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.md) to start your four-node setup!
 
 </TabItem>
 </Tabs>
 
-## Additionnal information
+## Additional information
 
 ### Server organization
 
-Setting up a Centreon-HA cluster might be overkill or at least not optimal when all your servers are running in 
-the same datacenter and even more within the same rack. 
+Setting up a Centreon-HA cluster might be overkill, or at least not optimal, when all your servers are running in 
+the same datacenter or (even more so) within the same rack. 
 
-In a perfect world, the primary and secondary nodes are running on different (geographical) sites, and the qdevice 
-communicate with both sites independently. Obviously, all nodes need to communicate with each other.
+In a perfect world, the primary and secondary nodes would be running on different (geographical) sites, and the qdevice 
+would communicate with both sites independently. Obviously, all nodes need to communicate with each other.
 
 ### Role of the Centreon central server
 
 In the case of a highly available architecture the **Centreon central cluster must not be used as a poller**. 
 In other words, it should not monitor resources. Its monitoring ability should only be used to monitor its pollers. 
-If this recommendation is not followed, the `centengine` service would take too long to restart 
+If this recommendation is not followed, the `centengine` service will take too long to restart 
 and **it may cause the functional `centreon` group to failover**.
 
 ### VIP and load balancing
 
 Centreon recommends using VIP addresses.
 
-Use a load balancer is an option but it should support custom rules to route application flows.
+Using a load balancer is an option, but it should support custom rules to route application flows.
 
-For example, in a four nodes setup, a load balancer can rely on:
+For example, in a four-node setup, a load balancer can rely on:
 * frontend-vip: the listening port or the apache process state to route Users and Pollers' communication toward frontend servers.
-* backend-vip: the value of the "read_only" flag on both database servers to determine which one is the primary one.
+* backend-vip: the value of the "read_only" flag on both database servers to determine which is the primary one.
