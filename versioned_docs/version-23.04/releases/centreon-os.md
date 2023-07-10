@@ -21,7 +21,7 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ### 23.04.5
 
-Release date: `soon`
+Release date: `July 10, 2023`
 
 #### Enhancements
 
@@ -231,7 +231,7 @@ Release date: `April 26, 2023`
 
 ### 23.04.2
 
-Release date: `soon`
+Release date: `July 10, 2023`
 
 #### Bug fixes
 
