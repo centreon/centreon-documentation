@@ -423,7 +423,7 @@ find                                                       OK
 /bin/sed                                                   OK
 
 ------------------------------------------------------------------------
-        Check the mandatory gorgone service status
+        Check mandatory gorgone service status
 ------------------------------------------------------------------------
 
 Is the Gorgone module already installed?
