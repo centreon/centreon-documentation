@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ### 23.04.5
 
-Release date: `soon`
+Release date: `July 10, 2023`
 
 #### Enhancements
 
