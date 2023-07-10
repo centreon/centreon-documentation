@@ -444,7 +444,7 @@ CENTREON_DB='centreon'
 CENTREON_STORAGE_DB='centreon_storage'
 
 ##########################################
-# Manual failover additional information #
+# Manual failover additional informations #
 ##########################################
 
 CENTRAL_VIP_IPADDR='@CENTRAL_VIP_IPADDR@'
