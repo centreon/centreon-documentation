@@ -18,6 +18,29 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.10
+
+Release date: `soon`
+
+#### Enhancements
+
+- [CEIP] Improved retrieving of OS name and version.
+- [Configuration] Fixed icon size for resources.
+
+#### Bug fixes
+
+- [Authentication] Fixed groups mapping management with OpenID Connect.
+- [Authentication] Fixed the disconnection the user from the interface when the refresh token expires for OIDC sessions.
+- [Backup] Fixed partial backup for AlmaLinux 8 and Debian 11.
+- [Configuration] Fixed deletion of images when importing a configuration on a Remote Server with Map installed.
+- [Configuration] Fixed deletion/activation/deactivation/duplication of contact using French langage in UI.
+- [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
+- [ResourcesStatus] Fixed search in filter not working.
+- [UX] Fixed space between buttons.
+- Fixed an issue on filter combination in Resources Status.
+- Fixed an issue when recurrent downtime is edited by an user under ACL.
+- Fixed the column name display in the acknowledgment description pop-up.
+
 ### 22.10.9
 
 Release date: `June 19, 2023`
