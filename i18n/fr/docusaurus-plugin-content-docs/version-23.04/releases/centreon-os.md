@@ -18,6 +18,41 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.5
+
+Release date: `July 10, 2023`
+
+#### Enhancements
+
+- [Authentication] User attributes received from the Identity Provider are now added to the Centreon login file when debug is enabled.
+- [CEIP] Improved the retrieval of Operating System name and version.
+- [Configuration] Improved the icon size to adapt to resources.
+- [UX] Improved the Service Check Timeout tooltip in **Configuration > Pollers > Engine configuration > Log options**.
+
+#### Bug fixes
+
+- [ACL] Fixed an issue when recurrent downtime is edited by a user under ACL.
+- [API] Fixed an API issue for the Centreon modules management.
+- [Authentication] Fixed an issue in the groups mapping management with OpenID Connect.
+- [Authentication] Fixed an issue in groups mapping relations with SAML.
+- [Authentication] Fixed an issue with JWT decoding when encoded in base64url.
+- [Authentication] Fixed a "URL not found" error message when logging out.
+- [Authentication] Fixed the user's logout when the refresh token has expired for OIDC sessions.
+- [Backup] Fixed partial backup that was not working in AlmaLinux 8 and Debian 11.
+- [Configuration] Fixed deletion/activation/deactivation/duplication of a contact when made with a French profile.
+- [Install] Fixed missing central ID in Centreon Gorgone configuration file.
+- [Install] Fixed permissions on Symfony cache.
+- [Install] Fixed rights on centreon_traps directory for Debian.
+- [Install] Fixed rights on logs directory for Debian.
+- [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
+- [ResourcesStatus] Fixed the search in filter that was not working.
+- [ResourcesStatus] Fixed filters definition to display all services including Anomaly Detection and Meta Services from top counter links.
+- [ResourcesStatus] Fixed a bug in the disacknowledgment process that made the user interface display the wrong acknowledgement comment.
+- [ResourcesStatus] Fixed an issue on filter combination in Resources Status.
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- [UX] Fixed a space issue between buttons.
+- [Web] Fixed the About page display.
+
 ### 23.04.4
 
 Release date: `June 20, 2023`
@@ -192,6 +227,14 @@ Release date: `April 26, 2023`
 - Compatibility with other 23.04 components.
 
 ## Centreon DSM
+
+### 23.04.2
+
+Release date: `July 10, 2023`
+
+#### Bug fixes
+
+- Fixed an unreplaced variable in cron definition.
 
 ### 23.04.1
 

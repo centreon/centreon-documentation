@@ -1,6 +1,6 @@
 ---
-id: applications-rubrik-restapi
-title: Rubrik Rest API
+id: applications-veeam-vbem-restapi
+title: Veeam Backup Enterprise Manager
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,32 +9,29 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Rubrik Rest API** brings a host template:
+The Monitoring Connector **Veeam Backup Enterprise Manager Rest API** brings a host template:
 
-* **App-Rubrik-Restapi-custom**
+* **App-Veeam-Vbem-Restapi-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Rubrik-Restapi-custom" label="App-Rubrik-Restapi-custom">
+<TabItem value="App-Veeam-Vbem-Restapi-custom" label="App-Veeam-Vbem-Restapi-custom">
 
-| Service Alias | Service Template                     | Service Description             |
-|:--------------|:-------------------------------------|:--------------------------------|
-| Cluster       | App-Rubrik-Cluster-Restapi-custom    | Check cluster                   |
-| Compliance    | App-Rubrik-Compliance-Restapi-custom | Check backup objects compliance |
-| Disks         | App-Rubrik-Disks-Restapi-custom      | Check cluster disks             |
-| Nodes         | App-Rubrik-Nodes-Restapi-custom      | Check cluster nodes             |
-| Storage       | App-Rubrik-Storage-Restapi-custom    | Check storage system            |
-| Tasks         | App-Rubrik-Tasks-Restapi-custom      | Check tasks                     |
+| Service Alias | Service Template                           | Service Description | Discovery  |
+|:--------------|:-------------------------------------------|:--------------------|:----------:|
+| Repositories  | App-Veeam-Vbem-Restapi-Repositories-custom | Check repositories  | X          |
 
-> The services listed above are created automatically when the **App-Rubrik-Restapi-custom** host template is used.
+> The services listed above are created automatically when the **App-Veeam-Vbem-Restapi-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template               | Service Description | Discovery  |
-|:--------------|:-------------------------------|:--------------------|:----------:|
-| Jobs          | App-Rubrik-Jobs-Restapi-custom | Check jobs          | X          |
+| Service Alias | Service Template                   | Service Description | Discovery  |
+|:--------------|:-----------------------------------|:--------------------|:----------:|
+| Jobs          | App-Veeam-Vbem-Restapi-Jobs-custom | Check jobs          | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -47,9 +44,10 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                   | Description                      |
-|:----------------------------|:---------------------------------|
-| App-Rubrik-Restapi-Job-Name | Discover jobs and monitor status |
+| Rule name                              | Description                                   |
+|:---------------------------------------|:----------------------------------------------|
+| App-Veeam-Vbem-Restapi-Job-Name        | Discover jobs and monitor status              |
+| App-Veeam-Vbem-Restapi-Repository-Name | Discover repositories and monitor utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -59,83 +57,31 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cluster" label="Cluster">
-
-| Metric name                                    | Unit  |
-|:-----------------------------------------------|:------|
-| clusters#status                                | N/A   |
-| clusters#cluster.io.read.usage.bytespersecond  | B/s   |
-| clusters#cluster.io.write.usage.bytespersecond | B/s   |
-| clusters#cluster.io.read.usage.iops            | iops  |
-| clusters#cluster.io.write.usage.iops           | iops  |
-
-</TabItem>
-<TabItem value="Compliance" label="Compliance">
-
-| Metric name                            | Unit  |
-|:---------------------------------------|:------|
-| backup.objects.incompliance.24h.count  | count |
-| backup.objects.noncompliance.24h.count | count |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Metric name                         | Unit  |
-|:------------------------------------|:------|
-| clusters~cluster.disks.total.count  | count |
-| clusters~cluster.disks.active.count | count |
-| clusters~disks#disk-status          | N/A   |
-
-</TabItem>
 <TabItem value="Jobs" label="Jobs">
 
-| Metric name                           | Unit  |
-|:--------------------------------------|:------|
-| jobs.executions.detected.count        | count |
-| jobs~job.executions.failed.percentage | %     |
-| jobs~job.execution.last.seconds       | s     |
-| jobs~job.running.duration.seconds     | s     |
-| jobs~executions#execution-status      | N/A   |
+| Metric name                                 | Unit  |
+|:--------------------------------------------|:------|
+| jobs.executions.detected.count              |       |
+| *job_name*#job.executions.failed.percentage | %     |
+| *job_name*#job.execution.last.seconds       | s     |
+| *job_name*#job.running.duration.seconds     | s     |
+| job execution status                        |       |
 
 </TabItem>
-<TabItem value="Nodes" label="Nodes">
+<TabItem value="Repositories" label="Repositories">
 
-| Metric name                        | Unit  |
-|:-----------------------------------|:------|
-| clusters~cluster.nodes.total.count | count |
-| clusters~cluster.nodes.ok.count    | count |
-| clusters~nodes#node-status         | N/A   |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Metric name                       | Unit  |
-|:----------------------------------|:------|
-| storage.space.usage.bytes         | B     |
-| storage.space.free.bytes          | B     |
-| storage.space.usage.percentage    | %     |
-| storage.full.remaining.days.count | count |
-
-</TabItem>
-<TabItem value="Tasks" label="Tasks">
-
-| Metric name               | Unit  |
-|:--------------------------|:------|
-| tasks.succeeded.24h.count | count |
-| tasks.failed.24h.count    | count |
-| tasks.canceled.24h.count  | count |
+| Metric name                                         | Unit  |
+|:----------------------------------------------------|:------|
+| *repository_name*#repository.space.usage.bytes      | B     |
+| *repository_name*#repository.space.free.bytes       | B     |
+| *repository_name*#repository.space.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-Rubrik App provides a RESTful API on top of Cluster and Edge components. 
-
-You can get a closer look to the API directly on the Cluster using this address:
-https://{{node_ip}}/docs/{{{v1|v2|internal}}/playground
-
-Information about its configuration is available on github: https://github.com/rubrikinc/api-documentation
+To monitor, a user with read privileges on the Veeam Backup Enterprise Manager [API](https://helpcenter.veeam.com/docs/backup/em_rest/em_web_api_reference.html?ver=120) is required.
 
 ## Installing the monitoring connector
 
@@ -151,34 +97,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-rubrik-restapi
+dnf install centreon-pack-applications-veeam-vbem-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-rubrik-restapi
+dnf install centreon-pack-applications-veeam-vbem-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-applications-rubrik-restapi
+apt install centreon-pack-applications-veeam-vbem-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-rubrik-restapi
+yum install centreon-pack-applications-veeam-vbem-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Rubrik Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Veeam Backup Enterprise Manager Rest API** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
@@ -198,28 +144,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Rubrik-Restapi
+dnf install centreon-plugin-Applications-Veeam-Vbem-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Rubrik-Restapi
+dnf install centreon-plugin-Applications-Veeam-Vbem-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-applications-rubrik-restapi
+apt install centreon-plugin-applications-veeam-vbem-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Rubrik-Restapi
+yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 ```
 
 </TabItem>
@@ -231,16 +177,16 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **App-Rubrik-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **App-Veeam-Vbem-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                           | Default value     | Mandatory   |
-|:----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| RUBRIKAPIUSERNAME     | API username                                                                                          |                   | X           |
-| RUBRIKAPIPASSWORD     | API password                                                                                          |                   | X           |
-| RUBRIKAPIPORT         | Port used                                                                                             | 443               |             |
-| RUBRIKAPIPROTO        | Specify https if needed                                                                               | https             |             |
-| RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro               | Description                                                                                           | Default value     | Mandatory   |
+|:--------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| VBEMAPIUSERNAME     | Set username                                                                                          |                   | X           |
+| VBEMAPIPASSWORD     | Set password                                                                                          |                   | X           |
+| VBEMAPIPORT         | Port used                                                                                             | 9398              |             |
+| VBEMAPIPROTOCOL     | Specify https if needed                                                                               | https             |             |
+| VBEMAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -250,120 +196,45 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cluster" label="Cluster">
-
-| Macro             | Description                                                                                                                                           | Default value      | Mandatory   |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
-| CLUSTERID         | Which cluster to check (Default: 'me')                                                                                                                | me                 |             |
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                  |                    |             |
-| WARNINGREAD       | Thresholds                                                                                                                                            |                    |             |
-| CRITICALREAD      | Thresholds                                                                                                                                            |                    |             |
-| WARNINGREADIOPS   | Thresholds                                                                                                                                            |                    |             |
-| CRITICALREADIOPS  | Thresholds                                                                                                                                            |                    |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{name} | %{status} !~ /ok/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                  |                    |             |
-| WARNINGWRITE      | Thresholds                                                                                                                                            |                    |             |
-| CRITICALWRITE     | Thresholds                                                                                                                                            |                    |             |
-| WARNINGWRITEIOPS  | Thresholds                                                                                                                                            |                    |             |
-| CRITICALWRITEIOPS | Thresholds                                                                                                                                            |                    |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                   | --verbose          |             |
-
-</TabItem>
-<TabItem value="Compliance" label="Compliance">
-
-| Macro                 | Description                                                                                         | Default value     | Mandatory   |
-|:----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGINCOMPLIANCE   | Thresholds                                                                                          |                   |             |
-| CRITICALINCOMPLIANCE  | Thresholds                                                                                          |                   |             |
-| WARNINGNONCOMPLIANCE  | Thresholds                                                                                          |                   |             |
-| CRITICALNONCOMPLIANCE | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Macro                      | Description                                                                                                                                             | Default value          | Mandatory   |
-|:---------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| CLUSTERID                  | Which cluster to check (Default: 'me')                                                                                                                  | me                     |             |
-| FILTERDISKID               | Filter disks by disk id (can be a regexp)                                                                                                               |                        |             |
-| UNKNOWNDISKSTATUS          |                                                                                                                                                         |                        |             |
-| WARNINGCLUSTERDISKSACTIVE  | Thresholds                                                                                                                                              |                        |             |
-| CRITICALCLUSTERDISKSACTIVE | Thresholds                                                                                                                                              |                        |             |
-| WARNINGCLUSTERDISKSTOTAL   | Thresholds                                                                                                                                              |                        |             |
-| CRITICALCLUSTERDISKSTOTAL  | Thresholds                                                                                                                                              |                        |             |
-| CRITICALDISKSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{id} | %{status} !~ /active/i |             |
-| WARNINGDISKSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}                                      |                        |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                     | --verbose              |             |
-
-</TabItem>
 <TabItem value="Jobs" label="Jobs">
 
-| Macro                           | Description                                                                                                                                         | Default value           | Mandatory   |
-|:--------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERJOBID                     | Filter jobs by job ID                                                                                                                               |                         |             |
-| FILTERJOBNAME                   | Filter jobs by job name                                                                                                                             |                         |             |
-| FILTERJOBTYPE                   | Filter jobs by job type                                                                                                                             |                         |             |
-| FILTERLOCATIONNAME              | Filter jobs by location name                                                                                                                        |                         |             |
-| CRITICALEXECUTIONSTATUS         | Set critical threshold for last job execution status (Default: %{status} =~ /Failure/i). You can use the following variables: %{status}, %{jobName} | %{status} =~ /failure/i |             |
-| WARNINGEXECUTIONSTATUS          | Set warning threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                     |                         |             |
-| WARNINGJOBEXECUTIONLAST         | Thresholds                                                                                                                                          |                         |             |
-| CRITICALJOBEXECUTIONLAST        | Thresholds                                                                                                                                          |                         |             |
-| WARNINGJOBEXECUTIONSFAILEDPRCT  | Thresholds                                                                                                                                          |                         |             |
-| CRITICALJOBEXECUTIONSFAILEDPRCT | Thresholds                                                                                                                                          |                         |             |
-| WARNINGJOBRUNNINGDURATION       | Thresholds                                                                                                                                          |                         |             |
-| CRITICALJOBRUNNINGDURATION      | Thresholds                                                                                                                                          |                         |             |
-| WARNINGJOBSEXECUTIONSDETECTED   | Thresholds                                                                                                                                          |                         |             |
-| CRITICALJOBSEXECUTIONSDETECTED  | Thresholds                                                                                                                                          |                         |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                 | --verbose               |             |
+| Macro                           | Description                                                                                                                                               | Default value           | Mandatory   |
+|:--------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| TIMEFRAME                       | Timeframe to get BackupJobSession (in seconds. Default: 86400)                                                                                            | 86400                   |             |
+| UNIT                            | Select the unit for last execution time threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                       |             |
+| FILTERUID                       | Filter jobs by UID                                                                                                                                        |                         |             |
+| FILTERNAME                      | Filter jobs by name                                                                                                                                       |                         |             |
+| FILTERTYPE                      | Filter jobs by type                                                                                                                                       |                         |             |
+| WARNINGEXECUTIONSTATUS          | Set warning threshold for last job execution status (Default: %{status} =~ /warning/i). You can use the following variables like: %{status}, %{jobName}   | %{status} =~ /warning/i |             |
+| CRITICALEXECUTIONSTATUS         | Set critical threshold for last job execution status (Default: %{status} =~ /failed/i). You can use the following variables: %{status}, %{jobName}        | %{status} =~ /failed/i  |             |
+| WARNINGJOBEXECUTIONLAST         | Thresholds                                                                                                                                                |                         |             |
+| CRITICALJOBEXECUTIONLAST        | Thresholds                                                                                                                                                |                         |             |
+| WARNINGJOBEXECUTIONSFAILEDPRCT  | Thresholds                                                                                                                                                |                         |             |
+| CRITICALJOBEXECUTIONSFAILEDPRCT | Thresholds                                                                                                                                                |                         |             |
+| WARNINGJOBRUNNINGDURATION       | Thresholds                                                                                                                                                |                         |             |
+| CRITICALJOBRUNNINGDURATION      | Thresholds                                                                                                                                                |                         |             |
+| WARNINGJOBSEXECUTIONSDETECTED   | Thresholds                                                                                                                                                |                         |             |
+| CRITICALJOBSEXECUTIONSDETECTED  | Thresholds                                                                                                                                                |                         |             |
+| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                       | --verbose               |             |
 
 </TabItem>
-<TabItem value="Nodes" label="Nodes">
+<TabItem value="Repositories" label="Repositories">
 
-| Macro                     | Description                                                                                                                                                         | Default value      | Mandatory   |
-|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
-| CLUSTERID                 | Which cluster to check (Default: 'me')                                                                                                                              | me                 |             |
-| FILTERNODEID              | Filter nodes by node id (can be a regexp)                                                                                                                           |                    |             |
-| UNKNOWNNODESTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{ip\_address}, %{id}                                  |                    |             |
-| WARNINGCLUSTERNODESOK     | Thresholds                                                                                                                                                          |                    |             |
-| CRITICALCLUSTERNODESOK    | Thresholds                                                                                                                                                          |                    |             |
-| WARNINGCLUSTERNODESTOTAL  | Thresholds                                                                                                                                                          |                    |             |
-| CRITICALCLUSTERNODESTOTAL | Thresholds                                                                                                                                                          |                    |             |
-| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{ip\_address}, %{id} | %{status} !~ /ok/i |             |
-| WARNINGNODESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{ip\_address}, %{id}                                  |                    |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                 | --verbose          |             |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Macro                     | Description                                                                                         | Default value     | Mandatory   |
-|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGFULLREMAININGDAYS  | Thresholds                                                                                          |                   |             |
-| CRITICALFULLREMAININGDAYS | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGE              | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGE             | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEFREE          | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEFREE         | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEPRCT          | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEPRCT         | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Tasks" label="Tasks">
-
-| Macro             | Description                                                                                         | Default value     | Mandatory   |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCANCELED   | Thresholds                                                                                          |                   |             |
-| CRITICALCANCELED  | Thresholds                                                                                          |                   |             |
-| WARNINGFAILED     | Thresholds                                                                                          |                   |             |
-| CRITICALFAILED    | Thresholds                                                                                          |                   |             |
-| WARNINGSUCCEEDED  | Thresholds                                                                                          |                   |             |
-| CRITICALSUCCEEDED | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro                  | Description                                                                                         | Default value     | Mandatory   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME             | Filter repositories by name (can be a regexp)                                                       |                   |             |
+| WARNINGSPACEUSAGE      | Thresholds                                                                                          |                   |             |
+| CRITICALSPACEUSAGE     | Thresholds                                                                                          |                   |             |
+| WARNINGSPACEUSAGEFREE  | Thresholds                                                                                          |                   |             |
+| CRITICALSPACEUSAGEFREE | Thresholds                                                                                          |                   |             |
+| WARNINGSPACEUSAGEPRCT  | Thresholds                                                                                          |                   |             |
+| CRITICALSPACEUSAGEPRCT | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of service, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -372,30 +243,27 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a server using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
-    --plugin=apps::backup::rubrik::restapi::plugin \
-    --mode=nodes \
-    --hostname='10.0.0.1' \
-    --proto='https' \
-    --port='443' \
-    --proxyurl='http://myproxy.mycompany.org:8080' \
-    --api-password='****' \
-    --api-username='centreon' \
-    --verbose
+/usr/lib/centreon/plugins/centreon_veeam_vbem_restapi.pl \
+	--plugin=apps::backup::veeam::vbem::restapi::plugin \
+	--mode=repositories \
+	--hostname='10.0.0.1' \
+	--port='9398' \
+	--proto='https' \
+	--api-username='myuser' \
+	--api-password='mypass'  \
+	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: cluster 'RubrikOne' nodes are ok | 'RubrikOne#cluster.nodes.total.count'=7;;;0; 'RubrikOne#cluster.nodes.ok.count'=7;;;0;7
-checking cluster 'RubrikOne'
-node 'RVM15CS00XXXX' [ip address: 172.10.69.92] status: ok
-node 'RVM15CS00XXXX' [ip address: 172.10.69.93] status: ok
-node 'RVM15CS00XXXX' [ip address: 172.10.69.94] status: ok
-node 'RVM18BS00XXXX' [ip address: 172.10.69.91] status: ok
-node 'RVMHM194S00XXXX' [ip address: 172.10.69.95] status: ok
-node 'RVMHM194S00XXXX' [ip address: 172.10.69.96] status: ok
-node 'RVMHM194S00XXXX' [ip address: 172.10.69.97] status: ok
+OK: All repositories are ok | 'Default Backup Repository#repository.space.usage.bytes'=136771342336B;;;0;268368347136 'Default Backup Repository#repository.space.free.bytes'=131597004800B;;;0;268368347136 'Default Backup Repository#repository.space.usage.percentage'=50.96%;;;0;100 'Repository-SCALITY-veeam#repository.space.usage.bytes'=0B;;;0;1048576000000000 'Repository-SCALITY-veeam#repository.space.free.bytes'=1048576000000000B;;;0;1048576000000000 'Repository-SCALITY-veeam#repository.space.usage.percentage'=0.00%;;;0;100 'Scale-out Backup Repository I3M#repository.space.usage.bytes'=1123733454848B;;;0;23890250670080 'Scale-out Backup Repository I3M#repository.space.free.bytes'=22766517215232B;;;0;23890250670080 'Scale-out Backup Repository I3M#repository.space.usage.percentage'=4.70%;;;0;100 'Scale-out Backup Repository INFRASTRUCTURE#repository.space.usage.bytes'=158555994574848B;;;0;280007584776192 'Scale-out Backup Repository INFRASTRUCTURE#repository.space.free.bytes'=121451590201344B;;;0;280007584776192 'Scale-out Backup Repository INFRASTRUCTURE#repository.space.usage.percentage'=56.63%;;;0;100 'Scale-out Backup Repository MEDICAL & FONCTIONNEL#repository.space.usage.bytes'=163895073898496B;;;0;280007584776192 'Scale-out Backup Repository MEDICAL & FONCTIONNEL#repository.space.free.bytes'=116112510877696B;;;0;280007584776192 'Scale-out Backup Repository MEDICAL & FONCTIONNEL#repository.space.usage.percentage'=58.53%;;;0;100 'Scale-out Backup Repository ORACLE & SQL#repository.space.usage.bytes'=163858194489344B;;;0;280007584776192 'Scale-out Backup Repository ORACLE & SQL#repository.space.free.bytes'=116149390286848B;;;0;280007584776192 'Scale-out Backup Repository ORACLE & SQL#repository.space.usage.percentage'=58.52%;;;0;100
+repository 'Default Backup Repository' space usage total: 249.94 GB used: 127.38 GB (50.96%) free: 122.56 GB (49.04%)
+repository 'Repository-SCALITY-veeam' space usage total: 953.67 TB used: 0.00 B (0.00%) free: 953.67 TB (100.00%)
+repository 'Scale-out Backup Repository I3M' space usage total: 21.73 TB used: 1.02 TB (4.70%) free: 20.71 TB (95.30%)
+repository 'Scale-out Backup Repository INFRASTRUCTURE' space usage total: 254.67 TB used: 144.21 TB (56.63%) free: 110.46 TB (43.37%)
+repository 'Scale-out Backup Repository MEDICAL & FONCTIONNEL' space usage total: 254.67 TB used: 149.06 TB (58.53%) free: 105.60 TB (41.47%)
+repository 'Scale-out Backup Repository ORACLE & SQL' space usage total: 254.67 TB used: 149.03 TB (58.52%) free: 105.64 TB (41.48%)
 ```
 
 ### Troubleshooting
@@ -414,23 +282,20 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
-	--plugin=apps::backup::rubrik::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_veeam_vbem_restapi.pl \
+	--plugin=apps::backup::veeam::vbem::restapi::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode       | Linked service template              |
-|:-----------|:-------------------------------------|
-| cluster    | App-Rubrik-Cluster-Restapi-custom    |
-| compliance | App-Rubrik-Compliance-Restapi-custom |
-| disks      | App-Rubrik-Disks-Restapi-custom      |
-| jobs       | App-Rubrik-Jobs-Restapi-custom       |
-| list-jobs  | Used for service discovery           |
-| nodes      | App-Rubrik-Nodes-Restapi-custom      |
-| storage    | App-Rubrik-Storage-Restapi-custom    |
-| tasks      | App-Rubrik-Tasks-Restapi-custom      |
+| Mode              | Linked service template                    |
+|:------------------|:-------------------------------------------|
+| cache             | Not used in this Monitoring Connector      |
+| jobs              | App-Veeam-Vbem-Restapi-Jobs-custom         |
+| list-jobs         | Used for service discovery                 |
+| list-repositories | Used for service discovery                 |
+| repositories      | App-Veeam-Vbem-Restapi-Repositories-custom |
 
 ### Available options
 
@@ -470,17 +335,14 @@ All generic options are listed here:
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Rubrik Rest API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Veeam Backup Enterprise Manager Rest API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --hostname                                 | Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --port                                     | Port used (Default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --port                                     | Port used (Default: 9398)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --proto                                    | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --service-account                          | Service account ID (with --secret and --organization-id options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --secret                                   | Service account secret (with --service-account and --organization-id options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --organization-id                          | Organization ID (with --service-account and --secret options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --api-username                             | API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --api-password                             | API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --token                                    | Use token authentication. If option is empty, token is created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --timeout                                  | Set timeout in seconds (Default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --api-username                             | Set username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             | Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  | Set timeout in seconds (Default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --cache-use                                | Use the cache file (created with cache mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -506,81 +368,27 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Cluster" label="Cluster">
-
-| Option                   | Description                                                                                                                                             |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                    |
-| --cluster-id             | Which cluster to check (Default: 'me').                                                                                                                 |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                    |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{name}   |
-| --warning-* --critical-* | Thresholds. Can be: 'read' (B/s), 'write' (B/s), 'read-iops', 'write-iops'.                                                                             |
-
-</TabItem>
-<TabItem value="Compliance" label="Compliance">
-
-| Option                   | Description                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='noncompliance'   |
-| --warning-* --critical-* | Thresholds. Can be: 'incompliance', 'noncompliance'.                                          |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Option                   | Description                                                                                                                                               |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='disk-status'                                                                 |
-| --cluster-id             | Which cluster to check (Default: 'me').                                                                                                                   |
-| --filter-disk-id         | Filter disks by disk id (can be a regexp).                                                                                                                |
-| --unknown-disks-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{id}                                        |
-| --warning-disk-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}                                        |
-| --critical-disk-status   | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{id}   |
-| --warning-* --critical-* | Thresholds. Can be: 'cluster-disks-total', 'cluster-disks-active'.                                                                                        |
-
-</TabItem>
 <TabItem value="Jobs" label="Jobs">
 
 | Option                      | Description                                                                                                                                                  |
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-job-id             | Filter jobs by job ID.                                                                                                                                       |
-| --filter-job-name           | Filter jobs by job name.                                                                                                                                     |
-| --filter-job-type           | Filter jobs by job type.                                                                                                                                     |
-| --filter-location-name      | Filter jobs by location name.                                                                                                                                |
+| --filter-uid                | Filter jobs by UID.                                                                                                                                          |
+| --filter-name               | Filter jobs by name.                                                                                                                                         |
+| --filter-type               | Filter jobs by type.                                                                                                                                         |
+| --timeframe                 | Timeframe to get BackupJobSession (in seconds. Default: 86400).                                                                                              |
 | --unit                      | Select the unit for last execution time threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
 | --unknown-execution-status  | Set unknown threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                              |
-| --warning-execution-status  | Set warning threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                              |
-| --critical-execution-status | Set critical threshold for last job execution status (Default: %{status} =~ /Failure/i). You can use the following variables: %{status}, %{jobName}          |
+| --warning-execution-status  | Set warning threshold for last job execution status (Default: %{status} =~ /warning/i). You can use the following variables like: %{status}, %{jobName}      |
+| --critical-execution-status | Set critical threshold for last job execution status (Default: %{status} =~ /failed/i). You can use the following variables: %{status}, %{jobName}           |
 | --warning-* --critical-*    | Thresholds. Can be: 'jobs-executions-detected', 'job-executions-failed-prct', 'job-execution-last', 'job-running-duration'.                                  |
 
 </TabItem>
-<TabItem value="Nodes" label="Nodes">
+<TabItem value="Repositories" label="Repositories">
 
-| Option                   | Description                                                                                                                                                           |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='node-status'                                                                             |
-| --cluster-id             | Which cluster to check (Default: 'me').                                                                                                                               |
-| --filter-node-id         | Filter nodes by node id (can be a regexp).                                                                                                                            |
-| --unknown-node-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{ip\_address}, %{id}                                    |
-| --warning-node-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{ip\_address}, %{id}                                    |
-| --critical-node-status   | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{ip\_address}, %{id}   |
-| --warning-* --critical-* | Thresholds. Can be: 'cluster-nodes-total', 'cluster-nodes-ok'.                                                                                                        |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Option                   | Description                                                                                    |
-|:-------------------------|:-----------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='remaining'        |
-| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'full-remaining-days'.    |
-
-</TabItem>
-<TabItem value="Tasks" label="Tasks">
-
-| Option                   | Description                                                                            |
-|:-------------------------|:---------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='failed'   |
-| --warning-* --critical-* | Thresholds. Can be: 'succeeded', 'failed', 'canceled'.                                 |
+| Option                   | Description                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------|
+| --filter-name            | Filter repositories by name (can be a regexp).                                |
+| --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.    |
 
 </TabItem>
 </Tabs>
@@ -589,8 +397,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_rubrik_restapi.pl \
-	--plugin=apps::backup::rubrik::restapi::plugin \
-	--mode=cluster \
+/usr/lib/centreon/plugins/centreon_veeam_vbem_restapi.pl \
+	--plugin=apps::backup::veeam::vbem::restapi::plugin \
+	--mode=jobs \
 	--help
 ```

@@ -1,568 +1,462 @@
 ---
-id: network-cisco-wlc-snmp
-title: Cisco WLC SNMP
+id: network-fortinet-fortimail-snmp
+title: Fortinet FortiMail SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **Cisco WLC** apporte 2 modèles d'hôte :
+The Monitoring Connector **Fortinet FortiMail SNMP** brings a host template:
 
-* **Net-Cisco-Wlc-SNMP-custom**
-* **Net-Cisco-Wlc-SNMP-Access-Point-custom**
+* **Net-Fortinet-Fortimail-SNMP-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Cisco-Wlc-SNMP-custom" label="Net-Cisco-Wlc-SNMP-custom">
+<TabItem value="Net-Fortinet-Fortimail-SNMP-custom" label="Net-Fortinet-Fortimail-SNMP-custom">
 
-| Alias            | Modèle de service                          | Description                                        | Découverte |
-|:-----------------|:-------------------------------------------|:---------------------------------------------------|:----------:|
-| Ap-Status-Global | Net-Cisco-Wlc-Ap-Status-Global-SNMP-custom | Contrôle le statut de l'ensemble des relais        | X          |
-| Cpu              | Net-Cisco-Wlc-Cpu-SNMP-custom              | Contrôle le taux d'utilisation du CPU              |            |
-| Hardware-Global  | Net-Cisco-Wlc-Hardware-Global-SNMP-custom  | Contrôle l'ensemble du matériel                    |            |
-| Memory           | Net-Cisco-Wlc-Memory-SNMP-custom           | Contrôle du taux d'utilisation de la mémoire vive  |            |
+| Service Alias | Service Template                            | Service Description                                  |
+|:--------------|:--------------------------------------------|:-----------------------------------------------------|
+| Cpu           | Net-Fortinet-Fortimail-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine |
+| Disk          | Net-Fortinet-Fortimail-Disk-SNMP-custom     | Check mail and log disk usage                        |
+| Hardware      | Net-Fortinet-Fortimail-Hardware-SNMP-custom | Check hardware                                       |
+| Load          | Net-Fortinet-Fortimail-Load-SNMP-custom     | Check system load                                    |
+| Memory        | Net-Fortinet-Fortimail-Memory-SNMP-custom   | Check memory usage                                   |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wlc-SNMP-custom** est utilisé.
-
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
-
-</TabItem>
-<TabItem value="Net-Cisco-Wlc-SNMP-Access-Point-custom" label="Net-Cisco-Wlc-SNMP-Access-Point-custom">
-
-| Alias     | Modèle de service                                | Description                                                  |
-|:----------|:-------------------------------------------------|:-------------------------------------------------------------|
-| Ap-Status | Net-Cisco-Wlc-Ap-Status-SNMP-Access-Point-custom | Contrôle le statut du point d'accès                          |
-| Ap-Users  | Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom  | Contrôle le nombre d'utilisateurs du point d'accès           |
-| Ap-Users  | Net-Cisco-Wlc-Ap-Users-SNMP-custom               | Contrôle le nombre d'utilisateurs sur l'ensemble des relais  |
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wlc-SNMP-Access-Point-custom** est utilisé.
+> The services listed above are created automatically when the **Net-Fortinet-Fortimail-SNMP-custom** host template is used.
 
 </TabItem>
-<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Alias                          | Modèle de service                                        | Description                                                         | Découverte |
-|:-------------------------------|:---------------------------------------------------------|:--------------------------------------------------------------------|:----------:|
-| Ap-Channel-Interference-Global | Net-Cisco-Wlc-Ap-Channel-Interference-Global-SNMP-custom | Contrôle les interférences sur les canaux de l'ensemble des relais  |            |
-| Ap-Channel-Noise-Global        | Net-Cisco-Wlc-Ap-Channel-Noise-Global-SNMP-custom        | Contrôle le bruit sur les canaux de l'ensemble des relais           |            |
-| Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom          | Contrôle le nombre d'utilisateurs du point d'accès                  |            |
-| Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP-custom                       | Contrôle le nombre d'utilisateurs sur l'ensemble des relais         |            |
-| Traffic-Generic-Id             | Net-Cisco-Wlc-Traffic-Generic-Id-SNMP-custom             | Contrôle le traffic réseau d'une interface réseau                   |            |
-| Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom           | Contrôle le traffic réseau d'une interface réseau                   |            |
-| Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP-custom                 | Contrôle le traffic réseau de plusieurs interfaces réseau           | X          |
+| Service Alias | Service Template                              | Service Description                                  | Discovery  |
+|:--------------|:----------------------------------------------|:-----------------------------------------------------|:----------:|
+| Ha            | Net-Fortinet-Fortimail-Ha-SNMP-custom         | Check high-availability status                       |            |
+| Interfaces    | Net-Fortinet-Fortimail-Interfaces-SNMP-custom | Check interfaces                                     | X          |
+| Queues        | Net-Fortinet-Fortimail-Queues-SNMP-custom     | Check queues                                         | X          |
+| Uptime        | Net-Fortinet-Fortimail-Uptime-SNMP-custom     | Time since the server has been working and available |            |
 
-> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
-### Règles de découverte
+### Discovery rules
 
-#### Découverte d'hôtes
+#### Service discovery
 
-| Nom de la règle | Description                                                  |
-|:----------------|:-------------------------------------------------------------|
-| Cisco WLC       | Découvre les points d'accès du Cisco Wireless LAN Controller |
+| Rule name                                  | Description                                                   |
+|:-------------------------------------------|:--------------------------------------------------------------|
+| Net-Fortinet-Fortimail-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+| Net-Fortinet-Fortimail-SNMP-Queue-Name     | Discover queues and monitor utilization                       |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
-#### Découverte de service
+### Collected metrics & status
 
-| Nom de la règle                 | Description                                                            |
-|:--------------------------------|:-----------------------------------------------------------------------|
-| Net-Cisco-Wlc-SNMP-AP-Name      | Découvre les points d'accès et supervise le statut                     |
-| Net-Cisco-Wlc-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
-
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
-
-### Métriques & statuts collectés
-
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Ap-Channel-Interference-Global" label="Ap-Channel-Interference-Global">
-
-| Métrique                                                                     | Unité |
-|:-----------------------------------------------------------------------------|:------|
-| *ap_name~slot_id:channel_id*#accesspoint.interference.power.count            |       |
-| *ap_name~slot_id:channel_id*#accesspoint.interference.utilization.percentage | %     |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Ap-Channel-Noise-Global" label="Ap-Channel-Noise-Global">
-
-| Métrique                                                 | Unité |
-|:---------------------------------------------------------|:------|
-| *ap_name~slot_id:channel_id*#accesspoint.noise.power.dbm | dBm   |
-
-</TabItem>
-<TabItem value="Ap-Status" label="Ap-Status">
-
-| Métrique                          | Unité |
-|:----------------------------------|:------|
-| accesspoints.total.count          | count |
-| accesspoints.associated.count     | count |
-| accesspoints.disassociating.count | count |
-| accesspoints.downloading.count    | count |
-| accesspoints.enabled.count        | count |
-| accesspoints.disabled.count       | count |
-| ap~status                         | N/A   |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Ap-Status-Global" label="Ap-Status-Global">
-
-| Métrique                          | Unité |
-|:----------------------------------|:------|
-| accesspoints.total.count          | count |
-| accesspoints.associated.count     | count |
-| accesspoints.disassociating.count | count |
-| accesspoints.downloading.count    | count |
-| accesspoints.enabled.count        | count |
-| accesspoints.disabled.count       | count |
-| ap~status                         | N/A   |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Ap-Users*" label="Ap-Users*">
-
-| Métrique                    | Unité |
-|:----------------------------|:------|
-| users.total.count           | count |
-| users.idle.count            | count |
-| users.aaapending.count      | count |
-| users.authenticated.count   | count |
-| users.associated.count      | count |
-| users.disassociated.count   | count |
-| users.powersave.count       | count |
-| users.tobedeleted.count     | count |
-| users.probing.count         | count |
-| users.blacklisted.count     | count |
-| ssid#ssid.users.total.count | count |
-
-> Concerne les modèles de service suivants : Ap-Users (Net-Cisco-Wlc-Ap-Users-SNMP-custom) et Ap-Users (Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom).
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                   | Unité |
+| Metric name                | Unit  |
 |:---------------------------|:------|
 | cpu.utilization.percentage | %     |
 
 </TabItem>
-<TabItem value="Hardware-Global" label="Hardware-Global">
+<TabItem value="Disk" label="Disk">
 
-| Métrique            | Unité |
-|:--------------------|:------|
-| power supply status |       |
+| Metric name                      | Unit  |
+|:---------------------------------|:------|
+| disk.log.space.usage.percentage  | %     |
+| disk.mail.space.usage.percentage | %     |
+
+</TabItem>
+<TabItem value="Ha" label="Ha">
+
+| Metric name              | Unit  |
+|:-------------------------|:------|
+| high availability status |       |
+
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
+| Metric name    | Unit  |
+|:---------------|:------|
+| sensors status |       |
+
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
+| Metric name                                               | Unit  |
+|:----------------------------------------------------------|:------|
+| interface status                                          |       |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Metric name            | Unit  |
+|:-----------------------|:------|
+| system.load.percentage | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                | Unité |
+| Metric name             | Unit  |
 |:------------------------|:------|
-| memory.usage.bytes      | B     |
-| memory.free.bytes       | B     |
 | memory.usage.percentage | %     |
 
 </TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
+<TabItem value="Queues" label="Queues">
 
-| Métrique                                             | Unité |
-|:-----------------------------------------------------|:------|
-| interface status                                     | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+| Metric name                         | Unit  |
+|:------------------------------------|:------|
+| *queue_name*#queue.mails.count      | count  |
+| *queue_name*#queue.mails.size.count | count |
 
-> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+| Metric name           | Unit  |
+|:----------------------|:------|
+| system.uptime.seconds | s     |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-### Configuration SNMP
+### SNMP Configuration
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* [CISCO WLC](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/snmp.html)
+To use this connector, the SNMP service must be properly configured on your device.
 
-### Flux réseau
+### Network flow
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+The target server must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connectors Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-cisco-wlc-snmp
+dnf install centreon-pack-network-fortinet-fortimail-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-cisco-wlc-snmp
+dnf install centreon-pack-network-fortinet-fortimail-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-cisco-wlc-snmp
+apt install centreon-pack-network-fortinet-fortimail-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-cisco-wlc-snmp
+yum install centreon-pack-network-fortinet-fortimail-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco WLC**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Fortinet FortiMail SNMP** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Cisco-Wlc-Snmp
+dnf install centreon-plugin-Network-Fortinet-Fortimail-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Cisco-Wlc-Snmp
+dnf install centreon-plugin-Network-Fortinet-Fortimail-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-cisco-wlc-snmp
+apt install centreon-plugin-network-fortinet-fortimail-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Cisco-Wlc-Snmp
+yum install centreon-plugin-Network-Fortinet-Fortimail-Snmp
 ```
 
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-<Tabs groupId="sync">
-<TabItem value="Net-Cisco-Wlc-SNMP-custom" label="Net-Cisco-Wlc-SNMP-custom">
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **Net-Fortinet-Fortimail-SNMP-custom** template to the host. 
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Net-Cisco-Wlc-SNMP-custom**.
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
-
-| Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
+| Macro            | Description                                                                                           | Default value     | Mandatory   |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-</TabItem>
-<TabItem value="Net-Cisco-Wlc-SNMP-Access-Point-custom" label="Net-Cisco-Wlc-SNMP-Access-Point-custom">
+### Using a service template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Net-Cisco-Wlc-SNMP-Access-Point-custom**.
-
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
-
-| Macro               | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:--------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| APNAME              | Filter access point name                                                                              |                   |             |
-| WLCHOSTNAME         | Name or address of the host to monitor                                                                |                   |             |
-| WLCSNMPCOMMUNITY    | SNMP community . It is recommended to use a read-only community                                       |                   |             |
-| WLCSNMPVERSION      | Version of the SNMP protocol. 1 for SNMP v1 , 2 for SNMP v2c, 3 for SNMP v3                           |                   |             |
-| WLCSNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
-
-</TabItem>
-</Tabs>
-
-### Utiliser un modèle de service issu du connecteur
-
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Ap-Channel-Interference-Global" label="Ap-Channel-Interference-Global">
-
-| Macro                     | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                    | Filter access point name (can be a regexp)                                                          | .*                |             |
-| FILTERGROUP               | Filter access point group (can be a regexp)                                                         |                   |             |
-| WARNINGINTERFERENCEPOWER  | Thresholds                                                                                          |                   |             |
-| CRITICALINTERFERENCEPOWER | Thresholds                                                                                          |                   |             |
-| WARNINGINTERFERENCEUTIL   | Thresholds                                                                                          |                   |             |
-| CRITICALINTERFERENCEUTIL  | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Ap-Channel-Noise-Global" label="Ap-Channel-Noise-Global">
-
-| Macro              | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | Filter access point name (can be a regexp)                                                          | .*                |             |
-| FILTERGROUP        | Filter access point group (can be a regexp)                                                         |                   |             |
-| WARNINGNOISEPOWER  | Thresholds                                                                                          |                   |             |
-| CRITICALNOISEPOWER | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Ap-Status" label="Ap-Status">
-
-| Macro          | Description                                                                                                                                                                                                                 | Valeur par défaut                                                     | Obligatoire |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/'). You can use the following variables: %{admstatus}, %{opstatus}, %{display} | %{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                     |                                                                       |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                         | --verbose                                                             |             |
-
-</TabItem>
-<TabItem value="Ap-Status-Global" label="Ap-Status-Global">
-
-| Macro                                     | Description                                                                                                                                                                                                                 | Valeur par défaut                                                     | Obligatoire |
-|:------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|:-----------:|
-| FILTER                                    | Filter access point name (can be a regexp)                                                                                                                                                                                  |                                                                       |             |
-| FILTERGROUP                               | Filter access point group (can be a regexp)                                                                                                                                                                                 |                                                                       |             |
-| WARNINGRADIOINTERFACECHANNELSUTILIZATION  | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALRADIOINTERFACECHANNELSUTILIZATION | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALRADIOSTATUS                       | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} eq "down"'). You can use the following variables: %{admstatus}, %{opstatus}, %{display}                    | %{admstatus} eq "enable" and %{opstatus} eq "down"                    |             |
-| WARNINGRADIOSTATUS                        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                     |                                                                       |             |
-| CRITICALSTATUS                            | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/'). You can use the following variables: %{admstatus}, %{opstatus}, %{display} | %{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/ |             |
-| WARNINGSTATUS                             | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                     |                                                                       |             |
-| WARNINGTOTAL                              | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALTOTAL                             | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| WARNINGTOTALASSOCIATED                    | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALTOTALASSOCIATED                   | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| WARNINGTOTALDISABLED                      | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALTOTALDISABLED                     | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| WARNINGTOTALDISASSOCIATING                | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALTOTALDISASSOCIATING               | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| WARNINGTOTALENABLED                       | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| CRITICALTOTALENABLED                      | Thresholds                                                                                                                                                                                                                  |                                                                       |             |
-| EXTRAOPTIONS                              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                         | --verbose                                                             |             |
-
-</TabItem>
-<TabItem value="Ap-Users" label="Ap-Users">
-
-| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERGROUP   | Filter by access point group (can be a regexp)                                                      |                   |             |
-| WARNINGTOTAL  | Thresholds                                                                                          |                   |             |
-| CRITICALTOTAL | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
-
-</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                        |                   |             |
-| CRITICAL     | Critical threshold in percent                                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                  | Description                                                                                         | Default value     | Mandatory   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCPUUTILIZATION  | Warning threshold in percent                                                                        |                   |             |
+| CRITICALCPUUTILIZATION | Critical threshold in percent                                                                       |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
-<TabItem value="Hardware-Global" label="Hardware-Global">
+<TabItem value="Disk" label="Disk">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+| Macro                 | Description                                                                                         | Default value     | Mandatory   |
+|:----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLOGUSAGEPRCT   | Thresholds                                                                                          |                   |             |
+| CRITICALLOGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
+| WARNINGMAILUSAGEPRCT  | Thresholds                                                                                          |                   |             |
+| CRITICALMAILUSAGEPRCT | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+</TabItem>
+<TabItem value="Ha" label="Ha">
+
+| Macro            | Description                                                                                                                                                                             | Default value                        | Mandatory   |
+|:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| CRITICALHASTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} ne %{ha\_status\_last}'). You can use the following variables: %{ha\_status}, %{ha\_status\_last} | %{ha\_status} ne %{ha\_status\_last} |             |
+| WARNINGHASTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}, %{ha\_status\_last}                                                    |                                      |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                     |                                      |             |
+
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (Default: '.*'). Can be: 'psu'                                             | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| COMPONENT    | Which component to check (Default: '.*'). Can be: 'sensors'                                         |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
+| Macro                  | Description                                                                                                                                                                                                         | Default value                                         | Mandatory   |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER              | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                |             |
+| OIDDISPLAY             | efine the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                  | ifname                                                |             |
+| UNITSTRAFFIC           | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter')                                                                                                                | percent\_delta                                        |             |
+| UNITSERROR             | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                                    | percent\_delta                                        |             |
+| UNITSCAST              | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                                | percent\_delta                                        |             |
+| INTERFACENAME          | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                |                                                       |             |
+| WARNINGINBCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINDISCARD       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINERROR         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINMCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINTRAFFIC       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINUCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINVOLUME        |                                                                                                                                                                                                                     |                                                       |             |
+| CRITICALINVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
+| WARNINGOUTBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTBCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTDISCARD     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTERROR       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTMCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTUCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
+| CRITICALOUTVOLUME      |                                                                                                                                                                                                                     |                                                       |             |
+| WARNINGSPEED           | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALSPEED          | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                       |             |
+| WARNINGTOTALADMINDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALADMINDOWN | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALADMINUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALADMINUP   | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALOPERDOWN   | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALOPERDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALOPERUP     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALOPERUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALPORT       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALPORT      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                 | --verbose                                             |             |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLOAD  | Thresholds                                                                                          |                   |             |
+| CRITICALLOAD | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING           | Thresholds                                                                                          |                   |             |
-| CRITICAL          | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEFREE  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEFREE | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
-
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
-| WARNINGIN    | Thresholds                                                                                          | 80                |             |
-| CRITICALIN   | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
-
-| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
+| Macro         | Description                                                                                         | Default value     | Mandatory   |
 |:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
-| WARNINGIN     | Thresholds                                                                                          | 80                |             |
-| CRITICALIN    | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| WARNINGUSAGE  | Thresholds                                                                                          |                   |             |
+| CRITICALUSAGE | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
-<TabItem value="Traffic-Global" label="Traffic-Global">
+<TabItem value="Queues" label="Queues">
 
-| Macro          | Description                                                                                                                                                                                                         | Valeur par défaut                            | Obligatoire |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| FILTER         | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                | .*                                           |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                                           |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                                           |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                                           |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                                           |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} ne "up" |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 | --verbose                                    |             |
+| Macro         | Description                                                                                         | Default value     | Mandatory   |
+|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME    | Filter queue name (can be a regexp)                                                                 |                   |             |
+| WARNINGCOUNT  | Thresholds                                                                                          |                   |             |
+| CRITICALCOUNT | Thresholds                                                                                          |                   |             |
+| WARNINGSIZE   | Thresholds                                                                                          |                   |             |
+| CRITICALSIZE  | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro          | Description                                                                                         | Default value     | Mandatory   |
+|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUPTIME  | Warning threshold                                                                                   |                   |             |
+| CRITICALUPTIME | Critical threshold                                                                                  |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser un serveur en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a server using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
-	--plugin=network::cisco::wlc::snmp::plugin \
-	--mode=ap-status \
-	--hostname=10.0.0.1 \
+/usr/lib/centreon/plugins/centreon_fortinet_fortimail_snmp.pl \
+	--plugin=network::fortinet::fortimail::snmp::plugin \
+	--mode=disk \
+	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
-	--snmp-community='my-snmp-community'  \
-    --filter-name='ap-1200d-emb' \
-    --use-new-perfdata \
-    --add-radio-interfaces \
-	--verbose
+	--snmp-community='my-snmp-community'
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
-OK: Access points total: 2, associated: 2, disassociating: 0, enabled: 2, disabled: 0 - All access points are ok | 'accesspoints.total.count'=2;;;0; 'accesspoints.associated.count'=2;;;0; 'accesspoints.disassociating.count'=0;;;0; 'accesspoints.downloading.count'=0;;;0; 'accesspoints.enabled.count'=2;;;0; 'accesspoints.disabled.count'=0;;;0; 'ap-1200d-emb-2~0#accesspoint.radio.interface.channels.utilization.percentage'=54%;;;0;100 'ap-1200d-emb-4~0#accesspoint.radio.interface.channels.utilization.percentage'=36%;;;0;100
-Model: AIR-CT5508-K9
-checking access point 'ap-1200d-emb-2'
-    status: associated
-    radio interface '0' status: up, channels utilization: 54 %
-    radio interface '1' is disabled
-checking access point 'ap-1200d-emb-4'
-    status: associated
-    radio interface '0' status: up, channels utilization: 36 %
-    radio interface '1' is disabled
+OK: Log disk space used: 18.00 %, Mail disk space used: 0.00 % | 'disk.log.space.usage.percentage'=18.00%;;;0;100 'disk.mail.space.usage.percentage'=0.00%;;;0;100
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
-	--plugin=network::cisco::wlc::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_fortinet_fortimail_snmp.pl \
+	--plugin=network::fortinet::fortimail::snmp::plugin \
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                     | Modèle de service associé                                                                                                                      |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
-| ap-channel-interference  | Net-Cisco-Wlc-Ap-Channel-Interference-Global-SNMP-custom                                                                                       |
-| ap-channel-noise         | Net-Cisco-Wlc-Ap-Channel-Noise-Global-SNMP-custom                                                                                              |
-| ap-status                | Net-Cisco-Wlc-Ap-Status-SNMP-Access-Point-custom<br />Net-Cisco-Wlc-Ap-Status-Global-SNMP-custom                                               |
-| ap-users                 | Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom<br />Net-Cisco-Wlc-Ap-Users-SNMP-custom                                                        |
-| cpu                      | Net-Cisco-Wlc-Cpu-SNMP-custom                                                                                                                  |
-| discovery                | Used for host discovery                                                                                                                        |
-| hardware                 | Net-Cisco-Wlc-Hardware-Global-SNMP-custom                                                                                                      |
-| interfaces               | Net-Cisco-Wlc-Traffic-Generic-Id-SNMP-custom<br />Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom<br />Net-Cisco-Wlc-Traffic-Global-SNMP-custom |
-| list-aps                 | Used for service discovery                                                                                                                     |
-| list-groups              | Not used in this Monitoring Connector                                                                                                          |
-| list-interfaces          | Used for service discovery                                                                                                                     |
-| list-radius-acc-servers  | Not used in this Monitoring Connector                                                                                                          |
-| list-radius-auth-servers | Not used in this Monitoring Connector                                                                                                          |
-| memory                   | Net-Cisco-Wlc-Memory-SNMP-custom                                                                                                               |
-| radius-acc-servers       | Not used in this Monitoring Connector                                                                                                          |
-| radius-auth-servers      | Not used in this Monitoring Connector                                                                                                          |
+| Mode            | Linked service template                       |
+|:----------------|:----------------------------------------------|
+| cpu             | Net-Fortinet-Fortimail-Cpu-SNMP-custom        |
+| disk            | Net-Fortinet-Fortimail-Disk-SNMP-custom       |
+| ha              | Net-Fortinet-Fortimail-Ha-SNMP-custom         |
+| hardware        | Net-Fortinet-Fortimail-Hardware-SNMP-custom   |
+| interfaces      | Net-Fortinet-Fortimail-Interfaces-SNMP-custom |
+| list-interfaces | Used for service discovery                    |
+| list-queues     | Used for service discovery                    |
+| load            | Net-Fortinet-Fortimail-Load-SNMP-custom       |
+| memory          | Net-Fortinet-Fortimail-Memory-SNMP-custom     |
+| queues          | Net-Fortinet-Fortimail-Queues-SNMP-custom     |
+| uptime          | Net-Fortinet-Fortimail-Uptime-SNMP-custom     |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Generic options
 
-Les options génériques sont listées ci-dessous :
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -620,74 +514,11 @@ Les options génériques sont listées ci-dessous :
 | --snmp-tls-their-hostname                  | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-trust-cert                      | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-#### Options des modes
+#### Modes options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Ap-Channel-Interference-Global" label="Ap-Channel-Interference-Global">
-
-| Option                   | Description                                                                                       |
-|:-------------------------|:--------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='interference-util'   |
-| --filter-name            | Filter access point name (can be a regexp).                                                       |
-| --filter-group           | Filter access point group (can be a regexp).                                                      |
-| --filter-channel         | Filter channel (can be a regexp). Example: --filter-channel='slot0:channel3'                      |
-| --warning-* --critical-* | Thresholds. Can be: 'interference-power', 'interference-util' (%).                                |
-
-</TabItem>
-<TabItem value="Ap-Channel-Noise-Global" label="Ap-Channel-Noise-Global">
-
-| Option                   | Description                                                                    |
-|:-------------------------|:-------------------------------------------------------------------------------|
-| --filter-name            | Filter access point name (can be a regexp).                                    |
-| --filter-group           | Filter access point group (can be a regexp).                                   |
-| --filter-channel         | Filter channel (can be a regexp). Example: --filter-channel='slot0:channel3'   |
-| --warning-* --critical-* | Thresholds. Can be: 'noise-power' (dBm).                                       |
-
-</TabItem>
-<TabItem value="Ap-Status" label="Ap-Status">
-
-| Option                   | Description                                                                                                                                                                                                                   |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^total-disassociating\|total-associated$'                                                                                                        |
-| --filter-name            | Filter access point name (can be a regexp).                                                                                                                                                                                   |
-| --filter-group           | Filter access point group (can be a regexp).                                                                                                                                                                                  |
-| --add-radio-interfaces   | Monitor radio interfaces channels utilization.                                                                                                                                                                                |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                       |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/'). You can use the following variables: %{admstatus}, %{opstatus}, %{display}   |
-| --warning-radio-status   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                       |
-| --critical-radio-status  | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} eq "down"'). You can use the following variables: %{admstatus}, %{opstatus}, %{display}                      |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-associated', 'total-disassociating', 'total-downloading', 'total-enabled', 'total-disabled', 'radio-interface-channels-utilization' (%).                                                  |
-
-</TabItem>
-<TabItem value="Ap-Status-Global" label="Ap-Status-Global">
-
-| Option                   | Description                                                                                                                                                                                                                   |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^total-disassociating\|total-associated$'                                                                                                        |
-| --filter-name            | Filter access point name (can be a regexp).                                                                                                                                                                                   |
-| --filter-group           | Filter access point group (can be a regexp).                                                                                                                                                                                  |
-| --add-radio-interfaces   | Monitor radio interfaces channels utilization.                                                                                                                                                                                |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                       |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} !~ /associated\|downloading/'). You can use the following variables: %{admstatus}, %{opstatus}, %{display}   |
-| --warning-radio-status   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                       |
-| --critical-radio-status  | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "enable" and %{opstatus} eq "down"'). You can use the following variables: %{admstatus}, %{opstatus}, %{display}                      |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-associated', 'total-disassociating', 'total-downloading', 'total-enabled', 'total-disabled', 'radio-interface-channels-utilization' (%).                                                  |
-
-</TabItem>
-<TabItem value="Ap-Users*" label="Ap-Users*">
-
-| Option                   | Description                                                                                                                                                                                                                     |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^total\|total-idle$'                                                                                                                               |
-| --filter-ssid            | Filter by SSID (can be a regexp).                                                                                                                                                                                               |
-| --filter-ap              | Filter by access point name (can be a regexp).                                                                                                                                                                                  |
-| --filter-group           | Filter by access point group (can be a regexp).                                                                                                                                                                                 |
-| --ignore-ap-users        | Unmonitor users by access points.                                                                                                                                                                                               |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-idle', 'total-aaapending', 'total-authenticated', 'total-associated', 'total-powersave', 'total-disassociated', 'total-tobedeleted', 'total-probing', 'total-blacklisted', 'ssid', 'ap'.    |
-
-</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Option                     | Description                       |
@@ -696,25 +527,47 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-cpu-utilization | Critical threshold in percent.    |
 
 </TabItem>
-<TabItem value="Hardware-Global" label="Hardware-Global">
+<TabItem value="Disk" label="Disk">
 
-| Option               | Description                                                                                                                                                                                                                   |
-|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (Default: '.*'). Can be: 'psu'.                                                                                                                                                                      |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,1                                                                                 |
-| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma seperated list) Can be specific or global: --absent-problem=psu,1                                                                                  |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                    |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,WARNING,not operational'    |
+| Option                   | Description                                                     |
+|:-------------------------|:----------------------------------------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'mail-usage-prct', 'log-usage-prct' (%).    |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Ha" label="Ha">
 
-| Option                   | Description                                                             |
-|:-------------------------|:------------------------------------------------------------------------|
-| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).    |
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --warning-ha-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}, %{ha\_status\_last}                                                                                                          |
+| --critical-ha-status   | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} ne %{ha\_status\_last}'). You can use the following variables: %{ha\_status}, %{ha\_status\_last}                                                       |
 
 </TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
+<TabItem value="Hardware" label="Hardware">
+
+| Option               | Description                                                                                                                                                                                  |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Which component to check (Default: '.*'). Can be: 'sensors'.                                                                                                                                 |
+| --add-name-instance  | Add literal description for instance value (used in filter, and threshold options).                                                                                                          |
+| --filter             | Exclude some parts (comma seperated list) Can also exclude specific instance: --filter=sensors,1                                                                                             |
+| --no-component       | Return an error if no compenents are checked. If total (with skipped) is 0. (Default: 'critical' returns).                                                                                   |
+| --threshold-overload | Set to overload default threshold values (syntax: section,\[instance,\]status,regexp) It used before default thresholds (order stays). Example: --threshold-overload='sensors,WARNING,off'   |
+| --warning            | Set warning threshold for 'sensors' (syntax: type,regexp,threshold) Example: --warning='sensors,.*,30'                                                                                       |
+| --critical           | Set critical threshold for 'sensors' (syntax: type,regexp,threshold) Example: --critical='sensors,.*,50'                                                                                     |
+
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
 
 | Option                   | Description                                                                                                                                                                                                                                                                                |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -738,16 +591,16 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
+| --check-metrics          | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
 | --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
 | --units-cast             | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
 | --nagvis-perfdata        | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
 | --interface              | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                      |
-| --name                   | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
+| --name                   | Allows to use interface name with option --interface instead ofinterface oid index (Can be a regexp)                                                                                                                                                                                       |
 | --speed                  | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 |
 | --speed-in               | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          |
 | --speed-out              | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                          |
@@ -756,21 +609,68 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --force-counters32       | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                   |
 | --reload-cache-time      | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
 | --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
-| --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
+| --oid-display            | efine the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                        |
 | --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                     |
 | --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                     |
 | --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                     |
 | --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                             |
 
 </TabItem>
+<TabItem value="Load" label="Load">
+
+| Option                   | Description                        |
+|:-------------------------|:-----------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'load' (%).    |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option                   | Description                         |
+|:-------------------------|:------------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (%).    |
+
+</TabItem>
+<TabItem value="Queues" label="Queues">
+
+| Option                   | Description                             |
+|:-------------------------|:----------------------------------------|
+| --filter-name            | Filter queue name (can be a regexp).    |
+| --warning-* --critical-* | Thresholds. Can be: 'count', 'size'.    |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            |
+| --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
+| --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
+| --force-oid            | Can choose your OID (numeric format only).                                                                                                                                                                                                    |
+| --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
+| --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
+| --unit                 | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                                                   |
+
+</TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_cisco_wlc.pl \
-	--plugin=network::cisco::wlc::snmp::plugin \
-	--mode=ap-channel-interference \
+/usr/lib/centreon/plugins/centreon_fortinet_fortimail_snmp.pl \
+	--plugin=network::fortinet::fortimail::snmp::plugin \
+	--mode=cpu \
 	--help
 ```
