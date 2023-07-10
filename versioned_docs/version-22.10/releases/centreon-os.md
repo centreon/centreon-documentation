@@ -25,22 +25,22 @@ Release date: `soon`
 
 #### Enhancements
 
-- [CEIP] Improved retrieving of OS name and version.
-- [Configuration] Fixed icon size for resources.
+- [CEIP] Improved the retrieval of Operating System name and version.
+- [Configuration] Improved the icon size to adapt to resources.
 
 #### Bug fixes
 
-- [Authentication] Fixed groups mapping management with OpenID Connect.
-- [Authentication] Fixed the disconnection the user from the interface when the refresh token expires for OIDC sessions.
-- [Backup] Fixed partial backup for AlmaLinux 8 and Debian 11.
-- [Configuration] Fixed deletion of images when importing a configuration on a Remote Server with Map installed.
-- [Configuration] Fixed deletion/activation/deactivation/duplication of contact using French langage in UI.
+- [ACL] Fixed an issue when a recurrent downtime is edited by a user under ACL.
+- [Authentication] Fixed an issue in the groups mapping management with OpenID Connect.
+- [Authentication] Fixed the user's logout when the refresh token has expired for OIDC sessions.
+- [Backup] Fixed partial backup that was not working in AlmaLinux 8 and Debian 11.
+- [Configuration] Fixed the deletion of images when importing a configuration on a Remote Server with MAP installed.
+- [Configuration] Fixed deletion/activation/deactivation/duplication of a contact when made with a French profile.
 - [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
-- [ResourcesStatus] Fixed search in filter not working.
-- [UX] Fixed space between buttons.
-- Fixed an issue on filter combination in Resources Status.
-- Fixed an issue when recurrent downtime is edited by an user under ACL.
-- Fixed the column name display in the acknowledgment description pop-up.
+- [ResourcesStatus] Fixed the search in filter that was not working.
+- [ResourcesStatus] Fixed an issue on filter combination in Resources Status.
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- [UX] Fixed a space issue between buttons.
 
 ### 22.10.9
 
