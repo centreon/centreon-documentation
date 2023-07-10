@@ -9,7 +9,7 @@ This topic gives you broad guidelines to determine the size of your platform.
 
 ## Architecture
 
-First, use the guildelines described on the [Architectures](./architectures.md#what-kind-of-architecture-do-you-need) page to determine the type of architecture you need.
+First, use the guidelines described on the [Architectures](./architectures.md#what-kind-of-architecture-do-you-need) page to determine the type of architecture you need.
 
 ## Characteristics of the servers
 
@@ -21,7 +21,7 @@ First, use the guildelines described on the [Architectures](./architectures.md#w
    * Retention time
    * Average number of metrics per service
 
-* The number of users simultaneously connected to the interface of the central/remote server has an impact on performance. If a lot of users will have to log in to the Centreon interface at the same time, you will need more CPU.
+* The number of users simultaneously connected to the interface of the central/remote server has an impact on performance. If a large number of users will have to log in to the Centreon interface at the same time, you will need more CPU.
 
 The following data is meant for:
 
@@ -59,7 +59,7 @@ This is how your central server should be partitioned:
 
 > Your system must use LVM to manage the file system.
 
-In some cases, you may want to set up a distributed architecture, even for less than 500 hosts. The poller will have the same characteristics as for up to 1,000 hosts.
+In some cases, you may want to set up a distributed architecture, even for fewer than 500 hosts. The poller will have the same characteristics as for up to 1,000 hosts.
 
 </TabItem>
 <TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
@@ -102,7 +102,7 @@ This is how your central server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| CPU  (logical core at 3 GHz) | 2 vCPU    |
 | RAM                         | 2 GB      |
 | HDD                         | 40 GB     |
 
@@ -110,7 +110,7 @@ This is how your central server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| CPU  (logical core at 3 GHz) | 4 vCPU    |
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
@@ -127,7 +127,7 @@ This is how the pollers should be partitioned:
 > Your system must use LVM to manage the file system.
 
 > The number of
-> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
 > binary calls, you should add more vCPU.
 
 </TabItem>
@@ -171,7 +171,7 @@ This is how your central server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| CPU  (logical core at 3 GHz) | 2 vCPU    |
 | RAM                         | 2 GB      |
 | HDD                         | 40 GB     |
 
@@ -179,7 +179,7 @@ This is how your central server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| CPU  (logical core at 3 GHz) | 4 vCPU    |
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
@@ -196,7 +196,7 @@ This is how the pollers should be partitioned:
 > Your system must use LVM to manage the file system.
 
 > The number of
-> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
 > binary calls, you should add more vCPU.
 
 </TabItem>
@@ -258,7 +258,7 @@ This is how the database server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| CPU  (logical core at 3 GHz) | 2 vCPU    |
 | RAM                         | 2 GB      |
 | HDD                         | 40 GB     |
 
@@ -266,7 +266,7 @@ This is how the database server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| CPU  (logical core at 3 GHz) | 4 vCPU    |
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
@@ -283,7 +283,7 @@ This is how the pollers should be partitioned:
 > Your system must use LVM to manage the file system.
 
 > The number of
-> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
 > binary calls, you should add more vCPU.
 
 </TabItem>
@@ -344,7 +344,7 @@ This is how the database server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| CPU  (logical core at 3 GHz) | 2 vCPU    |
 | RAM                         | 2 GB      |
 | HDD                         | 40 GB     |
 
@@ -352,7 +352,7 @@ This is how the database server should be partitioned:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| CPU  (logical core at 3 GHz) | 4 vCPU    |
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
@@ -369,7 +369,7 @@ This is how the pollers should be partitioned:
 > Your system must use LVM to manage the file system.
 
 > The number of
-> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
 > binary calls, you should add more vCPU.
 
 </TabItem>
@@ -382,4 +382,4 @@ For very large amounts of data, contact your sales representative.
 
 ## Network flows
 
-If you have firewalls or security equipments in place, check the [table of network flows](./technical.md#tables-of-network-flows).
+If you have firewalls or security resources in place, check the [table of network flows](./technical.md#tables-of-network-flows).
