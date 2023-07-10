@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding
 
-Before you follow this procedure, we recommend that you have some familiarity with the Linux operating system and Centreon so you can understand what you are doing and correct any mistakes that might occur.
+Before you follow this procedure, we recommend that you have a good knowledge of the Linux operating system and Centreon so you can understand what you are doing and correct any mistakes that might occur.
 
 ### Installation of Centreon
 
