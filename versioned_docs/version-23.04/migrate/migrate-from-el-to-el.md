@@ -213,7 +213,7 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
 the Centreon Central server (output IPv4). See the [Advanced
 configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 chapter for more information.
-   - The fingerprint of your platform has changed: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
+   - The fingerprint of your platform has changed too: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
 6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 
