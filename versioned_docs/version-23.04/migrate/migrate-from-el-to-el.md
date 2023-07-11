@@ -215,9 +215,9 @@ configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-ou
 chapter for more information.
    - The fingerprint of your platform has changed: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
-7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
+6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 
-8. Restart the following processes:
+7. Restart the following processes:
 
    ```shell
    systemctl restart cbd centengine
@@ -226,9 +226,9 @@ chapter for more information.
    systemctl start snmpd
    ```
 
-9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
+8. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-10. Go to **Configuration > Monitoring Connectors Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+9. Go to **Configuration > Monitoring Connectors Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 
