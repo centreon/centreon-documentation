@@ -73,7 +73,12 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
+
+Coming soon
+
+</TabItem>
+<TabItem value="String-Value" label="String-Value">
 
 Coming soon
 
@@ -217,7 +222,18 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
+
+| Macro        | Description                                                                                         | Valeur par défaut   | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
+| FORMAT       | Output format (Default: 'current value is %s')                                                      | current value is %s |             |
+| OID          | OID value to check (numeric format only)                                                            |                     |             |
+| WARNING      | Warning threshold                                                                                   |                     |             |
+| CRITICAL     | Critical threshold                                                                                  |                     |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                     |             |
+
+</TabItem>
+<TabItem value="String-Value" label="String-Value">
 
 | Macro          | Description                                                                                                                                                                                                                                                                                                                                                                                | Valeur par défaut              | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
@@ -302,7 +318,6 @@ Le plugin apporte les modes suivants :
 | string-value        | App-Protocol-SNMP-String-Value-custom  |
 | uptime              | App-Protocol-SNMP-Uptime-custom        |
 
-
 ### Options disponibles
 
 #### Options génériques
@@ -370,7 +385,40 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
+
+| Option                 | Description                                                                                                                                                                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                                                                  |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                             |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                     |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                                                                   |
+| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                        |
+| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                              |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                      |
+| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                              |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                 |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                       |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                          |
+| --oid                  | OID value to check (numeric format only).                                                                                                                                                                                                                                                   |
+| --warning              | Warning threshold.                                                                                                                                                                                                                                                                          |
+| --critical             | Critical threshold.                                                                                                                                                                                                                                                                         |
+| --oid-type             | Type of the OID (Default: 'gauge'). Can be 'counter' also. 'counter' will use a retention file.                                                                                                                                                                                             |
+| --counter-per-seconds  | Convert counter value on a value per seconds (only with type 'counter').                                                                                                                                                                                                                    |
+| --extracted-pattern    | Set pattern to extracted a number.                                                                                                                                                                                                                                                          |
+| --format               | Output format (Default: 'current value is %s')                                                                                                                                                                                                                                              |
+| --format-custom        | Apply a custom change on the value (Example to multiply the value: --format-custom='* 8').                                                                                                                                                                                                  |
+| --format-scale         | Scale bytes value. We'll display value in output.                                                                                                                                                                                                                                           |
+| --format-scale-type    | Could be 'network' (value divide by 1000) or 'other' (divide by 1024) (Default: 'other')  Output format (Default: 'current value is %s')                                                                                                                                                    |
+| --perfdata-unit        | Perfdata unit in perfdata output (Default: '')                                                                                                                                                                                                                                              |
+| --perfdata-name        | Perfdata name in perfdata output (Default: 'value')                                                                                                                                                                                                                                         |
+| --perfdata-min         | Minimum value to add in perfdata output (Default: '')                                                                                                                                                                                                                                       |
+| --perfdata-max         | Maximum value to add in perfdata output (Default: '')                                                                                                                                                                                                                                       |
+| --config-json          | JSON format to configure the mode. Can check multiple OID. Example: --config-json='\[ { "oid": ".1.3.6.1.2.1.1.3.0", "perfdata\_name": "oid1", "format": "current oid1 value is %s"}, { "oid": ".1.3.6.1.2.1.1.3.2", "perfdata\_name": "oid2", "format": "current oid2 value is %s"} \]'    |
+
+</TabItem>
+<TabItem value="String-Value" label="String-Value">
 
 | Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
