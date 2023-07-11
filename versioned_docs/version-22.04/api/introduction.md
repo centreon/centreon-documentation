@@ -12,5 +12,7 @@ may use the following documentations:
 - [Command Line API (CLAPI)](clapi.md) to manage configuration
 - [Rest API (v1)](rest-api-v1.md) to manage configuration or [Rest API
   (v2)](rest-api-v2.md) to manage configuration and real time data
-- [Graphical Views API (beta)](graph-views-api.md) to manage specific
-  Graphical Views data *(Centreon Map extension)*
+- [Graphical Views - MAP API](graph-views-map-api.md) to manage specific
+  Graphical Views data
+- [Graphical Views - MAP Legacy API (beta)](graph-views-api.md) to manage specific
+  Graphical Views data with the MAP Legacy version.

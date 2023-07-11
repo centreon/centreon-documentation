@@ -26,7 +26,7 @@ POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
 ```
 Headers {
     Content-Type = application/json
-    X-Client-Version = 23.04.0
+    X-Client-Version = 22.04.0
 }
 
 Body {
@@ -40,7 +40,7 @@ Body {
 ```
 Headers {
     Content-Type = application/json
-    X-client-version = 23.04.0
+    X-client-version = 22.04.0
     Authorization = Bearer {jwtToken}
 }
 ```
@@ -54,7 +54,7 @@ POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
 ```
 Headers {
     Content-Type = application/json
-    X-client-version =  23.04.0
+    X-client-version =  22.04.0
     Authorization = Bearer {jwtToken}
 }
 
