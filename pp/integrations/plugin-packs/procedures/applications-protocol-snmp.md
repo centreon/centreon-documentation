@@ -14,23 +14,8 @@ The Monitoring Connector **Generic SNMP** brings 2 host templates:
 * **App-Protocol-SNMP-custom**
 * **App-Protocol-SNMP-Only-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+The connector does not provide default service templates.
 
-<Tabs groupId="sync">
-<TabItem value="App-Protocol-SNMP-custom" label="App-Protocol-SNMP-custom">
-
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-
-> The services listed above are created automatically when the **App-Protocol-SNMP-custom** host template is used.
-
-</TabItem>
-<TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
-
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-
-> The services listed above are created automatically when the **App-Protocol-SNMP-Only-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
@@ -195,7 +180,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **App-Protocol-SNMP-custom** template to the host. 
+3. Apply the **App-Protocol-SNMP-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -205,7 +190,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **App-Protocol-SNMP-Only-custom** template to the host. 
+3. Apply the **App-Protocol-SNMP-Only-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -249,7 +234,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
 is able to monitor a server using a command like this one (replace the sample values by yours):
 
 ```bash
@@ -263,13 +248,13 @@ is able to monitor a server using a command like this one (replace the sample va
 	--format='current value is %s' \
 	--warning= \
 	--critical= \
-	
+
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: System uptime is: 3m 25s | 'uptime'=205s;;;0;
 ```
 
 ### Troubleshooting
@@ -281,7 +266,7 @@ for Centreon Plugins typical issues.
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
@@ -295,68 +280,17 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                | Linked service template                |
+| Mode                | Linked service template             |
 |:--------------------|:---------------------------------------|
-| aaa-servers         | Not used in this Monitoring Connector  |
-| alarms              | Not used in this Monitoring Connector  |
-| arp                 | Not used in this Monitoring Connector  |
-| bgp                 | Not used in this Monitoring Connector  |
 | cache               | Not used in this Monitoring Connector  |
-| cluster-load        | Not used in this Monitoring Connector  |
-| cluster-state       | Not used in this Monitoring Connector  |
-| cluster-status      | Not used in this Monitoring Connector  |
 | collection          | Not used in this Monitoring Connector  |
-| configuration       | Not used in this Monitoring Connector  |
-| connections         | Not used in this Monitoring Connector  |
-| cpu                 | Not used in this Monitoring Connector  |
-| cpu-detailed        | Not used in this Monitoring Connector  |
 | discovery           | Used for host discovery                |
-| disk-usage          | Not used in this Monitoring Connector  |
-| diskio              | Not used in this Monitoring Connector  |
-| dropped-packets     | Not used in this Monitoring Connector  |
 | dynamic-command     | Not used in this Monitoring Connector  |
-| environment         | Not used in this Monitoring Connector  |
-| gp-usage            | Not used in this Monitoring Connector  |
-| hardware            | Not used in this Monitoring Connector  |
-| hsrp                | Not used in this Monitoring Connector  |
-| inodes              | Not used in this Monitoring Connector  |
-| interfaces          | Not used in this Monitoring Connector  |
-| ipsla               | Not used in this Monitoring Connector  |
-| list-aaa-servers    | Not used in this Monitoring Connector  |
-| list-diskspath      | Not used in this Monitoring Connector  |
-| list-interfaces     | Not used in this Monitoring Connector  |
-| list-processes      | Not used in this Monitoring Connector  |
-| list-services       | Not used in this Monitoring Connector  |
-| list-spanning-trees | Not used in this Monitoring Connector  |
-| list-storages       | Not used in this Monitoring Connector  |
-| load                | Not used in this Monitoring Connector  |
-| memory              | Not used in this Monitoring Connector  |
-| memory-flash        | Not used in this Monitoring Connector  |
 | numeric-value       | App-Protocol-SNMP-Numeric-Value-custom |
-| panorama            | Not used in this Monitoring Connector  |
-| process             | Not used in this Monitoring Connector  |
-| processcount        | Not used in this Monitoring Connector  |
-| qos-usage           | Not used in this Monitoring Connector  |
-| rejected-packets    | Not used in this Monitoring Connector  |
 | response-time       | Not used in this Monitoring Connector  |
-| service             | Not used in this Monitoring Connector  |
-| sessions            | Not used in this Monitoring Connector  |
-| signatures          | Not used in this Monitoring Connector  |
-| spanning-tree       | Not used in this Monitoring Connector  |
-| stack               | Not used in this Monitoring Connector  |
-| status              | Not used in this Monitoring Connector  |
-| storage             | Not used in this Monitoring Connector  |
 | string-value        | App-Protocol-SNMP-String-Value-custom  |
-| swap                | Not used in this Monitoring Connector  |
-| tcpcon              | Not used in this Monitoring Connector  |
-| time                | Not used in this Monitoring Connector  |
-| udpcon              | Not used in this Monitoring Connector  |
 | uptime              | App-Protocol-SNMP-Uptime-custom        |
-| virtual-chassis     | Not used in this Monitoring Connector  |
-| voice-call          | Not used in this Monitoring Connector  |
-| vpc                 | Not used in this Monitoring Connector  |
-| vss                 | Not used in this Monitoring Connector  |
-| wan3g               | Not used in this Monitoring Connector  |
+
 
 ### Available options
 

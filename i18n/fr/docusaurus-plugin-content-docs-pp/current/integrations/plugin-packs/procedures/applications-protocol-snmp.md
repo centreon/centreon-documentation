@@ -14,24 +14,7 @@ Le connecteur de supervision **Generic SNMP** apporte 2 modèles d'hôte :
 * **App-Protocol-SNMP-custom**
 * **App-Protocol-SNMP-Only-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
-
-<Tabs groupId="sync">
-<TabItem value="App-Protocol-SNMP-custom" label="App-Protocol-SNMP-custom">
-
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-SNMP-custom** est utilisé.
-
-</TabItem>
-<TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
-
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-SNMP-Only-custom** est utilisé.
+Le connecteur n'apporte pas de modèles de service par défaut.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -263,13 +246,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--format='current value is %s' \
 	--warning= \
 	--critical= \
-	
+
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: System uptime is: 3m 25s | 'uptime'=205s;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -279,7 +262,7 @@ pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
 du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
 implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
 modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
@@ -297,66 +280,15 @@ Le plugin apporte les modes suivants :
 
 | Mode                | Modèle de service associé              |
 |:--------------------|:---------------------------------------|
-| aaa-servers         | Not used in this Monitoring Connector  |
-| alarms              | Not used in this Monitoring Connector  |
-| arp                 | Not used in this Monitoring Connector  |
-| bgp                 | Not used in this Monitoring Connector  |
-| cache               | Not used in this Monitoring Connector  |
-| cluster-load        | Not used in this Monitoring Connector  |
-| cluster-state       | Not used in this Monitoring Connector  |
-| cluster-status      | Not used in this Monitoring Connector  |
-| collection          | Not used in this Monitoring Connector  |
-| configuration       | Not used in this Monitoring Connector  |
-| connections         | Not used in this Monitoring Connector  |
-| cpu                 | Not used in this Monitoring Connector  |
-| cpu-detailed        | Not used in this Monitoring Connector  |
+| cache               | Non utilisé dans ce connecteur de surveillance  |
+| collection          | Non utilisé dans ce connecteur de surveillance  |
 | discovery           | Used for host discovery                |
-| disk-usage          | Not used in this Monitoring Connector  |
-| diskio              | Not used in this Monitoring Connector  |
-| dropped-packets     | Not used in this Monitoring Connector  |
-| dynamic-command     | Not used in this Monitoring Connector  |
-| environment         | Not used in this Monitoring Connector  |
-| gp-usage            | Not used in this Monitoring Connector  |
-| hardware            | Not used in this Monitoring Connector  |
-| hsrp                | Not used in this Monitoring Connector  |
-| inodes              | Not used in this Monitoring Connector  |
-| interfaces          | Not used in this Monitoring Connector  |
-| ipsla               | Not used in this Monitoring Connector  |
-| list-aaa-servers    | Not used in this Monitoring Connector  |
-| list-diskspath      | Not used in this Monitoring Connector  |
-| list-interfaces     | Not used in this Monitoring Connector  |
-| list-processes      | Not used in this Monitoring Connector  |
-| list-services       | Not used in this Monitoring Connector  |
-| list-spanning-trees | Not used in this Monitoring Connector  |
-| list-storages       | Not used in this Monitoring Connector  |
-| load                | Not used in this Monitoring Connector  |
-| memory              | Not used in this Monitoring Connector  |
-| memory-flash        | Not used in this Monitoring Connector  |
+| dynamic-command     | Non utilisé dans ce connecteur de surveillance  |
 | numeric-value       | App-Protocol-SNMP-Numeric-Value-custom |
-| panorama            | Not used in this Monitoring Connector  |
-| process             | Not used in this Monitoring Connector  |
-| processcount        | Not used in this Monitoring Connector  |
-| qos-usage           | Not used in this Monitoring Connector  |
-| rejected-packets    | Not used in this Monitoring Connector  |
-| response-time       | Not used in this Monitoring Connector  |
-| service             | Not used in this Monitoring Connector  |
-| sessions            | Not used in this Monitoring Connector  |
-| signatures          | Not used in this Monitoring Connector  |
-| spanning-tree       | Not used in this Monitoring Connector  |
-| stack               | Not used in this Monitoring Connector  |
-| status              | Not used in this Monitoring Connector  |
-| storage             | Not used in this Monitoring Connector  |
+| response-time       | Non utilisé dans ce connecteur de surveillance  |
 | string-value        | App-Protocol-SNMP-String-Value-custom  |
-| swap                | Not used in this Monitoring Connector  |
-| tcpcon              | Not used in this Monitoring Connector  |
-| time                | Not used in this Monitoring Connector  |
-| udpcon              | Not used in this Monitoring Connector  |
 | uptime              | App-Protocol-SNMP-Uptime-custom        |
-| virtual-chassis     | Not used in this Monitoring Connector  |
-| voice-call          | Not used in this Monitoring Connector  |
-| vpc                 | Not used in this Monitoring Connector  |
-| vss                 | Not used in this Monitoring Connector  |
-| wan3g               | Not used in this Monitoring Connector  |
+
 
 ### Options disponibles
 
