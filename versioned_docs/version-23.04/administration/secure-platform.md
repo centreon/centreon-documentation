@@ -1023,7 +1023,7 @@ ServerTokens Prod
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1041,7 +1041,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1059,7 +1059,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following line:
+Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"

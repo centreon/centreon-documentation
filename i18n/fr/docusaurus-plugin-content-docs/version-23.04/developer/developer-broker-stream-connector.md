@@ -270,19 +270,20 @@ Les méthodes disponibles sont les suivantes :
 1. `get_ba(ba_id)` qui obtient des informations *ba* à partir de son ID. Cette fonction retourne une table le cas échéant ou *nil* autrement.
 2. `get_bv(bv_id)` qui récupère les informations *bv* à partir de son ID. Cette fonction retourne une table le cas échéant ou *nil* autrement.
 3. `get_bvs(ba_id)` qui récupère tous les *bv* contenant le *ba* de l’ID *ba\_id*. Cette fonction renvoie un tableau d’ID *bv*, potentiellement vide si aucune *bv* n’est trouvée.
-4. `get_hostgroup_name(id)` qui récupère dans le cache le nom du groupe d’hôtes de l’ID donné. Cette fonction renvoie une chaîne ou *nil* autrement.
-5. `get_hostgroups(host_id)` qui obtient la liste des groupes d’hôtes contenant l’hôte correspondant à *host\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
-6. `get_hostname(id)` qui récupère dans le cache le nom d’hôte correspondant à l’ID d’hôte donné. Cette fonction retourne une chaîne avec le nom de l’hôte ou *nil* autrement.
-7. `get_index_mapping(index_id)` qui récupère du cache l’objet de mapping d’index de l’ID d’index donné. Le résultat est un tableau contenant trois clés, `index_id`, `host_id` et `service_id`.
-8. `get_instance_name(instance_id)` qui récupère dans le cache le nom de l’instance correspondant à l’ID de l’instance.
-9. `get_metric_mapping(metric_id)` qui récupère dans le cache l’objet de mapping de métriques de l’ID de métrique donné. Le résultat est un tableau contenant deux clés, `metric_id` et `index_id`.
-10. `get_service_description(host_id,service_id)` qui récupère dans le cache la description du service pour la paire donnée host\_id / service\_id. Cette fonction renvoie une chaîne de caractères ou *nil* autrement.
-11. `get_servicegroup_name(id)` qui récupère dans le cache le nom du groupe de services de l’ID donné. Cette fonction renvoie une chaîne ou *nil* autrement.
-12. `get_servicegroups(host_id, service_id)` qui obtient la liste des groupes de services contenant le service correspondant à la paire *host\_id* / *service\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
-13. `get_notes(host_id[,service_id])` qui récupère les notes configurées dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons des notes d’un service, sinon nous voulons des notes d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-14. `get_notes_url(host_id[, service_id])` qui récupère l’URL des notes configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons que l’*URL des notes* provienne d’un service, sinon nous voulons qu’elle provienne d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-15. `get_action_url(host_id)` qui obtient l’URL d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif, s’il est fourni, nous voulons l’*URL d’action* d’un service, sinon nous la voulons d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
-16. `get_severity(host_id[,service_id])` qui obtient la sévérité d’un hôte ou d’un service. Si vous ne fournissez que l’*host\_id*, nous supposons que vous voulez obtenir une sévérité d’hôte. Si un hôte ou un service n’a pas de sévérité, la fonction renvoie une valeur *nil*.
+4. `get_check_command(host_id[,service_id])` qui retourne la commande de check configurée pour l'hôte ou le service. Le *service\_id* est facultatif. S'il est fourni, vous obtenez la commande de check d'un service, sinon celle d'un hôte. Si elle n'existe pas dans le cache, *nil* est retourné.
+5. `get_hostgroup_name(id)` qui récupère dans le cache le nom du groupe d’hôtes de l’ID donné. Cette fonction renvoie une chaîne, ou *nil* autrement.
+6. `get_hostgroups(host_id)` qui obtient la liste des groupes d’hôtes contenant l’hôte correspondant à *host\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
+7. `get_hostname(id)` qui récupère dans le cache le nom d’hôte correspondant à l’ID d’hôte donné. Cette fonction retourne une chaîne avec le nom de l’hôte, ou *nil* autrement.
+8. `get_index_mapping(index_id)` qui récupère du cache l’objet de mapping d’index de l’ID d’index donné. Le résultat est un tableau contenant trois clés, `index_id`, `host_id` et `service_id`.
+9. `get_instance_name(instance_id)` qui récupère dans le cache le nom de l’instance correspondant à l’ID de l’instance.
+10. `get_metric_mapping(metric_id)` qui récupère dans le cache l’objet de mapping de métriques de l’ID de métrique donné. Le résultat est un tableau contenant deux clés, `metric_id` et `index_id`.
+11. `get_service_description(host_id,service_id)` qui récupère dans le cache la description du service pour la paire donnée host\_id / service\_id. Cette fonction renvoie une chaîne de caractères, ou *nil* autrement.
+12. `get_servicegroup_name(id)` qui récupère dans le cache le nom du groupe de services de l’ID donné. Cette fonction renvoie une chaîne, ou *nil* autrement.
+13. `get_servicegroups(host_id, service_id)` qui obtient la liste des groupes de services contenant le service correspondant à la paire *host\_id* / *service\_id*. La valeur retournée est un tableau d’objets, chacun contenant deux champs, *group\_id* et *group\_name*.
+14. `get_notes(host_id[,service_id])` qui récupère les notes configurées dans l’hôte ou le service. Le *service\_id* est facultatif. S’il est fourni, vous obtenez les notes d’un service, sinon celles d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+15. `get_notes_url(host_id[, service_id])` qui récupère l’URL des notes configurée dans l’hôte ou le service. Le *service\_id* est facultatif. S’il est fourni, vous obtenez l’*URL des notes* d’un service, sinon celle d’un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+16. `get_action_url(host_id)` qui obtient l’URL d’action configurée dans l’hôte ou le service. Le *service\_id* est facultatif. S’il est fourni, vous obtenez l’*URL d’action* d’un service, sinon celle d'un hôte. Si l’objet n’est pas trouvé dans le cache, *nil* est retourné.
+17. `get_severity(host_id[,service_id])` qui obtient la sévérité d’un hôte ou d’un service. Si seul l’*host\_id* est fourni, une sévérité d’hôte est retournée. Si un hôte ou un service n’a pas de sévérité, la fonction renvoie une valeur *nil*.
 
 ## La fonction init()
 
