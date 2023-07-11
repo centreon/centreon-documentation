@@ -17,14 +17,14 @@ Le connecteur de supervision **Generic SNMP** apporte 2 modèles d'hôte :
 <Tabs groupId="sync">
 <TabItem value="App-Protocol-SNMP" label="App-Protocol-SNMP">
 
- Ce modèle d'hôte n'apporte pas de modèle de service
+ Ce modèle d'hôte n'apporte pas de modèle de service.
 
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
 
- Ce modèle d'hôte n'apporte pas de modèle de service</TabItem>
+ Ce modèle d'hôte n'apporte pas de modèle de service.
 
-<Tabs groupId="sync">
+</TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias         | Modèle de service                      | Description                                                        |
