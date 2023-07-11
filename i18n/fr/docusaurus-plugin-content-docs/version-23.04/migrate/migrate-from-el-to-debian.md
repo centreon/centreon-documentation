@@ -195,7 +195,7 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
       Centreon et modifiez le mot de passe pour l'output **unfied-sql**,
    4. Modifiez le fichier **/etc/centreon/config.d/10-database.yaml**.
 
-5. 5. Si l'adresse IP de votre serveur Centreon a changé :
+5. Si l'adresse IP de votre serveur Centreon a changé :
    - Éditez la configuration de l'ensemble des modules Broker de vos collecteurs et modifiez l'adresse IP de
    connexion au serveur Centreon central (output IPv4). Consultez le chapitre
    [Configuration
