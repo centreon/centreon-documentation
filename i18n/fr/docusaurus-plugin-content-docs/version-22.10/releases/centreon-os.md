@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.10
 
-Release date: `soon`
+Release date: `July 11, 2023`
 
 #### Enhancements
 

@@ -21,7 +21,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.10
 
-Release date: `soon`
+Release date: `July 11, 2023`
 
 #### Enhancements
 
