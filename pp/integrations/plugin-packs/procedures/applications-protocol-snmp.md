@@ -14,11 +14,19 @@ The Monitoring Connector **Generic SNMP** brings 2 host templates:
 * **App-Protocol-SNMP-custom**
 * **App-Protocol-SNMP-Only-custom**
 
-The connector does not provide default service templates.
 
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-SNMP" label="App-Protocol-SNMP">
+
+This host template does not bring any service template.
 
 </TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
+<TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
+
+This host template does not bring any service template.
+
+</TabItem>
+<TabItem value="No host template" label="No host template">
 
 | Service Alias | Service Template                       | Service Description                                    |
 |:--------------|:---------------------------------------|:-------------------------------------------------------|
@@ -35,6 +43,9 @@ The connector does not provide default service templates.
 
 #### Host discovery
 
+<Tabs groupId="sync">
+<TabItem value="Host" label="Host">
+
 | Rule name                    | Description                                                  |
 |:-----------------------------|:-------------------------------------------------------------|
 | SNMP Agents                  | Discover hosts by requesting their SNMP agents               |
@@ -42,6 +53,9 @@ The connector does not provide default service templates.
 | SNMP IP Addresses (RFC 4293) | Discover IP addresses by requesting a SNMP agent (RFC 4293)  |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+</TabItem>
+<TabItem value="Service" label="Service">
 
 #### Service discovery
 
@@ -51,6 +65,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+</TabItem>
+</Tabs>
 
 ### Collected metrics & status
 

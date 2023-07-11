@@ -14,9 +14,17 @@ Le connecteur de supervision **Generic SNMP** apporte 2 modèles d'hôte :
 * **App-Protocol-SNMP-custom**
 * **App-Protocol-SNMP-Only-custom**
 
-Le connecteur n'apporte pas de modèles de service par défaut.
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-SNMP" label="App-Protocol-SNMP">
+
+ Ce modèle d'hôte n'apporte pas de modèle de service
 
 </TabItem>
+<TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
+
+ Ce modèle d'hôte n'apporte pas de modèle de service</TabItem>
+
+<Tabs groupId="sync">
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias         | Modèle de service                      | Description                                                        |
@@ -34,6 +42,9 @@ Le connecteur n'apporte pas de modèles de service par défaut.
 
 #### Découverte d'hôtes
 
+<Tabs groupId="sync">
+<TabItem value="Host" label="Host">
+
 | Nom de la règle              | Description                                                  |
 |:-----------------------------|:-------------------------------------------------------------|
 | SNMP Agents                  | Discover hosts by requesting their SNMP agents               |
@@ -44,12 +55,18 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de service
 
+</TabItem>
+<TabItem value="Service" label="Service">
+
 | Nom de la règle                   | Description |
 |:----------------------------------|:------------|
 | App-Protocol-SNMP-Collection-Name |             |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+</TabItem>
+</Tabs>
 
 ### Métriques & statuts collectés
 
