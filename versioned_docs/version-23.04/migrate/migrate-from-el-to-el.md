@@ -208,15 +208,16 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
    3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **unfied-sql** output,
    4. Edit the **/etc/centreon/config.d/10-database.yaml** file.
 
-5. If the IP address of your Centreon server has changed, edit the configuration for all
-the Centreon Broker modules of your Pollers and change the IP to connect to
+5. If the IP address of your Centreon server has changed:
+   - Edit the configuration for all the Centreon Broker modules of your Pollers and change the IP to connect to
 the Centreon Central server (output IPv4). See the [Advanced
 configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 chapter for more information.
+   - The fingerprint of your platform has changed: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
-6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
+7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 
-7. Restart the following processes:
+8. Restart the following processes:
 
    ```shell
    systemctl restart cbd centengine
@@ -225,9 +226,9 @@ chapter for more information.
    systemctl start snmpd
    ```
 
-8. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
+9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-9. Go to **Configuration > Monitoring Connectors Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Monitoring Connectors Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 
