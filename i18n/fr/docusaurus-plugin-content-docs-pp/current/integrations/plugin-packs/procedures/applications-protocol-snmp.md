@@ -254,15 +254,11 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_generic_snmp.pl \
-	--plugin=apps::protocols::snmp::plugin \
-	--mode=numeric-value \
+    --plugin=apps::protocols::snmp::plugin \
+	--mode=uptime \
 	--hostname=10.0.0.1 \
 	--snmp-community='my-snmp-community' \
 	--snmp-version=2c  \
-	--oid='' \
-	--format='current value is %s' \
-	--warning= \
-	--critical= \
 
 ```
 
@@ -297,12 +293,12 @@ Le plugin apporte les modes suivants :
 
 | Mode                | Modèle de service associé              |
 |:--------------------|:---------------------------------------|
-| cache               | Non utilisé dans ce connecteur de surveillance  |
-| collection          | Non utilisé dans ce connecteur de surveillance  |
-| discovery           | Used for host discovery                |
-| dynamic-command     | Non utilisé dans ce connecteur de surveillance  |
+| cache               | Non utilisé dans ce connecteur de supervision  |
+| collection          | Non utilisé dans ce connecteur de supervision  |
+| discovery           | Utilisé pour la découverte d'hôtes                |
+| dynamic-command     | Non utilisé dans ce connecteur de supervision  |
 | numeric-value       | App-Protocol-SNMP-Numeric-Value-custom |
-| response-time       | Non utilisé dans ce connecteur de surveillance  |
+| response-time       | Non utilisé dans ce connecteur de supervision  |
 | string-value        | App-Protocol-SNMP-String-Value-custom  |
 | uptime              | App-Protocol-SNMP-Uptime-custom        |
 

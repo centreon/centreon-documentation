@@ -256,15 +256,11 @@ is able to monitor a server using a command like this one (replace the sample va
 
 ```bash
 /usr/lib/centreon/plugins//centreon_generic_snmp.pl \
-	--plugin=apps::protocols::snmp::plugin \
-	--mode=numeric-value \
+    --plugin=apps::protocols::snmp::plugin \
+	--mode=uptime \
 	--hostname=10.0.0.1 \
 	--snmp-community='my-snmp-community' \
 	--snmp-version=2c  \
-	--oid='' \
-	--format='current value is %s' \
-	--warning= \
-	--critical= \
 
 ```
 
