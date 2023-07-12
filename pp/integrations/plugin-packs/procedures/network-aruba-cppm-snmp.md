@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template           | Service Description |
 |:--------------|:---------------------------|:--------------------|
-| Cpu           | Net-Aruba-Cppm-Cpu-SNMP    | Check cpu           |
+| Cpu           | Net-Aruba-Cppm-Cpu-SNMP    | Check CPU |
 | Disks         | Net-Aruba-Cppm-Disks-SNMP  | Check disks         |
 | Memory        | Net-Aruba-Cppm-Memory-SNMP | Check memories      |
 | Swap          | Net-Aruba-Cppm-Swap-SNMP   | Check swap          |
