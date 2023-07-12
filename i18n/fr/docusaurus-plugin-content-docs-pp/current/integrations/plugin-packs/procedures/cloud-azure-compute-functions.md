@@ -125,7 +125,6 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 |:-------------------------------------------|:------------------------------------------------------------------------------------------------------|:-----|
 | appservice.memory.average.usage.bytes      | The average amount of memory used by the app                                                          | B    |
 | appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | B    |
-| appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | B    |
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
