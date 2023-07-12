@@ -2008,6 +2008,9 @@ message RebuildMessage {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Remove Graph Message
 
 Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
