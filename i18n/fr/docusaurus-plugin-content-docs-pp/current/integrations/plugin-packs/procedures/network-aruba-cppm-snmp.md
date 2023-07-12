@@ -524,7 +524,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option             | Description                                   | Type |
 |:-------------------|:----------------------------------------------|:-----|
 | --use-ucd          | Use UCD MIB for CPU average.                  | Mode |
-| --warning-average  | Warning threshold average CPU utilization.    | Mode |
+| --warning-average  | Warning threshold for average CPU utilization.    | Mode |
 | --critical-average | Critical threshold average CPU utilization.   | Mode |
 | --warning-core     | Warning thresholds for each CPU core          | Mode |
 | --critical-core    | Critical thresholds for each CPU core         | Mode |
