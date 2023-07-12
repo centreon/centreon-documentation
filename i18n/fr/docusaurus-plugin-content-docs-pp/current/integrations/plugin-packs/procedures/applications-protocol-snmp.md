@@ -22,7 +22,7 @@ Ce modèle d'hôte n'apporte pas de modèle de service.
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
 
- Ce modèle d'hôte n'apporte pas de modèle de service.
+Ce modèle d'hôte n'apporte pas de modèle de service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
