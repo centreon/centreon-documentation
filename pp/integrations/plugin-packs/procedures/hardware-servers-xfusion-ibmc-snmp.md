@@ -153,8 +153,8 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 running the following command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_huawei_ibmc_snmp.pl \
-    --plugin=hardware::server::huawei::ibmc::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_xfusion_ibmc_snmp.pl \
+    --plugin=hardware::server::xfusion::ibmc::snmp::plugin \
     --mode=hardware \
     --hostname=10.0.0.1 \
     --snmp-version='2c' \
@@ -227,8 +227,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_huawei_ibmc_snmp.pl \
-    --plugin=hardware::server::huawei::ibmc::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_xfusion_ibmc_snmp.pl \
+    --plugin=hardware::server::xfusion::ibmc::snmp::plugin \
     --mode=hardware \
     --help
 ```
@@ -237,8 +237,8 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_huawei_ibmc_snmp.pl \
-    --plugin=hardware::server::huawei::ibmc::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_xfusion_ibmc_snmp.pl \
+    --plugin=hardware::server::xfusion::ibmc::snmp::plugin \
     --list-mode
 ```
 
