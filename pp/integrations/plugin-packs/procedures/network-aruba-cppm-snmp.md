@@ -515,7 +515,7 @@ All generic options are listed here:
 
 #### Modes options
 
-All modes specific options are listed here:
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
