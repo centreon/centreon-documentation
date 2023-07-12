@@ -53,7 +53,7 @@ The connector brings the following service templates (sorted by the host templat
 | Net-Aruba-Cppm-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+and in the [following chapter](/docs/monitoring/discovery/services-discovery#discovery-rules).
 
 ### Collected metrics & status
 
