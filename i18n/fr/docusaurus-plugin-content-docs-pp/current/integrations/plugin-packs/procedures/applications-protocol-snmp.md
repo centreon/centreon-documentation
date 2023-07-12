@@ -30,7 +30,7 @@ Ce modèle d'hôte n'apporte pas de modèle de service.
 | Alias         | Modèle de service                      | Description                                                        |
 |:--------------|:---------------------------------------|:-------------------------------------------------------------------|
 | Generic-Value | App-Protocol-SNMP-Numeric-Value-custom | Contrôle permettant de récupérer une valeur numérique d'un OID     |
-| Generic-Value | App-Protocol-SNMP-String-Value-custom  | Contrôle permettant de récupérer une chaine de caractères d'un OID |
+| Generic-Value | App-Protocol-SNMP-String-Value-custom  | Contrôle permettant de récupérer une chaîne de caractères d'un OID |
 | Uptime        | App-Protocol-SNMP-Uptime-custom        | Contrôle l'uptime d'un équipement en utilisant l'OID standard      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
