@@ -268,7 +268,7 @@ yum install centreon-plugin-Network-Aruba-Cppm-Snmp
 
 | Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| WARNINGAVERAGE  | Warning threshold average CPU utilization                                                           |                   |             |
+| WARNINGAVERAGE  | Warning threshold for average CPU utilization                                                           |                   |             |
 | CRITICALAVERAGE | Critical threshold average CPU utilization                                                          |                   |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                |                   |             |
 | CRITICALCORE    | Critical thresholds for each CPU core                                                               |                   |             |
