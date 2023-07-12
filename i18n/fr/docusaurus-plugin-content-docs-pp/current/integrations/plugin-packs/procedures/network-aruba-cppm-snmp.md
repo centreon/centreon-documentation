@@ -615,7 +615,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                             | Type |
 |:-------------------------|:------------------------------------------------------------------------|:-----|
-| --no-swap                | Threshold if no active swap (default: 'critical').                      | Mode |
+| --no-swap                | Status if no active swap (default: 'critical').                      | Mode |
 | --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).    | Mode |
 
 </TabItem>
