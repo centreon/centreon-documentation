@@ -309,7 +309,7 @@ should return a string of the form:
   2.0.0
 ```
 
-### The *broker_cache* object
+### The *broker\_cache* object
 
 This object provides several methods to access the cache. Among data, we can
 get hostnames, etc...
@@ -320,58 +320,62 @@ get hostnames, etc...
 
 The available methods are:
 
-1.  ``get_ba(ba_id)`` that gets *ba* informations from its id. This function
+1.  `get_ba(ba_id)` that gets *ba* informations from its id. This function
     returns a table if found or *nil* otherwise.
-2.  ``get_bv(bv_id)`` that gets *bv* informations from its id. This function
+2.  `get_bv(bv_id)` that gets *bv* informations from its id. This function
     returns a table if found or *nil* otherwise.
-3.  ``get_bvs(ba_id)`` that gets all the *bv* containing the *ba* of id *ba_id*.
+3.  `get_bvs(ba_id)` that gets all the *bv* containing the *ba* of id *ba_id*.
     This function returns an array of *bv* *ids*, potentially empty if no *bv*
     are found.
-4.  ``get_hostgroup_name(id)`` that gets from the cache the host group name of
+4.  `get_check_command(host_id[, service_id])` that gets the check command
+    configured in the host or service. The *service_id* is optional, if given
+    we want the check command from a service, otherwise we want the check
+    command from a host. If nothing is found in cache, *nil* is returned.
+5.  `get_hostgroup_name(id)` that gets from the cache the host group name of
     the given id. This function returns a string or *nil* otherwise.
-5.  ``get_hostgroups(host_id)`` that gets the list of host groups containing the
+6.  `get_hostgroups(host_id)` that gets the list of host groups containing the
     host corresponding to *host_id*. The return value is an array of objects,
     each one containing two fields, *group_id* and *group_name*.
-6.  ``get_hostname(id)`` that gets from the cache the host name corresponding to
+7.  `get_hostname(id)` that gets from the cache the host name corresponding to
     the given host id. This function returns a string with the host name or
     *nil* otherwise.
-7.  ``get_index_mapping(index_id)`` that gets from the cache the
+8.  `get_index_mapping(index_id)` that gets from the cache the
     index mapping object of the given index id. The result is a table containing
-    three keys, ``index_id``, ``host_id`` and ``service_id``.
-8.  ``get_instance_name(instance_id)`` that gets from the cache the
+    three keys, `index_id`, `host_id` and `service_id`.
+9.  `get_instance_name(instance_id)` that gets from the cache the
     instance name corresponding to the instance id.
-9.  ``get_metric_mapping(metric_id)`` that gets from the cache the
+10.  `get_metric_mapping(metric_id)` that gets from the cache the
     metric mapping object of the given metric id. The result is a table
-    containing two keys, ``metric_id`` and ``index_id``.
-10. ``get_service_description(host_id,service_id)`` that gets from the cache the
+    containing two keys, `metric_id` and `index_id`.
+11. `get_service_description(host_id,service_id)` that gets from the cache the
     service description of the given pair host_id / service_id. This function
     returns a string or *nil* otherwise.
-11. ``get_servicegroup_name(id)`` that gets from the cache the service group name*
+12. `get_servicegroup_name(id)` that gets from the cache the service group name*
     of the given id. This function returns a string or *nil* otherwise.
-12. ``get_servicegroups(host_id, service_id)`` that gets the list of service
+13. `get_servicegroups(host_id, service_id)` that gets the list of service
     groups containing the service corresponding to the pair *host_id* /
     *service_id*. The return value is an array of objects, each one containing
     two fields, *group_id* and *group_name*.
-13. ``get_notes(host_id[,service_id])`` that gets the notes configured in the
+14. `get_notes(host_id[,service_id])` that gets the notes configured in the
     host or service. The *service_id* is optional, if given we want notes from
     a service, otherwise we want notes from a host. If the object is not found
     in cache, *nil* is returned.
-14. ``get_notes_url(host_id[, service_id])`` that gets the notes url configured
+15. `get_notes_url(host_id[, service_id])` that gets the notes url configured
     in the host or service. The *service_id* is optional, if given we want
     *notes url* from a service, otherwise we want it from a host. If the object
     is not found in cache, *nil* is returned.
-15. ``get_action_url(host_id)`` that gets the action url configured in the host
+16. `get_action_url(host_id)` that gets the action url configured in the host
     or service. The *service_id* is optional, if given we want *action url* from
     a service, otherwise we want it from a host. If the object is not found in
     cache, *nil* is returned.
-16. ``get_severity(host_id[,service_id])`` that gets the severity of a host or
+17. `get_severity(host_id[,service_id])` that gets the severity of a host or
     a service. If you only provide the *host_id*, we suppose you want to get
     a host severity. If a host or a service does not have any severity, the
     function returns a *nil* value.
 
 ## The init() function
 
-This function must **not** be defined as ``local``, otherwise it will not be
+This function must **not** be defined as `local`, otherwise it will not be
 detected by centreon broker.
 
 Imagine we have made such configuration:
@@ -380,10 +384,10 @@ Imagine we have made such configuration:
 
 with two custom entries:
 
-1. a string *elastic-address* with ``172.17.0.1`` as content.
+1. a string *elastic-address* with `172.17.0.1` as content.
 2. a number *elastic-port* with 9200 as content.
 
-Then, the ``init()`` function has access to them like this:
+Then, the `init()` function has access to them like this:
 
 ```LUA
   function init(conf)
@@ -394,24 +398,24 @@ Then, the ``init()`` function has access to them like this:
 
 ## The write() function
 
-This function must **not** be defined as ``local``, otherwise it will not be
+This function must **not** be defined as `local`, otherwise it will not be
 seen by broker.
 
-The only argument given to the ``write()`` function is an event. It is given
+The only argument given to the `write()` function is an event. It is given
 with the same data as the ones we can see in Centreon Broker.
 
-To classify the event, we have two data that are ``category`` and ``element``.
+To classify the event, we have two data that are `category` and `element`.
 Those two informations are integers. If we concatenate those two numbers
-we obtain a longer integer equal to the event ``type`` also available in the
-event as ``_type``.
+we obtain a longer integer equal to the event `type` also available in the
+event as `_type`.
 
 | **int**   |  **short**   | **short** |
 |-----------|--------------|-----------|
 |_type =    | category     | elem      |
 
 Sometimes, one can want the hostname corresponding to an event but he only gets
-the ``host_id``. It is possible to get it thanks to the
-``broker_cache:get_hostname(id)`` method.
+the `host_id`. It is possible to get it thanks to the
+`broker_cache:get_hostname(id)` method.
 
 For example:
 
@@ -434,24 +438,24 @@ For example:
   end
 ```
 
-The ``write`` function return value is a boolean. While this value is *false*,
+The `write` function return value is a boolean. While this value is *false*,
 Broker keeps the sent events in memory and if needed in retention. When we
-are sure all events are processed, the idea is that ``write`` returns *true*
+are sure all events are processed, the idea is that `write` returns *true*
 and then Broker frees the events stack.
 
 Behind this, it is possible to avoid to commit events one by one.
-The ``write`` function can stock them in a stack and return *false*, and when
+The `write` function can stock them in a stack and return *false*, and when
 a given limit is reached, it can send all of them to their destination and
 return *true*.
 
 ## The filter() function
 
-The function must **not** be defined as ``local``, otherwise it will not be
+The function must **not** be defined as `local`, otherwise it will not be
 detected by Centreon Broker.
 
-It takes account of two parameters: ``category`` and ``element`` that we've
+It takes account of two parameters: `category` and `element` that we've
 already seen in the previous section. The category is an integer from 1 to 7,
-or the value 65535. The ``element`` gives details on the event, for example,
+or the value 65535. The `element` gives details on the event, for example,
 for the *category NEB*, *elements* are *Acknowledgement*, *Comment*, etc...
 given as integers.
 
@@ -463,15 +467,15 @@ queue are not acknowledged, streams won't receive anymore events.
 
 In several cases, this can lead to issues. The idea is that the stream has kept
 events in memory waiting for others events to send them to a database. But
-Broker queue is full and Broker does not call the stream's  ``write`` function
+Broker queue is full and Broker does not call the stream's  `write` function
 anymore since it writes events directly to its retention files waiting for an
-acknowledgement from the stream that won't arrive since ``write`` is not called.
+acknowledgement from the stream that won't arrive since `write` is not called.
 
-The solution to fix this lock in Broker is a ``flush`` function called regularly
+The solution to fix this lock in Broker is a `flush` function called regularly
 by Broker that just asks to the stream to flush its data. This function returns
 a boolean that is true if the stream arrived to flush its queue. Once Broker
 receives an information of a flush success, it can newly call the stream
-``write`` function.
+`write` function.
 
 ```LUA
   function write(d)
