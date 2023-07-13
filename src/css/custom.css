@@ -313,3 +313,9 @@ img[src*="thumbnail2"] {
   width: 36px!important;
   margin-bottom: -6px!important;
 }
+details{
+  background-color: fuchsia;
+}
+summary{
+  font-weight: bold;
+}
