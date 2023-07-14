@@ -28,7 +28,7 @@ In addition, it is important to verify that the Apache account does not have con
 Execute the following command:
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 You must have **/sbin/nologin** like:
