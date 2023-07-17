@@ -3,6 +3,8 @@ id: centreon-commercial-extensions
 title: Extensions Commerciales
 ---
 
+import expAll from './src/expand_collapse/expand_collapse.js';
+
 ## Introduction
 
 Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commerciales** de Centreon.
@@ -14,6 +16,8 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, veuillez contacter le support.
 
 Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-04-decouvrez-les-nouveautes-a-venir-ce-printemps/).
+
+<a href='#/' id='expAll' className='col'>Expand/collapse all</a>
 
 ## Centreon MAP
 
