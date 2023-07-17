@@ -314,7 +314,7 @@ img[src*="thumbnail2"] {
   margin-bottom: -6px!important;
 }
 details{
-  background-color: fuchsia;
+  border-width: 0px!important;
 }
 summary{
   font-weight: bold;

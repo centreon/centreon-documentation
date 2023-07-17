@@ -47,20 +47,20 @@ Release date: `June 13, 2023`
 
 Release date: `April 26, 2023`
 
-<details>
-  <summary>Compatibility</summary>
-
-Compatibility with other 23.04 components.
-
-</details>
-
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
 - [Configuration] Improved Business Activities configuration panel display:
    - Display listing pagination icons while displaying the configuration panel
    - Allow more space to display indicators' names.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
 
 </details>
 
@@ -83,19 +83,19 @@ Compatibility with other 23.04 components.
 
 Release date: `April 26, 2023`
 
-<details>
-  <summary>Compatibility</summary>
-
-Compatibility with other 23.04 components.
-
-</details>
-
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
 - Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
 - Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
 
 </details>
 
@@ -143,18 +143,18 @@ Release date: `June 13, 2023`
 
 Release date: `April 26, 2023`
 
-<details>
-  <summary>Compatibility</summary>
-
-Compatibility with other 23.04 components.
-
-</details>
-
-<details>
+<details open>
   <summary>Enhancements</summary>
   
 - [Core] It is now possible to exclude unrepresentative data from prediction computation.
 - [Core] Anomaly Detection services can now be used in Business Activities.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
 
 </details>
 
@@ -164,7 +164,7 @@ Compatibility with other 23.04 components.
 
 Release date: `April 26, 2023`
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - Added the possibility to customize the login page and the banner. You can now:

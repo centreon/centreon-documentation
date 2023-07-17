@@ -21,7 +21,12 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon BAM
 
@@ -29,20 +34,34 @@ Release date: `April 26, 2023`
 
 Release date: `June 13, 2023`
 
-#### Bug fixes
+<details>
+  <summary>Bug fixes</summary>
 
 - Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
 - Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details open>
+  <summary>Enhancements</summary>
+
 - [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
 - [Configuration] Improved Business Activities configuration panel display:
    - Display listing pagination icons while displaying the configuration panel
    - Allow more space to display indicators' names.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon MBI
 
@@ -50,7 +69,12 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon Auto Discovery
 
@@ -58,10 +82,21 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details open>
+  <summary>Enhancements</summary>
+
 - Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
 - Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
 - Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
 
@@ -69,7 +104,12 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon License Manager
 
@@ -77,7 +117,12 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon Anomaly Detection
 
@@ -85,18 +130,32 @@ Release date: `April 26, 2023`
 
 Release date: `June 13, 2023`
 
-#### Bug fixes
+<details>
+  <summary>Bug fixes</summary>
 
 - Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
 - Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details open>
+  <summary>Enhancements</summary>
+  
 - [Core] It is now possible to exclude unrepresentative data from prediction computation.
 - [Core] Anomaly Detection services can now be used in Business Activities.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon IT & Business Extensions
 
@@ -104,8 +163,13 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
+<details open>
+  <summary>Enhancements</summary>
+
 - Added the possibility to customize the login page and the banner. You can now:
   - Change the background of the login page.
   - Change the logo on the login page.
   - Display custom text on the login page.
   - Give a name to the platform, that will be visible on the login page and in the banner.
+
+</details>

@@ -23,7 +23,7 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 Release date: `July 10, 2023`
 
-<details >
+<details open>
   <summary>Enhancements</summary>
 
 - [Authentication] User attributes received from the Identity Provider are now added to the Centreon login file when debug is enabled.
@@ -75,7 +75,7 @@ Release date: `June 20, 2023`
 
 Release date: `June 19, 2023`
 
-<details>
+<details open>
   <summary>Security fixes</summary>
 
 - [Security] Fixed the base URI change detection mechanism.
@@ -86,7 +86,7 @@ Release date: `June 19, 2023`
 
 Release date: `June 7, 2023`
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - [Administration] Added a button to unblock users through the user interface (for local authentication).
@@ -132,8 +132,8 @@ Release date: `May 26, 2023`
 
 Release date: `April 26, 2023`
 
-<details>
-  <summary>Enhancements</summary>
+<details open>
+  <summary>New features</summary>
 
 - [API] We have started extending Centreon's Configuration REST API. The first endpoints available in this release allow you to manage:
   - Time periods.
@@ -174,7 +174,7 @@ Release date: `July 5, 2023`
 
 #### Centreon Broker
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - In MariaDB, data in the data_bin table are now inserted with a bulk prepared statement.
@@ -221,7 +221,7 @@ Compatibility with other 23.04 components.
 
 #### Centreon Broker
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - Converted all BBDO messages to Protobuf: the BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
@@ -245,7 +245,7 @@ Release date: `June 22, 2023`
 
 Release date: `June 7, 2023`
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - [Packaging] Improved the default configuration for Debian packages.
@@ -311,7 +311,7 @@ Release date: `July 10, 2023`
 
 Release date: `June 7, 2023`
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - [Packaging] Improved the default configuration for Debian packages.
@@ -335,7 +335,7 @@ Compatibility with other 23.04 components.
 
 Release date: `June 7, 2023`
 
-<details>
+<details open>
   <summary>New feature</summary>
 
 - [Widget] Added the possibility to filter by poller.
@@ -353,7 +353,7 @@ Release date: `June 7, 2023`
 
 Release date: `April 26, 2023`
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - Added Schedule Check option & auto close popup capability
