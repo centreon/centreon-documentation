@@ -29,6 +29,7 @@ Release date: `soon`
 
 #### Bug fixes
 
+- [Editor] Fixed a bug where empty metric names were blocking edition.
 - [Editor] Fixed metric links when no metric name is filled in.
 - [Server] Fixed an issue which made diagnostic to raise an error if a custom URI is used.
 - [UI] Fixed image edition for a MAP thumbnail or media component.
