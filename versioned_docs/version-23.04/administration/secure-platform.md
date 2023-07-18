@@ -28,7 +28,7 @@ In addition, it is important to verify that the Apache account does not have con
 Execute the following command:
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 You must have **/sbin/nologin** like:
@@ -256,7 +256,7 @@ centreon-web	0.0.8
 Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+grep -i denied /var/log/audit/audit.log
 ```
 
 If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition to
