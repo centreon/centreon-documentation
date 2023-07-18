@@ -249,6 +249,17 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.3
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
+- [Configuration] Removed the image beside "Report specific parameters" that was not well displayed.
+- [Install] Added missing Gorgone dependencies required by MBI ETL.
+- [Reporting] Fixed the display of ongoing alert duration in Hostgroups-Service-Current-Events report.
+
 ### 22.10.2
 
 Release date: `June 5, 2023`
