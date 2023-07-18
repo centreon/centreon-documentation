@@ -201,6 +201,14 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.4
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+
 ### 22.10.3
 
 Release date: `June 5, 2023`
