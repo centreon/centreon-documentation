@@ -18,6 +18,29 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.7
+
+Release date: `soon`
+
+#### Enhancements
+
+- [UI] You can now hide the label of a resource.
+- [Viewer] Resources now have a unique status.
+- [Viewer] You can now define a label for a URL shape.
+
+#### Bug fixes
+
+- [Editor] Fixed metric links when no metric name is filled in.
+- [Server] Fixed an issue which made diagnostic to raise an error if a custom URI is used.
+- [UI] Fixed image edition for a MAP thumbnail or media component.
+- [UI] Fixed the selection of layers in Geo views.
+- [Viewer] Fixed a regression causing output not to be displayed in widget output.
+- [Viewer] Fixed an issue making links not to be reactivated when the associated resource goes back on line.
+- [Viewer] Fixed an issue preventing hosts from being displayed on Geo views.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+- [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
 ### 22.10.6
 
 Release date: `June 5, 2023`
@@ -120,6 +143,14 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.10.7
+
+Release date: `soon`
+
+### 22.10.6
+
+Release date: `June 5, 2023`
 
 ### 22.10.5
 
