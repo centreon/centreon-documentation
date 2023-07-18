@@ -315,6 +315,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Anomaly Detection
 
+### 22.10.3
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Prediction] Fixed Anomaly Detection script that was not sending data history.
+
 ### 22.10.2
 
 Release date: `April 24, 2023`
