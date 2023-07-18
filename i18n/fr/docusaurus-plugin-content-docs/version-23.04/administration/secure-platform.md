@@ -28,7 +28,7 @@ De plus, il est important de vérifier que le compte Apache ne dispose pas de dr
 la commande suivante :
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 Vous devez avoir **/sbin/nologin** tel que :
