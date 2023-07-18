@@ -7,5 +7,5 @@ Vous trouverez dans ce chapitre la note de version globale de la **Plateforme Ce
 
 Pour accéder aux notes de version détaillées par composants, rendez vous dans les sections suivantes:
 
-- [Centreon Open Source](centreon-os.md)
-- [Extensions commerciales](centreon-commercial-extensions.md)
+- [Centreon Open Source](centreon-os.mdx)
+- [Extensions commerciales](centreon-commercial-extensions.mdx)
