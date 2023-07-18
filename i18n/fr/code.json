@@ -408,6 +408,13 @@
   "theme.common.feedback": {
     "message": "Envoyer du feedback sur cette page",
     "description": "To give feedback"
+  },
+  "Expand all": {
+    "message": "Tout étendre",
+    "description": "The label for the expand all button"
+  },
+  "Collpase all": {
+    "message": "Tout réduire",
+    "description": "The label for the collpase all button"
   }
-  
 }
