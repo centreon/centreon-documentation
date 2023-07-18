@@ -256,7 +256,7 @@ Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune
 commande suivante :
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+grep -i denied /var/log/audit/audit.log
 ```
 
 Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
