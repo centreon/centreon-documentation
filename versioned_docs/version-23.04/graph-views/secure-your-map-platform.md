@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 This chapter describes advanced procedures to secure your Centreon MAP and MAP (Legacy)
 platform.
 
-> If you want to use MAP and MAP (Legacy) in HTTPS, you must both secure your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
+> If you want to use MAP and MAP (Legacy) in HTTPS, you must both secure your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md#secure-the-web-server-with-https) if you need to secure your Centreon platform.
 
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
@@ -28,16 +28,13 @@ You will require:
 - A key file, referred to as *key.key*.
 - A certificate file, referred to as *certificate.crt*.
 
-Access the Centreon MAP server through SSH.
-
-Create a PKCS12 file with the following command line:
+1. Access the Centreon MAP server through SSH and create a PKCS12 file with the following command line:
 
 ```shell
 openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 ```
 
-Then, import this file into a new keystore (a Java repository of security
-certificates):
+2. Import this file into a new keystore (a Java repository of security certificates):
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
@@ -46,7 +43,7 @@ certificates):
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-map/map.jks
 ```
 
-Set below parameters inside `/etc/centreon-map/map-config.properties`:
+3. Set below parameters inside `/etc/centreon-map/map-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-map/map.jks
@@ -60,7 +57,7 @@ centreon-map.keystore-pass=xxx
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-studio/studio.jks
 ```
 
-Set below parameters inside `/etc/centreon-studio/studio-config.properties`:
+3. Set below parameters inside `/etc/centreon-studio/studio-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-studio/studio.jks
@@ -69,7 +66,6 @@ centreon-map.keystore-pass=xxx
 
 </TabItem>
 </Tabs>
-
 
 > Replace the keystore-pass value "xxx" with the password you used for
 > the keystore and adapt the path (if it was changed) to the keystore.
@@ -94,15 +90,13 @@ centreon-map.keystore-pass=xxx
 > *The solution we recommend is to use a recognized key method, as explained
 > above.*
 
-On the Centreon MAP server, create a keystore.
-
-Go to the folder where Java is installed:
+1. Move to the the Java installation folder:
 
 ```shell
 cd $JAVA_HOME/bin
 ```
 
-Then generate a keystore file with the following command:
+2. Generate a keystore file with the following command:
 
 ```shell
 keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
@@ -118,8 +112,7 @@ At the end of the screen form, when the "key password" is requested, use
 the same password as the one used for the keystore itself by pressing the
 ENTER key.
 
-Set below parameters inside
-`/etc/centreon-map/map-config.properties`:
+3. Set below parameters inside `/etc/centreon-map/map-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-map/map.jks
@@ -147,15 +140,13 @@ centreon-map.keystore-pass=xxx
 > *The solution we recommend is to use a recognized key method, as explained
 > above.*
 
-On the Centreon MAP server, create a keystore.
-
-Go to the folder where Java is installed:
+1. Move to the the Java installation folder:
 
 ```shell
 cd $JAVA_HOME/bin
 ```
 
-Then generate a keystore file with the following command:
+2. Generate a keystore file with the following command:
 
 ```shell
 keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
@@ -171,9 +162,7 @@ At the end of the screen form, when the "key password" is requested, use
 the same password as the one used for the keystore itself by pressing the
 ENTER key.
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
-and set below parameters inside
-`/etc/centreon-studio/studio-config.properties`:
+3. Set below parameters inside `/etc/centreon-studio/studio-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-studio/studio.jks
@@ -270,14 +259,14 @@ certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
-To create a self-signed certificate, you can use the following commands: 
+1. Create a self-signed certificate with the following commands: 
 
 ```text
 openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
 ```
 
-And then, copy the private key and the certificate into `/etc/centreon/broker_cert/` directory:
+2. Copy the private key and the certificate into `/etc/centreon/broker_cert/` directory:
 
 ```text
 mv broker_private.key /etc/centreon/broker_cert/
@@ -293,24 +282,21 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 ### MAP server configuration
 
-First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
-
-Then, set the following parameters in MAP server configuration at:
+> You must [secure your Centreon platform with HTTPS](../administration/secure-platform.md#secure-the-web-server-with-https).
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-**/etc/centreon-map/centreon-map.conf**
+Set the **centreon.url** inside `/etc/centreon-map/centreon-map.conf` to use HTTPS instead of HTTP:
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-**/etc/centreon-studio/studio-config.properties**
+Set the **centreon.url** inside `/etc/centreon-studio/centreon-map.conf` to use HTTPS instead of HTTP:
 
 </TabItem>
 </Tabs>
 
-To set the communication protocol with Centreon server to HTTPS:
 ```shell
 centreon.url=https://<server-address>
 ```
@@ -375,7 +361,6 @@ This means that if you use a self-signed certificate for the central server, you
     ```shell
     keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
     ```
-
 
 #### Configuration with a recognized CA certificate
 
