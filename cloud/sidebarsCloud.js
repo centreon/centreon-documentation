@@ -3,23 +3,24 @@ module.exports = {
       {
         "collapsed": true,
         "type": "category",
-        "label": "Getting started with your Centreon Cloud trial",
+        "label": "Getting started with Centreon Cloud",
         "link": {
           "type": "generated-index",
-                          },
-      items: [
-        {
-          "collapsed": true,
-        "type": "category",
-        "label": "Before starting your trial",
-        "link": {
-          "type": "generated-index",
-                          },
-          items: [
+        },
+      items: [        
         {
           type: 'doc',
           id: 'getting-started/cc-trial',
         },
+        {
+          "collapsed": true,
+        "type": "category",
+        "label": "Before starting",
+        "link": {
+          "type": "generated-index",
+                          },
+          items: [
+
         {
           type: 'doc',
           id: 'getting-started/interface',
@@ -37,7 +38,7 @@ module.exports = {
       {
         "collapsed": true,
       "type": "category",
-      "label": "Setting your platform",
+      "label": "Setting up your platform",
       "link": {
         "type": "generated-index",
                                 },
@@ -59,10 +60,6 @@ module.exports = {
 {
   type: 'doc',
   id: 'getting-started/first-dashboard',
-},
-{
-  type: 'doc',
-  id: 'getting-started/trial-questions',
 },
 {
   type: 'doc',

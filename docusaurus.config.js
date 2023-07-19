@@ -219,7 +219,7 @@ const config = {
               label: 'Centreon OnPrem',
             },
             {
-              to: '/cloud/category/getting-started-with-your-centreon-cloud-trial/',
+              to: '/cloud/category/getting-started-with-centreon-cloud/',
               label: 'Centreon Cloud',
               position: 'left',
               activeBaseRegex: '/cloud/',

@@ -5,6 +5,8 @@ title: Configuring notifications
 
 By default, notifications are active for all hosts and services. In Centreon Cloud, notifications are sent by the central server.
 
+> Notifications are not active for [Centreon Cloud trial](../getting-started/cc-trial.md) users.
+
 ## In which cases are notifications sent?
 
 Notifications are sent in the following cases:

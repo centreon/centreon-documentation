@@ -3,8 +3,8 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.cloud.category.Getting started with your Centreon Cloud trial": {
-    "message": "Débuter avec votre offre d'essai Centreon Cloud",
+  "sidebar.cloud.category.Getting started with Centreon Cloud": {
+    "message": "Débuter avec Centreon Cloud",
     "description": "The label for category Getting started with your Centreon Cloud trial in sidebar cloud"
   },
   "sidebar.cloud.category.Installing a poller": {
@@ -87,11 +87,11 @@
     "message": "Vues graphiques",
     "description": "The label for category Graphical views in sidebar cloud"
   },
-  "sidebar.cloud.category.Before starting your trial": {
-    "message": "Avant de commencer votre offre d'essai",
+  "sidebar.cloud.category.Before starting": {
+    "message": "Avant de commencer",
     "description": "The label for category Before starting your trial in sidebar cloud"
   },
-  "sidebar.cloud.category.Setting your platform": {
+  "sidebar.cloud.category.Setting up your platform": {
     "message": "Préparer la plateforme",
     "description": "The label for category Setting your platform in sidebar cloud"
   },

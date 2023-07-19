@@ -3,15 +3,23 @@ id: first-host
 title: Monitoring your first host
 ---
 
-Centreon allows you to monitor resources. Resources can be hosts or services. This topic describes how to add a host and how to monitor a resource in Centreon Cloud.
+Make sure you have read [**Centreon basics**](concepts.md) before monitoring your first resource.
 
-## Adding a host
+## Video tutorials
 
-> You can read the definition of a host [here](../resources/glossary.md#host).
+<details>
+<summary>Add a host automatically</summary>
 
-- Follow this [tutorial](https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P) to add a host automatically.
+<iframe width="850" height="650" src="https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P" frameborder="0" allowfullscreen></iframe>
 
-- Follow this [tutorial](https://app.arcade.software/share/xg4VORcWXdNBogHle80U) to add a host manually.
+</details>
+
+<details>
+<summary>Add a host manually</summary>
+
+<iframe width="850" height="650" src="https://app.arcade.software/share/xg4VORcWXdNBogHle80U" frameborder="0" allowfullscreen></iframe>
+
+</details>
 
 ## Monitoring a resource
 
@@ -19,7 +27,7 @@ To monitor a resource in Centreon Cloud:
 
 1. Create the resource.
 2. Link the resource to the poller you want it to be monitored by.
-3. Link the resource to the correct template provided by a [Plugin Pack](../monitoring/pluginpacks.md).
+3. Link the resource to the correct template provided by a [MOnitoring Connector](../monitoring/pluginpacks.md).
 4. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The resource appears in the **Monitoring > Resources status** page, where you can track any changes in status.
 
 You may also find the following articles interesting (on our community platform The Watch):

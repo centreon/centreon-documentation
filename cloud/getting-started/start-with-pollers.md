@@ -5,9 +5,16 @@ title: Getting started with pollers
 
 ## Definition and architecture
 
-> You need first to read the definition of a poller [here](../resources/glossary.md#poller).
+- Read the definition of a poller [here](../resources/glossary.md#poller).
 
-Go to this documentation [page](./architecture.md) or follow this [tutorial](https://app.arcade.software/share/Zml96xdwdRboKG99sIKm) to understand how the poller works in the Centreon infrastructure.
+- Go to [**Architecture of Centreon Cloud**](./architecture.md) to understand how the poller works in the Centreon Cloud infrastructure. You can also follow the video tutorial below.
+
+<details>
+<summary>Discover pollers</summary>
+
+<iframe width="850" height="650" src="https://app.arcade.software/share/Zml96xdwdRboKG99sIKm" frameborder="0" allowfullscreen></iframe>
+
+</details>
 
 ## Installation
 
@@ -17,5 +24,4 @@ Go to this documentation [page](./architecture.md) or follow this [tutorial](htt
 
 ## Troubleshooting
 
-In case of issues about pollers, troubleshooting [articles](https://thewatch.centreon.com/search?tags%5B0%5D=poller) are available to users on our community platform The Watch.
-Feel free to explore them or ask any questions you may have to the [dedicated group](https://thewatch.centreon.com/groups/centreon-cloud-trial-55).
+Feel free to ask any questions you may have on our community platform [The Watch](https://thewatch.centreon.com/).
