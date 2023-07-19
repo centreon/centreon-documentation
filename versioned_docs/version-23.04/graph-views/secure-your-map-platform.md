@@ -39,23 +39,45 @@ openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 Then, import this file into a new keystore (a Java repository of security
 certificates):
 
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
 ```shell
-keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-map/map.jks
 ```
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
-and set below parameters inside
-`/etc/centreon-map/map-config.properties`:
+Set below parameters inside `/etc/centreon-map/map-config.properties`:
+
+```text
+centreon-map.keystore=/etc/centreon-map/map.jks
+centreon-map.keystore-pass=xxx
+```
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+```shell
+keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-studio/studio.jks
+```
+
+Set below parameters inside `/etc/centreon-studio/studio-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-map/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 
+</TabItem>
+</Tabs>
+
+
 > Replace the keystore-pass value "xxx" with the password you used for
 > the keystore and adapt the path (if it was changed) to the keystore.
 
 ### HTTPS/TLS configuration with an auto-signed key
+
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
 
 > Enabling the TLS mode with an auto-signed key will force every user to add an
 > exception for the certificate before using the web interface.
@@ -68,6 +90,55 @@ centreon-map.keystore-pass=xxx
 > ```shell
 >https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
 > ```
+>
+> *The solution we recommend is to use a recognized key method, as explained
+> above.*
+
+On the Centreon MAP server, create a keystore.
+
+Go to the folder where Java is installed:
+
+```shell
+cd $JAVA_HOME/bin
+```
+
+Then generate a keystore file with the following command:
+
+```shell
+keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
+```
+
+The alias value "map" and the keystore file path
+`/etc/centreon-map/map.jks` may be changed, but unless there is a
+specific reason, we advise keeping the default values.
+
+Provide the needed information when creating the keystore.
+
+At the end of the screen form, when the "key password" is requested, use
+the same password as the one used for the keystore itself by pressing the
+ENTER key.
+
+Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
+and set below parameters inside
+`/etc/centreon-map/map-config.properties`:
+
+```text
+centreon-map.keystore=/etc/centreon-map/map.jks
+centreon-map.keystore-pass=xxx
+```
+
+> Replace the keystore-pass value "xxx" with the password you used for
+> the keystore and adapt the path (if it was changed to the keystore).
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+> Enabling the TLS mode with an auto-signed key will force every user to add an
+> exception for the certificate before using the web interface.
+>
+> Enable it only if your Centreon also uses this protocol.
+>
+> Users will have to open the URL:
 >
 > - MAP (Legacy):
 > ```shell
@@ -103,15 +174,18 @@ ENTER key.
 
 Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
 and set below parameters inside
-`/etc/centreon-map/map-config.properties`:
+`/etc/centreon-studio/studio-config.properties`:
 
 ```text
-centreon-map.keystore=/etc/centreon-map/studio.jks
+centreon-map.keystore=/etc/centreon-studio/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 
 > Replace the keystore-pass value "xxx" with the password you used for
 > the keystore and adapt the path (if it was changed to the keystore).
+
+</TabItem>
+</Tabs>
 
 ### Activate TLS profile of Centreon MAP service
 
@@ -137,6 +211,8 @@ centreon-map.keystore-pass=xxx
     systemctl start centreon-map-engine
     ```
 
+Centreon MAP server is now configured to respond to requests from HTTPS at port 9443.
+
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
@@ -159,12 +235,14 @@ centreon-map.keystore-pass=xxx
     systemctl start centreon-map
     ```
 
+Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
+
+> Don't forget to update your connection profile in the desktop client 
+> by checking the ssl checkbox.
+![image](../assets/graph-views/desktop-ssl-option.png)
+
 </TabItem>
 </Tabs>
-
-Centreon MAP server is now configured to respond to requests from HTTPS:
-- at port 9443 for MAP,
-- at port 8443 for MAP (Legacy).
 
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.md#change-centreon-map-server-port).
@@ -172,10 +250,6 @@ procedure](advanced-configuration.md#change-centreon-map-server-port).
 > Don't forget to modify the URL on Centreon side in the **Map server address**
 > field in the **Administration > Extensions > Map > Options** menu.
 ![image](../assets/graph-views/map-address-https.png)
-
-> Don't forget to update your connection profile in the desktop client 
-> by checking the ssl checkbox.
-![image](../assets/graph-views/desktop-ssl-option.png)
 
 ## Configure TLS on the Broker connection
 
