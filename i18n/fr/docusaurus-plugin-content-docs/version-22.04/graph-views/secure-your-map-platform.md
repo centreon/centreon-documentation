@@ -24,15 +24,13 @@ Vous aurez besoin de :
 - Un fichier de clé, appelé **key.key**.
 - Un fichier de certificat, appelé **certificate.crt**.
 
-Accédez au serveur Centreon MAP par SSH.
-
-Créez un fichier PKCS12 avec la ligne de commande suivante :
+1. Accédez au serveur Centreon MAP par SSH et créez un fichier PKCS12 avec la ligne de commande suivante :
 
 ```shell
 openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 ```
 
-Ensuite, importez ce fichier dans un nouveau keystore (un dépôt Java de certificats de sécurité) :
+2. Importez ce fichier dans un nouveau keystore (un dépôt Java de certificats de sécurité) :
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
@@ -41,7 +39,7 @@ Ensuite, importez ce fichier dans un nouveau keystore (un dépôt Java de certif
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-map/map.jks
 ```
 
-Définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
+3. Définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
 
 ```text
 centreon-map.keystore=/etc/centreon-map/map.jks
@@ -57,7 +55,7 @@ centreon-map.keystore-pass=xxx
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-studio/studio.jks
 ```
 
-Définissez les paramètres ci-dessous dans **/etc/centreon-studio/studio-config.properties** :
+3. Définissez les paramètres ci-dessous dans **/etc/centreon-studio/studio-config.properties** :
 
 ```text
 centreon-map.keystore=/etc/centreon-studio/studio.jks
@@ -87,15 +85,13 @@ centreon-map.keystore-pass=xxx
 >
 > *La solution que nous recommandons est d'utiliser une méthode de clé reconnue, comme expliqué ci-dessus.*
 
-Sur le serveur Centreon MAP, créez un keystore.
-
-Allez dans le dossier où Java est installé :
+1. Déplacez-vous dans le dossier d'installation de Java :
 
 ```shell
 cd $JAVA_HOME/bin
 ```
 
-Ensuite, générez un fichier keystore avec la commande suivante :
+2. Générez un fichier keystore avec la commande suivante :
 
 ```shell
 keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-map/map.jks
@@ -107,7 +103,7 @@ Fournissez les informations nécessaires lors de la création du keystore.
 
 À la fin du formulaire, lorsque le "mot de passe de la clé" est demandé, utilisez le même mot de passe que celui utilisé pour le keystore lui-même en appuyant sur la touche **Entrée**.
 
-Définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
+3. Définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
 
 ```text
 centreon-map.keystore=/etc/centreon-map/map.jks
@@ -132,15 +128,13 @@ centreon-map.keystore-pass=xxx
 >
 > *La solution que nous recommandons est d'utiliser une méthode de clé reconnue, comme expliqué ci-dessus.*
 
-Sur le serveur Centreon MAP, créez un keystore.
-
-Allez dans le dossier où Java est installé :
+1. Déplacez-vous dans le dossier d'installation de Java :
 
 ```shell
 cd $JAVA_HOME/bin
 ```
 
-Ensuite, générez un fichier keystore avec la commande suivante :
+2. Générez un fichier keystore avec la commande suivante :
 
 ```shell
 keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
@@ -152,7 +146,7 @@ Fournissez les informations nécessaires lors de la création du keystore.
 
 À la fin du formulaire, lorsque le "mot de passe de la clé" est demandé, utilisez le même mot de passe que celui utilisé pour le keystore lui-même en appuyant sur la touche **Entrée**.
 
-Définissez les paramètres ci-dessous dans **/etc/centreon-studio/studio-config.properties** :
+3. Définissez les paramètres ci-dessous dans **/etc/centreon-studio/studio-config.properties** :
 
 ```text
 centreon-map.keystore=/etc/centreon-studio/studio.jks
@@ -261,24 +255,35 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 ### Configuration du serveur MAP
 
-Tout d'abord, vous devez [activer HTTPS/TLS sur le serveur web](../administration/secure-platform.md#activer-le-mode-https-sur-le-serveur-web)
-
-Ensuite, définissez les paramètres suivants dans la configuration du serveur MAP dans :
+> You must [secure your Centreon platform with HTTPS](../administration/secure-platform.md#secure-the-web-server-with-https).
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-**/etc/centreon-map/centreon-map.conf**
+Set the **centreon.url** inside `/etc/centreon-map/centreon-map.conf` to use HTTPS instead of HTTP:
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-**/etc/centreon-studio/studio-config.properties**
+Set the **centreon.url** inside `/etc/centreon-studio/centreon-map.conf` to use HTTPS instead of HTTP:
 
 </TabItem>
 </Tabs>
 
-Définissez le protocole de communication avec le serveur Centreon comme étant HTTPS :
+> Vous devez [sécuriser votre plateforme Centreon en activant le protocole HTTPS](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)
+
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
+Définissez le paramètre **centreon.url** dans `/etc/centreon-map/centreon-map.conf` pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+Définissez le paramètre **centreon.url** dans `/etc/centreon-studio/centreon-map.conf` pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+</TabItem>
+</Tabs>
 
 ```shell
 centreon.url=https://<server-address>
