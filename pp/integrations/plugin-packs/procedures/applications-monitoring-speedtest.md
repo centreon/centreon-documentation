@@ -46,7 +46,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-1. Install `speedtest` command with the [following procedure](https://www.speedtest.net/apps/cli).
+1. Install the `speedtest` command using the [following procedure](https://www.speedtest.net/apps/cli).
 
 2. Execute once manually the command `speedtest` to validate the license.
 
