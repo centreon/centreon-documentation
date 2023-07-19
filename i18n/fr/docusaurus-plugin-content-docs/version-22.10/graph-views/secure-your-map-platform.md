@@ -165,21 +165,21 @@ centreon-map.keystore-pass=xxx
 
 1. Arrêtez le service Centreon MAP :
 
-    ```shell
-    systemctl stop centreon-map-engine
-    ```
+```shell
+systemctl stop centreon-map-engine
+```
 
 2. Modifiez le fichier **/etc/centreon-map/centreon-map.conf**, en ajoutant `,tls` après le profil `prod` :
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 
 3. Redémarrez le service Centreon MAP :
 
-    ```shell
-    systemctl start centreon-map-engine
-    ```
+```shell
+systemctl start centreon-map-engine
+```
 
 Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS sur le port 9443.
 
@@ -188,21 +188,21 @@ Le serveur MAP est maintenant configuré pour répondre aux demandes provenant d
 
 1. Arrêtez le service Centreon MAP :
 
-    ```shell
-    systemctl stop centreon-map
-    ```
+```shell
+systemctl stop centreon-map
+```
 
 2. Modifiez le fichier **/etc/centreon-studio/centreon-map.conf**, en ajoutant `,tls` après le profil `prod` :
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 
 3. Redémarrez le service Centreon MAP :
 
-    ```shell
-    systemctl start centreon-map
-    ```
+```shell
+systemctl start centreon-map
+```
 
 Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS sur le port 8443.
 

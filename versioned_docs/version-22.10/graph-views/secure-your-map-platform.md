@@ -39,9 +39,9 @@ You will require:
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-    ```shell
-    keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-map/map.jks
-    ```
+```shell
+keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-map/map.jks
+```
 
 3. Set below parameters inside **/etc/centreon-map/map-config.properties**:
 
@@ -53,16 +53,16 @@ centreon-map.keystore-pass=xxx
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-    ```shell
-    keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-studio/studio.jks
-    ```
+```shell
+keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-studio/studio.jks
+```
 
 3. Set below parameters inside **/etc/centreon-studio/studio-config.properties**:
 
-    ```text
-    centreon-map.keystore=/etc/centreon-studio/studio.jks
-    centreon-map.keystore-pass=xxx
-    ```
+```text
+centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore-pass=xxx
+```
 
 </TabItem>
 </Tabs>
@@ -92,15 +92,15 @@ centreon-map.keystore-pass=xxx
 
 1. Move to the the Java installation folder:
 
-    ```shell
-    cd $JAVA_HOME/bin
-    ```
+```shell
+cd $JAVA_HOME/bin
+```
 
 2. Generate a keystore file with the following command:
 
-    ```shell
-    keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
-    ```
+```shell
+keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
+```
 
 The alias value "map" and the keystore file path
 **/etc/centreon-map/map.jks** may be changed, but unless there is a
@@ -114,10 +114,10 @@ ENTER key.
 
 3. Set below parameters inside **/etc/centreon-map/map-config.properties**:
 
-    ```text
-    centreon-map.keystore=/etc/centreon-map/map.jks
-    centreon-map.keystore-pass=xxx
-    ```
+```text
+centreon-map.keystore=/etc/centreon-map/map.jks
+centreon-map.keystore-pass=xxx
+```
 
 > Replace the keystore-pass value "xxx" with the password you used for
 > the keystore and adapt the path (if it was changed to the keystore).
@@ -142,15 +142,15 @@ ENTER key.
 
 1. Move to the the Java installation folder:
 
-    ```shell
-    cd $JAVA_HOME/bin
-    ```
+```shell
+cd $JAVA_HOME/bin
+```
 
 2. Generate a keystore file with the following command:
 
-    ```shell
-    keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
-    ```
+```shell
+keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
+```
 
 The alias value "studio" and the keystore file path
 **/etc/centreon-studio/studio.jks** may be changed, but unless there is a
@@ -164,10 +164,10 @@ ENTER key.
 
 3. Set below parameters inside **/etc/centreon-studio/studio-config.properties**:
 
-    ```text
-    centreon-map.keystore=/etc/centreon-studio/studio.jks
-    centreon-map.keystore-pass=xxx
-    ```
+```text
+centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore-pass=xxx
+```
 
 > Replace the keystore-pass value "xxx" with the password you used for
 > the keystore and adapt the path (if it was changed to the keystore).
@@ -182,21 +182,21 @@ ENTER key.
 
 1. Stop Centreon MAP service:
 
-    ```shell
-    systemctl stop centreon-map-engine
-    ```
+```shell
+systemctl stop centreon-map-engine
+```
 
 2. Edit the file `/etc/centreon-map/centreon-map.conf`, adding ",tls after "prod" profile:
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 
 3. Restart Centreon MAP service:
 
-    ```shell
-    systemctl start centreon-map-engine
-    ```
+```shell
+systemctl start centreon-map-engine
+```
 
 Centreon MAP server is now configured to respond to requests from HTTPS at port 9443.
 
@@ -205,21 +205,21 @@ Centreon MAP server is now configured to respond to requests from HTTPS at port 
 
 1. Stop Centreon MAP service:
 
-    ```shell
-    systemctl stop centreon-map
-    ```
+```shell
+systemctl stop centreon-map
+```
 
 2. Edit the file **/etc/centreon-studio/centreon-map.conf**, adding `,tls` after `prod` profile:
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 
 3. Restart Centreon MAP service:
 
-    ```shell
-    systemctl start centreon-map
-    ```
+```shell
+systemctl start centreon-map
+```
 
 Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
 
@@ -324,22 +324,19 @@ keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/ce
 
 1. Add truststore parameters in **/etc/centreon-map/map-config.properties**:
 
-    ```text
-    centreon-map.truststore=/etc/centreon-studio/truststore.jks
-    centreon-map.truststore-pass=XXXX
-    ```
+```text
+centreon-map.truststore=/etc/centreon-studio/truststore.jks
+centreon-map.truststore-pass=XXXX
+```
 
 > Replace the trustStorePassword value "xxx" with the password you used when
 > generate the trust store.
 
-Meanwhile, you should activate the "tls_broker" profile of Centreon MAP
-service.
-
 2. Edit the file **/etc/centreon-map/centreon-map.conf**, and replace `,tls` by `,tls_broker` after `prod` profile:
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls_broker"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls_broker"
+```
 
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
 > serves necessarily HTTPS.
@@ -372,19 +369,19 @@ keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/ce
 
 1. Add truststore parameters in **/etc/centreon-studio/studio-config.properties**:
 
-    ```text
-    centreon-map.truststore=/etc/centreon-studio/truststore.jks
-    centreon-map.truststore-pass=XXXX
-    ```
+```text
+centreon-map.truststore=/etc/centreon-studio/truststore.jks
+centreon-map.truststore-pass=XXXX
+```
 
 > Replace the trustStorePassword value "xxx" with the password you used when
 > generate the trust store.
 
 2. Edit the file `/etc/centreon-studio/centreon-map.conf`, and replace `,tls` by `,tls_broker` after `prod` profile:
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls_broker"
-    ```
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls_broker"
+```
 
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
 > serves necessarily HTTPS.
@@ -399,9 +396,9 @@ This means that if you use a self-signed certificate for the central server, you
 
 2. Add the certificate to the truststore:
 
-    ```shell
-    keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-studio/truststore.jks
-    ```
+```shell
+keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-studio/truststore.jks
+```
 
 </TabItem>
 </Tabs>
