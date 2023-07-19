@@ -94,7 +94,7 @@ cd $JAVA_HOME/bin
 2. Générez un fichier keystore avec la commande suivante :
 
 ```shell
-keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-map/map.jks
+keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
 ```
 
 La valeur de l'alias "map" et le chemin du fichier keystore **/etc/centreon-map/map.jks** peuvent être modifiés, mais à moins d'une raison spécifique, nous conseillons de conserver les valeurs par défaut.
@@ -169,7 +169,7 @@ centreon-map.keystore-pass=xxx
     systemctl stop centreon-map-engine
     ```
 
-2. Modifiez le fichier `/etc/centreon-map/centreon-map.conf`, en ajoutant ",tls" après le profil "prod" :
+2. Modifiez le fichier **/etc/centreon-map/centreon-map.conf**, en ajoutant `,tls` après le profil `prod` :
 
     ```text
     RUN_ARGS="--spring.profiles.active=prod,tls"
@@ -192,7 +192,7 @@ Le serveur MAP est maintenant configuré pour répondre aux demandes provenant d
     systemctl stop centreon-map
     ```
 
-2. Modifiez le fichier `/etc/centreon-studio/centreon-map.conf`, en ajoutant ",tls" après le profil "prod" :
+2. Modifiez le fichier **/etc/centreon-studio/centreon-map.conf**, en ajoutant `,tls` après le profil `prod` :
 
     ```text
     RUN_ARGS="--spring.profiles.active=prod,tls"
@@ -260,12 +260,12 @@ mv broker_public.crt /etc/centreon/broker_cert/
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-Définissez le paramètre **centreon.url** dans `/etc/centreon-map/centreon-map.conf` pour activer le protocole de communication HTTPS avec le serveur Centreon :
+Définissez le paramètre `centreon.url` dans **/etc/centreon-map/centreon-map.conf** pour activer le protocole de communication HTTPS avec le serveur Centreon :
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-Définissez le paramètre **centreon.url** dans `/etc/centreon-studio/centreon-map.conf` pour activer le protocole de communication HTTPS avec le serveur Centreon :
+Définissez le paramètre `centreon.url` dans **/etc/centreon-studio/centreon-map.conf** pour activer le protocole de communication HTTPS avec le serveur Centreon :
 
 </TabItem>
 </Tabs>
@@ -320,9 +320,9 @@ Si vous ne le faites pas, la page **Supervision > Map** sera vide, et les journa
 
 2. Ajoutez le certificat au truststore :
 
-    ```shell
-    keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-map/truststore.jks
-    ```
+```shell
+keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-map/truststore.jks
+```
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
