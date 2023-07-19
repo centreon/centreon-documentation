@@ -255,21 +255,6 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 ### Configuration du serveur MAP
 
-> You must [secure your Centreon platform with HTTPS](../administration/secure-platform.md#secure-the-web-server-with-https).
-
-<Tabs groupId="sync">
-<TabItem value="MAP" label="MAP">
-
-Set the **centreon.url** inside `/etc/centreon-map/centreon-map.conf` to use HTTPS instead of HTTP:
-
-</TabItem>
-<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
-
-Set the **centreon.url** inside `/etc/centreon-studio/centreon-map.conf` to use HTTPS instead of HTTP:
-
-</TabItem>
-</Tabs>
-
 > Vous devez [sécuriser votre plateforme Centreon en activant le protocole HTTPS](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)
 
 <Tabs groupId="sync">
