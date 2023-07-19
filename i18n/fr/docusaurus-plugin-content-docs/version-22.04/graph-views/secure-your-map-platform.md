@@ -295,9 +295,7 @@ keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/ce
 - "truststore.jks" est le trust store généré au format JKS,
 - un mot de passe du trust store est requis pendant la génération.
 
-Ensuite, mettez le fichier de sortie généré **truststore.jks** dans **/etc/centreon-map** de l'hôte du serveur MAP.
-
-Et ajoutez les paramètres de trust store dans **/etc/centreon-map/map-config.properties** :
+1. Ajoutez les paramètres de trust store dans **/etc/centreon-map/map-config.properties** :
 
 ```text
 centreon-map.truststore=/etc/centreon-map/truststore.jks
@@ -306,9 +304,7 @@ centreon-map.truststore-pass=XXXX
 
 > Remplacez la valeur "xxx" de trustStorePassword par le mot de passe que vous avez utilisé pour générer le trust store.
 
-En attendant, vous devez activer le profil "tls_broker" du service Centreon MAP.
-
-Editez le fichier **/etc/centreon-map/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
+2. Editez le fichier **/etc/centreon-map/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls_broker"
