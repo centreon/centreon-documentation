@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias              | Modèle de service                                  | Description                         |
 |:-------------------|:---------------------------------------------------|:------------------------------------|
-| Internet-Bandwidth | App-Monitoring-Speedtest-Internet-Bandwidth-custom | Contrôle la bande passante Internet |
+| Internet-Bandwidth | App-Monitoring-Speedtest-Internet-Bandwidth-custom | Contrôle la bande passante internet |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Speedtest-custom** est utilisé.
 
