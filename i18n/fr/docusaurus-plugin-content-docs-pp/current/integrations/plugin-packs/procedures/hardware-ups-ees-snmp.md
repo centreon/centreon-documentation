@@ -100,7 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ### Configuration SNMP
 
 Afin de superviser votre ressource en SNMP, il est nécessaire de configurer l'agent SNMP
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+sur la ressource comme indiqué dans la documentation officielle du constructeur.
 
 ### Flux réseau
 
