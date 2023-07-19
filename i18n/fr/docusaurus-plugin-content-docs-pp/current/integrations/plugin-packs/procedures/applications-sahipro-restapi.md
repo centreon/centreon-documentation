@@ -19,10 +19,7 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="App-Sahipro-Restapi-custom" label="App-Sahipro-Restapi-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Sahipro-Restapi-custom** est utilisé.
+Ce modèle d'hôte n'apporte pas de modèle de service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
