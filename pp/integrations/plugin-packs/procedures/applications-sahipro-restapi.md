@@ -18,10 +18,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Sahipro-Restapi-custom" label="App-Sahipro-Restapi-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-
-> The services listed above are created automatically when the **App-Sahipro-Restapi-custom** host template is used.
+This host template does not bring any service template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
