@@ -313,8 +313,11 @@ If the Broker public certificate is self signed, you must create a trust store
 containing given certificate or its CA certificate with the following command
 line:
 
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
 ```shell
-keytool -import -alias centreon-broker -file broker_public.crt -keystore truststore.jks
+keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/centreon-map/truststore.jks
 ```
 
 - "broker\_public.crt" is Broker public certificate or its CA certificate
@@ -325,8 +328,7 @@ keytool -import -alias centreon-broker -file broker_public.crt -keystore trustst
 Then, put the generated output file "truststore.jks" into
 "/etc/centreon-studio" of MAP server host.
 
-And add truststore parameters in
-`/etc/centreon-studio/studio-config.properties`:
+And add truststore parameters in `/etc/centreon-map/map-config.properties`:
 
 ```text
 centreon-map.truststore=/etc/centreon-studio/truststore.jks
@@ -339,7 +341,7 @@ centreon-map.truststore-pass=XXXX
 Meanwhile, you should activate the "tls_broker" profile of Centreon MAP
 service.
 
-Edit the file `/etc/centreon-studio/centreon-map.conf`, and replace ",tls" by
+Edit the file `/etc/centreon-map/centreon-map.conf`, and replace ",tls" by
 ",tls_broker" after "prod" profile:
 
 ```text
@@ -358,9 +360,58 @@ This means that if you use a self-signed certificate for the central server, you
 1. Copy the central server's **.crt** certificate to the MAP server.
 
 2. Add the certificate to the truststore:
-    ```shell
-    keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
-    ```
+
+```shell
+keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-map/truststore.jks
+```
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+```shell
+keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/centreon-studio/truststore.jks
+```
+
+- "broker\_public.crt" is Broker public certificate or its CA certificate
+  in PEM format,
+- "truststore.jks" is the generated trust store in JKS format,
+- a store password is required during generation.
+
+1. Add truststore parameters in `/etc/centreon-studio/studio-config.properties`:
+
+```text
+centreon-map.truststore=/etc/centreon-studio/truststore.jks
+centreon-map.truststore-pass=XXXX
+```
+
+> Replace the trustStorePassword value "xxx" with the password you used when
+> generate the trust store.
+
+2. Edit the file `/etc/centreon-studio/centreon-map.conf`, and replace ",tls" by ",tls_broker" after "prod" profile:
+
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls_broker"
+```
+
+> "tls_broker" profile implies "tls" profile. So Centreon MAP service
+> serves necessarily HTTPS.
+
+Once you add a truststore, Centreon MAP will use it to validate self-signed certificates.
+This means that if you use a self-signed certificate for the central server, you must add it to the truststore. If you don't, the
+ **Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
+ will show the following error :
+ `unable to find valid certification path to requested target`.
+
+1. Copy the central server's **.crt** certificate to the MAP server.
+
+2. Add the certificate to the truststore:
+
+```shell
+keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-studio/truststore.jks
+```
+
+</TabItem>
+</Tabs>
 
 #### Configuration with a recognized CA certificate
 

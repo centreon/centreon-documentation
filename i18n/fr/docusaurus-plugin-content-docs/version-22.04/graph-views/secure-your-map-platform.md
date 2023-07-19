@@ -284,17 +284,62 @@ broker.tls=true
 
 Si le certificat public de Broker est auto-signé, vous devez créer un trust store contenant le certificat donné ou son certificat CA avec la ligne de commande suivante :
 
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
 ```shell
-keytool -import -alias centreon-broker -file broker_public.crt -keystore truststore.jks
+keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/centreon-map/truststore.jks
 ```
 
 - "broker\_public.crt" est le certificat public de Broker ou son certificat CA au format PEM,
 - "truststore.jks" est le trust store généré au format JKS,
 - un mot de passe du trust store est requis pendant la génération.
 
-Ensuite, mettez le fichier de sortie généré **truststore.jks** dans **/etc/centreon-studio** de l'hôte du serveur MAP.
+Ensuite, mettez le fichier de sortie généré **truststore.jks** dans **/etc/centreon-map** de l'hôte du serveur MAP.
 
-Et ajoutez les paramètres de trust store dans **/etc/centreon-studio/studio-config.properties** :
+Et ajoutez les paramètres de trust store dans **/etc/centreon-map/map-config.properties** :
+
+```text
+centreon-map.truststore=/etc/centreon-map/truststore.jks
+centreon-map.truststore-pass=XXXX
+```
+
+> Remplacez la valeur "xxx" de trustStorePassword par le mot de passe que vous avez utilisé pour générer le trust store.
+
+En attendant, vous devez activer le profil "tls_broker" du service Centreon MAP.
+
+Editez le fichier **/etc/centreon-map/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
+
+```text
+RUN_ARGS="--spring.profiles.active=prod,tls_broker"
+```
+
+> Le profil "tls_broker" implique le profil "tls". Ainsi, le service Centreon MAP sert nécessairement HTTPS.
+
+Une fois que vous avez ajouté un truststore, Centreon MAP l'utilisera pour valider les certificats auto-signés.
+Cela signifie que si vous utilisez un certificat auto-signé pour le serveur central, vous devez l'ajouter au truststore.
+Si vous ne le faites pas, la page **Supervision > Map** sera vide, et les journaux (**/var/log/centreon-map/centreon-map-engine.log**) afficheront l'erreur suivante : `unable to find valid certification path to requested target`.
+
+1. Copiez le certificat **.crt** du serveur central sur le serveur MAP.
+
+2. Ajoutez le certificat au truststore :
+
+    ```shell
+    keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-map/truststore.jks
+    ```
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+```shell
+keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/centreon-studio/truststore.jks
+```
+
+- "broker\_public.crt" est le certificat public de Broker ou son certificat CA au format PEM,
+- "truststore.jks" est le trust store généré au format JKS,
+- un mot de passe du trust store est requis pendant la génération.
+
+1. Ajoutez les paramètres de trust store dans **/etc/centreon-studio/studio-config.properties** :
 
 ```text
 centreon-map.truststore=/etc/centreon-studio/truststore.jks
@@ -303,9 +348,7 @@ centreon-map.truststore-pass=XXXX
 
 > Remplacez la valeur "xxx" de trustStorePassword par le mot de passe que vous avez utilisé pour générer le trust store.
 
-En attendant, vous devez activer le profil "tls_broker" du service Centreon MAP.
-
-Editez le fichier **/etc/centreon-studio/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
+2. Editez le fichier **/etc/centreon-studio/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls_broker"
@@ -321,9 +364,12 @@ Si vous ne le faites pas, la page **Supervision > Map** sera vide, et les journa
 
 2. Ajoutez le certificat au truststore :
 
-    ```shell
-    keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
-    ```
+```shell
+keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/centreon-studio/truststore.jks
+```
+
+</TabItem>
+</Tabs>
 
 #### Configuration avec un certificat CA reconnu
 
