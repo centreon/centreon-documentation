@@ -50,7 +50,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 2. Execute the `speedtest` command once, manually, to validate the license.
 
-3. `speedtest.net` must be reachable from the Centreon Poller.
+3. `speedtest.net` must be reachable from the Centreon poller.
 
 ## Installing the monitoring connector
 
