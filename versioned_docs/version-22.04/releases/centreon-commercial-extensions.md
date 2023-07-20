@@ -148,8 +148,6 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
-## Centreon MAP Legacy
-
 ### 22.04.8 ###
 
 Release date: `July 20, 2023`
