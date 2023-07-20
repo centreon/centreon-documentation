@@ -86,6 +86,18 @@ Release date: `April 26, 2023`
 
 ## Centreon Auto Discovery
 
+### 23.04.1
+
+Release date: `July 20, April 2023`
+
+#### Enhancements
+
+- [Licensing] Improved automatic license renewal.
+
+#### Bug fixes
+
+- [Install] Fixed missing API routes after an update of Centreon.
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
