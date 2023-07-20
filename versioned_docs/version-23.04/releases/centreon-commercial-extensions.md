@@ -58,6 +58,20 @@ Release date: `April 26, 2023`
 
 ## Centreon BAM
 
+### 23.04.2
+
+Release date: `July 20, 2023`
+
+#### Enhancements
+
+- [Rules] Fixed boolean rules when resource contains boolean operator in its name.
+
+#### Bug fixes
+
+- [Rules] Fixed boolean rules when resource contains boolean operator in its name.
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- Fixed retrieving list of BAs for users with ACL.
+
 ### 23.04.1
 
 Release date: `June 13, 2023`
