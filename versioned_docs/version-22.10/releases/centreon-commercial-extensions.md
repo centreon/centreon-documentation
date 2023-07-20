@@ -30,7 +30,7 @@ Release date: `July 20, 2023`
 
 #### Bug fixes
 
-- [Editor] Fixed a bug where empty metric names were blocking edition.
+- [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
 - [Editor] Fixed metric links when no metric name was filled in.
 - [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
 - [UI] Fixed image edition for a MAP thumbnail or media component.
