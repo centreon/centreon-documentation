@@ -16,6 +16,24 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.8 ###
+
+Release date: `July 20, 2023`
+
+#### Enhancements
+
+- [UI] You can now hide the label of a resource.
+
+#### Bug fixes
+
+- [Editor] Fixed a bug where empty metric names were blocking edition.
+- [Editor] Fixed metric links when no metric name was filled in.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
+- [UI] Fixed image edition for a MAP thumbnail or media component.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
+- [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
+
 ### 22.04.7 ###
 
 Release date: `June 19, 2023`
@@ -129,6 +147,14 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+## Centreon MAP Legacy
+
+### 22.04.8 ###
+
+Release date: `July 20, 2023`
+
+- No change.
 
 ### 22.04.7 ###
 
