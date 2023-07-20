@@ -20,13 +20,12 @@ Vous devez disposer :
 
 3. Rendez les Plugin Packs disponibles :
 
+    - Si vous avez une licence en ligne, les Plugin Packs sont déjà disponibles dans l'interface.
     - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
         ```shell
         yum install centreon-pack-*
         ```
-
-    - Si vous avez une licence en ligne, les Plugin Packs sont déjà disponibles dans l'interface.
 
 4. Pour installer le Plugin Pack Amazon EC2, allez à la page **Configuration > Packs de plugins**.
 
