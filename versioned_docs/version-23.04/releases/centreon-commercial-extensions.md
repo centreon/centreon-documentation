@@ -64,7 +64,7 @@ Release date: `July 20, 2023`
 
 #### Enhancements
 
-- [Rules] Fixed boolean rules when resource contained a boolean operator in its name.
+- [Licensing] Improved automatic license renewal.
 
 #### Bug fixes
 
