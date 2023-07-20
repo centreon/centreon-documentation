@@ -139,13 +139,7 @@ Release date: `July 20, 2023`
 #### Enhancements
 
 - [Licensing] Improved automatic license renewal.
-
-#### Bug fixes
-
-- [Install] Added missing Gorgone dependencies required by MBI ETL.
-- [Reporting] Fixed the display of ongoing alert duration in Hostgroups-Service-Current-Events report.
-- [UI] Added CSS in global style files to fix the MBI widget visibility.
-- [UI] Fixed empty "Current usage" column in mbi-storage-list-near-saturation widget.
+- [UI] Improved license upload modal.
 
 ### 23.04.0
 
