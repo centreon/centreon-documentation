@@ -164,6 +164,14 @@ Release date: `April 26, 2023`
 
 ## Centreon Anomaly Detection
 
+### 23.04.2
+
+Release date: `July 20, 2023`
+
+#### Enhancements
+
+- [Logs] The log level is now a parameter and its default value has been lowered to 0 to make it less verbose.
+
 ### 23.04.1
 
 Release date: `June 13, 2023`
