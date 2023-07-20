@@ -30,13 +30,13 @@ Release date: `soon`
 #### Bug fixes
 
 - [Editor] Fixed a bug where empty metric names were blocking edition.
-- [Editor] Fixed metric links when no metric name is filled in.
-- [Server] Fixed an issue which made diagnostic to raise an error if a custom URI is used.
+- [Editor] Fixed metric links when no metric name were filled in.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
 - [UI] Fixed image edition for a MAP thumbnail or media component.
 - [UI] Fixed the selection of layers in Geo views.
-- [Viewer] Fixed a regression causing output not to be displayed in widget output.
-- [Viewer] Fixed an issue making links not to be reactivated when the associated resource goes back on line.
-- [Viewer] Fixed an issue preventing hosts from being displayed on Geo views.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
+- [Viewer] Fixed an issue preventing hosts from being displayed in Geo views.
 - [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
 - [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
 - [Widget] Fixed incorrect behavior when saving the MAP widget.
@@ -207,7 +207,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- [UI] Fixed the way column names were displayed in the acknowledgment description pop-up.
 
 ### 22.10.3
 
@@ -256,9 +256,9 @@ Release date: `soon`
 #### Bug fixes
 
 - [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
-- [Configuration] Removed the image beside "Report specific parameters" that was not well displayed.
-- [Install] Added missing Gorgone dependencies required by MBI ETL.
-- [Reporting] Fixed the display of ongoing alert duration in Hostgroups-Service-Current-Events report.
+- [Configuration] Removed the image beside "Report specific parameters" that was not displayed properly.
+- [Install] Added missing Gorgone dependencies required by the MBI ETL.
+- [Reporting] Fixed the display of the duration of ongoing alerts in the Hostgroups-Service-Current-Events report.
 
 ### 22.10.2
 
@@ -339,7 +339,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Prediction] Fixed Anomaly Detection script that was not sending data history.
+- [Prediction] Fixed an Anomaly Detection script that was not sending data history.
 
 ### 22.10.2
 
