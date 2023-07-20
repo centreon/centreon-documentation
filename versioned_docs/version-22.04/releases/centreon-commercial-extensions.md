@@ -27,11 +27,11 @@ Release date: `July 20, 2023`
 #### Bug fixes
 
 - [Editor] Fixed a bug where empty metric names were blocking edition.
-- [Editor] Fixed metric links when no metric name is filled in.
-- [Server] Fixed an issue which made diagnostic to raise an error if a custom URI is used.
+- [Editor] Fixed metric links when no metric name was filled in.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
 - [UI] Fixed image edition for a MAP thumbnail or media component.
-- [Viewer] Fixed a regression causing output not to be displayed in widget output.
-- [Viewer] Fixed an issue making links not to be reactivated when the associated resource goes back on line.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
 - [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
 
 ### 22.04.7 ###
