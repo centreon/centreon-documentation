@@ -21,7 +21,7 @@ object. Example: You need to monitor 10 identical web servers:
 
 1. Add the first web server with all the necessary properties.
 2. Duplicate this host 9 times.
-3. All you have to do now is to change the host names and the IP addresses of each duplication to adapt it to the 9 other web servers to be monitored.
+3. All you have to do now is to change the host names and the IP addresses of each duplication to adapt them to the 9 other web servers to be monitored.
 
 Thanks to this method, it is no longer necessary to create each host individually.
 
@@ -30,15 +30,15 @@ To duplicate an object:
 <Tabs groupId="sync">
 <TabItem value="Method 1" label="Method 1">
 
-For exemple, to duplicate a Business Activity:
+For example, to duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box.
 2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
-3. Enter the number of extra copies that you want to obtain:
+3. Enter the number of extra copies you want to obtain:
 
     ![image](../assets/configuration/common/duplicate_objects_new.png)
 
-4. Click on **OK**.
+4. Click **OK**.
 
 </TabItem>
 <TabItem value="Method 2" label="Method 2">
@@ -46,25 +46,25 @@ For exemple, to duplicate a Business Activity:
 For example, to duplicate a host:
 
 1. Select the host that you want to duplicate.
-2. In the **Options** column, enter the number of extra copies that you want to obtain:
+2. In the **Options** column, enter the number of extra copies you want to obtain:
 
     ![image](../assets/configuration/common/01duplicate.png)
 
-3. In the **More actions** menu click on **Duplicate**:
+3. In the **More actions** menu, click **Duplicate**:
 
     ![image](../assets/configuration/common/01duplicateobjects.png)
 
 </TabItem>
 </Tabs>
 
-## Massive Change
+## Mass Change
 
-Massive change enable you to apply a change to multiple objects.
+Mass change enables you to apply a change to multiple objects.
 
 Example: All the web servers previously created change SNMP communities. A massive change enables us to change this
 community without it being necessary to change each sheet of each host individually.
 
-To perform a massive change:
+To perform a mass change:
 
 <Tabs groupId="sync">
 <TabItem value="Method 1" label="Method 1">
@@ -77,11 +77,11 @@ To perform a massive change:
 <TabItem value="Method 2" label="Method 2">
 
 1. Select the objects you want to change.
-2. In the **More actions** menu, click on **Massive Change**.
+2. In the **More actions** menu, click **Massive Change**.
 3. The form for the type of object opens, with 2 options next to each field:
 
-  * **Incremental**: signifies that the change will be added to the existing options
-  * **Replacement**: signifies that the change will overwrite the existing options.
+  * **Incremental**: means that the change will be added to the existing options
+  * **Replacement**: means that the change will overwrite the existing options.
 
 </TabItem>
 </Tabs>
@@ -97,7 +97,7 @@ To enable/disable an object:
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects you want to enable/disable.
-2. Click on the icon you want in the line of the object, or above the list:
+2. Click the icon you want in line with the object, or above the list:
 
     * **Enable**: ![image](../assets/configuration/common/enabled_new.png#thumbnail1)
     * **Disable**: ![image](../assets/configuration/common/disabled_new.png#thumbnail1)
@@ -106,7 +106,7 @@ To enable/disable an object:
 <TabItem value="Method 2" label="Method 2">
 
 1. Select the objects you want to change.
-2. In the **More actions**  menu, click on **Enable/Disable**.
+2. In the **More actions**  menu, click **Enable/Disable**.
 
 You can also use the following buttons at the end of the line:
 
@@ -121,8 +121,8 @@ You can also use the following buttons at the end of the line:
 ## Deleting objects
 
 > Deleting an object is final. If you delete an object by accident, you will need to re-create it. In the same way,
-> deleting an object automatically deletes all the objects linked to it and which cannot live without it. E.g.:
-> Deleting a host results in all the services associated with this host being deleted too.
+> deleting an object automatically deletes all the objects that are linked to it and that cannot exist without it. e.g.:
+> Deleting a host results in all the services associated with that host being deleted too.
 
 To delete an object:
 
@@ -130,14 +130,14 @@ To delete an object:
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects you want to delete.
-2. Click on the **Delete** icon: ![image](../assets/configuration/common/delete_new.png#thumbnail1)
+2. Click the **Delete** icon: ![image](../assets/configuration/common/delete_new.png#thumbnail1)
 3. Confirm the action.
 
 </TabItem>
 <TabItem value="Method 2" label="Method 2">
 
 1. Select the objects you want to delete.
-2. In the **More actions** menu, click on **Delete**.
+2. In the **More actions** menu, click **Delete**.
 3. Confirm the action.
 
 </TabItem>

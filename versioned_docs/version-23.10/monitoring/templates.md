@@ -12,18 +12,18 @@ certain objects to speed up the creation of similar objects.
 On creation of a Template, only the template name is mandatory. The other
 attributes are optional.
 
-There are 3 types of templates:
+There are 3 types of template:
 
-  - Hosts Templates
-  - Services Templates
-  - Contacts Templates
+  - Host Templates
+  - Service Templates
+  - Contact Templates
 
 The advantages are:
 
   - Simplified element definition
   - No duplication of data
-  - Facility of addition of new resources
-  - Predefined configurations assimilated to a “catalog of indicators”
+  - Easy addition of new resources
+  - Predefined configurations equivalent to a “catalog of indicators”
   - Templates can inherit from other templates.
 
 ## Host Templates
@@ -40,7 +40,7 @@ heritage may be:
 
 This is a predefinition of settings at “n” levels. The object inherits from its
 Template which can itself inherit from its Template. If the child redefines a
-setting, this setting overwrites that defined in the higher level templates.
+setting, this setting overwrites the one defined in the higher-level templates.
 Otherwise it is added to the settings.
 
 #### Associative type inheritance
@@ -48,8 +48,8 @@ Otherwise it is added to the settings.
 This consists of adding together several templates within the same object in
 order to add together all the settings available. If a host inherits from
 several host templates and if the same setting is defined on several templates,
-the host templates situated above the other templates has priority in relation
-to its ancestors.
+the host template situated above the other templates has priority over
+its ancestors.
 
 ![image](../assets/configuration/09hostmodels.png)
 
@@ -61,10 +61,10 @@ The diagram below shows a host inheriting from multiple host templates.
 
 To add a host template:
 
-Go into the **Configuration > Hosts > Templates** menu and click on **Add**
+Go into the **Configuration > Hosts > Templates** menu and click **Add**
 
 > Refer to the chapter covering configuration of
-> *[hosts](basic-objects/hosts.md)* to configure a template because the form
+> *[hosts](basic-objects/hosts.md)* to configure a template, because the form
 > is identical.
 
 > By default, locked host templates are hidden. Check the "Locked elements" box
@@ -83,10 +83,10 @@ A service or a service template can only inherit from a single service template
 
 To add a Service Template:
 
-Go into the **Configuration > Services > Templates** menu and click on **Add**
+Go into the **Configuration > Services > Templates** menu and click **Add**
 
 > Refer to the chapter covering configuration of
-> *[services](basic-objects/services.md)* to configure a template because the
+> *[services](basic-objects/services.md)* to configure a template, because the
 > form is identical.
 
 > By default, locked service templates are hidden. Check the "Locked elements"
@@ -96,40 +96,40 @@ Go into the **Configuration > Services > Templates** menu and click on **Add**
 
 ### Explanations
 
-Good practice requires that services templates be associated with host's
+Good practice requires that services templates be associated with a host's
 templates: on creation of a host, the services are generated automatically from
-host's templates. There are two advantages in linking services templates to
-hosts templates:
+the host's templates. There are two advantages of linking service templates to
+host templates:
 
-  - The services generated automatically retain their granularity: it is
+  - The services generated automatically retain their granularity, i.e., it is
     possible to change the Attributes of a service without affecting the other
     services obtained from this template
-  - The creation of new hosts is speeded up greatly: you simply have to define
+  - The creation of new hosts is speeded up greatly: simply define
     the host and the host's templates associated with it
 
-E.g.: We create the srvi-web-01 host according to the template below:
+e.g.: We create the srvi-web-01 host according to the template below:
 
 ![image](../assets/configuration/09hostexemple.png)
 
 The host srvi-web-01 will automatically possess the following services:
 
-  - Load, CPU, Memory, disk-/ from services templates linked to the host
+  - Load, CPU, Memory, disk-/ from service templates linked to the host
     template “Linux-Server-RedHat-5”
-  - Broken-jobs, hit-ratio, tablespaces, listener from services templates linked
+  - Broken-jobs, hit-ratio, tablespaces, listener from service templates linked
     to the host template “DB-MySQL”
-  - Process and connection from services templates linked to the host template
+  - Process and connection from service templates linked to the host template
     “Web-Server-Apache”
 
-When the services of a host are generated from host's templates, it is possible
+When the services of a host are generated from host templates, it is possible
 that certain services generated are not checked by the supervision tool. In this
 case, it is necessary to disable the services that are not used (but not to
 delete them). In case of deletion of services, regeneration of services of the
-host from host's templates will re-create the services deleted.
+host from host templates will re-create the deleted services.
 
 ### Configuration
 
-The linking of services templates with host's templates takes place in the
-**Relations** tab of the services templates or hosts templates.
+The linking of service templates with host templates takes place in the
+**Relations** tab of the service templates or host templates.
 
 ## Contact Templates
 
@@ -141,10 +141,10 @@ A contact or a contact template can only inherit one contact template.
 
 To add a contact template:
 
-Go into the menu: **Configuration > Users > Contact Templates** menu and click
-on **Add**
+Go into the following menu: **Configuration > Users > Contact Templates**, and click
+**Add**
 
 > Refer to the chapter covering configuration of
-> [contacts](basic-objects/contacts.md). In addition, the contacts
+> [contacts](basic-objects/contacts.md). In addition, the contact
 > templates are used for automatic import of profiles via
 > [LDAP](../administration/parameters/ldap.md)
