@@ -35,7 +35,7 @@ The connector brings the following service templates (sorted by the host templat
 | Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each check the name of the disk will appear              |            |
 | Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Check the rate of free space on the disk. For each check the name of the disk will appear              | X          |
 | Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Check the synchronization with an NTP server                                                            |            |
-| Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows process are started                                                                    | X          |
+| Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows processes are started                                                                    | X          |
 | Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Check if Windows services are started                                                                   | X          |
 | Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear             |            |
 | Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear             |            |
