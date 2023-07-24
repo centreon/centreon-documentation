@@ -352,7 +352,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                                     | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
+| NTPADDR      | Set the NTP hostname (if not set, localtime is used)                                                            |                   |             |
 | NTPPORT      | Set the NTP port (Default: 123)                                                                                 |                   |             |
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
 | WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
