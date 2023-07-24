@@ -309,7 +309,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
 | TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
-| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
+| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                    |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --filter-perfdata='storage.space\|used\|free' |             |
