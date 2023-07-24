@@ -38,7 +38,7 @@ The connector brings the following service templates (sorted by the host templat
 | Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows processes are started                                                                    | X          |
 | Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Check if Windows services are started                                                                   | X          |
 | Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear             |            |
-| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear             |            |
+| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each check the name of the interface will appear             |            |
 | Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear             | X          |
 | Uptime               | OS-Windows-Uptime-SNMP-custom               | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold |            |
 
