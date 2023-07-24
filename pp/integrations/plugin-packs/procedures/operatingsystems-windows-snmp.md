@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template              | Service Description                                                                                                                                  |
 |:--------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Windows-Cpu-SNMP-custom    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU.  |
+| Cpu           | OS-Windows-Cpu-SNMP-custom    | Check the rate of utilization of the CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs.  |
 | Memory        | OS-Windows-Memory-SNMP-custom | Check the rate of the utilization of memory                                                                                                          |
 | Swap          | OS-Windows-Swap-SNMP-custom   | Check the rate of the utilization of virtual memory                                                                                                  |
 
