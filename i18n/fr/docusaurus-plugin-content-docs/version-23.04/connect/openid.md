@@ -157,6 +157,10 @@ et un groupe d'accès défini dans Centreon :
 }
 ```
 
+> Lors de la récupération des attributs, Centreon va fusionner les attributs récupérés dans le JWT (JSON Web Token)
+> avec ceux récupérés dans le point d'entrée sélectionné en donnant priorité aux attributs du JWT. Ainsi, si un attribut
+> est disponible dans le JWT et dans le point d'entrée sélectionné, alors l'attribut retenu sera celui provenant du JWT.
+
 > À chaque connexion de l'utilisateur, la gestion des autorisations est réinitialisée pour prendre en compte toute nouvelle
 > information en provenance du fournisseur d'identité.
 
@@ -193,6 +197,10 @@ la valeur **Linux** et un groupe de contacts défini dans Centreon :
 	...
 }
 ```
+
+> Lors de la récupération des attributs, Centreon va fusionner les attributs récupérés dans le JWT (JSON Web Token)
+> avec ceux récupérés dans le point d'entrée sélectionné en donnant priorité aux attributs du JWT. Ainsi, si un attribut
+> est disponible dans le JWT et dans le point d'entrée sélectionné, alors l'attribut retenu sera celui provenant du JWT.
 
 > À chaque connexion de l'utilisateur, la gestion des groupes est réinitialisée pour prendre en compte toute nouvelle
 > information en provenance du fournisseur d'identité.

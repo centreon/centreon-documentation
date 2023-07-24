@@ -65,8 +65,8 @@ Plugin-Packs \> Manager" menu:
 
 ![install\_epp](../../assets/integrations/external/skylight-pvx-epp-install.png)
 
-> **If you are using an offline IMP license**: Make sure to install
-> the package RPM first with command below
+> **If you are using an offline license**: Make sure to install
+> the RPM package first with the command below:
 
 `[root@cps-demo-central ~]# yum install -y
 centreon-pack-applications-pvx-restapi.noarch`

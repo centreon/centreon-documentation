@@ -21,6 +21,44 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+- [UI] Made metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [UI] You can now hide the label of a resource.
+- [UX] You can now duplicate maps.
+- [Viewer] You can now define a label for a URL shape.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
+- [Editor] Fixed metric links when no metric name was filled in.
+- [Server] Made it possible to parse metrics from Broker NEB packets.
+- [Server] Fixed a critical error when editing a Geo view.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing users from saving a map with a "not a diagram" error message.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
+- [UI] Fixed cosmetic issues on breadcrumb chips.
+- [UI] Fixed the selection of layers in Geo views.
+- [UI] Fixed view freezes beyond 500 elements.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
+- [Viewer] Fixed an issue preventing hosts from being displayed on Geo views.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+- [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
+</details>
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
@@ -33,6 +71,26 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon BAM
+
+### 23.04.2
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Rules] Fixed boolean rules when resource contains boolean operator in its name.
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- Fixed how lists of BAs were retrieved for users with ACLs.
+
+</details>
 
 ### 23.04.1
 
@@ -69,6 +127,27 @@ Compatibility with other 23.04 components.
 
 ## Centreon MBI
 
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Added missing Gorgone dependencies required by the MBI ETL.
+- [Reporting] Fixed the display of the duration of ongoing alerts in the Hostgroups-Service-Current-Events report.
+- [UI] Added CSS in global style files to fix the MBI widget visibility.
+- [UI] Fixed empty "Current usage" column in mbi-storage-list-near-saturation widget.
+
+</details>
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
@@ -81,6 +160,24 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Auto Discovery
+
+### 23.04.1
+
+Release date: `July 20, April 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed missing API routes after an update of Centreon.
+
+</details>
 
 ### 23.04.0
 
@@ -117,6 +214,18 @@ Compatibility with other 23.04 components.
 
 ## Centreon License Manager
 
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+- [UI] Improved license upload modal.
+
+</details>
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
@@ -129,6 +238,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Anomaly Detection
+
+### 23.04.2
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Logs] The log level is now a parameter and its default value has been lowered to 0 to make it less verbose.
+
+</details>
 
 ### 23.04.1
 
