@@ -5,7 +5,7 @@ title: Time periods
 
 ## Definition
 
-Time periods define a time interval for each day of the week. They enable the functionalities of the scheduler over a given period of time. They apply to two types of actions:
+Time periods define a time interval for each day of the week. They enable the functionality of the scheduler over a given period of time. They apply to two types of actions:
 
 * The execution of check commands
 * The sending of notifications.
@@ -31,14 +31,14 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
 
 Use the following characters to define time periods:
 
-* The character “:” separates the hours from the minutes. E.g.: HH:MM
+* The character “:” separates the hours from the minutes. e.g.: HH:MM
 * The character “-” indicates continuity between two time periods
 * The character ”,” separates two time periods
 
 Here are a few examples:
 
 * 24 hours a day and 7 days a week: 00:00-24:00 (to be applied to every day of the week).
-* From 08h00 to 12h00 and from 14h00 to 18h45 on weekdays: 08:00-12:00,14:00-18:45 (to be applied to weekdays only).
+* From 8 AM to noon and from 2 PM to 6:45 PM on weekdays: 08:00-12:00,14:00-18:45 (to be applied to weekdays only).
 
 ![image](../../assets/configuration/05timeperiod.png)
 
@@ -48,17 +48,17 @@ The **Time Range Exceptions** tab allows you to include exceptional days in the 
 
 Example: An administrator wants to define a time period which covers the times when the offices are closed, i.e.:
 
-* From 18h00 to 07h59 on weekdays
-* Round the clock at weekends
+* From 6 PM to 7:59 AM on weekdays
+* Around the clock on weekends
 * National holidays and exceptional closure days.
 
-To be able to define the national holiday days and the exceptional closure days, it is necessary to use the exceptions.
+To be able to define the national holiday days and the exceptional closure days, it is necessary to use exceptions.
 
-To add an exception, in the **Exceptions** field, click on **Add new entry**. For each exceptional day, you will need to define a time period. 
+To add an exception, in the **Exceptions** field, click **Add new entry**. For each exceptional day, you will need to define a time period. 
 
 >Use the following syntax to exclude whole days from the supervision: 00:00-00:00.
 
-The table below shows some possible examples :
+The table below shows some possible examples:
 
 | Day(s)            | Time period             | Meaning                                                   |
 | ----------------- | ----------------------- | --------------------------------------------------------- |

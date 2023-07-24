@@ -6,7 +6,7 @@ title: Contacts/Users
 In Centreon, users can:
 
 - Receive [notifications](../../alerts-notifications/notif-configuration.md).
-- Log in to the Centreon web interface: each user has its own [rights](../../administration/access-control-lists.md) to connect to the web interface.
+- Log in to the Centreon web interface: each user has their own [rights](../../administration/access-control-lists.md) to connect to the web interface.
 - [Customize the use of Centreon](../../getting-started/interface.md):
   - Switch to dark mode.
   - Change the user interface language.
