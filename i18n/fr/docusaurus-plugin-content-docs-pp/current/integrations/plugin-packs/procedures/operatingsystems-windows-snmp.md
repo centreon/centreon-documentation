@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service             | Description                                                                                                                                                                  |
 |:-------|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-Windows-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Cpu    | OS-Windows-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-cœur |
 | Memory | OS-Windows-Memory-SNMP-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
 | Swap   | OS-Windows-Swap-SNMP-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
 
