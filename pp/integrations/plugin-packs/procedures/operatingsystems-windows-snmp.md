@@ -31,7 +31,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                            | Service Description                                                                                     | Discovery  |
 |:---------------------|:--------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each checks the name of the disk will appear              |            |
+| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the name of the disk will appear              |            |
 | Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the name of the disk will appear              |            |
 | Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Check the rate of free space on the disk. For each checks the name of the disk will appear              | X          |
 | Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Check the synchronization with an NTP server                                                            |            |
