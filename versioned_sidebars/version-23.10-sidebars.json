@@ -1179,14 +1179,13 @@
     {
       "type": "category",
       "label": "Developer resources",
+      "link": {
+      "type": "generated-index"
+      },
       "items": [
         {
           "type": "doc",
-          "id": "version-23.10/developer/about-developer-resources"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/developer/developer-module"
+          "id": "version-23.04/developer/developer-module"
         },
         {
           "type": "doc",
