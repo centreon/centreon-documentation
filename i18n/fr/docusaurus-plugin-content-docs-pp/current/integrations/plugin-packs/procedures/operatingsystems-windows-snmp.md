@@ -319,7 +319,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
 | TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
-| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
+| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -331,7 +331,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
 | TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
-| DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
+| DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -341,7 +341,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Valeur par défaut                                       | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    | .*                                                      |             |
+| FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   | .*                                                      |             |
 | TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                                 |             |
 | TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                                      |             |
 | WARNING      | Warning threshold                                                                                   | 80                                                      |             |
@@ -628,7 +628,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-access            | Check storage access (readOnly, readWrite).                                                                                                                                                                                                   |
 | --units                 | Units of thresholds (Default: '%') ('%', 'B').                                                                                                                                                                                                |
 | --free                  | Thresholds are on free space left.                                                                                                                                                                                                            |
-| --storage               | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage').                                                                                                                                                             |
+| --storage               | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages').                                                                                                                                                            |
 | --name                  | Allows to use storage name with option --storage instead ofstorage oid index.                                                                                                                                                                 |
 | --regexp                | Allows to use regexp to filter storage (with option --name).                                                                                                                                                                                  |
 | --regexp-isensitive     | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                                                                      |
