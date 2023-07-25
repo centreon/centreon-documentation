@@ -29,18 +29,18 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                            | Service Description                                                                                     | Discovery  |
-|:---------------------|:--------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the name of the disk will appear              |            |
-| Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each check the name of the disk will appear              |            |
-| Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Check the rate of free space on the disk. For each check the name of the disk will appear              | X          |
-| Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Check the synchronization with an NTP server                                                            |            |
-| Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows processes are started                                                                    | X          |
-| Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Check if Windows services are started                                                                   | X          |
-| Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear             |            |
-| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each check the name of the interface will appear             |            |
-| Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear             | X          |
-| Uptime               | OS-Windows-Uptime-SNMP-custom               | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold |            |
+| Service Alias        | Service Template                            | Service Description                                                                                        | Discovery  |
+|:---------------------|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
+| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on a disk (filter by ID). For each check the name of the disk will appear     |            |
+| Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on a disk (filter by name). For each check the name of the disk will appear   |            |
+| Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the name of the disk will appear                     | X          |
+| Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Check the synchronization with an NTP server                                                               |            |
+| Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows processes are started                                                                     | X          |
+| Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Check if Windows services are started                                                                      | X          |
+| Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of an interface (filter by ID). For each check the name of the interface will appear   |            |
+| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of an interface (filter by name). For each check the name of the interface will appear |            |
+| Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each check the name of the interface will appear                    | X          |
+| Uptime               | OS-Windows-Uptime-SNMP-custom               | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold    |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -307,9 +307,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Default value                                 | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
-| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
-| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                    |                                               |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
+| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   |                                              |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -319,9 +319,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Default value                                 | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
-| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
-| DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                    |                                               |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
+| DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   |                                              |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -332,8 +332,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | Macro        | Description                                                                                         | Default value                                           | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
 | FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    | .*                                                      |             |
-| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                                 |             |
-| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                                      |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                                 |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                                      |             |
 | WARNING      | Warning threshold                                                                                   | 80                                                      |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                                      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --filter-perfdata='storage.space\|used\|free' |             |
@@ -389,9 +389,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | CRITICALPAUSED          | Thresholds on services count                                                                        |                   |             |
 | WARNINGPAUSEPENDING     | Thresholds on services count                                                                        |                   |             |
 | CRITICALPAUSEPENDING    | Thresholds on services count                                                                        |                   |             |
-| WARNINGSTATUS           |                                                                                                     |                   |             |
-| CRITICALSTATUS          |                                                                                                     |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{operating_state}, %{installed_state}  |                   |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{operating_state}, %{installed_state} |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)            | --verbose         |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -436,7 +436,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                 | --verbose         |             |
 
 </TabItem>
@@ -624,8 +624,7 @@ All available options for each service template are listed below:
 | --reload-cache-time     | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                   |
 | --oid-filter            | Choose OID used to filter storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                         |
 | --oid-display           | Choose OID used to display storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                        |
-| --display-transform-src | Regexp src to transform display value. (security risk!!!)                                                                                                                                                                                     |
-| --display-transform-dst | Regexp dst to transform display value. (security risk!!!)                                                                                                                                                                                     |
+| --display-transform-src --display-transform-dst  | Modify the disk name displayed by using a regular expression. Eg: adding --display-transform-src='^(.):.*' --display-transform-dst='$1:'                                                                             |
 | --show-cache            | Display cache storage datas.                                                                                                                                                                                                                  |
 | --space-reservation     | Some filesystem has space reserved (like ext4 for root). The value is in percent of total (Default: none) (results like 'df' command).                                                                                                        |
 | --filter-duplicate      | Filter duplicate storages (in used size and total size).                                                                                                                                                                                      |
@@ -761,8 +760,7 @@ All available options for each service template are listed below:
 | --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
 | --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
 | --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                     |
-| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                     |
-| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                     |
+| --display-transform-src --display-transform-dst  | Modify the interface name displayed by using a regular expression. Eg: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                        |
 | --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                             |
 
 </TabItem>

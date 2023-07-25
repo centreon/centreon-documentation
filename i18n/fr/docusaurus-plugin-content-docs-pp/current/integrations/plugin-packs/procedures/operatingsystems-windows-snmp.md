@@ -32,15 +32,15 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                           | Description                                                                                                                                                 | Découverte |
 |:---------------------|:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                      |            |
-| Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                      |            |
-| Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                      | X          |
+| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Contrôle du taux d'espace libre disponible d'un disque (filtre par ID). Pour chaque contrôle apparaîtra le nom du disque                                    |            |
+| Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Contrôle du taux d'espace libre disponible d'un disque (filtre par nom). Pour chaque contrôle apparaîtra le nom du disque                                   |            |
+| Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le nom du disque                                                    | X          |
 | Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Contrôle la synchronisation avec un serveur NTP                                                                                                             |            |
 | Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Contrôle permettant de vérifier que les processus Windows sont démarrés                                                                                     | X          |
 | Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Contrôle permettant de vérifier si les services Windows sont démarrés                                                                                       | X          |
-| Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                         |            |
-| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                         |            |
-| Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                         | X          |
+| Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante d'une interface (filtre par ID). Pour chaque contrôle apparaîtra le nom de l'interface                                        |            |
+| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante d'une interface (filtre par nom). Pour chaque contrôle apparaîtra le nom de l'interface                                       |            |
+| Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                         | X          |
 | Uptime               | OS-Windows-Uptime-SNMP-custom               | Contrôle permettant de vérifier la disponibilité du serveur Windows depuis le dernier redémarrage. Il s'agit d'une indication, il n'y a pas de seuil défini |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -317,8 +317,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Valeur par défaut                             | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
-| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
 | DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
@@ -329,8 +329,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Valeur par défaut                             | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
-| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
 | DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
@@ -342,8 +342,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | Macro        | Description                                                                                         | Valeur par défaut                                       | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
 | FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    | .*                                                      |             |
-| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                                 |             |
-| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                                      |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                                 |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                                      |             |
 | WARNING      | Warning threshold                                                                                   | 80                                                      |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                                      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --filter-perfdata='storage.space\|used\|free' |             |
@@ -399,9 +399,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | CRITICALPAUSED          | Thresholds on services count                                                                        |                   |             |
 | WARNINGPAUSEPENDING     | Thresholds on services count                                                                        |                   |             |
 | CRITICALPAUSEPENDING    | Thresholds on services count                                                                        |                   |             |
-| WARNINGSTATUS           |                                                                                                     |                   |             |
-| CRITICALSTATUS          |                                                                                                     |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{operating_state}, %{installed_state}  |                   |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{operating_state}, %{installed_state} |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)  | --verbose         |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -446,7 +446,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 | --verbose         |             |
 
 </TabItem>
@@ -636,8 +636,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --reload-cache-time     | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                   |
 | --oid-filter            | Choose OID used to filter storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                         |
 | --oid-display           | Choose OID used to display storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                        |
-| --display-transform-src | Regexp src to transform display value. (security risk!!!)                                                                                                                                                                                     |
-| --display-transform-dst | Regexp dst to transform display value. (security risk!!!)                                                                                                                                                                                     |
+| --display-transform-src --display-transform-dst  | Modify the disk name displayed by using a regular expression. Eg: adding --display-transform-src='^(.):.*' --display-transform-dst='$1:'                                                                             |
 | --show-cache            | Display cache storage datas.                                                                                                                                                                                                                  |
 | --space-reservation     | Some filesystem has space reserved (like ext4 for root). The value is in percent of total (Default: none) (results like 'df' command).                                                                                                        |
 | --filter-duplicate      | Filter duplicate storages (in used size and total size).                                                                                                                                                                                      |
@@ -773,8 +772,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
 | --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
 | --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                     |
-| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                     |
-| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                     |
+| --display-transform-src --display-transform-dst  | Modify the interface name displayed by using a regular expression. Eg: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                        |
 | --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                             |
 
 </TabItem>
