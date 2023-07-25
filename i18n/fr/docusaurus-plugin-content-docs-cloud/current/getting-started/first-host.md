@@ -10,14 +10,14 @@ Assurez-vous d'avoir lu la page [**Bases de la supervision**](concepts.md) avant
 <details>
 <summary>Ajouter un hôte automatiquement</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/aqT3hLESTWITLo4Y6yUa" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/aqT3hLESTWITLo4Y6yUa" frameborder="0" allowfullscreen></iframe>
 
 </details>
 
 <details>
 <summary>Ajouter un hôte manuellement</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/zmlvcyRzIvJk29xEGenJ" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/zmlvcyRzIvJk29xEGenJ" frameborder="0" allowfullscreen></iframe>
 
 </details>
 

@@ -10,14 +10,14 @@ Make sure you have read [**Centreon basics**](concepts.md) before monitoring you
 <details>
 <summary>Add a host automatically</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/Jyodbg4sVZG5OTAHcF2P" frameborder="0" allowfullscreen></iframe>
 
 </details>
 
 <details>
 <summary>Add a host manually</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/xg4VORcWXdNBogHle80U" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/xg4VORcWXdNBogHle80U" frameborder="0" allowfullscreen></iframe>
 
 </details>
 

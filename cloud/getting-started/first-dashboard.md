@@ -10,13 +10,13 @@ Custom views are dashboards created with [widgets](../resources/glossary.md#widg
 <details>
 <summary>Discover widgets</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/XPrZGOCuvcsgcoKe1vFM" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/XPrZGOCuvcsgcoKe1vFM" frameborder="0" allowfullscreen></iframe>
 
 </details>
 <details>
 <summary>Discover custom views</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/ITgrnj8q0Mycu3piChAT" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/ITgrnj8q0Mycu3piChAT" frameborder="0" allowfullscreen></iframe>
 
 </details>
 

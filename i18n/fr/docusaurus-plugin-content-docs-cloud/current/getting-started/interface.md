@@ -12,11 +12,11 @@ Parcourez l'interface pour vous familiariser avec Centreon Cloud, selon votre [r
 
 - Découvrir le menu principal :
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/3asg2bObpD9nH31r1jvR" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/3asg2bObpD9nH31r1jvR" frameborder="0" allowfullscreen></iframe>
 
 - Découvrir le bandeau supérieur :
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/fdCcspkyOLIsHehIBOHZ" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/fdCcspkyOLIsHehIBOHZ" frameborder="0" allowfullscreen></iframe>
 
 </details>
 
@@ -25,11 +25,11 @@ Parcourez l'interface pour vous familiariser avec Centreon Cloud, selon votre [r
 
 - Découvrir le menu principal :
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/8xmtVdestemqeYPvKtGy" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/8xmtVdestemqeYPvKtGy" frameborder="0" allowfullscreen></iframe>
 
 - Découvrir le bandeau supérieur :
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/qvZAsg23B2q4MEe8T2Sl" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/qvZAsg23B2q4MEe8T2Sl" frameborder="0" allowfullscreen></iframe>
 
 </details>
 

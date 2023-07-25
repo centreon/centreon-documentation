@@ -12,7 +12,7 @@ title: Débuter avec les collecteurs
 <details>
 <summary>Découvrir les collecteurs</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/pq9FlsSHupZM83M8x7pw" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/pq9FlsSHupZM83M8x7pw" frameborder="0" allowfullscreen></iframe>
 
 </details>
 

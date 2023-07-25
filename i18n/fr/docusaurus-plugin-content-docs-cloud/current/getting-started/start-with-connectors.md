@@ -14,7 +14,7 @@ Suivez ce tutoriel pour découvrir comment rechercher, installer, mettre à jour
 <details>
 <summary>Découvrir les collecteurs</summary>
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/5vNeKbIg4hoKBZYa0s5J" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/5vNeKbIg4hoKBZYa0s5J" frameborder="0" allowfullscreen></iframe>
 
 </details>
 

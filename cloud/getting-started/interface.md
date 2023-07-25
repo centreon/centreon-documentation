@@ -12,11 +12,11 @@ Take a tour of the interface to get familiar with Centreon Cloud, according to y
 
 - Discover the main menu:
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/piyJh7IO1OtnMvuHEh5o" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/piyJh7IO1OtnMvuHEh5o" frameborder="0" allowfullscreen></iframe>
 
 - Discover the top banner:
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/j1cCyYghLIVpGAs2wW0x" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/j1cCyYghLIVpGAs2wW0x" frameborder="0" allowfullscreen></iframe>
 
 </details>
 
@@ -25,11 +25,11 @@ Take a tour of the interface to get familiar with Centreon Cloud, according to y
 
 - Discover the main menu:
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/rlazq3RJUcApVO6Vw3V3" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/rlazq3RJUcApVO6Vw3V3" frameborder="0" allowfullscreen></iframe>
 
 - Discover the top banner:
 
-<iframe width="850" height="650" src="https://app.arcade.software/share/I7RA2Mj8n4BNi22LVTbr" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/share/I7RA2Mj8n4BNi22LVTbr" frameborder="0" allowfullscreen></iframe>
 
 </details>
 
