@@ -404,5 +404,13 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "Expand all": {
+    "message": "Expand all",
+    "description": "The label for the expand all button"
+  },
+  "Collpase all": {
+    "message": "Collpase all",
+    "description": "The label for the collpase all button"
   }
 }

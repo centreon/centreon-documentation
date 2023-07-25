@@ -3,6 +3,8 @@ id: centreon-commercial-extensions
 title: Extensions Commerciales
 ---
 
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
 ## Introduction
 
 Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commerciales** de Centreon.
@@ -15,13 +17,16 @@ Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions co
 
 Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-04-decouvrez-les-nouveautes-a-venir-ce-printemps/).
 
+<ExpandCollapseAll />
+
 ## Centreon MAP
 
 ### 23.04.1
 
 Release date: `July 20, 2023`
 
-#### Enhancements
+<details open>
+  <summary>Enhancements</summary>
 
 - [Licensing] Improved automatic license renewal.
 - [UI] Made metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
@@ -30,10 +35,15 @@ Release date: `July 20, 2023`
 - [Viewer] You can now define a label for a URL shape.
 - [Widget] Fixed incorrect behavior when saving the MAP widget.
 
-#### Bug fixes
+</details>
 
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue that made duplicated containers point to the same view.
 - [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
 - [Editor] Fixed metric links when no metric name was filled in.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
 - [Server] Made it possible to parse metrics from Broker NEB packets.
 - [Server] Fixed a critical error when editing a Geo view.
 - [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
@@ -49,11 +59,18 @@ Release date: `July 20, 2023`
 - [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
 - [Widget] Fixed incorrect behavior when saving the MAP widget.
 
+</details>
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon BAM
 
@@ -61,34 +78,54 @@ Release date: `April 26, 2023`
 
 Release date: `July 20, 2023`
 
-#### Enhancements
+<details open>
+  <summary>Enhancements</summary>
 
 - [Licensing] Improved automatic license renewal.
 
-#### Bug fixes
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
 
 - [Rules] Fixed boolean rules when resource contains boolean operator in its name.
 - [UI] Fixed the column name display in the acknowledgment description pop-up.
 - Fixed how lists of BAs were retrieved for users with ACLs.
 
+</details>
+
 ### 23.04.1
 
 Release date: `June 13, 2023`
 
-#### Bug fixes
+<details>
+  <summary>Bug fixes</summary>
 
 - Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
 - Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details open>
+  <summary>Enhancements</summary>
+
 - [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
 - [Configuration] Improved Business Activities configuration panel display:
    - Display listing pagination icons while displaying the configuration panel
    - Allow more space to display indicators' names.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon MBI
 
@@ -96,22 +133,33 @@ Release date: `April 26, 2023`
 
 Release date: `July 20, 2023`
 
-#### Enhancements
+<details open>
+  <summary>Enhancements</summary>
 
 - [Licensing] Improved automatic license renewal.
 
-#### Bug fixes
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
 
 - [Install] Added missing Gorgone dependencies required by the MBI ETL.
 - [Reporting] Fixed the display of the duration of ongoing alerts in the Hostgroups-Service-Current-Events report.
 - [UI] Added CSS in global style files to fix the MBI widget visibility.
 - [UI] Fixed empty "Current usage" column in mbi-storage-list-near-saturation widget.
 
+</details>
+
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon Auto Discovery
 
@@ -119,30 +167,63 @@ Release date: `April 26, 2023`
 
 Release date: `July 20, April 2023`
 
-#### Enhancements
+<details open>
+  <summary>Enhancements</summary>
 
 - [Licensing] Improved automatic license renewal.
 
-#### Bug fixes
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
 
 - [Install] Fixed missing API routes after an update of Centreon.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details open>
+  <summary>Enhancements</summary>
+
 - Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
 - Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
 - Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
 
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon License Manager
 
@@ -150,16 +231,24 @@ Release date: `April 26, 2023`
 
 Release date: `July 20, 2023`
 
-#### Enhancements
+<details open>
+  <summary>Enhancements</summary>
 
 - [Licensing] Improved automatic license renewal.
 - [UI] Improved license upload modal.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon Anomaly Detection
 
@@ -167,26 +256,43 @@ Release date: `April 26, 2023`
 
 Release date: `July 20, 2023`
 
-#### Enhancements
+<details open>
+  <summary>Enhancements</summary>
 
 - [Logs] The log level is now a parameter and its default value has been lowered to 0 to make it less verbose.
+
+</details>
 
 ### 23.04.1
 
 Release date: `June 13, 2023`
 
-#### Bug fixes
+<details>
+  <summary>Bug fixes</summary>
 
 - Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
 - Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
+
+</details>
 
 ### 23.04.0
 
 Release date: `April 26, 2023`
 
-- Compatibility with other 23.04 components.
+<details open>
+  <summary>Enhancements</summary>
+  
 - [Core] It is now possible to exclude unrepresentative data from prediction computation.
 - [Core] Anomaly Detection services can now be used in Business Activities.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
 
 ## Centreon IT & Business Extensions
 
@@ -194,18 +300,13 @@ Release date: `April 26, 2023`
 
 Release date: `April 26, 2023`
 
+<details open>
+  <summary>Enhancements</summary>
+
 - Added the possibility to customize the login page and the banner. You can now:
   - Change the background of the login page.
   - Change the logo on the login page.
   - Display custom text on the login page.
   - Give a name to the platform, that will be visible on the login page and in the banner.
 
-## Centreon Plugin Packs Manager
-
-### 23.04.1
-
-Release date: `July 20, 2023`
-
-#### Enhancements
-
-- [Licensing] Improved automatic license renewal.
+</details>

@@ -31,7 +31,9 @@ Release date: `July 20, 2023`
 #### Bug fixes
 
 - [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
-- [Editor] Fixed metric links when no metric name was filled in.
+- [Editor] Fixed an issue that made duplicated containers point to the same view.
+- [Editor] Fixed metric links when no metric name were filled in.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
 - [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
 - [UI] Fixed image edition for a MAP thumbnail or media component.
 - [UI] Fixed the selection of layers in Geo views.
