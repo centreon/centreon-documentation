@@ -26,12 +26,13 @@ dnf update
 
 ### Additional configuration
 
-If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Use the following command to check which languages are installed on your system:

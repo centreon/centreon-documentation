@@ -282,6 +282,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.4
+
+Release date: `July 26, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Boolean rules optimized to work faster.
+
 ### 22.10.3
 
 Release date: `July 3, 2023`
