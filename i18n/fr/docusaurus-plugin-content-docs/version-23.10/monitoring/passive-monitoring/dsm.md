@@ -3,6 +3,9 @@ id: dsm
 title: Dynamic Service Management
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Le module Centreon Dynamic Service Management (Centreon-DSM) est une extension pour gérer les alarmes avec un système de
 journaux d'événements. Avec DSM, Centreon peut recevoir des événements tels que des interruptions SNMP résultant de la
 détection d'un problème et attribuer des événements dynamiquement vers un emplacement défini dans Centreon, comme une
@@ -24,9 +27,29 @@ installés sur le serveur principal.
 
 Exécutez la commande :
 
-```shell
-yum install centreon-dsm-server centreon-dsm-client
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-dsm-server centreon-dsm-client
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-dsm-server centreon-dsm-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-dsm-server centreon-dsm-client
+```
+
+</TabItem>
+</Tabs>
 
 Après avoir installé le rpm, vous devez terminer l'installation du module via l'interface Web. Rendez-vous dans le menu
 **Administration > Extensions > Manager** et recherchez **dsm**. Cliquez sur **Install selection**.
@@ -45,9 +68,29 @@ Cette partie consiste à installer **Centreon DSM** sur un poller. Seul le clien
 
 Exécutez la commande :
 
-```shell
-yum install centreon-dsm-client
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-dsm-client
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-dsm-client
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-dsm-client
+```
+
+</TabItem>
+</Tabs>
 
 Vous devez maintenant créer un accès du poller au serveur SGBD sur la base de données **centreon_storage**.
 

@@ -904,7 +904,7 @@ http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImag
 > - Récupérer et stocker le certificat :
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 > La valeur de l'option *servername* doit être le nom d'hôte exact défini dans
@@ -982,7 +982,7 @@ http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImag
 > - Récupérer et stocker le certificat :
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 > La valeur de l'option *servername* doit être le nom d'hôte exact défini dans

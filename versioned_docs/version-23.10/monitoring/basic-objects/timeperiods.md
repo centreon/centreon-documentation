@@ -70,4 +70,4 @@ The table below shows some possible examples:
 | saturday -1       | 08:00-12:00,14:00-18:45 | Every last Saturday of the month during opening hours     |
 | monday -2         | 00:00-24:00             | All day every second to last Monday of the month          |
 | june 6 - june 21  | 00:00-00:00             | Do not supervise all day, every day from June 6th to the 21st        |
-| june 12           | 00:00-08:00,18h00-24:00 | Supervise every June 12th, except between 08h00 and 18h00 |
+| june 12           | 00:00-08:00,18:00-24:00 | Supervise every June 12th, except between 08h00 and 18h00 |

@@ -7,14 +7,14 @@ import TabItem from '@theme/TabItem';
 
 ## First login
 
-To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** by the IP address or FQDN of your Centreon web server.)
+To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** with the IP address or FQDN of your Centreon web server.)
 
-Fill in your user name and associated password and click on the **Connect** button:
+Enter your user name and password, and click the **Connect** button:
 
 ![image](../assets/getting-started/aconnection.png)
 
->If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon123!**.
-Otherwise, the default login is **admin** and the password is the one you have defined at [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
+>If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon!123**.
+Otherwise, the default login is **admin** and the password is the one you defined in [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
 
 You are now connected to the Centreon web interface.
 
@@ -31,7 +31,7 @@ The Centreon web interface contains several menus, each with a specific function
   to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
   performance graphics.
-* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
+* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** lets you access your user account.
 
@@ -52,153 +52,25 @@ Click the **pollers** icon to expand the menu. On the menu, click **Configure po
 
 ![image](../assets/getting-started/top_counters.png)
 
-Beside the pollers section, statistics show the number of resources that are being monitored, with a specific status:
+Beside the pollers section, statistics show the number of resources being monitored that have a specific status:
 
 * For services: number of services with a **Critical**, **Warning**, **Unknown** and **OK** status.
 * For hosts: number of hosts with a **Down**, **Unreachable** and **Up** status.
 
 These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
 
-Click on a circle representing a status:
+Click a circle representing a status:
 
-* Page **Monitoring > Resources status** opens.
+* The **Monitoring > Resources status** page opens.
 * The page is filtered according to the type of resource and the corresponding status.
 
 Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.
 
-## Switch to dark mode
+## Customization features
 
-When you first connect to the interface, Centreon is displayed in light mode by default.
+You can benefit from [customization features](../monitoring/basic-objects/customization.md) for a better use of Centreon:
 
-On the banner, click on the profile icon and use the switch button to turn on the dark mode.
-Next time you connect to the interface, the mode you previously selected remains on.
-
-- Light mode:
-
-![image](../assets/getting-started/menu_light_mode.png)
-
-- Dark mode:
-
-![image](../assets/getting-started/menu_dark_mode.png)
-
-## Change the user interface language
-
-On the banner, click on the profile icon, then click on **Edit profile**:
-
-![image](../assets/getting-started/menu_edit_profile.png)
-
-In the language select box, choose your language:
-
-![image](../assets/getting-started/change_language.png)
-
-Then click on **Save**. Your interface is now translated.
-
-> If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon.md).
-
-## Reset your password
-
-### Reset your password before expiration
-
-When your password is going to expire in the next 7 days, an orange dot appears in the banner on the right
-next to the profile icon:
-
-![image](../assets/administration/password_will_expire.png)
-
-Click on **Edit profile**, then change your password:
-
-![image](../assets/administration/password_expiration.png)
-
-### Reset your password when expired
-
-If you have not changed your password before it expires, you will be redirected after login
-to a dedicated page where you can update it:
-
-![image](../assets/administration/password_expired.png)
-
-Fill in your current password, define a new one and then click on **Reset Password**.
-
-## Define a default page after login
-
-You can configure the page that will be displayed by default when you connect to the interface, at the user level or at the contact template level. You can perform this procedure either from the interface or with CLAPI commands.
-
-### Using the interface
-
-Follow this procedure to set a default page:
-
-<Tabs groupId="sync">
-<TabItem value="For a user" label="For a user">
-
-  1. Go to the **Configuration > Users > Contacts/Users** page.
-
-  2. Select the user you want and click the **Centreon Authentication** tab.
-    
-  3. In the **Default page** field, select the page name in the dropdown list. Then save your changes.
-
-</TabItem>
-<TabItem value="For a contact template" label="For a contact template">
-
-  1. Go to the **Configuration > Users > Contact Templates** page.
-
-  2. Select an existing template or click the **Add** button to fill in the **Add a User Template** form.
-      
-  3. In the **Default page** field, select the page name in the dropdown list. Then save your changes.
-  
-  Users created from this template will see this default page when they log in.
-  
-</TabItem>
-</Tabs>
-
-### Using CLAPI commands
-
-> First you need to get the "topology page" number associated to the default page in the interface. In this example, we need to get the number associated to the Resource Status page.
-
-1. From your terminal, connect to **MariaDB** and run the following command:
-  
-  ```shell
-  use centreon ;
-  ```
-  
-2. Get the "topology page" number for the Resource Status page:
-  
-  ```shell
-  SELECT topology_page FROM topology WHERE topology_name = "Resources Status";
-  ```
-  
-  You should receive the following output:
-  
-  ```shell
-  +---------------+
-  | topology_page |
-  +---------------+
-  |           200 |
-  ```
-  
-3. Then follow this procedure to set a default page. Execute these commands with your customized credentials:
-
-<Tabs groupId="sync">
-<TabItem value="For a user" label="For a user">
-
-- By editing an existing user (where `200` is the number associated to the Resource Status page):
-  
-```shell
-centreon -u admin -p 'centreon' -o contact -a setparam -v "contact alias;default_page;200"
-```
-
-- By adding a new user (where `200` is the number associated to the Resource Status page):
-
-```shell
-centreon -u admin -p 'centreon' -o CONTACT -a ADD -v "user;user;user@mail.com;mypassword;1;1;en_US;local;200"
-```
-
-</TabItem>
-<TabItem value="For a contact template" label="For a contact template">
-
-Where `200` is the number associated to the Resource Status page:
-
-```shell
-centreon -u Admin -p 'centreon' -o CONTACTTPL -a ADD -v "new_template;new_template;user@mail.com;mypassword;1;1;en_US;local;200"
-```
-
-</TabItem>
-</Tabs>
+- [Switch to dark mode](../monitoring/basic-objects/customization.md#switch-to-dark-mode)
+- [Change the user interface language](../monitoring/basic-objects/customization.md#change-the-user-interface-language)
+- [Reset your password](../monitoring/basic-objects/customization.md#reset-your-password)
+- [Define a default page after login](../monitoring/basic-objects/customization.md#define-a-default-page-after-login)

@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 | Central server | DNS server     | DNS        | UDP 53             | Domain name resolution                                                             |
 | Central server | SMTP server    | SMTP       | TCP 25             | Notification via email                                                             |
 | Central server | LDAP(s) server | LDAP(s)    | TCP 389 (636)      | Authentication to access the Centreon web interface                                |
-| Central server | DBMS server    | MySQL      | TCP 3306           | Access to Centreon databases (if deported to a dedicated server)                   |
+| Central server | DBMS server    | MySQL      | TCP 3306           | Access to Centreon databases (if moved to a dedicated server)                   |
 | Central server | HTTP Proxy     | HTTP(s)    | TCP 80, 8080 (443) | If your platform needs to connect to a web proxy to access the Centreon IT Edition |
 | Central server | Repository     | HTTP (FTP) | TCP 80 (FTP 20)    | Repository for system and application packages                                     |
 
@@ -38,7 +38,7 @@ import TabItem from '@theme/TabItem';
 | Remote Server | DNS server     | DNS        | UDP 53          | Domain name resolution                                           |
 | Remote Server | SMTP server    | SMTP       | TCP 25          | Notification via email                                           |
 | Remote Server | LDAP(s) server | LDAP(s)    | TCP 389 (636)   | Authentication to access the Centreon web interface              |
-| Remote Server | DBMS server    | MySQL      | TCP 3306        | Access to Centreon databases (if deported to a dedicated server) |
+| Remote Server | DBMS server    | MySQL      | TCP 3306        | Access to Centreon databases (if moved to a dedicated server) |
 | Remote Server | Repository     | HTTP (FTP) | TCP 80 (FTP 20) | Repository for system and application packages                   |
 
 > Other flows can be necessary for Centreon web authentication (RADIUS, etc.)
@@ -79,7 +79,7 @@ import TabItem from '@theme/TabItem';
 | Poller            | Servers                          | NRPE       | TCP 5666  | Monitoring  |
 | Poller            | Servers                          | NSClient++ | TCP 12489 | Monitoring  |
 
-> If the Centreon server is a poller too, do not forget to open monitoring
+> If the Centreon server is a poller too, remember to open monitoring
 > flows.
 
 > Other flows can be necessary to monitor databases, access to API, or
@@ -104,11 +104,11 @@ Description of software and linked users:
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
-| Apache            | httpd24-httpd    | apache           | automatic start |
+| Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
@@ -116,6 +116,7 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
@@ -194,7 +195,7 @@ Description of users, umask and home directory for Centreon Business Edition:
 
 ## Software dependencies
 
-For your information, the following table describes the software dependencies. Everything comes prepackaged with Centreon, you do not have to install anything manually.
+For your information, the following table describes the software dependencies. Everything comes prepackaged with Centreon; you do not need to install anything manually.
 
 | Software | Version    |
 | -------- | ---------- |
@@ -220,7 +221,7 @@ The following components are used in a central server:
 * MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
-* Centreon Broker SQL stores information into MariaDB databases and forwards them to Centreon Broker RRD
+* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 #### Architecture
@@ -252,8 +253,8 @@ The Poller includes the following items:
 
 This architecture is used for:
 
-* Enable load balancing across multiple remote monitoring servers
-* Network streams isolation: if your monitoring architecture have to monitor a DMZ area, it is easier (and safe) to place a remote server in the DMZ network
+* Enabling load balancing across multiple remote monitoring servers
+* Network stream isolation: if your monitoring architecture has to monitor a DMZ area, it is easier (and safe) to place a remote server in the DMZ network
 
 #### Components
 
@@ -263,10 +264,10 @@ Many components are used to build a central Centreon server:
 
 * Apache web server for Centreon web interface
 * MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
-* The Centreon Gorgone process is used to send monitoring configuration to the remote server and to manage it
+* The Centreon Gorgone process is used to send the monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
-* Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD
+* Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
+* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Poller
@@ -274,7 +275,7 @@ Many components are used to build a central Centreon server:
 Many components are used to build a poller:
 
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
+* Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
 
 #### Architecture
 
@@ -284,7 +285,7 @@ The diagram below summarizes the architecture:
 
 ### Remote DBMS
 
-The distributed architecture with remote DBMS is to have three types of entities:
+The distributed architecture with remote DBMS includes three types of entities:
 
 * A central Centreon server to display information
 * A DBMS server to store collected data
@@ -297,7 +298,7 @@ The central Centreon server includes the following items:
 * Broker
 * RRD files
 
-The DBMS server store information into MariaDB databases.
+The DBMS server stores information in MariaDB databases.
 
 The poller includes the following items:
 
@@ -306,26 +307,26 @@ The poller includes the following items:
 
 This architecture is used for:
 
-* Enable load balancing across multiple remote monitoring servers
-* Network streams isolation: if your monitoring architecture have to monitor a DMZ area, it is easier (and safe) to place a remote server in the DMZ network
-* Have a remote DBMS
+* Enabling load balancing across multiple remote monitoring servers
+* Network stream isolation: if your monitoring architecture has to monitor a DMZ area, it is easier (and safe) to place a remote server in the DMZ network
+* Providing a remote DBMS
 
 #### Components
 
 ##### DBMS server
 
-The DBMS server is used only to store Centreon configuration parameters as well as monitoring and performance data into MariaDB databases
+The DBMS server is used only to store Centreon configuration parameters as well as monitoring and performance data in MariaDB databases
 
 ##### Central Centreon server
 
 Many components are used to build a central Centreon server:
 
 * Apache web server for Centreon web interface
-* The central Centreon server get configuration and collected data from DBMS server
-* The Centreon Gorgone process is used to send monitoring configuration to the remote server and to manage it
+* The central Centreon server obtains configuration and collected data from the DBMS server
+* The Centreon Gorgone process is used to send the monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
-* Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD
+* Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
+* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Poller
@@ -333,7 +334,7 @@ Many components are used to build a central Centreon server:
 Many components are used to build a poller:
 
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
+* Collected data are sent to Centreon Broker SQL by the monitoring engine, using cbmod
 
 #### Architecture
 
@@ -343,15 +344,15 @@ The diagram below summarizes the architecture:
 
 ### Remote Server
 
-The distributed architecture with Remote sever is to have three types of entities:
+The distributed architecture with Remote server includes three types of entities:
 
-* A Centreon Central server to configure monitoring and to display & operate on collected data
-* One or more Centreon Remote server to display & operate on a subset of collected data
+* A Centreon Central server to configure monitoring and to display and operate on collected data
+* One or more Centreon Remote servers to display and operate on a subset of collected data
 * One or more pollers to collect data
 
 The central Centreon server includes the following items:
 
-* Centreon web interface(configure, display & operate)
+* Centreon web interface (configure, display and operate)
 * Monitoring Engine
 * Broker
 * Databases (MariaDB + RRD)
@@ -365,9 +366,9 @@ The Remote servers include the following items:
 
 This architecture is used for:
 
-* Enable load balancing across multiple remote monitoring servers
-* Network streams isolation: if your monitoring architecture has to monitor a DMZ area, it is easier (and safe) to place a remote server in the DMZ network
-* Have dedicated webinterface to display & operate on a subset of data.
+* Enabling load balancing across multiple remote monitoring servers
+* Network stream isolation: if your monitoring architecture has to monitor a DMZ area, it is easier (and safe) to place a remote server in the DMZ network
+* Having a dedicated web interface to display and operate on a subset of data.
 
 #### Components
 
@@ -377,10 +378,10 @@ Many components are used to build a Centreon server:
 
 * Apache web server for Centreon web interface
 * MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
-* The Centreon Gorgone process is used to send monitoring configuration to the remote server and to manage it
+* The Centreon Gorgone process is used to send the monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
-* Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD
+* Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
+* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Remote monitoring server
@@ -391,8 +392,8 @@ Many components are used to build a remote server:
 * MariaDB databases to store monitoring and performance data
 * The Centreon Gorgone process is used to operate on collected data
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
-* Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD locally. All information are forwarded to the Centreon central server.
+* Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
+* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD locally. All information is forwarded to the Centreon central server.
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Poller
@@ -400,7 +401,7 @@ Many components are used to build a remote server:
 Many components are used to build a poller:
 
 * A monitoring engine to collect data
-* Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
+* Collected data are sent to Centreon Broker SQL by the monitoring engine, using cbmod 
 
 #### Architecture
 

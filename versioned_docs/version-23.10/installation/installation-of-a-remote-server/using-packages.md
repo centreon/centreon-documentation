@@ -87,7 +87,7 @@ apt update && apt upgrade
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -115,7 +115,7 @@ Disabled
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -373,7 +373,7 @@ dnf update
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-To install the Centreon repository, execute following command:
+To install the Centreon repository, execute the following command:
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -394,7 +394,7 @@ apt update
 
 This section describes how to install a Centreon Remote Server.
 
-It is possible to install this server with a local database on the server, or
+You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
 ### With a local database
@@ -517,9 +517,9 @@ FLUSH PRIVILEGES;
 
 > Replace **<IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
+> Replace **<USER\>** and **<PASSWORD\>** with the user's credentials.
 
-This user will only be used for the installation process. Once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
+This user will only be used for the installation process. Once the [web installation](../web-and-post-installation.md) is complete, you can delete this user using:
 
 ```SQL
 DROP USER '<USER>'@'<IP>';
@@ -529,7 +529,7 @@ DROP USER '<USER>'@'<IP>';
 > to be used with Centreon.
 >
 > If this package is not installed, system limitation **LimitNOFILE** should be
-> at least set to **32000** using a dedicated configuration file, example:
+> at least set to **32000** using a dedicated configuration file; for example:
 >
 > ```shell
 > $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
@@ -555,11 +555,11 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 >
-> Remember to restart MariaDB after a change to configuration.
+> Remember to restart MariaDB after changing the configuration.
 
 #### Additional configuration for Debian 11
 
-MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+MariaDB must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
 
 ```shell
 /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -571,12 +571,12 @@ Set the **bind-address** parameter to **0.0.0.0**.
 
 ### Server name
 
-If you want, you can change the server's name using the following command:
+If you want to change the server's name, use the following command:
 ```shell
 hostnamectl set-hostname new-server-name
 ```
 
-Replace **new-server-name** by the name you want. Example:
+Replace **new-server-name** with the name of your choice. Example:
 ```shell
 hostnamectl set-hostname remote1
 ```
@@ -594,10 +594,10 @@ Run the command:
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
-> Replace **Europe/Paris** by your time zone. You can find the list of
+> Replace **Europe/Paris** with your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-After saving the file, please do not forget to restart the PHP-FPM service:
+After saving the file, remember to restart the PHP-FPM service:
 
 ```shell
 systemctl restart php-fpm
@@ -612,10 +612,10 @@ Run the command:
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
-> Replace **Europe/Paris** by your time zone. You can find the list of
+> Replace **Europe/Paris** with your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-After saving the file, please do not forget to restart the PHP-FPM service:
+After saving the file, remember to restart the PHP-FPM service:
 
 ```shell
 systemctl restart php-fpm
@@ -644,7 +644,7 @@ systemctl restart php8.1-fpm
 </TabItem>
 </Tabs>
 
-### Services startup during system bootup
+### Service startup during system bootup
 
 To make services start automatically during system bootup, run these commands
 on the central server:
@@ -729,17 +729,17 @@ systemctl start apache2
 2. To complete the installation, follow the
 [web installation steps](../web-and-post-installation.md#web-installation) procedure.
 
-> During web installation, it is not necessary to install Autodiscovery module.
+> During web installation, it is not necessary to install the Autodiscovery module.
 
-> In the step **Initialization of the monitoring**, only the actions from 6 to 8 must be done.
+> In the step **Initialization of the monitoring**, only actions 6 to 8 need to be done.
 
 ## Step 5: Register the server
 
-To transform the server into a Remote Server and to register it to the Central server or to another Remote server, execute the following command on the future remote server:
+To transform the server into a Remote Server and to register it to the Central server or another Remote server, execute the following command on the future remote server:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_NAME>
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Example:
@@ -748,7 +748,7 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
+> Replace **<IP_TARGET_NODE>** with the IP of the central server, as seen by the remote server.
 
 > The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
@@ -765,7 +765,7 @@ Then follow instructions by
 2. Select the IP address if multiple network interfaces exist:
 
     ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
+    Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
     1
@@ -774,9 +774,9 @@ Then follow instructions by
 3. Then validate the information:
 
     ``` shell
-    Summary of the informations that will be send:
+    Summary of the information that will be sent:
 
-    Api Connection:
+    API connection:
     username: admin
     password: ******
     target server: 192.168.0.1
@@ -786,31 +786,31 @@ Then follow instructions by
     type: remote
     address: 192.168.0.2
 
-    Do you want to register this server with those informations ? (y/n)y
+    Do you want to register this server with the previous information? (y/n)y
     ```
 
 4. Add additional information to enable future communication between your Remote Server and its Central,
 fill in the required information to convert your platform into a Remote server:
 
   ```shell
-  <CURRENT_NODE_ADDRESS> : Please enter your username:
+  <CURRENT_NODE_ADDRESS>: Please enter your username:
   admin
-  <CURRENT_NODE_ADDRESS> : Please enter your password:
+  <CURRENT_NODE_ADDRESS>: Please enter your password:
 
-  <CURRENT_NODE_ADDRESS> : Protocol [http]:
-  <CURRENT_NODE_ADDRESS> : Port [80]:
+  <CURRENT_NODE_ADDRESS>: Protocol [http]:
+  <CURRENT_NODE_ADDRESS>: Port [80]:
   <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
   ```
 
 5. If you use a proxy, please define credentials:
 
     ```shell
-    Are you using a proxy ? (y/n)
+    Are you using a proxy? (y/n)
     y
     enter your proxy Host:
     myproxy.example.com
     enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
+    Are you using a username/password? (y/n)
     y
     enter your username:
     my_proxy_username
@@ -839,26 +839,26 @@ You will receive the validation of the Centreon central server:
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-Failed connect to 192.168.0.1:444; Connection refused
+Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
-> The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
+> The access url is incomplete or invalid. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 
 ``` shell
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 23.04.
+> Your Centreon target version is invalid. It should be greater than or equal to 23.04.
 
 ## Step 6: Extend local DBMS rights
 
-Finally, add rights to **centreon** database user to use **LOAD DATA INFILE**
+Finally, add rights for the **centreon** database user to use **LOAD DATA INFILE**
 command:
 
 ```sql
@@ -867,12 +867,12 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 exit
 ```
 
-## Step 7: Add the Remote Server to configuration
+## Step 7: Add the Remote Server to the configuration
 
 Go to the
 [Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
 ## Step 8: Secure your platform
 
-Do not forget to secure your Centreon platform following our
+Remember to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.md)

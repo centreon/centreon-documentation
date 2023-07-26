@@ -3,8 +3,8 @@ id: first-supervision
 title: Prerequisites
 ---
 
-This topic proposes to install the monitoring templates supplied free of charge with the Centreon solution
-and then to implement them to monitor your first equipment.
+This tutorial describes how to install the monitoring templates supplied free of charge with the Centreon solution
+and then implement them to monitor your first device.
 
 > If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.md) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.md).
 
@@ -14,12 +14,12 @@ Go to the **Configuration \> Monitoring Connectors** menu.
 
 > [Configure the proxy](../administration/parameters/centreon-ui.md#proxy-configuration) to allow the Centreon server to access the internet.
 
-Install the **Base Generic** Monitoring Connector (if it is not already installed) by moving your cursor on it and by clicking on the **+** icon (it is a prerequisite
-to the installation of any other Monitoring Connectors):
+Install the **Base Generic** Monitoring Connector (if it is not already installed) by moving your cursor onto it and then clicking the **+** icon (it is a prerequisite
+for the installation of any other Monitoring Connectors):
 
 ![image](../assets/getting-started/pp_base_generic_1.png)
 
-You can also click on the Monitoring Connector in order to know its content before installing it:
+You can also click the Monitoring Connector to discover its content before installing it:
 
 ![image](../assets/getting-started/pp_base_generic_2.png)
 

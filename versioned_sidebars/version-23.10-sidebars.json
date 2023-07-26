@@ -492,6 +492,10 @@
         },
         {
           "type": "doc",
+          "id": "version-23.10/monitoring/basic-objects/customization"
+        },
+        {
+          "type": "doc",
           "id": "version-23.10/monitoring/basic-objects/contacts-create"
         },
         {

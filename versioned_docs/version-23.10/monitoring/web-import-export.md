@@ -3,6 +3,9 @@ id: web-import-export
 title: Import/Export
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The Centreon Web Import/Export module is designed to help users configure
 several Centreon Web platforms in a faster and easier way, thanks to its
 import/export mechanism.
@@ -20,9 +23,29 @@ the Centreon Web UI instead of command lines.
 
 Run the following commands as a privileged user:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ``` shell
-yum install centreon-awie
+dnf install centreon-awie
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-awie
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-awie
+```
+
+</TabItem>
+</Tabs>
 
 ### UI installation
 
