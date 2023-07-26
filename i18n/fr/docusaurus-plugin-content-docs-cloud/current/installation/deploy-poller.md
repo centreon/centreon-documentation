@@ -3,6 +3,9 @@ id: deploy-poller
 title: Déployer un collecteur
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Avec Centreon Cloud, votre serveur central est déjà prêt à l'emploi. Il ne vous reste qu'à installer un ou des collecteurs dans votre infrastructure, ce qui est très facile : exécutez un script, exportez la configuration et le collecteur est prêt.
 
 Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md).
@@ -11,11 +14,28 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 
 1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
 
-2. Exécutez la commande qui déploiera le collecteur automatiquement. Cette commande vous a été fournie par notre équipe support. Le format est le suivant :
+2. Exécutez la commande qui déploiera le collecteur automatiquement. Cette commande vous a été fournie par notre équipe support. Le format est le suivant (selon votre région) :
 
-  ```shell
-  bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <votre_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<votre_code_organisation>/site/centreon/poller -s)"
-  ```
+<Tabs groupId="sync">
+<TabItem value="US East Region" label="US East Region">
+
+> Cette région concerne les clients situés aux USA, au Canada et en Amérique du Sud.
+
+```shell
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <votre_token>"  https://api.useast1.prod1.centreon.cloud/v1/organization/<votre_code_organisation>/site/centreon/poller -s)"
+```
+
+</TabItem>
+<TabItem value="Europe West Region" label="Europe West Region">
+
+> Cette région concerne les clients situés en Europe, Afrique, Asie et Océanie.
+
+```shell
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<votre_code_organisation>/site/centreon/poller -s)"
+```
+
+</TabItem>
+</Tabs>
   
   > Remplacez `<votre_token>` et `<votre_code_organisation>` par les valeurs appropriées.
 

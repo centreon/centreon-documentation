@@ -3,6 +3,9 @@ id: deploy-poller
 title: Deploying a poller
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 With Centreon Cloud, your central server is already ready to use. All you have to do is to install pollers in your infrastructure, and that is very easy: just execute a script then export the configuration and there you are.
 
 Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met.
@@ -11,11 +14,28 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 1. Use SSH to connect to the server that will become a poller.
 
-2. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this:
+2. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this (according to your region):
 
-  ```shell
-  bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
-  ```
+<Tabs groupId="sync">
+<TabItem value="US East Region" label="US East Region">
+
+> This applies to customers located in the USA, Canada and South America.
+
+```shell
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <votre_token>"  https://api.useast1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
+```
+
+</TabItem>
+<TabItem value="Europe West Region" label="Europe West Region">
+
+> This applies to customers located in Europe, Africa, Asia and Oceania.
+
+```shell
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
+```
+
+</TabItem>
+</Tabs>
   
   > Make sure you replace `<your_token>` and `<your_organization_code>` by the correct values.
 
