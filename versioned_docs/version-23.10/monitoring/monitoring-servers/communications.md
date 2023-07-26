@@ -9,16 +9,16 @@ import TabItem from '@theme/TabItem';
 ## Communication modes
 
 Even though Gorgone is being installed on Pollers and Remote Servers, it is
-allowed to communicate with them (from Central server, or between a Remote
-Server and a Poller) using SSH protocol.
+allowed to communicate with them (from the Central server, or between a Remote
+Server and a Poller) using the SSH protocol.
 
-Although the SSH communication type is allowed, it must be used for
-transitioning from older platform that were using Centcore to a full-ZMQ
+Although SSH-type communication is allowed, it must be used for
+transitioning from older platforms that were using Centcore to a full-ZMQ
 platform.
 
-> Pollers or Remote Servers that will not use ZMQ as communication type
-> between Central's Gorgone and theirs will not benefit from all Centreon
-> and Centreon's extensions features.
+> Pollers or Remote Servers not using ZMQ as the communication protocol
+> between Central's Gorgone and theirs will not benefit from all the features
+> of Centreon and its extensions.
 
 Communication modes are listed below:
 
@@ -41,8 +41,8 @@ Communication modes are listed below:
 </TabItem>
 </Tabs>
 
-\* Monitoring actions are all actions provided by Centreon UI like downtimes,
-acknowledgements, etc and configuration export.
+\* Monitoring actions are all actions provided by Centreon UI, like downtime,
+acknowledgements, etc., and configuration export.
 
 ### With Remote Server
 
@@ -74,14 +74,14 @@ acknowledgements, etc and configuration export.
 | ----------------------------------------------------------------- | -------------------- |
 | **Central** <-- *SSH* --\> **Remote** <-- *ZMQ* --\> **Poller** | Monitoring actions\* |
 
-> This mode does not allow to retrieve Remote's thumbprint therefore it's
+> This mode does not allow retrieval of Remote's thumbprint, therefore it's
 > not possible to display Poller's Gorgone configuration from Centreon UI.
 
 </TabItem>
 </Tabs>
 
-\* Monitoring actions are all actions provided by Centreon UI like downtimes,
-acknowledgements, etc and configuration export.
+\* Monitoring actions are all actions provided by Centreon UI, like downtime,
+acknowledgements, etc., and configuration export.
 
 ## Change communication from SSH to ZMQ
 
@@ -97,15 +97,15 @@ Define the suitable **port** (port **5556** is recommended).
 
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
 
-Click on **Save**.
+Click **Save**.
 
 #### Display Gorgone configuration
 
-From the Pollers listing, click on the **Display Gorgone configuration** action
+From the Poller list, click the **Display Gorgone configuration** action
 icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
-A pop-in will show the configuration to copy into the **Poller terminal**.
-Click on **Copy to clipboard**.
+A popin will show the configuration to copy into the **Poller terminal**.
+Click **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
@@ -118,7 +118,7 @@ name:  gorgoned-My Poller
 description: Configuration for poller My Poller
 gorgone:
   gorgonecore:
-    id: 2
+    id: 2.
     external_com_type: tcp
     external_com_path: "*:5556"
     authorized_clients:
@@ -145,7 +145,7 @@ Hit the enter key for the command to be applied.
 
 #### Start Gorgone daemon
 
-From the Poller, run the following command to start Gorgone service:
+From the Poller, run the following command to start the Gorgone service:
 
 ``` shell
 systemctl start gorgoned
@@ -157,7 +157,7 @@ Make sure it is started by running the following command:
 systemctl status gorgoned
 ```
 
-It should result as follow:
+The result should be as follows:
 
 ``` shell
 ● gorgoned.service - Centreon Gorgone
@@ -182,10 +182,10 @@ systemctl enable gorgoned
 > If there is a Remote Server between the Central and this Poller, make sure to
 > export the configuration of the Remote Server.
 >
-> From the Pollers listing, select the Remote Server and click on **Export
+> From the Poller list, select the Remote Server and click **Export
 > configuration**.
 >
-> Then check the three first boxes and click on **Export**.
+> Then check the first three boxes and click **Export**.
 >
 > Finally, restart the Gorgone daemon of this Remote Server by running the
 > following command:
@@ -199,23 +199,23 @@ systemctl enable gorgoned
 
 #### Select communication type
 
-From **Configuration > Pollers** menu, edit the Remote Server configuration, and
+From the **Configuration > Pollers** menu, edit the Remote Server configuration, and
 select **ZMQ** as **Gorgone connection protocol**.
 
 Define the suitable **port** (port **5556** is recommended).
 
 ![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
-Click on **Save**.
+Click **Save**.
 
 #### Display Gorgone configuration
 
-From the Pollers listing, click on the **Display Gorgone configuration** action
+From the Poller list, click the **Display Gorgone configuration** action
 icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
-A pop-in will show the configuration to copy into the **Remote Server
+A popin will show the configuration to copy into the **Remote Server
 terminal**.
-Click on **Copy to clipboard**.
+Click **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
 
@@ -228,7 +228,7 @@ name: gorgoned-My Remote Server
 description: Configuration for remote server My Remote Server
 gorgone:
   gorgonecore:
-    id: 3
+    id: 3.
     external_com_type: tcp
     external_com_path: "*:5556"
     authorized_clients:
@@ -275,12 +275,12 @@ gorgone:
           timespec: "*/5 * * * *"
           action: BROKERSTATS
           parameters:
-            timeout: 10
+            timeout: 10.
         - id: engine_stats
           timespec: "*/5 * * * *"
           action: ENGINESTATS
           parameters:
-            timeout: 10
+            timeout: 10.
 
 EOF
 ```
@@ -292,7 +292,7 @@ Hit the enter key for the command to be applied.
 
 #### Restart Gorgone daemon
 
-From the Remote Server, run the following command to restart Gorgone service:
+From the Remote Server, run the following command to restart the Gorgone service:
 
 ```shell
 systemctl restart gorgoned
@@ -304,7 +304,7 @@ Make sure it is started by running the following command:
 systemctl status gorgoned
 ```
 
-It should result as follow:
+The result should be as follows:
 
 ```shell
 ● gorgoned.service - Centreon Gorgone

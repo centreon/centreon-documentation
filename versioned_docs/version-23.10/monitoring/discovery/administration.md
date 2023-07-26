@@ -36,10 +36,10 @@ apt update && apt update centreon-auto-discovery-server
 2. Connect to the Centreon web interface using an account allowed to install
 products and go to the **Administration > Extensions > Manager** page.
 
-3. Make sure that **License Manager** and **Monitoring Connectors Manager** modules are
- up-to-date before updating the **Auto Discovery** module.
+3. Make sure the **License Manager** and **Monitoring Connectors Manager** modules are
+ up to date before updating the **Auto Discovery** module.
 
-4. Click on the update icon corresponding to the **Auto Discovery**
+4. Click the update icon corresponding to the **Auto Discovery**
 module:
 
   ![image](../../assets/monitoring/discovery/update.png)
@@ -56,7 +56,7 @@ module:
 1. Connect to the Centreon web interface using an account allowed to install
 products and go to the **Administration > Extensions > Manager** page.
 
-2. Click on the delete icon corresponding to the **Auto Discovery**
+2. Click the delete icon corresponding to the **Auto Discovery**
 module:
 
   ![image](../../assets/monitoring/discovery/install-after.png)
@@ -75,14 +75,14 @@ The **Auto Discovery** module brings a specific configuration for the Gorgone
 service on the Central server. The default configuration is
 `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml`.
 
-A maximum duration for hosts discovery jobs is set globally. If it is necessary to
-change it (large subnet SNMP discovery for example), edit the configuration and
+A maximum duration for host discovery jobs is set globally. If it is necessary to
+change it (large subnet SNMP discovery, for example), edit the configuration and
 add the *global_timeout* directive.
 
 If mail notifications are enabled in service discovery rules, mail parameters
 can be defined to choose the sender, subject or mail command.
 
-Example of configuration:
+Example configuration:
 
 ```yaml
 gorgone:
@@ -91,8 +91,8 @@ gorgone:
       package: "gorgone::modules::centreon::autodiscovery::hooks"
       enable: true
       # Host Discovery
-      check_interval: 15
-      global_timeout: 300
+      check_interval: 15.
+      global_timeout: 300.
       # Service Discovery
       mail_subject: Centreon Auto Discovery
       mail_from: centreon-autodisco
@@ -107,7 +107,7 @@ gorgone:
 
 ### Distributed architecture
 
-The hosts and services discoveries both rely on Gorgone to perform discoveries
+The host and service discoveries both rely on Gorgone to perform discoveries
 on both Central and Remote Servers or Pollers.
 
 > It is necessary to have a ZMQ communication between the Central server and a
@@ -132,7 +132,7 @@ definition in the following file:
 
 The default configuration runs the discovery every day at 10:30 PM.
 
-> If you had changed the legacy *crond* configuration file to adapt the schedule
+> If you have changed the legacy *crond* configuration file to adapt the schedule,
 > you must apply changes to the new configuration file.
 
 It is also possible to run multiple service discoveries with different
@@ -184,7 +184,7 @@ located at `/etc/centreon-gorgone/config.d/31-centreon-api.yaml`.
 It defines accesses to both Centreon CLAPI and RestAPI to allow discovery to
 communicate with Centreon.
 
-Example of configuration:
+Example configuration:
 
 ```yaml
 gorgone:
@@ -201,7 +201,7 @@ gorgone:
 Access to RestAPI, represented by *centreonv2*, requires credentials of a
 user with *Reach API Configuration* access. It is used for Host Discovery.
 
-Access to CLAPI requires credentials of an *Admin* user. It is used for
+Access to CLAPI requires the credentials of an *Admin* user. It is used for
 Service Discovery.
 
 > One user can be used for both accesses. Furthermore, users don't need
