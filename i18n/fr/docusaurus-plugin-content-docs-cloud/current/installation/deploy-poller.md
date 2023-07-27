@@ -19,29 +19,30 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 <Tabs groupId="sync">
 <TabItem value="US East Region" label="US East Region">
 
-> Cette région concerne les clients situés aux USA, au Canada et en Amérique du Sud.
-
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <votre_token>"  https://api.useast1.prod1.centreon.cloud/v1/organization/<votre_code_organisation>/site/centreon/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: votre_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/votre_code_organisation/site/centreon/poller -s)"
 ```
+
+> Cette région concerne les clients situés aux USA, au Canada et en Amérique du Sud.
 
 </TabItem>
 <TabItem value="Europe West Region" label="Europe West Region">
 
-> Cette région concerne les clients situés en Europe, Afrique, Asie et Océanie.
 
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<votre_code_organisation>/site/centreon/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: votre_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/votre_code_organisation/site/centreon/poller -s)"
 ```
+
+> Cette région concerne les clients situés en Europe, Afrique, Asie et Océanie.
 
 </TabItem>
 </Tabs>
   
-  > Remplacez `<votre_token>` et `<votre_code_organisation>` par les valeurs appropriées.
+> Remplacez **votre_token** et **votre_code_organisation** par les valeurs appropriées.
 
-  Le script s'exécute (cela devrait prendre environ 10 minutes) :
+Le script s'exécute (cela devrait prendre environ 10 minutes) :
 
-  ![image](../assets/installation/script2.png)
+![image](../assets/installation/script2.png)
 
 3. Une fois le script exécuté, [connectez-vous à votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central) et allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
    * Par défaut, le nom du collecteur est son hostname (celui-ci peut avoir été abrégé). Cliquez sur le nom du collecteur pour le renommer.

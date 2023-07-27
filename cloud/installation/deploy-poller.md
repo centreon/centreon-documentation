@@ -19,25 +19,26 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 <Tabs groupId="sync">
 <TabItem value="US East Region" label="US East Region">
 
-> This applies to customers located in the USA, Canada and South America.
-
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <votre_token>"  https://api.useast1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: your_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/your_organization_code/site/centreon/poller -s)"
 ```
+
+> This applies to customers located in the USA, Canada and South America.
 
 </TabItem>
 <TabItem value="Europe West Region" label="Europe West Region">
 
-> This applies to customers located in Europe, Africa, Asia and Oceania.
 
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: <your_token>"  https://api.euwest1.prod1.centreon.cloud/v1/organization/<your_organization_code>/site/centreon/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: your_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/your_organization_code/site/centreon/poller -s)"
 ```
+
+> This applies to customers located in Europe, Africa, Asia and Oceania.
 
 </TabItem>
 </Tabs>
   
-  > Make sure you replace `<your_token>` and `<your_organization_code>` by the correct values.
+  > Make sure you replace **your_token** and **your_organization_code** by the correct values.
 
   The script is executed (this should take about 10 minutes):
 
