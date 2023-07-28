@@ -5,18 +5,18 @@ title: Enable SNMP Traps
 
 ## Description
 
-SNMP traps are information sent using the SNMP protocol from monitored equipment to a poller server. This information
-contains multiple Attributes including:
+SNMP traps are information sent using the SNMP protocol from monitored resources to a poller server. This information
+contains multiple Attributes, including:
 
-* Address of the equipment sending the information.
+* Address of the resource sending the information.
 * The root OID (Object Identifier) corresponding to the identifier of the message received.
 * The message sent via the SNMP trap which corresponds to a set of settings (1 to N).
 
-In order to be able to interpret the event received the Network supervisor server needs to possess in its configuration
-the necessary elements to translate the event. For this it must have a database containing the OID and the
-descriptions, this is what is called MIB files. There are two types of MIB:
+In order to be able to interpret the event received, the Network supervisor server needs to possess in its configuration
+the necessary elements to translate the event. For this, it must have a database containing the OID and the
+descriptions, known as MIB files. There are two types of MIB:
 
-* Standard MIBs which use standardized OIDs and which are implemented by numerous manufacturers on their equipment.
+* Standard MIBs that use standardized OIDs and are implemented by numerous manufacturers on their equipment.
 * MIB manufacturers who are specific to each one and often to each equipment model.
 
 MIB manufacturers can be retrieved from the equipment. Centreon allows us to store the definition of SNMP traps in its
@@ -31,12 +31,12 @@ The processing of an SNMP trap is as follows:
 
 1. snmptrapd is the service enabling the retrieval of SNMP traps sent by the equipment (by default it listens on port
   **UDP 162**).
-2. Once the SNMP trap has been received, it is sent to the ‘centreontrapdforward’ script which writes the information
+2. Once the SNMP trap has been received, it is sent to the ‘centreontrapdforward’ script, which writes the information
   received in a buffer folder (by default **/var/spool/centreontrapd/**).
-3. The ‘centreontrapd’ service reads the information received in the buffer folder and interprets the traps received
+3. The ‘centreontrapd’ service reads the information received in the buffer folder and interprets the traps received,
   checking, in the centreon database, the actions necessary to process these events.
 4. The ‘centreontrapd’ service transmits the information to the scheduler or the ‘gorgoned’ service (to send the
-  information to a remote scheduler) which changes the status and the information associated with service to which the
+  information to a remote scheduler), which changes the status and the information associated with the service to which the
   SNMP trap is linked.
 
 ![image](../../assets/configuration/06_trap_centreon.png)
@@ -51,22 +51,22 @@ The processing of an SNMP trap is as follows:
 
 1. snmptrapd is the service used to retrieve the SNMP traps sent by the equipment (by default it listens on port
   **UDP 162**).
-2. Once the SNMP trap is received, it is sent to the ‘centreontrapdforward’ script which writes the information
+2. Once the SNMP trap has been received, it is sent to the ‘centreontrapdforward’ script, which writes the information
   received in a buffer folder (by default **/var/spool/centreontrapd/**).
 3. The ‘centreontrapd’ service reads the information received in the buffer folder and interprets the various traps
-  received checking in the SQLite database the actions to be taken to process the traps received.
-4. The ‘centreontrapd’ service transmits the information to the scheduler which changes the status and the information
+  received, checking in the SQLite database for the actions to be taken to process the traps received.
+4. The ‘centreontrapd’ service transmits the information to the scheduler, which changes the status and the information
   associated with the service to which the SNMP trap is linked.
 
 ![image](../../assets/configuration/06_trap_poller.png)
 
-> The Centreon Gorgone process is responsible to copy the SQLite base on the remote poller.
+> The Centreon Gorgone process is responsible for copying the SQLite base on the remote poller.
 
 ### Successive actions by the centreontrapd process
 
 Successive actions by the centreontrapd process are:
 
-![image](../../assets/configuration/SNMP_Traps_management_general_view.png)
+![image](../../assets/configuration/kcentreontrapd_schema.png)
 
 ## Configuring services
 
@@ -79,7 +79,7 @@ disableAuthorization yes
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
 
-You can optimize the performances of snmptrapd by using the following options:
+You can optimize the performance of snmptrapd by using the following options:
 
 * **-On** don’t try to convert the OIDs
 * **-t** don’t log the traps to the syslog server
@@ -93,7 +93,7 @@ OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 
 ### centreontrapdforward
 
-To change the buffer folder towards which the information will be written, change the configuration file
+To change the buffer folder to which the information will be written, change the configuration file
 **/etc/centreon/centreontrapd.pm**:
 
 ```perl
@@ -112,7 +112,7 @@ tmpfs /var/spool/centreontrapd      tmpfs defaults,size=512m 0 0
 
 ### centreontrapd
 
-Two configuration files existent in centreontrapd:
+Two configuration files exist in centreontrapd:
 
 * **/etc/centreon/conf.pm** contains the connection information to the MariaDB database
 * **/etc/centreon/centreontrapd.pm** contains the configuration of the centreontrapd service
@@ -143,7 +143,7 @@ our %centreontrapd_config = (
     mibs_environment => '',
     remove_backslash_from_quotes => 1,
     dns_enable => 0,
-    # Separator for arguments substitution
+    # Separator for argument substitution
     separator => ' ',
     strip_domain => 0,
     strip_domain_list => [],

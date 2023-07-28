@@ -49,7 +49,7 @@ can be used to hide the value of the macro.
 
 * The **Notification Enabled** field allows us to enable or disable the notifications for the object.
 * If the **Inherit only contacts/contact group from host** box is checked, then when generating the configuration, contact
-  and/or host groups of contacts (or the subsequent inherited templates) will overwrite the service or its service
+  and/or host groups of contacts (or those inherited from templates) will overwrite the service or its service
   templates. This function disables entering contacts and contact groups for this service.
 * The **Implied Contacts** indicates the contacts that will receive the notifications.
 * In the **Implied Contact Groups** list, all the contacts belonging to the contact groups defined will receive the notifications.
