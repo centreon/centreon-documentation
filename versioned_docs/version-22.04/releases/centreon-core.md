@@ -619,6 +619,14 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ## Centreon Gorgone
 
+### 22.04.3
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Core] Fixed recurring unexpected disconnection between pollers.
+
 ### 22.04.2
 
 Release date: `June 8, 2023`
