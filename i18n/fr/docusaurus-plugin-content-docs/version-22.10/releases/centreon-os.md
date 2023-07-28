@@ -484,3 +484,13 @@ Release date: `June 5, 2023`
 Release date: `October 26, 2022`
 
 - Compatibility with other 22.10 components.
+
+## Centreon HA
+
+### 22.10.1
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Packaging] Fixed packaging that had missing files from centreon-common installation.
