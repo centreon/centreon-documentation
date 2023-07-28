@@ -12,7 +12,7 @@ You can find in this chapter all changelogs concerning **Centreon Open Source**.
 > versions on the features you use or the specific developments that you have built on your platform (modules,
 > widgets, plugins).
 
-If you have feature requests or want to report a bug, please go to our
+If you have feature requests or want to report a bug, please go to our 
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/).
