@@ -625,7 +625,7 @@ Release date: `soon`
 
 #### Bug fixes
 
-- [Core] Fixed recurring unexpected disconnection between pollers.
+- [Core] Fixed recurring unexpected disconnections between pollers.
 
 ### 22.04.2
 
