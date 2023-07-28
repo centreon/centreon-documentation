@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.11
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 #### Enhancements
 
@@ -406,7 +406,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 ### Bug fixes
 
@@ -464,7 +464,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 ### Bug fixes
 
@@ -489,7 +489,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.1
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 #### Bug fixes
 
