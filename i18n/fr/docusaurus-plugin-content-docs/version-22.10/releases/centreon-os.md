@@ -29,9 +29,9 @@ Release date: `soon`
 #### Bug fixes
 
 - [Administration] Fixed pagination in **Data** menu.
-- [Install] Updated size to metric_name column to 1021.
+- [Install] Updated size of metric_name column to 1021.
 - [Monitoring] Fixed data insertion where metric names were too long.
-- [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
+- [ResourcesStatus] Fixed CSV export when metric name contained SQL keyword.
 
 ### 22.10.10
 
@@ -411,7 +411,7 @@ Release date: `soon`
 ### Bug fixes
 
 - [Compatibility] Fixed -d option to manage database entries in centreonBIETL script.
-- [Core] Fixed recurring unexpected disconnection between pollers.
+- [Core] Fixed recurring unexpected disconnections between pollers.
 
 ### 22.10.1
 
@@ -468,7 +468,7 @@ Release date: `soon`
 
 ### Bug fixes
 
-- Fixed a broker query.
+- Fixed a Broker query.
 
 ### 22.10.1
 
