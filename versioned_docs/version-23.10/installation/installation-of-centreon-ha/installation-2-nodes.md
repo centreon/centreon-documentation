@@ -9,20 +9,20 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding
 
-Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of Pacemaker clustering tools in order to have a correct understanding of what is being done.
+Before applying this procedure, you should have a good knowledge of Linux OS, Centreon, and Pacemaker clustering tools in order to have a correct understanding of what is being done.
 
-> **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
+> **WARNING:** Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
 ### Network Flows
 
-In addition of necessary flows describe on the [official documentation](../architectures.md#Tables_of_network_flows),
+In addition to the necessary flows described in the [official documentation](../architectures.md#Tables_of_network_flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
 | :------------------------ | :------------------------ | :------- | :------- | :----------------------------------------------------------------------------------------- |
-| Active Node               | Passive Node              | SSH      | TCP 22   | Synchronization of configuration files (Must be also open from passive to the active node) |
-| Active Node               | Passive Node              | BDDO     | TCP 5670 | RRDs synchronization (Must be also open from passive to the active node)                   |
-| Active Node               | Passive Node              | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node)                  |
+| Active Node               | Passive Node              | SSH      | TCP 22   | Synchronization of configuration files (Must also be open from passive to active node) |
+| Active Node               | Passive Node              | BDDO     | TCP 5670 | RRDs synchronization (Must also be from passive to active node)                   |
+| Active Node               | Passive Node              | MySQL    | TCP 3306 | MySQL synchronization (Must also be open from passive to active node)                  |
 | Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
 | Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
 | Central Servers + QDevice | Central Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
@@ -30,29 +30,29 @@ you will need to open the following flows:
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../introduction.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on the base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../introduction.md)** has already been completed and that **about 5 GB of free space has been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
-The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
+The output of the `vgs` command must look like this: (pay attention to the value under `VFree`):
 
 ```text
   VG                    #PV #LV #SN Attr   VSize   VFree 
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-* MariaDB files `ibdata*` and `ib_logfile*` must be in the "datadir" directory or in a subdirectory (scripts `centreondb-smooth-backup.sh` and `mysql-sync-bigdb.sh` aren't compatible with this operation);
+* MariaDB files `ibdata*` and `ib_logfile*` must be in the "datadir" directory or in a subdirectory (scripts `centreondb-smooth-backup.sh` and `mysql-sync-bigdb.sh` are not compatible with this operation);
 * MariaDB files `log-bin*` and `relay-log*` can be located in a directory (or a subdirectory) different from "datadir". They can also be on a different logical volume (`lvm`) than "datadir". However, the logical volume must be located in the volume group where "datadir" is stored.
 
-> **WARNING:** If these particular prerequisites are not effective, the databases synchronization method described further won't work.
+> **WARNING:** If these particular prerequisites are not effective, the database synchronization method described below will not work.
 
 ### Quorum Device
 
-In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
+In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device can be held by a poller of the monitoring platform.
 
-> **WARNING:** Be sure Selinux and Firewalld are disabled.
+> **WARNING:** Make sure Selinux and Firewalld are disabled.
 
 ### Defining hosts' names and addresses
 
-In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
+In this procedure, we will refer to characteristics that are bound to change from one platform to another (such as IP addresses) by the following macros:
 
 * `@CENTRAL_MASTER_IPADDR@`: primary central server's IP address
 * `@CENTRAL_MASTER_NAME@`: primary central server's name (must be identical to `hostname -s`)
@@ -66,11 +66,11 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@MARIADB_CENTREON_PASSWD@`: MariaDB Centreon password
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
-* `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
+* `@VIP_CIDR_NETMASK@`: subnet mask length in bits (e.g. 24)
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
-* `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
+* `@CENTREON_CLUSTER_PASSWD@`: `hacluster` user's password
 
-### Configuring  centreon-broker
+### Configuring centreon-broker
 
 #### Link to cbd service
 
@@ -84,11 +84,11 @@ In the context of a *Centreon HA* cluster, both broker processes will be handled
 * `central-broker-master` known as the resource `cbd_central_broker`, linked to *systemd* service `cbd-sql`
 * `central-rrd-master` known as the clone resource `cbd_rrd`, linked to *systemd* `cbd` service, the standard broker service of Centreon.
 
-So that everything goes well, you will have to unlink central-broker-master from `cbd` service by checking "No" for parameter "Link to cbd service" in *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* under the *General* tab.
+To ensure that everything goes well, you will have to unlink central-broker-master from the `cbd` service by checking "No" for parameter "Link to cbd service" in *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* under the *General* tab.
 
-#### Double output stream towards RRD
+#### Double output stream toward RRD
 
-In the event of a cluster switch, you will expect the newly elected master central server to be able to display the metrics graphs, which requires all RRD data files to be up-to-date on both nodes. In order to fit this condition, you will double the central broker output stream and send it to both RRD broker processes. You can configure this in the same menu as above, this time under the *Output* tab. The parameters that must be changed are:
+In the event of a cluster switch, you will expect the newly elected master central server to be able to display the metrics graphs, which requires all RRD data files to be up to date on both nodes. In order to fulfill this condition, you will double the central broker output stream and send it to both RRD broker processes. You can configure this in the same menu as above, this time under the *Output* tab. The parameters that must be changed are:
 
 * In the first "IPv4" output, replace "localhost" with `@CENTRAL_MASTER_IPADDR@` in the "Host to connect to" field.
 
@@ -100,7 +100,7 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Buffering timeout  | 0                          |
 | Retry interval     | 60                         |
 
-* Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed towards `@CENTRAL_SLAVE_IPADDR@`.
+* Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed toward `@CENTRAL_SLAVE_IPADDR@`.
 
 | Output IPv4        |                           |
 | ------------------ | ------------------------- |
@@ -112,9 +112,9 @@ In the event of a cluster switch, you will expect the newly elected master centr
 
 #### Export the configuration
 
-Once the previous actions have been done, you will have to export the central poller configuration files to apply these changes. Select the central poller, export the configuration with the "Move Export Files" option checked.
+Once the above actions have been done, export the central poller configuration files to apply these changes. Select the central poller and export the configuration with the "Move Export Files" option checked.
 
-All the previous actions have to be applied either to both nodes, or to `@CENTRAL_MASTER_NAME@` only and the exported files have to be copied to `@CENTRAL_SLAVE_NAME@`:
+All the above actions should be applied either to both nodes or to `@CENTRAL_MASTER_NAME@` only, and the exported files should be copied to `@CENTRAL_SLAVE_NAME@`:
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
@@ -122,19 +122,19 @@ rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 
 ### Customizing poller reload command
 
-You may ignore that, but the central broker daemon has to be reloaded every time you update your central poller's configuration, hence the "Centreon Broker reload command" parameter in *Configuration > Pollers > Central*.
+You might not be aware that the central broker daemon must be reloaded every time you update your central poller's configuration, hence the "Centreon Broker reload command" parameter in *Configuration > Pollers > Central*.
 
-As stated above, the centreon-broker processes will be divided into `cbd` (for RRD) and `cbd-sql` (for central broker) services. In this perspective, the service that needs to be reloaded is `cbd-sql` and not `cbd` any more. So you will have to set the "Centreon Broker reload command" parameter to `service cbd-sql reload`.
+As stated above, the centreon-broker processes will be divided into `cbd` (for RRD) and `cbd-sql` (for central broker) services. With this in mind, the service that needs to be reloaded is `cbd-sql`, and no longer `cbd`. So you will have to set the "Centreon Broker reload command" parameter to `service cbd-sql reload`.
 
 ## System settings
 
-Before actually setting the cluster up, some system prerequisites have to be met.
+Before actually setting the cluster up, some system prerequisites must be satisfied.
 
-**Note :** unless otherwise stated, each of the following steps must be performed **on the two central nodes**.
+**Note :** unless otherwise stated, each of the following steps must be performed **on both central nodes**.
 
 ### Kernel network tuning
 
-In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings to all your Centreon servers (including pollers):
+In order to improve the reliability of the cluster, and since *Centreon HA* only supports IPv4, we recommend applying the following kernel settings to all your Centreon servers (including pollers):
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -182,11 +182,11 @@ cat >/etc/hosts <<"EOF"
 EOF
 ```
 
-From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `@CENTRAL_SLAVE_NAME@` the "secondary server/node". This designation is arbitrary, the two nodes will of course be interchangeable once the setup is done.
+From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `@CENTRAL_SLAVE_NAME@` the "secondary server/node". This designation is arbitrary; the two nodes will of course be interchangeable once the setup is complete.
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha-web`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
+Centreon offers a package named `centreon-ha-web`, which provides all the files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
 
 <Tabs groupId="sync">
 <TabItem value="Alma Linux 8" label="Alma Linux 8">
@@ -232,7 +232,7 @@ SSH key-based authentication must be set so that files and commands can be sent 
 
 There are two ways of exchanging such keys:
 
-* By using `ssh-copy-id` command: needs to be able to log in to remote host using a password. It is however unsafe for such system accounts to have a password authentication available. If you choose this method, we advice you to revoke this password afterwards with these commands: `passwd -d centreon` and `passwd -d mysql`.
+* By using the `ssh-copy-id` command: needs to be able to log in to remote host using a password. It is however unsafe for such system accounts to have a password authentication available. If you choose this method, we advise you to revoke the password afterward with these commands: `passwd -d centreon` and `passwd -d mysql`.
 * By manually copying the public key in `~/.ssh/authorized_keys`. This method is safer.
 
 The second method will be documented below.
@@ -252,23 +252,23 @@ ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `centreon` user):
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node, and then apply the correct file permissions (still as user `centreon`):
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
+The key exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as user `centreon`):
 
 ```bash
 ssh <peer node hostname>
 ```
 
-Then exit the `centreon` session typing `exit` or `Ctrl-D`.
+Then exit the `centreon` session by typing `exit` or `Ctrl-D`.
 
 #### `mysql` account
 
-For the `mysql` account, the procedure is slightly different since this user normally has neither home directory nor the ability to open a Shell session. These commands must be run on both nodes as well:
+For the `mysql` account, the procedure is slightly different because this user normally has neither a home directory nor the ability to open a Shell session. These commands must be run on both nodes as well:
 
 ```bash
 systemctl stop mysql
@@ -287,32 +287,32 @@ ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `mysql` user):
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node, and then apply the correct file permissions (still as user`mysql`):
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `mysql` user):
+The key exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as user `mysql`):
 
 ```bash
 ssh <peer node hostname>
 ```
 
-Then exit the `mysql` session typing `exit` or `Ctrl-D`.
+Then exit the `mysql` session by typing `exit` or `Ctrl-D`.
 
-## Configuring the MariaDB databases replication
+## Configuring the MariaDB database replication
 
-A Master-Slave MariaDB cluster will be setup so that everything is synchronized in real-time. 
+A Master-Slave MariaDB cluster will be set up so that everything is synchronized in real time. 
 
-**Note:** unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+**Note:** unless otherwise stated, each of the following steps must be performed **on both central nodes**.
 
 ### Configuring MariaDB
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
+For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
 
 ```ini
 [server]
@@ -353,7 +353,7 @@ max_allowed_packet=128M
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
+For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
 
 ```ini
 [server]
@@ -400,29 +400,29 @@ Comment the following line:
 </TabItem>
 </Tabs>
 
-> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory but recommended.
+> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master and 2 => Slave are not mandatory, but recommended.
 
-**Reminder:** Don't forget to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
+**Reminder:** Remember to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
 
-To apply the new configuration, you have to restart the database server:
+To apply the new configuration, restart the database server:
 
 ```bash
 systemctl restart mariadb
 ```
 
-Make sure that the restart went well:
+Make sure the restart went well:
 
 ```bash
 systemctl status mariadb
 ```
 
-> **Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
+> **Warning:** Other files in `/etc/my.cnf.d/`, such as `centreon.cnf`, will be ignored from now on. Any customization will have to be added to `server.cnf`.
 
-> **Warning:** Don't forget to change the parameter `Mysql configuration file path` in **Administration > Parameters > Backup**
+> **Warning:** Remember to change the parameter `Mysql configuration file path` in **Administration > Parameters > Backup**
 
 ### Securing the database server
 
-To avoid unnecessary exposure of your database, you should restrict access to it as much as possible. The `mysql_secure_installation` command will help you apply some basic security principles. You just need to run this command and let yourself be guided, choosing the recommended choice at every step. We suggest you choose a strong password.
+To avoid unnecessary exposure of your database, you should restrict access to it as much as possible. The `mysql_secure_installation` command will help you apply some basic security principles. You just need to run this command and let yourself be guided, choosing the recommended option at every step. We suggest you choose a strong password.
 
 ```bash
 mysql_secure_installation
@@ -430,13 +430,13 @@ mysql_secure_installation
 
 ### Creating the `centreon` MariaDB account
 
-First log in as `root` on both database servers (using the newly defined password):
+First log in as `root` on both database servers (using the newly-defined password):
 
 ```bash
 mysql -p
 ```
 
-Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (default: `centreon`). Of course, you will replace the macros first:
+Then, on both sides, paste the following SQL commands to the MariaDB prompt to create the application user (default: `centreon`). Of course, you will replace the macros first:
 
 ```sql
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
@@ -448,7 +448,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
+When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update the `'@MARIADB_CENTREON_USER@'@'localhost'` password:
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
@@ -492,7 +492,7 @@ CENTREON_STORAGE_DB='centreon_storage'
 ###############################
 ```
 
-To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
+To make sure that all the previous steps have been successful and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -518,7 +518,7 @@ What matters here is that the first two connection tests are `OK`.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
+Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
 
 * Primary node:
 
@@ -547,7 +547,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file:
+Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file:
 
 * Primary node:
 
@@ -586,19 +586,19 @@ Run this command **on the secondary node:**
 systemctl stop mariadb
 ```
 
-It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
+It is important to make sure that MariaDB is completely shut down. Run this command and check that it returns no output:
 
 ```bash
 ps -ef | grep mariadb[d]
 ```
 
-In case one or more process are still alive, then run this other command (it will prompt for the MariaDB root password):
+In case one or more processes are still alive, run this other command (it will prompt for the MariaDB root password):
 
 ```bash
 mysqladmin -p shutdown
 ```
 
-Once the service is stopped **on the secondary node**, you will run the synchronization script **from the primary node**:
+Once the service is stopped **on the secondary node**, run the synchronization script **from the primary node**:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
@@ -608,15 +608,15 @@ This script will perform the following actions:
 
 * checking that MariaDB is stopped on the secondary node
 * stopping MariaDB on the primary node
-* mounting a LVM snapshot on the same volume group that bears the `/var/lib/mysql` (or whatever mount point holds the MariaDB data files)
+* mounting an LVM snapshot on the same volume group that holds `/var/lib/mysql` (or whatever mount point holds the MariaDB data files)
 * starting MariaDB again on the primary node
 * recording the current position in the binary log
-* disabling the `read_only` mode on the primary node (this node will now be able to write into its database)
+* disabling the `read_only` mode on the primary node (this node will now be able to write to its database)
 * synchronizing/overwriting all the data files (except for the `mysql` system database) 
 * unmounting the LVM snapshot
 * creating the replication thread that will keep both databases synchronized
 
-This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like:
+This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like this:
 
 ```text
 Umount and Delete LVM snapshot
@@ -627,7 +627,7 @@ Id	User	Host	db	Command	Time	State	Info	Progress
 [variable number of lines]
 ```
 
-The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and that no errors follow it.
+The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and are not followed by any errors.
 
 In addition, the output of this command must display only `OK` results:
 
@@ -646,13 +646,13 @@ Position Status [OK]
 
 ## Setting up the *Centreon* cluster
 
-**Note**: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+**Note**: unless otherwise stated, each of the following steps must be run **on both central nodes**.
 
 ### Configuring the file synchronization service
 
 The file synchronization `centreon-central-sync` service needs the IP address of the peer node to be entered in its configuration file (`/etc/centreon-ha/centreon_central_sync.pm`).
 
-So on the `@CENTRAL_MASTER_NAME@` server, the configuration file must look like:
+So, on the `@CENTRAL_MASTER_NAME@` server, the configuration file should look like this:
 
 ```perl
 our %centreon_central_sync_config = (
@@ -661,7 +661,7 @@ our %centreon_central_sync_config = (
 1;
 ```
 
-And on the `@CENTRAL_SLAVE_NAME@`:
+And on `@CENTRAL_SLAVE_NAME@`:
 
 ```perl
 our %centreon_central_sync_config = (
@@ -672,19 +672,20 @@ our %centreon_central_sync_config = (
 
 ### Removing legacy Centreon cron jobs
 
-In high-availability setup, gorgone daemon manages all cron-based scheduled tasks. To avoid cron on both nodes, remove all Centreon related cron in /etc/cron.d/ directory:
+In a high-availability setup, gorgone daemon manages all cron-based scheduled tasks. To avoid cron on both nodes, remove all Centreon-related cron from the /etc/cron.d/ directory:
 
 ```bash
 rm -f /etc/cron.d/centreon
 rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Permission modifications
 
-Modifications have to be made on permissions of `/var/log/centreon-engine` and `/tmp/centreon-autodisco` directories.
+Modifications must be made to the permissions for the `/var/log/centreon-engine` and `/tmp/centreon-autodisco` directories.
 
-In a clustered-setup, it's a requirement to get a file sync and discovery scheduled task fully functionnal.
+In a clustered setup, it is a requirement to obtain a fully functional file sync and discovery scheduled task.
 
 * Files synchronization
 
@@ -723,7 +724,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Stopping and disabling the services
 
-Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
+Centreon's application services will no longer be launched at boot time; they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -747,7 +748,7 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
+By default, the `mysql` service is enabled in both systemd and system V perspectives, so you should make sure it is disabled:
 
 ```bash
 chkconfig mysql off
@@ -756,7 +757,7 @@ chkconfig mysql off
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
+By default, the `mysql` service is enabled in both systemd and system V perspectives, so you should make sure it is disabled:
 
 ```bash
 update-rc.d -f mariadb remove
@@ -775,7 +776,7 @@ First we enable all the services and start `pcsd` on both central nodes:
 systemctl start pcsd
 ```
 
-#### Preparing the server that will hold the function of *quorum device* 
+#### Preparing the server that will function as the *quorum device* 
 
 You can use one of your pollers to play this role. It must be prepared with the commands below: 
 
@@ -833,7 +834,7 @@ pcs qdevice status net --full
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening the connections just on IPv4.
+Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening to the connections on Ipv4 only.
 
 ```bash
 COROSYNC_QNETD_OPTIONS="-4"
@@ -842,7 +843,7 @@ COROSYNC_QNETD_OPTIONS="-4"
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/default/corosync-qnetd` to make sure the service will be listening the connections just on IPv4.
+Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/default/corosync-qnetd` to make sure the service will be listening to the connections on Ipv4 only.
 
 ```bash
 COROSYNC_QNETD_OPTIONS="-4"
@@ -859,7 +860,7 @@ For the sake of simplicity, the `hacluster` user will be assigned the same passw
 passwd hacluster
 ```
 
-Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
+Now that both central nodes **and** the *quorum device* server share the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -876,7 +877,7 @@ pcs host auth \
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-On Debian, the cluster is autoconfigured with default values. In order to install our cluster, we need to destroy this setup with this command:
+On Debian, the cluster is autoconfigured with default values. In order to install our cluster, we need to destroy this setup using the following command:
 
 ```bash
 pcs cluster destroy
@@ -932,7 +933,7 @@ systemctl enable pacemaker pcsd corosync
 systemctl start pacemaker
 ```
 
-And afterwards define these properties **only on one node**:
+And afterward define these properties **only on one node**:
 
 ```bash
 pcs property set symmetric-cluster="true"
@@ -940,7 +941,7 @@ pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
 ```
 
-You can now follow the state of the cluster with the `crm_mon -f` command, which will display new resources as they appear.
+You can now monitor the state of the cluster with the `crm_mon -f` command, which will display new resources as they appear.
 
 #### Creating the *Quorum Device*
 
@@ -1030,9 +1031,9 @@ pcs resource promotable ms_mysql \
 
 ### Creating the clone resources
 
-Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP8). For the second kind, you will declare *clone* resources.
+Some resources must be running on only one node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP8). For the second kind, you must declare *clone* resources.
 
-> **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
+> **Warning:** All the commands in this chapter should be run only once on the central node of your choice.
 
 ##### PHP8 resource
 
@@ -1143,7 +1144,7 @@ pcs resource create gorgone \
 
 ##### centreon-central-sync service
 
-This service only exists in the context of *Centreon HA*. It provides real time synchronization for configuration files, images, etc.
+This service only exists in the context of *Centreon HA*. It provides real-time synchronization for configuration files, images, etc.
 
 ```bash
 pcs resource create centreon_central_sync \
@@ -1204,7 +1205,7 @@ pcs resource create snmptrapd \
 
 #### Colocation constraints
 
-In order to force the cluster running both `centreon` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
+In order to force the cluster running both the `centreon` resource group and the MariaDB Master onto the same node, you must declare these colocation constraints:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1225,11 +1226,11 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 </TabItem>
 </Tabs>
 
-After this step, all resources should be running on the same node, the platform should be redundant and working properly.
+After this step, all resources should be running on the same node; the platform should be redundant and working properly.
 
-### Checking the cluster's state
+### Checking the state of the cluster
 
-#### Checking the resources' states
+#### Checking the states of the resources
 
 You can monitor the cluster's resources in real time using the `crm_mon -f` command:
 
@@ -1300,13 +1301,13 @@ Full List of Resources:
 </TabItem>
 </Tabs>
 
-If **centreon_central_sync** won't start, verify if the folder `/usr/share/centreon-broker/lua` exist.
+If **centreon_central_sync** won't start, check if the folder `/usr/share/centreon-broker/lua` exists.
 
-If not, you can create it with this command `mkdir -p /usr/share/centreon-broker/lua`. And launch a cleanup with this command `pcs resource cleanup`.
+If not, you can create it with this command: `mkdir -p /usr/share/centreon-broker/lua`. And launch a cleanup with this command: `pcs resource cleanup`.
 
 #### Disabled resources
 
-When you do a `crm_mon -fr` and you have a resource that is disable :
+When you do a `crm_mon -fr` and you have a resource that is disabled:
 
 ```text
 ...
@@ -1318,13 +1319,13 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ...
 ```
 
-You must enable the resource with the following command :
+You must enable the resource with the following command:
 
 ```bash
 pcs resource enable @RESSOURCE_NAME@
 ```
 
-In our case :
+In our case:
 
 ```bash
 pcs resource enable vip_mysql
@@ -1347,7 +1348,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
+It can happen that the replication thread does not run properly after installation.  Restarting the `ms_mysql` resource may fix it.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1368,7 +1369,7 @@ pcs resource restart ms_mysql-clone
 
 #### Checking the constraints
 
-Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
+Normally, the two colocation constraints created during the setup should be the only constraints the `pcs constraint` command displays:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

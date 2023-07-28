@@ -5,16 +5,15 @@ title: Installer l'Agent Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Introduction
 
 L'Agent Centreon est un logiciel qui supervise sa machine hôte et les services qui y tournent.
 
-L'Agent peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
+L'Agent peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.). L'Agent est disponible sur Alma/RHEL/Oracle Linux 8 et 9.
 
 Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée personnelle n'est collectée.
 
->Bien que la procédure suivante et que les fichiers de configuration de l'Agent en général permettent les personnalisations, nous vous recommandons vivement de laisser les noms de fichiers, etc. tels quels.
+> Bien que la procédure suivante et que les fichiers de configuration de l'Agent en général permettent les personnalisations, nous vous recommandons vivement de laisser les noms de fichiers, etc. tels quels.
 
 ## Prérequis
 
@@ -61,14 +60,19 @@ Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée pe
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/23.04/el8/stable/noarch/RPMS/centreon-release-23.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 
 ```shell
-yum install -y https://yum.centreon.com/standard/23.04/el7/stable/noarch/RPMS/centreon-release-23.04-1.el7.centos.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
@@ -83,14 +87,15 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 ### Sur un serveur central Centreon
 
 1. Installez **centreon-helios**:
+
     ```
-    yum install centreon-helios
+    dnf install centreon-helios
     ```
 
 2. Installez l'Agent :
 
     ```
-    yum install centreon-agent
+    dnf install centreon-agent
     ```
 
 3. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
@@ -187,7 +192,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 1. Installez l'Agent:
 
     ```
-    yum install centreon-agent
+    dnf install centreon-agent
     ```
 
 2. Si vous installez l'Agent pour la première fois sur ce serveur, configurez le fichier `centreon-agent.yml` :
@@ -523,9 +528,9 @@ L'Agent retournera l'un des messages suivants :
 Pour mettre à jour l'Agent, entrez :
 
 ```
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 ```
-yum update centreon-agent
+dnf update centreon-agent
 ```
