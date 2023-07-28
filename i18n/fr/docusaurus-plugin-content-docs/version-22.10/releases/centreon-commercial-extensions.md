@@ -17,6 +17,18 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.8
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Geoviews] Fixed an issue that made hosts not to be displayed on geoviews.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- Allow elements to be grouped.
+- Fixed an issue making Business Activities size different between viewer and editor.
+- Fixed an issue that caused server to crash on duplicated centreon modules.
+
 ### 22.10.7
 
 Release date: `July 20, 2023`
@@ -146,13 +158,23 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.8
+
+Release date: `soon`
+
+- No change.
+
 ### 22.10.7
 
 Release date: `July 20, 2023`
 
+- No change.
+
 ### 22.10.6
 
 Release date: `June 5, 2023`
+
+- No change.
 
 ### 22.10.5
 
