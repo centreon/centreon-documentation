@@ -24,11 +24,11 @@ Release date: `July 28, 2023`
 
 #### Bug fixes
 
-- [Geoviews] Fixed an issue that made hosts not to be displayed on geoviews.
+- [Geoviews] Fixed an issue that prevented hosts from being displayed on geoviews.
 - [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
-- Allow elements to be grouped.
-- Fixed an issue making Business Activities size different between viewer and editor.
-- Fixed an issue that caused server to crash on duplicated centreon modules.
+- Allowed elements to be grouped.
+- Fixed an issue making Business Activities' size different between viewer and editor.
+- Fixed an issue that caused server to crash because of duplicated Centreon modules.
 
 ### 22.10.7
 
