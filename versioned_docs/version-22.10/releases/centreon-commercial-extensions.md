@@ -274,6 +274,15 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.4
+
+Release date: `soon`
+
+#### Bug fixes
+
+- Fixed centreonBIETL_legacy script by calling only legacy scripts.
+- Removed old images in forms.
+
 ### 22.10.3
 
 Release date: `July 20, 2023`
