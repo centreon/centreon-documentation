@@ -18,6 +18,21 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.11
+
+Release date: `soon`
+
+#### Enhancements
+
+- [UX] Improved tooltip description in Centreon Engine configuration form for Service Check Timeout option.
+
+#### Bug fixes
+
+- [Administration] Fixed pagination in **Data** menu.
+- [Install] Updated size to metric_name column to 1021.
+- [Monitoring] Fixed data insertion where metric names were too long.
+- [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
+
 ### 22.10.10
 
 Release date: `July 11, 2023`
