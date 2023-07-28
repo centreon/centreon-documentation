@@ -20,7 +20,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.8
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 #### Bug fixes
 
@@ -84,6 +84,7 @@ Release date: `April 24, 2023`
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#step-6--execute-the-configuresh-script) in order to apply some fixes provided by this release.
 
 #### Bug fixes
+
 - [API] Fixed an issue with create element in view that could break default icon.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
@@ -161,7 +162,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.10.8
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 - No change.
 
@@ -191,7 +192,7 @@ Release date: `January 17, 2023`
 
 ### 22.10.3
 
-Release date:  `December 16, 2022`
+Release date: `December 16, 2022`
 
 - No change.
 
@@ -276,7 +277,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 #### Bug fixes
 
@@ -367,9 +368,9 @@ Release date: `October 26, 2022`
 
 ## Centreon Anomaly Detection
 
-### 22.10.4 
+### 22.10.4
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 #### Bug fixes
 
