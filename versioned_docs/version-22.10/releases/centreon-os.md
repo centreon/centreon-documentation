@@ -406,6 +406,15 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.2
+
+Release date: `soon`
+
+### Bug fixes
+
+- [Compatibility] Fixed -d option to manage database entries in centreonBIETL script.
+- [Core] Fixed recurring unexpected disconnection between pollers.
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -454,6 +463,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.2
+
+Release date: `soon`
+
+### Bug fixes
+
+- Fixed a broker query.
 
 ### 22.10.1
 
