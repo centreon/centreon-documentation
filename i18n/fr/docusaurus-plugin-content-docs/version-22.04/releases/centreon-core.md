@@ -620,7 +620,7 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ### 22.04.3
 
-Release date: `soon`
+Release date: `July 28, 2023`
 
 #### Bug fixes
 
