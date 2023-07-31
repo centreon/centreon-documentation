@@ -33,6 +33,8 @@ jobs:
 
       - name: Build documentation
         run: yarn build
+        env:
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
         uses: actions/cache/save@v3
