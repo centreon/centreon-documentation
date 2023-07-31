@@ -15,6 +15,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -33,8 +34,26 @@ jobs:
       - name: Build documentation
         run: yarn build
 
+      - name: Store build in cache
+        uses: actions/cache/save@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+
+  publish:
+    needs: [build]
+    runs-on: ubuntu-22.04
+    if: ${{ github.event_name == 'pull_request' }}
+
+    steps:
+      - name: Restore build from cache
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          fail-on-cache-miss: true
+
       - name: Deploy preview
-        if: ${{ github.event_name == 'pull_request' }}
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./build
