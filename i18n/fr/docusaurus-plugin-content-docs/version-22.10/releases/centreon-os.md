@@ -408,7 +408,7 @@ Release date: `October 26, 2022`
 
 Release date: `July 28, 2023`
 
-### Bug fixes
+#### Bug fixes
 
 - [Compatibility] Fixed -d option to manage database entries in centreonBIETL script.
 - [Core] Fixed recurring unexpected disconnections between pollers.
