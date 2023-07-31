@@ -213,7 +213,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 #### Package installation
 
-If you installed your Centreon MAP server from a "fresh CentOS installation"
+If you installed your Centreon MAP server from a "fresh OS installation"
 you need to install the **centreon-release** package:
 
 <Tabs groupId="sync">
