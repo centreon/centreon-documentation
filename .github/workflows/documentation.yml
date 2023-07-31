@@ -1,10 +1,12 @@
 name: documentation
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        required: true
+  pull_request:
+  push:
+    branches:
+      - staging
+      - production
+      - next
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
