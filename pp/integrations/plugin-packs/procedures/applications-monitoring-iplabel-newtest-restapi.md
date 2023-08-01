@@ -18,7 +18,6 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Monitoring-Iplabel-Newtest-Restapi-custom" label="App-Monitoring-Iplabel-Newtest-Restapi-custom">
 
-| Service Alias | Service Template  | Service Description |
 |:--------------|:------------------|:--------------------|
 
 > The services listed above are created automatically when the **App-Monitoring-Iplabel-Newtest-Restapi-custom** host template is used.
