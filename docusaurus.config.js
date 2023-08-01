@@ -32,7 +32,8 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr'],
+    //locales: ['en', 'fr'],
+    locales: ['en'],
     localeConfigs: {
       en: {
         label: '🇬🇧 English',
@@ -131,6 +132,7 @@ const config = {
 
     return [
       ...plugins,
+      /*
       [
         '@docusaurus/plugin-content-docs',
         {
@@ -155,6 +157,7 @@ const config = {
           editLocalizedFiles: true,
         },
       ],
+      */
     ];
   })(),
 

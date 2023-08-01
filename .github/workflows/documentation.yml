@@ -48,7 +48,7 @@ jobs:
 
   publish:
     needs: [build]
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, common]
 
     steps:
       - name: Checkout sources
