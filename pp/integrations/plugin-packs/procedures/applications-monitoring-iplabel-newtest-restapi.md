@@ -19,7 +19,7 @@ The connector brings the following service templates (sorted by the host templat
 <TabItem value="App-Monitoring-Iplabel-Newtest-Restapi-custom" label="App-Monitoring-Iplabel-Newtest-Restapi-custom">
 
 
-> The services listed above are created automatically when the **App-Monitoring-Iplabel-Newtest-Restapi-custom** host template is used.
+This host template brings no service template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
