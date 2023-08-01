@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias            | Modèle de service                      | Description                                                   | Découverte |
 |:-----------------|:---------------------------------------|:--------------------------------------------------------------|:----------:|
 | Container-Status | App-Docker-Container-Status-SSH-custom | Contrôle permettant de vérifier le statut des conteneurs     | X          |
-| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Contrôle permettant de vérifier l'utilisation des containeurs | X          |
+| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Contrôle permettant de vérifier l'utilisation des conteneurs | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Docker-SSH-custom** est utilisé.
 
