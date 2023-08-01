@@ -2,6 +2,11 @@ name: documentation
 
 on:
   pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
   push:
     branches:
       - staging
@@ -25,11 +30,10 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install yarn
-        run: npm install -g yarn
-
       - name: Install dependencies
-        run: yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --frozen-lockfile
 
       - name: Build documentation
         run: yarn build
@@ -45,7 +49,6 @@ jobs:
   publish:
     needs: [build]
     runs-on: ubuntu-22.04
-    if: ${{ github.event_name == 'pull_request' }}
 
     steps:
       - name: Checkout sources
@@ -59,9 +62,20 @@ jobs:
           fail-on-cache-miss: true
 
       - name: Deploy preview
+        if: ${{ github.event_name == 'pull_request' }}
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./build
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
+
+      - name: Deploy preview
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.YUM_REPO_KEY }}"
+
+          ssh -o StrictHostKeyChecking=no docs-dev.int.centreon.com ls -l /var/www
+        shell: bash

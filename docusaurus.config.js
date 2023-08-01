@@ -66,6 +66,7 @@ const config = {
               label: '⭐ 23.04',
               banner:'none',
             },
+            /*
             '22.10': {
               label: '22.10',
               banner:'none',
@@ -78,6 +79,7 @@ const config = {
               label: '21.10',
               banner:'none',
             },
+            */
           },
         },
         blog: false,
