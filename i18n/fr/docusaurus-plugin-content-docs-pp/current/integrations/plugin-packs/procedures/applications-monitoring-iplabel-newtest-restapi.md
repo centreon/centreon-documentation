@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 |:------|:------------------|:------------|
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Iplabel-Newtest-Restapi-custom** est utilisé.
+Ce modèle d'hôte n'apporte pas de modèles de service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
