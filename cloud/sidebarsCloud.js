@@ -15,12 +15,11 @@ module.exports = {
         {
           "collapsed": true,
         "type": "category",
-        "label": "Before starting",
+        "label": "Step 1: Discover Centreon Cloud",
         "link": {
           "type": "generated-index",
                           },
           items: [
-
         {
           type: 'doc',
           id: 'getting-started/interface',
@@ -38,7 +37,7 @@ module.exports = {
       {
         "collapsed": true,
       "type": "category",
-      "label": "Setting up your platform",
+      "label": "Step 2: Set up your platform",
       "link": {
         "type": "generated-index",
                                 },
@@ -54,24 +53,20 @@ module.exports = {
   ],   
 },
 {
+  "collapsed": true,
+"type": "category",
+"label": "Step 3: Prepare the monitoring",
+"link": {
+  "type": "generated-index",
+   },
+items: [
+{
   type: 'doc',
   id: 'getting-started/first-host',
 },
 {
-  type: 'doc',
-  id: 'getting-started/monitor-in-real-time',
-},
-{
-  type: 'doc',
-  id: 'getting-started/first-dashboard',
-},
-{
-  type: 'doc',
-  id: 'getting-started/cloud-beyond-basics',
-},
-{
   type: 'category',
-  label: 'Use cases',
+  label: 'Monitoring examples',
   items: [
   {
     type: 'doc',
@@ -93,12 +88,35 @@ module.exports = {
     type: 'doc',
     id: 'getting-started/autodisco-aws',
   },
-], 
-},  
+],
+},
+],
+},
+{
+  "collapsed": true,
+"type": "category",
+"label": "Step 4: Monitor and visualize",
+"link": {
+  "type": "generated-index",
+   },
+items: [
+{
+  type: 'doc',
+  id: 'getting-started/monitor-in-real-time',
+},
+{
+  type: 'doc',
+  id: 'getting-started/first-dashboard',
+},
 ], 
 },
-
-      {
+{
+  type: 'doc',
+  id: 'getting-started/cloud-beyond-basics',
+},
+  ],
+},
+{
       type: 'category',
       label: 'Managing Centreon Cloud users',
       items: [
@@ -482,5 +500,5 @@ module.exports = {
           }
         ]
       }
-  ],
-}
+    ]
+  }
