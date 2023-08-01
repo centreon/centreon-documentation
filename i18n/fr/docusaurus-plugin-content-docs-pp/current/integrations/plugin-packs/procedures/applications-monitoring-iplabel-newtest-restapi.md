@@ -19,7 +19,6 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="App-Monitoring-Iplabel-Newtest-Restapi-custom" label="App-Monitoring-Iplabel-Newtest-Restapi-custom">
 
-|:------|:------------------|:------------|
 
 Ce modèle d'hôte n'apporte pas de modèles de service.
 
