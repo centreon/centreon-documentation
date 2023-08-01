@@ -18,10 +18,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Sailpoint-Identitynow-Restapi-custom" label="App-Sailpoint-Identitynow-Restapi-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-
-> The services listed above are created automatically when the **App-Sailpoint-Identitynow-Restapi-custom** host template is used.
+This host template does not bring any service template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
@@ -232,7 +229,7 @@ yum install centreon-plugin-Applications-Sailpoint-Identitynow-Restapi
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
 **centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a server using a command like this one (replace the sample values by yours):
+is able to monitor the resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_sailpoint_identitynow_restapi.pl \

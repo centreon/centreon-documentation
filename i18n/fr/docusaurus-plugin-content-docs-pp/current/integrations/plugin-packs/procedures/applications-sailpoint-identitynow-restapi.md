@@ -19,10 +19,7 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Sailpoint-Identitynow-Restapi-custom" label="App-Sailpoint-Identitynow-Restapi-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Sailpoint-Identitynow-Restapi-custom** est utilisé.
+Ce modèle d'hôte n'apporte pas de modèle de service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -233,7 +230,7 @@ yum install centreon-plugin-Applications-Sailpoint-Identitynow-Restapi
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser un serveur en utilisant une commande
+que le connecteur arrive bien à superviser la ressource en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
