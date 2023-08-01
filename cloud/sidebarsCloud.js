@@ -59,6 +59,10 @@ module.exports = {
 },
 {
   type: 'doc',
+  id: 'getting-started/monitor-in-real-time',
+},
+{
+  type: 'doc',
   id: 'getting-started/first-dashboard',
 },
 {

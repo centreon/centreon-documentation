@@ -10,61 +10,12 @@ Custom views are dashboards created with [widgets](../resources/glossary.md#widg
 <details>
 <summary>Discover widgets</summary>
 
-<iframe width="100%" height="650" src="https://app.arcade.software/share/XPrZGOCuvcsgcoKe1vFM" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://demo.arcade.software/XPrZGOCuvcsgcoKe1vFM?embed" frameborder="0" allowfullscreen></iframe>
 
 </details>
 <details>
 <summary>Discover custom views</summary>
 
-<iframe width="100%" height="650" src="https://app.arcade.software/share/ITgrnj8q0Mycu3piChAT" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://demo.arcade.software/ITgrnj8q0Mycu3piChAT?embed" frameborder="0" allowfullscreen></iframe>
 
 </details>
-
-## Create your first custom view
-
-Go to **Home > Custom Views** menu and click on the pencil icon located to the far right of the interface to enable
-the edition mode.
-
-Click on **+ Add view** to create your first custom view, then enter **My view** for the name and select 2 columns.
-Finally click on **Submit**:
-
-![image](../assets/getting-started/cv_1.png)
-
-Add your first widget by clicking on **+ Add widget**, then enter **TOP 10 CPU** for the title and select
-**Live Top 10 CPU Usage**. Click on **Submit**:
-
-![image](../assets/getting-started/cv_2.png)
-
-Click on **+ Add widget**, then enter **TOP 10 Memory** and select **Live Top 10 Memory Usage**. Click on **Submit**:
-
-![image](../assets/getting-started/cv_3.png)
-
-The second widget is automatically placed on the second column:
-
-![image](../assets/getting-started/cv_4.png)
-
-Click on **+ Add widget**, then enter **Unhandled alerts** and select **Services Monitoring**. Click on **Submit**:
-
-![image](../assets/getting-started/cv_5.png)
-
-Edit this widget by clicking on wrench icon:
-
-![image](../assets/getting-started/cv_6.png)
-
-In the popin, uncheck following cases:
-
-* **Display Pending**
-* **Display Duration**
-* **Display Tries**
-
-Then click on **Apply**.
-
-Click on **+ Add widget**, then enter **Global Health** and select **Global Health**. Click on **Submit**:
-
-![image](../assets/getting-started/cv_7.png)
-
-Edit this widget clicking on wrench icon and select **Show services** for the **Services/Hosts** field. Then click on **Apply**:
-
-Your first custom view is created:
-
-![image](../assets/getting-started/cv_8.png)
