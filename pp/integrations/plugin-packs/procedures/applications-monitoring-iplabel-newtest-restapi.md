@@ -18,7 +18,6 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Monitoring-Iplabel-Newtest-Restapi-custom" label="App-Monitoring-Iplabel-Newtest-Restapi-custom">
 
-
 This host template brings no service template.
 
 </TabItem>
