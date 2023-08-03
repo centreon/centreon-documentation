@@ -18,6 +18,18 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
+
+</details>
+
 ### 22.10.8
 
 Release date: `July 28, 2023`
