@@ -37,7 +37,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/technical.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
