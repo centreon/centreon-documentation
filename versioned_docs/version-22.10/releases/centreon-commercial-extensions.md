@@ -27,7 +27,7 @@ Release date: `August 03, 2023`
   <summary>Bug fixes</summary>
 
 - [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
-- [Server] Fixed an issue that could cause map edition to become unavailable.
+- [Editor] Fixed an issue that could prevent some maps from being edited.
 
 </details>
 
