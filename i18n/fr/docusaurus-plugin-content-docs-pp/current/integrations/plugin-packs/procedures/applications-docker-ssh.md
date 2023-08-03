@@ -79,7 +79,7 @@ s'authentifier et exécuter les requêtes SSH. Les privilèges `sudo` ou `root` 
 sont pas nécessaires, un utilisateur 'simple' est suffisant.
 
 Deux méthodes de connexion SSH sont possibles :
-* soit en échangeant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon
+* soit en copiant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon à la ressource à superviser
 * soit en définissant votre utilisateur et votre mot de passe directement dans les macros d'hôtes.
 
 ## Installer le connecteur de supervision

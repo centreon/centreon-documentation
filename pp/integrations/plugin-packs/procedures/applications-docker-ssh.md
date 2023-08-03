@@ -72,9 +72,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SSH configuration
 
-A user is required to query the resource by SSH. There is no need for root or sudo
+A user is required to query the resource using SSH. There is no need for root or sudo
 privileges. There are two possible ways to log in through SSH, either by
-exchanging the SSH key from **centreon-engine** user to the target resource, or by
+copying the SSH key of the **centreon-engine** user to the target resource, or by
 setting your unique user and password directly in the host macros.
 
 ## Installing the monitoring connector
