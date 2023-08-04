@@ -167,7 +167,7 @@ dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc3-Snmp
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc3-Snmp
+dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
