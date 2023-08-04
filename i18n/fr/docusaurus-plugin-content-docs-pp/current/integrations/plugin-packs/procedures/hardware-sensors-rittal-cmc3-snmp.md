@@ -181,7 +181,7 @@ apt install centreon-plugin-hardware-sensors-rittal-cmc-snmp
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc3-Snmp
+yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
