@@ -160,7 +160,7 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc3-Snmp
+dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
