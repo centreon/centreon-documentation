@@ -16,12 +16,12 @@ The Monitoring Connector **Generic SNMP** brings 2 host templates:
 
 
 <Tabs groupId="sync">
-<TabItem value="App-Protocol-SNMP" label="App-Protocol-SNMP">
+<TabItem value="App-Protocol-SNMP-custom" label="App-Protocol-SNMP-custom">
 
 This host template does not bring any service template.
 
 </TabItem>
-<TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
+<TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
 
 This host template does not bring any service template.
 
@@ -76,12 +76,12 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Numeric-Value" label="Numeric-Value">
 
-Coming soon
+For this specific mode, the names of the metrics depend on the configuration made by the user.
 
 </TabItem>
 <TabItem value="String-Value" label="String-Value">
 
-Coming soon
+No metrics
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

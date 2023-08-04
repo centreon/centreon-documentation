@@ -75,12 +75,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Numeric-Value" label="Numeric-Value">
 
-Coming soon
+Pour ce mode spécifique, les noms des métriques dépendront de la configuration effectuée par l'utilisateur.
 
 </TabItem>
 <TabItem value="String-Value" label="String-Value">
 
-Coming soon
+Aucune métrique
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
