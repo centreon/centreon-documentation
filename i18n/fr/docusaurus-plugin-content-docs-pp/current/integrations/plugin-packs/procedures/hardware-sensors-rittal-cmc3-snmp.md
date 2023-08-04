@@ -160,7 +160,7 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc3-Snmp
+dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
