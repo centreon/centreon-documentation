@@ -22,7 +22,7 @@ Ce modèle d'hôte n'apporte pas de modèle de service.
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only" label="App-Protocol-SNMP-Only">
 
-Ce modèle d'hôte n'apporte pas de modèle de service.
+Ce modèle d'hôte n'apporte pas de modèle de service mais utilise une commande de vérification d'hôte qui se base sur l'uptime de l'hôte récupéré par le protocole SNMP, ce qui rend cette vérification fonctionnelle, même lorsque le protocole ICMP est bloqué.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
