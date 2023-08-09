@@ -209,31 +209,12 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_ipfabric_api.pl \
-	--plugin=apps::ipfabric::plugin \
-	--mode=path-verification \
-	--api-key='' \
-	--hostname=''  \
-	--filter-src-ip='' \
-	--filter-src-port='' \
-	--filter-dst-ip='' \
-	--filter-dst-port='' \
-	--warning-status='' \
-	--critical-status='%{expected\_state} ne %{state}' \
-	--warning-paths-detected='' \
-	--critical-paths-detected='' \
-	--warning-paths-mismatch='' \
-	--critical-paths-mismatch='' \
-	--warning-paths-state-all='' \
-	--critical-paths-state-all='' \
-	--warning-paths-state-part='' \
-	--critical-paths-state-part='' \
-	--warning-paths-state-none='' \
-	--critical-paths-state-none='' \
-	--warning-paths-state-error='' \
-	--critical-paths-state-error='' \
-	--http-backend=curl\
-
+/usr/lib/centreon/plugins/centreon_ipfabric_api.pl \
+    --plugin=apps::ipfabric::plugin \
+    --mode=path-verification \
+    --api-key='****' \
+    --hostname='demo1.eu.ipfabric.io' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
