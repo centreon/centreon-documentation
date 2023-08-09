@@ -244,6 +244,10 @@ checking robot 'HELSINKI'
 scenario 'Sharepoint' green status: 100.00 %, red status: 0.00 %, orange status: 0.00 %, grey status: 0.00 %, execution time: 45000 ms
 ```
 
+The above command checks a specific Newtest Robot at Helsinski (```--filter-robot-name='^HELSINKI$'```) and focus on the Sharepoint scenario (```--filter-scenario-name='^Sharepoint$'```).
+
+It uses an API account (```--api-username='ro_user' --api-password='strong_psswd'```) and the HTTPS protocol to connect to the IP-Label Newtest API (```--proto='https'```).
+
 ### Troubleshooting
 
 Please find the troubleshooting documentation for the API-based plugins in
