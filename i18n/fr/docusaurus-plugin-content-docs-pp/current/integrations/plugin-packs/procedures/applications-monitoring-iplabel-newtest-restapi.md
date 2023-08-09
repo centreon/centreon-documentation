@@ -7,6 +7,11 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
+
+IP-Label est un spécialiste de la mesure de la qualité de l'expérience de l'utilisateur.
+
+A partir de points représentatifs de votre entreprise, chaque Newtest Robot simule régulièrement des transactions métiers qui permettent de connaître à tout moment la disponibilité, les temps de réponse et la performance de vos services applicatifs critiques.
+
 ### Modèles
 
 Le connecteur de supervision **IP-Label Newtest Rest API** apporte un modèle d'hôte :
