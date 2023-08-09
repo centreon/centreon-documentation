@@ -18,10 +18,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Tosca-Restapi-custom" label="App-Tosca-Restapi-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-
-> The services listed above are created automatically when the **App-Tosca-Restapi-custom** host template is used.
+By default, no services are created automatically using this template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
