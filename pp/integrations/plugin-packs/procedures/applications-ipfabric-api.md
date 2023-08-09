@@ -209,30 +209,11 @@ is able to monitor a resource using a command like this one (replace the sample 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ipfabric_api.pl \
-	--plugin=apps::ipfabric::plugin \
-	--mode=path-verification \
-	--api-key='' \
-	--hostname=''  \
-	--filter-src-ip='' \
-	--filter-src-port='' \
-	--filter-dst-ip='' \
-	--filter-dst-port='' \
-	--warning-status='' \
-	--critical-status='%{expected\_state} ne %{state}' \
-	--warning-paths-detected='' \
-	--critical-paths-detected='' \
-	--warning-paths-mismatch='' \
-	--critical-paths-mismatch='' \
-	--warning-paths-state-all='' \
-	--critical-paths-state-all='' \
-	--warning-paths-state-part='' \
-	--critical-paths-state-part='' \
-	--warning-paths-state-none='' \
-	--critical-paths-state-none='' \
-	--warning-paths-state-error='' \
-	--critical-paths-state-error='' \
-	--http-backend=curl\
-
+    --plugin=apps::ipfabric::plugin \
+    --mode=path-verification \
+    --api-key='****' \
+    --hostname='demo1.eu.ipfabric.io' \
+    --verbose
 ```
 
 The expected command output is shown below:
