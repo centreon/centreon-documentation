@@ -244,6 +244,25 @@ checking robot 'HELSINKI'
 scenario 'Sharepoint' green status: 100.00 %, red status: 0.00 %, orange status: 0.00 %, grey status: 0.00 %, execution time: 45000 ms
 ```
 
+La commande contrôle un Robot dont le nom est HELSINSKI (```--filter-robot-name='^HELSINKI$'```), et le scénario visé est nommé Sharepoint. (```--filter-scenario-name='^Sharepoint$'```).
+
+Il utilise l'utilisateur et le password configuré côté Newtest (```--api-username='ro_user' --api-password='strong_psswd'```) via des requêtes 
+HTTPS sur l'API IP-Label Newtest (```--proto='https'```)
+
+### Diagnostic des erreurs spécifiquement rencontrées avec ce plugin
+
+#### ```UNKNOWN: 500 Can't connect to the.newtest.fqdn:443```
+
+Ce message indique que la connexion a l'API a échouée.
+
+Il est nécessaire de vérifier qu'aucun équipement tiers agissant en tant que Pare-Feu ne bloque le flux. Il est également possible qu'une connexion via 
+proxy soit requise. Dans ce cas, il vous est possible de renseigner l'adresse de votre proxy via l'option ```--proxyurl```. 
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+
+SI vous utilisez un proxy, il est possible d'obtenir cette erreur. Lorsque c'est le cas, utiliser le Backend curl qui résoudra cette erreur:
+```--http-backend='curl'```.
+
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
