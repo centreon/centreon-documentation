@@ -73,6 +73,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 A read-only account (login/password) to the Newtest RestAPI is required. 
 
+
+The default URL path queried by the Plugin is '/rest/api/results'. This path can be changed in the related Host Macro
+if necessary.
+
 ## Installing the monitoring connector
 
 ### Pack
