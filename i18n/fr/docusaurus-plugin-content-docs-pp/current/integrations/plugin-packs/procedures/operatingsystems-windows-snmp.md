@@ -7,6 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
+Windows est un système d’exploitation, autrement dit, un ensemble de programmes
+et logiciels permettant de gérer les ressources d’un ordinateur.
+
 ### Modèles
 
 Le connecteur de supervision **Windows SNMP** apporte un modèle d'hôte :
