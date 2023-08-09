@@ -250,6 +250,22 @@ It uses an API account (```--api-username='ro_user' --api-password='strong_psswd
 
 ### Troubleshooting
 
+
+#### ```UNKNOWN: 500 Can't connect to the.newtest.fqdn:443```
+
+This error message means that the Centreon Plugin couldn't successfully connect to the IP-Label Newtest API.
+Check that no third party device (such as a firewall) is blocking the request.
+A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+
+When using a proxy to connect to the IP-Label Newtest, this error message means that the Centreon Plugin library does not support
+the proxy connection protocol.
+
+In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
+
+#### Generic API troubleshooting
+
 Please find the troubleshooting documentation for the API-based plugins in
 this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
