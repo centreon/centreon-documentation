@@ -264,7 +264,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:    | All interfaces are ok
+OK: All interfaces are ok | 'traffic_in_lo'=19795.35b/s;;;0;10000000 'traffic_out_lo'=19795.35b/s;;;0;10000000 'traffic_in_ens192'=26001.62b/s;;;0;10000000000 'traffic_out_ens192'=24438.38b/s;;;0;10000000000
 ```
 
 ### Diagnostic des erreurs communes
