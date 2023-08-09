@@ -7,6 +7,12 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+IP-Label is a specialist in measurement of the quality of the user’s experience. 
+
+At representative points within your company, each Newtest Robot regularly simulates 
+business transactions, providing instant insight into the availability, response times 
+and performance of your critical application services.
+
 ### Templates
 
 The Monitoring Connector **IP-Label Newtest Rest API** brings a host template:
