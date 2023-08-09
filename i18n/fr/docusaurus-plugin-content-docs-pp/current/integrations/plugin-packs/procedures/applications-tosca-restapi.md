@@ -19,10 +19,7 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Tosca-Restapi-custom" label="App-Tosca-Restapi-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Tosca-Restapi-custom** est utilisé.
+Par défaut, aucun service n'est créé automatiquement en appliquant ce modèle.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
