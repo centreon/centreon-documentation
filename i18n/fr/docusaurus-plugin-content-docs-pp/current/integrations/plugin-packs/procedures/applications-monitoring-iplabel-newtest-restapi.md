@@ -74,6 +74,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 Un compte en lecture seule (login/password) sur la RestAPI Newtest est nécessaire. Rapprochez-vous de votre support IP-Label
 si nécessaire. 
 
+Par défaut, le Plugin requête l'URL '/rest/api/results' de l'API. Cette valeur peut être modifiée si besoin
+lors de l'ajout de l'Hôte dans Centreon.  
+
 ## Installer le connecteur de supervision
 
 ### Pack
