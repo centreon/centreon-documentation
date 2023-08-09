@@ -102,4 +102,4 @@ Body: {
 
 ## Pour plus d'informations
 
-> Suivez ce [lien](https://docs.centreon.com/api/centreon-map/) pour accéder à la documentation de l'API Centreon et avoir un aperçu des fonctionnalités de l'API.
+> Suivez ce [lien](https://docs-api.centreon.com/api/centreon-map/) pour accéder à la documentation de l'API Centreon et avoir un aperçu des fonctionnalités de l'API.
