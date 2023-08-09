@@ -220,7 +220,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:        | 'paths.detected.count'=88;;;0; 'paths.mismatch.count'=93;;;0; 'paths.state.all.count'=61;;;0; 'paths.state.part.count'=61;;;0; 'paths.state.none.count'=64;;;0; 'paths.state.error.count'=90;;;0;
+CRITICAL: source 10.35.119.172:- destination 10.193.0.132:- [protocol: icmp] state: none [expected state: all] - source 10.72.126.112:1024-65535 destination 10.66.121.110:80,443 [protocol: tcp] state: none [expected state: all] - source 10.66.126.112:10000 destination 10.38.115.190:443 [protocol: tcp] state: none [expected state: all] | 'paths.detected.count'=6;;;0; 'paths.mismatch.count'=3;;;0; 'paths.state.all.count'=0;;;0; 'paths.state.part.count'=0;;;0; 'paths.state.none.count'=6;;;0; 'paths.state.error.count'=0;;;0;
+source 10.35.119.172:- destination 10.193.0.132:- [protocol: icmp] state: none [expected state: all]
+source 10.35.119.172/26:1024-65535 destination 10.193.0.132:1-60000 [protocol: tcp] state: none [expected state: none]
+source 10.35.119.172/24:1024-65535 destination 10.193.0.132:80 [protocol: tcp] state: none [expected state: none]
+source 10.72.126.112:1024-65535 destination 10.66.121.110:80,443 [protocol: tcp] state: none [expected state: all]
+source 10.66.126.112:10000 destination 10.38.115.190:443 [protocol: tcp] state: none [expected state: all]
+source 10.35.119.172/28:1024-65535 destination 10.193.0.132/28:1-60000 [protocol: tcp] state: none [expected state: none]
 ```
 
 ### Diagnostic des erreurs communes
