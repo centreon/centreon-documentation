@@ -180,7 +180,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 Configurez le service SNMP en V2 pour superviser le système Windows.
 
 > Les instructions ci-après peuvent changer en fonction de votre version de
-> Windows. Référez- vous à la documentation officielle de Microsoft le cas
+> Windows. Référez-vous à la documentation officielle de Microsoft le cas
 > échéant.
 
   - Installez la fonctionnalité SNMP dans le gestionnaire de serveur de Windows : **Gestionnaire de serveur > Ajouter des rôles et des fonctionnalités > Installation basée sur un rôle ou une fonctionnalité > Service SNMP**.
