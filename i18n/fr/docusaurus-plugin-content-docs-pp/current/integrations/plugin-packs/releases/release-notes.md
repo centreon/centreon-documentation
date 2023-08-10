@@ -8,6 +8,78 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Août
+
+> **Major change impacting all host discovery providers**: the default host templates used in host discovery used to be the *read-only* ones. The "-custom" *read-write* ones are now used. As an example, `generic-active-host-custom` will be used instead of `generic-active-host`. See "Breaking changes" for more information.
+> **Changement majeur concernant les règles de découverte d'hôte**: Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Lire la section "Breaking changes" pour plus d'informations.
+
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Rittal CMC3 SNMP**](../procedures/hardware-sensors-rittal-cmc3-snmp.md) - hardware-sensors-rittal-cmc3-snmp - initial release - Status:stable - centreon-pack-hardware-sensors-rittal-cmc3-snmp-23.08.0-1
+- [**SailPoint IdentityNow Rest API**](../procedures/applications-sailpoint-identitynow-restapi.md) - applications-sailpoint-identitynow-restapi - initial release - Status:stable - centreon-pack-applications-sailpoint-identitynow-restapi-23.08.0-1
+- [**Tosca Rest API**](../procedures/applications-tosca-restapi.md) - applications-tosca-restapi - initial release - Status:stable - centreon-pack-applications-tosca-restapi-23.07.0-1
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - hardware-ups-apc-snmp - added Time and Uptime services - Status:stable - centreon-pack-hardware-ups-apc-snmp-23.08.0-1
+- [**AudioCodes**](../procedures/network-audiocodes-snmp.md) - network-audiocodes-snmp - added Sbc-Calls service - Status:stable - centreon-pack-network-audiocodes-snmp-23.08.0-1
+- [**Azure App Service**](../procedures/cloud-azure-web-appservice.md) - cloud-azure-web-appservice - removed privatebytes threshold from Memory service - Status:stable - centreon-pack-cloud-azure-web-appservice-23.08.1-1
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - cloud-azure-compute-functions - removed privatebytes threshold from Memory service - Status:stable - centreon-pack-cloud-azure-compute-functions-23.08.1-1
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - cloud-azure-management-costs - moved to correct pack category - Status:stable - centreon-pack-cloud-azure-management-costs-23.08.0-1
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - applications-ipfabric-api - updated the logo - Status:stable - centreon-pack-applications-ipfabric-api-23.08.2-1
+- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - applications-monitoring-iplabel-newtest-restapi - added the --timeframe option to scenario mode - Status:stable - centreon-pack-applications-monitoring-iplabel-newtest-restapi-23.08.0-1
+- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - applications-monitoring-speedtest - now using Ookla's speedtest - Status:stable - centreon-pack-applications-monitoring-speedtest-23.08.0-1
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - hardware-ups-standard-rfc1628-snmp - added thresholds for output-lines and alarms modes - Status:stable - centreon-pack-hardware-ups-standard-rfc1628-snmp-23.08.0-1
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - operatingsystems-windows-snmp - added options for Service-Generic mode - Status:stable - centreon-pack-operatingsystems-windows-snmp-23.08.0-1
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Teltonika SNMP**](../procedures/network-teltonika-snmp.md) - network-teltonika-snmp - renamed System service to Modem - Status:stable - centreon-pack-network-teltonika-snmp-23.08.0-1
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-billing-23.08.0-1
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-cloudwatch-discover-23.08.0-1
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-elb-23.08.0-1
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-lambda-23.08.0-1
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-vpn-23.08.0-1
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-apigateway-23.08.0-1
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-backup-23.08.0-1
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-cloudfront-23.08.0-1
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-directconnect-23.08.0-1
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-ebs-23.08.0-1
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-ec2-23.08.0-1
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-efs-23.08.0-1
+- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-elasticache-23.08.0-1
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-fsx-23.08.0-1
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-kinesis-23.08.0-1
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-rds-23.08.0-1
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-s3-23.08.0-1
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-sns-23.08.0-1
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-aws-sqs-23.08.0-1
+- [**Ansible Tower**](../procedures/applications-ansible-tower.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-ansible-tower-23.08.0-1
+- [**Ansible**](../procedures/applications-ansible-cli.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-ansible-cli-23.08.0-1
+- [**Azure Event Hubs**](../procedures/cloud-azure-analytics-eventhubs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-cloud-azure-analytics-eventhubs-23.08.0-1
+- [**Ericsson ENM API**](../procedures/applications-ericsson-enm-api.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-ericsson-enm-api-23.08.0-1
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-protocol-snmp-23.08.0-1
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-ipfabric-api-23.08.0-1
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-monitoring-iplabel-ekara-restapi-23.08.0-1
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-monitoring-kadiska-restapi-23.08.0-1
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-nmap-cli-23.08.0-1
+- [**Rudder**](../procedures/applications-rudder-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-rudder-restapi-23.08.0-1
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template - Status:stable - centreon-pack-applications-thales-mistral-vs9-restapi-23.08.0-1
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Gorgy NTP Server**](../procedures/hardware-device-gorgy-ntpserver-snmp.md) - fixed the $_HOSTSNMPEXTRAOPTIONS$ macros - Status:stable - centreon-pack-hardware-device-gorgy-ntpserver-snmp-23.08.0-1
+- [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - fixed the $_HOSTSNMPEXTRAOPTIONS$ macros - Status:stable - centreon-pack-hardware-storage-netapp-ontap-snmp-23.08.0-1
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - fixed an error that occurred when the storage size was zero - Status:stable - centreon-pack-hardware-storage-purestorage-flasharray-v2-restapi-23.08.0-1
+
+</TabItem>
+</Tabs>
+
 ### Juillet
 
 <Tabs groupId="sync">
