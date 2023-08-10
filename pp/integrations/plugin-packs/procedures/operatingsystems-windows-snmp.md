@@ -175,8 +175,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation from the constructor.
+To use this pack, the SNMP service must be properly configured on your Windows server. Please refer to the [Microsoft Knowledgebase to configure SNMP on your server](https://support.microsoft.com/en-us/kb/324263)
 
 ### Network flow
 
