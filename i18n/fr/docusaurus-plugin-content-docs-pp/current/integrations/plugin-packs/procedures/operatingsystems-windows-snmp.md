@@ -177,26 +177,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Configurer le service SNMP en v2 pour superviser le système Windows.
+Configurez le service SNMP en V2 pour superviser le système Windows.
 
 > Les instructions ci-après peuvent changer en fonction de votre version de
-> Windows. Référez vous à la documentation officielle de Microsoft le cas
+> Windows. Référez- vous à la documentation officielle de Microsoft le cas
 > échéant.
 
-  - Installer la fonctionnalité SNMP dans le gestionnaire de serveur de Windows :
+  - Installez la fonctionnalité SNMP dans le gestionnaire de serveur de Windows : **Gestionnaire de serveur > Ajouter des rôles et des fonctionnalités > Installation basée sur un rôle ou une fonctionnalité > Service SNMP**.
 
-    Gestionnaire de serveur =\> Ajouter des rôles et des fonctionnailtées =\>
-    Installation basée sur un rôle ou une fonctionnalité =\> Service SNMP
+  - Paramétrez le service **SNMP agent** avec votre communauté et les IP des collecteurs qui feront les requêtes.
 
-  - Paramétrer le service "SNMP agent" avec votre communauté et les IP des
-    Collecteurs qui feront les requêtes.
-
-  - Redémarrer le service SNMP après avoir configuré celui-ci.
+  - Redémarrez le service SNMP après avoir configuré celui-ci.
 
 ## Flux réseaux
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur Windows supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur Windows supervisé.
 
 ## Installer le connecteur de supervision
 
