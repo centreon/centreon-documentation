@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Août
 
-> **Changement majeur concernant les règles de découverte d'hôte**: Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Lire la section "Breaking changes" pour plus d'informations.
+> **Changement majeur concernant les règles de découverte d'hôte** : Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Voir la section "Breaking changes" pour plus d'informations.
 
 
 <Tabs groupId="sync">
