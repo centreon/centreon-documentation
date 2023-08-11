@@ -2200,6 +2200,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-rittal-cmc3-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-sensors-sensorip-snmp'
         },
         {
