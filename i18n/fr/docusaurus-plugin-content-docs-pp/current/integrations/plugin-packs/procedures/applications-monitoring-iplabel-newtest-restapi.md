@@ -265,8 +265,7 @@ SI vous utilisez un proxy, il est possible d'obtenir cette erreur. Lorsque c'est
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
-des plugins basés sur HTTP/API.
+Rendez-vous sur la documentation dédiée des plugins basés sur HTTP/API.
 
 ### Modes disponibles
 
