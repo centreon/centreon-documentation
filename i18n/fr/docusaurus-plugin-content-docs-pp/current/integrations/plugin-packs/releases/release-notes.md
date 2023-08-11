@@ -10,7 +10,6 @@ import TabItem from '@theme/TabItem';
 
 ### Août
 
-> **Major change impacting all host discovery providers**: the default host templates used in host discovery used to be the *read-only* ones. The "-custom" *read-write* ones are now used. As an example, `generic-active-host-custom` will be used instead of `generic-active-host`. See "Breaking changes" for more information.
 > **Changement majeur concernant les règles de découverte d'hôte**: Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Lire la section "Breaking changes" pour plus d'informations.
 
 
