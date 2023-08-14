@@ -260,12 +260,12 @@ mv broker_public.crt /etc/centreon/broker_cert/
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-Définissez le paramètre `centreon.url` dans **/etc/centreon-map/centreon-map.conf** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+Définissez le paramètre `centreon.url` dans **/etc/centreon-map/map-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-Définissez le paramètre `centreon.url` dans **/etc/centreon-studio/centreon-map.conf** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+Définissez le paramètre `centreon.url` dans **/etc/centreon-studio/studio-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
 
 </TabItem>
 </Tabs>

@@ -284,12 +284,12 @@ certificate as described below:
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-Set the **centreon.url** inside `/etc/centreon-map/centreon-map.conf` to use HTTPS instead of HTTP:
+Set the **centreon.url** inside **/etc/centreon-map/map-config.properties** to use HTTPS instead of HTTP:
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-Set the **centreon.url** inside `/etc/centreon-studio/centreon-map.conf` to use HTTPS instead of HTTP:
+Set the **centreon.url** inside **/etc/centreon-studio/studio-config.properties** to use HTTPS instead of HTTP:
 
 </TabItem>
 </Tabs>
