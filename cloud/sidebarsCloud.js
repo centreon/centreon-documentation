@@ -42,7 +42,11 @@ module.exports = {
         "type": "generated-index",
                                 },
       items: [
-    {
+        {
+          type: 'doc',
+          id: 'getting-started/manage-accounts',
+        },
+        {
       type: 'doc',
       id: 'getting-started/start-with-pollers',
     },

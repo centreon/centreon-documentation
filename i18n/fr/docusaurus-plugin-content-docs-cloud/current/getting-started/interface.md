@@ -35,13 +35,9 @@ Parcourez l'interface pour vous familiariser avec Centreon Cloud, selon votre [r
 
 ## Accéder à l'interface du serveur central
 
-Lors de votre première connexion à Centreon Cloud, utilisez l'URL et les identifiants que le support Centreon vous a fourni. L'URL de connexion a le format suivant : `https://<organisation>.<region>.centreon.cloud`.
+Lors de votre première connexion à Centreon Cloud, utilisez l'URL que le support Centreon vous a fourni. L'URL de connexion a le format suivant : `https://<organisation>.<region>.centreon.cloud`.
 
-Renseignez votre identifiant et mot de passe (définis via [Centreon CIAM](../ciam/ciam.md)), puis cliquez sur le bouton **Connect** :
-
-![image](../assets/getting-started/aconnection.png)
-
-Vous êtes maintenant connecté à l'interface web Centreon.
+Vous devrez peut-être vous connecter via [Centreon CIAM](../ciam/ciam.md).
 
 ## Menus
 

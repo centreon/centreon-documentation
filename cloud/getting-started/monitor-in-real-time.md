@@ -3,7 +3,7 @@ id: monitor-in-real-time
 title: Monitoring resources in real time
 ---
 
-Once you have [set up your first host](first-host.md), go to **Monitoring > Resources Status** to follow the status of its resources in real time.
+Once you have set up your first host, go to **Monitoring > Resources Status** to follow the status of its resources in real time.
 
 ## Video tutorials
 
