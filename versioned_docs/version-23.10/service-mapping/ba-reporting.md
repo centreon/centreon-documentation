@@ -3,28 +3,28 @@ id: ba-reporting
 title: Report Business Activities
 ---
 
-You can visualize, at any time, the evolution of historical data on the
+You can view history data at any time on the 
 reporting and log screens, and on performance graphs. These screens are
 similar to those used on the Centreon server.
 
 ## Reporting
 
-The reporting page to the **Reporting > Dashboard** one on Centreon.
+The reporting page is similar to the **Reporting > Dashboard** page on Centreon.
 Select a BA to display operational availability, warning and critical
 statistics for a given period:
 
 ![image](../assets/service-mapping/guide/reporting.png)
 
-You can export the data to a .csv file by clicking on the **Export in CSV
+You can export the data to a .csv file by clicking the **Export in CSV
 format** link.
 
 ## Logs
 
 The **Logs** menu displays the evolution of the BA level over time along
 with its KPI status when impacting the BA, for a given period. The
-maximum historical day is *the last 30 days*.
+maximum history period is *the last 30 days*.
 
-Only changes in BA status are recorded: you cannot display the status of
+Only changes in BA status are recorded. You cannot display the status of
 KPIs at a specific point in time.
 
 First, select the BA and the time period:
