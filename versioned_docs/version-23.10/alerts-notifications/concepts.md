@@ -39,7 +39,7 @@ In addition to their status, resources can be in several states:
 
 - [Acknowledged](acknowledge.md): indicates that the incident on the service or on the host
     has been taken into account by a user. Acknowledged resources have a yellow background.
-- [In downtime](downtimes.md): indicates that notifications are temporarily stopped. A downtime can be [planned in advance](downtimes.md#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or be set following an incident. Resources in downtime have a purple background.
+- [In downtime](downtimes.md): indicates that notifications are temporarily stopped. Downtime can be [planned in advance](downtimes.md#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or can be set following an incident. Resources in downtime have a purple background.
 
 
 -   [Flapping](notif-flapping.md): indicates that the status change
@@ -50,11 +50,11 @@ In addition to their status, resources can be in several states:
 
 ## Status types
 
-The status of a resource can have one of these 2 types:
+The status of a resource can be one of these two types:
 
--   SOFT: Signifies that an incident has just been detected and that it
+-   SOFT: Means that an incident has just been detected and that it
     has to be confirmed.
--   HARD: Signifies that the status of the incident is confirmed. Once
+-   HARD: Means that the status of the incident is confirmed. Once
     the status is confirmed, the notification process is engaged
     (sending of an email, SMS, etc.).
 
@@ -73,7 +73,7 @@ Example:
 
 A service has the following check settings:
 
--   Max check attempts: 3
+-   Max check attempts: 3.
 -   Normal check interval: 5 minutes
 -   Retry check interval: 1 minute
 
@@ -92,5 +92,5 @@ Let us imagine the following scenario:
 | t+22 | 1/3           | OK       | HARD  | Yes          | Service experiences a HARD recovery. Event handlers execute and a recovery notification is sent out.                                                                                                          |
 | t+27 | 1/3           | OK       | HARD  | No           | Service is still OK.                                                                                                                                                                                          |
 | t+32 | 1/3           | UNKNOWN  | SOFT  | Yes          | Service is detected as changing to a SOFT non-OK state. Event handlers execute.                                                                                                                               |
-| t+33 | 2/3           | OK       | SOFT  | Yes          | Service experiences a SOFT recovery. Event handlers execute, but notification are not sent, as this wasn't a "real" problem. State type is set HARD and check # is reset to 1 immediately after this happens. |
+| t+33 | 2/3           | OK       | SOFT  | Yes          | Service experiences a SOFT recovery. Event handlers execute, but a notification is not sent, as this wasn't a "real" problem. State type is set to HARD and check # is reset to 1 immediately after this happens. |
 | t+34 | 1/3           | OK       | HARD  | No           | Service stabilizes in an OK state.                                                                                                                                                                            |

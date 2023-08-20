@@ -34,19 +34,19 @@ scheduler so that it is taken into account.
 <TabItem value="From real-time monitoring" label="From real-time monitoring">
 
 To submit a result, access the details page of the object. In the category
-**Service Commands** click on **Submit result for this service**
+**Service Commands**, click **Submit result for this service**
 
 The following window appears:
 
 ![image](../assets/alerts/submitresult.png)
 
 -   The **Host Name** and **Service** fields define the host and the
-    service the result will be submitted
+    Service for which the result will be submitted
 -   The **Check result** field defines the status of the service
 -   The **Check output** field defines the message to be displayed for
     the service
 -   The **Performance data** field can be used to define performance
-    data for the generation of graphs
+    data to generate graphs
 
 </TabItem>
 </Tabs>
