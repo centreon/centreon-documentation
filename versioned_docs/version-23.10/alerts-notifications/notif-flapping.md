@@ -17,7 +17,7 @@ Whenever Centreon Engine checks the status of a host or service, it will
 check to see if it has started or stopped flapping. It does this by:
 
 -   Storing the results of the last 21 checks of the host or service
--   Analyzing the historical check results and determine where state
+-   Analyzing the historical check results to determine where state
     changes/transitions occur
 -   Using the state transitions to determine a percent state change
     value (a measure of change) for the host or service
@@ -28,7 +28,7 @@ A host or service is determined to have started flapping when its
 percent state change first exceeds a high flapping threshold.
 
 A host or service is determined to have stopped flapping when its
-percent state goes below a low flapping threshold (assuming that is was
+percent state goes below a low flapping threshold (assuming that it was
 previously flapping).
 
 ## Example
@@ -57,8 +57,8 @@ they’re checked will have 100% state change. Most services will have a
 percent state change somewhere in between.
 
 When calculating the percent state change for the service, the flap
-detection algorithm will give more weight to new state changes compare
-to older ones. Specfically, the flap detection routines are currently
+detection algorithm will give more weight to new state changes compared
+to older ones. Specifically, the flap detection routines are currently
 designed to make the newest possible state change carry 50% more weight
 than the oldest possible state change. The image below shows how recent
 state changes are given more weight than older state changes when
@@ -73,7 +73,7 @@ changes (at t\_3, t\_4, t\_5, t\_9, t\_12, t\_16 and t\_19). Without any
 weighting of the state changes over time, this would give us a total
 state change of 35%:
 
-(7 observed state changes / possible 20 state changes) \* 100 = 35 %
+(7 observed state changes / possible 20 state changes) \* 100 = 35%
 
 Since the flap detection logic will give newer state changes a higher
 rate than older state changes, the actual calculated percent state
@@ -104,17 +104,17 @@ can enable the detection of flapping:
 
 ![image](../assets/alerts/flap_engine_conf.png)
 
-You can modify the thresholds or keep preconfigured.
+You can modify the thresholds or keep the preconfigured ones.
 
 ### Flap Detection for Services
 
 If you enable the flapping detection for a scheduler (Centreon Engine),
-the process will by applied for all resources monitored by it.
+the process will be applied for all resources monitored by it.
 
 You can disable / enable flapping detection for a host through
-configuration menu.
+the configuration menu.
 
-Go to the **Configuration > Hosts > Hosts** menu, select your host and go
+Go to the **Configuration > Hosts > Hosts** menu, select your host, and go
 on the **Data Processing** tab:
 
 ![image](../assets/alerts/flap_host_conf.png)
@@ -126,10 +126,10 @@ You can also adapt flapping thresholds for this resource.
 ### Flap Detection for Hosts
 
 If you enable the flapping detection for a scheduler (Centreon Engine),
-the process will by applied for all resources monitored by it.
+the process will be applied for all resources monitored by it.
 
 You can disable / enable flapping detection for a service through
-configuration menu.
+the configuration menu.
 
 Go to the **Configuration > Services > Services by host** menu, select
 your service and go on the **Data Processing** tab:
