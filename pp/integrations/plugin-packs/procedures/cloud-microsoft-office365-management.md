@@ -117,11 +117,14 @@ Refer to the specific API reference for more details about each permission.
 You also need to specify permissions for **Microsoft Graph** for both the *Application* and *Delegated* types of permissions. You will have to set the following privileges:
 
 ```
-  "roles": [ 
-    "ServiceMessage.Read.All", 
-    "ServiceHealth.Read.All", 
-    "Reports.Read.All" 
-  ], 
+  "roles": [
+    "ServiceMessage.Read.All",
+    "ServiceHealth.Read.All",
+    "Reports.Read.All",
+    "Directory.Read.All",
+    "User.Read.All",
+    "Application.Read.All"
+  ],
 ```
 
 #### Request access tokens from Azure AD
