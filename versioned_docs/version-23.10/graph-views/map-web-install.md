@@ -5,21 +5,21 @@ title: Installing MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic describes how to install Centreon MAP. It is recommended to install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
+This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
 > Note to users already using the MAP (Legacy) version: the MAP module does not require the **centreon_studio** database (used for a MAP Legacy server). This database can be removed after [migrating your legacy maps to MAP](./import-into-map-web.md). Be aware that it is not possible to migrate from MAP to MAP (legacy).
 
 ## License
 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+team](https://support.centreon.com/) to obtain and install your license key.
 
 ## Architecture
 
 The diagram below summarizes the MAP architecture.
 
-- You can either install Centreon MAP on a dedicated server or on the central server.
-- Centreon MAP does not require any installation on your machine: this solution is fully available in the Centreon web interface.
+- You can install Centreon MAP either on a dedicated server or on the central server.
+- Centreon MAP does not require any installation on your machine; this solution is fully available in the Centreon web interface.
 
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
@@ -44,7 +44,7 @@ The diagram below summarizes the MAP architecture.
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+team](https://support.centreon.com/) to obtain and install your license key.
 
 #### Software
 
@@ -157,11 +157,30 @@ For very large amounts of data, contact your sales representative.
 </TabItem>
 </Tabs>
 
+#### Memory for Java
+
+To correctly implement the dedicated memory:
+
+1. Edit the *JAVA\_OPTS* parameter in the Centreon Map configuration file
+`/etc/centreon-map/centreon-map.conf`:
+
+   ```text
+   JAVA_OPTS="-Xms512m -Xmx4G"
+   ```
+
+   > The Xmx value depends on the amount of memory indicated in the tables in the [Hardware](#hardware) section.
+
+2. Restart the service:
+
+   ```shell
+   systemctl restart centreon-map-engine
+   ```
+
 #### Information required during configuration
 
 - Centreon web login with administration rights.
 
-> Even with a correctly sized server, you should have in mind the best practices and recommendations when creating views so you do not face performance issues.
+> Even with a correctly sized server, you should bear in mind the best practices and recommendations when creating views so you can avoid performance issues.
 
 > If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
@@ -171,11 +190,11 @@ For very large amounts of data, contact your sales representative.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+team](https://support.centreon.com/) to obtain and install your license key.
 
 #### Compatibility
 
-Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the web browsers compatibility [here](../installation/prerequisites.md).
+Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the compatibility of web browsers [here](../installation/prerequisites.md).
 
 ## MAP Engine server installation
 
@@ -191,7 +210,7 @@ configuration file, you should not use a Centreon admin user account.
 
 ![image](../assets/graph-views/reach-api.png)
 
-Exclude the user from the password expiration policy on page **Administration > Authentication**: their password will never expire.
+Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
@@ -211,7 +230,25 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 ### Step 3: Install MAP Engine server
 
-#### Package installation
+#### Java version requirement
+  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  
+  - If you need to check the Java version, enter the following command:
+  
+  ```shell
+  java -version
+  ```
+  
+  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  ```shell
+  sudo update-alternatives --config java
+  ```
+  
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+
+#### Procedure
 
 If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the **centreon-release** package:
@@ -237,7 +274,7 @@ Complete!
 Then install the **centreon-release** package:
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -261,7 +298,7 @@ Complete!
 Then install the **centreon-release** package:
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
 </TabItem>
@@ -270,13 +307,13 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 Install the following dependencies:
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -291,110 +328,10 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL does not work, you can manually find this package in the folder.
 
-#### Business repository installation
-
-Install the Centreon Business repository, you can find it on the
+Install the Centreon Business repository. You can find this on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-#### MAP Engine server installation
-
-You have two possibilities for the installation:
-
-- on a new server (without existing Centreon MAP packages),
-- or on an existing Centreon MAP server legacy.
-
-Select the right tab below and install the Centreon MAP Engine server:
-
-<Tabs groupId="sync">
-<TabItem value="New MAP Engine server" label="New MAP Engine server">
-
-#### MariaDB requirement
-
-> You need to have a MariaDB database to store your Centreon MAP data.
-
-First you need to add the MariaDB repository:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-</Tabs>
-
-Then install MariaDB server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install MariaDB-server
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install MariaDB-server
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update && apt install mariadb-server
-```
-
-> MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-> 
-> ```shell
-> /etc/mysql/mariadb.conf.d/50-server.cnf
-> ```
-> 
-> Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
-> 
-> ```shell
-> systemctl restart mariadb
-> ```
-
-</TabItem>
-</Tabs>
-
-Then enable and restart mariadb
-
-```shell
-systemctl enable mariadb
-systemctl restart mariadb
-```
-
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
-
-```shell
-mysql_secure_installation
-```
-
-* Answer **yes** to all questions except "Disallow root login remotely?".
-* It is mandatory to set a password for the **root** user of the database.
-
-> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
-
-Now you can install Centreon MAP Engine.
+Then install Centreon MAP Engine server using the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -414,133 +351,48 @@ dnf install centreon-map-engine
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt install centreon-map-engine
+apt update
+apt install centreon-map-engine
 ```
 
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="Existing MAP Legacy server" label="Existing MAP Legacy server">
-
-> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New MAP Engine server** tab.
-
-> You can use the existing MariaDB database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
-
-This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
-
-1. Make a backup of the **map.cnf** file:
-
-   <Tabs groupId="sync">
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
-   ```
-   
-   </TabItem>
-   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
-   ```
-   
-   </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
-   
-   ```shell
-   cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
-   ```
-   
-   </TabItem>
-   </Tabs>
-
-2. Install the centreon-map-engine package
-   
-   <Tabs groupId="sync">
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   dnf install centreon-map-engine
-   ```
-   
-   </TabItem>
-   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-   
-   ```shell
-   dnf install centreon-map-engine
-   ```
-   
-   </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
-   
-   ```shell
-   apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
-   ```
-   
-   </TabItem>
-   </Tabs>
-
-3. Retrieve the configuration file backup:
-  
-   <Tabs groupId="sync">
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
-   ```
-   
-   </TabItem>
-   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
-   ```
-   
-   </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
-   
-   ```shell
-   cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
-   ```
-   
-   </TabItem>
-   </Tabs>
-
-4. Answer **Y** when prompted. Then restart MySQL:
-   
-   ```shell
-   systemctl restart mariadb
-   ```
-   
 </TabItem>
 </Tabs>
 
 When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 17) if needed.
+(OpenJDK 11) if needed.
 
-#### Java requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+> You need to have a MariaDB database to store your Centreon MAP data, unless it has already been created at the central level.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+To install MariaDB, execute the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install MariaDB-client MariaDB-server
+```
+
+</TabItem>
+</Tabs>
 
 ### Step 4: Check the database configuration
 
 Make sure the database that stores Centreon MAP data is optimized
-(automatically added by the RPM in **/etc/my.cnf.d/map.cnf** or in **/etc/mysql/map.cnf** for Debian):
+(automatically added by the RPM in **/etc/my.cnf.d/map.cnf**):
 
 ```text
 max_allowed_packet = 20M
@@ -564,18 +416,128 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-### Step 5 : Execute the configure.sh script
+### Step 5 - Optional: If MAP Engine and MAP Legacy are installed on the same server
+
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [Execute the configure.sh script](#step-6--execute-the-configuresh-script) step.
+
+This procedure is to ensure that the configuration file can be used for both MAP Engine and MAP Legacy.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Make a backup of the **/etc/my.cnf.d/map.cnf** file:
+
+  ```shell
+  cp map.cnf map.cnf.bk
+  ```
+
+2. Execute the Centreon MAP Engine server configuration script.
+
+  Two modes are available:
+   - Interactive (no option/default mode): several questions will be asked to interactively fill in the installation variables.
+   - Automatic (--automatic or -a): the installation will be done automatically from the values set in the file **/etc/centreon-map/vars.sh**.
+  
+  If it is your first installation, we advise you to use the standard mode (interactive) and choose **No** when asked for advanced installation mode:
+    
+   ```shell
+   /etc/centreon-map/configure.sh
+  ```
+
+3. Retrieve the configuration file backup:
+  
+  ```shell
+  cp map.cnf.bk map.cnf
+  ```
+  
+  Answer **Y** when prompted. Then restart MySQL:
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. Make a backup of the **/etc/my.cnf.d/map.cnf** file:
+
+  ```shell
+  cp map.cnf map.cnf.bk
+  ```
+
+2. Execute the Centreon MAP Engine server configuration script.
+
+  Two modes are available:
+   - Interactive (no option/default mode): several questions will be asked to interactively fill in the installation variables.
+   - Automatic (--automatic or -a): the installation will be done automatically from the values set in the file **/etc/centreon-map/vars.sh**.
+  
+  If it is your first installation, we advise you to use the standard mode (interactive) and choose **No** when asked for advanced installation mode:
+    
+   ```shell
+   /etc/centreon-map/configure.sh
+  ```
+
+3. Retrieve the configuration file backup:
+  
+  ```shell
+  cp map.cnf.bk map.cnf
+  ```
+  
+  Answer **Y** when prompted. Then restart MySQL:
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+1. Make a backup of the **/etc/mysql/my.cnf** file:
+
+  ```shell
+  cp my.cnf my.cnf.bk
+  ```
+
+2. Execute the installation script:
+  
+  ```shell
+  apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
+  ```
+
+3. Retrieve the configuration file backup:
+  
+  ```shell
+  cp my.cnf.bk my.cnf
+  ```
+  
+  Answer **Y** when prompted. Then restart MySQL:
+
+  ```shell
+  systemctl restart mysql
+  ```
+
+</TabItem>
+</Tabs>
+
+4. Then restart the **centreon-map-engine** service:
+  
+  ```shell
+  systemctl restart centreon-map-engine
+  ```
+  
+> Now go directly to the [Restart Centreon Broker](#step-7-restart-centreon-broker) step.
+
+### Step 6: Execute the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script.
 
 Two modes are available:
   - Interactive (no option/default mode): several questions will be asked to interactively fill in the installation variables.
-  - Automatic (--automatic or -a): the installation will be done automatically from the values set in **/etc/centreon-map/vars.sh** file.
+  - Automatic (--automatic or -a): the installation will be done automatically from the values set in the file **/etc/centreon-map/vars.sh**.
   
 If it is your first installation, we advise you to use the standard mode (interactive) and choose **No** when asked for advanced installation mode:
    
   ```shell
-   /etc/centreon-map/configure.sh
+  /etc/centreon-map/configure.sh
   ```
 
 The output should look like this:
@@ -594,27 +556,16 @@ If you have customized the URI for your Centreon platform, you need to edit the 
 centreon.path=/your-custom-uri
 ```
 
-#### Java memory optimization
-
-To correctly implement the dedicated memory:
-
-Edit the *JAVA\_OPTS* parameter in the Centreon Map configuration file `/etc/centreon-map/centreon-map.conf` by adding -Xms and -Xmx parameters:
-
-```text
-JAVA_OPTS="-Xms512m -Xmx4G..."
-```
-
-> The Xmx value depends on the amount of memory indicated in the tables in the [Hardware](#hardware) section.
-
 Then restart the **centreon-map-engine** service:
 
 ```shell
 systemctl restart centreon-map-engine
 ```
 
-## Step 6: Apply Centreon Broker configuration and restart MAP Engine service
+### Step 7: Restart Centreon Broker
 
-> Before restarting Broker you must export the configuration from the Centreon web interface.
+> Before restarting Broker, you must export the configuration from the Centreon
+> web interface.
 
 Restart Centreon Broker on the Central server:
 
@@ -628,33 +579,7 @@ Remove the INSERT privilege from user **centreon_map**:
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-Then restart the **centreon-map-engine** service:
-
-```shell
-systemctl restart centreon-map-engine
-```
-
-Run the following command to check that the **centreon-map-engine** service is properly started:
-  
-  ```shell
-  systemctl status centreon-map-engine
-  ```
-
-  This is an example of results:
-
-  ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
-   Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
-   Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
- Main PID: 39103 (centreon-map-en)
-    Tasks: 50 (limit: 23465)
-   Memory: 598.1M
-   CGroup: /system.slice/centreon-map-engine.service
-           ├─39103 /bin/bash /usr/share/centreon-map-engine/bin/centreon-map-engine
-           └─39119 /usr/bin/java -Dsun.misc.URLClassPath.disableJarChecking=true -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map
-  ```
-
-### Step 7: Check the configuration
+### Step 8: Check the configuration
 
 Check the MAP Engine server configuration by using this command:
 
@@ -664,7 +589,7 @@ Check the MAP Engine server configuration by using this command:
 
 > In case of any error, see the **Run our diagnostic tool** section in the [Troubleshooting MAP](map-web-troubleshooting.md#run-our-diagnostic-tool) topic.
 
-If configuration is correct, the **centreon-map-engine** service can be
+If the configuration is correct, the **centreon-map-engine** service can be
 started from the Centreon MAP server:
 
 ```shell
@@ -677,14 +602,14 @@ Enable the service to start up automatically on server boot:
 systemctl enable centreon-map-engine
 ```
 
-Centreon MAP Engine server is now started and enabled, let's install
+Centreon MAP Engine server is now started and enabled, so let's install
 the interface part of the extension.
 
 ## MAP web client installation
 
 ### Step 1: Install the business repository
 
-Install the Centreon Business repository, you can find it on the
+Install the Centreon Business repository. You can find this on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Step 2: Install the MAP module
@@ -742,7 +667,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   systemctl restart cbd
   ```
 
-8. Now the configuration is correct, you can start the server by running this command:
+8. Now that the configuration is correct, you can start the server by running this command:
 
   ```shell
   systemctl start centreon-map-engine
@@ -772,7 +697,7 @@ You can now use the MAP module by accessing the **Monitoring > Map** page.
 
 ## Secure MAP in HTTPS
 
-If you want to use MAP in HTTPS, you must both secure your Centreon platform and MAP.
+If you want to use MAP in HTTPS, you must secure both your Centreon platform and MAP.
 
 - Follow this [procedure](../administration/secure-platform.md) to secure your Centreon platform.
 - Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure MAP.

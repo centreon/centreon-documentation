@@ -63,8 +63,8 @@ monitored.
 
 ![image](../assets/graph-views/jvm3.png)
 
-You may also just check the access to the following URL that tells that
-the server is up or not:
+You can also simply check by accessing the following URL, which tells you
+whether or not the server is up:
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
@@ -130,33 +130,33 @@ CRONTAB_EXEC_USER=""
 ```
 
 The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
-**BACKUP\_DIR**, which is defined in configuration file.
+**BACKUP\_DIR**, which is defined in the configuration file.
 
 ### Backup parameters
 
-Backup parameters are stored in **/etc/centreon-studio/backup.conf**
+The backup parameters are stored in **/etc/centreon-studio/backup.conf**
 
 - ENABLE: enable/disable backup mechanism (default value: 0)
 - BACKUP\_DIR: where the backup is stored (default value: /var/backup)
 - RETENTION\_AGE: backup retention in days (default value: 8)
 
-> **We advise to export backups to another resource in order to secure them.**
+> **We recommend exporting backups to another resource in order to secure them.**
 
 ### Restore data from Centreon MAP server
 
-Restore process is divided in several steps:
+The restoration process is divided into several steps:
 
 - Extracting backup
 - Restoring configuration files
 - Restoring database
 
 > **We assume that you have followed the Centreon MAP server installation
-> procedure to get a fresh install.**
+> procedure to obtain a fresh install.**
 
 ### Extracting backup
 
-Get the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
-into **/tmp** directory:
+Obtain the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
+Into the **/tmp** directory:
 
 ```shell
 cd /tmp
@@ -173,7 +173,7 @@ cp -R etc/centreon-studio/* /etc/centreon-studio/
 
 ### Restoring database
 
-To restore **centreon\_studio** database, run the following command:
+To restore the **centreon\_studio** database, run the following command:
 
 ```shell
 systemctl stop centreon-map
@@ -193,8 +193,8 @@ use the port 8443.
 You can change this port (e.g., if you have a firewall on your network
 blocking these ports).
 
-> If the new port is below 1024, use this procedure below "Define
-> port below 1024" instead.
+> If the new port is below 1024, use the procedure below, "Define
+> port below 1024", instead.
 
 On your Centreon MAP server, stop the Centreon MAP server:
 
@@ -206,7 +206,7 @@ Edit the studio-config.properties settings file located in
 /etc/centreon-studio:
 
 ```shell
-vi /etc/centreon-studio/studio-config.properties
+vim /etc/centreon-studio/studio-config.properties
 ```
 
 Add the following line at the MAP SERVER section
@@ -223,7 +223,7 @@ Then restart the Centreon MAP server:
 systemctl start centreon-map
 ```
 
-Wait for Centreon MAP service to start completely (~30 sec to 1 minutes).
+Wait for Centreon MAP service to start completely (~30 sec to 1 minute).
 
 Test that your server is up and accessible on the new port you defined by
 entering the following URL in your web browser:
@@ -234,17 +234,17 @@ http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
 
 ## Define port below 1024
 
-You may want to setup your server to listen and send data through ports below
+You may want to set up your server to listen and send data through ports below
 1024, such as port 80 or 443 (as these ports are rarely blocked by a firewall).
 
-If you want to set a port below 1024, the method is different since all ports
+If you want to set a port below 1024, the method is different, since all ports
 under 1024 are restricted and only accessible through special applications.
 
-There are a few different workarounds for this issue. One method is "port
+There are a few workarounds for this issue. One method is "port
 forwarding" through the firewall.
 
 > For this example, set the MAP server to listen and send data through port 80.
-> Replace each occurence of *80* with the port you want to use.
+> Replace each occurrence of *80* with the port you want to use.
 
 1.  Check your firewall.
 
@@ -323,11 +323,11 @@ the following URL in your browser:
 http://<MAP_IP>/centreon-studio/api/beta/actuator/health
 ```
 
-You should see server's state:
+You should see the server's state:
 
 ```json
 {"status":"UP"}
 ```
 
-> Don't forget to update both your desktop client configuration and your web
+> Remember to update both your desktop client configuration and your web
 > interface configuration.
