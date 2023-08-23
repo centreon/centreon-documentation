@@ -48,7 +48,7 @@ jobs:
 
   publish:
     needs: [build]
-    runs-on: [self-hosted, common]
+    runs-on: [self-hosted, infra]
 
     steps:
       - name: Checkout sources
