@@ -77,6 +77,6 @@ jobs:
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-          ssh -o StrictHostKeyChecking=no docs-dev.int.centreon.com ls -l /var/www
-          ssh -o StrictHostKeyChecking=no docs.int.centreon.com ls -l /var/www
+          ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls -l /var/www
+          ssh -o StrictHostKeyChecking=no admin@docs.int.centreon.com ls -l /var/www
         shell: bash
