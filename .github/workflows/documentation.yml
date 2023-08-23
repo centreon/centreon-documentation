@@ -75,7 +75,8 @@ jobs:
         run: |
           # Prepare ssh-key
           eval `ssh-agent`
-          ssh-add - <<< "${{ secrets.YUM_REPO_KEY }}"
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
           ssh -o StrictHostKeyChecking=no docs-dev.int.centreon.com ls -l /var/www
+          ssh -o StrictHostKeyChecking=no docs.int.centreon.com ls -l /var/www
         shell: bash
