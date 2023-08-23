@@ -21,9 +21,9 @@ Centreon Engine emits an **acknowledgement** event. This event is different in B
 
 #### NEB::Acknowledgement
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       1 | 65537 |
+| 1        | 1       | 65537 |
 
 The content of this message is serialized as follows:
 
@@ -41,16 +41,16 @@ The content of this message is serialized as follows:
 | persistent\_comment                          | boolean          | True if the comment is persistent.                                       |
 | service\_id                                  | unsigned integer | Service ID. 0 for a host acknowledgement.                                |
 | state                                        | short integer    | Host / service state.                                                    |
-| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already acknowledged.                   |
+| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already acknowledged.          |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbAcknowledgement
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      45 | 65581 |
+| 1        | 45      | 65581 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -92,9 +92,9 @@ interface. When they validate it, Centreon Engine emits a **comment** event. Thi
 
 #### NEB::Comment
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       2 | 65538 |
+| 1        | 2       | 65538 |
 
 The content of this message is serialized as follows:
 
@@ -120,9 +120,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbComment
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      35 | 65571 |
+| 1        | 35      | 65571 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -191,9 +191,9 @@ a **custom variable** event. This event is different in BBDO v2 and in BBDO v3.
 
 #### NEB::CustomVariable
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       3 | 65539 |
+| 1        | 3       | 65539 |
 
 The content of this message is serialized as follows:
 
@@ -214,9 +214,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbCustomVariable
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      37 | 65573 |
+| 1        | 37      | 65573 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -264,9 +264,9 @@ to be updated.
 
 #### NEB::CustomVariableStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       4 | 65540 |
+| 1        | 4       | 65540 |
 
 The content of this message is serialized as follows:
 
@@ -284,9 +284,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbCustomVariableStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      38 | 65574 |
+| 1        | 38      | 65574 |
 
 The Protobuf message for a **PbCustomVariableStatus** is the same as for a **PbCustomVariable**,
 except that some of the fields may not be filled in.
@@ -330,9 +330,9 @@ This event is emitted by Centreon Engine when a downtime is set on a resource.
 
 #### NEB::Downtime
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       5 | 65541 |
+| 1        | 5       | 65541 |
 
 The content of this message is serialized as follows:
 
@@ -365,9 +365,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbDowntime
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      36 | 65572 |
+| 1        | 36      | 65572 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -421,9 +421,9 @@ usually sent when Centreon Engine is restarted or reloaded.
 
 #### NEB::EventHandler
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       6 | 65542 |
+| 1        | 6       | 65542 |
 
 The content of this message is serialized as follows:
 
@@ -476,9 +476,9 @@ There are no **tag** events in BBDO v2.
 
 #### NEB::PbTag
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      34 | 65570 |
+| 1        | 34      | 65570 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -523,9 +523,9 @@ This event is emitted every time a change is made to the configuration of a host
 
 #### NEB::Host
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      12 | 65548 |
+| 1        | 12      | 65548 |
 
 The content of this message is serialized as follows:
 
@@ -616,9 +616,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbHost
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      30 | 65566 |
+| 1        | 30      | 65566 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -756,9 +756,9 @@ This type of event is emitted by Centreon Engine when a check is performed on a 
 
 #### NEB::HostCheck
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       8 | 65544 |
+| 1        | 8       | 65544 |
 
 The content of this message is serialized as follows:
 
@@ -777,9 +777,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbHostCheck
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      39 | 65575 |
+| 1        | 39      | 65575 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -823,9 +823,9 @@ This event is emitted when a dependency between hosts is defined, and the config
 
 #### NEB::HostDependency
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       9 | 65545 |
+| 1        | 9       | 65545 |
 
 The content of this message is serialized as follows:
 
@@ -856,9 +856,9 @@ This event is emitted when a host group is created.
 
 #### NEB::HostGroup
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      10 | 65546 |
+| 1        | 10      | 65546 |
 
 The content of this message is serialized as follows:
 
@@ -888,9 +888,9 @@ BBDO v2 version of this event.
 
 #### NEB::HostGroupMember
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      11 | 65547 |
+| 1        | 11      | 65547 |
 
 The content of this message is serialized as follows:
 
@@ -921,9 +921,9 @@ we still use the BBDO v2 version of this event.
 
 #### NEB::HostParent
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      13 | 65549 |
+| 1        | 13      | 65549 |
 
 The content of this message is serialized as follows:
 
@@ -950,9 +950,9 @@ This is an event emitted by Centreon Engine when a host has real time modificati
 
 #### NEB::HostStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |       14 | 65550 |
+| 1        | 14      | 65550 |
 
 The content of this message is serialized as follows:
 
@@ -1006,9 +1006,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbHostStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      32 | 65538 |
+| 1        | 32      | 65538 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1087,9 +1087,9 @@ This event is emitted by Centreon Engine when Engine starts to send its configur
 
 #### NEB::Instance
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      15 | 65551 |
+| 1        | 15      | 65551 |
 
 The content of this message is serialized as follows:
 
@@ -1109,9 +1109,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbInstance
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      44 | 65580 |
+| 1        | 44      | 65580 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1152,9 +1152,9 @@ is still alive (with various other information).
 
 #### NEB::InstanceStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      16 | 65552 |
+| 1        | 16      | 65552 |
 
 The content of this message is serialized as follows:
 
@@ -1182,9 +1182,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbInstanceStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      42 | 65578 |
+| 1        | 42      | 65578 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1233,9 +1233,9 @@ to be stored into the database. These logs are sent using **log entry** events.
 
 #### NEB::LogEntry
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      17 | 65553 |
+| 1        | 17      | 65553 |
 
 The content of this message is serialized as follows:
 
@@ -1260,9 +1260,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbLogEntry
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      41 | 65577 |
+| 1        | 41      | 65577 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1326,9 +1326,9 @@ So, it should be removed in a near future.
 
 #### NEB::Module
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      18 | 65554 |
+| 1        | 18      | 65554 |
 
 The content of this message is serialized as follows:
 
@@ -1358,9 +1358,9 @@ This is a configuration event. It is emitted by Centreon Engine when a change is
 
 #### NEB::Service
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      23 | 65559 |
+| 1        | 23      | 65559 |
 
 The content of this message is serialized as follows:
 
@@ -1454,9 +1454,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbService
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      27 | 65563 |
+| 1        | 27      | 65563 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1606,9 +1606,9 @@ This event is emitted by Centreon Engine when a check is performed on a service.
 
 #### NEB::ServiceCheck
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      19 | 65555 |
+| 1        | 19      | 65555 |
 
 The content of this message is serialized as follows:
 
@@ -1626,9 +1626,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbServiceCheck
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      40 | 65576 |
+| 1        | 40      | 65576 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1671,9 +1671,9 @@ This is a configuration event sent when a dependency between services is defined
 
 #### NEB::ServiceDependency
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      20 | 65556 |
+| 1        | 20      | 65556 |
 
 The content of this message is serialized as follows:
 
@@ -1706,9 +1706,9 @@ This is a configuration event that is emitted when a service group is created.
 
 #### NEB::ServiceGroup
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      21 | 65557 |
+| 1        | 21      | 65557 |
 
 The content of this message is serialized as follows:
 
@@ -1738,9 +1738,9 @@ BBDO v2 version of this event.
 
 #### NEB::ServiceGroupMember
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      22 | 65558 |
+| 1        | 22      | 65558 |
 
 The content of this message is serialized as follows:
 
@@ -1770,9 +1770,9 @@ This is an event emitted by Centreon Engine when a service has real time modific
 
 #### NEB::ServiceStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      24 | 65560 |
+| 1        | 24      | 65560 |
 
 The content of this message is serialized as follows:
 
@@ -1830,9 +1830,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbServiceStatus
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      29 | 65565 |
+| 1        | 29      | 65565 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -1916,9 +1916,9 @@ going to be sent by a poller.
 
 #### NEB::InstanceConfiguration
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      25 | 65561 |
+| 1        | 25      | 65561 |
 
 The content of this message is serialized as follows:
 
@@ -1944,25 +1944,25 @@ This event is emitted by cbd. It tells if a poller is responsive or not.
 
 #### NEB::ResponsiveInstance
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      26 | 65562 |
+| 1        | 26      | 65562 |
 
 The content of this message is serialized as follows:
 
-| Property   | Type             | Description                                                                  | Version |
-| ---------- | ---------------- | ---------------------------------------------------------------------------- | ------- |
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).     |         |
-| responsive | boolean          | A boolean telling if the poller with ID **poller_id** is responsive or not.  |         |
+| Property   | Type             | Description                                                                 | Version |
+| ---------- | ---------------- | --------------------------------------------------------------------------- | ------- |
+| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload).    |         |
+| responsive | boolean          | A boolean telling if the poller with ID **poller_id** is responsive or not. |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbResponsiveInstance
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      46 | 65582 |
+| 1        | 46      | 65582 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2003,9 +2003,9 @@ No **Adaptive service** available in BBDO v2.
 
 #### NEB::PbAdaptiveService
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      41 | 65577 |
+| 1        | 41      | 65577 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2057,9 +2057,9 @@ No **Adaptive host** available in BBDO v2.
 
 #### NEB::PbAdaptiveHost
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      31 | 65567 |
+| 1        | 31      | 65567 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2110,9 +2110,9 @@ No BBDO v2 version of this event exists.
 
 #### NEB::PbSeverity
 
-| Category | element |  ID   |
+| Category | element | ID    |
 | -------- | ------- | ----- |
-|        1 |      33 | 65569 |
+| 1        | 33      | 65569 |
 
 This event comes with BBDO 3. It contains the severity of a resource.
 
@@ -2154,9 +2154,9 @@ graph should be updated.
 
 #### Storage::Metric
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       1 | 196609 |
+| 3        | 1       | 196609 |
 
 The content of this message is serialized as follows:
 
@@ -2178,9 +2178,9 @@ The content of this message is serialized as follows:
 
 #### Storage::PbMetric
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       9 | 196617 |
+| 3        | 9       | 196617 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2204,6 +2204,9 @@ message Metric {
   ValueType value_type = 7;   // A value from ValueType.
   uint64 time = 8;            // Timestamp at which the metric value was generated.
   double value = 9;           // Metric value.
+  string name = 10;           // Metric name.
+  uint64 host_id = 11;        // Host ID.
+  uint64 service_id = 12;     // Service ID.
 }
 ```
 
@@ -2226,9 +2229,9 @@ we use the event [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
 #### Storage::Rebuild
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       2 | 196610 |
+| 3        | 2       | 196610 |
 
 The content of this message is serialized as follows:
 
@@ -2262,15 +2265,15 @@ we use the event [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
 
 #### Storage::RemoveGraph
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       3 | 196611 |
+| 3        | 3       | 196611 |
 
 The content of this message is serialized as follows:
 
 | Property  | Type             | Description                                                                                            |
 | --------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| id        | unsigned integer | Index ID (is\_index =`true`) or metric ID (is\_index =`false`) to remove.                            |
+| id        | unsigned integer | Index ID (is\_index =`true`) or metric ID (is\_index =`false`) to remove.                              |
 | is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |
 
 </TabItem>
@@ -2294,9 +2297,9 @@ It essentially contains a resource with its status.
 
 #### Storage::Status
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       4 | 196612 |
+| 3        | 4       | 196612 |
 
 The content of this message is serialized as follows:
 
@@ -2314,9 +2317,9 @@ The content of this message is serialized as follows:
 
 #### Storage::PbStatus
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |      10 | 196618 |
+| 3        | 10      | 196618 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2349,9 +2352,9 @@ received. It associates an index ID (the one created for a service - see
 
 #### Storage::MetricMapping
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       6 | 196614 |
+| 3        | 6       | 196614 |
 
 The content of this message is serialized as follows:
 
@@ -2365,9 +2368,9 @@ The content of this message is serialized as follows:
 
 #### Storage::PbMetricMapping
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |      12 | 196620 |
+| 3        | 12      | 196620 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2397,9 +2400,9 @@ ID is useful for the service metrics declaration.
 
 #### Storage::IndexMapping
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       5 | 196613 |
+| 3        | 5       | 196613 |
 
 The content of this message is serialized as follows:
 
@@ -2414,9 +2417,9 @@ The content of this message is serialized as follows:
 
 #### Storage::PbIndexMapping
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |      11 | 196619 |
+| 3        | 11      | 196619 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2454,9 +2457,9 @@ See [Storage::Rebuild](#storagerebuild)
 
 #### Storage::PbRebuildMessage
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       7 | 196615 |
+| 3        | 7       | 196615 |
 
 There are three states for this message:
 
@@ -2521,9 +2524,9 @@ See [Storage::RemoveGraph](#storageremovegraph)
 
 #### Storage::PbRemoveGraphMessage
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        3 |       8 | 196616 |
+| 3        | 8       | 196616 |
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
@@ -2550,14 +2553,14 @@ acceptor to negociate options.
 
 #### BBDO::VersionResponse
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        2 |       1 | 131073 |
+| 2        | 1       | 131073 |
 
 The content of this message is serialized as follows:
 
-| Property    | Type          | Description                                                                                                                 |
-| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Property    | Type          | Description                                                                                                                |
+| ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version_response** packet. The sole current protocol version is 1.0.0. |
 | bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version_response** packet.                                             |
 | bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version_response** packet.                                             |
@@ -2583,9 +2586,9 @@ already handled.
 
 #### BBDO::Ack
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        2 |       2 | 131074 |
+| 2        | 2       | 131074 |
 
 The content of this message is serialized as follows:
 
@@ -2598,9 +2601,9 @@ The content of this message is serialized as follows:
 
 #### NEB::PbAck
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        2 |       8 | 131080 |
+| 2        | 8       | 131080 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2630,9 +2633,9 @@ event.
 
 #### BBDO::Stop
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        2 |       3 | 131075 |
+| 2        | 3       | 131075 |
 
 The content of this message is empty.
 
@@ -2641,9 +2644,9 @@ The content of this message is empty.
 
 #### BBDO::PbStop
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        2 |       9 | 131081 |
+| 2        | 9       | 131081 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2671,9 +2674,9 @@ This event is sent when a BA's status changes.
 
 #### BAM::BaStatus
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       1 | 393217 |
+| 6        | 1       | 393217 |
 
 The content of this message is serialized as follows:
 
@@ -2693,9 +2696,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbBaStatus
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      19 | 393235 |
+| 6        | 19      | 393235 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2737,9 +2740,9 @@ This event is sent when a KPI's status changes.
 
 #### BAM::KpiStatus
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       2 | 393218 |
+| 6        | 2       | 393218 |
 
 The content of this message is serialized as follows:
 
@@ -2764,9 +2767,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbKpiStatus
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      27 | 393243 |
+| 6        | 27      | 393243 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2816,9 +2819,9 @@ event is not used.
 
 #### BAM::MetaServiceStatus
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       3 | 393219 |
+| 6        | 3       | 393219 |
 
 The content of this message is serialized as follows:
 
@@ -2845,9 +2848,9 @@ This event is sent when a new BA event is opened, or an old one is closed.
 
 #### BAM::BaEvent
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       4 | 393220 |
+| 6        | 4       | 393220 |
 
 The content of this message is serialized as follows:
 
@@ -2865,9 +2868,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbBaEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      20 | 393236 |
+| 6        | 20      | 393236 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2907,9 +2910,9 @@ This event is sent when a new KPI event is opened, or an old one is closed.
 
 #### BAM::KpiEvent
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       5 | 393221 |
+| 6        | 5       | 393221 |
 
 The content of this message is serialized as follows:
 
@@ -2929,9 +2932,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbKpiEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      21 | 393237 |
+| 6        | 21      | 393237 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -2974,9 +2977,9 @@ This event is sent when a new BA duration event is computed by the BAM broker.
 
 #### BAM::BaDurationEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       6 | 393222 |
+| 6        | 6       | 393222 |
 
 The content of this message is serialized as follows:
 
@@ -2995,9 +2998,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbBaDurationEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      28 | 393244 |
+| 6        | 28      | 393244 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3032,9 +3035,9 @@ startup and after each BAM configuration reload.
 
 #### BAM::DimensionBaEvent
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       7 | 393223 |
+| 6        | 7       | 393223 |
 
 The content of this message is serialized as follows:
 
@@ -3053,9 +3056,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionBaEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      25 | 393241 |
+| 6        | 25      | 393241 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3089,9 +3092,9 @@ startup and after each BAM configuration reload.
 
 #### BAM::DimensionKpiEvent
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       8 | 393224 |
+| 6        | 8       | 393224 |
 
 The content of this message is serialized as follows:
 
@@ -3119,9 +3122,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionKpiEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      26 | 393242 |
+| 6        | 26      | 393242 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3165,9 +3168,9 @@ startup and after each BAM configuration reload.
 
 #### BAM::DimensionBaBvRelationEvent
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |       9 | 393225 |
+| 6        | 9       | 393225 |
 
 The content of this message is serialized as follows:
 
@@ -3181,9 +3184,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionBaBvRelationEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      23 | 393239 |
+| 6        | 23      | 393239 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3212,9 +3215,9 @@ startup and after each BAM configuration reload.
 
 #### BAM::DimensionBvEvent
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      10 | 393226 |
+| 6        | 10      | 393226 |
 
 The content of this message is serialized as follows:
 
@@ -3229,9 +3232,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionBvEvent
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      22 | 393238 |
+| 6        | 22      | 393238 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3265,9 +3268,9 @@ the end of the dump.
 
 #### BAM::DimensionTruncateTableSignal
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      11 | 393228 |
+| 6        | 11      | 393228 |
 
 The content of this message is serialized as follows:
 
@@ -3280,9 +3283,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionTruncateTableSignal
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      30 | 393246 |
+| 6        | 30      | 393246 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3311,9 +3314,9 @@ is asked to the BAM broker endpoint.
 
 #### BAM::Rebuild
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      12 | 393228 |
+| 6        | 12      | 393228 |
 
 The content of this message is serialized as follows:
 
@@ -3339,9 +3342,9 @@ startup and after each BAM configuration reload.
 
 #### BAM::DimensionTimeperiod
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      13 | 393230 |
+| 6        | 13      | 393230 |
 
 The content of this message is serialized as follows:
 
@@ -3362,9 +3365,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionTimeperiod
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      24 | 393240 |
+| 6        | 24      | 393240 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3401,9 +3404,9 @@ startup and after each BAM configuration reload.
 
 #### BAM::DimensionBaTimeperiodRelation
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      14 | 393231 |
+| 6        | 14      | 393231 |
 
 The content of this message is serialized as follows:
 
@@ -3418,9 +3421,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbDimensionBaTimeperiodRelation
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      29 | 393245 |
+| 6        | 29      | 393245 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
@@ -3447,9 +3450,9 @@ message DimensionBaTimeperiodRelation {
 
 #### BAM::InheritedDowntime
 
-| Category | element |   ID   |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      17 | 393233 |
+| 6        | 17      | 393233 |
 
 The content of this message is serialized as follows:
 
@@ -3463,9 +3466,9 @@ The content of this message is serialized as follows:
 
 #### BAM::PbInheritedDowntime
 
-| Category | element |  ID    |
+| Category | element | ID     |
 | -------- | ------- | ------ |
-|        6 |      18 | 393234 |
+| 6        | 18      | 393234 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
 events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
