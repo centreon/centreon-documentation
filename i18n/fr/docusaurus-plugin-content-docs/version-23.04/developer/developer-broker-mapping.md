@@ -2169,6 +2169,9 @@ message Metric {
   ValueType value_type = 7;   // Une valeur de ValueType.
   uint64 time = 8;            // Timestamp à laquelle la valeur de la métrique a été générée.
   double value = 9;           // Valeur de la métrique.
+  string name = 10;           // Nom de la métrique.
+  uint64 host_id = 11;        // ID de l'hôte.
+  uint64 service_id = 12;     // ID du service.
 }
 ```
 
