@@ -43,7 +43,7 @@ sudo dnf update centreon-map-engine centreon-map-web-client
    - Faites une sauvegarde du fichier **map.cnf** :
     
     ```shell
-    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
+    cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
     ```
 
    - Mettez les paquets de **centreon-map-engine** à jour :
@@ -55,7 +55,7 @@ sudo dnf update centreon-map-engine centreon-map-web-client
    - Récupérez la sauvegarde du fichier de configuration :
    
     ```shell
-    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
+    cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
     ```
 
    - Répondez **Y**. Ensuite redémarrez MySQL :
