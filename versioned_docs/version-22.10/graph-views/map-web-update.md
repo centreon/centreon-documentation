@@ -43,7 +43,7 @@ sudo yum update centreon-map-engine centreon-map-web-client
    - Make a backup of the **map.cnf** file:
     
     ```shell
-    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
+    cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
     ```
 
    - Update the centreon-map-engine package
@@ -55,7 +55,7 @@ sudo yum update centreon-map-engine centreon-map-web-client
    - Retrieve the configuration file backup:
    
     ```shell
-    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
+    cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
     ```
 
    - Answer **Y** when prompted. Then restart MySQL:
