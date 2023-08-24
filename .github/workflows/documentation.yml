@@ -88,5 +88,12 @@ jobs:
           #ssh -o StrictHostKeyChecking=no admin@docs.int.centreon.com ls -l /var/www
 
           rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn arn:aws:iam::902177162398:role/invalidate-doc-cache \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
           aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"
         shell: bash
