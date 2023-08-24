@@ -213,7 +213,7 @@ which lines you would like to display, their color and other properties:
 A gage displays the percentage of a metric. Create a gage by selecting a
 service and choosing the metric you want to display.
 
-![image](../assets/graph-views/gage-example.png)
+![image](../assets/graph-views/gauge-example.png)
 
 You can place a gage in any position and in any direction (left to
 right, bottom to top, etc.). By default, the color of the gage is
