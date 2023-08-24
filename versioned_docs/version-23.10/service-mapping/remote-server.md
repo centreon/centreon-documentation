@@ -27,7 +27,7 @@ configuration` menu and edit the remote poller configuration.
 In the Output tab, select **BAM - Monitoring engine (BAM)** and click
 **Add**:
 
-![image](../assets/service-mapping/-/ba_detailed.png)
+![image](../assets/service-mapping/remote-server/conf_poller_bam_monitoring.png)
 
 Please consult the following table for the appropriate field values:
 
