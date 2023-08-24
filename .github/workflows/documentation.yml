@@ -85,7 +85,7 @@ jobs:
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
           ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls -l /var/www
-          ssh -o StrictHostKeyChecking=no admin@docs.int.centreon.com ls -l /var/www
+          #ssh -o StrictHostKeyChecking=no admin@docs.int.centreon.com ls -l /var/www
 
           rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
           aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"
