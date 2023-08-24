@@ -70,7 +70,7 @@ Several actions are possible on each graph:
 * **Display multiple periods**: displays the graph over a period of 1 day, 1 week, 1 month, 1 year
 * To export the graph in a CSV format by clicking the icon ![image](../assets/common/csv.png) or in PNG by clicking the
   icon ![image](../assets/common/png.png)
-* To move back in time by clicking the icon ![image](../assets/metrology/right_arrow.png) or backward by clicking the
+* To move forward in time by clicking the icon ![image](../assets/metrology/right_arrow.png) or backward by clicking the
   icon ![image](../assets/metrology/left_arrow.png)
 * It is also possible to zoom in on a time period by clicking the graph and then selecting a time window:
 
