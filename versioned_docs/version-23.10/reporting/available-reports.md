@@ -14,7 +14,7 @@ and categories, service categories, metrics).
 Most of these reports have been designed to be perfectly rendered in
 PDF. The space reserved for object names (host, services, groups,
 categories) in tables or graph legends may sometimes be limited, so
-please remember to define objects' names accordingly.
+please remember to define object names accordingly.
 
 Directly access the area you want to have a look at:
 
@@ -59,7 +59,7 @@ The first page presents a focus on the following attributes:
 The weather icons change according to the SLAs defined in each business
 activity, in terms of minutes.
 
-- Reliability and Maintenability
+- Reliability and Maintainability
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-3.png)
 
@@ -80,8 +80,8 @@ activity, in terms of percentages and minutes.
 
 - An availability calendar displays only days when availability was below 100%.
 - For days with 100% availability, the cell background color appears in a light
-  grey with no values displayed.
-- If data aren't present on a specific day, the cell background color appears
+  gray with no values displayed.
+- If data are not present on a specific day, the cell background color appears
   in white with no values displayed.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
@@ -182,7 +182,7 @@ The weather icons change according to the SLA percentage defined in each
 business activity. If no SLA is defined, 100% availability will be
 represented by a sun icon, and all values below 100% by a cloud.
 
-Changes are calcuted in relation to the previous period:
+Changes are calculated in relation to the previous period:
 
 - If the reporting period is a full month, the previous period is
   the previous full month.
@@ -267,7 +267,7 @@ Parameters required for the report:
 | compare\_with                 | Radio button  | Display historical data according to specified period.                 |
 | show the reporting timeperiod | Radio botton  | Show or hide the default time period related to the business activity. |
 | title                         | Text field    | Specify report title.                                                  |
-| time period                   | Dropdown list | Specify reporting time period or a other.\*                            |
+| time period                   | Dropdown list | Specify reporting time period or other.\*                            |
 
 \* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration or
@@ -416,16 +416,16 @@ exception events for hosts and services.
 
 #### How to interpret the report
 
-On the first page, the report displays a graph of the hosts and services
+On the first page, the report displays a graph of the host and service
 availability for hostgroups, exception-events distribution, evolution of
 the number of resources, and a cross table detailing the statistics for
 all the previous information.
 
 On the following pages, evolution of the unavailability and exception
 events is detailed for each host group, sorted by host categories and
-services categories.
+service categories.
 
-Finally, hosts and services statistics are displayed with the top-most
+Finally, host and service statistics are displayed with the top-most
 unavailability and exception events.
 
 #### First page
@@ -521,12 +521,12 @@ generating the most events for a given host group.
 
 #### How to interpret the report
 
-The first graphic displays the rate of acknowledged and resolved events
+The first graph displays the rate of acknowledged and resolved events
 within a specific time frame.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_1.png)
 
-The second graphic displays the top 10 longest events with the start, end and
+The second graph displays the top 10 longest events with the start, end and
 resolution time.
 
 Indicators in a critical-state appear in red, in a warning-state in orange, and
@@ -534,7 +534,7 @@ an unknown state in gray.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_2.png)
 
-The third graphic in the report displays the top 10 the least reliable
+The third graph in the report displays the top 10 the least reliable
 indicators.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_3.png)
@@ -587,7 +587,7 @@ Parameters required for the report:
 |------------------|----------------|-------------------------|
 | Host group       | Drop-down list | Select host group.      |
 | Hosts Categories | Multi select   | Select host categories  |
-| Time period      | Drop-down list | Specifiy time period    |
+| Time period      | Drop-down list | Specify time period    |
 
 ### Hostgroup-Host-Event-List
 
@@ -598,13 +598,13 @@ This report provides a list of exception events for hosts.
 #### How to interpret the report
 
 The table contains detailed statistics on critical or warning-type
-exception events on hosts indicating start, acknowledgement and end
+exception events on hosts indicating start, acknowledgment and end
 dates. The report also calculates the real and the effective MTRS for
 each event.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Event-List.png)
 
-This report is optimized for for generating XLS files.
+This report is optimized for generating XLS files.
 
 #### Parameters
 
@@ -659,8 +659,8 @@ services in a hostgroup.
 #### How to interpret the report
 
 The report also calculates the real and the effective MTRS for each alarm. A
-table contains detailed statistics on events occuring on hosts indicating start,
-acknowledgement and end dates.
+table contains detailed statistics on events occurring on hosts indicating start,
+acknowledgment and end dates.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
 
@@ -715,7 +715,7 @@ Parameters required for the report:
 
 #### Description
 
-This report displays the events occuring on hosts at the time it is
+This report displays the events occurring on hosts at the time it is
 generated.
 
 #### How to interpret the report
@@ -728,7 +728,7 @@ addition:
 - Events can be sorted by state, duration or hostname.
 - You can display and/or filter acknowledged hosts or hosts in downtime.
 - Only confirmed events (hard state) are taken in account.
-- A report can have less than four parts by specifying the value -1 in its
+- A report can have fewer than four parts by specifying the value -1 in its
   title.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
@@ -759,7 +759,7 @@ Parameters required for the report:
 
 #### Description
 
-This report displays the events occuring with services at the time it is
+This report displays the events occurring with services at the time it is
 generated.
 
 #### How to interpret the report
@@ -772,14 +772,14 @@ report is generated. In addition:
 - Events can be sorted by state, duration or hostname.
 - You can display and/or filter acknowledged hosts or hosts in downtime.
 - Only confirmed events (hard state) are taken in account.
-- A report can have less than four parts by specifying the value -1 in its
+- A report can have fewer than four parts by specifying the value -1 in its
   title.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
 
 ####  Parameters
 
-Parameters needed by the report are :
+Parameters required by the report:
 
 | Parameters              | Type         | Description                                     |
 |-------------------------|--------------|-------------------------------------------------|
@@ -802,7 +802,7 @@ Parameters needed by the report are :
 | sort\_by                | Radio button | Sort results by state, duration or hostname.    |
 | display\_ack            | Radio button | Display or filter acknowledged hosts.           |
 | display\_downtimes      | Radio button | Display or filter hosts in downtime.            |
-| display\_only\_critical | Radio bouton | Display only services in critical state.        |
+| display\_only\_critical | Radio button | Display only services in critical state.        |
 
 ## Performance
 
@@ -837,14 +837,14 @@ and configure the following field:
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
 
 In order to export RRD graphs using the Centreon API, the reporting
-server needs to access it using HTTP or HTTPS protocole. A curl command
+server needs to access it using HTTP or HTTPS protocol. A curl command
 sent to the URL of the API should generate an image file.
 
 ``` shell
 curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
-Replace the values between $ signs by real values.
+Replace the values between $ signs with real values.
 
 Example:
 
@@ -865,7 +865,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 > - Retrieve and store certificate:
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 >   The *servername* option value must be the exact hostname defined in the
@@ -914,14 +914,14 @@ and configure the following field:
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
 
 In order to export RRD graphs using the Centreon API, the reporting
-server needs to access it using HTTP or HTTPS protocole. A curl command
+server needs to access it using HTTP or HTTPS protocol. A curl command
 sent to the URL of the API should generate an image file.
 
 ``` shell
 curl http://$CENTREON-IP-OR-DNS$/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 ```
 
-Replace the values between $ signs by real values.
+Replace the values between $ signs with real values.
 
 Example:
 
@@ -942,7 +942,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 > - Retrieve and store certificate:
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 >   The *servername* option value must be the exact hostname defined in the
@@ -967,8 +967,8 @@ a host group.
 
 #### How to interpret the report
 
-The evolution of the metrics value is represented on a graph and in a table.
-Forecasts are calculated from the reporting period metrics value and projected
+The evolution of the value of the metric is represented on a graph and in a table.
+Forecasts are calculated from the value of the metric during the reporting period and projected
 into the future. An additional table provides information about critical
 threshold and days before saturation.
 
@@ -988,13 +988,13 @@ Parameters required for the report:
 | Services Categories                                           | Multi select   | Select service categories for filter.                                         |
 | Time period                                                   | Dropdown list  | Specify time period.                                                          |
 | Metrics                                                       | Multi select   | Select metric to **include** in report.                                       |
-| Historical period in days in addition to the reporting period | Number         | Specify days used to calcutate the linear regression before reporting period. |
+| Historical period in days in addition to the reporting period | Number         | Specify days used to calculate the linear regression before reporting period. |
 | Forecast period in days                                       | Number         | Specify forecast days calculated by linear regression.                        |
 
 #### Prerequisites
 
-Metrics must return a maximum value on their performances data. Using warning
-and critical thresholds on performances data is highly recommended.
+Metrics must return a maximum value on their performance data. Using warning
+and critical thresholds on performance data is highly recommended.
 
 Performance data returned by a plugin must be formatted as follows, preceded by
 a pipe (|):
@@ -1037,7 +1037,7 @@ Parameters required for the report:
 | Hosts Categories   | Multi select   | Select host categories.                                                                                    |
 | Metrics            | Multi select   | Select metrics. If no metric is selected, graphs by metric will not be displayed.                          |
 | Time period        | Dropdown list  | Specify whether you want to see all the metrics on one graph for each service, a graph by metric, or both. |
-| Intervalle         | Text field     | Specify no. of months to show in trend graphs.                                                             |
+| Interval         | Text field     | Specify no. of months to show in trend graphs.                                                             |
 | overloaded         | number         | Specify threshold determining resource is overloaded. *Unit : see prerequisites*.                          |
 | underused          | number         | Specify threshold determining resource is underused. *Unit : see prerequisites*.                           |
 
@@ -1046,7 +1046,7 @@ Parameters required for the report:
 This report can be generated using indicators that return a maximum value or not.
 
 - If the metric has a maximum value, the threshold must be filled with a
-  **percent** value (between 0 et 100).
+  **percent** value (between 0 and 100).
 - If the metric does not have a maximum value (e.g., counter for visitors on a
   website), the thresholds must be expressed in the same unit as the indicator
   (the counter for visitors).
@@ -1056,7 +1056,7 @@ This report can be generated using indicators that return a maximum value or not
 #### Description
 
 This report displays the average performance data for a list of
-services. It also shows the mininimum and maximum values reached over
+services. It also shows the minimum and maximum values reached over
 the time period, the maximum potential value, and warning and critical
 thresholds for all service metrics selected.
 
@@ -1080,7 +1080,7 @@ Parameters required for the report:
 | Hostgroup          | Drop-down list  | Select host group.         |
 | Host Categories    | Multi selection | Select host categories.    |
 | Service Categories | Multi selection | Select service categories. |
-| Metrics            | Mutli select    | Specify metric to INCLUDE. |
+| Metrics            | Multi select    | Specify metric to INCLUDE. |
 | Time period        | Dropdown list   | Specify time period.       |
 
 ### Hostgroups-Categories-Performance-List
@@ -1089,12 +1089,12 @@ Parameters required for the report:
 
 This report displays the average performance data for a list of host
 groups, host categories and service categories. It also shows the
-mininimum and maximum value reached over the time period.
+minimum and maximum value reached over the time period.
 
 - If the maximum value is returned by the plugin, the Average, Max and
   Min columns are displayed in percentage (%). The calculation is:
   value / maximum value.
-- If the maximum value not returned by the plugin, the Average, Max
+- If the maximum value is not returned by the plugin, the Average, Max
   and Min columns are displayed in the metric's units.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
@@ -1196,7 +1196,7 @@ to calculate statistics. The unit must be expressed in bytes.
 
 #### Description
 
-This report provides detailed storage statistics and the evolution of the
+This report provides detailed storage statistics and the shows the evolution of the
 storage space of your IT infrastructure.
 
 #### How to interpret the report
@@ -1252,7 +1252,7 @@ Parameters required for this report:
 | Hostgroup          | Dropdown list   | Select host groups.                                             |
 | Host Categories    | Multi selection | Select host categories.                                         |
 | Service Categories | Multi selection | Select service categories.                                      |
-| Metrics            | Mutli select    | Specify metric to INCLUDE.                                      |
+| Metrics            | Multi select    | Specify metric to INCLUDE.                                      |
 | Time period        | Dropdown list   | Specify time period.                                            |
 | Evolution interval | Text field      | Specify number of historical months for the evolution graphics. |
 
@@ -1274,7 +1274,7 @@ in order to calculate statistics. The unit must be expressed in bytes.
 > - The ETL configuration must include service categories for storage,
 >   otherwise the evolution graphics remain empty.
 > - This report is compatible with the 24x7 time period only. This time
->   period must be configured on the menu "General options | Capacity
+>   period must be configured via the menu "General options | Capacity
 >   statistic aggregated by month | Live services for capacity statistics
 >   calculation".
 
@@ -1287,9 +1287,9 @@ This report displays storage space usage on hosts within a host group.
 #### How to interpret the report
 
 The report presents a table with all available partitions for
-hostgroup's ressources. Detailed information is provided on the
-allocated and used space, the evolution since the last month, and
-estimate time before saturation.
+a hostgroup's resources. Detailed information is provided on the
+allocated and used space, the change since the last month, and
+estimated time before saturation.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-List.png)
 
@@ -1314,7 +1314,7 @@ Parameters required for the report:
 | Hostgroup          | Dropdown list   | Select host groups.        |
 | Host Categories    | Multi selection | Select host categories.    |
 | Service Categories | Multi selection | Select service categories. |
-| Metrics            | Mutli select    | Specify metric to INCLUDE. |
+| Metrics            | Multi select    | Specify metric to INCLUDE. |
 | Time period        | Dropdown list   | Specify time period.       |
 
 #### Prerequisites
@@ -1336,7 +1336,7 @@ in order to calculate statistics. The unit must be expressed in bytes.
 
 #### Description
 
-This report shows the average inbound and outbound bandwith usage of network
+This report shows the average inbound and outbound bandwidth usage of network
 interfaces for a given host group.
 
 #### How to interpret the report**
@@ -1360,7 +1360,7 @@ These intervals are configurable.
 #### Following pages
 
 The following pages are automatically generated for all interfaces of
-the selected host group (one page per interface). Each page dispays the
+the selected host group (one page per interface). Each page displays the
 bandwidth usage by interval with distribution by:
 
 - Hour of the day
@@ -1383,8 +1383,8 @@ Parameters required for the report:
 | Host Group                  | Dropdown list  | Select host group.                                            |
 | Host Categories             | Multi select   | Select host categories.                                       |
 | Service Categories          | Multi select   | Select service categories.                                    |
-| Low-level treshold (%)      | Number         | Specify low threshold of bandwidth usage (between 0 and 100). |
-| Average-level threshold (%) | Number         | Average threshold of bandwidh usage (between 0 and 100)       |
+| Low-level threshold (%)      | Number         | Specify low threshold of bandwidth usage (between 0 and 100). |
+| Average-level threshold (%) | Number         | Average threshold of bandwidth usage (between 0 and 100)       |
 | High-level threshold (%)    | Number         | Specify high threshold of bandwidth usage (between 0 and 100) |
 | Inbound traffic metric      | Dropdown list  | Specify metric of inbound traffic.                            |
 | Outbound traffic metric     | Dropdown list  | Specify metric of outbound traffic.                           |
@@ -1408,7 +1408,7 @@ metric for **traffic in** and one for **traffic out**. Units must be in
 
 #### Description
 
-This report shows the average inbound and outbound bandwith usage of
+This report shows the average inbound and outbound bandwidth usage of
 network interfaces for a given host group.
 
 #### How to interpret the report
@@ -1471,15 +1471,15 @@ Parameters required for the report:
 | Hostgroup                  | Dropdown list  | Select host group.                                             |
 | Host Categories            | Multi select   | Select host categories.                                        |
 | Service Categories         | Multi select   | Select service categories.                                     |
-| Low level treshold (%)     | Number         | Specify low threshold of bandwidth usage (between 0 and 100)   |
-| Average level treshold (%) | Number         | Average threshold of brandwidh usage (between 0 and 100).      |
-| High level treshold (%)    | Number         | Specify high threshold of bandwidth usage (between 0 and 100). |
+| Low level threshold (%)     | Number         | Specify low threshold of bandwidth usage (between 0 and 100)   |
+| Average level threshold (%) | Number         | Average threshold of bandwidth usage (between 0 and 100).      |
+| High level threshold (%)    | Number         | Specify high threshold of bandwidth usage (between 0 and 100). |
 | Inbound traffic metric     | Dropdown list  | Specify metric of inbound traffic.                             |
 | Outbound traffic metric    | Dropdown list  | Specify metric of outbound traffic.                            |
 
 > It is important to make sure that plugins return the maximum value
-> because lot of statistics are based on percentage, calculated using
-> this maximum value. Be sure that the trafic plugins return thione
+> because many statistics are based on a percentage, calculated using
+> this maximum value. Be sure that the traffic plugins return one
 > metric for traffic in and one for traffic out. The unit must be
 > **Bits**/**sec**.
 
@@ -1512,13 +1512,13 @@ The first page displays three types of information:
 
 - Two graphs representing the 10 interfaces having the maximum centile
   for inbound and outbound traffic
-- 10 interface having the maximum average inbound traffic in percentage
-- 10 interface having the maximum average outbound traffic in percentage.
+- 10 interfaces having the maximum average inbound traffic in percentage
+- 10 interfaces having the maximum average outbound traffic in percentage.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_1.png)
 
 On the following page(s), all interfaces are listed, sorted by host and
-service name, each with corresponding inbound and outbound traffic
+service name, each with the corresponding inbound and outbound traffic
 statistics.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_2.png)
@@ -1575,7 +1575,7 @@ report displays the following information:
 On the first page, the report shows the total number of datastores
 available on the cluster. Included are average usage of space, expressed
 in percentage and bytes, the last usage value for the selected period
-and allocated space for all datastores. The evoution of these three
+and allocated space for all datastores. The evolution of these three
 values is shown in comparison to the previous period.
 
 ![image](../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_1.png)
@@ -1592,7 +1592,7 @@ generating read and write IOPS (input/output per second).
 ![image](../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_3.png)
 
 The second page shows average CPU consumption for all ESX clusters and
-the evolution from the previous period.
+the change from the previous period.
 
 ![image](../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_1_1.png)
 
@@ -1726,7 +1726,7 @@ Parameters required for the report:
 
 #### Prerequisites
 
-This report is developped for full compatibility with the
+This report is developed for full compatibility with the
 Virt-VMware2-ESX Monitoring Connector and Centreon-VMWare-2.0 connector. Certain
 prerequisites apply to ensure proper report creation:
 
@@ -1759,7 +1759,7 @@ previous month is provided along with the evolution over time.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part1.png)
 
-The two next graphs display the average power used per day of the month
+The next two graphs display the average power used per day of the month
 and per hour of the day. A comparison with the previous month also
 appears.
 
@@ -1770,7 +1770,7 @@ consumption distribution by UPS, average consumption and cost by UPS.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part3.png)
 
-> If the host group contains more that five UPSs, only the four most
+> If the host group contains more than five UPSs, only the four most
 > energy-consuming ones will be displayed. A fifth category will include
 > the remaining UPSs.
 
@@ -1889,7 +1889,7 @@ expressed in bytes for storage and memory plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured on the menu "General options | Capacity
+> period must be configured via the menu "General options | Capacity
 > statistic aggregated by month | Live services for capacity statistics
 > calculation".
 
@@ -1965,7 +1965,7 @@ Parameters needed by report are:
 | Storage Metric(s)        | Multi Select    | Specify metric to exclude from the storage statistics.               |
 | Memory service category  | Dropdown list   | Select service category containing memory service(s).                |
 | Memory metric(s)         | Multi select    | Specify metric(s) to use for memory statistics.                      |
-| Traffic service category | Multi sélection | Select service category containing traffic service(s).               |
+| Traffic service category | Multi selection | Select service category containing traffic service(s).               |
 | Traffic In metric        | Dropdown list   | Select inbound traffic metric.                                       |
 | Traffic out metric       | Dropdown list   | Select outbound traffic metric.                                      |
 
@@ -1987,8 +1987,8 @@ traffic plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured on the menu "General options | Capacity
-> statistic aggregated by month | Live services for capacity statistics
+> period must be configured via the menu "General options | Capacity
+> statistics aggregated by month | Live services for capacity statistics
 > calculation".
 
 ### Hostgroup-Host-Details-1
@@ -2058,8 +2058,8 @@ Parameters required for the report:
 | Memory service category  | Dropdown list  | Select service category containing memory service(s).                |
 | Memory metric(s)         | Multi select   | Select metric(s) for memory statistics.                              |
 | Traffic service category | Dropdown list  | Select service category containing traffic service(s).               |
-| Traffic In metric        | Dropdown list  | Select inbound metric traffic.                                       |
-| Traffic Out metric       | Dropdown list  | Select outbound metric traffic.                                      |
+| Traffic In metric        | Dropdown list  | Select inbound traffic metric.                                       |
+| Traffic Out metric       | Dropdown list  | Select outbound traffic metric.                                      |
 
 #### Prerequisites
 
@@ -2079,8 +2079,8 @@ traffic plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured on the menu "General options | Capacity
-> statistic aggregated by month | Live services for capacity statistics
+> period must be configured via the menu "General options | Capacity
+> statistics aggregated by month | Live services for capacity statistics
 > calculation".
 
 ## Inventory & Configuration
@@ -2194,17 +2194,17 @@ Parameters required for the report:
 
 | Parameter                       | Type         | Description                                                                            |
 |---------------------------------|--------------|----------------------------------------------------------------------------------------|
-| Select poller(s) for the report | Radio bouton | Generate the report on the central poller, the remote pollers, or all pollers.         |
+| Select poller(s) for the report | Radio button | Generate the report on the central poller, the remote pollers, or all pollers.         |
 | Limit latency (sec)             | Text field   | Specify latency threshold. Hosts / services exceeding the threshold are listed.        |
-| Limit exceution time (sec)      | Text field   | Specify execution time threshold. Hosts / services exceeding the threshold are listed. |
+| Limit execution time (sec)      | Text field   | Specify execution time threshold. Hosts / services exceeding the threshold are listed. |
 
 #### Prerequisites
 
 The prerequisites for this report are:
 
-- Monitoring of the load average on the pollers ( metric names should
+- Monitoring of the load average on the pollers (metric names should
   be: load1, load5 and load15)
-- Monitoring of the CPU on the poller ( metric names should contain
+- Monitoring of the CPU on the poller (metric names should contain
   *cpu* string with the core number. Example: for a 4 core CPU,
   metrics can be cpu0,cpu1... or cpu\_0,cpu\_1...
 
@@ -2221,7 +2221,7 @@ in two tables:
 A host without either a host group or a host category will appear in
 both tables.
 
-Any changes to host classification will be appear the day after the
+Any changes to host classification will appear the day after the
 change is made.
 
 ![image](../assets/reporting/guide/available-reports/Hosts-not-classified.png)
@@ -2239,7 +2239,7 @@ None.
 #### Description
 
 This report displays all unclassified services. Information is
-represented in a table.
+presented in a table.
 
 Any changes to service classification will be appear the day after the
 change is made.
@@ -2314,7 +2314,7 @@ Parameters required for the report:
 
 #### Description
 
-This report provides a calendard view of service availability,
+This report provides a calendar view of service availability,
 displaying the following information: availability for each service by
 day, warning time and critical time. This data is shown for each time
 period and organized by group, host category and service category.
@@ -2411,7 +2411,7 @@ For example, a German translation requires the file with the suffix
 Then, translate all the English content in these new files into the
 appropriate target language.
 
-> Even if you want to translate only a few reports, you still have to
+> Even if you want to translate only a few reports, you must still
 > translate the global translation files using the method described above.
 > These files are:
 >
@@ -2425,7 +2425,7 @@ These files are stored in
 `/usr/share/centreon-bi/Resources/translation/component/`.
 
 When the new *xxx.properties* files have been translated, go to your Centreon
-MBI interface, edit a job then click on the refresh button next to the language
+MBI interface, edit a job, and then click the refresh button next to the language
 selection. The new language should appear in the list.
 
 Select the desired language and generate the report.

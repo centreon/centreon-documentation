@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 >   following procedure to migrate your server: [Migrate your
 >   reporting server](migrate.md)
 
-The upgrade of Centreon MBI consists of 4 steps :
+The upgrade of Centreon MBI consists of four steps:
 
 - Updating the repository
 - Updating the extension interface
@@ -27,7 +27,7 @@ See [Introduction to upgrade](../upgrade/introduction.md).
 
 ### Update the RPM signing key
 
-On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
 
 ## Step 1: Update the repository
 
@@ -67,7 +67,7 @@ apt update && apt upgrade centreon-bi-server
 </Tabs>
 
 2. Update through the interface:  Log on to the Centreon web interface, go to
-**Administration > Extension > Manager** and click on the
+**Administration > Extension > Manager** and click the
 Update button to update the extension and the widgets.
 
 ## Step 3: Upgrade the reporting server
