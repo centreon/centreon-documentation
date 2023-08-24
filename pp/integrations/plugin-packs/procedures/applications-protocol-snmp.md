@@ -23,7 +23,7 @@ This host template does not bring any service template.
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
 
-This host template does not come linked to any service template but it's host check command is based on a SNMP Uptime check, thus valid even when ICMP protocol is blocked.
+This host template does not bring any service template but its host check command is based on an SNMP uptime check, thus valid even when the ICMP protocol is blocked.
 
 </TabItem>
 <TabItem value="No host template" label="No host template">
