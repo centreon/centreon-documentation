@@ -23,6 +23,20 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.6
+
+Release date: `July 28, 2023`
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [Core] Removed unnecessary data in custom_configuration column for SAML provider.
+- [Install] Increased size of metric_name column to 1021.
+- [Resources Status] Fixed CSV export when metric name contained SQL keyword.
+- Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)).
+
+</details>
+
 ### 23.04.5
 
 Release date: `July 10, 2023`
@@ -247,6 +261,36 @@ Compatibility with other 23.04 components.
 
 ## Centreon Gorgone
 
+### 23.04.5
+
+Release date: `August 02, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility] Fixed an issue with cipher encoding that could break Gorgone internal communication messages on MBI server.
+
+</details>
+
+### 23.04.4
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Improved packaging by adding gorgone_key_thumbprint.pl script and perl-Mojolicious dependency.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility]Fixed -d option to manage database entries in centreonBIETL script.
+- [Core] Fixed recurring unexpected disconnection between pollers.
+
+</details>
+
 ### 23.04.3
 
 Release date: `June 22, 2023`
@@ -347,6 +391,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Open Tickets
+
+### 23.04.2
+
+Release date: `July 28, 2023`
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- Fixed a Broker query.
+
+</details>
 
 ### 23.04.1
 

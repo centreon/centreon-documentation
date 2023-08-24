@@ -17,6 +17,27 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
+- [Server] Fixed an issue that could prevent some maps from being edited.
+
+### 22.10.8
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Geoviews] Fixed an issue that prevented hosts from being displayed on geoviews.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- Allowed elements to be grouped.
+- Fixed an issue making Business Activities' size different between viewer and editor.
+- Fixed an issue that caused server to crash because of duplicated Centreon modules.
+
 ### 22.10.7
 
 Release date: `July 20, 2023`
@@ -71,6 +92,7 @@ Release date: `April 24, 2023`
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
 
 #### Bug fixes
+
 - [API] Fixed an issue with create element in view that could break default icon.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
@@ -146,13 +168,23 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.8
+
+Release date: `July 28, 2023`
+
+- No change.
+
 ### 22.10.7
 
 Release date: `July 20, 2023`
 
+- No change.
+
 ### 22.10.6
 
 Release date: `June 5, 2023`
+
+- No change.
 
 ### 22.10.5
 
@@ -168,7 +200,7 @@ Release date: `January 17, 2023`
 
 ### 22.10.3
 
-Release date:  `December 16, 2022`
+Release date: `December 16, 2022`
 
 - No change.
 
@@ -250,6 +282,15 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.4
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- Fixed centreonBIETL_legacy script by calling only legacy scripts.
+- Removed old images in forms.
 
 ### 22.10.3
 
@@ -334,6 +375,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.4
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Prediction] Fixed Anomaly Detection script that was not sending data history.
 
 ### 22.10.3
 

@@ -1,81 +1,97 @@
 ---
 id: cloud-azure-management-costs
-title: Azure Management Costs 
+title: Azure Management Costs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Pack Assets
+## Pack assets
 
 ### Templates
 
-The Centreon Monitoring Connector **Azure Costs** brings a host template:
+The Monitoring Connector **Azure Management Costs** brings a host template:
 
-* Cloud-Azure-Management-Costs-Api-custom
+* **Cloud-Azure-Management-Costs-custom**
 
-It brings the following service template:
-
-| Service Alias                 | Service Template                                           | Service Description                                               | Default | Discovery |
-|:------------------------------|:-----------------------------------------------------------|:------------------------------------------------------------------|:--------|:----------|
-| Budget                        | Cloud-Azure-Management-Costs-Budgets-Api                   | Check consumption for a given budget                              |         | X         |
-| Costs-Explorer-Resource-Group | Cloud-Azure-Management-Costs-Costs-Explorer-Resource-Group | Check costs per resource groups                                   |         |           |
-| Costs-Explorer-Subscription   | Cloud-Azure-Management-Costs-Costs-Explorer-Subscription   | Check costs for the whole subscription                            | X       |           |
-| Hybrid-Benefits-Compliance    | Cloud-Azure-Management-Costs-Hybrid-Benefits               | Check that hybrid benefits are enabled on all available resources | X       |           |
-| Orphan-Resources              | Cloud-Azure-Management-Costs-Orphan-Resources              | Check the number of orphaned resources                            | X       |           |
-| Tags-Compliance               | Cloud-Azure-Management-Costs-Tags-Compliance               | Check that required tag is                                        |         |           |
-
-### Discovery rules
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<TabItem value="Cloud-Azure-Management-Costs-custom" label="Cloud-Azure-Management-Costs-custom">
 
-| Rule name                                  | Description                                   |
-| :----------------------------------------- | :-------------------------------------------- |
-| Cloud-Azure-Management-Costs-Budgets       | Discover and list configured Azure budget     |
+| Service Alias               | Service Template                                                | Service Description                                               |
+|:----------------------------|:----------------------------------------------------------------|:------------------------------------------------------------------|
+| Costs-Explorer-Subscription | Cloud-Azure-Management-Costs-Costs-Explorer-Subscription-custom | Check that hybrid benefits are enabled on all available resources |
+| Hybrid-Benefits-Compliance  | Cloud-Azure-Management-Costs-Hybrid-Benefits-custom             | Check that hybrid benefits are enabled on all available resources |
+| Orphan-Resources            | Cloud-Azure-Management-Costs-Orphan-Resources-custom            | Check the number of orphaned resources                            |
+
+> The services listed above are created automatically when the **Cloud-Azure-Management-Costs-custom** host template is used.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias                 | Service Template                                                  | Service Description                                               | Discovery  |
+|:------------------------------|:------------------------------------------------------------------|:------------------------------------------------------------------|:----------:|
+| Budget                        | Cloud-Azure-Management-Costs-Budgets-Api-custom                   | Check consumption for a given budget                              | X          |
+| Costs-Explorer-Resource-Group | Cloud-Azure-Management-Costs-Costs-Explorer-Resource-Group-custom | Check that hybrid benefits are enabled on all available resources |            |
+| Tags-Compliance               | Cloud-Azure-Management-Costs-Tags-Compliance-custom               | Check that required tag is                                        |            |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                      | Description |
+|:-------------------------------|:------------|
+| Cloud-Azure-Management-Budgets |             |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
 ### Collected metrics & status
 
-<Tabs groupId="sync">
-<TabItem value="Budgets" label="Budgets">
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
-| Metric Name                          | Unit  |
-|:-------------------------------------|:------|
-| azure.budget.consumption.currency    |       |
+<Tabs groupId="sync">
+<TabItem value="Budget" label="Budget">
+
+| Metric name | Unit  |
+|:------------|:------|
+| cost        | N/A   |
 
 </TabItem>
 <TabItem value="Costs-Explorer-Resource-Group" label="Costs-Explorer-Resource-Group">
 
-| Metric Name                                | Unit  |
-|:-------------------------------------------|:------|
-| *resource_group*#azure.resourcegroup.costs |       |
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| azure.subscription.global.costs | N/A   |
 
 </TabItem>
 <TabItem value="Costs-Explorer-Subscription" label="Costs-Explorer-Subscription">
 
-| Metric Name                                | Unit  |
-|:-------------------------------------------|:------|
-| azure.subscription.global.costs            |       |
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| azure.subscription.global.costs | N/A   |
 
 </TabItem>
 <TabItem value="Hybrid-Benefits-Compliance" label="Hybrid-Benefits-Compliance">
 
-| Metric Name                              | Unit  |
+| Metric name                              | Unit  |
 |:-----------------------------------------|:------|
 | azure.resources.nohybridbenefits.count   | count |
 | azure.vm.nohybridbenefits.count          | count |
 | azure.sqlvm.nohybridbenefits.count       | count |
 | azure.sqldatabase.nohybridbenefits.count | count |
-| azure.elasticpool.nohybridbenefits.count | count |
-
 
 </TabItem>
 <TabItem value="Orphan-Resources" label="Orphan-Resources">
 
-| Metric Name                       | Unit  |
+| Metric name                       | Unit  |
 |:----------------------------------|:------|
 | azure.resources.orphaned.count    | count |
 | azure.manageddisks.orphaned.count | count |
@@ -83,77 +99,238 @@ It brings the following service template:
 | azure.nsgs.orphaned.count         | count |
 | azure.publicips.orphaned.count    | count |
 | azure.routetables.orphaned.count  | count |
-| azure.snapshots.orphaned.count    | count |
 
 </TabItem>
 <TabItem value="Tags-Compliance" label="Tags-Compliance">
 
-| Metric Name                            | Unit  |
+| Metric name                            | Unit  |
 |:---------------------------------------|:------|
 | azure.tags.resource.notcompliant.count | count |
-| azure.tags.vm.notcompliant.count       | count |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-Check out the endpoint documentation [here](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/consumption-api-overview). It describes the required privileges to use the API.
+Please find all the prerequisites needed for Centreon to get information from Azure
+on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connectors Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the package on every Centreon poller expected to monitor **Azure Costs** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
+dnf install centreon-pack-cloud-azure-management-costs
 ```
-
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Costs** Centreon Monitoring Connector.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the package on every Centreon poller expected to monitor **Azure Costs** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
+dnf install centreon-pack-cloud-azure-management-costs
 ```
 
-2. Install the **Azure Costs** Centreon Monitoring Connector RPM on the Centreon central server:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-cloud-azure-management-costs
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-azure-management-costs
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Costs** Centreon Monitoring Connector.
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Azure Management Costs** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Azure-Management-Costs-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Azure-Management-Costs-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-cloud-azure-management-costs-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Azure Costs** server settings.
-* Apply the **Cloud-Azure-Management-Costs-Api-custom** template to the host.
-* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+3. Apply the **Cloud-Azure-Management-Costs-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication can be used with this resource: either using the command tool azcli, or by querying the API directly.
 
-| Mandatory   | Macro              | Description                                      |
-|:------------|:-------------------|:-------------------------------------------------|
-| X           | AZURECLIENTID      | Client ID                                        |
-| X           | AZURECLIENTSECRET  | Client secret                                    |
-| X           | AZURESUBSCRIPTION  | Subscription ID                                  |
-| X           | AZURETENANT        | Tenant ID                                        |
+| Macro             | Description                                                                                           | Default value     | Mandatory   |
+|:------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| AZURECLIENTID     | Set Azure client ID                                                                                   |                   | X           |
+| AZURECLIENTSECRET | Set Azure client secret                                                                               |                   | X           |
+| AZURESUBSCRIPTION | Set Azure subscription ID                                                                             |                   | X           |
+| AZURETENANT       | Set Azure tenant ID                                                                                   |                   | X           |
+| PROXYURL          | Proxy URL. Eg: http://my.proxy:3128                                                                   |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+> Two methods can be used to define the authentication:
+>
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Budget" label="Budget">
+
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LOOKUPDAYS   | Days backward to look up (Default: '30')                                                            | 30                |             |
+| UNITS        | Unit of thresholds (Default: '%') ('%', 'count')                                                    | %                 |             |
+| BUDGETNAME   | Set budget name (Required)                                                                          |                   | X           |
+| WARNINGCOST  | Set warning threshold for cost)                                                                     |                   |             |
+| CRITICALCOST | Define the conditions to match for the status to be CRITICAL                                        |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Resource-Group" label="Costs-Explorer-Resource-Group">
+
+| Macro                      | Description                                                                                                                                                                                                                                                                         | Default value     | Mandatory   |
+|:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LOOKUPDAYS                 | Days backward to look up (Default: '30')                                                                                                                                                                                                                                            | 30                |             |
+| AZURERESOURCEGROUP         | Set resource group (Optional).  If you don't, you get costs for the whole subscription.  You can specify multiple resource groups. You will get results for each one of the resource groups specified. Example: --resource-group=MYRESOURCEGROUP1 --resource-group=MYRESOURCEGROUP2 |                   |             |
+| WARNINGRESOURCEGROUPCOSTS  | Set warning threshold for resource groups costs                                                                                                                                                                                                                                     |                   |             |
+| CRITICALRESOURCEGROUPCOSTS | Set critical threshold for resource groups costs                                                                                                                                                                                                                                    |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                 | --verbose         |             |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Subscription" label="Costs-Explorer-Subscription">
+
+| Macro                     | Description                                                                                         | Default value     | Mandatory   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LOOKUPDAYS                | Days backward to look up (Default: '30')                                                            | 30                |             |
+| WARNINGSUBSCRIPTIONCOSTS  | Set warning threshold for subscription costs                                                        |                   |             |
+| CRITICALSUBSCRIPTIONCOSTS | Set critical threshold for subscription costs                                                       |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Hybrid-Benefits-Compliance" label="Hybrid-Benefits-Compliance">
+
+| Macro               | Description                                                                                         | Default value     | Mandatory   |
+|:--------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXCLUDENAME         | Exclude resource from check (Can be a regexp)                                                       |                   |             |
+| WARNINGELASTICPOOL  |                                                                                                     |                   |             |
+| CRITICALELASTICPOOL |                                                                                                     |                   |             |
+| WARNINGRESOURCES    |                                                                                                     |                   |             |
+| CRITICALRESOURCES   |                                                                                                     |                   |             |
+| WARNINGSQLDATABASE  |                                                                                                     |                   |             |
+| CRITICALSQLDATABASE |                                                                                                     |                   |             |
+| WARNINGSQLVM        |                                                                                                     |                   |             |
+| CRITICALSQLVM       |                                                                                                     |                   |             |
+| WARNINGVM           |                                                                                                     |                   |             |
+| CRITICALVM          |                                                                                                     |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Orphan-Resources" label="Orphan-Resources">
+
+| Macro                        | Description                                                                                         | Default value     | Mandatory   |
+|:-----------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXCLUDENAME                  | Exclude resource from check (Can be a regexp)                                                       |                   |             |
+| WARNINGORPHANEDMANAGEDDISKS  |                                                                                                     |                   |             |
+| CRITICALORPHANEDMANAGEDDISKS |                                                                                                     |                   |             |
+| WARNINGORPHANEDNICS          |                                                                                                     |                   |             |
+| CRITICALORPHANEDNICS         |                                                                                                     |                   |             |
+| WARNINGORPHANEDNSGS          |                                                                                                     |                   |             |
+| CRITICALORPHANEDNSGS         |                                                                                                     |                   |             |
+| WARNINGORPHANEDPUBLICIPS     |                                                                                                     |                   |             |
+| CRITICALORPHANEDPUBLICIPS    |                                                                                                     |                   |             |
+| WARNINGORPHANEDRESOURCES     |                                                                                                     |                   |             |
+| CRITICALORPHANEDRESOURCES    |                                                                                                     |                   |             |
+| WARNINGORPHANEDROUTETABLES   |                                                                                                     |                   |             |
+| CRITICALORPHANEDROUTETABLES  |                                                                                                     |                   |             |
+| WARNINGORPHANEDSNAPSHOTS     |                                                                                                     |                   |             |
+| CRITICALORPHANEDSNAPSHOTS    |                                                                                                     |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+
+</TabItem>
+<TabItem value="Tags-Compliance" label="Tags-Compliance">
+
+| Macro                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default value     | Mandatory   |
+|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TAGS                        | Can be multiple. Allow you to specify tags that should bepresent. All tags must match a resource's configuration to make it a compliant one.  What you cannot do:  - specifying the same key in different options: --tags='Environment =\> Prod' --tags='Environment =\> Dev'  What you can do: - check for multiple value for a single key: --tags='Environment =\> Dev\|Prod' - check for a key, without minding about its value: --tags='Version' - combine the two: --tags='Environment =\> Dev\|Prod' --tags='Version' |                   | X           |
+| EXCLUDENAME                 | Exclude resource from check (Can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                   |             |
+| WARNINGUNCOMPLIANTRESOURCE  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                   |             |
+| CRITICALUNCOMPLIANTRESOURCE |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                   |             |
+| WARNINGUNCOMPLIANTVMS       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                   |             |
+| CRITICALUNCOMPLIANTVMS      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                   |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                                                                                                                                                         | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor an Azure Instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_costs_api.pl \
@@ -176,26 +353,191 @@ The expected command output is shown below:
 OK: Spent amount is 1400.25EUR on 1500EUR of allowed budget (93.33% consumption) for the past 30 days | 'azure.budget.consumption.currency'=1400.25;0:1425;0:1485;0;1500
 ```
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+### Troubleshooting
 
-```bash
-/usr/lib/centreon/plugins/centreon_azure_management_costs_api.pl \
-    --plugin=cloud::azure::management::costs::plugin \
-    --mode=budgets \
-    --help
-```
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_management_costs_api.pl \
-    --plugin=cloud::azure::management::costs::plugin \
-    --list-mode
+/usr/lib/centreon/plugins//centreon_azure_management_costs_api.pl \
+	--plugin=cloud::azure::management::costs::plugin \
+	--list-mode
 ```
 
-### Troubleshooting
+The plugin brings the following modes:
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+| Mode                                                                                                                                          | Linked service template                                                                                                                |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
+| budgets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/costs/mode/budgets.pm)]                  | Cloud-Azure-Management-Costs-Budgets-Api-custom                                                                                        |
+| costs-explorer [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/costs/mode/costsexplorer.pm)]     | Cloud-Azure-Management-Costs-Costs-Explorer-Resource-Group-custom<br />Cloud-Azure-Management-Costs-Costs-Explorer-Subscription-custom |
+| hybrid-benefits [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/costs/mode/hybridbenefits.pm)]   | Cloud-Azure-Management-Costs-Hybrid-Benefits-custom                                                                                    |
+| list-budgets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/costs/mode/listbudgets.pm)]         | Used for service discovery                                                                                                             |
+| orphan-resources [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/costs/mode/orphanresources.pm)] | Cloud-Azure-Management-Costs-Orphan-Resources-custom                                                                                   |
+| tags-compliance [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/costs/mode/tagscompliance.pm)]   | Cloud-Azure-Management-Costs-Tags-Compliance-custom                                                                                    |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Microsoft Azure Rest API      To connect to the Azure Rest API, you must register an application.      Follow the 'How-to guide' at     https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-cr     eate-service-principal-portal      The application needs the 'Monitoring Reader' role (See     https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-perm     issions-security#monitoring-reader).      This custom mode is using the 'OAuth 2.0 Client Credentials Grant Flow'      For further informations, visit     https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-oauth     2-client-creds-grant-flow                                                                                                                                                                                   |
+| --subscription                             | Set Azure subscription ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --tenant                                   | Set Azure tenant ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --client-id                                | Set Azure client ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --client-secret                            | Set Azure client secret.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --login-endpoint                           | Set Azure login endpoint URL (Default: 'https://login.microsoftonline.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --management-endpoint                      | Set Azure management endpoint URL (Default: 'https://management.azure.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --timeframe                                | Set timeframe in seconds (i.e. 3600 to check last hour).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --interval                                 | Set interval of the metric query (Can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --aggregation                              | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --zeroed                                   | Set metrics value to 0 if they are missing. Useful when some metrics are undefined.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --timeout                                  | Set timeout in seconds (Default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --memcached                                | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-server                             | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-attribute                          | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-db                                 | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --failback-file                            | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-dir                            | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-suffix                         | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-concat-cwd                     | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --statefile-format                         | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --statefile-key                            | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-cipher                         | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Budget" label="Budget">
+
+| Option           | Description                                                     |
+|:-----------------|:----------------------------------------------------------------|
+| --budget-name    | Set budget name (Required).                                     |
+| --resource-group | Set resource group (Optional).                                  |
+| --lookup-days    | Days backward to look up (Default: '30').                       |
+| --warning-cost   | Set warning threshold for cost).                                |
+| --critical-cost  | Define the conditions to match for the status to be CRITICAL.   |
+| --units          | Unit of thresholds (Default: '%') ('%', 'count').               |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Resource-Group" label="Costs-Explorer-Resource-Group">
+
+| Option                          | Description                                                                                                                                                                                                                                                                           |
+|:--------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --resource-group                | Set resource group (Optional).  If you don't, you get costs for the whole subscription.  You can specify multiple resource groups. You will get results for each one of the resource groups specified. Example: --resource-group=MYRESOURCEGROUP1 --resource-group=MYRESOURCEGROUP2   |
+| --tags                          | Set tags to filter on (Optional). You can specify multiple tags. You will get results for the resource groups matching all the tags specified. Example: --tags='Environment =\> DEV' --tags='managed\_by =\> automation'                                                              |
+| --lookup-days                   | Days backward to look up (Default: '30').                                                                                                                                                                                                                                             |
+| --warning-subscription-costs    | Set warning threshold for subscription costs.                                                                                                                                                                                                                                         |
+| --critical-subscription-costs   | Set critical threshold for subscription costs.                                                                                                                                                                                                                                        |
+| --warning-resource-group-costs  | Set warning threshold for resource groups costs.                                                                                                                                                                                                                                      |
+| --critical-resource-group-costs | Set critical threshold for resource groups costs.                                                                                                                                                                                                                                     |
+
+</TabItem>
+<TabItem value="Costs-Explorer-Subscription" label="Costs-Explorer-Subscription">
+
+| Option                          | Description                                                                                                                                                                                                                                                                           |
+|:--------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --resource-group                | Set resource group (Optional).  If you don't, you get costs for the whole subscription.  You can specify multiple resource groups. You will get results for each one of the resource groups specified. Example: --resource-group=MYRESOURCEGROUP1 --resource-group=MYRESOURCEGROUP2   |
+| --tags                          | Set tags to filter on (Optional). You can specify multiple tags. You will get results for the resource groups matching all the tags specified. Example: --tags='Environment =\> DEV' --tags='managed\_by =\> automation'                                                              |
+| --lookup-days                   | Days backward to look up (Default: '30').                                                                                                                                                                                                                                             |
+| --warning-subscription-costs    | Set warning threshold for subscription costs.                                                                                                                                                                                                                                         |
+| --critical-subscription-costs   | Set critical threshold for subscription costs.                                                                                                                                                                                                                                        |
+| --warning-resource-group-costs  | Set warning threshold for resource groups costs.                                                                                                                                                                                                                                      |
+| --critical-resource-group-costs | Set critical threshold for resource groups costs.                                                                                                                                                                                                                                     |
+
+</TabItem>
+<TabItem value="Hybrid-Benefits-Compliance" label="Hybrid-Benefits-Compliance">
+
+| Option           | Description                                                                                                                                                                                                                                                                                                                                        |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --resource-group | Set resource group.                                                                                                                                                                                                                                                                                                                                |
+| --exclude-name   | Exclude resource from check (Can be a regexp).                                                                                                                                                                                                                                                                                                     |
+| --warning-*      | Warning threshold on the number of orphaned resources. Substitue '*' by the resource type amongst this list: ( elastic-pool sql-database vm sql-vm resources)  =îtem --critical-*  Critical threshold on the number of orphaned resources. Substitue '*' by the resource type amongst this list: (elastic-pool sql-database vm sql-vm resources)   |
+| --skip-*         | Skip a specific kind of resource. Can be multiple.  Accepted values: vm, sql-vm, sql-database, elastic-pool                                                                                                                                                                                                                                        |
+
+</TabItem>
+<TabItem value="Orphan-Resources" label="Orphan-Resources">
+
+| Option           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --resource-group | Set resource group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --exclude-name   | Exclude resource from check (Can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --warning-*      | Warning threshold on the number of orphaned resources. Substitue '*' by the resource type amongst this list: (orphaned-snapshots orphaned-routetables orphaned-managed-disks orphaned-nsgs orphaned-nics orphaned-resources orphaned-publicips)  =îtem --critical-*  Critical threshold on the number of orphaned resources. Substitue '*' by the resource type amongst this list: (orphaned-snapshots orphaned-routetables orphaned-managed-disks orphaned-nsgs orphaned-nics orphaned-resources orphaned-publicips)   |
+| --skip-*         | Skip a specific kind of resource. Can be multiple.  Accepted values: disks, nics, nsgs, public-ips, route-tables, snapshots                                                                                                                                                                                                                                                                                                                                                                                             |
+
+</TabItem>
+<TabItem value="Tags-Compliance" label="Tags-Compliance">
+
+| Option           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --resource-group | Set resource group (Optional).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --exclude-name   | Exclude resource from check (Can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --skip-vm        | Skip virtual machines (don't use it until other resource type are supported)                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --tags           | Can be multiple. Allow you to specify tags that should bepresent. All tags must match a resource's configuration to make it a compliant one.  What you cannot do:  - specifying the same key in different options: --tags='Environment =\> Prod' --tags='Environment =\> Dev'  What you can do: - check for multiple value for a single key: --tags='Environment =\> Dev\|Prod' - check for a key, without minding about its value: --tags='Version' - combine the two: --tags='Environment =\> Dev\|Prod' --tags='Version'   |
+| --warning-*      | Warning threshold. '*' replacement values accepted: - uncompliant-vms - uncompliant-resource                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --critical-*     | Critical threshold. '*' replacement values accepted: - uncompliant-vms - uncompliant-resource                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_azure_management_costs_api.pl \
+	--plugin=cloud::azure::management::costs::plugin \
+	--mode=tags-compliance \
+	--help
+```

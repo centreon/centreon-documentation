@@ -1,6 +1,6 @@
 ---
-id: network-aruba-cppm-snmp
-title: Aruba CPPM SNMP
+id: hardware-sensors-rittal-cmc3-snmp
+title: Rittal CMC3 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,33 +9,29 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Aruba CPPM SNMP** brings a host template:
+The Monitoring Connector **Rittal CMC3 SNMP** brings a host template:
 
-* **Net-Aruba-Cppm-SNMP-custom**
+* **HW-Sensor-Rittal-Cmc3-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Aruba-Cppm-SNMP-custom" label="Net-Aruba-Cppm-SNMP-custom">
+<TabItem value="HW-Sensor-Rittal-Cmc3-SNMP" label="HW-Sensor-Rittal-Cmc3-SNMP">
 
-| Service Alias | Service Template           | Service Description |
-|:--------------|:---------------------------|:--------------------|
-| Cpu           | Net-Aruba-Cppm-Cpu-SNMP    | Check CPU |
-| Disks         | Net-Aruba-Cppm-Disks-SNMP  | Check disks         |
-| Memory        | Net-Aruba-Cppm-Memory-SNMP | Check memories      |
-| Swap          | Net-Aruba-Cppm-Swap-SNMP   | Check swap          |
+| Service Alias | Service Template                        | Service Description                                  |
+|:--------------|:----------------------------------------|:-----------------------------------------------------|
+| Load          | HW-Sensors-Rittal-Cmc3-Load-SNMP        | Check system load                                    |
+| Unit-Status   | HW-Sensors-Rittal-Cmc3-Unit-Status-SNMP | Check unit status                                    |
+| Uptime        | HW-Sensors-Rittal-Cmc3-Uptime-SNMP      | Time since the server has been working and available |
 
-> The services listed above are created automatically when the **Net-Aruba-Cppm-SNMP-custom** host template is used.
+> The services listed above are created automatically when the **HW-Sensor-Rittal-Cmc3-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                 | Service Description                        | Discovery  |
-|:--------------|:---------------------------------|:-------------------------------------------|:-----------|
-| Interfaces    | Net-Aruba-Cppm-Interfaces-SNMP   | Check interfaces                           | X          |
-| Radius        | Net-Aruba-Cppm-Radius-SNMP       | Check radius statistics                    |            |
-| Repositories  | Net-Aruba-Cppm-Repositories-SNMP | Check authentication repository statistics |            |
-| Tacacs        | Net-Aruba-Cppm-Tacacs-SNMP       | Check TACACS                               |            |
+| Service Alias | Service Template                    | Service Description    | Discovery  |
+|:--------------|:------------------------------------|:-----------------------|:-----------|
+| Devices       | HW-Sensors-Rittal-Cmc3-Devices-SNMP | Check attached devices | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -48,97 +44,46 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                          | Description                                                   |
-|:-----------------------------------|:--------------------------------------------------------------|
-| Net-Aruba-Cppm-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+| Rule name                                | Description                         |
+|:-----------------------------------------|:------------------------------------|
+| HW-Sensors-Rittal-Cmc3-SNMP-Device-Alias | Discover devices and monitor status |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery#discovery-rules).
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
 Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Devices" label="Devices">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| cpu.utilization.percentage                | %     |
-| *cpu_num*#core.cpu.utilization.percentage | %     |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Metric Name                            | Unit  |
-|:---------------------------------------|:------|
-| *hostname*#disk.space.usage.bytes      | B     |
-| *hostname*#disk.space.free.bytes       | B     |
-| *hostname*#disk.space.usage.percentage | %     |
+| Metric name     | Unit  |
+|:----------------|:------|
+| devices status  |       |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<TabItem value="Load" label="Load">
 
-| Metric Name                                               | Unit  |
-|:--------------------------------------------------------- |:----- |
-| status                                                    |       |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
+| Metric name                | Unit  |
+|:---------------------------|:------|
+| system.load.1m.percentage  | %     |
+| system.load.5m.percentage  | %     |
+| system.load.10m.percentage | %     |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Unit-Status" label="Unit-Status">
 
-| Metric Name                        | Unit  |
-|:-----------------------------------|:------|
-| *hostname*#memory.usage.bytes      | B     |
-| *hostname*#memory.free.bytes       | B     |
-| *hostname*#memory.usage.percentage | %     |
+| Metric name             | Unit  |
+|:------------------------|:------|
+| unit and overall status |       |
 
 </TabItem>
-<TabItem value="Radius" label="Radius">
-
-| Metric Name                                      | Unit  |
-|:-------------------------------------------------|:------|
-| *hostname*#radius.policy.evaluation.milliseconds | ms    |
-| *hostname*#radius.requests.count                 |       |
-| *hostname*#radius.requests.failed.count          |       |
-| *hostname*#radius.requests.succeeded.count       |       |
-| *hostname*#radius.requests.milliseconds          | ms    |
-
-</TabItem>
-<TabItem value="Repositories" label="Repositories">
-
-| Metric Name                                                      | Unit  |
-|:-----------------------------------------------------------------|:------|
-| *source_name*#authentication_repository.requests.milliseconds    | ms    |
-| *source_name*#authentication_repository.requests.count           |       |
-| *source_name*#authentication_repository.requests.failed.count    |       |
-| *source_name*#authentication_repository.requests.succeeded.count |       |
-
-</TabItem>
-<TabItem value="Swap" label="Swap">
+<TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Unit  |
 |:----------------------|:------|
-| swap.usage.bytes      | B     |
-| swap.free.bytes       | B     |
-| swap.usage.percentage | %     |
-
-</TabItem>
-<TabItem value="Tacacs" label="Tacacs">
-
-| Metric Name                                                                | Unit  |
-|:---------------------------------------------------------------------------|:------|
-| *hostname*#tacacs.authentication.service.policy.evaluation.milliseconds    | ms    |
-| *hostname*#tacacs.authentication.requests.count                            |       |
-| *hostname*#tacacs.authentication.requests.authentication.time.milliseconds | ms    |
-| *hostname*#tacacs.authentication.requests.failed.count                     |       |
-| *hostname*#tacacs.authentication.requests.succeeded.count                  |       |
-| *hostname*#tacacs.authentication.requests.time.milliseconds                | ms    |
+| system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
@@ -147,7 +92,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Aruba CPPM** equipment.
+To use this connector, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
@@ -168,34 +113,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-aruba-cppm-snmp
+dnf install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-aruba-cppm-snmp
+dnf install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-aruba-cppm-snmp
+apt install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-aruba-cppm-snmp
+yum install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Aruba CPPM SNMP** connector through
+2. Whatever the license type (*online* or *offline*), install the **Rittal CMC3 SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
@@ -215,28 +160,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Aruba-Cppm-Snmp
+dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Aruba-Cppm-Snmp
+dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-aruba-cppm-snmp
+apt install centreon-plugin-hardware-sensors-rittal-cmc-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Aruba-Cppm-Snmp
+yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
@@ -247,8 +192,8 @@ yum install centreon-plugin-Network-Aruba-Cppm-Snmp
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Aruba-Cppm-SNMP-custom** template to the host. 
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **HW-Sensor-Rittal-Cmc3-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -265,160 +210,87 @@ yum install centreon-plugin-Network-Aruba-Cppm-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Devices" label="Devices">
 
-| Macro           | Description                                                                                         | Default value     | Mandatory   |
-|:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| WARNINGAVERAGE  | Warning threshold for average CPU utilization                                                           |                   |             |
-| CRITICALAVERAGE | Critical threshold for average CPU utilization                                                          |                   |             |
-| WARNINGCORE     | Warning thresholds for each CPU core                                                                |                   |             |
-| CRITICALCORE    | Critical thresholds for each CPU core                                                               |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Macro                  | Description                                                                                         | Default value     | Mandatory   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| FILTERNAME             | Filter disks by system hostname (can be a regexp)                                                   |                   |             |
-| WARNINGSPACEUSAGE      | Thresholds                                                                                          |                   |             |
-| CRITICALSPACEUSAGE     | Thresholds                                                                                          |                   |             |
-| WARNINGSPACEUSAGEFREE  | Thresholds                                                                                          |                   |             |
-| CRITICALSPACEUSAGEFREE | Thresholds                                                                                          |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALSPACEUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| Macro          | Description                                                                                                                                                                     | Default value                                       | Mandatory   |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:------------|
+| FILTERINDEX    |                                                                                                                                                                                 |                                                     |             |
+| FILTERNAME     | Filter device name (can be a regexp)                                                                                                                                            |                                                     |             |
+| FILTERALIAS    | Filter devices alias (can be a regexp)                                                                                                                                          |                                                     |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %{status} | %{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /notAvail\|lost\|error/i'). You can use the following variables: %{status}                 | %{status} =~ /notAvail\|lost\|error/i                 |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                             | --verbose                                           |             |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<TabItem value="Load" label="Load">
 
-| Macro              | Description                                                                                                                                                                                                         | Default value                                        | Mandatory   |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:------------|
-| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                               |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                               |             |
-| INTERFACENAME      | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                |                                                      |             |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| WARNINGINERROR     | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| WARNINGINTRAFFIC   | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALINTRAFFIC  | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                                                          |                                                      |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                      |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                 | --verbose                                            |             |
+| Macro               | Description                                                                                         | Default value     | Mandatory   |
+|:--------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| WARNINGUNITLOAD10M  |                                                                                                     |                   |             |
+| CRITICALUNITLOAD10M |                                                                                                     |                   |             |
+| WARNINGUNITLOAD1M   |                                                                                                     |                   |             |
+| CRITICALUNITLOAD1M  |                                                                                                     |                   |             |
+| WARNINGUNITLOAD5M   |                                                                                                     |                   |             |
+| CRITICALUNITLOAD5M  |                                                                                                     |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Unit-Status" label="Unit-Status">
 
-| Macro             | Description                                                                                         | Default value     | Mandatory   |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| FILTERNAME        | Filter memory by system hostname (can be a regexp)                                                  |                   |             |
-| WARNINGUSAGE      | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGE     | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEFREE  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEFREE | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| Macro          | Description                                                                                                                                                                                                                                                             | Default value                                                           | Mandatory   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|:------------|
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%{overall\_device\_status} =~ /detected\|lost\|changed\|update/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}             | %{overall\_device\_status} =~ /detected\|lost\|changed\|update/i             |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{unit\_status} =~ /overload/i \|\| %{overall\_device\_status} =~ /warning/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices} | %{unit\_status} =~ /overload/i \|\| %{overall\_device\_status} =~ /warning/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{unit\_status} =~ /failed/i \|\| %{overall\_device\_status} =~ /alarm/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}    | %{unit\_status} =~ /failed/i \|\| %{overall\_device\_status} =~ /alarm/i     |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                     |                                                                         |             |
 
 </TabItem>
-<TabItem value="Radius" label="Radius">
+<TabItem value="Uptime" label="Uptime">
 
-| Macro                           | Description                                                                                         | Default value     | Mandatory   |
-|:--------------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| FILTERNAME                      | Filter radius by system hostname (can be a regexp)                                                  |                   |             |
-| WARNINGRADIUSPOLICYEVAL         | Thresholds                                                                                          |                   |             |
-| CRITICALRADIUSPOLICYEVAL        | Thresholds                                                                                          |                   |             |
-| WARNINGRADIUSREQUESTS           | Thresholds                                                                                          |                   |             |
-| CRITICALRADIUSREQUESTS          | Thresholds                                                                                          |                   |             |
-| WARNINGRADIUSREQUESTSFAILED     | Thresholds                                                                                          |                   |             |
-| CRITICALRADIUSREQUESTSFAILED    | Thresholds                                                                                          |                   |             |
-| WARNINGRADIUSREQUESTSSUCCEEDED  | Thresholds                                                                                          |                   |             |
-| CRITICALRADIUSREQUESTSSUCCEEDED | Thresholds                                                                                          |                   |             |
-| WARNINGRADIUSREQUESTSTIME       | Thresholds                                                                                          |                   |             |
-| CRITICALRADIUSREQUESTSTIME      | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Repositories" label="Repositories">
-
-| Macro                     | Description                                                                                         | Default value     | Mandatory   |
-|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| FILTERNAME                | Filter authentification repositories by system hostname (can be a regexp)                           |                   |             |
-| WARNINGREQUESTS           | Thresholds                                                                                          |                   |             |
-| CRITICALREQUESTS          | Thresholds                                                                                          |                   |             |
-| WARNINGREQUESTSFAILED     | Thresholds                                                                                          |                   |             |
-| CRITICALREQUESTSFAILED    | Thresholds                                                                                          |                   |             |
-| WARNINGREQUESTSSUCCEEDED  | Thresholds                                                                                          |                   |             |
-| CRITICALREQUESTSSUCCEEDED | Thresholds                                                                                          |                   |             |
-| WARNINGREQUESTSTIME       | Thresholds                                                                                          |                   |             |
-| CRITICALREQUESTSTIME      | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Swap" label="Swap">
-
-| Macro             | Description                                                                                         | Default value     | Mandatory   |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| WARNINGUSAGE      | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGE     | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEFREE  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEFREE | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
-
-</TabItem>
-<TabItem value="Tacacs" label="Tacacs">
-
-| Macro                               | Description                                                                                         | Default value     | Mandatory   |
-|:------------------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
-| FILTERNAME                          | Filter tacacs by system hostname (can be a regexp)                                                  |                   |             |
-| WARNINGTACACSAUTHPOLICYEVAL         | Thresholds                                                                                          |                   |             |
-| CRITICALTACACSAUTHPOLICYEVAL        | Thresholds                                                                                          |                   |             |
-| WARNINGTACACSAUTHREQUESTS           | Thresholds                                                                                          |                   |             |
-| CRITICALTACACSAUTHREQUESTS          | Thresholds                                                                                          |                   |             |
-| WARNINGTACACSAUTHREQUESTSAUTHTIME   | Thresholds                                                                                          |                   |             |
-| CRITICALTACACSAUTHREQUESTSAUTHTIME  | Thresholds                                                                                          |                   |             |
-| WARNINGTACACSAUTHREQUESTSFAILED     | Thresholds                                                                                          |                   |             |
-| CRITICALTACACSAUTHREQUESTSFAILED    | Thresholds                                                                                          |                   |             |
-| WARNINGTACACSAUTHREQUESTSSUCCEEDED  | Thresholds                                                                                          |                   |             |
-| CRITICALTACACSAUTHREQUESTSSUCCEEDED | Thresholds                                                                                          |                   |             |
-| WARNINGTACACSAUTHREQUESTSTIME       | Thresholds                                                                                          |                   |             |
-| CRITICALTACACSAUTHREQUESTSTIME      | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| Macro          | Description                                                                                         | Default value     | Mandatory   |
+|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:------------|
+| WARNINGUPTIME  | Warning threshold                                                                                   |                   |             |
+| CRITICALUPTIME | Critical threshold                                                                                  |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
 **centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor the resource using a command like this one (replace the sample values by yours):
+is able to monitor a server using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_cppm_snmp.pl \
-    --plugin=network::aruba::cppm::snmp::plugin \
-    --mode=memory \
-    --hostname='10.0.0.1' \
-    --snmp-version='2c' \
-    --snmp-community='my-snmp-community' \
-    --verbose
+/usr/lib/centreon/plugins/centreon_sensors_rittal_cmc3_snmp.pl \
+	--plugin=hardware::sensors::rittal::cmc3::snmp::plugin \
+	--mode=devices \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Memory 'cppm.centreon.fr' usage total: 8.00 GB used: 4.05 GB (50.60%) free: 3.95 GB (49.40%) | 'cppm.centreon.fr#memory.usage.bytes'=4346740736B;;;0;8589803520 'cppm.centreon.fr#memory.free.bytes'=4243062784B;;;0;8589803520 'cppm.centreon.fr#memory.usage.percentage'=50.60%;;;0;100
+OK: All devices are ok 
+Device 'CMCIII-PU' status: ok [alias: CMCIII-PU] [text: Device 1 (CMCIII-PU) @1.01, OK]
+Device 'CMCIII-HUM' status: ok [alias: Sensore Temp Umidita Post Rack 2] [text: Device 10 (Sensore Temp Umidita Post Rack 2) @2.09, OK]
+Device 'CMCIII-ACC' status: ok [alias: Sensore Accesso Post Rack 1] [text: Device 11 (Sensore Accesso Post Rack 1) @2.10, OK]
+Device 'CMCIII-DET-M' status: ok [alias: DET-AC III Master] [text: Device 12 (DET-AC III Master) @2.11, OK]
+Device 'CMCIII-HUM' status: ok [alias: Sensore Temp Umidita Post Rack 1] [text: Device 13 (Sensore Temp Umidita Post Rack 1) @2.12, OK]
+Device 'CMCIII-IO3' status: ok [alias: CMCIII-IO3] [text: Device 2 (CMCIII-IO3) @2.01, OK]
+Device 'CMCIII-ACC' status: ok [alias: Sensore Accesso Ant Rack 1] [text: Device 3 (Sensore Accesso Ant Rack 1) @2.02, OK]
+Device 'CMCIII-TMP' status: ok [alias: Sensore Temperatura Ant Rack 1] [text: Device 4 (Sensore Temperatura Ant Rack 1) @2.03, OK]
+Device 'CMCIII-ACC' status: ok [alias: Sensore Accesso Ant Rack 2] [text: Device 5 (Sensore Accesso Ant Rack 2) @2.04, OK]
+Device 'CMCIII-TMP' status: ok [alias: Sensore Temperatura Ant Rack 2] [text: Device 6 (Sensore Temperatura Ant Rack 2) @2.05, OK]
+Device 'CMCIII-DET-S' status: ok [alias: DET-AC III Slave] [text: Device 7 (DET-AC III Slave) @2.06, OK]
+Device 'CMCIII-ACC' status: ok [alias: Sensore Accesso Post Rack 2] [text: Device 8 (Sensore Accesso Post Rack 2) @2.07, OK]
+Device 'CMCIII-SMK' status: ok [alias: Sensore Fumo Post Rack 2] [text: Device 9 (Sensore Fumo Post Rack 2) @2.08, OK]
 ```
 
 ### Troubleshooting
@@ -432,24 +304,20 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_aruba_cppm_snmp.pl \
-	--plugin=network::aruba::cppm::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_sensors_rittal_cmc3_snmp.pl \
+	--plugin=hardware::sensors::rittal::cmc3::snmp::plugin \
     --list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode            | Linked service template          |
-|:----------------|:---------------------------------|
-| cpu             | Net-Aruba-Cppm-Cpu-SNMP          |
-| disks           | Net-Aruba-Cppm-Disks-SNMP        |
-| interfaces      | Net-Aruba-Cppm-Interfaces-SNMP   |
-| list-interfaces | Used for service discovery       |
-| memory          | Net-Aruba-Cppm-Memory-SNMP       |
-| radius          | Net-Aruba-Cppm-Radius-SNMP       |
-| repositories    | Net-Aruba-Cppm-Repositories-SNMP |
-| swap            | Net-Aruba-Cppm-Swap-SNMP         |
-| tacacs          | Net-Aruba-Cppm-Tacacs-SNMP       |
+| Mode         | Linked service template                 |
+|:-------------|:----------------------------------------|
+| devices      | HW-Sensors-Rittal-Cmc3-Devices-SNMP     |
+| list-devices | Used for service discovery              |
+| load         | HW-Sensors-Rittal-Cmc3-Load-SNMP        |
+| unit-status  | HW-Sensors-Rittal-Cmc3-Unit-Status-SNMP |
+| uptime       | HW-Sensors-Rittal-Cmc3-Uptime-SNMP      |
 
 ### Available options
 
@@ -474,8 +342,8 @@ All generic options are listed here:
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   | Output |
 | --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Output |
 | --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Output |
-| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
-| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
+| --range-perfdata                           | Change perfdata range thresholds display: 1 = start value equals to '0' is removed, 2 = threshold range is not display.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Output |
+| --filter-uom                               | Masks the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Output |
 | --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output |
 | --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Output |
 | --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output |
@@ -494,9 +362,9 @@ All generic options are listed here:
 | --snmp-timeout                             | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | SNMP   |
 | --snmp-retries                             | Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | SNMP   |
 | --maxrepetitions                           | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | SNMP   |
-| --subsetleef                               | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | SNMP   |
-| --snmp-autoreduce                          | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (By default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | SNMP   |
-| --snmp-force-getnext                       | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | SNMP   |
+| --subsetleef                               | How many oid values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | SNMP   |
+| --snmp-autoreduce                          | Progressively reduce the number requested OIDs in bulk mode. Use it in case of SNMP errors (By default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | SNMP   |
+| --snmp-force-getnext                       | Use snmp getnext function in snmp v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | SNMP   |
 | --snmp-cache-file                          | Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | SNMP   |
 | --snmp-username                            | SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | SNMP   |
 | --authpassphrase                           | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | SNMP   |
@@ -515,115 +383,60 @@ All generic options are listed here:
 
 #### Modes options
 
-All available options for each service template are listed below:
+All modes specific options are listed here:
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Devices" label="Devices">
 
-| Option             | Description                                   | Type |
-|:-------------------|:----------------------------------------------|:-----|
-| --use-ucd          | Use UCD MIB for CPU average.                  | Mode |
-| --warning-average  | Warning threshold average CPU utilization.    | Mode |
-| --critical-average | Critical threshold average CPU utilization.   | Mode |
-| --warning-core     | Warning thresholds for each CPU core          | Mode |
-| --critical-core    | Critical thresholds for each CPU core         | Mode |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Option                   | Description                                                                   | Type |
-|:-------------------------|:------------------------------------------------------------------------------|:-----|
-| --filter-name            | Filter disks by system hostname (can be a regexp).                            | Mode |
-| --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.    | Mode |
+| Option            | Description                                                                                                                                                                       | Type |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
+| --filter-name     | Filter device name (can be a regexp).                                                                                                                                             | Mode |
+| --filter-alias    | Filter devices alias (can be a regexp).                                                                                                                                           | Mode |
+| --index           | Filter device index (exact match).                                                                                                                                                | Mode |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                                                                       | Mode |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %{status}   | Mode |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /notAvail\|lost\|error/i'). You can use the following variables: %{status}                   | Mode |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<TabItem value="Load" label="Load">
 
-| Option                   | Description                                                                                                                                                                                                                                                                                | Type      |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                 | Retention |
-| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                            | Retention |
-| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                    | Retention |
-| --redis-db               | Set Redis database index.                                                                                                                                                                                                                                                                  | Retention |
-| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                       | Retention |
-| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                             | Retention |
-| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                     | Retention |
-| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                             | Retention |
-| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                | Retention |
-| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                      | Retention |
-| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                               | Retention |
-| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                         | Retention |
-| --add-global             | Check global port statistics (By default if no --add-* option is set).                                                                                                                                                                                                                     | Mode      |
-| --add-status             | Check interface status.                                                                                                                                                                                                                                                                    | Mode      |
-| --add-duplex-status      | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                         | Mode      |
-| --add-traffic            | Check interface traffic.                                                                                                                                                                                                                                                                   | Mode      |
-| --add-errors             | Check interface errors.                                                                                                                                                                                                                                                                    | Mode      |
-| --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                      | Mode      |
-| --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                     | Mode      |
-| --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      | Mode      |
-| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                           | Mode      |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   | Mode      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        | Mode      |
-| --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   | Mode      |
-| --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      | Mode      |
-| --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          | Mode      |
-| --units-cast             | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      | Mode      |
-| --nagvis-perfdata        | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              | Mode      |
-| --interface              | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                      | Mode      |
-| --name                   | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               | Mode      |
-| --speed                  | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 | Mode      |
-| --speed-in               | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          | Mode      |
-| --speed-out              | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                          | Mode      |
-| --map-speed-dsl          | Get interface speed configuration for interface type 'adsl' and 'vdsl2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                            | Mode      |
-| --force-counters64       | Force to use 64 bits counters only. Can be used to improve performance.                                                                                                                                                                                                                    | Mode      |
-| --force-counters32       | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                   | Mode      |
-| --reload-cache-time      | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                | Mode      |
-| --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                | Mode      |
-| --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       | Mode      |
-| --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                     | Mode      |
-| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                     | Mode      |
-| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                     | Mode      |
-| --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                             | Mode      |
+| Option                   | Description                                                                    | Type |
+|:-------------------------|:-------------------------------------------------------------------------------|:-----|
+| --warning-* --critical-* | Load threshold in %.  Thresholds: unit-load-1m, unit-load-5m, unit-load-10m    | Mode |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Unit-Status" label="Unit-Status">
 
-| Option                   | Description                                                 | Type |
-|:-------------------------|:------------------------------------------------------------|:-----|
-| --filter-name            | Filter memory by system hostname (can be a regexp).         | Mode |
-| --warning-* --critical-* | Thresholds. Can be: 'usage', 'usage-free', 'usage-prct'.    | Mode |
-
-</TabItem>
-<TabItem value="Radius" label="Radius">
-
-| Option                   | Description                                                                                                                                    | Type |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| --filter-name            | Filter radius by system hostname (can be a regexp).                                                                                            | Mode |
-| --warning-* --critical-* | Thresholds. Can be: 'radius-policy-eval', 'radius-requests-time', 'radius-requests', 'radius-requests-failed', 'radius-requests-succeeded'.    | Mode |
+| Option            | Description                                                                                                                                                                                                                                                               | Type |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{overall\_device\_status} =~ /detected\|lost\|changed\|update/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}               | Mode |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{unit\_status} =~ /overload/i \|\| %{overall\_device\_status} =~ /warning/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}   | Mode |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{unit\_status} =~ /failed/i \|\| %{overall\_device\_status} =~ /alarm/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}      | Mode |
 
 </TabItem>
-<TabItem value="Repositories" label="Repositories">
+<TabItem value="Uptime" label="Uptime">
 
-| Option                   | Description                                                                                  | Type |
-|:-------------------------|:---------------------------------------------------------------------------------------------|:-----|
-| --filter-name            | Filter authentification repositories by system hostname (can be a regexp).                   | Mode |
-| --warning-* --critical-* | Thresholds. Can be: 'requests-time', 'requests', 'requests-failed', 'requests-succeeded'.    | Mode |
-
-</TabItem>
-<TabItem value="Swap" label="Swap">
-
-| Option                   | Description                                                             | Type |
-|:-------------------------|:------------------------------------------------------------------------|:-----|
-| --no-swap                | Threshold if no active swap (default: 'critical').                      | Mode |
-| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).    | Mode |
-
-</TabItem>
-<TabItem value="Tacacs" label="Tacacs">
-
-| Option                   | Description                                                                                                                                                                                                                           | Type |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| --filter-name            | Filter tacacs by system hostname (can be a regexp).                                                                                                                                                                                   | Mode |
-| --warning-* --critical-* | Thresholds. Can be: 'tacacs-auth-policy-eval', 'tacacs-auth-policy-eval', 'tacacs-auth-requests-auth-time',' 'tacacs-auth-requests-time', 'tacacs-auth-requests', 'tacacs-auth-requests-failed', 'tacacs-auth-requests-succeeded'.    | Mode |
+| Option                 | Description                                                                                                                                                                                                                                   | Type      |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    | Retention |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               | Retention |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       | Retention |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     | Retention |
+| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          | Retention |
+| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                | Retention |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        | Retention |
+| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                | Retention |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   | Retention |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         | Retention |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  | Retention |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            | Retention |
+| --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            | Mode      |
+| --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           | Mode      |
+| --add-sysdesc          | Display system description.                                                                                                                                                                                                                   | Mode      |
+| --force-oid            | Can choose your OID (numeric format only).                                                                                                                                                                                                    | Mode      |
+| --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          | Mode      |
+| --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       | Mode      |
+| --unit                 | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                                                   | Mode      |
 
 </TabItem>
 </Tabs>
@@ -632,8 +445,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_cppm_snmp.pl \
-	--plugin=network::aruba::cppm::snmp::plugin \
-	--mode=memory \
+/usr/lib/centreon/plugins/centreon_sensors_rittal_cmc3_snmp.pl \
+	--plugin=hardware::sensors::rittal::cmc3::snmp::plugin \
+	--mode=devices \
     --help
 ```

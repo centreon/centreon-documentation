@@ -17,6 +17,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
+### 22.04.1
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed packaging that had missing files from centreon-common installation.
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
