@@ -9,7 +9,7 @@ Centreon can be used to generate graphs from monitoring information. There are t
   traffic, etc.
 * History graphs (or status graphs) are used to view the evolution of the statuses of a service.
 
-Performance graphs always have a time period for the x-axis and a unit as the y-axis (volts, octets, etc.). History
+Performance graphs always have a time period for the x-axis and a unit as the y-axis (volts, bytes, etc.). History
 graphs always have a time period for the x-axis, and their y-axes do not vary. Only the color of the graph can be used to
 view the status of the object:
 
