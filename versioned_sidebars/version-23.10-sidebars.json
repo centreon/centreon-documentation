@@ -492,6 +492,10 @@
         },
         {
           "type": "doc",
+          "id": "version-23.10/monitoring/basic-objects/customization"
+        },
+        {
+          "type": "doc",
           "id": "version-23.10/monitoring/basic-objects/contacts-create"
         },
         {
@@ -1175,11 +1179,10 @@
     {
       "type": "category",
       "label": "Developer resources",
+      "link": {
+      "type": "generated-index"
+      },
       "items": [
-        {
-          "type": "doc",
-          "id": "version-23.10/developer/about-developer-resources"
-        },
         {
           "type": "doc",
           "id": "version-23.10/developer/developer-module"

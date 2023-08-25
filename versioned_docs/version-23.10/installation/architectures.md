@@ -5,7 +5,7 @@ title: Architectures
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you are monitoring a small number of hosts and services, a central server is enough. However, if you monitor a large number of hosts and services, you will need to distribute the load over multiple servers.
+If you are monitoring a small number of hosts and services, a central server is enough. However, to monitor a large number of hosts and services, you will need to distribute the load over multiple servers.
 
 > If you do not know what remote servers and pollers are, see [Elements of a Centreon platform](../getting-started/platform.md).
 
@@ -19,8 +19,8 @@ If you are not monitoring many hosts, you may only need one central server. The 
 
 A distributed architecture consists of:
 
-* A Centreon Central server to configure monitoring and to display & operate on collected data
-* One or more remote servers to display & operate on a subset of collected data.
+* A Centreon Central server to configure monitoring and to display and operate on collected data
+* One or more remote servers to display and operate on a subset of collected data
 
 and/or
 
@@ -34,7 +34,7 @@ Example of distributed architecture with 3 remote servers and 6 pollers. Note th
 
 Your central server can have a remote DBMS. An architecture with a remote DBMS consists of:
 
-* A Centreon Central server to configure monitoring and to display collected data
+* A Centreon Central server to configure monitoring and display collected data
 * A DBMS server to store collected data
 * Optionally, one or more remote servers and/or pollers to collect data
 
@@ -42,11 +42,11 @@ Your central server can have a remote DBMS. An architecture with a remote DBMS c
 
 ![image](../assets/installation/architecture_decision.png)
 
-When designing your Centreon platform, bear the following things in mind:
+When designing your Centreon platform, bear the following considerations in mind:
 
-* The number of hosts you will monitor is not enough to determine how big your platform should be. You will also need to take into account the number of services per host, as well as the number of metrics per service.
-* Another criterion to take into account is whether you need to use pollers or remote servers to separate your resources according to geographical or logical criteria. Example : If your monitoring architecture has to monitor a DMZ area, it is easier (and safer) to place a remote server in the DMZ network.
-* A central server should only monitor a small number of hosts and services, as its CPU must primarily handle the data sent by remote servers and pollers (this is the same for remote servers). The more hosts and services you monitor on your central server, you higher the risk of the interface being slowed down, as the monitoring engine will use more resources.
+* The number of hosts you will monitor is not enough to determine how big your platform should be. You will also need to take into account the number of services per host and the number of metrics per service.
+* Another criterion to consider is whether you need to use pollers or remote servers to separate your resources according to geographical or logical criteria. Example: If your monitoring architecture has to monitor a DMZ area, it is easier (and safer) to place a remote server in the DMZ network.
+* A central server should only monitor a small number of hosts and services because its CPU should primarily handle the data sent by remote servers and pollers (the same applies to remote servers). The more hosts and services you monitor on your central server, the higher the risk of the interface being slowed down, because the monitoring engine will use more resources.
 * The central server should monitor all remote servers and pollers.
 * The central server should be monitored by a poller or a remote server.
-* Use a remote server instead of a poller if you need to visualize data on a site other than where the central server is located.
+* Use a remote server instead of a poller if you need to view data on a site other than where the central server is located.

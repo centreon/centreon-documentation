@@ -22,7 +22,9 @@ You must have:
 
 3. Make the Monitoring Connectors available:
 
-    - If you have an offline licence, in your central server's terminal, enter:
+
+    - If you have an online license, the Monitoring Connectors are already available in the interface.
+    - If you have an offline license in your central server's terminal, enter:
      
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -49,16 +51,13 @@ apt install centreon-pack-*
 
 </Tabs>
 
-
-    - If you have an online license, the Monitoring Connectors are already available in the interface.
-
 4. To install the Amazon EC2 Monitoring Connector, go to **Configuration > Monitoring Connectors Manager**.
 
 5. In the **Keyword** field, type **Amazon EC2** and then click **Search**.
 
-6. Click on the `+` sign in the top right corner of the Monitoring Connector. The Monitoring Connector now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
+6. Click the `+` sign in the top right corner of the Monitoring Connector. The Monitoring Connector now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
 
-7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Monitoring Connector. (You can also access the documentation for a Monitoring Connector by clicking on the `i`.)
+7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Monitoring Connector. (You can also access the documentation for a Monitoring Connector by clicking the `i`.)
 
     ![image](../assets/getting-started/aws-doc.png)
 
@@ -72,13 +71,13 @@ apt install centreon-pack-*
 
 3. If your infrastructure requires it, fill in the details for the proxy you want to use.
 
-4. Click on the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Access Key and AWS Secret Key fields, then click on **Confirm**. Click **Next**.
+4. Click the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Access Key and AWS Secret Key fields, then click **Confirm**. Click **Next**.
 
 5. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
 6. Edit or add [mappers](../monitoring/discovery/hosts-discovery.md#how-to-use-mappers):
     - Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
-    - In our example, we will exclude the instances whose hostname contains "test".
+    - In our example, we will exclude instances whose hostname contains "test".
 
     ![image](../assets/getting-started/aws-mapper.png)
 
@@ -107,7 +106,7 @@ apt install centreon-pack-*
    
 3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/aws-save.png)
 
-4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
+4. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected in the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The hosts appear in the **Resources Status** page: they are monitored.
 

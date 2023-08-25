@@ -79,20 +79,6 @@ Autologin is currently not supported on the following pages :
 
 There is currently no workaround.
 
-### The content of the pages is not translated according to the language of the user
-
-#### Workaround
-
-You must install the languages on your operating system with the following command:
-```shell
-yum install -y glibc-all-langpacks
-```
-
-Then restart PHP using the following command:
-```shell
-systemctl restart php-fpm
-```
-
 ## Centreon MBI
 
 ### MBI does not work if databases have custom names

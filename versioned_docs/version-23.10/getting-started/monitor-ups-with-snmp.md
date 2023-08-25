@@ -1,17 +1,17 @@
 ---
 id: monitor-ups-snmp
-title: Monitor UPS equipment with SNMP
+title: Monitor UPS devices with SNMP
 ---
 
-Go to the **Configuration \> Monitoring Connectors** menu and install **UPS Standard** Monitoring Connector:
+Go to the **Configuration \> Monitoring Connectors** menu and install the **UPS Standard** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_ups_0.gif)
 
-Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
+Go to the **Configuration \> Hosts \> Hosts** menu and click **Add**:
 
 ![image](../assets/getting-started/quick_start_ups_1.png)
 
-Fill in the following information:
+Input the following information:
 
 * The name of the server
 * A description of the server
@@ -21,19 +21,19 @@ Fill in the following information:
 Click on **+ Add a new entry** button in **Templates** field, then select the **HW-UPS-Standard-Rfc1628-SNMP-custom**
 template in the list.
 
-Click on **Save**.
+Click **Save**.
 
-Your equipment has been added to the monitoring configuration:
+Your device has been added to the monitoring configuration:
 
 ![image](../assets/getting-started/quick_start_ups_2.png)
 
-Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
+Go to the **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
 ![image](../assets/getting-started/quick_start_ups_3.png)
 
 It is now time to [deploy the supervision](first-supervision.md#deploying-a-configuration).
 
-Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
+Then go to the **Monitoring \> Status Details \> Services** menu and select the value **All** for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
 ![image](../assets/getting-started/quick_start_ups_4.png)

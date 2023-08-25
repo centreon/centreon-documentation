@@ -322,7 +322,7 @@ dnf install -y centreon-poller
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon-poller
+dnf install -y centreon-poller
 ```
 
 </TabItem>

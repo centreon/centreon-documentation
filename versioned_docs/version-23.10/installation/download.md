@@ -17,4 +17,4 @@ you of any concern over the installation process.
 If your platform does not support RPM packages, you should use archives containing the sources of stable versions of
 our software and install them manually. Manual compilation of some packages can be complex.
 
-For downloading Centreon, please refer to our [download website](https://download.centreon.com)
+To download Centreon, please refer to our [download website](https://download.centreon.com)

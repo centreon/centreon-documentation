@@ -87,7 +87,7 @@ apt update && apt upgrade
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -116,7 +116,7 @@ Disabled
 
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -160,12 +160,12 @@ systemctl disable firewalld
 
 ### Server name
 
-If you want, you can change the server's name using the following command:
+If you want to change the server's name, use the following command:
 ```shell
 hostnamectl set-hostname new-server-name
 ```
 
-Replace **new-server-name** by the name you want. Example:
+Replace **new-server-name** with the name of your choice. Example:
 ```shell
 hostnamectl set-hostname poller1
 ```
@@ -177,7 +177,7 @@ hostnamectl set-hostname poller1
 
 #### Redhat PowerTools repository
 
-To install Centreon you will need to enable the official PowerTools repository
+To install Centreon, you will need to enable the official PowerTools repository
 supported by Redhat.
 
 Enable the PowerTools repository using these commands:
@@ -192,8 +192,8 @@ dnf config-manager --set-enabled powertools
 
 #### Redhat CodeReady Builder repository
 
-To install Centreon you will need to enable the official CodeReady Builder
-repository supported by Redhat.
+To install Centreon, you will need to enable the official CodeReady Builder
+supported by Redhat.
 
 Enable the CodeReady Builder repository using these commands:
 
@@ -209,7 +209,7 @@ dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 
 #### Oracle CodeReady Builder repository
 
-To install Centreon you will need to enable the official Oracle CodeReady
+To install Centreon, you will need to enable the official Oracle CodeReady
 Builder repository supported by Oracle.
 
 Enable the repository using these commands:
@@ -301,7 +301,7 @@ dnf update
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-To install the Centreon repository, execute following command line:
+To install the Centreon repository, execute the following command line:
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -365,7 +365,7 @@ systemctl restart centengine
 
 ## Step 3: Register the server
 
-To turn the server into a poller and to register it to the Central server or to a Remote server, execute the following command on the future poller:
+To turn the server into a poller and to register it to the Central server or a Remote server, execute the following command on the future poller:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -378,7 +378,7 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
+> Replace **<IP_TARGET_NODE>** with the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
 > The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
@@ -389,13 +389,13 @@ Then follow instructions by
 1. Entering your password:
 
     ``` shell
-    please enter the password of 192.168.0.1:
+    please enter the password for 192.168.0.1:
     ```
 
-2. Select the IP adress if multiple network interfaces exist:
+2. Select the IP address if multiple network interfaces exist:
 
     ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
+    Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
     1
@@ -404,9 +404,9 @@ Then follow instructions by
 3. Then validate the information:
 
     ``` shell
-    Summary of the informations that will be send:
+    Summary of the information that will be sent:
     
-    Api Connection:
+    API connection:
     username: admin
     password: ******
     target server: 192.168.0.1
@@ -416,7 +416,7 @@ Then follow instructions by
     type: poller
     address: 192.168.0.2
     
-    Do you want to register this server with those information ? (y/n)y
+    Do you want to register this server with the previous information? (y/n)y
     ```
 
 You will receive the validation of the Centreon central or the Remote Server server:
@@ -440,22 +440,22 @@ You will receive the validation of the Centreon central or the Remote Server ser
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-Failed connect to 192.168.0.1:444; Connection refused
+Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.
 
 ``` shell
 2023-05-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
-> The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
+> The access URL is incomplete or invalid. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 
 ``` shell
 2023-05-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 23.04.
+> Your Centreon target version is invalid. It should be greater than or equal to 23.04.
 
 ## Step 4: Add the Poller to the configuration
 
@@ -463,5 +463,5 @@ Go to [Attach a poller to a central or a remote server](../../monitoring/monitor
 
 ## Step 5: Secure your platform
 
-Do not forget to secure your Centreon platform following our
+Remember to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.md).

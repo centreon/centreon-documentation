@@ -754,6 +754,7 @@ Les tâches planifiées de type **cron** sont exécutées directement par le pro
 rm -f /etc/cron.d/centreon
 rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Modification des droits
