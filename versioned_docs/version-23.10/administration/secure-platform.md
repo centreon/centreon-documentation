@@ -531,12 +531,12 @@ Here is an example of output:
 ```shell
 Status for the jail: centreon
 |- Filter
-|  |- Currently failed:	1.
-|  |- Total failed:	17.
+|  |- Currently failed:	1
+|  |- Total failed:	17
 |  `- File list:	/var/log/centreon/login.log
 `- Actions
-   |- Currently banned:	0.
-   |- Total banned:	2.
+   |- Currently banned:	0
+   |- Total banned:	2
    `- Banned IP list:
 ```
 
@@ -1241,7 +1241,7 @@ If everything is ok, you should have:
 ```shell
 ● apache2.service - The Apache HTTP Server
     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
-     Active: active (running) since Tue 8/9/2022 5:01:36 AM UTC; 3h 56min ago
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
        Docs: https://httpd.apache.org/docs/2.4/
    Main PID: 518 (apache2)
       Tasks: 11 (limit: 2356)
@@ -1349,21 +1349,21 @@ To customize the Centreon URI:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-vim /etc/httpd/conf.d/10-centreon.conf
+vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-vim /etc/httpd/conf.d/10-centreon.conf
+vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-vim /etc/apache2/sites-available/centreon.conf
+vi /etc/apache2/sites-available/centreon.conf
 ```
 
 </TabItem>
