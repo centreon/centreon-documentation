@@ -644,7 +644,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
   ```
   
-  The certificate being created will enable you to sign your server certificate.
+  Once you have created the certificate, you will be able to use it to sign your server certificate.
   
 6. Create a certificate for the server:
   
