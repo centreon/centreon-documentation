@@ -77,17 +77,24 @@ jobs:
           umbrella-dir: pr-preview
           action: auto
 
-      - name: Deploy preview
-        if: ${{ github.event_name == 'pull_request' }}
+      - name: Deploy to docs-dev.int.centreon.com
+        if: ${{ github.ref_name == 'staging' }}
         run: |
           # Prepare ssh-key
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-          ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls -l /var/www
-          #ssh -o StrictHostKeyChecking=no admin@docs.int.centreon.com ls -l /var/www
-
           rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+        shell: bash
+
+      - name: Deploy to docs.centreon.com
+        if: ${{ github.ref_name == 'production' }}
+        run: |
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+
+          ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/
 
           export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
           $(aws sts assume-role \
