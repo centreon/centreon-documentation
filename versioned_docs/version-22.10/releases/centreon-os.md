@@ -19,6 +19,22 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.12
+
+Release date: `soon`
+
+### Enhancements
+
+- [Install] Updated the database schema for resources table.
+- [Tools] Added a script to delete duplicate entries in the host_service_relations table.
+
+### Bug fixes
+
+- [API] Removed author_id parameter from downtime endpoint to use authenticated user as author.
+- [Graphs] Fixed the display of graphs layout when there is no data.
+- [Packaging] Added missing php files to debian packaging.
+- [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.	
+
 ### 22.10.11
 
 Release date: `July 28, 2023`
