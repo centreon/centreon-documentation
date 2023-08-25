@@ -291,7 +291,7 @@ aux bases de données du serveur de supervision. Utilisez l'option suivante :
 S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
 
 </TabItem>
-<TabItem value="Base de surpervision déportée par rapport au central" label="Base de surpervision déportée par rapport au central">
+<TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
 La base de données de supervision MariaDB est hébergée sur un serveur dédié.
 
