@@ -77,8 +77,8 @@ jobs:
           umbrella-dir: pr-preview
           action: auto
 
-      - name: Deploy to docs-dev.int.centreon.com
-        if: ${{ github.ref_name == 'staging' }}
+      - name: Deploy to https://docs-staging.int.centreon.com
+        #if: ${{ github.ref_name == 'staging' }}
         run: |
           # Prepare ssh-key
           eval `ssh-agent`
@@ -87,7 +87,7 @@ jobs:
           rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
         shell: bash
 
-      - name: Deploy to docs.centreon.com
+      - name: Deploy to https://docs.centreon.com
         if: ${{ github.ref_name == 'production' }}
         run: |
           # Prepare ssh-key
