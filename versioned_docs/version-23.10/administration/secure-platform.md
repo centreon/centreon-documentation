@@ -1403,7 +1403,7 @@ systemctl restart apache2
 
 ## Enabling http2
 
-It is possible to enable the http2 protocol to improve Centreon network performance.
+It is possible to enable the http2 protocol to improve Centreon's network performance.
 
 To use http2, you need to follow these steps:
 
