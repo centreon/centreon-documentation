@@ -37,8 +37,8 @@ jobs:
 
       - name: Build documentation
         run: yarn build
-        #env:
-        #  BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
+        env:
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
         uses: actions/cache/save@v3
@@ -78,7 +78,7 @@ jobs:
           action: auto
 
       - name: Deploy to https://docs-staging.int.centreon.com
-        #if: ${{ github.ref_name == 'staging' }}
+        if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
         run: |
           # Prepare ssh-key
           eval `ssh-agent`
@@ -88,7 +88,7 @@ jobs:
         shell: bash
 
       - name: Deploy to https://docs.centreon.com
-        if: ${{ github.ref_name == 'production' }}
+        if: ${{ github.ref_name == 'production' && github.event_name != 'pull_request' }}
         run: |
           # Prepare ssh-key
           eval `ssh-agent`
@@ -98,9 +98,23 @@ jobs:
 
           export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
           $(aws sts assume-role \
-          --role-arn arn:aws:iam::902177162398:role/invalidate-doc-cache \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
           --role-session-name InvalidDocCache \
           --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
           --output text))
-          aws cloudfront create-invalidation --distribution-id E1CNJDQJ2JT4KZ --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PRODUCTION }} --paths "/*"
+        shell: bash
+
+      - name: Deploy to https://docs-next-int.centreon.com
+        if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
+        run: |
+          aws s3 sync --delete build s3://centreon-documentation-next/
+
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
         shell: bash
