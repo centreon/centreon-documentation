@@ -26,7 +26,7 @@ Release date: `soon`
 
 ### Bug fixes
 
-- [API] Removed author_id parameter from downtime endpoint to use authenticated user as author.
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
 
 ### 22.04.14
 
