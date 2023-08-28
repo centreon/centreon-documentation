@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.15
 
-Release date: `soon`
+Release date: `August 28, 2023`
 
 ### Enhancements
 
