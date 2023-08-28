@@ -22,7 +22,7 @@ Release date: `soon`
 
 ### Enhancements
 
-- [Install] Updated the database schema for resources table.
+- [Core] Updated the database schema for resources table.
 
 ### Bug fixes
 
