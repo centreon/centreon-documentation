@@ -21,10 +21,8 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  //onBrokenLinks: version ? 'log' : 'throw',
-  //onBrokenMarkdownLinks: version ? 'log' : 'throw',
-  onBrokenLinks: 'log',
-  onBrokenMarkdownLinks: 'log',
+  onBrokenLinks: version ? 'log' : 'throw',
+  onBrokenMarkdownLinks: version ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -34,8 +32,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    //locales: ['en', 'fr'],
-    locales: ['en'],
+    locales: ['en', 'fr'],
     localeConfigs: {
       en: {
         label: '🇬🇧 English',
