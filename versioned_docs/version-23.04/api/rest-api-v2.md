@@ -63,8 +63,11 @@ Then click on **Add**, and select it in the environments list.
 >
 > ![image](../assets/api/postman-collection-edit.png)
 >
-> In the **Variables** tab, change the *version* value to one of "beta",
-> "latest" or "v2".
+> In the **Variables** tab, change the *version* value to either
+> "latest" or "v23.04".
+>
+> You can obtain your "major.minor" version number using the following command:
+> `curl -s http://127.0.0.1:80/centreon/api/latest/platform/versions | jq '.web '`
 >
 > ![image](../assets/api/postman-collection-variables.png)
 >
