@@ -2,7 +2,6 @@
 id: offline
 title: Installation offline
 ---
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

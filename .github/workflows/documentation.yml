@@ -1,0 +1,106 @@
+name: documentation
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+  push:
+    branches:
+      - staging
+      - next
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: [self-hosted, collect]
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: Build documentation
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
+        run: yarn build
+        env:
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}/', github.event.pull_request.number) || '' }}
+
+      - name: Store build in cache
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
+        uses: actions/cache/save@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+
+  publish:
+    needs: [build]
+    runs-on: [self-hosted, infra]
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
+
+      - name: Restore build from cache
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          fail-on-cache-miss: true
+
+      - name: Deploy preview
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./build
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+
+      - name: Deploy to https://docs-staging.int.centreon.com
+        if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
+        run: |
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+        shell: bash
+
+      - name: Deploy to https://docs-next-int.centreon.com
+        if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
+        run: |
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete build s3://centreon-documentation-next/
+
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
+        shell: bash
