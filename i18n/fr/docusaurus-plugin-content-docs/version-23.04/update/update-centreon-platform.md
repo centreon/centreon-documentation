@@ -202,7 +202,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -217,7 +217,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -233,7 +233,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon-poller
+  apt upgrade centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>

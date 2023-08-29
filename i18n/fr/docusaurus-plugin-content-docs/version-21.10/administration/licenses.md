@@ -14,8 +14,8 @@ import TabItem from '@theme/TabItem';
 ## Types de licences
 
 Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licence peut être :
-- hors ligne : gérée avec des fichiers de licence
 - en ligne : gérée avec un jeton. Votre plateforme Centreon doit être connectée à internet.
+- hors ligne : gérée avec des fichiers de licence
 
 ## Quels modules demandent une licence?
 
@@ -37,25 +37,6 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 ## Ajouter une licence
 
 <Tabs groupId="sync">
-<TabItem value="Licences hors ligne" label="Licences hors ligne">
-
-1. Pour demander votre licence:
-
-    1. Allez à la page **Administration > Extensions > Gestionnaire**.
-
-    2. Cliquez sur **Récupérer l'empreinte**.
-
-    3. Collez l'empreinte dans un email à notre équipe [support](mailto:support@centreon.com) pour demander votre licence.
-
-2. Une fois votre licence reçue, à la page **Administration > Extensions > Gestionnaire**, cliquez sur **Télécharger une licence**.
-
-5. Naviguez jusqu'au fichier de licence, puis cliquez sur **OK**. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
-
-    ![image](../assets/administration/license_valid.png)
-
-6. Si vous avez plusieurs licences à ajouter (par exemple pour BAM, MBI...), répétez les étapes précédentes jusqu'à ce que vous ayez téléchargé tous les fichiers de licence.
-
-</TabItem>
 <TabItem value="Licences en ligne" label="Licences en ligne">
 
 > Consultez les [tableaux des flux réseau](../installation/architectures.md#tableaux-des-flux-réseau) pour l'intégration de votre plateforme de supervision.
@@ -91,6 +72,25 @@ Assurez-vous que votre plateforme Centreon est autorisée à accéder à interne
     ![image](../assets/administration/license_valid.png)
 
     Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
+
+</TabItem>
+<TabItem value="Licences hors ligne" label="Licences hors ligne">
+
+1. Pour demander votre licence:
+
+    1. Allez à la page **Administration > Extensions > Gestionnaire**.
+
+    2. Cliquez sur **Récupérer l'empreinte**.
+
+    3. Collez l'empreinte dans un email à notre équipe [support](mailto:support@centreon.com) pour demander votre licence.
+
+2. Une fois votre licence reçue, à la page **Administration > Extensions > Gestionnaire**, cliquez sur **Télécharger une licence**.
+
+5. Naviguez jusqu'au fichier de licence, puis cliquez sur **OK**. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
+
+    ![image](../assets/administration/license_valid.png)
+
+6. Si vous avez plusieurs licences à ajouter (par exemple pour BAM, MBI...), répétez les étapes précédentes jusqu'à ce que vous ayez téléchargé tous les fichiers de licence.
 
 </TabItem>
 </Tabs>

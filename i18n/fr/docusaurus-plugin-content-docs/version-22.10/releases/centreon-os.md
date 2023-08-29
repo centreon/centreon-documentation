@@ -18,6 +18,21 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.11
+
+Release date: `July 28, 2023`
+
+#### Enhancements
+
+- [UX] Improved tooltip description in Centreon Engine configuration form for Service Check Timeout option.
+
+#### Bug fixes
+
+- [Administration] Fixed pagination in **Data** menu.
+- [Install] Updated size of metric_name column to 1021.
+- [Monitoring] Fixed data insertion where metric names were too long.
+- [ResourcesStatus] Fixed CSV export when metric name contained SQL keyword.
+
 ### 22.10.10
 
 Release date: `July 11, 2023`
@@ -282,6 +297,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.4
+
+Release date: `July 26, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Boolean rules optimized to work faster.
+
 ### 22.10.3
 
 Release date: `July 3, 2023`
@@ -379,6 +404,15 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.2
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Compatibility] Fixed -d option to manage database entries in centreonBIETL script.
+- [Core] Fixed recurring unexpected disconnections between pollers.
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -428,6 +462,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Open Tickets
 
+### 22.10.2
+
+Release date: `July 28, 2023`
+
+### Bug fixes
+
+- Fixed a Broker query.
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -442,3 +484,13 @@ Release date: `June 5, 2023`
 Release date: `October 26, 2022`
 
 - Compatibility with other 22.10 components.
+
+## Centreon HA
+
+### 22.10.1
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed packaging that had missing files from centreon-common installation.

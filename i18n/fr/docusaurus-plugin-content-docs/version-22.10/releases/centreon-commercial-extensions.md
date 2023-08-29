@@ -17,6 +17,53 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
+- [Server] Fixed an issue that could prevent some maps from being edited.
+
+### 22.10.8
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Geoviews] Fixed an issue that prevented hosts from being displayed on geoviews.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- Allowed elements to be grouped.
+- Fixed an issue making Business Activities' size different between viewer and editor.
+- Fixed an issue that caused server to crash because of duplicated Centreon modules.
+
+### 22.10.7
+
+Release date: `July 20, 2023`
+
+#### Enhancements
+
+- [UI] You can now hide the label of a resource.
+- [Viewer] Resources now have a unique status.
+- [Viewer] You can now define a label for a URL shape.
+
+#### Bug fixes
+
+- [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
+- [Editor] Fixed an issue that made duplicated containers point to the same view.
+- [Editor] Fixed metric links when no metric name were filled in.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
+- [UI] Fixed image edition for a MAP thumbnail or media component.
+- [UI] Fixed the selection of layers in Geo views.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
+- [Viewer] Fixed an issue preventing hosts from being displayed in Geo views.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+- [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
 ### 22.10.6
 
 Release date: `June 5, 2023`
@@ -45,6 +92,7 @@ Release date: `April 24, 2023`
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
 
 #### Bug fixes
+
 - [API] Fixed an issue with create element in view that could break default icon.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
@@ -120,6 +168,24 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.8
+
+Release date: `July 28, 2023`
+
+- No change.
+
+### 22.10.7
+
+Release date: `July 20, 2023`
+
+- No change.
+
+### 22.10.6
+
+Release date: `June 5, 2023`
+
+- No change.
+
 ### 22.10.5
 
 Release date: `April 24, 2023`
@@ -134,7 +200,7 @@ Release date: `January 17, 2023`
 
 ### 22.10.3
 
-Release date:  `December 16, 2022`
+Release date: `December 16, 2022`
 
 - No change.
 
@@ -168,6 +234,14 @@ Release date: `October 26, 2022`
 - Move to Java 17
 
 ## Centreon BAM
+
+### 22.10.4
+
+Release date: `July 20, 2023`
+
+#### Bug fixes
+
+- [UI] Fixed the way column names were displayed in the acknowledgment description pop-up.
 
 ### 22.10.3
 
@@ -208,6 +282,26 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.4
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- Fixed centreonBIETL_legacy script by calling only legacy scripts.
+- Removed old images in forms.
+
+### 22.10.3
+
+Release date: `July 20, 2023`
+
+#### Bug fixes
+
+- [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
+- [Configuration] Removed the image beside "Report specific parameters" that was not displayed properly.
+- [Install] Added missing Gorgone dependencies required by the MBI ETL.
+- [Reporting] Fixed the display of the duration of ongoing alerts in the Hostgroups-Service-Current-Events report.
 
 ### 22.10.2
 
@@ -281,6 +375,22 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.4
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Prediction] Fixed Anomaly Detection script that was not sending data history.
+
+### 22.10.3
+
+Release date: `July 20, 2023`
+
+#### Bug fixes
+
+- [Prediction] Fixed an Anomaly Detection script that was not sending data history.
 
 ### 22.10.2
 

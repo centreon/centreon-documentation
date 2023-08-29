@@ -472,6 +472,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-sailpoint-identitynow-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-salesforce-restapi'
         },
         {
@@ -541,6 +545,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-tomcat-webmanager'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-tosca-restapi'
         },
         {
           type: 'doc',
@@ -2193,6 +2201,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-sensors-netbotz-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-rittal-cmc3-snmp'
         },
         {
           type: 'doc',
