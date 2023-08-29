@@ -219,8 +219,8 @@ yum install centreon-plugin-Network-Chapsvision-Crossing-Snmp
 | CRITICALDATABASELASTUPDATE | Thresholds                                                                                                                                                |                   |             |
 | WARNINGLICENSEEXPIRES      | Thresholds                                                                                                                                                |                   |             |
 | CRITICALLICENSEEXPIRES     | Thresholds                                                                                                                                                |                   |             |
-| WARNINGVERSION             | Define the conditions to match for the version to be WARNING. You can use the following variables: %{version}, %{name}                                    |                   |             |
-| CRITICALVERSION            | Define the conditions to match for the version to be CRITICAL. You can use the following variables: %{version}, %{name}                                   |                   |             |
+| WARNINGVERSION             | Define the conditions the version must match for the returned status to be WARNING. You can use the following variables: %{version}, %{name}                                    |                   |             |
+| CRITICALVERSION            | Define the conditions the version must match for the status to be CRITICAL. You can use the following variables: %{version}, %{name}                                   |                   |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                  | --verbose         |             |
 
 </TabItem>
@@ -412,9 +412,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='version'                                                                        |
 | --antivirus1-date-format | Define the date format for the first antivirus (default: '%Y/%m/%d').                                                                                        |
 | --antivirus2-date-format | Define the date format for the second antivirus (default: '%Y/%m/%d').                                                                                       |
-| --unknown-version        | Define the conditions to match for the version to be UNKNOWN. You can use the following variables: %{version}, %{name}                                       |
-| --warning-version        | Define the conditions to match for the version to be WARNING. You can use the following variables: %{version}, %{name}                                       |
-| --critical-version       | Define the conditions to match for the version to be CRITICAL. You can use the following variables: %{version}, %{name}                                      |
+| --unknown-version        | Define the conditions the version must match for the status to be UNKNOWN. You can use the following variables: %{version}, %{name}                                       |
+| --warning-version        | Define the conditions the version must match for the status to be WARNING. You can use the following variables: %{version}, %{name}                                       |
+| --critical-version       | Define the conditions the version must match for the status to be CRITICAL. You can use the following variables: %{version}, %{name}                                      |
 | --unit                   | Select the unit for the expired license threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
 | --warning-* --critical-* | Thresholds. Can be: 'license-expires', 'database-last-update'.                                                                                               |
 
