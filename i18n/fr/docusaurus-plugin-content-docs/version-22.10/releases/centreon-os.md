@@ -20,18 +20,18 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.12
 
-Release date: `soon`
+Release date: `August 29, 2023`
 
-### Enhancements
+#### Enhancements
 
-- [Install] Updated the database schema for resources table.
+- [Core] Updated the database schema for resources table.
 - [Tools] Added a script to delete duplicate entries in the host_service_relations table.
 
-### Bug fixes
+#### Bug fixes
 
-- [API] Removed author_id parameter from downtime endpoint to use authenticated user as author.
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
 - [Graphs] Fixed the display of graphs layout when there is no data.
-- [Packaging] Added missing php files to debian packaging.
+- [Packaging] Added missing PHP files to Debian packaging.
 - [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.	
 
 ### 22.10.11
