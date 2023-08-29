@@ -30,16 +30,19 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
         with:
           cmd: install --frozen-lockfile
 
       - name: Build documentation
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}/', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: actions/cache/save@v3
         with:
           path: "./build"
@@ -61,6 +64,7 @@ jobs:
         shell: bash
 
       - name: Restore build from cache
+        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: actions/cache/restore@v3
         with:
           path: "./build"
