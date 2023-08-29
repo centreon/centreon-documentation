@@ -68,8 +68,11 @@ environnements.
 >
 > ![image](../assets/api/postman-collection-edit.png)
 >
-> Dans l'onglet **Variables**, changer la valeur de *version* par une valeur
-> parmi "beta", "latest" or "v2".
+> Dans l'onglet **Variables**, changer la valeur de *version* soit par
+> "latest", soit par votre numéro de version "majeure.mineure", par exemple "v23.10".
+>
+> Vous pouvez obtenir votre numéro de version "majeure.mineure" à l'aide de la commmande suivante :
+> `curl -s http://127.0.0.1:80/centreon/api/latest/platform/versions | jq '.web '`
 >
 > ![image](../assets/api/postman-collection-variables.png)
 >
