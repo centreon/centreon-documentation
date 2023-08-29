@@ -33,5 +33,6 @@ jobs:
           --role-session-name InvalidDocCache \
           --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
           --output text))
+
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PRODUCTION }} --paths "/*"
         shell: bash
