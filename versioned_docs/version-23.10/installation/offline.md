@@ -2,6 +2,8 @@
 id: offline
 title: Offline installation
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 To be able to install Centreon on servers with no internet access, create a local copy of the Centreon repository on a server that has an internet access, and then make your offline Centreon servers point to it.
 
