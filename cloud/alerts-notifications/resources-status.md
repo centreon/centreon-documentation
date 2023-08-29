@@ -115,7 +115,7 @@ You can filter the list of resources according to a number of predefined criteri
 
     A pop-in window appears, that lists the following criteria:
 
-    - **Type**: display only hosts, services or metaservices. You can also filter on [Anomaly Detection services](../monitoring/anomaly-detection.md) if the module is installed.
+    - **Type**: display only hosts, services or metaservices.
     - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
     - [**Status**](concepts.md): **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
     - [**Status type**](concepts.md#status-types): SOFT or HARD
