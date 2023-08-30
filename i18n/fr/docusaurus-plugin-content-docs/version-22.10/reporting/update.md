@@ -35,7 +35,7 @@ yum update centreon-bi-server
 
 ```shell
 apt clean all
-apt update centreon-bi-server
+apt-get --only-upgrade install centreon-bi\*
 ```
 
 </TabItem>
@@ -75,7 +75,7 @@ yum update centreon-bi\*
 
 ```shell
 apt clean all
-apt update centreon-bi\*
+apt-get --only-upgrade install centreon-bi\*
 ```
 
 </TabItem>
