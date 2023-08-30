@@ -333,7 +333,7 @@ Release date: `October 26, 2022`
 
 ## Centreon Auto Discovery
 
-### 22.10.1
+### 22.10.2
 
 Release date: `April 24, 2023`
 
