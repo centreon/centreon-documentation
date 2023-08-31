@@ -260,7 +260,7 @@ The BA is managed through the
 You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
-> Deleting a business activity is permanent; only passed data will be
+> Deleting a business activity is permanent; only past data will be
 > available through reports/widgets
 
 ## Indicators (KPI)
