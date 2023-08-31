@@ -453,3 +453,11 @@ Release date: `October 26, 2022`
 - Added new type of resources in Resource Status (display and filter)
 - Added prediction envelope size management by user from Resources Status
 - Downtimes on regular services are now propagated to related Anomaly Detection service(s)
+
+## Centreon Data Source For Grafana
+
+### 22.10.5
+
+Release date: `August 31, 2023`
+
+- Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
