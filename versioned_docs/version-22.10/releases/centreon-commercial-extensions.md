@@ -24,10 +24,10 @@ Release date: `August 31, 2023`
 
 #### Bug fixes
 
-- [Editor] Fixed an issue that prevented the user from using the extended output in the widget "output".
+- [Editor] Fixed an issue that made it impossible to use the extended output in the "output" widget.
 - [Server] Fixed an issue that prevented the MAP Engine server from starting.
 - [Server] Updated dependencies.
-- [Viewer] Fixed the alignment of output text in the widget "output".
+- [Viewer] Fixed the alignment of output text in the "output" widget .
 
 ### 22.10.9
 
