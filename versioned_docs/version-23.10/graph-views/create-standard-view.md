@@ -221,7 +221,7 @@ associated with the status of the service.
 
 ### Pie charts
 
-A pie chart displays the status of a host, host group or service
+A pie chart displays the status of a host, host groups or service
 groups.
 
 For a host, the number of OK, Warning, Critical and NA states will be
@@ -248,7 +248,7 @@ you can edit it by double-clicking the output and modifying the
 
 You can customize the output by adding service and metric properties. To
 do so, edit the output (by double-clicking) and then click the **Next**
-Button twice.
+button twice.
 
 You will see this page:
 

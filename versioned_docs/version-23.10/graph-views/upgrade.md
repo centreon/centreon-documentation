@@ -123,7 +123,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
     systemctl start centreon-map
     ```
 
-4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically:; the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically; the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
   * The old configuration file is renamed **centreon-map.conf.rpmsave**
   * The upgrade installs a new **centreon-map.conf** file.

@@ -183,7 +183,7 @@ Connect through SSH to your Centreon MAP server. Open the
 studio-config.properties file:
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 ```
 
 For the 'centreon.url' variable, check that there is a full path to your
@@ -293,7 +293,7 @@ Centreon Web from your computer:
 If you open a geographic view or container and your background is composed of
 gray with Xs and the following pop-up message...
 
-“Error while retrieving Mapbox tiles. Please check your Mapbox configuration."
+Â“Error while retrieving Mapbox tiles. Please check your Mapbox configuration."
 
 ![image](../assets/graph-views/mapbox-configuration-error.png)
 
@@ -326,7 +326,7 @@ server in SSH and execute the following commands:
 # systemctl stop centreon-map
 # mysqldump -uusername -p -h \<HOST\> centreon\_studio \> dump.sql
 # cp dump.sql dump-fixed.sql
-# vim dump-fixed.sql
+# vi dump-fixed.sql
 :%s/DEFAULT CHARACTER SET latin1/DEFAULT CHARACTER SET utf8 COLLATE
 utf8\_general\_ci/
 :%s/DEFAULT CHARSET=latin1/DEFAULT CHARSET=utf8/

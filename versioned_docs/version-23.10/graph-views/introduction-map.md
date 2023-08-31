@@ -15,7 +15,7 @@ The difference with the MAP (Legacy) version is that MAP provides you with an ed
 
 Create, customize, and view your maps within a single web interface.
 
-First, you need to create logical views using the MAP:
+First, you need to create logical views using the MAP editor:
 
 ![image](../assets/graph-views/ng/map-web-editor-view.png)
 

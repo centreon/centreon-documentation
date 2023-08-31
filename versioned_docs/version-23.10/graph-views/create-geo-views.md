@@ -23,8 +23,8 @@ The following resources can be displayed on a GeoView:
 - Business Activity belonging to Business View(s)
 - One or multiple Hostgroup(s)
 
-Prerequisites: Define lat/long coordinate in the resources configuration form
-for host, hostgroups or business activity.
+Prerequisites: Define lat/long coordinates in the resources configuration form
+for hosts, hostgroups or business activities.
 
 Example with a host:
 
@@ -70,7 +70,7 @@ If a resource is in a "not-ok" state, it blinks.
 
 *This behavior can be disabled in the global Centreon Map parameters*
 
-## Datalayers on Geoview
+## Datalayers on Geoviews
 
 Centreon MAP gives you the possibility to display additional "data layers" on
 maps to add context to your real-time IT infrastructure status.

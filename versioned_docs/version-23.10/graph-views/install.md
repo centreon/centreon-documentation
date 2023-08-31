@@ -59,7 +59,7 @@ The central server and Centreon MAP must be installed in the same major versions
 #### License
 
 The server requires the license to be available and valid on Centreon's central
-server. To do this, you must contact Support [Centreon support
+server. To do this, you must contact the [Centreon support
 team](https://support.centreon.com/) to get and install your license key.
 
 #### Hardware
@@ -112,7 +112,7 @@ See the [software requirements](../installation/prerequisites.md#software).
 #### License
 
 The web interface requires the license to be available and valid on Centreon's
-central server. To do this, you must contact Support [Centreon support
+central server. To do this, you must contact the [Centreon support
 team](https://support.centreon.com/) to get and install your license key.
 
 #### Compatibility
@@ -140,7 +140,7 @@ Your screen resolution must be at least 1280 x 768.
 > modifying Centreon-Map4.ini to add the following line `-vm
 > $path_to_java8$` BEFORE `-vmwargs`.
 
-To optimize the desktop client, you must “give" it more memory than the
+To optimize the desktop client, you must â€œgive" it more memory than the
 default value. Modify the following file:
 
 <Tabs groupId="sync">
@@ -419,7 +419,7 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in the file `/etc/centreon-studio/vars.sh`
 
-If it’ is your first installation, we advise you to use the standard mode
+If it is your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
@@ -563,9 +563,9 @@ You can see to which IP the client is connected.
 ### Centreon MAP Widget
 
 By installing the Web interface, you automatically add the Centreon MAP
-Widget, but you need to perform one last task. Go to the
+Widget, but you need to perform one last task. Go to
 `Administration > Extensions` and click the "Install" button on the
-widget. The result after installation:
+widget. Here is the result after installation:
 
 ![image](../assets/graph-views/install-web-step-widget.png)
 

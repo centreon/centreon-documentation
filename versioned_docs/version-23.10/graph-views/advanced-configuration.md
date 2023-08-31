@@ -156,7 +156,7 @@ The restoration process is divided into several steps:
 ### Extracting backup
 
 Obtain the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
-Into the **/tmp** directory:
+into the **/tmp** directory:
 
 ```shell
 cd /tmp
@@ -206,7 +206,7 @@ Edit the studio-config.properties settings file located in
 /etc/centreon-studio:
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 ```
 
 Add the following line at the MAP SERVER section
@@ -223,7 +223,7 @@ Then restart the Centreon MAP server:
 systemctl start centreon-map
 ```
 
-Wait for Centreon MAP service to start completely (~30 sec to 1 minute).
+Wait for the Centreon MAP service to start completely (~30 sec to 1 minute).
 
 Test that your server is up and accessible on the new port you defined by
 entering the following URL in your web browser:

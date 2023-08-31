@@ -46,8 +46,8 @@ Two simple rules apply on this kind of view:
 
 - Any user accessing the **Monitoring > Map** page will be able to see all the
   geographic views created
-- Users that have "Creation" privilege (through the ACL group on Centreon Map
-  desktop client) have all privileges on geographic views
+- Users that have the "Creation" privilege (through the ACL group on the Centreon Map
+  desktop client) have all privileges on geographic views.
 
 ## Load disabled resources (or not)
 
@@ -133,7 +133,7 @@ MAP server configuration file (modify or add missing parameters), then
 restart centreon-map:
 
 ```shell
-vim /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-studio/studio-config.properties
 systemctl restart centreon-map
 ```
 
@@ -158,7 +158,7 @@ However, if you make any changes (add/delete/update) to Centreon's
 resources and want these changes to be immediately synchronized on your
 Centreon MAP without pushing the configuration, you can force a resource
 synchronization from Centreon MAP's desktop client through the following
-menu:**Action > Synchronize resources**.
+menu: **Action > Synchronize resources**.
 
 This operation may take a few seconds. A pop-up will tell you when the
 synchronization is complete.
@@ -187,7 +187,7 @@ Preferences. Go to **Status > Status size** to configure it globally.
 
 You can choose the tile service provider or even add your own provider
 in **Administration > Extension > Map | Options**. By default, Centreon Map
-geoviews comes with Open Street Map and Mapbox.
+geoviews come with Open Street Map and Mapbox.
 
 Please refer to [this
 link](https://operations.osmfoundation.org/policies/tiles/) to understand the Open
