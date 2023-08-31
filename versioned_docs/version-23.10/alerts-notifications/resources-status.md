@@ -6,7 +6,7 @@ title: Resources Status page
 The **Monitoring > Resources Status** page is your main view to track
 resource events & statuses, analyze them, and quickly handle them.
 
-This view mixes hosts and services to provide a unified interface and a way to manage
+This view mixes hosts and services to provide a unified interface and a unified way to manage
 events.
 
 ## Events list
