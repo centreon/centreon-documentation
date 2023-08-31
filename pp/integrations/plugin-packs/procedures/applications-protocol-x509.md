@@ -45,7 +45,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The remote server must have an X509's certificate.
+The monitored resource must support HTTPS and present a X509 certificate.
 
 ## Installing the monitoring connector
 
