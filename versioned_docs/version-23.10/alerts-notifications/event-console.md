@@ -124,7 +124,7 @@ the resource.
 -   **Service Status**: List of host services and their associated
     status
 -   **Performances**: List of performance graphs for each service
--   **Host Informations**: Host details
+-   **Host Information**: Host details
 -   **Comments**: Host comments available
 
 ![image](../assets/alerts/04hostdetail.png)
