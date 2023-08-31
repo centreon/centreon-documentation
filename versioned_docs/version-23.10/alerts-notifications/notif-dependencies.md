@@ -49,12 +49,12 @@ It is possible to define two settings:
 ## Logical dependencies
 
 Logical dependencies consist of installing logical links between
-multiple objects that may or not be of different types. e.g.: a service
-is in charge of supervising the access to a web page requiring an
-authentication based on a LDAP. It is logical that if the LDAP server is
+multiple objects that may or not be of different types. Example: a service
+is in charge of monitoring the access to a web page requiring an
+authentication based on LDAP. It is logical that if the LDAP server is
 down, the access to the web page will be difficult or even impossible.
-In this situation, the notification issued should only be sent
-to the LDAP directory, and not to the website.
+In this situation, the only notification issued should concern
+the LDAP directory, and not the website.
 
 ### Hosts
 
@@ -271,7 +271,7 @@ To create this dependency, go into the
     Critical, Unknown and Pending
 3.  In the **Host Names** list, select host A
 4.  In the **Dependent Host Names** list, select host C
-5.  Save
+5.  Save.
 
 Repeat this operation for host B.
 

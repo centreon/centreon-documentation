@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Principle
 
-Downtime is a period during which the notifications to a
+Downtime is a period during which the notifications for a
 resource are disabled. Downtimes are used during a programmed
 maintenance operation. They save us from receiving false positive alerts.
 
@@ -144,7 +144,7 @@ receiving false positives.
 Recurrent Downtime periods are Downtime periods that recur
 repetitively.
 
-e.g.: A back-up of the virtual machines is performed every day from
+Example: A back-up of the virtual machines is performed every day from
 8 PM to midnight. This type of back-up has a tendency to saturate the
 CPU use of all the virtual machines. It is necessary to program
 recurrent Downtime periods on the services concerned to avoid receiving
@@ -156,7 +156,7 @@ notifications from 8 PM to midnight.
 
 ### Practice
 
-There are two types of Downtime:
+There are two types of downtime:
 
 -   The **fixed** downtime period: This means that the downtime period
     takes place during exactly the time period defined.

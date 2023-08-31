@@ -73,7 +73,7 @@ Example:
 
 A service has the following check settings:
 
--   Max check attempts: 3.
+-   Max check attempts: 3
 -   Normal check interval: 5 minutes
 -   Retry check interval: 1 minute
 
@@ -92,5 +92,5 @@ Let us imagine the following scenario:
 | t+22 | 1/3           | OK       | HARD  | Yes          | Service experiences a HARD recovery. Event handlers execute and a recovery notification is sent out.                                                                                                          |
 | t+27 | 1/3           | OK       | HARD  | No           | Service is still OK.                                                                                                                                                                                          |
 | t+32 | 1/3           | UNKNOWN  | SOFT  | Yes          | Service is detected as changing to a SOFT non-OK state. Event handlers execute.                                                                                                                               |
-| t+33 | 2/3           | OK       | SOFT  | Yes          | Service experiences a SOFT recovery. Event handlers execute, but a notification is not sent, as this wasn't a "real" problem. State type is set to HARD and check # is reset to 1 immediately after this happens. |
+| t+33 | 2/3           | OK       | SOFT  | Yes          | Service experiences a SOFT recovery. Event handlers are executed, but no notification is sent, as this wasn't a "real" problem. State type is set to HARD and check # is reset to 1 immediately after this happens. |
 | t+34 | 1/3           | OK       | HARD  | No           | Service stabilizes in an OK state.                                                                                                                                                                            |
