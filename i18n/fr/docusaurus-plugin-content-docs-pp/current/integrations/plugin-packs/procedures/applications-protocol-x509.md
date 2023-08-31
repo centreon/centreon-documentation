@@ -5,6 +5,8 @@ title: X509 Certificate
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Le connecteur **X509 Certificate** permet de contrôler le temps restant avant l'expiration de certificats X509.
+
 ## Contenu du pack
 
 ### Modèles
