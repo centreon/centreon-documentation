@@ -131,7 +131,7 @@ There are three different possibilities to define downtime:
 
 1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
-2.  Select the(s) object(s) on which you want to program the downtime
+2.  Select the(s) object(s) on which you want to program downtime
     period
 3.  In the **More actions…** menu, click **Hosts: Set Downtime** or
     **Services: Set Downtime**
@@ -149,16 +149,16 @@ The following window appears:
 
 ![image](../assets/alerts/downtime.png)
 
--   The **Host Name** field defines the host concerned by the downtime
--   The **Service** field defines the service concerned by the downtime
--   If the **Fixed** box is checked, the downtime is fixed. Otherwise, it
+-   The **Host Name** field defines the host concerned by downtime
+-   The **Service** field defines the service concerned by downtime
+-   If the **Fixed** box is checked, the downtime period is fixed. Otherwise, it
     is flexible
--   If the downtime is flexible, the **Duration** field defines the
+-   If the downtime period is flexible, the **Duration** field defines the
     length of the downtime
 -   The **Start Time** and **End Time** fields define the beginning and
-    end date of the downtime. Downtime cannot start or end after December 31, 2099, 11:59 pm.
--   The **Comments** field can be used to indicate why the downtime is
-    defined
+    end date of the downtime period. Downtime cannot start or end after December 31, 2099, 11:59 pm.
+-   The **Comments** field can be used to indicate why downtime is
+    defined.
 
 ## Recurrent downtimes
 
@@ -169,13 +169,13 @@ host or a service are disabled. Downtime periods are convenient during
 maintenance operations on a host or a service: they allow us to avoid
 receiving false positives.
 
-Recurrent Downtime periods are Downtime periods that recur
+Recurrent downtime periods are downtime periods that recur
 repetitively.
 
-e.g.: A back-up of the virtual machines is performed every day from
-8 PM to midnight. This type of back-up has a tendency to saturate the
+Example.: A backup of the virtual machines is performed every day from
+8 PM to midnight. This type of backup has a tendency to saturate the
 CPU use of all the virtual machines. It is necessary to program
-recurrent Downtime periods on the services concerned to avoid receiving
+recurrent downtime periods on the services concerned to avoid receiving
 notifications from 8 PM to midnight.
 
 > Downtime periods are taken into account in the calculation of the
@@ -184,7 +184,7 @@ notifications from 8 PM to midnight.
 
 ### Practice
 
-There are two types of Downtime:
+There are two types of downtime:
 
 -   The **fixed** downtime period: This means that the downtime period
     takes place during exactly the time period defined.
@@ -318,7 +318,7 @@ To:
 3.  In the  **More actions** menu, click:
 
 -   **Hosts : Disable Check** or **Services: Disable Check** to stop the
-    * In the definition of a host or a service
+    checks on a host or a service
 -   **Hosts: Enable Check** or **Services: Enable Check** to enable the
     check of a host or of a service
 
@@ -342,12 +342,12 @@ The following window appears:
 ![image](../assets/alerts/submitresult.png)
 
 -   The **Host Name** and **Service** fields define the host and the
-    Service for which the result will be submitted
+    service for which the result will be submitted
 -   The **Check result** field defines the status of the service
 -   The **Check output** field defines the message to be displayed for
     the service
 -   The **Performance data** field can be used to define performance
-    data to generate graphs
+    data to generate graphs.
 
 ## Management of notifications
 
@@ -380,13 +380,13 @@ To:
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
-    menu
+    menu.
 2.  Select the host(s) / service(s) whose notification you want 
-    to enable or disable
-3.  In the menu: **More actions** menu, click:
+    to enable or disable.
+3.  In the **More actions** menu, click:
 
 -   **Hosts: Disable Notification** or **Services: Disable
-    Notification** to stop the notification of a host or of a service
+    Notification** to stop notifications for a host or a service
 -   **Hosts: Enable Notification** or **Services: Enable Notification**
     to enable the notification of a host or a service
 
@@ -429,8 +429,8 @@ There are two ways of forcing the check of a service:
 1.  Go into the following menu: **Monitoring > Status Details > Hosts** (or
     **Services**)
 2.  Select the objects for which you want to force the check
-3.  In the menu: **More actions…** click **Schedule immediate check**
-    or **Schedule immediate check (Forced)**
+3.  In the **More actions** menu, click **Schedule immediate check**
+    or **Schedule immediate check (Forced)**.
 
 </TabItem>
 </Tabs>

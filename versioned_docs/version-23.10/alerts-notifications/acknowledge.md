@@ -94,7 +94,7 @@ To acknowledge an alert, there are several solutions:
     acknowledgment disappears and the notification process is
     reactivated.
 -   The **Comment** field is generally used to provide the reason for the
-    acknowledgment. It is mandatory
+    acknowledgment. It is mandatory.
 -   If the **Acknowledge services attached to hosts** box is checked,
     all the services linked to the host will be acknowledged (option
     visible only if we acknowledge a host).
@@ -124,7 +124,7 @@ The following window appears:
     acknowledgment disappears and the notification process is
     reactivated.
 -   The **Comment** field is generally used to provide the reason for the
-    acknowledgment. It is mandatory
+    acknowledgment. It is mandatory.
 -   If the **Acknowledge services attached to hosts** box is checked,
     all the services linked to the host will be acknowledged (option
     visible only if we acknowledge a host).
@@ -151,7 +151,7 @@ To delete the acknowledgment of an incident on an object:
 1.  Go to **Monitoring > Status Details > Hosts** (or **Services**).
 2.  Select the objects you want to disacknowledge.
 3.  In the **More actions** menu, click **Hosts: Disacknowledge** or
-    **Services: Disacknowledge**
+    **Services: Disacknowledge**.
 
 </TabItem>
 </Tabs>

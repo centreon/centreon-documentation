@@ -86,7 +86,7 @@ To:
 3.  In the **More actions** menu, click:
 
 -   **Hosts: Disable Check** or **Services: Disable Check** to stop the
-    * In the definition of a host or a service
+    checks for a host or a service
 -   **Hosts: Enable Check** or **Services: Enable Check** to enable the
     check of a host or of a service
 

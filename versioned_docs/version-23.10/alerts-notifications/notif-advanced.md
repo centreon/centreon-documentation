@@ -13,17 +13,14 @@ Go to the [configuration commands
 chapter](../monitoring/basic-objects/commands.md#definition) to edit / add new notification
 commands.
 
-> You can also use the [Centreon
-> plugins](https://github.com/centreon/centreon-plugins/tree/master/notification)
-> to send preformatted HTML emails, etc. You must install the plugin on all
-> pollers, add a command to use this plugin, and change the command of your
-> contacts.
+> Some plugins [available here](https://github.com/centreon/centreon-plugins/tree/master/src/notification) allow you to send preformated HTML or emails.
+> You have to install the plugin on your pollers, create a new notification command based on this plugin and bind this command to the contacts you want to be notified by this plugin.
 
 ## Chatops
 
 A [Centreon-Chatops](https://github.com/centreon/centreon-chatops) community
-project has been develop to allow communication in a Team chat like
-Mattermost or Slack and Centreon through slash command
+project has been developed to allow communication in a Team chat like
+Mattermost or Slack and Centreon through slash commands
 
 ## Stream connector
 

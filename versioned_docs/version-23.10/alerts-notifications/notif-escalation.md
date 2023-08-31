@@ -16,9 +16,9 @@ escalation to a host, a host group, a service, a service group or a
 meta-service overwrites the normal configuration of notifications for
 this object.
 
-e.g.: a service A is set to send notifications to a group of contacts
+Example: a service A is set to send notifications to a group of contacts
 “A” in case of Not-OK status. These notifications are sent every 5
-minutes. If, during a certain number of notifications sent, the status of
+minutes. If, after a certain number of notifications is sent, the status of
 the service is still Not-OK, it is possible to contact the individuals
 of the group of contacts “B” etc…
 

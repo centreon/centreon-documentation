@@ -52,7 +52,7 @@ menu
         host are disabled: ![image](../assets/alerts/nonotifications.png)
     -   The following icon can be used to view all the performance
         graphs for this host: ![image](../assets/alerts/graphperformances.png)
-    -   The following icon allows access to a predefined url
+    -   The following icon allows access to a predefined URL
         configured: ![image](../assets/alerts/url_link.png)
 -   **Status**: Used to view the status of the host
 -   **IP Address**: Indicates the IP address of the host
@@ -161,12 +161,12 @@ Description of attributes available for host details:
 
 ### Options
 
-Option to enable / disable properties of the host:
+Options to enable / disable properties of the host:
 
 -   **Active Checks**: The active check method of the host.
 -   **Passive Checks**: The passive check method of the host.
 -   **Notifications**: The notification process of the host.
--   **Obsess Over Host**: The execution of the ‘obsess over host’ command by the
+-   **Obsess Over Host**: The execution of the ‘obsess over host’ command for the
     host.
 -   **Event Handler**: The automated reactions process of the host.
 -   **Flap Detection**: The flapping detection process of the host.
@@ -200,7 +200,7 @@ Services` menu.
         service are disabled: ![image](../assets/alerts/nonotifications.png)
     -   The following icon can be used to view the performance graph for
         this service: ![image](../assets/alerts/graphperformances.png)
-    -   The following icon allows access to a predefined url
+    -   The following icon allows access to a predefined URL
         configured: ![image](../assets/alerts/url_link.png)
 -   **Duration**: Displays the duration of the current status.
 -   **Hard State Duration**: Displays the duration of the validated
@@ -266,8 +266,8 @@ To view the number of services (short by host's groups), choose **Summary** for 
 
 ## Services by Servicegroup
 
-To view all services (sorted by service groups), go into the `Monitoring >
-Status Details > Services by Servicegroup` menu and choose **Details** for the
+To view all services (sorted by service groups), go into the **Monitoring >
+Status Details > Services by Servicegroup** menu and choose **Details** for the
 **Display** filter:
 
 ![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
@@ -365,7 +365,7 @@ and the status history chart for this service.
 
 ### Options
 
-Option to enable / disable properties of the service:
+Options to enable / disable properties of the service:
 
 -   **Active Checks**: The active check method of the service.
 -   **Passive Checks**: The passive check method of the service.

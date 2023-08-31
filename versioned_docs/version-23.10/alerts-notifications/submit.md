@@ -41,7 +41,7 @@ The following window appears:
 ![image](../assets/alerts/submitresult.png)
 
 -   The **Host Name** and **Service** fields define the host and the
-    Service for which the result will be submitted
+    service for which the result will be submitted
 -   The **Check result** field defines the status of the service
 -   The **Check output** field defines the message to be displayed for
     the service
