@@ -137,12 +137,12 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Service-Generic" label="Service-Generic">
 
-*No metrics for this service.*
+Coming soon
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-*No metrics for this service.*
+Coming soon
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">

@@ -5,74 +5,75 @@ title: Windows WSMAN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Windows WSMAN** brings a host template:
+Le connecteur de supervision **Windows WSMAN** apporte un modèle d'hôte :
 
 * **OS-Windows-WSMAN-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-WSMAN-custom" label="OS-Windows-WSMAN-custom">
 
-| Service Alias | Service Template                      | Service Description                                                                                                                                  |
-|:--------------|:--------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Windows-Cpu-WSMAN-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU.  |
-| Memory        | OS-Windows-Memory-WSMAN-custom        | Check the rate of the utilization of memory                                                                                                          |
-| Services-Auto | OS-Windows-Services-Auto-WSMAN-custom | Check if Windows services are started                                                                                                                |
-| Swap          | OS-Windows-Swap-WSMAN-custom          | Check the rate of the utilization of virtual memory                                                                                                  |
+| Alias         | Modèle de service                     | Description                                                                                                                                                                  |
+|:--------------|:--------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cpu           | OS-Windows-Cpu-WSMAN-custom           | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Memory        | OS-Windows-Memory-WSMAN-custom        | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
+| Services-Auto | OS-Windows-Services-Auto-WSMAN-custom | Contrôle permettant de vérifier si les services Windows sont démarrés                                                                                                        |
+| Swap          | OS-Windows-Swap-WSMAN-custom          | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
 
-> The services listed above are created automatically when the **OS-Windows-WSMAN-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-WSMAN-custom** est utilisé.
 
 </TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Service Alias      | Service Template                           | Service Description                                                                                     | Discovery  |
-|:-------------------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Check the rate of free space on the disk. For each checks the name of the disk will appear              | X          |
-| Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN-custom | Check time                                                                                              |            |
-| Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN-custom | Check size of files                                                                                     |            |
-| Ntp                | OS-Windows-Ntp-WSMAN-custom                | Check the synchronization with an NTP server                                                            |            |
-| Pending-Reboot     | OS-Windows-Pending-Reboot-WSMAN-custom     | Check windows pending reboot                                                                            |            |
-| Process-Global     | OS-Windows-Process-Global-WSMAN-custom     | Check if Windows process are started                                                                    | X          |
-| Service-Generic    | OS-Windows-Service-Generic-WSMAN-custom    | Check if Windows services are started                                                                   | X          |
-| Sessions           | OS-Windows-Sessions-WSMAN-custom           | Check Windows user sessions                                                                             |            |
-| Traffic-Global     | OS-Windows-Traffic-Global-WSMAN-custom     | Check the bandwidth of the interface. For each checks the name of the interface will appear             | X          |
-| Updates            | OS-Windows-Updates-WSMAN-custom            | Check windows pending updates                                                                           |            |
-| Uptime             | OS-Windows-Uptime-WSMAN-custom             | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold |            |
+| Alias              | Modèle de service                          | Description                                                                                                                                                 | Découverte |
+|:-------------------|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                      | X          |
+| Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN-custom | Contrôle le temps                                                                                                                                           |            |
+| Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN-custom | Contrôle la taille des fichiers                                                                                                                             |            |
+| Ntp                | OS-Windows-Ntp-WSMAN-custom                | Contrôle la synchronisation avec un serveur NTP                                                                                                             |            |
+| Pending-Reboot     | OS-Windows-Pending-Reboot-WSMAN-custom     | Contrôle si Windows nécessite un redémarrage                                                                                                                |            |
+| Process-Global     | OS-Windows-Process-Global-WSMAN-custom     | Contrôle permettant de vérifier que les processus Windows sont démarrés                                                                                     | X          |
+| Service-Generic    | OS-Windows-Service-Generic-WSMAN-custom    | Contrôle permettant de vérifier si les services Windows sont démarrés                                                                                       | X          |
+| Sessions           | OS-Windows-Sessions-WSMAN-custom           | Contrôle les sessions utilisateurs Windows                                                                                                                  |            |
+| Traffic-Global     | OS-Windows-Traffic-Global-WSMAN-custom     | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                         | X          |
+| Updates            | OS-Windows-Updates-WSMAN-custom            | Contrôle si Windows a des mises à jour en attente                                                                                                           |            |
+| Uptime             | OS-Windows-Uptime-WSMAN-custom             | Contrôle permettant de vérifier la disponibilité du serveur Windows depuis le dernier redémarrage. Il s'agit d'une indication, il n'y a pas de seuil défini |            |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
-> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
 
-### Discovery rules
+### Règles de découverte
 
-#### Service discovery
+#### Découverte de service
 
-| Rule name                       | Description                                                   |
+| Nom de la règle                 | Description                                                   |
 |:--------------------------------|:--------------------------------------------------------------|
 | OS-Windows-WSMAN-Disk-Name      | Discover the disk partitions and monitor space occupation     |
 | OS-Windows-WSMAN-Processes-Name | Discover processes and monitor their system usage             |
 | OS-Windows-WSMAN-Services-Name  | Discover services and monitor their system usage              |
 | OS-Windows-WSMAN-Traffic-Name   | Discover network interfaces and monitor bandwidth utilization |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                              | Unit  |
+| Métrique                                 | Unité |
 |:-----------------------------------------|:------|
 | cpu.utilization.percentage               | %     |
 | cpu_core#core.cpu.utilization.percentage | %     |
@@ -80,7 +81,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Metric name                             | Unit  |
+| Métrique                                | Unité |
 |:----------------------------------------|:------|
 | storages.detected.count                 | count |
 | storages#storage.space.usage.bytes      | B     |
@@ -90,14 +91,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Files-Date-Generic" label="Files-Date-Generic">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | file.mtime.last.seconds | s     |
 
 </TabItem>
 <TabItem value="Files-Size-Generic" label="Files-Size-Generic">
 
-| Metric name      | Unit  |
+| Métrique         | Unité |
 |:-----------------|:------|
 | file.size.bytes  | B     |
 | files.size.bytes | B     |
@@ -105,7 +106,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -114,40 +115,40 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric name         | Unit  |
+| Métrique            | Unité |
 |:--------------------|:------|
 | time.offset.seconds | s     |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Metric name | Unit  |
+| Métrique    | Unité |
 |:------------|:------|
 | status      | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Process-Global" label="Process-Global">
 
-| Metric name              | Unit  |
+| Métrique                 | Unité |
 |:-------------------------|:------|
 | processes.detected.count | count |
 
 </TabItem>
 <TabItem value="Service-Generic" label="Service-Generic">
 
-*No metrics for this service.*
+Coming soon
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-*No metrics for this service.*
+Coming soon
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric Name                         | Unit  |
+| Métrique                            | Unité |
 |:------------------------------------|:------|
 | sessions.active.current.count       | count |
 | sessions.created.total.count        | count |
@@ -158,7 +159,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name                       | Unit  |
+| Métrique                          | Unité |
 |:----------------------------------|:------|
 | files#page.space.usage.bytes      | B     |
 | files#page.space.free.bytes       | B     |
@@ -167,7 +168,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Metric name                                         | Unit  |
+| Métrique                                            | Unité |
 |:----------------------------------------------------|:------|
 | interfaces#interface.traffic.in.bitspersecond       | b/s   |
 | interfaces#interface.traffic.out.bitspersecond      | b/s   |
@@ -179,35 +180,35 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric name                   | Unit  |
+| Métrique                      | Unité |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric name           | Unit  |
+| Métrique              | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-To monitor Windows Servers through WSMAN, please follow our [official documentation](../getting-started/how-to-guides/windows-winrm-wsman-tutorial.md) and make sure that WinRM and all rights are properly configured.
+Pour superviser les serveurs Windows via WSMAN, merci de suivre notre [documentation officielle](../getting-started/how-to-guides/windows-winrm-wsman-tutorial.md) et de vous assurer que WinRM et vos droits sont correctement configurés.
 
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -240,21 +241,19 @@ yum install centreon-pack-operatingsystems-windows-wsman
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Windows WSMAN** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows WSMAN**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
-When this feature is enabled, you can skip the installation part below.
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-You still have to manually install the plugin on the poller(s) when:
-- Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
-
-Use the commands below according to your operating system's package manager:
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -287,66 +286,66 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 </TabItem>
 </Tabs>
 
-## Using the monitoring connector
+## Utiliser le connecteur de supervision
 
-### Using a host template provided by the connector
+### Utiliser un modèle d'hôte issu du connecteur
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **OS-Windows-WSMAN-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **OS-Windows-WSMAN-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro             | Description                                                                                           | Default value     | Mandatory   |
+| Macro             | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WSMANUSERNAME     | Define the username for authentication                                                                |                   |             |
 | WSMANPASSWORD     | Define the password associated with the user name                                                     |                   |             |
 | WSMANPROTO        | Define the transport scheme (default: 'http')                                                         | http              |             |
 | WSMANPORT         | Define the port to connect to (default: 5985)                                                         | 5985              |             |
-| WSMANEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| WSMANEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Using a service template provided by the connector
+### Utiliser un modèle de service issu du connecteur
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro           | Description                                                                                         | Default value     | Mandatory   |
+| Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAVERAGE  | Warning threshold average CPU utilization                                                           | 80                |             |
 | CRITICALAVERAGE | Critical threshold average CPU utilization                                                          | 90                |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                |                   |             |
 | CRITICALCORE    | Critical thresholds for each CPU core                                                               |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Macro         | Description                                                                                         | Default value     | Mandatory   |
+| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | STORAGE       | Filter storages by name (can be a regexp)                                                           |                   |             |
 | WARNINGUSAGE  | Thresholds                                                                                          | 80                |             |
 | CRITICALUSAGE | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Files-Date-Generic" label="Files-Date-Generic">
 
-| Macro          | Description                                                                                         | Default value     | Mandatory   |
+| Macro          | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FOLDER         | Folder to check. (No WQL wildcard allowed) Ex: 'C:/Users/Administrator/'                            |                   | X           |
 | FILTERFILENAME | Filter files by name                                                                                |                   |             |
 | WARNING        | Warning threshold in seconds for each files (diff time)                                             |                   |             |
 | CRITICAL       | Critical threshold in seconds for each files (diff time)                                            |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Files-Size-Generic" label="Files-Size-Generic">
 
-| Macro          | Description                                                                                         | Default value     | Mandatory   |
+| Macro          | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FOLDER         | Folder to check. (No WQL wildcard allowed) Ex: 'C:/Users/Administrator/'                            |                   | X           |
 | FILTERFILENAME | Filter files by name                                                                                |                   |             |
@@ -354,68 +353,68 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | CRITICALONE    | Critical threshold in bytes for each files/directories                                              |                   |             |
 | WARNINGTOTAL   | Warning threshold in bytes for all files/directories                                                |                   |             |
 | CRITICALTOTAL  | Critical threshold in bytes for all files/directories                                               |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                         | Default value     | Mandatory   |
+| Macro             | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUSAGEPRCT  | Thresholds                                                                                          | 80                |             |
 | CRITICALUSAGEPRCT | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro        | Description                                                                                                     | Default value     | Mandatory   |
+| Macro        | Description                                                                                                     | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
 | NTPPORT      | Set the ntp port (Default: 123)                                                                                 |                   |             |
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
 | WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
 | CRITICAL     | Time offset critical Threshold (in seconds)                                                                     | -2:2              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)             |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Macro          | Description                                                                                                                                                                                                                                              | Default value               | Mandatory   |
+| Macro          | Description                                                                                                                                                                                                                                              | Valeur par défaut           | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{RebootPending} =~ /true/i'). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename} | %{RebootPending} =~ /true/i |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename}                           |                             |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                      |                             |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                      |                             |             |
 
 </TabItem>
 <TabItem value="Process-Global" label="Process-Global">
 
-| Macro         | Description                                                                                         | Default value     | Mandatory   |
+| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PROCESSNAME   | Filter process name                                                                                 |                   |             |
 | CRITICALCOUNT | Critical threshold of matching processes detected                                                   | 1:                |             |
 | WARNINGCOUNT  | Warning threshold of matching processes detected                                                    |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Service-Generic" label="Service-Generic">
 
-| Macro        | Description                                                                                                                                                                                         | Default value        | Mandatory   |
+| Macro        | Description                                                                                                                                                                                         | Valeur par défaut    | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
 | SERVICENAME  | Services to monitor. Syntax: \[service\_name\[\[=\|!=\]state\]\],... Available states are: - Stopped - Start Pending - Stop Pending - Running - Continue Pending - Pause Pending - Paused - Unknown | SERVICE!=Running     | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                 | --critical --verbose |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                 | --critical --verbose |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXCLUDE      | Exclude some services for --auto option (Can be a regexp)                                           |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Macro                        | Description                                                                                                                                      | Default value     | Mandatory   |
+| Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LANGUAGE                     | Set the language used in config file (default: 'en')                                                                                             | en                |             |
 | FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                            |                   |             |
@@ -428,60 +427,62 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                       |                   |             |
 | WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                       |                   |             |
 | CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                       |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                              |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                              |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CRITICALPRCT | Thresholds                                                                                          | 20                |             |
 | WARNINGPRCT  | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER       | Filter interface name (regexp can be used)                                                          | .*                |             |
 | WARNINGIN    | Thresholds                                                                                          | 80                |             |
 | CRITICALIN   | Thresholds                                                                                          | 90                |             |
 | WARNINGOUT   | Thresholds                                                                                          | 80                |             |
 | CRITICALOUT  | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Macro                  | Description                                                                                         | Default value               | Mandatory   |
+| Macro                  | Description                                                                                         | Valeur par défaut           | Obligatoire |
 |:-----------------------|:----------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                   |                             |             |
 | EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                               |                             |             |
 | FILTERMANDATORY        |                                                                                                     |                             |             |
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                          |                             |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                          |                             |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --display-updates |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --display-updates |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_wsman.pl \
@@ -501,26 +502,26 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--display-updates
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: windows pending updates: 81 | 'windows.pending.updates.count'=81;;;0; 
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_wsman.pl \
@@ -528,9 +529,9 @@ the command:
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                            | Linked service template                                                            |
+| Mode                                                                                                                            | Modèle de service associé                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/cpu.pm)]                        | OS-Windows-Cpu-WSMAN-custom                                                        |
 | eventlog [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/eventlog.pm)]              | Not used in this Monitoring Connector                                              |
@@ -552,11 +553,11 @@ The plugin brings the following modes:
 | updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/updates.pm)]                | OS-Windows-Updates-WSMAN-custom                                                    |
 | uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/uptime.pm)]                  | OS-Windows-Uptime-WSMAN-custom                                                     |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -602,9 +603,9 @@ All generic options are listed here:
 | --wsman-debug                              | Define the openwsman log level. Available levels: error, critical, warning, message, info (default), debug.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --wsman-errors-exit                        | Define the expected exit code when wsman errors occur (default: unknown).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
@@ -803,8 +804,8 @@ All available options for each service template are listed below:
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_wsman.pl \
