@@ -306,6 +306,13 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.5
+
+Release date: `August 31, 2023`
+
+- [Packaging] Fixed ETL script references in Debian packaging.
+- Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
+
 ### 22.10.4
 
 Release date: `July 28, 2023`
