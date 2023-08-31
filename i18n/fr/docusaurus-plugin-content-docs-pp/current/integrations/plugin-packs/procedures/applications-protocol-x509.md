@@ -1,6 +1,6 @@
 ---
 id: applications-protocol-x509
-title: X509 Certificat
+title: X509 Certificate
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -178,17 +178,16 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \
-	--hostname='10.0.0.1' \
+	--hostname='www.google.com' \
 	--port=443 \
-	--warning-status='%{expiration} \< 60' \
-	--critical-status='%{expiration} \< 30' \
-	
+	--warning-status='%{expiration} < 60' \
+	--critical-status='%{expiration} < 30'
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:  | 
+OK: Certificate for 'www.google.com' expires in '60' days [2023-10-30T12:22:43Z] - Issuer: '/C=US/O=Google Trust Services LLC/CN=GTS CA 1C3' 
 ```
 
 ### Diagnostic des erreurs communes
