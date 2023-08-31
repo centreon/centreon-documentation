@@ -457,8 +457,6 @@ Release date: `October 26, 2022`
 
 ## Centreon Data Source For Grafana
 
-### 22.10.5
-
 Release date: `August 31, 2023`
 
 - Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
