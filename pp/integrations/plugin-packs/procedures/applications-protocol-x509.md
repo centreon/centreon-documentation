@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias    | Service Template                     | Service Description                           |
 |:-----------------|:-------------------------------------|:----------------------------------------------|
-| X509-Certificate | App-Protocol-X509-Certificate-custom | Check expiration date of a X509's certificate |
+| X509-Certificate | App-Protocol-X509-Certificate-custom | Check expiration date of a X509 certificate |
 
 > The services listed above are created automatically when the **App-Protocol-X509-custom** host template is used.
 
