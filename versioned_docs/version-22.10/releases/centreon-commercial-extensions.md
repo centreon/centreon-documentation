@@ -186,9 +186,9 @@ Release date: `August 31, 2023`
 
 - No change.
 
-## 22.10.9
+### 22.10.9
 
-Release date: `August 31, 2023`
+Release date: `August 03, 2023`
 
 - No change.
 
