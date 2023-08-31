@@ -39,7 +39,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:------------|:------|
 | status      | N/A   |
 
-
 </TabItem>
 </Tabs>
 
@@ -173,7 +172,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \
@@ -205,7 +204,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--list-mode
 ```
@@ -223,7 +222,7 @@ Tous les custom modes disponibles peuvent être affichés en ajoutant le paramè
 `--list-custommode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--list-custommode
 ```
@@ -354,7 +353,7 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \

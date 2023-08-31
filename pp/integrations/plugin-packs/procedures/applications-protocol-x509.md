@@ -38,7 +38,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 |:------------|:------|
 | status      | N/A   |
 
-
 </TabItem>
 </Tabs>
 
@@ -172,7 +171,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \
@@ -204,7 +203,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--list-mode
 ```
@@ -222,7 +221,7 @@ All available custom modes can be displayed by adding the `--list-custommode` pa
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--list-custommode
 ```
@@ -353,7 +352,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_x509.pl \
+/usr/lib/centreon/plugins/centreon_protocol_x509.pl \
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \
