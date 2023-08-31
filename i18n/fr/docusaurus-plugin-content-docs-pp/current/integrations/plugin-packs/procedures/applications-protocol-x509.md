@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-The remote server must have an X509's certificate.
+L'équipement supervisé doit supporter HTTPS et présenter un certificat X509.
 
 ## Installer le connecteur de supervision
 
