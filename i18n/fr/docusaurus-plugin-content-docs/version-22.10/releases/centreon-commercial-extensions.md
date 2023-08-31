@@ -17,6 +17,17 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.10
+
+Release date: `August 31, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that prevented the user from using the extended output in the widget "output".
+- [Server] Fixed an issue that prevented the MAP Engine server from starting.
+- [Server] Updated dependencies.
+- [Viewer] Fixed the alignment of output text in the widget "output".
+
 ### 22.10.9
 
 Release date: `August 03, 2023`
@@ -167,6 +178,12 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.10.9
+
+Release date: `August 31, 2023`
+
+- No change.
 
 ### 22.10.8
 
