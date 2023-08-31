@@ -11,7 +11,7 @@ This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by i
 
 - Before you start the procedure to import legacy maps into MAP, you need to switch from MAP (Legacy) to MAP by [activating the MAP module](./map-web-install.md#step-3-activate-the-map-module).
 
-- In case you want to install MAP on the same server as MAP (Legacy), you need to make sure that free disk space is at least equal to used space. After migration, the new database will coexist with the legacy one.
+- In case you want to install MAP on the same server as MAP (Legacy), you need to make sure that free disk space is at least equal to used space. This is because after migration, the new database will coexist with the legacy one.
 
 ## Importing legacy maps into MAP
 
