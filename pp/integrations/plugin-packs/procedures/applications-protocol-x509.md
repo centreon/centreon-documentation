@@ -5,6 +5,8 @@ title: X509 Certificate
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The **X509 Certificate** Monitoring Connector is used to monitor how much time is left before X509 certificates expire.
+
 ## Pack assets
 
 ### Templates
