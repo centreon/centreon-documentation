@@ -364,6 +364,12 @@ Release date: `October 26, 2022`
 
 ## Centreon Auto Discovery
 
+### 22.10.3
+
+Release date: `August 31, 2023`
+
+- Fixed task execution schedule.
+
 ### 22.10.2
 
 Release date: `April 24, 2023`
