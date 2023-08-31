@@ -35,7 +35,7 @@ dnf update centreon-bi-server
 
 ```shell
 apt clean all
-apt-get --only-upgrade install centreon-bi\*
+apt --only-upgrade install centreon-bi\*
 ```
 
 </TabItem>
@@ -75,7 +75,7 @@ dnf update centreon-bi\*
 
 ```shell
 apt clean all
-apt-get --only-upgrade install centreon-bi\*
+apt --only-upgrade install centreon-bi\*
 ```
 
 </TabItem>
