@@ -5,7 +5,7 @@ title: Update the extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The update of Centreon MBI is made of 2 steps :
+Centreon MBI is updated in two steps:
 
 - Updating the extension interface
 - Updating the reporting server
@@ -42,7 +42,7 @@ apt update centreon-bi-server
 </Tabs>
 
 2. Update through the interface: Log on to the Centreon web interface, go to
-the **Administration > Extension > Manager** page and click on the
+the **Administration > Extension > Manager** page and click the
 Update button to update the extension and the widgets.
 
 ## Upgrade the reporting server

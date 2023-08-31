@@ -12,7 +12,7 @@ The report design filter enables you to:
 
 - Allow access to report design templates when creating a new job.
 
-The job filter enables you to enable a user to:
+The job filter lets you enable a user to:
 
 -   View generated reports ("Report View" page).
 -   View jobs, and create and modify them ("Jobs" page).
@@ -42,7 +42,7 @@ previous menu, no scheduled task will appear here.
 
 > **Important**
 >
-> Non-administrator users cannot receive notification for
+> Non-administrator users cannot receive notifications for
 > reports they are not authorized to view even if they are associated with
 > a contact group eligible for notification.
 >
@@ -66,7 +66,7 @@ Centreon MBI general options are used to configure:
 -  Scheduling options for jobs that generate reports
 -  Communication between Centreon & the reporting server
 -  Notification parameters for Centreon MBI administrators
--  Data to agregate & retention (ETL)
+-  Data to aggregate and retention (ETL)
 
 ### Notification options
 
@@ -82,7 +82,7 @@ actual reports sent to specific users. The notification option sends an
 e-mail to Centreon MBI administrators containing only the logs of the
 job that generated the report.
 
-The notification option parameters can be modified in the menu:
+The notification option parameters can be modified in the following menu:
 `Reporting > Business Intelligence > General Options | Notification Options`
 
 Description:
@@ -94,7 +94,7 @@ Description:
   SMTP server                                   | SMTP server address (IP/DNS)
   SMTP port                                     | SMTP port
   Use credential                                | Uses an authentication (yes/no)
-  Use SSL                                       | Uses an SSL authentification (yes/no)
+  Use SSL                                       | Uses an SSL authentication (yes/no)
   SMTP user                                     | SMTP user account
   SMTP password                                 | Password for SMTP user (*Set this parameter only if you need to update the password*)
   E-mail default title                          | Default subject line for notification e-mail, if no other is specified
@@ -104,11 +104,11 @@ Description:
   Centreon web URL extension                    |  The Centreon server URL extension (e.g.: /centreon)
   Centreon main server                          | Centreon server address
   Contact groups                                | Centreon MBI administrators contact groups. Leave empty if you do not want to receive a notification after each report is generated.
-  Testing notification                          | Enter an e-mail address into this field, then click on "test" to send an e-mail validating your configuration.
+  Testing notification                          | Enter an e-mail address into this field, then click "test" to send an e-mail validating your configuration.
 
 ### Scheduler options
 
-The following menu allows you to modify the scheduling options of the
+The following menu allows you to modify the scheduling options for the
 reporting engine:
 
 `Reporting > Business Intelligence > General Options | Scheduler options`
@@ -123,7 +123,7 @@ reporting engine. It opens a connection on the CBIS listening port to:
 -   Test publication rule configurations.
 -   Test the configuration of notifications.
 
-Parameters description:
+Description of parameters:
 
   Option                    | Description
   --------------------------|--------------------------------------------------------
@@ -175,9 +175,9 @@ The ETL integrated in Centreon is used to
     server
 -   Manage data retention on the reporting server.
 
-It configured at installation and will probably not need any modification later.
+It is configured at installation and will probably not need any modification later.
 
-Before proceding, you should have read [the best practice parts](installation.md#best-practices-for-monitoring) to ensure
+Before proceeding, you should read [the best practice parts](installation.md#best-practices-for-monitoring) to ensure
 that the objects (e.g., groups, categories) are configured according to Centreon MBI requirements.
 
 In the Centreon menu **Reporting > Business Intelligence > General Options > ETL options**,
@@ -229,7 +229,7 @@ will appear in the list of service categories available for centile
 statistics.
 
 You can create as many centile-time period combinations as you like, **but
-we strongly recommand** not having more than 2 or 3 combination* on a small number of metrics
+we strongly recommend** not having more than two or three combinations* on a small number of metrics
 contained in the category.
 
 
@@ -273,7 +273,7 @@ Then restart the service cron:
 **BEST PRACTICE**: Select different retention periods according to the
 granularity of the statistical data:
 
--   Hourly aggregated values are used to analyze a metric over a short period, they take a
+-   Hourly aggregated values are used to analyze a metric over a short period. They take a
     lot of space on the disk. You may not need to keep these statistics more that two or three months.
 -   Beyond five or six months, you may only need to view the trend for
     availability or performance statistics. You could then keep the
@@ -290,7 +290,7 @@ user based on ACL restrictions and what was calculated in the data
 warehouse.
 
 When updating the groups and categories configuration, make sure to
-update the ACL by clicking on "Update ACL resources". This will update
+update the ACL by clicking "Update ACL resources". This will update
 available objects when configuring jobs.
 
 ### Reporting Widgets

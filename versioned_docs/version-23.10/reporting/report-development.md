@@ -28,7 +28,7 @@ BIRT enables you to visualize your business data as statistics in the
 form of tables or graphs. Although BIRT allows you to manipulate
 different data sources within the same report, we advise against it when
 performing heavy calculations or aggregations. Extract Transform Load
-(ETL) software is more suitable for the purpose.
+(ETL) software is more suitable for that purpose.
 
 ![1000000000000454000001517ADB9749.png](../assets/reporting/dev-guide/1000000000000454000001517ADB9749.png)
 
@@ -53,8 +53,8 @@ Javascript objects.
 We highly recommend collecting and consolidating report data into a
 single type of data source, and storing it as such (e.g., a MariaDB data).
 Multiplying your data sources in a report might have an impact on
-performance and maintenance. You are advised not to use more than of two
-types of data sources in the same report project (e.g., JDBC and CSV).
+performance and maintenance. You are advised not to use more than two
+types of data source in the same report project (e.g., JDBC and CSV).
 
 Configuration of a data source:
 
@@ -139,7 +139,7 @@ binding.
 -   **Header:** Displays the column title or dynamic summary information
     calculated according to the listed values in the detail rows. The
     header row can be repeated at the beginning of each section if the
-    table is displayed for several pages.
+    table is displayed over several pages.
 -   **Detail row:** A new detail row will be created to display each row
     of the data set (to which the table is bound).
 -   **Footer:** Summary information, such as total or average values
@@ -174,9 +174,9 @@ There are two ways to "bind" data to a chart:
 
 -   Link the data set directly to the chart.
 -   Insert the chart into a table cell. This will allow the chart to
-    "inherit" the data from the table thus binding it.
+    "inherit" the data from the table, thus binding it.
 
-The data inheritance from a parent component is required if you decide
+Data inheritance from a parent component is required if you decide
 to reuse data groups and aggregated data in a chart.
 
 ![10000000000003CF00000251408B7FE1_png](../assets/reporting/dev-guide/10000000000003CF00000251408B7FE1.png)
@@ -236,7 +236,7 @@ A new report has no relationship with the original template whose
 content has been borrowed. Therefore, any change made to that template
 cannot affect the reports that use it.
 
-## Preparing the development environnement
+## Preparing the development environment
 
 ### Creating a workspace
 
@@ -249,14 +249,14 @@ the BIRT version easily without affecting your project folders.
 After creating the workspace and before starting to design any report,
 you must create a BIRT project containing two main directories:
 
--   /reports: Contains all your reports (.rptdesign files).
+-   / Reporting: Contains all your reports (.rptdesign files).
 -   /Resources: Contains any files or components that will be made
     accessible to your reports through relative paths.
 
 ### Creating a new project
 
 To create a BIRT report project, select "File > New > Other
-projects", then, in the wizard window, select "Report project":
+projects", and then, in the wizard window, select "Report project":
 
 ![image](../assets/reporting/dev-guide/100000000000030C0000029D554D9D2B.png)
 
@@ -265,7 +265,7 @@ on the project displayed in the "Navigator" tab panel:
 
 ![image](../assets/reporting/dev-guide/1000000000000565000001F097833544.png)
 
-Now, copy the contents of the reports *(/usr/share/centreon-bi/reports)*
+Now, copy the contents of the Reports *(/usr/share/centreon-bi/reports)*
 and Resources *(/usr/share/centreon-bi/Resources)* directories on the
 reporting server into the two folders you created in your project.
 
@@ -276,7 +276,7 @@ define, in project properties, the location of the corresponding
 Resources folder.
 
 This will allow the shared components (e.g., datasources, data sets,
-report parameters and layout components from BIRT libraries, but also
+report parameters and layout components from BIRT libraries, as well as
 BIRT report templates and image or flat files) to be referenced in
 reports through the "Resource Explorer" panel:
 
@@ -294,7 +294,7 @@ the subfolders and files in your project "MyFirstProject" need to be
 set.
 
 To define the shared-resource folder in the project environment,
-right-click on your project in the Navigator panel, then select
+right-click your project in the Navigator panel, and then select
 Properties. Set the resource folder as "`<Current Project Folder>/Resources/`".
 Because the pattern "`<Current Project Folder>`" 
 is a variable that will be set automatically by Eclipse, there is no
@@ -311,7 +311,7 @@ need to write the project path explicitly.
 
 #### Introduction
 
-Information for connecting to databases are defined in the following two
+Information for connecting to databases is defined in the following two
 files:
 
 -   /etc/centreon-bi/cbis-profile.xml
@@ -348,20 +348,20 @@ Therefore, this library must point to the appropriate servers
 You must then link the L2_datasource library to the updated profile
 files on your workstation.
 
-To do so, double click on the library L2_datasource. The library opens
+To do so, double-click the library L2_datasource. The library opens
 in your workspace.
 
 ![image](../assets/reporting/dev-guide/db_conn_1.png)
 
 ![image](../assets/reporting/dev-guide/db_conn_2.png)
 
-Click on "Outline" and expand the "Datasources".
+Click "Outline" and expand the "Datasources".
 
 ![image](../assets/reporting/dev-guide/db_conn_3.png)
 
 The datasources used in Centreon MBI standard reports are listed.*
 
-Double click on the "Datasource" Centreon, and the below pop-up opens:
+Double-click the "Datasource" in Centreon, and the following pop-up opens:
 
 ![image](../assets/reporting/dev-guide/db_conn_4.png)
 
@@ -376,13 +376,13 @@ All the datasources present in the file are listed.
 
 In this example, two datasources are listed: - Censtorage - Centreon
 
-Select Centreon then click on the "BIRT JDBC Datasource".
+Select Centreon, and then click the "BIRT JDBC Datasource".
 
 ![image](../assets/reporting/dev-guide/db_conn_6.png)
 
 The information defined in the XML file is read.
 
-Click on "Test Connection". A pop-up appears, displaying the message
+Click "Test Connection". A pop-up appears, displaying the message
 "Connection successful".
 
 ![image](../assets/reporting/dev-guide/db_conn_7.png)
@@ -410,11 +410,11 @@ centreon_live et centreon_storage_live**.
 ### Generating a standard report
 
 To generate a standard report from the interactive development
-environnement, double click on the report to open it.
+environment, double-click the report to open it.
 
 ![image](../assets/reporting/dev-guide/gen_report_1.png)
 
-Once the report is open, click on "View report" to select the output
+Once the report is open, click "View report" to select the output
 format:
 
 ![image](../assets/reporting/dev-guide/gen_report_2.png)
@@ -445,21 +445,21 @@ To use this template in your BIRT report:
 -   Download the file from the reporting server to the "Resources"
     folder of your BIRT project:
     /Resources/templates/generic_component_script.rpttemplate
--   Click right on the template and select "Register Template with New
+-   Right-click the template and select "Register Template with New
     Report Wizard".
 
 ![image](../assets/reporting/dev-guide/registerTemplate.png)
 
--   For each new report you create, select the name and click on *Next*
+-   For each new report you create, select the name and click *Next*
     to access the template window.
--   Select the template called "Component template" and click on
+-   Select the template called "Component template" and click
     "Finish".
 
 ![image](../assets/reporting/dev-guide/componentTemplate.png)
 
 ### Define the project structure
 
-We highly recommand defining and applying standard conventions for:
+We highly recommend defining and applying standard conventions for:
 
 -   Creating a directory tree for reports and resources.
 -   Naming directories and files.
@@ -504,8 +504,8 @@ subdirectories:
 ### Libraries
 
 Some libraries are stored directly under the "/components" directory,
-without any classification into subdirectories. These libraries contains
-components that may be reused in other libraries but also in reports:
+without any classification into subdirectories. These libraries contain
+components that may be reused in other libraries, but also in reports:
 
 -   /datasources: Contains all the datasources that will be used for the
     entire report project. Avoid defining datasources in multiple files
@@ -523,7 +523,7 @@ components are organized, ask yourself the following questions:
 -   What kind of statistic are you looking for?
     -   Capacity? Performance? Availability? Open the subfolder named
         according to your requirement.
--   For what type of object do you need when designing your report?
+-   What type of object do you need when designing your report?
     -   A host? A single host group? Several host groups? You will find
         this information in the descriptive name of the ".rptlibrary"
         file.
@@ -567,7 +567,7 @@ them, you must define an XML file that will dynamically generate a
 parameter tab.
 
 When creating a new report design on the interface, you must associate
-it with the XML parameter file. Three types of objects can be defined in
+it with the XML parameter file. Three types of object can be defined in
 this XML file:
 
 > -   Text tags to allow users to type in their own text:
@@ -654,6 +654,6 @@ properties:
 
 ### Running the report job
 
-In the menu **Reporting > Business Intelligence > Jobs**, define a job
+In the **Reporting > Business Intelligence > Jobs** menu, define a job
 to run your report design, and fill in all the specific report
 parameters.
