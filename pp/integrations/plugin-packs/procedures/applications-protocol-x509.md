@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **X509 Certificat** brings a host template:
+The Monitoring Connector **X509 Certificate** brings a host template:
 
 * **App-Protocol-X509-custom**
 
