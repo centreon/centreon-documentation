@@ -178,7 +178,7 @@ Check the following points:
 
 Check that the value you have defined in **Notification Interval** (on the 2nd tab) is a multiple of the value defined in **Normal Check Interval** (on the 1st tab).
 
-A notification can only be sent if a check has occurred. If you decide that checks happen every hour but notifications are to be sent out every 10 minutes, the notifications will actually be sent every hour because checks only happen every hour and not every 10 minutes. 
+This is because a notification can only be sent if a check has occurred. If you decide that checks happen every hour but notifications are to be sent out every 10 minutes, the notifications will actually be sent every hour because checks only happen every hour and not every 10 minutes. 
 
 ### Notifications have been sent outside the user's time period
 
