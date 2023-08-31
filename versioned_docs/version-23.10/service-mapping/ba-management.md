@@ -32,12 +32,12 @@ There are four calculation methods that you can use:
 -   **Worst status**: When you want to know immediately when at least one
     indicator is not-ok
 -   **Ratio**: When you want to model Cluster concepts by specifying a
-    Number or percentage of critical resources that you do not want to
+    number or percentage of critical resources that you do not want to
     exceed
 -   **Impact**: When you want to precisely define the weight of each
     indicator and reflect that on your BA status
 
-Below are some examples and a configuration of each calculation method
+Below are some examples and a configuration of each calculation method.
 
 <Tabs groupId="sync">
 <TabItem value="Best Status" label="Best Status">
@@ -92,7 +92,7 @@ you must configure the threshold parameters:
 </TabItem>
 <TabItem value="Impact" label="Impact">
 
-> This mode is complex to use, but it could help you model highly
+> This mode is complex to use, but it could help you model
 > severity-related concepts.
 
 When you use impact mode, the business activity has a “Health”
@@ -166,7 +166,7 @@ be handled. You have three choices:
     positioned on child indicators will be ignored, the BA will be
     impacted, and that is all.
 -   **Inherit the downtime**: the BA is automatically set in “planned
-    downtime” whenever an indicator in non-ok state is in planned
+    downtime” whenever an indicator in a non-ok state is in planned
     downtime AND impacts the BA. The BA will still be impacted. The
     planned downtime inheritance follows these rules:
     -   A BA inherits planned downtime from its indicators only when the
@@ -182,7 +182,7 @@ be handled. You have three choices:
     ignored in the calculation.
 
 After configuring how the business activity status is computed,
-You will be able to configure the following properties:
+you will be able to configure the following properties:
 
 -   Business View: what BV(s) to link the BA to. Mandatory if you want
     to give access to this BA to non-admin users
@@ -257,7 +257,7 @@ The BA is managed through the
 
 ![image](../assets/service-mapping/guide/business-activity-listing.png)
 
-You have inline actions and global action to delete, duplicate,
+You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
 > Deleting a business activity is permanent; only passed data will be
@@ -306,9 +306,9 @@ Indicators can be configured in two different ways:
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Indicator (KPI) | Indicator or Key Performance Indicator: Name of the indicator based on the object used                               |
 | Type            | Indicator type in (service, meta service, BA, boolean rule)                                                           |
-| Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring Ignored if indicators is a boolean rule |
+| Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring                                        |
-| Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring Ignored if indicators is a boolean rule |
+| Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Actions         | Actions can be performed (modification,activation/deactivation)                                                      |
 
 The **More Actions** menu allows an action to be applied to several

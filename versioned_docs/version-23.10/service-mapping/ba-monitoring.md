@@ -21,7 +21,7 @@ the live status and health level of the BAs.
 Non-admin users can only see the BAs associated with BVs linked to their
 access group:
 
-![image](../assets/service-mapping/guide/kpi_booleen.png)
+![image](../assets/service-mapping/guide/mon_ba_list.png)
 
 | Column            | Description                               |
 | ----------------- | ----------------------------------------- |
