@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **X509 Certificat** apporte un modèle d'hôte :
+Le connecteur de supervision **X509 Certificate** apporte un modèle d'hôte :
 
 * **App-Protocol-X509-custom**
 
