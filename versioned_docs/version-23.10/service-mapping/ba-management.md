@@ -305,7 +305,7 @@ Indicators can be configured in two different ways:
 | Column          | Description                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Indicator (KPI) | Indicator or Key Performance Indicator: Name of the indicator based on the object used                               |
-| Type            | Indicator type in (service, meta service, BA, boolean rule)                                                           |
+| Type            | Indicator type (service, meta service, BA, boolean rule)                                                           |
 | Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring                                        |
 | Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
