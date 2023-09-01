@@ -75,10 +75,10 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                        | Description                                               |
-|:-------------------------------------------------|:----------------------------------------------------------|
-| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Discover the disk partitions and monitor space occupation |
-| App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover the disk partitions and monitor space occupation |
+| Rule name                                        | Description                                 |
+|:-------------------------------------------------|:--------------------------------------------|
+| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Discover kadiska alert rules.               |
+| App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover tracer targets for a given runner. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
