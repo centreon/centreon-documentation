@@ -67,19 +67,19 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle  | Description               |
-|:-----------------|:--------------------------|
-| Kadiska Runners  | Discover Kadiska Runners  |
-| Kadiska Watchers | Discover Kadiska Watchers |
+| Nom de la règle  | Description                   |
+|:-----------------|:------------------------------|
+| Kadiska Runners  | Découvre les Runners Kadiska  |
+| Kadiska Watchers | Découvre les Watchers Kadiska |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de service
 
-| Nom de la règle                                  | Description                                               |
-|:-------------------------------------------------|:----------------------------------------------------------|
-| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Discover the disk partitions and monitor space occupation |
-| App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover the disk partitions and monitor space occupation |
+| Nom de la règle                                  | Description                                          |
+|:-------------------------------------------------|:-----------------------------------------------------|
+| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Découvre les règles d'alertes de Kadiska             |
+| App-Monitoring-Kadiska-Restapi-Target-Statistics | Découvre les cibles d'un tracer pour un Runner donné.|
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
