@@ -677,7 +677,7 @@ Enable the service to start up automatically on server boot:
 systemctl enable centreon-map-engine
 ```
 
-Centreon MAP Engine server is now started and enabled, so let's install
+The Centreon MAP Engine server is now started and enabled, so let's install
 the interface part of the extension.
 
 ## MAP web client installation
