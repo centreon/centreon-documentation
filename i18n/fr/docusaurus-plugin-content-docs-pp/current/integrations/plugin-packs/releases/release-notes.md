@@ -8,6 +8,35 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Septembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Sahi Pro Rest API**](../procedures/applications-sahipro-restapi.md) - applications-sahipro-restapi - new
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - hardware-storage-netapp-ontap-restapi - update plugin requirement
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Alvarion BreezeACCESS SNMP**](../procedures/network-alvarion-breezeaccess-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Barracuda Cloudgen SNMP**](../procedures/network-barracuda-cloudgen-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - fix(plugin): updated required plugin version to deploy fix
+- [**InfluxDB**](../procedures/applications-databases-influxdb.md) - fix(plugin-version): new fix available
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Peplink Pepwave SNMP**](../procedures/network-peplink-pepwave-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Perle IDS SNMP**](../procedures/network-perle-ids-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Rad Airmux SNMP**](../procedures/network-rad-airmux-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Ubiquiti Edge SNMP**](../procedures/network-ubiquiti-edge-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**X509 Certificate**](../procedures/applications-protocol-x509.md) - Mon 20691 x 509 monitoring connector name fix
+
+</TabItem>
+</Tabs>
+
 ### Août
 
 > **Changement majeur concernant les règles de découverte d'hôte** : Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Voir la section "Breaking changes" pour plus d'informations.

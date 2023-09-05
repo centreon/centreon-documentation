@@ -8,6 +8,35 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### September
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Sahi Pro Rest API**](../procedures/applications-sahipro-restapi.md) - applications-sahipro-restapi - new
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - hardware-storage-netapp-ontap-restapi - update plugin requirement
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Alvarion BreezeACCESS SNMP**](../procedures/network-alvarion-breezeaccess-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Barracuda Cloudgen SNMP**](../procedures/network-barracuda-cloudgen-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - fix(plugin): updated required plugin version to deploy fix
+- [**InfluxDB**](../procedures/applications-databases-influxdb.md) - fix(plugin-version): new fix available
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Peplink Pepwave SNMP**](../procedures/network-peplink-pepwave-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Perle IDS SNMP**](../procedures/network-perle-ids-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Rad Airmux SNMP**](../procedures/network-rad-airmux-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**Ubiquiti Edge SNMP**](../procedures/network-ubiquiti-edge-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
+- [**X509 Certificate**](../procedures/applications-protocol-x509.md) - Mon 20691 x 509 monitoring connector name fix
+
+</TabItem>
+</Tabs>
+
 ### August
 
 > **Major change impacting all host discovery providers**: the default host templates used in host discovery used to be the *read-only* ones. The "-custom" *read-write* ones are now used. As an example, `generic-active-host-custom` will be used instead of `generic-active-host`. See "Breaking changes" for more information.
