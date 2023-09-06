@@ -39,4 +39,4 @@ apt update && apt upgrade centreon-bam-server
 Log on to the Centreon web interface and go to `Administration > Extension >
 Manager`.
 
-Click on the orange button to update the module, do the same for the widget.
+Click the orange button to update the module, and do the same for the widget.
