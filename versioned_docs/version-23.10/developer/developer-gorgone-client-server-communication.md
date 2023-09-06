@@ -3,11 +3,11 @@ id: developer-gorgone-client-server-communication
 title : Managing client/server communication
 ---
 
-Centreon Gorgone is the component that allows the communication from the central server to the pollers and remote servers. In addition, Gorgone deploys the configuration of the monitoring engines.
+Centreon Gorgone is the component that allows communication from the central server to the pollers and remote servers. In addition, Gorgone deploys the configuration of the monitoring engines.
 
 > Gorgone replaces Centcore since the Centreon 20.04 version.
 
-Centreon recommends to use the ZMQ protocol for the communication between two **gorgoned**
+Centreon recommends using the ZMQ protocol for communication between two **gorgoned**
 processes. 
 When using the ZMQ protocol, all communications are encrypted using symmetric-key encryption
 based on public/private keys from both client and server. So you need to generate public/private keys to set the configuration.
@@ -48,7 +48,7 @@ $ perl /usr/local/bin/gorgone_key_thumbprint.pl --key-path='/var/spool/centreon/
 
 ## Set the configurations
 
-You need to make the Gorgone IDs match the Centreon pollers ID to benefit from legacy command module's actions.
+You need to make the Gorgone IDs match the Centreon poller IDs to benefit from the legacy command module's actions.
 
 ### On the server side
 
@@ -57,7 +57,7 @@ In the **/etc/centreon/confid.d/20-gorgoned.yaml** configuration file, add the f
 ```shell
 gorgone:
   gorgonecore:
-    id: 1
+    id: 1.
     privkey: /var/spool/centreon/.gorgone/privkey.pem
     pubkey: /var/spool/centreon/.gorgone/pubkey.pem
 ```
@@ -76,10 +76,10 @@ Create the file **/etc/centreon/gorgone-targets.yml** and fill it with the follo
 
 ```shell
   nodes:
-  - id: 2
+  - id: 2.
     type: push_zmq
     address: 10.1.2.3
-    port: 5556
+    port: 5556.
 ```
 
 ### On the client side
@@ -89,7 +89,7 @@ In the **/etc/centreon/config.d/20-gorgoned.yaml** configuration file, add the f
 ```shell
 gorgone:
   gorgonecore:
-    id: 2
+    id: 2.
     external_com_type: tcp
     external_com_path: "*:5556"
     privkey: /var/spool/centreon/.gorgone/privkey.pem

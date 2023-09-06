@@ -6,12 +6,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-If you want to contribute to translate Centreon, this new tutorial is for you! Discover how to translate Centreon web
-interface and how to help us to add new language in Centreon.
+If you want to contribute to translating Centreon, this new tutorial is for you! Discover how to translate the Centreon web
+interface and how to help us to add new languages to Centreon.
 
 ## Install translation environment
 
-Contact us to obtain an archive of the contents to translate, then copy this archive to a Linux server.
+Contact us to obtain an archive of the contents to translate, and then copy this archive to a Linux server.
 
 Execute the following commands:
 ```shell
@@ -38,9 +38,9 @@ At the end of execution, two files are available:
 
 Rename messages.pot to messages.po and help.po to help.po
 
-You can now start translation of Centreon by editing files with a PO file editor like poedit.
+You can now start translating Centreon by editing files with a PO file editor like poedit.
 
-> Keep always your \*.po files for next translation.
+> Always keep your \*.po files for the next translation.
 
 ## Use your translation
 
@@ -54,8 +54,8 @@ sudo mkdir -p /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d
 
 > **/usr/share/centreon** is the Centreon installed directory.
 
-If you want to translate Centreon in other language than use by your Centreon server, you have to define manually the
-locale.
+If you want to translate Centreon into a language other than that used by your Centreon server, you must define the
+locale manually.
 
 For example, for Brazilian users, execute the following command:
 
@@ -63,7 +63,7 @@ For example, for Brazilian users, execute the following command:
 sudo mkdir -p /usr/share/centreon/www/locale/pt_BR.UTF-8/LC_MESSAGES
 ```
 
-Compile translated files:
+Compile the translated files:
 
 ```shell
 msgfmt messages.po -o messages.mo
@@ -71,14 +71,14 @@ msgfmt help.pot -o help.mo
 php ./centreon-github/bin/centreon-translations.php pt centreon-github/lang/pt_BR.UTF-8/LC_MESSAGES/messages.po centreon-github/lang/pt_BR.UTF-8/LC_MESSAGES/messages.ser
 ```
 
-Copy compiled translated files:
+Copy the compiled translated files:
 
 ```shell
 sudo cp *.mo /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
 sudo cp messages.ser /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
 ```
 
-Change rights on directory:
+Change the rights on the directory:
 
 ```shell
 sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`
@@ -109,37 +109,37 @@ Connect to your Centreon web interface, edit your profile and select new languag
 
 ![image](../assets/getting-started/change_language_2.png)
 
-Save the form and access to another menu, your interface will be translated.
+Save the form and access to another menu. Your interface will be translated.
 
 ## Upgrade translation
 
-Centreon developers released every month a new version of Centreon Web. So translation could be modified with every new
+Centreon developers release a new version of Centreon Web every month. So the translation could be modified with every new
 release.
 
-To maintain the translation up-to-date follow this steps:
+To keep the translation up to date, follow these steps:
 
 ```shell
 sh make-translation.sh
 ```
 
-At the end of execution, two files up-to-date are available:
+At the end of execution, two up-to-date files are available:
 
 * messages.pot to translate Centreon Web interface menu and forms
 * help.pot to translate help tooltips in configuration forms
 
-Merge this files with previous translation (messages.po and help.po):
+Merge these files with the previous translation (messages.po and help.po):
 
 ```shell
 msgmerge help.po help.pot -o new_help.po
 msgmerge messages.po messages.pot -o new_messages.po
 ```
 
-Follow chapter “Use your translation” to upgrade translation for Centreon.
+Follow the chapter “Use your translation” to upgrade your translation for Centreon.
 
-## Participate to Centreon project
+## Participate in Centreon project
 
-Once your translation is up-to-date, you can ask to the Centreon team to add your translation to Centreon project. This
-will allow for all person using Centreon to have access to your translation on their Centreon platform.
+Once your translation is up to date, you can ask to the Centreon team to add your translation to Centreon project. This
+will allow all users of Centreon to have access to your translation on their Centreon platform.
 
 * Create an account on GitHub
 * Fork centreon/centreon project on GitHub
