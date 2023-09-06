@@ -32,6 +32,16 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 </Tabs>
 
+### Règles de découverte
+
+#### Découverte d'hôtes
+
+| Nom de la règle | Description                                                                                                                                                                                                                                     |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) to get the discovery rule and create a template mapper for the **HW-UPS-Standard-Rfc1628-SNMP-custom** host template |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
@@ -41,49 +51,49 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique             | Unité |
 |:---------------------|:------|
-| alarms.current.count |       |
-| test result status   |       |
+| alarms.current.count | count |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Métrique                         | Unité |
-|:---------------------------------|:------|
-| battery status                   |       |
-| battery.charge.remaining.percent | %     |
-| battery.charge.remaining.minutes |       |
-| battery.current.ampere           | A     |
-| battery.temperature.celsius      | C     |
-| battery.voltage.volt             | V     |
+| Métrique                         | Unité   |
+|:---------------------------------|:--------|
+| status                           | N/A     |
+| battery.charge.remaining.percent | %       |
+| battery.charge.remaining.minutes | minutes |
+| battery.current.ampere           | A       |
+| battery.voltage.volt             | V       |
+| battery.temperature.celsius      | C       |
 
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Métrique                             | Unité |
-|:-------------------------------------|:------|
-| *line_id*#line.input.current.ampere  | A     |
-| *line_id*#line.input.frequence.hertz | Hz    |
-| *line_id*#line.input.power.watt      | W     |
-| *line_id*#line.input.voltage.volt    | V     |
+| Métrique                          | Unité |
+|:----------------------------------|:------|
+| *line*#line.input.frequence.hertz | Hz    |
+| *line*#line.input.voltage.volt    | V     |
+| *line*#line.input.current.ampere  | A     |
+| *line*#line.input.power.watt      | W     |
 
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Métrique                              | Unité |
-|:--------------------------------------|:------|
-| output.3phases.stdev.gauge            |       |
-| lines.output.frequence.hertz          | Hz    |
-| *line_id*#line.output.current.ampere  | A     |
-| *line_id*#line.output.load.percentage | %     |
-| *line_id*#line.output.power.watt      | W     |
-| *line_id*#line.output.voltage.volt    | V     |
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| output.3phases.stdev.gauge          | N/A   |
+| *oline*#line.output.load.percentage | %     |
+| *oline*#line.output.current.ampere  | A     |
+| *oline*#line.output.voltage.volt    | V     |
+| *oline*#line.output.power.watt      | W     |
 
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
 
-| Métrique             | Unité |
-|:---------------------|:------|
-| output source status |       |
+| Métrique      | Unité |
+|:--------------|:------|
+| source-status | N/A   |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
@@ -210,13 +220,13 @@ yum install centreon-plugin-Hardware-Ups-Standard-Rfc1628-Snmp
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Macro                 | Description                                                                                                                                                             | Valeur par défaut                   | Obligatoire |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| WARNINGALARMSCURRENT  | Thresholds                                                                                                                                                              |                                     |             |
-| CRITICALALARMSCURRENT | Thresholds                                                                                                                                                              |                                     |             |
-| WARNINGTESTSTATUS     | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /doneWarning\|aborted/'). You can use the following variables: %{status}, %{detail} | %{status} =~ /doneWarning\|aborted/ |             |
-| CRITICALTESTSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /doneError/'). You can use the following variables: %{status}, %{detail}           | %{status} =~ /doneError/            |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                     | --verbose                           |             |
+| Macro                 | Description                                                                                         | Valeur par défaut                   | Obligatoire |
+|:----------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
+| WARNINGALARMSCURRENT  | Thresholds                                                                                          |                                     |             |
+| CRITICALALARMSCURRENT | Thresholds                                                                                          |                                     |             |
+| WARNINGTESTSTATUS     |                                                                                                     | %{status} =~ /doneWarning\|aborted/ |             |
+| CRITICALTESTSTATUS    |                                                                                                     | %{status} =~ /doneError/            |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose                           |             |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
@@ -256,18 +266,18 @@ yum install centreon-plugin-Hardware-Ups-Standard-Rfc1628-Snmp
 
 | Macro                | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCURRENT       | Threshold                                                                                           |                   |             |
-| CRITICALCURRENT      | Threshold                                                                                           |                   |             |
+| WARNINGCURRENT       | Warning threshold                                                                                   |                   |             |
+| CRITICALCURRENT      | Critical threshold                                                                                  |                   |             |
 | WARNINGFREQUENCE     |                                                                                                     |                   |             |
 | CRITICALFREQUENCE    |                                                                                                     |                   |             |
-| WARNINGLOAD          | Threshold                                                                                           |                   |             |
-| CRITICALLOAD         | Threshold                                                                                           |                   |             |
-| WARNINGPOWER         | Threshold                                                                                           |                   |             |
-| CRITICALPOWER        | Threshold                                                                                           |                   |             |
+| WARNINGLOAD          | Warning threshold                                                                                   |                   |             |
+| CRITICALLOAD         | Critical threshold                                                                                  |                   |             |
+| WARNINGPOWER         | Warning threshold                                                                                   |                   |             |
+| CRITICALPOWER        | Critical threshold                                                                                  |                   |             |
 | WARNINGSTDEV3PHASES  | Warning threshold for standard deviation of 3 phases                                                |                   |             |
 | CRITICALSTDEV3PHASES | Critical threshold for standard deviation of 3 phases                                               |                   |             |
-| WARNINGVOLTAGE       | Threshold                                                                                           |                   |             |
-| CRITICALVOLTAGE      | Threshold                                                                                           |                   |             |
+| WARNINGVOLTAGE       | Warning threshold                                                                                   |                   |             |
+| CRITICALVOLTAGE      | Critical threshold                                                                                  |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
@@ -290,22 +300,35 @@ yum install centreon-plugin-Hardware-Ups-Standard-Rfc1628-Snmp
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser la ressource en utilisant une commande
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_standard_rfc1628_snmp.pl \
-    --plugin=hardware::ups::standard::rfc1628::snmp::plugin \
-    --mode=battery-status \
-    --hostname=10.0.0.1 \
-    --snmp-version='2c' \
-    --snmp-community='my-snmp-community'
+	--plugin=hardware::ups::standard::rfc1628::snmp::plugin \
+	--mode=output-lines \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--warning-load='' \
+	--critical-load='' \
+	--warning-current='' \
+	--critical-current='' \
+	--warning-voltage='' \
+	--critical-voltage='' \
+	--warning-power='' \
+	--critical-power='' \
+	--warning-stdev-3phases='' \
+	--critical-stdev-3phases='' \
+	--warning-frequence='' \
+	--critical-frequence='' \
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: battery status is normal - charge remaining: 100% (135 minutes remaining) | 'battery.charge.remaining.percent'=100%;;;0;100 'battery.charge.remaining.minutes'=135minutes;;;0; 'battery.current.ampere'=-0.1A;;;0; 'battery.voltage.volt'=122.5V;;;; 'battery.temperature.celsius'=37C;;;;
+OK: load: 51 % current: 50 A voltage: 56 V power: 30 W | 'output.3phases.stdev.gauge'=69N/A;;;; 'line.output.load.percentage'=51%;;;0;100 'line.output.current.ampere'=50A;;;0; 'line.output.voltage.volt'=56V;;;; 'line.output.power.watt'=30W;;;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -331,13 +354,13 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode           | Modèle de service associé                          |
-|:---------------|:---------------------------------------------------|
-| alarms         | HW-UPS-Standard-Rfc1628-Alarms-SNMP-custom         |
-| battery-status | HW-UPS-Standard-Rfc1628-Battery-Status-SNMP-custom |
-| input-lines    | HW-UPS-Standard-Rfc1628-Input-Lines-SNMP-custom    |
-| output-lines   | HW-UPS-Standard-Rfc1628-Output-Lines-SNMP-custom   |
-| output-source  | HW-UPS-Standard-Rfc1628-Output-Source-SNMP-custom  |
+| Mode                                                                                                                                            | Modèle de service associé                          |
+|:------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+| alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/standard/rfc1628/snmp/mode/alarms.pm)]                | HW-UPS-Standard-Rfc1628-Alarms-SNMP-custom         |
+| battery-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/standard/rfc1628/snmp/mode/batterystatus.pm)] | HW-UPS-Standard-Rfc1628-Battery-Status-SNMP-custom |
+| input-lines [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/standard/rfc1628/snmp/mode/inputlines.pm)]       | HW-UPS-Standard-Rfc1628-Input-Lines-SNMP-custom    |
+| output-lines [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/standard/rfc1628/snmp/mode/outputlines.pm)]     | HW-UPS-Standard-Rfc1628-Output-Lines-SNMP-custom   |
+| output-source [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/standard/rfc1628/snmp/mode/outputsource.pm)]   | HW-UPS-Standard-Rfc1628-Output-Source-SNMP-custom  |
 
 ### Options disponibles
 
@@ -408,13 +431,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Option                   | Description                                                                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --display-alarms         | Display alarms in verbose output.                                                                                                                                         |
-| --unknown-test-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{detail}                                                    |
-| --warning-test-status    | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /doneWarning\|aborted/'). You can use the following variables: %{status}, %{detail}   |
-| --critical-test-status   | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /doneError/'). You can use the following variables: %{status}, %{detail}             |
-| --warning-* --critical-* | Thresholds. Can be: 'alarms-current'.                                                                                                                                     |
+| Option                   | Description                              |
+|:-------------------------|:-----------------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'alarms-current'.    |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
@@ -437,12 +456,13 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Option                   | Description                                                              |
-|:-------------------------|:-------------------------------------------------------------------------|
-| --ignore-zero-counters   | Ignore counters equals to 0.                                             |
-| --warning-* --critical-* | Threshold. Can be: 'frequency', 'load', 'voltage', 'current', 'power'.   |
-| --warning-stdev-3phases  | Warning threshold for standard deviation of 3 phases.                    |
-| --critical-stdev-3phases | Critical threshold for standard deviation of 3 phases.                   |
+| Option                   | Description                                                          |
+|:-------------------------|:---------------------------------------------------------------------|
+| --ignore-zero-counters   | Ignore counters equals to 0.                                         |
+| --warning-*              | Warning threshold. Can be: 'load', 'voltage', 'current', 'power'.    |
+| --critical-*             | Critical threshold. Can be: 'load', 'voltage', 'current', 'power'.   |
+| --warning-stdev-3phases  | Warning threshold for standard deviation of 3 phases.                |
+| --critical-stdev-3phases | Critical threshold for standard deviation of 3 phases.               |
 
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
@@ -462,6 +482,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_ups_standard_rfc1628_snmp.pl \
 	--plugin=hardware::ups::standard::rfc1628::snmp::plugin \
-	--mode=battery-status \
+	--mode=output-lines \
 	--help
 ```

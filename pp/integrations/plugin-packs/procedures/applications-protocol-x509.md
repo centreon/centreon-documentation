@@ -5,13 +5,11 @@ title: X509 Certificate
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The **X509 Certificate** Monitoring Connector is used to monitor how much time is left before X509 certificates expire.
-
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **X509 Certificate** brings a host template:
+The Monitoring Connector **X509 Certificat** brings a host template:
 
 * **App-Protocol-X509-custom**
 
@@ -22,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias    | Service Template                     | Service Description                           |
 |:-----------------|:-------------------------------------|:----------------------------------------------|
-| X509-Certificate | App-Protocol-X509-Certificate-custom | Check expiration date of a X509 certificate |
+| X509-Certificate | App-Protocol-X509-Certificate-custom | Check expiration date of a X509's certificate |
 
 > The services listed above are created automatically when the **App-Protocol-X509-custom** host template is used.
 
@@ -39,6 +37,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | Metric name | Unit  |
 |:------------|:------|
 | status      | N/A   |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
@@ -177,16 +177,16 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \
-	--hostname='www.google.com' \
+	--hostname='10.0.0.1' \
 	--port=443 \
 	--warning-status='%{expiration} < 60' \
-	--critical-status='%{expiration} < 30'
+	--critical-status='%{expiration} < 30' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Certificate for 'www.google.com' expires in '60' days [2023-10-30T12:22:43Z] - Issuer: '/C=US/O=Google Trust Services LLC/CN=GTS CA 1C3' 
+OK: | 
 ```
 
 ### Troubleshooting

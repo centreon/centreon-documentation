@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template              | Service Description                                                                                                                                  |
 |:--------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Windows-Cpu-SNMP-custom    | Check the rate of utilization of the CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs.  |
+| Cpu           | OS-Windows-Cpu-SNMP-custom    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU.  |
 | Memory        | OS-Windows-Memory-SNMP-custom | Check the rate of the utilization of memory                                                                                                          |
 | Swap          | OS-Windows-Swap-SNMP-custom   | Check the rate of the utilization of virtual memory                                                                                                  |
 
@@ -29,18 +29,18 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                            | Service Description                                                                                        | Discovery  |
-|:---------------------|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on a disk (filter by ID). For each check the name of the disk will appear     |            |
-| Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on a disk (filter by name). For each check the name of the disk will appear   |            |
-| Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the name of the disk will appear                     | X          |
-| Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Check the synchronization with an NTP server                                                               |            |
-| Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows processes are started                                                                     | X          |
-| Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Check if Windows services are started                                                                      | X          |
-| Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of an interface (filter by ID). For each check the name of the interface will appear   |            |
-| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of an interface (filter by name). For each check the name of the interface will appear |            |
-| Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each check the name of the interface will appear                    | X          |
-| Uptime               | OS-Windows-Uptime-SNMP-custom               | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold    |            |
+| Service Alias        | Service Template                            | Service Description                                                                                     | Discovery  |
+|:---------------------|:--------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
+| Disk-Generic-Id      | OS-Windows-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each checks the name of the disk will appear              |            |
+| Disk-Generic-Name    | OS-Windows-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the name of the disk will appear              |            |
+| Disk-Global          | OS-Windows-Disk-Global-SNMP-custom          | Check the rate of free space on the disk. For each checks the name of the disk will appear              | X          |
+| Ntp                  | OS-Windows-Ntp-SNMP-custom                  | Check the synchronization with an NTP server                                                            |            |
+| Process-Generic      | OS-Windows-Process-Generic-SNMP-custom      | Check if Windows process are started                                                                    | X          |
+| Service-Generic      | OS-Windows-Service-Generic-SNMP-custom      | Check if Windows services are started                                                                   | X          |
+| Traffic-Generic-Id   | OS-Windows-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear             |            |
+| Traffic-Generic-Name | OS-Windows-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear             |            |
+| Traffic-Global       | OS-Windows-Traffic-Global-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear             | X          |
+| Uptime               | OS-Windows-Uptime-SNMP-custom               | Check the uptime of the Windows server since the last reboot. It's just an indication with no threshold |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -55,7 +55,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                          |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule |
+| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) to get the discovery rule |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -78,21 +78,21 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                               | Unit  |
-|:------------------------------------------|:------|
-| cpu.utilization.percentage                | %     |
-| *cpu_num*#core.cpu.utilization.percentage | %     |
+| Metric name                                | Unit  |
+|:-------------------------------------------|:------|
+| cpu.utilization.percentage                 | %     |
+| *cpu_core*#core.cpu.utilization.percentage | %     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Disk-*" label="Disk-*">
 
-| Metric name                           | Unit  |
-|:--------------------------------------|:------|
-| storage.partitions.count              |       |
-| *disk_name*#storage.space.usage.bytes | B     |
-| *disk_name*#storage.access.count      |       |
+| Metric name                         | Unit  |
+|:------------------------------------|:------|
+| storage.partitions.count            | count |
+| *storage*#storage.space.usage.bytes | B     |
+| *storage*#storage.access.count      | count |
 
 > Applies to the following service templates: Disk-Generic-Id, Disk-Generic-Name, Disk-Global
 
@@ -147,15 +147,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Metric name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| interface status                                          |       |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
+| Metric name                               | Unit  |
+|:------------------------------------------|:------|
+| *int*#status                              | N/A   |
+| *int*#interface.traffic.in.bitspersecond  | b/s   |
+| *int*#interface.traffic.out.bitspersecond | b/s   |
 
 > Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
@@ -306,9 +302,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Default value                                 | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
-| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
-| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   |                                              |             |
+| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
+| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
+| DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -318,9 +314,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Default value                                 | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                       |             |
-| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                            |             |
-| DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   |                                              |             |
+| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                       |             |
+| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                            |             |
+| DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -330,9 +326,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                         | Default value                                           | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages')                   | .*                                                      |             |
-| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching)                     | ^(..).*                                                 |             |
-| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution)                 | $1                                                      |             |
+| FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    | .*                                                      |             |
+| TRANSFORMSRC | Regexp src to transform display value. (security risk!!!)                                           | ^(..).*                                                 |             |
+| TRANSFORMDST | Regexp dst to transform display value. (security risk!!!)                                           | $1                                                      |             |
 | WARNING      | Warning threshold                                                                                   | 80                                                      |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                                      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --filter-perfdata='storage.space\|used\|free' |             |
@@ -351,9 +347,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro        | Description                                                                                                     | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPADDR      | Set the NTP hostname (if not set, localtime is used)                                                            |                   |             |
-| NTPPORT      | Set the NTP port (Default: 123)                                                                                 |                   |             |
-| TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. You can use the following format: 'Europe/London' or '+0100' |                   |             |
+| NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
+| NTPPORT      | Set the ntp port (Default: 123)                                                                                 |                   |             |
+| TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
 | WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
 | CRITICAL     | Time offset critical Threshold (in seconds)                                                                     | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)             |                   |             |
@@ -375,22 +371,22 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 
 | Macro                   | Description                                                                                         | Default value     | Mandatory   |
 |:------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SERVICENAME             | DEPRECATED. Use --filter-name instead                                                               |                   |             |
-| STATE                   | DEPRECATED. Use --critical/warning-status instead                                                   |                   |             |
-| FILTERNAME              | DEPRECATED. Use --filter-name instead                                                               |                   |             |
-| CRITICAL                | DEPRECATED. Use --critical-active instead                                                           | 1:                |             |
-| WARNING                 | DEPRECATED. Use --warning-active instead                                                            |                   |             |
-| WARNINGACTIVE           | Thresholds on services count                                                                        |                   |             |
-| CRITICALACTIVE          | Thresholds on services count                                                                        |                   |             |
-| WARNINGCONTINUEPENDING  | Thresholds on services count                                                                        |                   |             |
-| CRITICALCONTINUEPENDING | Thresholds on services count                                                                        |                   |             |
-| WARNINGPAUSED           | Thresholds on services count                                                                        |                   |             |
-| CRITICALPAUSED          | Thresholds on services count                                                                        |                   |             |
-| WARNINGPAUSEPENDING     | Thresholds on services count                                                                        |                   |             |
-| CRITICALPAUSEPENDING    | Thresholds on services count                                                                        |                   |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{operating_state}, %{installed_state}  |                   |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{operating_state}, %{installed_state} |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)            | --verbose         |             |
+| SERVICENAME             | Services to check. (can set multiple times)                                                         |                   | X           |
+| STATE                   | Service state. (Regexp allowed)                                                                     |                   |             |
+| FILTERNAME              | Services to check. (can set multiple times)                                                         |                   | X           |
+| CRITICAL                | Critical threshold                                                                                  | 1:                |             |
+| WARNING                 | Warning threshold                                                                                   |                   |             |
+| WARNINGACTIVE           |                                                                                                     |                   |             |
+| CRITICALACTIVE          |                                                                                                     |                   |             |
+| WARNINGCONTINUEPENDING  |                                                                                                     |                   |             |
+| CRITICALCONTINUEPENDING |                                                                                                     |                   |             |
+| WARNINGPAUSED           |                                                                                                     |                   |             |
+| CRITICALPAUSED          |                                                                                                     |                   |             |
+| WARNINGPAUSEPENDING     |                                                                                                     |                   |             |
+| CRITICALPAUSEPENDING    |                                                                                                     |                   |             |
+| WARNINGSTATUS           |                                                                                                     |                   |             |
+| CRITICALSTATUS          |                                                                                                     |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -435,7 +431,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                 | --verbose         |             |
 
 </TabItem>
@@ -461,18 +457,18 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
 	--plugin=os::windows::snmp::plugin \
-	--mode=service \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='windows_ro' \
-    --filter-name='Server' \
-    --critical-active=1
+	--mode=cpu \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--warning-average='80' \
+	--critical-average='90' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Service 'Server' state is 'active' [installed state: 'installed'] | 'services.active.count'=1;;1:;0; 'services.continue.pending.count'=0;;;0; 'services.pause.pending.count'=0;;;0; 'services.paused.count'=0;;;0;
+OK: 75 % usage : 64 % | 'cpu.utilization.percentage'=75%;;;0;100 'core.cpu.utilization.percentage'=64%;;;0;100 
 ```
 
 ### Troubleshooting
@@ -585,7 +581,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                   |
 |:-------------------|:----------------------------------------------|
-| --use-ucd          | Use UCD MIB for CPU average.                  |
+| --use-ucd          | Use UCD mib for cpu average.                  |
 | --warning-average  | Warning threshold average CPU utilization.    |
 | --critical-average | Critical threshold average CPU utilization.   |
 | --warning-core     | Warning thresholds for each CPU core          |
@@ -615,7 +611,7 @@ All available options for each service template are listed below:
 | --add-access            | Check storage access (readOnly, readWrite).                                                                                                                                                                                                   |
 | --units                 | Units of thresholds (Default: '%') ('%', 'B').                                                                                                                                                                                                |
 | --free                  | Thresholds are on free space left.                                                                                                                                                                                                            |
-| --storage               | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storages').                                                                                                                                                            |
+| --storage               | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage').                                                                                                                                                             |
 | --name                  | Allows to use storage name with option --storage instead ofstorage oid index.                                                                                                                                                                 |
 | --regexp                | Allows to use regexp to filter storage (with option --name).                                                                                                                                                                                  |
 | --regexp-isensitive     | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                                                                      |
@@ -623,7 +619,8 @@ All available options for each service template are listed below:
 | --reload-cache-time     | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                   |
 | --oid-filter            | Choose OID used to filter storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                         |
 | --oid-display           | Choose OID used to display storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                        |
-| --display-transform-src --display-transform-dst  | Modify the disk name displayed by using a regular expression. Eg: adding --display-transform-src='^(.):.*' --display-transform-dst='$1:'                                                                             |
+| --display-transform-src | Regexp src to transform display value. (security risk!!!)                                                                                                                                                                                     |
+| --display-transform-dst | Regexp dst to transform display value. (security risk!!!)                                                                                                                                                                                     |
 | --show-cache            | Display cache storage datas.                                                                                                                                                                                                                  |
 | --space-reservation     | Some filesystem has space reserved (like ext4 for root). The value is in percent of total (Default: none) (results like 'df' command).                                                                                                        |
 | --filter-duplicate      | Filter duplicate storages (in used size and total size).                                                                                                                                                                                      |
@@ -694,16 +691,13 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Service-Generic" label="Service-Generic">
 
-| Option                             | Description                                                                                                                    |
-|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| --filter-name                      | Filter by service name (can be a regexp).                                                                                      |
-| --warning-status --critical-status | Set WARNING or CRITICAL threshold for status. You can use the following variables: %{operating\_state}, %{installed\_state}.   |
-| --warning-* --critical-*           | Thresholds on services count. Can be: 'active', 'continue-pending', 'pause-pending', 'paused'.                                 |
-| --warning                          | DEPRECATED. Use --warning-active instead.                                                                                      |
-| --critical                         | DEPRECATED. Use --critical-active instead.                                                                                     |
-| --service                          | DEPRECATED. Use --filter-name instead.                                                                                         |
-| --regexp                           | DEPRECATED. Use --filter-name instead.                                                                                         |
-| --state                            | DEPRECATED. Use --critical/warning-status instead.                                                                             |
+| Option     | Description                                   |
+|:-----------|:----------------------------------------------|
+| --warning  | Warning threshold.                            |
+| --critical | Critical threshold.                           |
+| --service  | Services to check. (can set multiple times)   |
+| --regexp   | Allows to use regexp to filter services.      |
+| --state    | Service state. (Regexp allowed)               |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -759,7 +753,8 @@ All available options for each service template are listed below:
 | --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
 | --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
 | --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                     |
-| --display-transform-src --display-transform-dst  | Modify the interface name displayed by using a regular expression. Eg: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                        |
+| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                     |
+| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                     |
 | --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                             |
 
 </TabItem>
@@ -796,6 +791,6 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
 	--plugin=os::windows::snmp::plugin \
-	--mode=service \
+	--mode=cpu \
 	--help
 ```

@@ -5,73 +5,73 @@ title: Google Compute Engine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Pack assets
 
-## Monitoring Connector Assets
+### Templates
 
-### Monitored Objects
+The Monitoring Connector **Google Compute Engine** brings a host template:
 
-The Monitoring Connector Google Compute Engine collects metrics for:
-* Cpu
-* Diskio
-* Network
+* **Cloud-Gcp-Compute-ComputeEngine-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="Cloud-Gcp-Compute-ComputeEngine-custom" label="Cloud-Gcp-Compute-ComputeEngine-custom">
+
+| Service Alias | Service Template                                   | Service Description |
+|:--------------|:---------------------------------------------------|:--------------------|
+| Cpu           | Cloud-Gcp-Compute-ComputeEngine-Cpu-Api-custom     | Check CPU usage     |
+| Diskio        | Cloud-Gcp-Compute-ComputeEngine-Diskio-Api-custom  | Check disks I       |
+| Network       | Cloud-Gcp-Compute-ComputeEngine-Network-Api-custom | Check network usage |
+
+> The services listed above are created automatically when the **Cloud-Gcp-Compute-ComputeEngine-custom** host template is used.
+
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-The Centreon Monitoring Connector *Google Compute Engine* includes a Host Discovery *provider* to automatically discover virtual machines
-for a given Google Cloud Project.
+#### Host discovery
 
-This provider is named **Google Compute Engine**:
+| Rule name             | Description                              |
+|:----------------------|:-----------------------------------------|
+| Google Compute Engine | Discover Google Compute Engine instances |
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-computeengine-provider.png)
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
-> Note that the key file must be deployed on the Poller(s) expected to discover GCP assets.
+### Collected metrics & status
 
-More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
-
-### Collected Metrics
-
-For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                                                            | Description                                          | Unit  |
-| :--------------------------------------------------------------------- | :--------------------------------------------------- | :---- |
-| *instance_name*~*aggregation*#computeengine.cpu.utilization.percentage | Utilization of allocated CPU                         | %     |
-| *instance_name*~*aggregation*#computeengine.cpu.reserved_cores.count   | Number of vCPUs reserved on the host of the instance |       |
+| Metric name                              | Unit  |
+|:-----------------------------------------|:------|
+| computeengine.cpu.utilization.percentage | %     |
+| computeengine.cpu.reserved_cores.count   | count |
 
 </TabItem>
 <TabItem value="Diskio" label="Diskio">
 
-| Metric name                                                                            | Description                                              | Unit  |
-| :------------------------------------------------------------------------------------- | :------------------------------------------------------- | :---- |
-| *instance_name*~*aggregation*#computeengine.disk.read.volume.bytes                     | Count of bytes read from disk                            | B     |
-| *instance_name*~*aggregation*#computeengine.disk.read.volume.bytespersecond            | Count of bytes read per seconds from disk                | B/s   |
-| *instance_name*~*aggregation*#computeengine.disk.throttled.read.volume.bytes           | Count of bytes in throttled read operations              | B     |
-| *instance_name*~*aggregation*#computeengine.disk.throttled.read.volume.bytespersecond  | Count of bytes per seconds in throttled read operations  | B/s   |
-| *instance_name*~*aggregation*#computeengine.disk.write.volume.bytes                    | Count of bytes write from disk                           | B     |
-| *instance_name*~*aggregation*#computeengine.disk.write.volume.bytespersecond           | Count of bytes write per seconds from disk               | B/s   |
-| *instance_name*~*aggregation*#computeengine.disk.throttled.write.volume.bytes          | Count of bytes in throttled write operations             | B     |
-| *instance_name*~*aggregation*#computeengine.disk.throttled.write.volume.bytespersecond | Count of bytes per seconds in throttled write operations | B/s   |
-| *instance_name*~*aggregation*#computeengine.disk.read.ops.count                        | Count of data disk read IO operations                    |       |
-| *instance_name*~*aggregation*#computeengine.disk.read.ops.persecond                    | Count of data disk read IOPs operations                  |       |
-| *instance_name*~*aggregation*#computeengine.disk.write.ops.persecond                   | Count of data disk write IO operations                   |       |
-| *instance_name*~*aggregation*#computeengine.disk.write.ops.persecond                   | Count of data disk write IOPs operations                 |       |
+| Metric name                                     | Unit  |
+|:------------------------------------------------|:------|
+| computeengine.disk.read.volume.bytes            | B     |
+| computeengine.disk.throttled.read.volume.bytes  | B     |
+| computeengine.disk.write.volume.bytes           | B     |
+| computeengine.disk.throttled.write.volume.bytes | B     |
+| computeengine.disk.read.ops.count               | count |
+| computeengine.disk.write.ops.count              | count |
 
 </TabItem>
 <TabItem value="Network" label="Network">
 
-| Metric name                                                                        | Description                                            | Unit  |
-| :--------------------------------------------------------------------------------- | :----------------------------------------------------- | :---- |
-| *instance_name*~*aggregation*#computeengine.network.received.volume.bytes          | Count of bytes received from the network               | B     |
-| *instance_name*~*aggregation*#computeengine.network.received.volume.bytespersecond | Count of bytes received per seconds from the network   | B/s   |
-| *instance_name*~*aggregation*#computeengine.network.sent.volume.bytes              | Count of bytes sent over the network                   | B     |
-| *instance_name*~*aggregation*#computeengine.network.sent.volume.bytespersecond     | Count of bytes sent per seconds over the network       | B/s   |
-| *instance_name*~*aggregation*#computeengine.network.received.packets.count         | Count of packets received from the network             |       |
-| *instance_name*~*aggregation*#computeengine.network.received.packets.persecond     | Count of packets received per seconds from the network |       |
-| *instance_name*~*aggregation*#computeengine.network.sent.packets.count             | Count of packets sent over the network                 |       |
-| *instance_name*~*aggregation*#computeengine.network.sent.packets.persecond         | Count of packets sent per seconds over the network     |       |
+| Metric name                                  | Unit    |
+|:---------------------------------------------|:--------|
+| computeengine.network.received.volume.bytes  | B       |
+| computeengine.network.sent.volume.bytes      | B       |
+| computeengine.network.received.packets.count | packets |
+| computeengine.network.sent.packets.count     | packets |
 
 </TabItem>
 </Tabs>
@@ -88,107 +88,364 @@ Configure a service account key (download its private key as a JSON file) for wh
 
 How to create a service account key: https://developers.google.com/identity/protocols/oauth2/service-account
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connectors Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
+dnf install centreon-pack-cloud-gcp-compute-computeengine
 ```
-
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Compute Engine* Monitoring Connector
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
+dnf install centreon-pack-cloud-gcp-compute-computeengine
 ```
 
-2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-cloud-gcp-compute-computeengine
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-gcp-compute-computeengine
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Compute Engine* Monitoring Connector
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Google Compute Engine** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-cloud-gcp-compute-computeengine-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
+```
 
 </TabItem>
 </Tabs>
 
-## Host configuration
+## Using the monitoring connector
 
-* Add a new Host and apply the *Cloud-Gcp-Compute-ComputeEngine-custom* Host Template
+### Using a host template provided by the connector
 
-> Once the template applied, some Macros have to be configured:
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **Cloud-Gcp-Compute-ComputeEngine-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory   | Name                 | Description                                                                                 |
-| :---------- | :------------------- | :------------------------------------------------------------------------------------------ |
-| X           | GCPKEYFILEPATH       | Service account key json file                                                               |
-| X           | GCPSCOPEENDPOINT     | Google Scope. Default: https://www.googleapis.com/auth/cloud-platform                       |
-| X           | GCPDIMENSIONNAME     | The name of the dimension to filter on. Default: resource.labels.instance_id                |
-| X           | GCPDIMENSIONOPERATOR | Define the type of filter match to use. Default: equals                                     |
-| X           | GCPDIMENSIONVALUE    | ID of the instance you want to monitor.                                                     |
-|             | PROXYURL             | Configure proxy URL                                                                         |
-|             | GCPEXTRAOPTIONS      | Any extra option you may want to add to every command_line (eg. a --verbose flag)           |
-|             | DUMMYSTATUS          | Host state. Default is OK, do not modify it until you know what you are doing               |
-|             | DUMMYOUTPUT          | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
+| Macro                | Description                                                                                           | Default value                                  | Mandatory   |
+|:---------------------|:------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
+| GCPDIMENSIONNAME     | Set dimension name (Default: 'metric.labels.instance\_name')                                          | resource.labels.instance\_id                   |             |
+| GCPDIMENSIONOPERATOR | Set dimension operator (Default: 'equals'. Can also be: 'regexp', 'starts')                           | equals                                         |             |
+| GCPDIMENSIONVALUE    | Set dimension value (Required)                                                                        |                                                |             |
+| GCPKEYFILEPATH       | Set GCP key file path                                                                                 |                                                | X           |
+| GCPSCOPEENDPOINT     | Set GCP scope endpoint URL (Default: 'https://www.googleapis.com/auth/cloud-platform')                | https://www.googleapis.com/auth/cloud-platform |             |
+| PROXYURL             | Proxy URL. Eg: http://my.proxy:3128                                                                   |                                                |             |
+| GCPEXTRAOPTIONS      | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                                                |             |
 
-> Service account key file must be stored on Centreon Poller. *centreon-engine* user account must have read privileges on that file. 
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-## FAQ
+### Using a service template provided by the connector
 
-### How to test the Plugin and what are the main options for?
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
-and test the Plugin by running the following command:
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Macro                 | Description                                                                                                            | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME             | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                | 900               |             |
+| AGGREGATION           | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | average           |             |
+| FILTERMETRIC          | Filter metrics (Can be: 'instance/cpu/utilization', 'instance/cpu/reserved\_cores') (Can be a regexp)                  |                   |             |
+| WARNINGCORESRESERVED  | Thresholds (                                                                                                           |                   |             |
+| CRITICALCORESRESERVED | Thresholds (                                                                                                           |                   |             |
+| WARNINGUTILIZATION    | Thresholds (                                                                                                           |                   |             |
+| CRITICALUTILIZATION   | Thresholds (                                                                                                           |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                    | --verbose         |             |
+
+</TabItem>
+<TabItem value="Diskio" label="Diskio">
+
+| Macro                        | Description                                                                                                                                                                                                                                                                            | Default value     | Mandatory   |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                    | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                                                                                                                                                                | 900               |             |
+| AGGREGATION                  | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times                                                                                                                                                                 | average           |             |
+| FILTERMETRIC                 | Filter metrics (Can be: 'instance/disk/read\_bytes\_count', 'instance/disk/throttled\_read\_bytes\_count', 'instance/disk/write\_bytes\_count', 'instance/disk/throttled\_write\_bytes\_count', 'instance/disk/read\_ops\_count', 'instance/disk/write\_ops\_count') (Can be a regexp) |                   |             |
+| WARNINGREADOPS               | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| CRITICALREADOPS              | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| WARNINGREADVOLUME            | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| CRITICALREADVOLUME           | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| WARNINGTHROTTLEDREADVOLUME   | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| CRITICALTHROTTLEDREADVOLUME  | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| WARNINGTHROTTLEDWRITEVOLUME  | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| CRITICALTHROTTLEDWRITEVOLUME | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| WARNINGWRITEOPS              | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| CRITICALWRITEOPS             | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| WARNINGWRITEVOLUME           | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| CRITICALWRITEVOLUME          | Thresholds (                                                                                                                                                                                                                                                                           |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                    | --verbose         |             |
+
+</TabItem>
+<TabItem value="Network" label="Network">
+
+| Macro                   | Description                                                                                                                                                                                                       | Default value     | Mandatory   |
+|:------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME               | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                                                                                           | 900               |             |
+| AGGREGATION             | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times                                                                                            | average           |             |
+| FILTERMETRIC            | Filter metrics (Can be: 'instance/network/received\_bytes\_count', 'instance/network/sent\_bytes\_count', 'instance/network/received\_packets\_count', 'instance/network/sent\_packets\_count') (Can be a regexp) |                   |             |
+| WARNINGRECEIVEDPACKETS  | Thresholds (                                                                                                                                                                                                      |                   |             |
+| CRITICALRECEIVEDPACKETS | Thresholds (                                                                                                                                                                                                      |                   |             |
+| WARNINGRECEIVEDVOLUME   | Thresholds (                                                                                                                                                                                                      |                   |             |
+| CRITICALRECEIVEDVOLUME  | Thresholds (                                                                                                                                                                                                      |                   |             |
+| WARNINGSENTPACKETS      | Thresholds (                                                                                                                                                                                                      |                   |             |
+| CRITICALSENTPACKETS     | Thresholds (                                                                                                                                                                                                      |                   |             |
+| WARNINGSENTVOLUME       | Thresholds (                                                                                                                                                                                                      |                   |             |
+| CRITICALSENTVOLUME      | Thresholds (                                                                                                                                                                                                      |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                               | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a GCP Instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_gcp_compute_computeengine_api.pl \
-    --plugin=cloud::google::gcp::compute::computeengine::plugin \
-    --mode=cpu \
-    --key-file=/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json \
-    --dimension-name='metric.labels.instance_name' \
-    --dimension-operator='equals' \
-    --dimension-value='instance-centreon1-drb5' \
-    --aggregation='average' \
-    --warning-utilization='90' \
-    --critical-utilization='95' \
-    --verbose
+	--plugin=cloud::google::gcp::compute::computeengine::plugin \
+	--mode=network \
+	--proxyurl='' \
+	--key-file='' \
+	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform' \
+	--dimension-name='resource.labels.instance_id' \
+	--dimension-operator='equals' \
+	--dimension-value=''   \
+	--filter-metric='' \
+	--timeframe='900' \
+	--aggregation='average' \
+	--warning-sent-packets='' \
+	--critical-sent-packets='' \
+	--warning-sent-volume='' \
+	--critical-sent-volume='' \
+	--warning-received-volume='' \
+	--critical-received-volume='' \
+	--warning-received-packets='' \
+	--critical-received-packets='' \
+	--verbose
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
-OK: Instance 'instance-centreon1-drb5' aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20 | 'instance-centreon1-drb5~average#computeengine.cpu.utilization.percentage'=1.04%;0:90;0:95;0;100 'instance-centreon1-drb5~average#computeengine.cpu.reserved_cores.count'=0.20;;;;
-Checking 'instance-centreon1-drb5'
-    aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20
+OK: received: 92 sent: 32 received packets: 44 sent packets: 48 | 'computeengine.network.received.volume.bytes'=92B;;;; 'computeengine.network.sent.volume.bytes'=32B;;;; 'computeengine.network.received.packets.count'=44packets;;;; 'computeengine.network.sent.packets.count'=48packets;;;; 
 ```
 
-The command above monitors cpu usage of a Google Compute Engine instance (```--plugin=cloud::google::gcp::compute::computeengine::plugin --mode=cpu```) identified
-by the name *instance-centreon1-drb5* (```--dimension-name='metric.labels.instance_name' --dimension-operator='equals' --dimension-value='instance-centreon1-drb5'```).
+### Troubleshooting
 
-This command would trigger a WARNING alarm if cpu utilization is more than 90% 
-(```--warning-utilization='90'```) and a CRITICAL alarm for more than 95% (```--critical-utilization='95'```).
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-All the options as well as all the available thresholds can be displayed by adding the  ```--help```
-parameter to the command:
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_gcp_compute_computeengine_api.pl \
-    --plugin=cloud::google::gcp::compute::computeengine::plugin \
-    --mode=cpu \
-    --help
+	--plugin=cloud::google::gcp::compute::computeengine::plugin \
+	--list-mode
 ```
 
-### Why do I get the following result ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values``` ?
+The plugin brings the following modes:
 
-This command result means that Google Cloud does not have any value for the requested period.
+| Mode                                                                                                                                       | Linked service template                            |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/google/gcp/compute/computeengine/mode/cpu.pm)]             | Cloud-Gcp-Compute-ComputeEngine-Cpu-Api-custom     |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/google/gcp/compute/computeengine/mode/discovery.pm)] | Used for host discovery                            |
+| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/google/gcp/compute/computeengine/mode/diskio.pm)]       | Cloud-Gcp-Compute-ComputeEngine-Diskio-Api-custom  |
+| network [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/google/gcp/compute/computeengine/mode/network.pm)]     | Cloud-Gcp-Compute-ComputeEngine-Network-Api-custom |
 
-This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric 
-has been collected and will prevent the UNKNOWN error message. 
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Google Cloud Platform Rest API      To connect to the GCP Rest API, you need to create an API key.      Follow the 'How-to guide' at     https://cloud.google.com/video-intelligence/docs/common/auth                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --key-file                                 | Set GCP key file path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --authorization-endpoint                   | Set GCP authorization endpoint URL (Default: 'https://www.googleapis.com/oauth2/v4/token')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --monitoring-endpoint                      | Set GCP monitoring endpoint URL (Default: 'https://monitoring.googleapis.com/v3')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --scope-endpoint                           | Set GCP scope endpoint URL (Default: 'https://www.googleapis.com/auth/cloud-platform')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --zeroed                                   | Set metrics value to 0 if none. Useful when Stackdriver does not return value when not defined.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --timeout                                  | Set timeout in seconds (Default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --memcached                                | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-server                             | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-attribute                          | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-db                                 | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --failback-file                            | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-dir                            | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-suffix                         | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-concat-cwd                     | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --statefile-format                         | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --statefile-key                            | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-cipher                         | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --dimension-name         | Set dimension name (Default: 'metric.labels.instance\_name').                                                             |
+| --dimension-operator     | Set dimension operator (Default: 'equals'. Can also be: 'regexp', 'starts').                                              |
+| --dimension-value        | Set dimension value (Required).                                                                                           |
+| --filter-metric          | Filter metrics (Can be: 'instance/cpu/utilization', 'instance/cpu/reserved\_cores') (Can be a regexp).                    |
+| --timeframe              | Set timeframe in seconds (i.e. 3600 to check last hour).                                                                  |
+| --aggregation            | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.   |
+| --warning-* --critical-* | Thresholds (Can be: 'utilization', 'cores-reserved').                                                                     |
+
+</TabItem>
+<TabItem value="Diskio" label="Diskio">
+
+| Option                   | Description                                                                                                                                                                                                                                                                               |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --dimension-name         | Set dimension name (Default: 'metric.labels.instance\_name').                                                                                                                                                                                                                             |
+| --dimension-operator     | Set dimension operator (Default: 'equals'. Can also be: 'regexp', 'starts').                                                                                                                                                                                                              |
+| --dimension-value        | Set dimension value (Required).                                                                                                                                                                                                                                                           |
+| --filter-metric          | Filter metrics (Can be: 'instance/disk/read\_bytes\_count', 'instance/disk/throttled\_read\_bytes\_count', 'instance/disk/write\_bytes\_count', 'instance/disk/throttled\_write\_bytes\_count', 'instance/disk/read\_ops\_count', 'instance/disk/write\_ops\_count') (Can be a regexp).   |
+| --timeframe              | Set timeframe in seconds (i.e. 3600 to check last hour).                                                                                                                                                                                                                                  |
+| --aggregation            | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.                                                                                                                                                                   |
+| --warning-* --critical-* | Thresholds (Can be: 'read-volume', 'throttled-read-volume', 'write-volume', 'throttled-write-volume', 'read-ops', 'write-ops').                                                                                                                                                           |
+| --per-second             | Change the data to be unit/sec.                                                                                                                                                                                                                                                           |
+
+</TabItem>
+<TabItem value="Network" label="Network">
+
+| Option                   | Description                                                                                                                                                                                                          |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --dimension-name         | Set dimension name (Default: 'metric.labels.instance\_name').                                                                                                                                                        |
+| --dimension-operator     | Set dimension operator (Default: 'equals'. Can also be: 'regexp', 'starts').                                                                                                                                         |
+| --dimension-value        | Set dimension value (Required).                                                                                                                                                                                      |
+| --filter-metric          | Filter metrics (Can be: 'instance/network/received\_bytes\_count', 'instance/network/sent\_bytes\_count', 'instance/network/received\_packets\_count', 'instance/network/sent\_packets\_count') (Can be a regexp).   |
+| --timeframe              | Set timeframe in seconds (i.e. 3600 to check last hour).                                                                                                                                                             |
+| --aggregation            | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.                                                                                              |
+| --warning-* --critical-* | Thresholds (Can be: 'received-volume', 'sent-volume', 'received-packets', 'sent-packets').                                                                                                                           |
+| --per-second             | Change the data to be unit/sec.                                                                                                                                                                                      |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_gcp_compute_computeengine_api.pl \
+	--plugin=cloud::google::gcp::compute::computeengine::plugin \
+	--mode=network \
+	--help
+```

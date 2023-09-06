@@ -5,13 +5,11 @@ title: X509 Certificate
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le connecteur **X509 Certificate** permet de contrôler le temps restant avant l'expiration de certificats X509.
-
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **X509 Certificate** apporte un modèle d'hôte :
+Le connecteur de supervision **X509 Certificat** apporte un modèle d'hôte :
 
 * **App-Protocol-X509-custom**
 
@@ -40,6 +38,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique    | Unité |
 |:------------|:------|
 | status      | N/A   |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
@@ -178,16 +178,16 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::protocols::x509::plugin \
 	--mode=certificate \
 	--custommode='tcp' \
-	--hostname='www.google.com' \
+	--hostname='10.0.0.1' \
 	--port=443 \
 	--warning-status='%{expiration} < 60' \
-	--critical-status='%{expiration} < 30'
+	--critical-status='%{expiration} < 30' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Certificate for 'www.google.com' expires in '60' days [2023-10-30T12:22:43Z] - Issuer: '/C=US/O=Google Trust Services LLC/CN=GTS CA 1C3' 
+OK: | 
 ```
 
 ### Diagnostic des erreurs communes

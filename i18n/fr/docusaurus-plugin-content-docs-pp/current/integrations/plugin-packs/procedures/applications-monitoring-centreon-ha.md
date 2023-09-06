@@ -5,66 +5,126 @@ title: Centreon-HA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Contenu du pack
 
-## Vue d'ensemble
+### Modèles
 
-Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon. Plus d'informations sont disponibles [ici](/docs/installation/installation-of-centreon-ha/overview).
+Le connecteur de supervision **Centreon-HA** apporte un modèle d'hôte :
 
-Le connecteur de supervision Centreon-HA s'appuie sur deux autre connecteurs de supervision :
+* **App-Monitoring-Centreon-HA-Cluster-Node-custom**
 
-* [Pacemaker](integrations/plugin-packs/procedures/applications-pacemaker-ssh.md)
-* [Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md)
-
-Par conséquent, il utilise les protocoles de ces deux connecteurs de supervision - **SNMP** et **SSH** - pour se connecter aux nœuds du cluster Centreon-HA et récupérer informations et métriques relatives aux processus et à la santé du cluster.
-
-## Contenu du connecteur de supervision
-
-### Objets supervisés
-
-* Nœuds d'un cluster Centreon-HA
-* Noeud actif d'un cluster Centreon-HA *via* la VIP
-* Serveur tiers fournissant le service de Quorum Device (service `corosync-qnetd`)
-
-### Métriques collectées
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
+<TabItem value="App-Monitoring-Centreon-HA-Cluster-Node-custom" label="App-Monitoring-Centreon-HA-Cluster-Node-custom">
+
+| Alias                          | Modèle de service                                                | Description |
+|:-------------------------------|:-----------------------------------------------------------------|:------------|
+| PCS-Constraint-cbd_rrd         | App-Monitoring-Centreon-HA-PCS-Constraint-cbd_rrd-custom         |             |
+| PCS-Constraint-centreon        | App-Monitoring-Centreon-HA-PCS-Constraint-centreon-custom        |             |
+| PCS-Constraint-ms_mysql-master | App-Monitoring-Centreon-HA-PCS-Constraint-ms_mysql-master-custom |             |
+| PCS-Constraint-php7            | App-Monitoring-Centreon-HA-PCS-Constraint-php7-custom            |             |
+| PCS-Status                     | App-Monitoring-Centreon-HA-PCS-Status-custom                     |             |
+| proc-corosync                  | App-Monitoring-Centreon-HA-Process-corosync-custom               |             |
+| proc-pacemakerd                | App-Monitoring-Centreon-HA-Process-pacemakerd-custom             |             |
+| proc-pcsd                      | App-Monitoring-Centreon-HA-Process-pcsd-custom                   |             |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Centreon-HA-Cluster-Node-custom** est utilisé.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias               | Modèle de service                                        | Description |
+|:--------------------|:---------------------------------------------------------|:------------|
+| proc-corosync-qnetd | App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom |             |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="PCS-Constraint-cbd_rrd" label="PCS-Constraint-cbd_rrd">
+
+Coming soon
+
+</TabItem>
+<TabItem value="PCS-Constraint-centreon" label="PCS-Constraint-centreon">
+
+Coming soon
+
+</TabItem>
+<TabItem value="PCS-Constraint-ms_mysql-master" label="PCS-Constraint-ms_mysql-master">
+
+Coming soon
+
+</TabItem>
+<TabItem value="PCS-Constraint-php7" label="PCS-Constraint-php7">
+
+Coming soon
+
+</TabItem>
 <TabItem value="PCS-Status" label="PCS-Status">
 
-Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster :
-
-* remontée des "failed actions"
-* état des ressources :
-  * `php`
-  * `cbd_rrd`
-  * `vip`
-  * `http`
-  * `gorgone`
-  * `centreon_central_sync`
-  * `cbd_central_broker`
-  * `centengine`
-  * `centreontrapd`
-  * `snmptrapd`
+| Métrique                                                | Unité |
+|:--------------------------------------------------------|:------|
+| *cluster*~connection-status                             | N/A   |
+| *cluster*~quorum-status                                 | N/A   |
+| *cluster*~cluster.nodes.online.count                    | count |
+| *cluster*~cluster.nodes.offline.count                   | count |
+| *cluster*~cluster.nodes.standby.count                   | count |
+| *cluster*~cluster.actions.failed.count                  | count |
+| *resources*#resource-status                             | N/A   |
+| *resources*#resource.actions.failed.count               | count |
+| *resources*#resource.migration.failed.count             | count |
+| *clone_resources*#clone-resource-status                 | N/A   |
+| *clone_resources*#clone_resource.actions.failed.count   | count |
+| *clone_resources*#clone_resource.migration.failed.count | count |
 
 </TabItem>
 <TabItem value="proc-corosync" label="proc-corosync">
 
-| Metric name | Description                                                    | Unit  |
-|:------------|:---------------------------------------------------------------|:------|
-| nbproc      | Nombre de processus dont le nom correpond au filtre `corosync` | Count |
+| Métrique    | Unité |
+|:------------|:------|
+| nbproc      | N/A   |
+| mem_total   | B     |
+| mem_avg     | B     |
+| cpu_total   | %     |
+
+</TabItem>
+<TabItem value="proc-corosync-qnetd" label="proc-corosync-qnetd">
+
+| Métrique    | Unité |
+|:------------|:------|
+| nbproc      | N/A   |
+| mem_total   | B     |
+| mem_avg     | B     |
+| cpu_total   | %     |
 
 </TabItem>
 <TabItem value="proc-pacemakerd" label="proc-pacemakerd">
 
-| Metric name | Description                                                      | Unit  |
-|:------------|:-----------------------------------------------------------------|:------|
-| nbproc      | Nombre de processus dont le nom correpond au filtre `pacemakerd` | Count |
+| Métrique    | Unité |
+|:------------|:------|
+| nbproc      | N/A   |
+| mem_total   | B     |
+| mem_avg     | B     |
+| cpu_total   | %     |
 
 </TabItem>
 <TabItem value="proc-pcsd" label="proc-pcsd">
 
-| Metric name | Description                                                | Unit  |
-|:------------|:-----------------------------------------------------------|:------|
-| nbproc      | Nombre de processus dont le nom correpond au filtre `pcsd` | Count |
+| Métrique    | Unité |
+|:------------|:------|
+| nbproc      | N/A   |
+| mem_total   | B     |
+| mem_avg     | B     |
+| cpu_total   | %     |
 
 </TabItem>
 </Tabs>
@@ -124,71 +184,284 @@ Il ne reste plus qu'à l'intégrer au groupe `haclient` pour lui permettre d'ex�
 usermod -a -G haclient centreon-engine
 ```
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
+dnf install centreon-pack-applications-monitoring-centreon-ha
 ```
-
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser un cluster Centreon-HA :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
+dnf install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-2. Installer le RPM du connecteur de supervision sur le serveur Centreon Central:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-monitoring-centreon-ha
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon-HA**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install 
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install 
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install 
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install 
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *App-Monitoring-Centreon-HA-Cluster-Node-custom*
+### Utiliser un modèle d'hôte issu du connecteur
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres d'authentification et de chiffrement adéquats.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Monitoring-Centreon-HA-Cluster-Node-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+| Macro           | Description                                                                                                                                                         | Valeur par défaut | Obligatoire |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
+| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
+| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   |                   |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                               |                   |             |
 
-## FAQ
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+### Utiliser un modèle de service issu du connecteur
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis un collecteur Centreon **en vous connectant avec l'utilisateur `centreon-engine`** :
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="PCS-Constraint-cbd_rrd" label="PCS-Constraint-cbd_rrd">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RESOURCENAME | Set the resource name you want to check                                                             | cbd\_rrd          | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="PCS-Constraint-centreon" label="PCS-Constraint-centreon">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RESOURCENAME | Set the resource name you want to check                                                             | centreon          | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="PCS-Constraint-ms_mysql-master" label="PCS-Constraint-ms_mysql-master">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RESOURCENAME | Set the resource name you want to check                                                             | ms\_mysql-master  | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="PCS-Constraint-php7" label="PCS-Constraint-php7">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RESOURCENAME | Set the resource name you want to check                                                             | php7              | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="PCS-Status" label="PCS-Status">
+
+| Macro                                | Description                                                                                                                                                                                                                  | Valeur par défaut                                           | Obligatoire |
+|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
+| FILTERRESOURCENAME                   | Filter resource (also clone resource) by name (can be a regexp)                                                                                                                                                              |                                                             |             |
+| WARNINGCLONERESOURCEACTIONSFAILED    | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALCLONERESOURCEACTIONSFAILED   | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGCLONERESOURCEMIGRATIONFAILED  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALCLONERESOURCEMIGRATIONFAILED | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGCLONERESOURCESTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}                                      |                                                             |             |
+| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /failed/i'). You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged} |                                                             |             |
+| WARNINGCLUSTERACTIONSFAILED          | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALCLUSTERACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGCONNECTIONSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                                                                |                                                             |             |
+| CRITICALCONNECTIONSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{connection\_status} =~ /failed/i'). You can use the following variables: %{connection\_status}, %{connection\_error}                               |                                                             |             |
+| WARNINGNODESOFFLINE                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALNODESOFFLINE                 | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGNODESONLINE                   | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALNODESONLINE                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGNODESSTANDBY                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALNODESSTANDBY                 | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGQUORUMSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                                                          |                                                             |             |
+| CRITICALQUORUMSTATUS                 | Define the conditions to match for the status to be CRITICAL (Default: '%{quorum\_status} =~ /noQuorum/i'). You can use the following variables: %{quorum\_status}                                                           |                                                             |             |
+| WARNINGRESOURCEACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALRESOURCEACTIONSFAILED        | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGRESOURCEMIGRATIONFAILED       | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| CRITICALRESOURCEMIGRATIONFAILED      | Thresholds                                                                                                                                                                                                                   |                                                             |             |
+| WARNINGRESOURCESTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                                                              |                                                             |             |
+| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                |                                                             |             |
+| EXTRAOPTIONS                         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                          | --command='pcs' --command-options='status --full' --verbose |             |
+
+</TabItem>
+<TabItem value="proc-corosync" label="proc-corosync">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                 | corosync          |             |
+| PROCESSPATH  | Filter process path                                                                                 |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="proc-corosync-qnetd" label="proc-corosync-qnetd">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                 | corosync-qnetd    |             |
+| PROCESSPATH  | Filter process path                                                                                 |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="proc-pacemakerd" label="proc-pacemakerd">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                 | pacemakerd        |             |
+| PROCESSPATH  | Filter process path                                                                                 |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="proc-pcsd" label="proc-pcsd">
+
+| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                 | pcsd              |             |
+| PROCESSPATH  | Filter process path                                                                                 |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --plugin=apps::pacemaker::local::plugin \
+	--plugin=apps::pacemaker::local::plugin \
 	--mode=crm \
-	--hostname=10.0.0.1 \
-	--remote \
+	--hostname='10.0.0.1' \
+	--ssh-backend='' \
+	--ssh-username='' \
+	--ssh-password='' \
+	--ssh-port=''  \
+	--filter-resource-name='' \
+	--warning-nodes-online='' \
+	--critical-nodes-online='' \
+	--warning-nodes-offline='' \
+	--critical-nodes-offline='' \
+	--warning-nodes-standby='' \
+	--critical-nodes-standby='' \
+	--warning-clone-resource-status='' \
+	--critical-clone-resource-status='' \
+	--warning-clone-resource-actions-failed='' \
+	--critical-clone-resource-actions-failed='' \
+	--warning-clone-resource-migration-failed='' \
+	--critical-clone-resource-migration-failed='' \
+	--warning-connection-status='' \
+	--critical-connection-status='' \
+	--warning-cluster-actions-failed='' \
+	--critical-cluster-actions-failed='' \
+	--warning-resource-status='' \
+	--critical-resource-status='' \
+	--warning-resource-actions-failed='' \
+	--critical-resource-actions-failed='' \
+	--warning-resource-migration-failed='' \
+	--critical-resource-migration-failed='' \
+	--warning-quorum-status='' \
+	--critical-quorum-status='' \
 	--command='pcs' \
-	--command-options='status --full' \
+	--command-options='status \
+	--full' \
 	--verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+La commande devrait retourner un message de sortie similaire à :
 
-```text
+```bash
 OK: Cluster is OK |
 Resource 'php' is started on node 'central-primary'
 Resource 'php' is started on node 'central-secondary'
@@ -202,82 +475,515 @@ Resource 'cbd_central_broker' is started on node 'central-secondary'
 Resource 'centengine' is started on node 'central-secondary'
 Resource 'centreontrapd' is started on node 'central-secondary'
 Resource 'snmptrapd' is started on node 'central-secondary'
+
 ```
 
-Dans cet exemple, le Plugin récupère les informations concernant l'état général du cluster Centreon-HA par l'intermédiaire du nœud identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). 
+### Diagnostic des erreurs communes
 
-Une alarme WARNING sera ainsi déclenchée si une ou plusieurs *failed actions* sont remontées par la commande `pcs status --full`. L'alarme sera de type CRITICAL si une ou plusieurs ressource sont arrêtées alors qu'elles devraient être démarrées.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée en ajoutant le paramètre `--help` à la commande:
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl --plugin=apps::pacemaker::local::plugin --mode=crm --help
+/usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
+	--plugin=apps::pacemaker::local::plugin \
+	--list-mode
 ```
 
-Les options `--command='pcs'` et `--command-options='status --full'` permettent de surcharger le fonctionnement du plugin en remplaçant la commande `crm_mon -1 -r -f 2>&1` par `pcs status --full`.
+Le plugin apporte les modes suivants :
 
-### J'obtiens le message d'erreur suivant:
+| Mode                                                                                                                         | Modèle de service associé                                                                                                                                                                                                                                |
+|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| arp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/arp.pm)]                        | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| clustat [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pacemaker/local/mode/clustat.pm)]         | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| constraints [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pacemaker/local/mode/constraints.pm)] | App-Monitoring-Centreon-HA-PCS-Constraint-cbd_rrd-custom<br />App-Monitoring-Centreon-HA-PCS-Constraint-centreon-custom<br />App-Monitoring-Centreon-HA-PCS-Constraint-ms_mysql-master-custom<br />App-Monitoring-Centreon-HA-PCS-Constraint-php7-custom |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                        | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]       | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| crm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pacemaker/local/mode/crm.pm)]                 | App-Monitoring-Centreon-HA-PCS-Status-custom                                                                                                                                                                                                             |
+| disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/diskusage.pm)]           | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/diskio.pm)]                  | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/inodes.pm)]                  | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]          | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| list-diskspath [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listdiskspath.pm)]   | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)] | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| list-processes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listprocesses.pm)]   | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/liststorages.pm)]     | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]               | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                  | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/processcount.pm)]      | App-Monitoring-Centreon-HA-Process-corosync-custom<br />App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom<br />App-Monitoring-Centreon-HA-Process-pacemakerd-custom<br />App-Monitoring-Centreon-HA-Process-pcsd-custom                           |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                      | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| tcpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/tcpcon.pm)]                  | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                       | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| udpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/udpcon.pm)]                  | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                  | Not used in this Monitoring Connector                                                                                                                                                                                                                    |
 
-#### The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established
+### Options disponibles
 
-> Attention, la tentative d'exécution du plugin et de connexion via SSH doivent impérativement se faire depuis le compte `centreon-engine`.
+#### Options génériques
 
-Le message complet ressemble à ce qui suit :
+Les options génériques sont listées ci-dessous :
 
-```text
-The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established.
-ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-Are you sure you want to continue connecting (yes/no)? UNKNOWN: Command too long to execute (timeout)...
-```
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --hostname                                 | Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-Si vous obtenez ce message, cela signifie que vous n'avez pas accepté l'empreinte du serveur.
+#### Options des modes
 
-Pour y remédier il faut initier une première connexion :
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="PCS-Constraint-cbd_rrd" label="PCS-Constraint-cbd_rrd">
+
+| Option                  | Description                                                                                                                                                            |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
+| --list-custommode       | List all available custom modes.                                                                                                                                       |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
+| --timeout               | Timeout in seconds for the command (Default: 45). Default value can be override by the mode.                                                                           |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
+| --command-path          | Command path.                                                                                                                                                          |
+| --command-options       | Command options.                                                                                                                                                       |
+| --sudo  sudo command    | .                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
+| --plink-path            | plink command path (default: none)                                                                                                                                     |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
+| --resource              | Set the resource name you want to check                                                                                                                                |
+| --warning               | Return a warning instead of a critical                                                                                                                                 |
+
+</TabItem>
+<TabItem value="PCS-Constraint-centreon" label="PCS-Constraint-centreon">
+
+| Option                  | Description                                                                                                                                                            |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
+| --list-custommode       | List all available custom modes.                                                                                                                                       |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
+| --timeout               | Timeout in seconds for the command (Default: 45). Default value can be override by the mode.                                                                           |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
+| --command-path          | Command path.                                                                                                                                                          |
+| --command-options       | Command options.                                                                                                                                                       |
+| --sudo  sudo command    | .                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
+| --plink-path            | plink command path (default: none)                                                                                                                                     |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
+| --resource              | Set the resource name you want to check                                                                                                                                |
+| --warning               | Return a warning instead of a critical                                                                                                                                 |
+
+</TabItem>
+<TabItem value="PCS-Constraint-ms_mysql-master" label="PCS-Constraint-ms_mysql-master">
+
+| Option                  | Description                                                                                                                                                            |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
+| --list-custommode       | List all available custom modes.                                                                                                                                       |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
+| --timeout               | Timeout in seconds for the command (Default: 45). Default value can be override by the mode.                                                                           |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
+| --command-path          | Command path.                                                                                                                                                          |
+| --command-options       | Command options.                                                                                                                                                       |
+| --sudo  sudo command    | .                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
+| --plink-path            | plink command path (default: none)                                                                                                                                     |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
+| --resource              | Set the resource name you want to check                                                                                                                                |
+| --warning               | Return a warning instead of a critical                                                                                                                                 |
+
+</TabItem>
+<TabItem value="PCS-Constraint-php7" label="PCS-Constraint-php7">
+
+| Option                  | Description                                                                                                                                                            |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
+| --list-custommode       | List all available custom modes.                                                                                                                                       |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
+| --timeout               | Timeout in seconds for the command (Default: 45). Default value can be override by the mode.                                                                           |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
+| --command-path          | Command path.                                                                                                                                                          |
+| --command-options       | Command options.                                                                                                                                                       |
+| --sudo  sudo command    | .                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
+| --plink-path            | plink command path (default: none)                                                                                                                                     |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
+| --resource              | Set the resource name you want to check                                                                                                                                |
+| --warning               | Return a warning instead of a critical                                                                                                                                 |
+
+</TabItem>
+<TabItem value="PCS-Status" label="PCS-Status">
+
+| Option                           | Description                                                                                                                                                                                                                    |
+|:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode                     | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                    |
+| --list-custommode                | List all available custom modes.                                                                                                                                                                                               |
+| --multiple                       | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                          |
+| --timeout                        | Timeout in seconds for the command (Default: 45). Default value can be override by the mode.                                                                                                                                   |
+| --command                        | Command to get information. Used it you have output in a file.                                                                                                                                                                 |
+| --command-path                   | Command path.                                                                                                                                                                                                                  |
+| --command-options                | Command options.                                                                                                                                                                                                               |
+| --sudo  sudo command             | .                                                                                                                                                                                                                              |
+| --ssh-backend                    | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                             |
+| --ssh-username                   | Define the user name to log in to the host.                                                                                                                                                                                    |
+| --ssh-password                   | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                           |
+| --ssh-port                       | Define the TCP port on which SSH is listening.                                                                                                                                                                                 |
+| --ssh-priv-key                   | Define the private key file to use for user authentication.                                                                                                                                                                    |
+| --sshcli-command                 | ssh command (default: 'ssh').                                                                                                                                                                                                  |
+| --sshcli-path                    | ssh command path (default: none)                                                                                                                                                                                               |
+| --sshcli-option                  | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                              |
+| --plink-command                  | plink command (default: 'plink').                                                                                                                                                                                              |
+| --plink-path                     | plink command path (default: none)                                                                                                                                                                                             |
+| --plink-option                   | Specify plink options (example: --plink-option='-T').                                                                                                                                                                          |
+| --libssh-strict-connect          | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                            |
+| --filter-resource-name           | Filter resource (also clone resource) by name (can be a regexp).                                                                                                                                                               |
+| --warning-connection-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                                                                  |
+| --critical-connection-status     | Define the conditions to match for the status to be CRITICAL (Default: '%{connection\_status} =~ /failed/i'). You can use the following variables: %{connection\_status}, %{connection\_error}                                 |
+| --warning-quorum-status          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                                                            |
+| --critical-quorum-status         | Define the conditions to match for the status to be CRITICAL (Default: '%{quorum\_status} =~ /noQuorum/i'). You can use the following variables: %{quorum\_status}                                                             |
+| --warning-resource-status        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                                                                |
+| --critical-resource-status       | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                  |
+| --warning-clone-resource-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}                                        |
+| --critical-clone-resource-status | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /failed/i'). You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}   |
+| --ignore-failed-actions          | Failed actions errors (that match) are skipped.                                                                                                                                                                                |
+| --resources                      | If resources not started on the node specified, send a warning message: (format: \<rsc\_name\>:\<node\>,\<rsc\_name\>:\<node\>,...)                                                                                            |
+| --warning-* --critical-*         | Thresholds. Can be: 'cluster-actions-failed', 'clone-resource-actions-failed', 'clone-resource-migration-failed', 'nodes-online', 'nodes-offline', 'nodes-standby', 'resource-actions-failed', 'resource-migration-failed'.    |
+
+</TabItem>
+<TabItem value="proc-corosync" label="proc-corosync">
+
+| Option                    | Description                                                                                                                                                                                                                                   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --snmp-community          | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                       |
+| --snmp-version            | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                         |
+| --snmp-port               | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                          |
+| --snmp-timeout            | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                |
+| --snmp-retries            | Maximum number of retries (default: 5).                                                                                                                                                                                                       |
+| --maxrepetitions          | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                |
+| --subsetleef              | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                      |
+| --snmp-autoreduce         | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (By default, the number is divided by 2).                                                                                                       |
+| --snmp-force-getnext      | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                            |
+| --snmp-cache-file         | Use SNMP cache file.                                                                                                                                                                                                                          |
+| --snmp-username           | SNMP v3 only: User name (securityName).                                                                                                                                                                                                       |
+| --authpassphrase          | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                      |
+| --authprotocol            | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                        |
+| --privpassphrase          | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                 |
+| --privprotocol            | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                         |
+| --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
+| --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
+| --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
+| --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
+| --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
+| --snmp-tls-their-hostname | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                       |
+| --snmp-tls-trust-cert     | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                  |
+| --memcached               | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server            | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute         | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db                | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file           | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration           | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir           | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix        | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd    | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format        | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key           | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher        | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --process-status          | Filter process status. Can be a regexp. (Default: 'running\|runnable').                                                                                                                                                                       |
+| --process-name            | Filter process name.                                                                                                                                                                                                                          |
+| --regexp-name             | Allows to use regexp to filter process name (with option --process-name).                                                                                                                                                                     |
+| --process-path            | Filter process path.                                                                                                                                                                                                                          |
+| --regexp-path             | Allows to use regexp to filter process path (with option --process-path).                                                                                                                                                                     |
+| --process-args            | Filter process arguments.                                                                                                                                                                                                                     |
+| --regexp-args             | Allows to use regexp to filter process arguments (with option --process-args).                                                                                                                                                                |
+| --warning                 | Warning threshold of matching processes count.                                                                                                                                                                                                |
+| --critical                | Critical threshold of matching processes count.                                                                                                                                                                                               |
+| --memory                  | Check memory usage.                                                                                                                                                                                                                           |
+| --warning-mem-each        | Warning threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                       |
+| --critical-mem-each       | Critical threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                      |
+| --warning-mem-total       | Warning threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                      |
+| --critical-mem-total      | Critical threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                     |
+| --warning-mem-avg         | Warning threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                    |
+| --critical-mem-avg        | Critical threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                   |
+| --cpu                     | Check cpu usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
+| --warning-cpu-total       | Warning threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
+| --critical-cpu-total      | Critical threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
+| --top                     | Enable top memory usage display.                                                                                                                                                                                                              |
+| --top-num                 | Number of processes in top memory display (Default: 5).                                                                                                                                                                                       |
+| --top-size                | Minimum memory usage to be in top memory display (Default: 52428800 -\> 50 MB).                                                                                                                                                               |
+
+</TabItem>
+<TabItem value="proc-corosync-qnetd" label="proc-corosync-qnetd">
+
+| Option                    | Description                                                                                                                                                                                                                                   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --snmp-community          | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                       |
+| --snmp-version            | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                         |
+| --snmp-port               | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                          |
+| --snmp-timeout            | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                |
+| --snmp-retries            | Maximum number of retries (default: 5).                                                                                                                                                                                                       |
+| --maxrepetitions          | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                |
+| --subsetleef              | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                      |
+| --snmp-autoreduce         | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (By default, the number is divided by 2).                                                                                                       |
+| --snmp-force-getnext      | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                            |
+| --snmp-cache-file         | Use SNMP cache file.                                                                                                                                                                                                                          |
+| --snmp-username           | SNMP v3 only: User name (securityName).                                                                                                                                                                                                       |
+| --authpassphrase          | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                      |
+| --authprotocol            | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                        |
+| --privpassphrase          | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                 |
+| --privprotocol            | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                         |
+| --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
+| --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
+| --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
+| --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
+| --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
+| --snmp-tls-their-hostname | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                       |
+| --snmp-tls-trust-cert     | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                  |
+| --memcached               | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server            | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute         | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db                | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file           | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration           | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir           | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix        | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd    | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format        | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key           | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher        | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --process-status          | Filter process status. Can be a regexp. (Default: 'running\|runnable').                                                                                                                                                                       |
+| --process-name            | Filter process name.                                                                                                                                                                                                                          |
+| --regexp-name             | Allows to use regexp to filter process name (with option --process-name).                                                                                                                                                                     |
+| --process-path            | Filter process path.                                                                                                                                                                                                                          |
+| --regexp-path             | Allows to use regexp to filter process path (with option --process-path).                                                                                                                                                                     |
+| --process-args            | Filter process arguments.                                                                                                                                                                                                                     |
+| --regexp-args             | Allows to use regexp to filter process arguments (with option --process-args).                                                                                                                                                                |
+| --warning                 | Warning threshold of matching processes count.                                                                                                                                                                                                |
+| --critical                | Critical threshold of matching processes count.                                                                                                                                                                                               |
+| --memory                  | Check memory usage.                                                                                                                                                                                                                           |
+| --warning-mem-each        | Warning threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                       |
+| --critical-mem-each       | Critical threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                      |
+| --warning-mem-total       | Warning threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                      |
+| --critical-mem-total      | Critical threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                     |
+| --warning-mem-avg         | Warning threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                    |
+| --critical-mem-avg        | Critical threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                   |
+| --cpu                     | Check cpu usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
+| --warning-cpu-total       | Warning threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
+| --critical-cpu-total      | Critical threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
+| --top                     | Enable top memory usage display.                                                                                                                                                                                                              |
+| --top-num                 | Number of processes in top memory display (Default: 5).                                                                                                                                                                                       |
+| --top-size                | Minimum memory usage to be in top memory display (Default: 52428800 -\> 50 MB).                                                                                                                                                               |
+
+</TabItem>
+<TabItem value="proc-pacemakerd" label="proc-pacemakerd">
+
+| Option                    | Description                                                                                                                                                                                                                                   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --snmp-community          | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                       |
+| --snmp-version            | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                         |
+| --snmp-port               | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                          |
+| --snmp-timeout            | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                |
+| --snmp-retries            | Maximum number of retries (default: 5).                                                                                                                                                                                                       |
+| --maxrepetitions          | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                |
+| --subsetleef              | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                      |
+| --snmp-autoreduce         | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (By default, the number is divided by 2).                                                                                                       |
+| --snmp-force-getnext      | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                            |
+| --snmp-cache-file         | Use SNMP cache file.                                                                                                                                                                                                                          |
+| --snmp-username           | SNMP v3 only: User name (securityName).                                                                                                                                                                                                       |
+| --authpassphrase          | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                      |
+| --authprotocol            | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                        |
+| --privpassphrase          | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                 |
+| --privprotocol            | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                         |
+| --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
+| --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
+| --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
+| --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
+| --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
+| --snmp-tls-their-hostname | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                       |
+| --snmp-tls-trust-cert     | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                  |
+| --memcached               | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server            | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute         | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db                | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file           | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration           | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir           | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix        | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd    | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format        | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key           | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher        | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --process-status          | Filter process status. Can be a regexp. (Default: 'running\|runnable').                                                                                                                                                                       |
+| --process-name            | Filter process name.                                                                                                                                                                                                                          |
+| --regexp-name             | Allows to use regexp to filter process name (with option --process-name).                                                                                                                                                                     |
+| --process-path            | Filter process path.                                                                                                                                                                                                                          |
+| --regexp-path             | Allows to use regexp to filter process path (with option --process-path).                                                                                                                                                                     |
+| --process-args            | Filter process arguments.                                                                                                                                                                                                                     |
+| --regexp-args             | Allows to use regexp to filter process arguments (with option --process-args).                                                                                                                                                                |
+| --warning                 | Warning threshold of matching processes count.                                                                                                                                                                                                |
+| --critical                | Critical threshold of matching processes count.                                                                                                                                                                                               |
+| --memory                  | Check memory usage.                                                                                                                                                                                                                           |
+| --warning-mem-each        | Warning threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                       |
+| --critical-mem-each       | Critical threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                      |
+| --warning-mem-total       | Warning threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                      |
+| --critical-mem-total      | Critical threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                     |
+| --warning-mem-avg         | Warning threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                    |
+| --critical-mem-avg        | Critical threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                   |
+| --cpu                     | Check cpu usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
+| --warning-cpu-total       | Warning threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
+| --critical-cpu-total      | Critical threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
+| --top                     | Enable top memory usage display.                                                                                                                                                                                                              |
+| --top-num                 | Number of processes in top memory display (Default: 5).                                                                                                                                                                                       |
+| --top-size                | Minimum memory usage to be in top memory display (Default: 52428800 -\> 50 MB).                                                                                                                                                               |
+
+</TabItem>
+<TabItem value="proc-pcsd" label="proc-pcsd">
+
+| Option                    | Description                                                                                                                                                                                                                                   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --snmp-community          | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                       |
+| --snmp-version            | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                         |
+| --snmp-port               | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                          |
+| --snmp-timeout            | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                |
+| --snmp-retries            | Maximum number of retries (default: 5).                                                                                                                                                                                                       |
+| --maxrepetitions          | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                |
+| --subsetleef              | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                      |
+| --snmp-autoreduce         | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (By default, the number is divided by 2).                                                                                                       |
+| --snmp-force-getnext      | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                            |
+| --snmp-cache-file         | Use SNMP cache file.                                                                                                                                                                                                                          |
+| --snmp-username           | SNMP v3 only: User name (securityName).                                                                                                                                                                                                       |
+| --authpassphrase          | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                      |
+| --authprotocol            | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                        |
+| --privpassphrase          | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                 |
+| --privprotocol            | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                         |
+| --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
+| --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
+| --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
+| --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
+| --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
+| --snmp-tls-their-hostname | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                       |
+| --snmp-tls-trust-cert     | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                  |
+| --memcached               | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server            | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute         | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db                | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file           | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration           | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir           | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix        | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd    | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format        | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key           | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher        | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --process-status          | Filter process status. Can be a regexp. (Default: 'running\|runnable').                                                                                                                                                                       |
+| --process-name            | Filter process name.                                                                                                                                                                                                                          |
+| --regexp-name             | Allows to use regexp to filter process name (with option --process-name).                                                                                                                                                                     |
+| --process-path            | Filter process path.                                                                                                                                                                                                                          |
+| --regexp-path             | Allows to use regexp to filter process path (with option --process-path).                                                                                                                                                                     |
+| --process-args            | Filter process arguments.                                                                                                                                                                                                                     |
+| --regexp-args             | Allows to use regexp to filter process arguments (with option --process-args).                                                                                                                                                                |
+| --warning                 | Warning threshold of matching processes count.                                                                                                                                                                                                |
+| --critical                | Critical threshold of matching processes count.                                                                                                                                                                                               |
+| --memory                  | Check memory usage.                                                                                                                                                                                                                           |
+| --warning-mem-each        | Warning threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                       |
+| --critical-mem-each       | Critical threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                      |
+| --warning-mem-total       | Warning threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                      |
+| --critical-mem-total      | Critical threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                     |
+| --warning-mem-avg         | Warning threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                    |
+| --critical-mem-avg        | Critical threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                   |
+| --cpu                     | Check cpu usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
+| --warning-cpu-total       | Warning threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
+| --critical-cpu-total      | Critical threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
+| --top                     | Enable top memory usage display.                                                                                                                                                                                                              |
+| --top-num                 | Number of processes in top memory display (Default: 5).                                                                                                                                                                                       |
+| --top-size                | Minimum memory usage to be in top memory display (Default: 52428800 -\> 50 MB).                                                                                                                                                               |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-ssh x.x.x.x
-```
-
-Puis taper 'yes' à l'invite suivante :
-
-```text
-The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established.
-ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-Are you sure you want to continue connecting (yes/no)?
-```
-
-#### UNKNOWN: Command error: Permission denied, please try again
-
-Le message complet ressemble à ce qui suit :
-
-```text
-UNKNOWN: Command error: Permission denied, please try again. - Permission denied, please try again. - Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
-```
-
-Si l'exécution de la sonde renvoie ce message, c'est que la clé publique du compte `centreon-engine` du poller n'est pas correctement déposée sur le nœud que l'on cherche à superviser.
-
-Il faut tout d'abord s'assurer que celle-ci (contenue dans `/var/lib/centreon-engine/.ssh/id_ed25519.pub`) est bien présente dans le fichier `/var/lib/centreon-engine/.ssh/authorized_keys`.
-
-Si le point précédent est bien validé, alors s'assurer que les permissions du fichier `authorized_keys` et du répertoire `.ssh` qui le contient sont conformes à ce qui s'affiche suite à la commande :
-
-```bash
-ls -al /var/lib/centreon-engine/.ssh
-```
-
-Le résultat doit être conforme à ce qui suit :
-
-```text
-total 20
-drwx------  2 centreon-engine centreon-engine 4096 Sep  4 14:44 .
-drwxr-xr-x. 5 centreon-engine centreon-engine 4096 Sep  4 14:44 ..
--rw-------  1 centreon-engine centreon-engine    0 Sep  4 14:44 authorized_keys
-```
-
-Dans le cas contraire, lancer ces commandes :
-
-```bash
-chmod 700 /var/lib/centreon-engine/.ssh
-chmod 600 /var/lib/centreon-engine/.ssh/authorized_keys
+/usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
+	--plugin=apps::pacemaker::local::plugin \
+	--mode=crm \
+	--help
 ```
