@@ -240,7 +240,7 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 
 > Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous superviser des ressources Microsoft Azure géré par 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
->
+
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
