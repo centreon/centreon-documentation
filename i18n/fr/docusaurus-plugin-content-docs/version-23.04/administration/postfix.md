@@ -29,7 +29,7 @@ dnf install mailx cyrus-sasl-plain
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
-dnf install mailx cyrus-sasl-plain
+dnf install s-nail cyrus-sasl-plain
 ```
 
 </TabItem>
