@@ -47,7 +47,7 @@ configuration:
         package: gorgone::modules::core::httpserver::hooks
         enable: false
         address: 0.0.0.0
-        port: 8085
+        port: 8085.
         ssl: false
         auth:
           enabled: false
@@ -89,11 +89,11 @@ configuration:
       - name: broker
         package: "gorgone::modules::centreon::broker::hooks"
         enable: true
-        cache_dir: "/var/cache/centreon//broker-stats/"
+        cache_dir: “/var/cache/centreon//broker-stats/"
         cron:
           - id: broker_stats
             timespec: "*/2 * * * *"
             action: BROKERSTATS
             parameters:
-              timeout: 10
+              timeout: 10.
 ```

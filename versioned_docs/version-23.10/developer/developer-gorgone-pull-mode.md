@@ -9,10 +9,10 @@ This procedure describes how to configure Gorgone between a distant poller and a
 
 - Pull mode is relevant when firewalls are set on pollers and prevent incoming traffic.
 
-- Pull mode is relevant when the Central is in the cloud and pollers are not reachable through usual IP addresses. So the pull (or reverse) mode is used to make each poller initiate a connection to the public IP address of the Central. Learn more about this use case in [this article](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-gorgone-pull-mode-374).
+- Pull mode is relevant when the Central is in the cloud and pollers are not reachable through the usual IP addresses. In that situation, the pull (or reverse) mode is used to make each poller initiate a connection to the public IP address of the Central. Learn more about this use case in [this article](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-gorgone-pull-mode-374).
 
 
-> Note: In our case, we have the configuration described below (you have to adapt the procedure to your configuration).
+> Note: In our case, we have the configuration described below (you must adapt the procedure to your configuration).
 
 Central server:
 - address: 10.30.2.203
@@ -22,11 +22,11 @@ Distant Poller:
 - address: 10.30.2.179
 - rsa public key thumbprint: nJSH9nZN2ugQeksHif7Jtv19RQA58yjxfX-Cpnhx09s
 
-## On the distant poller side
+## On the remote poller side
 
 ### Installation requirements
 
-Ensure the distant poller and Gorgone are already installed.
+Ensure the remote poller and Gorgone are already installed.
 
 ### Configuration
 
@@ -37,7 +37,7 @@ name:  distant-server
 description: Configuration for distant server
 gorgone:
   gorgonecore:
-    id: 6
+    id: 6.
     privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
     pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
 
@@ -56,7 +56,7 @@ gorgone:
       enable: true
       target_type: tcp
       target_path: 10.30.2.203:5556
-      ping: 1
+      ping: 1.
 ```
 
 ## On the Central server side
@@ -92,7 +92,7 @@ We created the file **/etc/centreon-gorgone/nodes-register-override.yml**:
 
 ```shell
 nodes:
-  - id: 6
+  - id: 6.
     type: pull
-    prevail: 1
+    prevail: 1.
 ```
