@@ -17,6 +17,26 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.10
+
+Release date: `August 31, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that made it impossible to use the extended output in the "output" widget.
+- [Server] Fixed an issue that prevented the MAP Engine server from starting.
+- [Server] Updated dependencies.
+- [Viewer] Fixed the alignment of output text in the "output" widget.
+
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
+- [Server] Fixed an issue that could prevent some maps from being edited.
+
 ### 22.10.8
 
 Release date: `July 28, 2023`
@@ -159,6 +179,18 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.10
+
+Release date: `August 31, 2023`
+
+- No change.
+
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+- No change.
+
 ### 22.10.8
 
 Release date: `July 28, 2023`
@@ -274,6 +306,13 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.5
+
+Release date: `August 31, 2023`
+
+- [Packaging] Fixed ETL script references in Debian packaging.
+- Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
+
 ### 22.10.4
 
 Release date: `July 28, 2023`
@@ -324,7 +363,13 @@ Release date: `October 26, 2022`
 
 ## Centreon Auto Discovery
 
-### 22.10.1
+### 22.10.3
+
+Release date: `August 31, 2023`
+
+- Fixed task execution schedule.
+
+### 22.10.2
 
 Release date: `April 24, 2023`
 
@@ -408,3 +453,9 @@ Release date: `October 26, 2022`
 - Added new type of resources in Resource Status (display and filter)
 - Added prediction envelope size management by user from Resources Status
 - Downtimes on regular services are now propagated to related Anomaly Detection service(s)
+
+## Centreon Data Source For Grafana
+
+Release date: `August 31, 2023`
+
+- Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.

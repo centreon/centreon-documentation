@@ -148,5 +148,5 @@ Don't forget to secure your Centreon platform following our
 
 ## Getting started
 
-Go to the [Getting Started](../getting-started/installation-first-steps.md)
+Go to the [Getting Started](../getting-started/welcome.md)
 chapter to configure your first monitoring.

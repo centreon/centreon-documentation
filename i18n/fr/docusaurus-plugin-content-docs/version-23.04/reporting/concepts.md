@@ -338,7 +338,7 @@ périmètre de monitoring.
 Le mode journalier est configuré comme un cron que vous pouvez
 consulter dans `/etc/cron.d/centreon-bi-engine`:
 
-    #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL --daily >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+    30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL --daily >> /var/log/centreon-bi/centreonBIETL.log 2>&1
 
 > **Important**
 >
@@ -467,7 +467,7 @@ Option | Onglet Data Retention Options
 
 #### Importer la dernière configuration de Centreon
 
-    #/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
+    /usr/share/centreon-bi/etl/importData.pl -r --centreon-only
 
 #### Calculer les dimensions de reporting
 
@@ -476,15 +476,15 @@ serveur de reporting pour n'appliquer que les dernières en date. Si vous
 souhaitez garder les anciennes relations, remplacer **"-r"** par
 **"-d"**.:
 
-    #/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
+    /usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
 
 #### Agrégation des événements et de la disponibilité
 
-    #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
+    nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
 
 #### Agrégation des données de performance (stockage, traffic etc.. )
 
-    #nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
+    nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
 
 ### Comment reprendre partiellement les données de reporting ?
 
@@ -498,13 +498,17 @@ Dans ce cas, le plugin de reporting renvoie que la base de données
 n'est pas à jour. Exemple du retour du plugin lorsque la base de
 données n'est pas à jour : :
 
-    #/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+    ```shell
+    /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+    ```
 
+    ```shell
     [Table mod_bam_reporting, last entry: 2015-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2015-07-01 00:00:00] [Table hoststateevents, last entry: 2015-07-01 00:00:00]
     [Table servicestateevents, last entry: 2015-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2015-07-01 00:00:00]
     [Table mod_bi_servicestateevents, last entry: 2015-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2015-07-01 00:00:00]
     [Table mod_bi_serviceavailability, last entry: 2015-07-01 00:00:00] [Table data_bin, last entry: 2015-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2015-08-01 00:00:00]
     [Table mod_bi_metrichourlyvalue, last entry: 2015-08-01 23:00:00]
+    ```
 
 -   Si vous ne voyez que les tables **mod_bi_** cela signifie que le
     problème se situe uniquement sur les données agrégées et pas les
@@ -627,7 +631,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
     `/etc/cron.d/centreon-bi-purge` puis redémarrer le systemctl restart
     crond :
 
-        #systemctl restart crond
+        systemctl restart crond
 
 -   Cas 2 : **La reconstruction se termine le jour suivant**
 

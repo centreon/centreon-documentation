@@ -61,7 +61,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
-sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
 
