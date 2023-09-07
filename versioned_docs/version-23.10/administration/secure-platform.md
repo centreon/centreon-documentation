@@ -9,7 +9,7 @@ This chapter suggests how to best secure your Centreon platform.
 
 ## Strengthen user account security
 
-After installing Centreon, it is necessary to change the default passwords of the following users:
+After installing Centreon, you must change the default passwords of the following users:
 
 - root
 - centreon
@@ -17,7 +17,7 @@ After installing Centreon, it is necessary to change the default passwords of th
 - centreon-broker
 - centreon-gorgone
 
-To do this, use the following command with a privileged account (eg. sudo) or with root (not recommended — you should
+To do this, use the following command with a privileged account (e.g., sudo) or with root (not recommended — you should
 have a dedicated user):
 
 ```shell
@@ -46,7 +46,7 @@ components by the operating system.
 
 > These rules are currently in **beta mode** and can be activated.
 > You can activate them by following this procedure. If you detect a problem,
-> it is possible to disable SELinux globally and to send us your feedback in
+> you can disable SELinux globally and send us your feedback in
 > order to improve our rules on [Github](https://github.com/centreon/centreon).
 
 ### SELinux Overview
@@ -61,16 +61,16 @@ restricting specific applications to only viewing log files, while allowing othe
 the log files.
 
 SELinux implements Mandatory Access Control (MAC). Every process and system resource has a special security label
-called an SELinux context. A SELinux context, sometimes referred to as an SELinux label, is an identifier which
-abstracts away the system-level details and focuses on the security properties of the entity. Not only does this provides
+called an SELinux context. An SELinux context, sometimes referred to as an SELinux label, is an identifier that
+abstracts away the system-level details and focuses on the security properties of the entity. Not only does this provide
 a consistent way of referencing objects in the SELinux policy, but it also removes any ambiguity that can be found in
 other identification methods. For example, a file can have multiple valid path names on a system that makes use of bind
 mounts.
 
-The SELinux policy uses these contexts in a series of rules which define how processes can interact with each other and
+The SELinux policy uses these contexts in a series of rules that define how processes can interact with each other and
 the various system resources. By default, the policy does not allow any interaction unless a rule explicitly grants access.
 
-For more information about SELinux please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
+For more information about SELinux, please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
 ### Activate SELinux in permissive mode
 
@@ -259,7 +259,7 @@ Before enabling SELinux in **enforcing** mode, you need to be sure that no error
 cat /var/log/audit/audit.log | grep -i denied
 ```
 
-If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition to
+If errors appear, you must analyze them and decide if these errors are regular and should be added to
 the Centreon default SELinux rules. To do this, use the following command to transform errors into SELinux rules:
 
 ```shell
@@ -491,7 +491,7 @@ Copy the default rules file:
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
-Edit `/etc/fail2ban/jail.local` file and search **[centreon]** block, then modify such as:
+Edit the file `/etc/fail2ban/jail.local` and search the **[centreon]** block, then modify like this:
 
 ```shell
 [centreon]
@@ -500,7 +500,7 @@ logpath = /var/log/centreon/login.log
 backend  = pyinotify
 ```
 
-To enable the **centreon** fail2ban rule, create the `/etc/fail2ban/jail.d/custom.conf` file and add following lines:
+To enable the **centreon** fail2ban rule, create the `/etc/fail2ban/jail.d/custom.conf` file and add the following lines:
 
 ```shell
 [centreon]
@@ -510,7 +510,7 @@ bantime = 10m
 maxretry = 3
 ```
 
-> **maxretry** is the number of authentication failed before to ban the IP address
+> **maxretry** is the number of authentications failed before banning the IP address
 >
 > **bantime** is the duration of the ban
 >
@@ -533,20 +533,20 @@ Here is an example of output:
 ```shell
 Status for the jail: centreon
 |- Filter
-|  |- Currently failed:	1
-|  |- Total failed:	17
+|  |- Currently failed:	1.
+|  |- Total failed:	17.
 |  `- File list:	/var/log/centreon/login.log
 `- Actions
-   |- Currently banned:	0
-   |- Total banned:	2
+   |- Currently banned:	0.
+   |- Total banned:	2.
    `- Banned IP list:
 ```
 
-> For more information go to the [official website](http://www.fail2ban.org).
+> For more information, go to the [official website](http://www.fail2ban.org).
 
 ## Secure the web server with HTTPS
 
-By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate. It is also recommended to use a certificate validated by an authority rather than a self-signed one. 
+By default, Centreon installs a web server in HTTP mode. It is strongly recommended that you switch to HTTPS mode by adding your certificate. It is also recommended that you use a certificate validated by an authority rather than a self-signed one. 
 
 - If you already have a certificate validated by an authority, you can go directly to this [step](#activating-https-mode-on-your-web-server) to activate HTTPS mode on your Apache server.
 
@@ -567,7 +567,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
 
 1. Prepare the OpenSSL configuration:
 
-  Due to a policy change at Google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you have to change the OpenSSL configuration.
+  Due to a policy change at Google, self-signed certificates may be rejected by the Google Chrome browser (it is not even possible to add an exception). To continue using this browser, you must change the OpenSSL configuration.
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -601,7 +601,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   subjectAltName = @alt_names
   ```
   
-  Here is an example of how the file should look like:
+  Here is an example of how the file should look:
   ```text
   [ alt_names ]
   IP.1 = 10.25.11.73
@@ -637,16 +637,16 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   openssl genrsa -aes256 2048 > ca_demo.key
   ```
   
-5. Create a x509 certificate from the private key of the certificate of certification authority:
+5. Create an x509 certificate from the private key of the certificate of certification authority:
   
-  Create a x509 certificate that will be valid for one year: **ca_demo.crt** in our case.
+  Create an x509 certificate that will be valid for one year: **ca_demo.crt** in our case.
   
   > Note that it is necessary to simulate a trusted third party, so the **Common Name** field must be different from the server certificate.
   ```text
   openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
   ```
   
-  The certificate being created, you will be able to use it to sign your server certificate.
+  The certificate being created will enable you to sign your server certificate.
   
 6. Create a certificate for the server:
   
@@ -684,9 +684,9 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   less centreon7.crt
   ```
   
-7. Then you have to retrieve the x509 certificate file (**ca_demo.crt**) and import it into your browser's certificate manager.
+7. You must then retrieve the x509 certificate file (**ca_demo.crt**) and import it into your browser's certificate manager.
   
-Now you have your self-signed certificate, you can perform the following procedure to activate HTTPS mode on your Apache server.
+Now that you have your self-signed certificate, you can perform the following procedure to activate HTTPS mode on your Apache server.
 
 ### Activating HTTPS mode on your web server
 
@@ -748,7 +748,7 @@ cp centreon7.crt /etc/ssl/certs/
 </TabItem>
 </Tabs>
 
-3. Backup the previous Apache configuration for Centreon:
+3. Back up the previous Apache configuration for Centreon:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -776,7 +776,7 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 
 4. Edit the Centreon Apache configuration:
 
-> Centreon offers an example of configuration file to enable HTTPS available in the following directory:
+> Centreon offers an example of a configuration file to enable HTTPS, available in the following directory:
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
 <Tabs groupId="sync">
@@ -809,7 +809,7 @@ ServerTokens Prod
 </VirtualHost>
 ```
 
-This is how the file should look like:
+This is how the file should look:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1072,7 +1072,7 @@ TraceEnable Off
 
 Edit the **/etc/php/8.1/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
 
-> This one was done during the installation process.
+> This was done during the installation process.
 
 </TabItem>
 </Tabs>
@@ -1151,7 +1151,7 @@ Syntax OK
 </TabItem>
 </Tabs>
 
-8. Restart the Apache and PHP processes to take in account the new configuration:
+8. Restart the Apache and PHP processes to take the new configuration into account:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1238,12 +1238,12 @@ Then check its status:
 systemctl status apache2
 ```
 
-If everything is ok, you must have:
+If everything is ok, you should have:
 
 ```shell
 ● apache2.service - The Apache HTTP Server
     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
-     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+     Active: active (running) since Tue 8/9/2022 5:01:36 AM UTC; 3h 56min ago
        Docs: https://httpd.apache.org/docs/2.4/
    Main PID: 518 (apache2)
       Tasks: 11 (limit: 2356)
@@ -1268,12 +1268,12 @@ If everything is ok, you must have:
 
 Now you can access your platform with your browser in HTTPS mode.
 
-> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set it to HTTPS mode too, otherwise
 > recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 9. Gorgone API configuration
 
-Replace **127.0.0.1** by the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
+Replace **127.0.0.1** with the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
 
 ```text
 gorgone:
@@ -1299,7 +1299,7 @@ Then check its status:
 systemctl status gorgoned
 ```
 
-If everything is ok, you must have:
+If everything is ok, you should have:
 
 ```shell
 ● gorgoned.service - Centreon Gorgone
@@ -1405,22 +1405,22 @@ systemctl restart apache2
 
 ## Enabling http2
 
-It is possible to enable http2 protocol to improve Centreon network performance.
+It is possible to enable the http2 protocol to improve Centreon network performance.
 
-To use http2, you need to follow those steps:
+To use http2, you need to follow these steps:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. [Configure https on Centreon](#secure-the-web-server-with-https)
 
-2. Install nghttp2 module:
+2. Install the nghttp2 module:
 
 ```shell
 dnf install nghttp2
 ```
 
-3. Enable http2 protocol in **/etc/httpd/conf.d/10-centreon.conf**:
+3. Enable the http2 protocol in **/etc/httpd/conf.d/10-centreon.conf**:
 
 ```apacheconf
 ...
@@ -1431,7 +1431,7 @@ dnf install nghttp2
 ...
 ```
 
-4. Update the method used by the apache multi-processus module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
+4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
    Comment the following line:
 
@@ -1445,7 +1445,7 @@ dnf install nghttp2
    LoadModule mpm_event_module modules/mod_mpm_event.so
    ```
 
-5. Restart the Apache process to take in account the new configuration:
+5. Restart the Apache process to take the new configuration into account:
 
 ```shell
 systemctl restart httpd
@@ -1456,13 +1456,13 @@ systemctl restart httpd
 
 1. [Configure https on Centreon](#secure-the-web-server-with-https)
 
-2. Install nghttp2 module:
+2. Install the nghttp2 module:
 
 ```shell
 dnf install nghttp2
 ```
 
-3. Enable http2 protocol in **/etc/httpd/conf.d/10-centreon.conf**:
+3. Enable the http2 protocol in **/etc/httpd/conf.d/10-centreon.conf**:
 
 ```apacheconf
 ...
@@ -1473,7 +1473,7 @@ dnf install nghttp2
 ...
 ```
 
-4. Update the method used by the apache multi-processus module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
+4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
    Comment the following line:
 
@@ -1487,7 +1487,7 @@ dnf install nghttp2
    LoadModule mpm_event_module modules/mod_mpm_event.so
    ```
 
-5. Restart the Apache process to take in account the new configuration:
+5. Restart the Apache process to take the new configuration into account:
 
 ```shell
 systemctl restart httpd
@@ -1524,7 +1524,7 @@ a2enmod mpm_event
 a2enmod http2
 ```
 
-5. Restart the Apache process to take into account the new configuration:
+5. Restart the Apache process to take the new configuration into account:
 
 ```shell
 systemctl restart apache2
@@ -1567,10 +1567,10 @@ If you need to authenticate pollers that are sending data to the monitoring syst
 authentication mechanism, which is based on X.509 certificates.
 [See the following configuration to authenticate the peer](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-flow-authentication).
 
-#### Compress and encrypt the Centreon Broker communication
+#### Compress and encrypt Centreon Broker communication
 
-It is also possible to compress and encrypt the Centreon Broker communication.
-Go to **Configuration > Pollers > Broker configuration** menu, edit your Centreon Broker configuration
+It is also possible to compress and encrypt Centreon Broker communication.
+Go to the **Configuration > Pollers > Broker configuration** menu, edit your Centreon Broker configuration
 and enable for **IPv4** inputs and outputs:
 
 - Enable TLS encryption: Auto
@@ -1579,9 +1579,9 @@ and enable for **IPv4** inputs and outputs:
 
 ### Centreon Gorgone communication
 
-By default, ZMQ communications are secured, both external (with the poller) and internal (between gorgone processes).
+By default, ZMQ communications are secured; both external communications (with the poller) and internal ones (between gorgone processes).
 
-However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone but the communication is not done using SSL.
+However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone, but the communication does not take place using SSL.
 
 You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 

@@ -7,11 +7,11 @@ You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md
 
 - on resources: which hosts, services, etc. users will be allowed to see
 - on the menus in the Centreon interface (which pages users will be able to access)
-- on actions users will be allowed to carry out, on resources or on a monitoring engine (planning a downtime, exporting the configuration...).
+- on actions users will be allowed to carry out, on resources or on a monitoring engine (planning downtime, exporting the configuration, etc.).
 
-Rights are not defined at user level but through [access groups](#creating-an-access-group).
+Rights are not defined at user level, but through [access groups](#creating-an-access-group).
 
-- A specific user can belong to several access groups: the rights defined in each group will be combined.
+- A specific user can belong to several access groups, and the rights defined in each group will be combined.
 - Non-administrator users that belong to no access group will have no rights at all on the monitoring platform (empty screen at login)
 - [Administrator](../monitoring/basic-objects/contacts-create.md#centreon-authentication) users have all rights (even if you add an administrator to an access group with limited rights).
 
@@ -46,11 +46,11 @@ To create an access group:
 
 3. To add users (contacts) or contact groups to the access group, use the **Linked Contacts/Linked Contact Groups** table. (Select the user(s) you want in the **Available** column, and then click **Add**. The user(s) is moved to the **Selected** column.)
 
-    > The contact group can be groups coming from the LDAP directory connected to the
+    > The contact group can be from the LDAP directory connected to the
     > Centreon interface.
     >
-    > Groups created in the Centreon interface should not have the same name as LDAP
-    > groups to avoid problems.
+    > To avoid problems, groups created in the Centreon interface should not have the same name as LDAP
+    > groups.
 
 4. On the **Authorizations information** tab, set the rights you want on the access group
 by choosing access filters on [resources](#access-filters-on-resources), [menus](#access-filters-on-menus) and [actions](#access-filters-on-actions) (if you have already created them).
@@ -82,7 +82,7 @@ To create an access filter on resources:
 | Tab                 | Actions                                                                                                                                                         |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **General Information** | <ul> <li>Use the **Linked groups** table to link access groups to the filter on resources, i.e. grant the rights defined in the filter to the access group.</li><li>**Status** and **Comments** allow you to enable/disable the filter or to add comments to it.</li></ul>                                                                                                                                                                                                                |
-| **Hosts Resources**    | <ul><li>Define which hosts and hosts groups users will be able to see in the Centreon interface.</li><li>If **Include all hosts** or **Include all hostgroups** is selected, any newly created host or host group will be added to the filter automatically.</li></ul>   <p>When **Include all hosts** or **Include all hostgroups** is selected, you can explicitly exclude hosts from the filter (e.g. when only 1 or 2 hosts should not be included in the filter). </p>                                                                       |
+| **Hosts Resources**    | <ul><li>Define which hosts and hosts groups users will be able to see in the Centreon interface.</li><li>If **Include all hosts** or **Include all hostgroups** is selected, any newly created host or host group will be added to the filter automatically.</li></ul>   <p>When **Include all hosts** or **Include all hostgroups** is selected, you can explicitly exclude hosts from the filter (e.g. when only 1 or 2 hosts should not be included in the filter). 
 | **Services resources** | The **Services resources** tab allows you to define which service groups users will be allowed to see.                                                                                                                             |
 | **Meta Services**       | The **Meta Services** tab allows you to define which meta services users will be able to see.                                                                                                                             |
 | **Filters**                | <ul><li>The **Poller Filter** table allows you to select hosts supervised by a specific monitoring engine (if no poller is selected, then all pollers are taken into account)</li><li>The **Host Category Filter** table allows you to filter the hosts by category</li><li>The **Service Category Filter** table allows you to filter services by category. Filters by poller or by category of objects are inclusion filters (UNION). Only the objects belonging to these filters in addition to groups of objects (hosts and services) will be visible.</li></ul> |
@@ -91,8 +91,8 @@ To create an access filter on resources:
 
 Access filters on menus allow you to define which pages in the Centreon interface users will be able to access.
 
-> Accessing the command editing menu, as well as accessing the SNMP trap editing
-> menu can be very dangerous. Indeed, privileged users can create commands,
+> Accessing the command editing menu as well as accessing the SNMP trap editing
+> menu can be very dangerous. This is because privileged users can create commands,
 > which may lead to the creation of security breaches (RCE). Only give this access
 > to people you trust.
 
@@ -102,7 +102,7 @@ To create an access filter on menus:
 
 2. Click **Add**.
 
-3. Fill in the following fields:
+3. Complete the following fields:
     - **ACL Definition** (its name) and **Alias**
     - **Status**: enable or disable the filter
     - **Comments**: add info about the filter.
@@ -206,7 +206,7 @@ These fields are no longer in use.
 
 It is possible of reload the ACLs manually:
 
-1. Go into the menu: **Administration > ACL**
-2. In the left menu, click on **Reload ACL**
+1. Go into the following menu: **Administration > ACL**
+2. In the left menu, click **Reload ACL**
 3. Select the user(s) you want to reload the ACL
-4. In the **More actions** menu, click on **Reload ACL**
+4. In the **More actions** menu, click **Reload ACL**
