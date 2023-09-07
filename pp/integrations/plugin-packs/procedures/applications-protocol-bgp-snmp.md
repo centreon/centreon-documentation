@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                         | Service Description                                    |
 |:--------------|:-----------------------------------------|:-------------------------------------------------------|
-| Peers-State   | App-Protocol-BGP-Peers-State-SNMP-custom | Check state of one or several BGP peer of an equipment |
+| Peers-State   | App-Protocol-BGP-Peers-State-SNMP-custom | Check state of one or several BGP peers of an equipment |
 
 > The services listed above are created automatically when the **App-Protocol-BGP-SNMP-custom** host template is used.
 
