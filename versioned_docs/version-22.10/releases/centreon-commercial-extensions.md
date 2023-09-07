@@ -18,6 +18,14 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.11
+
+Release date: `September 07, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-map-server and centreon-map-engine packaging that caused a broken dependency situation with Java.
+
 ### 22.10.10
 
 Release date: `August 31, 2023`
@@ -179,6 +187,14 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.10.11
+
+Release date: `September 07, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-map-server and centreon-map-engine packaging that caused a broken dependency situation with Java.
 
 ### 22.10.10
 
