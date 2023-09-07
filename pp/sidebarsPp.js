@@ -2058,7 +2058,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-bgp-snmp'
+          id: 'integrations/plugin-packs/procedures/applications-protocol-bgp'
         },
         {
           type: 'doc',
