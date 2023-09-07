@@ -60,6 +60,17 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 </Tabs>
 
+### Règles de découverte
+
+#### Découverte de service
+
+| Nom de la règle                     | Description                                        |
+|:------------------------------------|:---------------------------------------------------|
+| OS-Linux-SSH-Systemd-Sc-Status-Name | Découvre les services Linux et supervise le statut |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
@@ -859,7 +870,7 @@ Le plugin apporte les modes suivants :
 | list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listinterfaces.pm)]           | Not used in this Monitoring Connector |
 | list-partitions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listpartitions.pm)]           | Not used in this Monitoring Connector |
 | list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/liststorages.pm)]               | Not used in this Monitoring Connector |
-| list-systemdservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listsystemdservices.pm)] | Not used in this Monitoring Connector |
+| list-systemdservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listsystemdservices.pm)] | Used for service discovery            |
 | load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/loadaverage.pm)]                         | OS-Linux-Load-SSH-custom              |
 | lvm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/lvm.pm)]                                  | OS-Linux-Lvm-SSH-custom               |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/memory.pm)]                            | OS-Linux-Memory-SSH-custom            |
