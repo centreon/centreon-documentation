@@ -158,7 +158,7 @@ Il existe deux types de programmation :
     priorité dans la file d'attente de l'ordonnanceur (dès que
     possible).
 -   La programmation forcée : la vérification du service est mise en
-    priorité dans la file d'attente de l'ordonnacneur (dès que possible)
+    priorité dans la file d'attente de l'ordonnanceur (dès que possible)
     et cela même si l'heure de la demande d'exécution est en dehors de
     la période contrôle ou si le service n'est pas de type actif.
 
