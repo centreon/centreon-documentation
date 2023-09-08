@@ -172,6 +172,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-github-restapi'
         },
         {
@@ -316,6 +320,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nrpe'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-iis-nrpe'
         },
         {
@@ -453,6 +461,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-redis-rlec-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-redis-restapi'
         },
         {
           type: 'doc',
@@ -1116,6 +1128,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-redis-cli'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-rrdtool'
         },
         {
@@ -1299,6 +1315,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp'
         },
         {
           type: 'doc',
