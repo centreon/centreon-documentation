@@ -22,7 +22,7 @@ If you want to be able to view the Business activities monitored by a remote ser
 
 ### Install the package
 
-Add the Centreon Business repository, you can find it on the
+Add the Centreon Business repository; you can find it on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 And install the package using the following command:
@@ -54,13 +54,13 @@ apt update && apt install centreon-bam-server
 
 ### Upload the license
 
-A license file *bam.license* is provided by Centreon. Go to
-**Administration > Extensions > Manager** and upload the license
+A license file *bam.license* is provided by Centreon. Go to the
+**Administration > Extensions > Manager** menu and upload the license
 using the interface.
 
 ### Install the interface
 
-Go to the **Administration > Extension > Manager** menu and click on the install
+Go to the **Administration > Extension > Manager** menu and click the install
 button for the following modules:
 
 - License Manager (if not yet installed)
@@ -80,8 +80,8 @@ the license expiry date:
 > replicate-ignore-table=centreon.mod_bam_view_kpi
 > ```
 >
-> Create the view manually on the slave server by executing the
-> following command line:
+> Create the view manually on the slave server [using this file](view_creation.sql), by executing the
+> following command:
 >
 > ``` shell
 > mysql centreon < view_creation.sql
