@@ -17,6 +17,18 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.15
+
+Release date: `August 28, 2023`
+
+#### Enhancements
+
+- [Core] Updated the database schema for resources table.
+
+#### Bug fixes
+
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+
 ### 22.04.14
 
 Release date: `June 19, 2023`
