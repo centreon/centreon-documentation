@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
+Sahi Pro est un logiciel d'automatisation de tests pour les applications de bureau, les applications mobiles et les applications Web.
+
 ### Modèles
 
 Le connecteur de supervision **Sahi Pro Rest API** apporte un modèle d'hôte :
