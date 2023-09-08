@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+Sahi Pro is a test automation software for desktop applications, mobile applications and web applications. 
+
 ### Templates
 
 The Monitoring Connector **Sahi Pro Rest API** brings a host template:
