@@ -13,26 +13,26 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Sahi Pro Rest API**](../procedures/applications-sahipro-restapi.md) - applications-sahipro-restapi - new
+- [**Sahi Pro Rest API**](../procedures/applications-sahipro-restapi.md) - First release
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - hardware-storage-netapp-ontap-restapi - update plugin requirement
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - now skipping empty FRUs (Field Replaceable Units).
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Alvarion BreezeACCESS SNMP**](../procedures/network-alvarion-breezeaccess-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**Barracuda Cloudgen SNMP**](../procedures/network-barracuda-cloudgen-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - fix(plugin): updated required plugin version to deploy fix
-- [**InfluxDB**](../procedures/applications-databases-influxdb.md) - fix(plugin-version): new fix available
-- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**Peplink Pepwave SNMP**](../procedures/network-peplink-pepwave-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**Perle IDS SNMP**](../procedures/network-perle-ids-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**Rad Airmux SNMP**](../procedures/network-rad-airmux-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**Ubiquiti Edge SNMP**](../procedures/network-ubiquiti-edge-snmp.md) - network-barracuda-cloudgen-snmp/network-peplink-pepwave-snmp/network-
-- [**X509 Certificate**](../procedures/applications-protocol-x509.md) - Mon 20691 x 509 monitoring connector name fix
+- [**Alvarion BreezeACCESS SNMP**](../procedures/network-alvarion-breezeaccess-snmp.md) - Fixed interfaces service template.
+- [**Barracuda Cloudgen SNMP**](../procedures/network-barracuda-cloudgen-snmp.md) - Fixed interfaces service template.
+- [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - Fixed the status mapping for power supplies in Health service template.
+- [**InfluxDB**](../procedures/applications-databases-influxdb.md) - Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fixed interfaces service template.
+- [**Peplink Pepwave SNMP**](../procedures/network-peplink-pepwave-snmp.md) - Fixed interfaces service template.
+- [**Perle IDS SNMP**](../procedures/network-perle-ids-snmp.md) - Fixed interfaces service template.
+- [**Rad Airmux SNMP**](../procedures/network-rad-airmux-snmp.md) - Fixed interfaces service template.
+- [**Ubiquiti Edge SNMP**](../procedures/network-ubiquiti-edge-snmp.md) - Fixed interfaces service template.
+- [**X509 Certificate**](../procedures/applications-protocol-x509.md) - Renamed the pack.
 
 </TabItem>
 </Tabs>
