@@ -1274,6 +1274,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-optelecom-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi'
         },
         {
