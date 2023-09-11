@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+This Monitoring Connector provides assets to monitor all types of Linux based systems with a SSH server that is enabled.
+
 ### Templates
 
 The Monitoring Connector **Linux SSH** brings a host template:
@@ -815,6 +817,9 @@ is able to monitor a resource using a command like this one (replace the sample 
     --critical-average='75' \
     --verbose
 ```
+
+This command will trigger a WARNING alert if the CPU average increases to more than 60% (```--warning-average='60'```)
+and a CRITICAL alert if more than 75% (```--critical-average='75'```).
 
 The expected command output is shown below:
 
