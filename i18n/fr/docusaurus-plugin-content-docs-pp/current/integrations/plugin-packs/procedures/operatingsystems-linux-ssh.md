@@ -823,6 +823,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
     --verbose
 ```
 
+Cette commande déclenchera une alerte WARNING si la consommation moyenne du CPU dépasse 60% (```--warning-average='60'```)
+et une alarme CRITICAL si elle dépasse 75% (```--critical-average='75'```).
+
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
