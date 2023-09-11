@@ -5,6 +5,8 @@ title: Linux SSH
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Ce connecteur de supervision est compatible avec n'importe quelle distribution Linux ayant un daemon SSH installé et démarré.
+
 ## Contenu du pack
 
 ### Modèles
