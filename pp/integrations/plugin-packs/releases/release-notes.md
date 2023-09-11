@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Sahi Pro Rest API**](../procedures/applications-sahipro-restapi.md) - First release.
-- [**Optelecom camera SNMP**](../procedures/hardware-devices-camera-optelecom-snmp.md) - First release.
+- **Optelecom camera SNMP**../procedures/hardware-devices-camera-optelecom-snmp.md - First release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
