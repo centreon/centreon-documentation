@@ -742,7 +742,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 
 | Macro           | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (Default: 'cache') | cache             |             |
+| SINCE           | Defines the amount of time to look back at messages. Can be minutes (i.e. 5 "minutes ago") or 'cache' to use the timestamp from last execution. (Default: 'cache') | cache             |             |
 | TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (Default: 'local')                                              | local             |             |
 | UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                                         |                   |             |
 | FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |                   |             |
