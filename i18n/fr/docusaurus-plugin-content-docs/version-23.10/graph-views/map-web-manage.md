@@ -17,6 +17,11 @@ Vous pouvez effectuer des actions sur chaque carte standard et chaque vue géogr
 
 > Les fonctionnalités de partage et de copie d'URL d'une carte ne sont pas disponibles sur une vue géographique.
 
+### Dupliquer une carte
+
+Cliquez sur le menu avec les trois points verticaux en haut à droite de la carte, puis cliquez sur **Dupliquer**.
+Une nouvelle carte est automatiquement créée, avec "- copie" ajouté au nom initial.
+
 ### Supprimer une carte
 
 Cliquez sur le bouton de la corbeille et confirmez la suppression en cliquant sur le bouton **Supprimer**.
