@@ -328,6 +328,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: Speed Events: 70/s Queued Events: 75 Unacknowledged Events: 0 | 
+
 ```
 
 ### Diagnostic des erreurs communes

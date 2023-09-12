@@ -81,10 +81,19 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Resources-Count" label="Resources-Count">
 
-| Metric name                       | Unit  |
-|:----------------------------------|:------|
-| *pollers*~centreon.hosts.count    | count |
-| *pollers*~centreon.services.count | count |
+| Metric name                                | Unit  |
+|:-------------------------------------------|:------|
+| *pollers*~centreon.hosts.count             | count |
+| *pollers*~centreon.hosts.up.count          | count |
+| *pollers*~centreon.hosts.down.count        | count |
+| *pollers*~centreon.hosts.unreachable.count | count |
+| *pollers*~centreon.hosts.pending.count     | count |
+| *pollers*~centreon.services.count          | count |
+| *pollers*~centreon.services.ok.count       | count |
+| *pollers*~centreon.services.warning.count  | count |
+| *pollers*~centreon.services.critical.count | count |
+| *pollers*~centreon.services.unknown.count  | count |
+| *pollers*~centreon.services.pending.count  | count |
 
 </TabItem>
 <TabItem value="Storage-Partitioning" label="Storage-Partitioning">
@@ -356,7 +365,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: total: 42 total: 24 | 'centreon.hosts.count'=42;;;0; 'centreon.services.count'=24;;;0; 
+OK: total: 61 up: 74 down: 43 unreachable: 71 pending: 67 total: 87 ok: 45 warning: 12 critical: 67 unknown: 78 pending: 82 | '*pollers*~centreon.hosts.count'=61;;;0;'*pollers*~centreon.hosts.up.count'=74;;;0;'*pollers*~centreon.hosts.down.count'=43;;;0;'*pollers*~centreon.hosts.unreachable.count'=71;;;0;'*pollers*~centreon.hosts.pending.count'=67;;;0;'*pollers*~centreon.services.count'=87;;;0;'*pollers*~centreon.services.ok.count'=45;;;0;'*pollers*~centreon.services.warning.count'=12;;;0;'*pollers*~centreon.services.critical.count'=67;;;0;'*pollers*~centreon.services.unknown.count'=78;;;0;'*pollers*~centreon.services.pending.count'=82;;;0;
 ```
 
 ### Troubleshooting

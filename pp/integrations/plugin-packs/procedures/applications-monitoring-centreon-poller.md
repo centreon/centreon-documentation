@@ -325,6 +325,7 @@ The expected command output is shown below:
 
 ```bash
 OK: Speed Events: 70/s Queued Events: 75 Unacknowledged Events: 0 | 
+
 ```
 
 ### Troubleshooting
