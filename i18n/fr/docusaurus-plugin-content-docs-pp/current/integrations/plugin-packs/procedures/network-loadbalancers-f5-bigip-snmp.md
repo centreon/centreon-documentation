@@ -67,7 +67,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 |:--------------------------------------|:------------|
 | App-F5-Bigip-Node-Status              | Découvre les nodes et supervise le statut                   |
 | App-F5-Bigip-Pool-Status              | Découvre les pools et supervise le statut                   |
-| Net-F5-Bigip-SNMP-Virtualservers-Name | Découvre les serveurs virtuelles et supervise l'utilisation |
+| Net-F5-Bigip-SNMP-Virtualservers-Name | Découvre les serveurs virtuels et supervise l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
