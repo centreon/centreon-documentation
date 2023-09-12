@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service            | Description                                                                                             |
 |:------|:-----------------------------|:--------------------------------------------------------------------------------------------------------|
-| Query | App-DB-Influxdb-Query-custom | Contrôle permettant d'exécuter des requêtes et d'utiliser le résultat pour définir des seuils d'alarmes |
+| Query | App-DB-Influxdb-Query-custom | Contrôle permettant d'exécuter des requêtes et d'utiliser le résultat pour définir des seuils d'alarme |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
