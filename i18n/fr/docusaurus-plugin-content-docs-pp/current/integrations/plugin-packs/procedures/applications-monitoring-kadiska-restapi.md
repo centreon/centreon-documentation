@@ -46,7 +46,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                                   | Modèle de service                                                             | Description                                                            |
 |:----------------------------------------|:------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
-| Watcher-Statistics-Per-Site-And-Gateway | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-Site-And-Gateway-custom | Contrôle les données de performances des watchers Kadiska via Rest API |
+| Watcher-Statistics-Per-Site-And-Gateway | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-Site-And-Gateway-custom | Contrôle les données de performance des watchers Kadiska via l'API Rest |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Kadiska-Watcher-Restapi-custom** est utilisé.
 
