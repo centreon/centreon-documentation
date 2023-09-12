@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service                            | Description                                       | Découverte |
 |:-------|:---------------------------------------------|:--------------------------------------------------|:----------:|
-| Alerts | App-Monitoring-Kadiska-Restapi-Alerts-custom | Vérifie le status des règles d'alertes de Kadiska | X          |
+| Alerts | App-Monitoring-Kadiska-Restapi-Alerts-custom | Vérifie le status des règles d'alerte de Kadiska | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Kadiska-Restapi-Alerts-custom** est utilisé.
 
