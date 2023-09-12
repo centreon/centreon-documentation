@@ -4,12 +4,15 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const version = process.env.VERSION ? process.env.VERSION : null;
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (version ? `${version}/` : '/');
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs-next.int.centreon.com',
-  baseUrl: '/',
+  baseUrl,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo-centreon.png',
