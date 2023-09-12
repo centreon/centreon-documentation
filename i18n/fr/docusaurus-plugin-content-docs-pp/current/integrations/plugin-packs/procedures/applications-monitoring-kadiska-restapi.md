@@ -414,7 +414,7 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 |:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PERIOD                  |                                                                                                                                                                                                           | 15                |             |
 | TARGETNAME              | Filter to display statistics for particular net tracer targets. Can be a regex or a single tracer target. A target name must be given. Regex example: --filter-target-name="(mylab.com\|shop.mylab.com)" |                   |             |
-| WARNINGPACKETSLOSSPRCT  |                                                                                                                                                                                                           |                   |             |
+| WARNINGPACKETSLOSSPRCT  | Warning threshold for packet loss in percentage                                                                                                                                                                             |             |
 | CRITICALPACKETSLOSSPRCT | Critical threshold for packet loss in percentage                                                                                                                                                        |                   |             |
 | WARNINGPATHLENGTH       | Warning threshold for path length to reach targets                                                                                                                                                        |                   |             |
 | CRITICALPATHLENGTH      | Critical threshold for path length to reach targets.  item --warning-packets-loss-prct  Warning threshold for packets' loss in percentage                                                                 |                   |             |
@@ -428,7 +428,7 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 | Macro                               | Description                                                                                                      | Valeur par défaut | Obligatoire |
 |:------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | COUNTRY                             | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country | .*                |             |
-| PERIOD                              |                                                                                                                  | 15                |             |
+| PERIOD                              |                                                                                                                    | 15                |             |
 | WARNINGCOUNTRYDTTSPENT              |                                                                                                                  |                   |             |
 | CRITICALCOUNTRYDTTSPENT             |                                                                                                                  |                   |             |
 | WARNINGCOUNTRYERRORSPRCT            |                                                                                                                  |                   |             |
@@ -588,8 +588,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--select-site-name='' \
 	--select-gateway-name='' \
 	--period='15' \
-	--port='' \
-	--proto='' \
+	--port='443' \
+    	--proto='https' \
 	--timeout=''  \
 	--warning-watcher-redirect-time-avg='' \
 	--critical-watcher-redirect-time-avg='' \
