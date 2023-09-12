@@ -38,7 +38,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:------------------------------------------------------|:---------------------------------------------------------------------|:----------:|
 | Certificates-Expire  | Net-Citrix-Netscaler-Certificates-Expire-SNMP-custom  | Check number of days remaining before the expiration of certificates |            |
 | Ha-State             | Net-Citrix-Netscaler-Ha-State-SNMP-custom             | Check High Availability Status                                       |            |
-| Traffic-Generic-Id   | Net-Citrix-Netscaler-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                |            |
+| Traffic-Generic-Id   | Net-Citrix-Netscaler-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface                                |            |
 | Traffic-Generic-Name | Net-Citrix-Netscaler-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                                |            |
 | Traffic-Global       | Net-Citrix-Netscaler-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                         | X          |
 
