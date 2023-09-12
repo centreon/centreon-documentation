@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                     | Description                                               | Découverte |
 |:---------------------|:------------------------------------------------------|:----------------------------------------------------------|:----------:|
 | Certificates-Expire  | Net-Citrix-Netscaler-Certificates-Expire-SNMP-custom  | Contrôle l'expiration des certificats                     |            |
-| Ha-State             | Net-Citrix-Netscaler-Ha-State-SNMP-custom             | Contrôle l'état de la haute-disponibilité                 |            |
+| Ha-State             | Net-Citrix-Netscaler-Ha-State-SNMP-custom             | Contrôle l'état de la haute disponibilité                 |            |
 | Traffic-Generic-Id   | Net-Citrix-Netscaler-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
 | Traffic-Generic-Name | Net-Citrix-Netscaler-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
 | Traffic-Global       | Net-Citrix-Netscaler-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
