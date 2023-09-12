@@ -798,7 +798,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-round-trip         | Warning threshold for round trip in milliseconds.                                                                                                                                                           |
 | --critical-round-trip        | Critical threshold for round trip in milliseconds.                                                                                                                                                          |
 | --warning-path-length        | Warning threshold for path length to reach targets.                                                                                                                                                         |
-| --critical-path-length       | Critical threshold for path length to reach targets.  item --warning-packets-loss-prct  Warning threshold for packets' loss in percentage.                                                                  |
+| --critical-path-length       | Critical threshold for path length to reach targets.                                                                  |
 | --critical-packets-loss-prct | Critical threshold for packets' loss in percentage.                                                                                                                                                         |
 
 </TabItem>
