@@ -55,7 +55,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                          | Modèle de service                                                    | Description                                                            |
 |:-------------------------------|:---------------------------------------------------------------------|:-----------------------------------------------------------------------|
-| Watcher-Statistics-Per-Country | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-Country-custom | Contrôle les données de performances des watchers Kadiska via Rest API |
+| Watcher-Statistics-Per-Country | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-Country-custom | Contrôle les données de performance des watchers Kadiska via l'API Rest |
 | Watcher-Statistics-Per-ISP     | App-Monitoring-Kadiska-Restapi-Watcher-Statistics-Per-ISP-custom     | Contrôle les données de performances des watchers Kadiska via Rest API |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
