@@ -112,7 +112,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
+To acces the data of an InfluxDB database, one generally needs a login/password or a token.
 to the manufacturer official documentation BUT you should try to be as complete\n\
 as possible here as it will save time to everybody.*
 
