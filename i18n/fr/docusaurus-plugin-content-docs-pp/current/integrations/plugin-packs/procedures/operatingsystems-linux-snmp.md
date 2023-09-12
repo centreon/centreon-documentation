@@ -668,7 +668,7 @@ OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitsp
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles

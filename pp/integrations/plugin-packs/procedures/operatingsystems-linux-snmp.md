@@ -665,7 +665,7 @@ OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitsp
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
 for Centreon Plugins typical issues.
 
 ### Available modes
