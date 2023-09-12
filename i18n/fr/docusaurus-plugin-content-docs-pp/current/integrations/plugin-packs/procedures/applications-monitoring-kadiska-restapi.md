@@ -78,7 +78,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                                  | Description                                          |
 |:-------------------------------------------------|:-----------------------------------------------------|
-| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Découvre les règles d'alertes de Kadiska             |
+| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Découvre les règles d'alerte de Kadiska             |
 | App-Monitoring-Kadiska-Restapi-Target-Statistics | Découvre les cibles d'un tracer pour un Runner donné.|
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
