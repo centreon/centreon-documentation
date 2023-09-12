@@ -281,7 +281,7 @@ yum install centreon-plugin-Applications-Databases-Influxdb
 
 | Macro          | Description                                                                                                                                                            | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INSTANCE       | Set the instance label on which the results should be calculate for (Example: --instance='name').  The instance label must be the same label as the "GROUP BY" keyword |                   | X           |
+| INSTANCE       | Set the instance label for which the results should be calculated (Example: --instance='name').  The instance label must be the same label as the "GROUP BY" keyword |                   | X           |
 | OUTPUT         | Set the output for each instances (Example: --output='Object %{instance} value is {label}')                                                                            |                   | X           |
 | MULTIPLEOUTPUT | Set the global output in case everything is fine for multiple instances (Example: --multiple-output='All instance values are ok')                                      |                   |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '').  Can use special variables like %{instance} and any other labels you set through --query    |                   |             |
