@@ -8,6 +8,46 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### Septembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Sahi Pro Rest API**](../procedures/applications-sahipro-restapi.md) - First release.
+- [**Optelecom camera SNMP**](../procedures/hardware-devices-camera-optelecom-snmp.md) - First release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - New service discovery rule: disk-io.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - New service template: systemd-journal + new service discovery rule: systemd-service.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - now skipping empty FRUs (Field Replaceable Units).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Replaced `directlvm-usage` mode with new `lvm` mode (breaks only if used with custom command).
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Alvarion BreezeACCESS SNMP**](../procedures/network-alvarion-breezeaccess-snmp.md) - Fixed interfaces service template.
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Fixed `input-lines` mode.
+- [**Barracuda Cloudgen SNMP**](../procedures/network-barracuda-cloudgen-snmp.md) - Fixed interfaces service template.
+- [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - Fixed the status mapping for power supplies in Health service template.
+- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Fixed a bug causing a failure when the pool name was too long.
+- [**InfluxDB**](../procedures/applications-databases-influxdb.md) - Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed an issue on the cpu mode causing stats calculation to fail when there was only one processor.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fixed interfaces service template.
+- [**Peplink Pepwave SNMP**](../procedures/network-peplink-pepwave-snmp.md) - Fixed interfaces service template.
+- [**Perle IDS SNMP**](../procedures/network-perle-ids-snmp.md) - Fixed interfaces service template.
+- [**Rad Airmux SNMP**](../procedures/network-rad-airmux-snmp.md) - Fixed interfaces service template.
+- [**Ubiquiti Edge SNMP**](../procedures/network-ubiquiti-edge-snmp.md) - Fixed interfaces service template.
+- [**X509 Certificate**](../procedures/applications-protocol-x509.md) - Renamed the pack.
+
+</TabItem>
+</Tabs>
+
 ### Août
 
 > **Changement majeur concernant les règles de découverte d'hôte** : Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Voir la section "Breaking changes" pour plus d'informations.
