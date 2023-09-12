@@ -14,7 +14,7 @@ The display of the **Add a Map** button or **Add a Geographic view** button mean
 
 ## Map status information
 
-The homepage displays the list of existing maps and you can visualize for each map, its worst status indicated with a colored dot in the tile.
+The homepage displays the list of existing maps and you can visualize for each map, the worst status of all resources or containers included in the map.
 
 ## Performing actions on a map
 

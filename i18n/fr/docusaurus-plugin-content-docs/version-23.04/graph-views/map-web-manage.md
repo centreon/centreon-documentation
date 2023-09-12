@@ -13,7 +13,7 @@ L'affichage du bouton **Add a Map** et du bouton **Add a Geographic view** signi
 
 ## Information sur le statut d'une carte
 
-La page d'accueil affiche la liste des cartes existantes et vous pouvez visualiser pour chaque carte, son statut le plus défavorable indiqué par un point de couleur dans la tuile.
+La page d'accueil affiche la liste des cartes existantes et vous pouvez visualiser pour chaque carte, le statut le plus défavorable de toutes les ressources ou conteneurs inclus dans la carte.
 
 ## Procéder à des actions sur une carte
 
