@@ -322,9 +322,19 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.6
+
+Release date: `soon`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-bi-engine packaging that caused a broken dependency situation with Java.
+
 ### 22.10.5
 
 Release date: `August 31, 2023`
+
+#### Bug fixes
 
 - [Packaging] Fixed ETL script references in Debian packaging.
 - Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
