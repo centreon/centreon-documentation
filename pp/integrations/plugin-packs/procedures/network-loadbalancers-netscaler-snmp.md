@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                                | Service Description                                                                                           | Discovery  |
 |:---------------|:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|:----------:|
 | Connections    | Net-Citrix-Netscaler-Connections-SNMP-custom    | Check connections                                                                                             |            |
-| Cpu            | Net-Citrix-Netscaler-Cpu-SNMP-custom            | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |            |
+| Cpu            | Net-Citrix-Netscaler-Cpu-SNMP-custom            | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPUs |            |
 | Health         | Net-Citrix-Netscaler-Health-SNMP-custom         | Check hardware environment                                                                                    |            |
 | Memory         | Net-Citrix-Netscaler-Memory-SNMP-custom         | Check machine memory usage                                                                                    |            |
 | Storage        | Net-Citrix-Netscaler-Storage-SNMP-custom        | Check the rate of utilization of storages                                                                     |            |
