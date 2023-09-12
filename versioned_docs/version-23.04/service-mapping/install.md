@@ -80,8 +80,8 @@ the license expiry date:
 > replicate-ignore-table=centreon.mod_bam_view_kpi
 > ```
 >
-> Create the view manually on the slave server by executing the
-> following command line:
+> Create the view manually on the slave server [using this file](view_creation.sql), by executing the
+> following command:
 >
 > ``` shell
 > mysql centreon < view_creation.sql

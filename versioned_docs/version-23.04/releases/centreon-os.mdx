@@ -23,6 +23,35 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.7
+
+Release date: `August 31, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Removed password fields if contact is not local type.
+- [Core] Updated the database schema for resources table.
+- [Tools] Added a script to delete duplicate entries in the host_service_relations table.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed pagination in the **Data** menu.
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+- [Authentication] Fixed groups mapping when groups roles were changed in the Identity Provider (OpenID Connect/SAML).
+- [Authentication] Fixed roles mapping when user roles were changed in the Identity Provider (OpenID Connect/SAML).
+- [Authentication] Fixed wrong error message displayed for SAML authentication.
+- [Core] Fixed an issue by removing the call to custom login page when the IT Edition module is not installed.
+- [Graphs] Fixed the display of graphs layout when there is no data.
+- [Packaging] Added missing PHP files to Debian packaging.
+- [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.
+- [Resources Status] Fixed the display of inverted curves in the graph panel.
+
+</details>
+
 ### 23.04.6
 
 Release date: `July 28, 2023`
@@ -186,6 +215,20 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.3
+
+Release date: `September 7, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [Compatibility] Fixed an issue that prevented Broker from inserting relations in table during BAM reporting calculation.
+- Fixed an issue that could cause a crash when many pollers were sending check results to a Broker instance.
+
+</details>
+
 ### 23.04.2
 
 Release date: `July 26, 2023`
@@ -260,6 +303,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.6
+
+Release date: `September 7, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
+
+</details>
 
 ### 23.04.5
 

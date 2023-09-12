@@ -16,6 +16,18 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.15
+
+Release date: `August 28, 2023`
+
+#### Enhancements
+
+- [Core] Updated the database schema for resources table.
+
+#### Bug fixes
+
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+
 ### 22.04.14
 
 Release date: `June 19, 2023`

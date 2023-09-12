@@ -9,6 +9,7 @@ const versions = require('./versions.json');
 const archivedVersions = require('./archivedVersions.json');
 
 const version = process.env.VERSION ? process.env.VERSION : null;
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (version ? `${version}/` : '/');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
@@ -19,7 +20,7 @@ const config = {
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
-  baseUrl: version ? `${version}/` : '/',
+  baseUrl,
   onBrokenLinks: version ? 'log' : 'throw',
   onBrokenMarkdownLinks: version ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
