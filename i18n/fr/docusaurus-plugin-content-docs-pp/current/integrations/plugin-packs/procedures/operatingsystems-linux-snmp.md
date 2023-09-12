@@ -387,7 +387,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 3. Appliquez le modèle d'hôte **OS-Linux-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins).
 
 | Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -672,7 +672,7 @@ OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitsp
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
+Rendez-vous sur la [documentation dédiée](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
