@@ -420,8 +420,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | Macro        | Description                                                                                         | Valeur par défaut                             | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | DISKID       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
-| TRANSFORMSRC |                                                                                                     |                                               |             |
-| TRANSFORMDST |                                                                                                     |                                               |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching).                    |                                               |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution).                |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -432,8 +432,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | Macro        | Description                                                                                         | Valeur par défaut                             | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | DISKNAME     | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    |                                               |             |
-| TRANSFORMSRC |                                                                                                     |                                               |             |
-| TRANSFORMDST |                                                                                                     |                                               |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching).                    |                                               |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution).                |                                               |             |
 | WARNING      | Warning threshold                                                                                   | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-perfdata='storage.space\|used\|free' |             |
@@ -444,8 +444,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | Macro        | Description                                                                                         | Valeur par défaut                                       | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
 | FILTER       | Set the storage (number expected) ex: 1, 2,... (empty means 'check all storage')                    | .*                                                      |             |
-| TRANSFORMSRC |                                                                                                     |                                                         |             |
-| TRANSFORMDST |                                                                                                     |                                                         |             |
+| TRANSFORMSRC | Modify the disk name displayed by using a regular expression (pattern matching).                    |                                                         |             |
+| TRANSFORMDST | Modify the disk name displayed by using a regular expression (pattern substitution).                |                                                         |             |
 | WARNING      | Warning threshold                                                                                   | 80                                                      |             |
 | CRITICAL     | Critical threshold                                                                                  | 90                                                      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --filter-perfdata='storage.space\|used\|free' |             |
