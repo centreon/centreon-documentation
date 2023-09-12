@@ -10,7 +10,11 @@ This topic provides information about how to perform actions on your maps from t
 
 > Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See the [Manage access rights on MAP](map-web-access.md) topic to know more about rights and permissions.
 
-The display of the **Add a Map** button or **Add a new Geographic view** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
+The display of the **Add a Map** button or **Add a Geographic view** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
+
+## Map status information
+
+The homepage displays the list of existing maps and you can visualize for each map, the worst status of all resources or containers included in the map.
 
 ## Performing actions on a map
 
