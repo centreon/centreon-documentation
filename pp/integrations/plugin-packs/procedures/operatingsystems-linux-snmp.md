@@ -88,10 +88,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                              | Unit  |
-|:-----------------------------------------|:------|
-| cpu.utilization.percentage               | %     |
-| cpu_core#core.cpu.utilization.percentage | %     |
+| Metric name                                | Unit  |
+|:-------------------------------------------|:------|
+| cpu.utilization.percentage                 | %     |
+| *cpu_core*#core.cpu.utilization.percentage | %     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -117,11 +117,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Disk-*" label="Disk-*">
 
-| Metric name              | Unit  |
-|:-------------------------|:------|
-| storage.partitions.count | count |
+| Metric name                         | Unit  |
+|:------------------------------------|:------|
+| storage.partitions.count            | count |
+| *storage*#storage.space.usage.bytes | B     |
+| *storage*#storage.access.count      | count |
 
-> Applies to the following service templates: Disk-Global, Disk-Generic-Id, Disk-Generic-Name
+> Applies to the following service templates: Disk-Generic-Id, Disk-Generic-Name, Disk-Global
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -136,19 +138,19 @@ Here is the list of services for this connector, detailing all metrics linked to
 | total-write-iops    | iops  |
 | sum-read-write      | B/s   |
 | sum-read-write-iops | iops  |
-| disk#read           | B/s   |
-| disk#write          | B/s   |
-| disk#read-iops      | iops  |
-| disk#write-iops     | iops  |
+| *disk*#read         | B/s   |
+| *disk*#write        | B/s   |
+| *disk*#read-iops    | iops  |
+| *disk*#write-iops   | iops  |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Inodes-Global" label="Inodes-Global">
 
-| Metric name                          | Unit  |
-|:-------------------------------------|:------|
-| disk#storage.inodes.usage.percentage | %     |
+| Metric name                            | Unit  |
+|:---------------------------------------|:------|
+| *disk*#storage.inodes.usage.percentage | %     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -193,13 +195,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Packet-Errors-*" label="Packet-Errors-*">
 
-| Metric name                                  | Unit  |
-|:---------------------------------------------|:------|
-| int#status                                   | N/A   |
-| int#interface.packets.in.discard.percentage  | %     |
-| int#interface.packets.in.error.percentage    | %     |
-| int#interface.packets.out.discard.percentage | %     |
-| int#interface.packets.out.error.percentage   | %     |
+| Metric name                                    | Unit  |
+|:-----------------------------------------------|:------|
+| *int*#status                                   | N/A   |
+| *int*#interface.packets.in.discard.percentage  | %     |
+| *int*#interface.packets.in.error.percentage    | %     |
+| *int*#interface.packets.out.discard.percentage | %     |
+| *int*#interface.packets.out.error.percentage   | %     |
 
 > Applies to the following service templates: Packet-Errors-Generic-Id, Packet-Errors-Generic-Name, Packet-Errors-Global
 
@@ -235,13 +237,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Metric name                             | Unit  |
-|:----------------------------------------|:------|
-| int#status                              | N/A   |
-| int#interface.traffic.in.bitspersecond  | b/s   |
-| int#interface.traffic.out.bitspersecond | b/s   |
+| Metric name                               | Unit  |
+|:------------------------------------------|:------|
+| *int*#status                              | N/A   |
+| *int*#interface.traffic.in.bitspersecond  | b/s   |
+| *int*#interface.traffic.out.bitspersecond | b/s   |
 
-> Applies to the following service templates: Traffic-Global, Traffic-Generic-Id, Traffic-Generic-Name
+> Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -639,24 +641,26 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--diskpath='.*' \
+	--interface='.*' \
 	--name \
-	--regexp \
-	--warning-usage='80' \
-	--critical-usage='90' \
-	--filter-device='^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$)' \
-	--verbose\
-	
+	--add-status \
+	--add-traffic \
+	--critical-status='' \
+	--warning-in-traffic='80' \
+	--critical-in-traffic='90' \
+	--warning-out-traffic='80' \
+	--critical-out-traffic='90' \
+	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Used: 20 % | 'storage.inodes.usage.percentage'=20%;;;0;100 
+OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitspersecond'=b/s;;;;'*int*#interface.traffic.out.bitspersecond'=b/s;;;;
 ```
 
 ### Troubleshooting
@@ -1100,6 +1104,6 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--help
 ```

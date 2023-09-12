@@ -89,10 +89,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                                 | Unité |
-|:-----------------------------------------|:------|
-| cpu.utilization.percentage               | %     |
-| cpu_core#core.cpu.utilization.percentage | %     |
+| Métrique                                   | Unité |
+|:-------------------------------------------|:------|
+| cpu.utilization.percentage                 | %     |
+| *cpu_core*#core.cpu.utilization.percentage | %     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -118,11 +118,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disk-*" label="Disk-*">
 
-| Métrique                 | Unité |
-|:-------------------------|:------|
-| storage.partitions.count | count |
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| storage.partitions.count            | count |
+| *storage*#storage.space.usage.bytes | B     |
+| *storage*#storage.access.count      | count |
 
-> Concerne les modèles de service suivants : Disk-Global, Disk-Generic-Id, Disk-Generic-Name
+> Concerne les modèles de service suivants : Disk-Generic-Id, Disk-Generic-Name, Disk-Global
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -137,19 +139,19 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | total-write-iops    | iops  |
 | sum-read-write      | B/s   |
 | sum-read-write-iops | iops  |
-| disk#read           | B/s   |
-| disk#write          | B/s   |
-| disk#read-iops      | iops  |
-| disk#write-iops     | iops  |
+| *disk*#read         | B/s   |
+| *disk*#write        | B/s   |
+| *disk*#read-iops    | iops  |
+| *disk*#write-iops   | iops  |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Inodes-Global" label="Inodes-Global">
 
-| Métrique                             | Unité |
-|:-------------------------------------|:------|
-| disk#storage.inodes.usage.percentage | %     |
+| Métrique                               | Unité |
+|:---------------------------------------|:------|
+| *disk*#storage.inodes.usage.percentage | %     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -194,13 +196,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Packet-Errors-*" label="Packet-Errors-*">
 
-| Métrique                                     | Unité |
-|:---------------------------------------------|:------|
-| int#status                                   | N/A   |
-| int#interface.packets.in.discard.percentage  | %     |
-| int#interface.packets.in.error.percentage    | %     |
-| int#interface.packets.out.discard.percentage | %     |
-| int#interface.packets.out.error.percentage   | %     |
+| Métrique                                       | Unité |
+|:-----------------------------------------------|:------|
+| *int*#status                                   | N/A   |
+| *int*#interface.packets.in.discard.percentage  | %     |
+| *int*#interface.packets.in.error.percentage    | %     |
+| *int*#interface.packets.out.discard.percentage | %     |
+| *int*#interface.packets.out.error.percentage   | %     |
 
 > Concerne les modèles de service suivants : Packet-Errors-Generic-Id, Packet-Errors-Generic-Name, Packet-Errors-Global
 
@@ -236,13 +238,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Métrique                                | Unité |
-|:----------------------------------------|:------|
-| int#status                              | N/A   |
-| int#interface.traffic.in.bitspersecond  | b/s   |
-| int#interface.traffic.out.bitspersecond | b/s   |
+| Métrique                                  | Unité |
+|:------------------------------------------|:------|
+| *int*#status                              | N/A   |
+| *int*#interface.traffic.in.bitspersecond  | b/s   |
+| *int*#interface.traffic.out.bitspersecond | b/s   |
 
-> Concerne les modèles de service suivants : Traffic-Global, Traffic-Generic-Id, Traffic-Generic-Name
+> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -642,24 +644,26 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--diskpath='.*' \
+	--interface='.*' \
 	--name \
-	--regexp \
-	--warning-usage='80' \
-	--critical-usage='90' \
-	--filter-device='^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$)' \
-	--verbose\
-	
+	--add-status \
+	--add-traffic \
+	--critical-status='' \
+	--warning-in-traffic='80' \
+	--critical-in-traffic='90' \
+	--warning-out-traffic='80' \
+	--critical-out-traffic='90' \
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Used: 20 % | 'storage.inodes.usage.percentage'=20%;;;0;100 
+OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitspersecond'=b/s;;;;'*int*#interface.traffic.out.bitspersecond'=b/s;;;;
 ```
 
 ### Diagnostic des erreurs communes
@@ -1103,6 +1107,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--help
 ```
