@@ -7,7 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
-ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetApp's proprietary operating system used in storage disk arrays such as NetApp FAS and AFF, ONTAP Select and Cloud Volumes ONTAP
 
 ### Templates
 
