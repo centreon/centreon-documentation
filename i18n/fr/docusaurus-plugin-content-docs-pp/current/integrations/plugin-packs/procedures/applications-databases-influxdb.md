@@ -114,7 +114,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
+Pour pouvoir accéder aux données d'une base InfluxDB, il faut généralement disposer d'un login/mot de passe ou d'un token.
 to the manufacturer official documentation BUT you should try to be as complete\n\
 as possible here as it will save time to everybody.*
 
