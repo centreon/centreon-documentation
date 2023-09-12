@@ -459,7 +459,7 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 
 | Macro                           | Description                                                                                       | Valeur par défaut | Obligatoire |
 |:--------------------------------|:--------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ISP                             | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP | .*                |             |
+| ISP                             | Display statistics per ISP. Leave empty to get statistics from all ISPs, or specify a particular ISP | .*                |             |
 | PERIOD                          |                                                                                                   | 15                |             |
 | WARNINGISPDTTSPENT              |                                                                                                   |                   |             |
 | CRITICALISPDTTSPENT             |                                                                                                   |                   |             |
