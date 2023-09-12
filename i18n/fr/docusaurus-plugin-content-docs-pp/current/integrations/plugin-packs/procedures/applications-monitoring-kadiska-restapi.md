@@ -341,7 +341,7 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 |:-----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KADISKAAPIPROTO        | Specify https if needed (Default: 'https')                                                            | https             |             |
 | KADISKAAPIPORT         | Port used (Default: 443)                                                                              | 443               |             |
-| KADISKAAPICLIENTID     | Set client id                                                                                         |                   | X           |
+| KADISKAAPICLIENTID     | Set client ID                                                                                         |                   | X           |
 | KADISKAAPICLIENTSECRET | Set client secret                                                                                     |                   | X           |
 | TIMEOUT                | Set timeout in seconds (Default: 10)                                                                  |                   |             |
 | KADISKAEXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
