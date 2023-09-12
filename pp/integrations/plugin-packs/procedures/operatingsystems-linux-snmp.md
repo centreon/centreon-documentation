@@ -386,7 +386,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 3. Apply the **OS-Linux-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md) section.
 
 | Macro            | Description                                                                                           | Default value     | Mandatory   |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -669,7 +669,7 @@ OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitsp
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
 
 ### Available modes
