@@ -77,7 +77,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                                        | Description                                 |
 |:-------------------------------------------------|:--------------------------------------------|
-| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Discover kadiska alert rules.               |
+| App-Monitoring-Kadiska-Restapi-Alert-Rules       | Discover Kadiska alert rules.               |
 | App-Monitoring-Kadiska-Restapi-Target-Statistics | Discover tracer targets for a given runner. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -90,144 +90,151 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Metric name               | Unit  |
-|:--------------------------|:------|
-| rules#rule-ok-count       | N/A   |
-| rules#rule-warning-count  | N/A   |
-| rules#rule-critical-count | N/A   |
-| rules#rule-nodata-count   | N/A   |
+| Metric name                 | Unit  |
+|:----------------------------|:------|
+| rules.total.count           | count |
+| rules.criticals.count       | count |
+| rules.warnings.count        | count |
+| rules.nodata.count          | count |
+| *rules*#rule.ok.count       | count |
+| *rules*#rule.warning.count  | count |
+| *rules*#rule.critical.count | count |
+| *rules*#rule.nodata.count   | count |
 
 </TabItem>
 <TabItem value="Target-Statistics" label="Target-Statistics">
 
-| Metric name                            | Unit  |
-|:---------------------------------------|:------|
-| targets#tracer.round.trip.persecond    | ms    |
-| targets#tracer.path.length             | N/A   |
-| targets#tracer.packets.loss.percentage | %     |
+| Metric name                              | Unit  |
+|:-----------------------------------------|:------|
+| *targets*#tracer.round.trip.persecond    | ms    |
+| *targets*#tracer.path.length             | N/A   |
+| *targets*#tracer.packets.loss.percentage | %     |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Country" label="Watcher-Statistics-Per-Country">
 
-| Metric name                                         | Unit  |
-|:----------------------------------------------------|:------|
-| country#watcher.dtt.spent.time.milliseconds         | ms    |
-| country#watcher.errors.percentage                   | %     |
-| country#watcher.network.spent.time.milliseconds     | ms    |
-| country#watcher.sessions.count                      | count |
-| country#watcher.srt.spent.time.milliseconds         | ms    |
-| country#watcher.requests.count                      | count |
-| country#watcher.redirect.time.milliseconds          | ms    |
-| country#watchers.loading.page.duration.milliseconds | ms    |
-| country#watchers.pages.count                        | count |
-| country#watchers.processing.duration.milliseconds   | ms    |
-| country#watchers.users.count                        | count |
-| country#watchers.waiting.time.milliseconds          | ms    |
-| isp#isp.dtt.spent.time.milliseconds                 | ms    |
-| isp#isp.errors.percentage                           | %     |
-| isp#isp.network.spent.time.milliseconds             | ms    |
-| isp#isp.sessions.count                              | count |
-| isp#isp.srt.spent.time.milliseconds                 | ms    |
-| isp#isp.requests.count                              | count |
-| isp#isp.redirect.time.milliseconds                  | ms    |
-| isp#isp.loading.page.duration.milliseconds          | ms    |
-| isp#isp.pages.count                                 | count |
-| isp#isp.processing.duration.milliseconds            | ms    |
-| isp#isp.users.count                                 | count |
-| isp#isp.waiting.time.milliseconds                   | ms    |
-| watcher~watcher.dtt.spent.time.milliseconds         | ms    |
-| watcher~watcher.errors.percentage                   | %     |
-| watcher~watcher.network.spent.time.milliseconds     | ms    |
-| watcher~watcher.loading.page.duration.milliseconds  | ms    |
-| watcher~watcher.pages.count                         | count |
-| watcher~watcher.processing.duration.milliseconds    | ms    |
-| watcher~watcher.redirect.time.milliseconds          | ms    |
-| watcher~watcher.requests.count                      | count |
-| watcher~watcher.sessions.count                      | count |
-| watcher~watcher.srt.spent.time.milliseconds         | ms    |
-| watcher~watcher.users.count                         | count |
+| Metric name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| *country*#watcher.dtt.spent.time.milliseconds         | ms    |
+| *country*#watcher.errors.percentage                   | %     |
+| *country*#watcher.network.spent.time.milliseconds     | ms    |
+| *country*#watcher.sessions.count                      | count |
+| *country*#watcher.srt.spent.time.milliseconds         | ms    |
+| *country*#watcher.requests.count                      | count |
+| *country*#watcher.redirect.time.milliseconds          | ms    |
+| *country*#watchers.loading.page.duration.milliseconds | ms    |
+| *country*#watchers.pages.count                        | count |
+| *country*#watchers.processing.duration.milliseconds   | ms    |
+| *country*#watchers.users.count                        | count |
+| *country*#watchers.waiting.time.milliseconds          | ms    |
+| *isp*#isp.dtt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.errors.percentage                           | %     |
+| *isp*#isp.network.spent.time.milliseconds             | ms    |
+| *isp*#isp.sessions.count                              | count |
+| *isp*#isp.srt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.requests.count                              | count |
+| *isp*#isp.redirect.time.milliseconds                  | ms    |
+| *isp*#isp.loading.page.duration.milliseconds          | ms    |
+| *isp*#isp.pages.count                                 | count |
+| *isp*#isp.processing.duration.milliseconds            | ms    |
+| *isp*#isp.users.count                                 | count |
+| *isp*#isp.waiting.time.milliseconds                   | ms    |
+| *watcher*~watcher.dtt.spent.time.milliseconds         | ms    |
+| *watcher*~watcher.errors.percentage                   | %     |
+| *watcher*~watcher.network.spent.time.milliseconds     | ms    |
+| *watcher*~watcher.loading.page.duration.milliseconds  | ms    |
+| *watcher*~watcher.pages.count                         | count |
+| *watcher*~watcher.processing.duration.milliseconds    | ms    |
+| *watcher*~watcher.redirect.time.milliseconds          | ms    |
+| *watcher*~watcher.requests.count                      | count |
+| *watcher*~watcher.sessions.count                      | count |
+| *watcher*~watcher.srt.spent.time.milliseconds         | ms    |
+| *watcher*~watcher.users.count                         | count |
+| *watcher*~watcher.waiting.time.milliseconds           | ms    |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-ISP" label="Watcher-Statistics-Per-ISP">
 
-| Metric name                                         | Unit  |
-|:----------------------------------------------------|:------|
-| country#watcher.dtt.spent.time.milliseconds         | ms    |
-| country#watcher.errors.percentage                   | %     |
-| country#watcher.network.spent.time.milliseconds     | ms    |
-| country#watcher.sessions.count                      | count |
-| country#watcher.srt.spent.time.milliseconds         | ms    |
-| country#watcher.requests.count                      | count |
-| country#watcher.redirect.time.milliseconds          | ms    |
-| country#watchers.loading.page.duration.milliseconds | ms    |
-| country#watchers.pages.count                        | count |
-| country#watchers.processing.duration.milliseconds   | ms    |
-| country#watchers.users.count                        | count |
-| country#watchers.waiting.time.milliseconds          | ms    |
-| isp#isp.dtt.spent.time.milliseconds                 | ms    |
-| isp#isp.errors.percentage                           | %     |
-| isp#isp.network.spent.time.milliseconds             | ms    |
-| isp#isp.sessions.count                              | count |
-| isp#isp.srt.spent.time.milliseconds                 | ms    |
-| isp#isp.requests.count                              | count |
-| isp#isp.redirect.time.milliseconds                  | ms    |
-| isp#isp.loading.page.duration.milliseconds          | ms    |
-| isp#isp.pages.count                                 | count |
-| isp#isp.processing.duration.milliseconds            | ms    |
-| isp#isp.users.count                                 | count |
-| isp#isp.waiting.time.milliseconds                   | ms    |
-| watcher~watcher.dtt.spent.time.milliseconds         | ms    |
-| watcher~watcher.errors.percentage                   | %     |
-| watcher~watcher.network.spent.time.milliseconds     | ms    |
-| watcher~watcher.loading.page.duration.milliseconds  | ms    |
-| watcher~watcher.pages.count                         | count |
-| watcher~watcher.processing.duration.milliseconds    | ms    |
-| watcher~watcher.redirect.time.milliseconds          | ms    |
-| watcher~watcher.requests.count                      | count |
-| watcher~watcher.sessions.count                      | count |
-| watcher~watcher.srt.spent.time.milliseconds         | ms    |
-| watcher~watcher.users.count                         | count |
+| Metric name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| *country*#watcher.dtt.spent.time.milliseconds         | ms    |
+| *country*#watcher.errors.percentage                   | %     |
+| *country*#watcher.network.spent.time.milliseconds     | ms    |
+| *country*#watcher.sessions.count                      | count |
+| *country*#watcher.srt.spent.time.milliseconds         | ms    |
+| *country*#watcher.requests.count                      | count |
+| *country*#watcher.redirect.time.milliseconds          | ms    |
+| *country*#watchers.loading.page.duration.milliseconds | ms    |
+| *country*#watchers.pages.count                        | count |
+| *country*#watchers.processing.duration.milliseconds   | ms    |
+| *country*#watchers.users.count                        | count |
+| *country*#watchers.waiting.time.milliseconds          | ms    |
+| *isp*#isp.dtt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.errors.percentage                           | %     |
+| *isp*#isp.network.spent.time.milliseconds             | ms    |
+| *isp*#isp.sessions.count                              | count |
+| *isp*#isp.srt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.requests.count                              | count |
+| *isp*#isp.redirect.time.milliseconds                  | ms    |
+| *isp*#isp.loading.page.duration.milliseconds          | ms    |
+| *isp*#isp.pages.count                                 | count |
+| *isp*#isp.processing.duration.milliseconds            | ms    |
+| *isp*#isp.users.count                                 | count |
+| *isp*#isp.waiting.time.milliseconds                   | ms    |
+| *watcher*~watcher.dtt.spent.time.milliseconds         | ms    |
+| *watcher*~watcher.errors.percentage                   | %     |
+| *watcher*~watcher.network.spent.time.milliseconds     | ms    |
+| *watcher*~watcher.loading.page.duration.milliseconds  | ms    |
+| *watcher*~watcher.pages.count                         | count |
+| *watcher*~watcher.processing.duration.milliseconds    | ms    |
+| *watcher*~watcher.redirect.time.milliseconds          | ms    |
+| *watcher*~watcher.requests.count                      | count |
+| *watcher*~watcher.sessions.count                      | count |
+| *watcher*~watcher.srt.spent.time.milliseconds         | ms    |
+| *watcher*~watcher.users.count                         | count |
+| *watcher*~watcher.waiting.time.milliseconds           | ms    |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Site-And-Gateway" label="Watcher-Statistics-Per-Site-And-Gateway">
 
-| Metric name                                         | Unit  |
-|:----------------------------------------------------|:------|
-| country#watcher.dtt.spent.time.milliseconds         | ms    |
-| country#watcher.errors.percentage                   | %     |
-| country#watcher.network.spent.time.milliseconds     | ms    |
-| country#watcher.sessions.count                      | count |
-| country#watcher.srt.spent.time.milliseconds         | ms    |
-| country#watcher.requests.count                      | count |
-| country#watcher.redirect.time.milliseconds          | ms    |
-| country#watchers.loading.page.duration.milliseconds | ms    |
-| country#watchers.pages.count                        | count |
-| country#watchers.processing.duration.milliseconds   | ms    |
-| country#watchers.users.count                        | count |
-| country#watchers.waiting.time.milliseconds          | ms    |
-| isp#isp.dtt.spent.time.milliseconds                 | ms    |
-| isp#isp.errors.percentage                           | %     |
-| isp#isp.network.spent.time.milliseconds             | ms    |
-| isp#isp.sessions.count                              | count |
-| isp#isp.srt.spent.time.milliseconds                 | ms    |
-| isp#isp.requests.count                              | count |
-| isp#isp.redirect.time.milliseconds                  | ms    |
-| isp#isp.loading.page.duration.milliseconds          | ms    |
-| isp#isp.pages.count                                 | count |
-| isp#isp.processing.duration.milliseconds            | ms    |
-| isp#isp.users.count                                 | count |
-| isp#isp.waiting.time.milliseconds                   | ms    |
-| watcher~watcher.dtt.spent.time.milliseconds         | ms    |
-| watcher~watcher.errors.percentage                   | %     |
-| watcher~watcher.network.spent.time.milliseconds     | ms    |
-| watcher~watcher.loading.page.duration.milliseconds  | ms    |
-| watcher~watcher.pages.count                         | count |
-| watcher~watcher.processing.duration.milliseconds    | ms    |
-| watcher~watcher.redirect.time.milliseconds          | ms    |
-| watcher~watcher.requests.count                      | count |
-| watcher~watcher.sessions.count                      | count |
-| watcher~watcher.srt.spent.time.milliseconds         | ms    |
-| watcher~watcher.users.count                         | count |
+| Metric name                                           | Unit  |
+|:------------------------------------------------------|:------|
+| *country*#watcher.dtt.spent.time.milliseconds         | ms    |
+| *country*#watcher.errors.percentage                   | %     |
+| *country*#watcher.network.spent.time.milliseconds     | ms    |
+| *country*#watcher.sessions.count                      | count |
+| *country*#watcher.srt.spent.time.milliseconds         | ms    |
+| *country*#watcher.requests.count                      | count |
+| *country*#watcher.redirect.time.milliseconds          | ms    |
+| *country*#watchers.loading.page.duration.milliseconds | ms    |
+| *country*#watchers.pages.count                        | count |
+| *country*#watchers.processing.duration.milliseconds   | ms    |
+| *country*#watchers.users.count                        | count |
+| *country*#watchers.waiting.time.milliseconds          | ms    |
+| *isp*#isp.dtt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.errors.percentage                           | %     |
+| *isp*#isp.network.spent.time.milliseconds             | ms    |
+| *isp*#isp.sessions.count                              | count |
+| *isp*#isp.srt.spent.time.milliseconds                 | ms    |
+| *isp*#isp.requests.count                              | count |
+| *isp*#isp.redirect.time.milliseconds                  | ms    |
+| *isp*#isp.loading.page.duration.milliseconds          | ms    |
+| *isp*#isp.pages.count                                 | count |
+| *isp*#isp.processing.duration.milliseconds            | ms    |
+| *isp*#isp.users.count                                 | count |
+| *isp*#isp.waiting.time.milliseconds                   | ms    |
+| *watcher*~watcher.dtt.spent.time.milliseconds         | ms    |
+| *watcher*~watcher.errors.percentage                   | %     |
+| *watcher*~watcher.network.spent.time.milliseconds     | ms    |
+| *watcher*~watcher.loading.page.duration.milliseconds  | ms    |
+| *watcher*~watcher.pages.count                         | count |
+| *watcher*~watcher.processing.duration.milliseconds    | ms    |
+| *watcher*~watcher.redirect.time.milliseconds          | ms    |
+| *watcher*~watcher.requests.count                      | count |
+| *watcher*~watcher.sessions.count                      | count |
+| *watcher*~watcher.srt.spent.time.milliseconds         | ms    |
+| *watcher*~watcher.users.count                         | count |
+| *watcher*~watcher.waiting.time.milliseconds           | ms    |
 
 </TabItem>
 </Tabs>
@@ -429,64 +436,64 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 
 | Macro                               | Description                                                                                                      | Default value     | Mandatory   |
 |:------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COUNTRY                             | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country | .*                |             |
+| COUNTRY                             | Display statistics per country.  Leave empty to get statistics from all countries, or specify a particular country | .*                |             |
 | PERIOD                              |                                                                                                                  | 15                |             |
-| WARNINGCOUNTRYDTTSPENT              |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYDTTSPENT             |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYERRORSPRCT            |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYERRORSPRCT           |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYFULLTIMENETWORKSPENT  |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYFULLTIMENETWORKSPENT |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYLOADINGPAGE           |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYLOADINGPAGE          |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYPAGES                 |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYPAGES                |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYPROCESSING            |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYPROCESSING           |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYREDIRECTTIMEAVG       |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYREDIRECTTIMEAVG      |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYREQUESTS              |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYREQUESTS             |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYSESSIONS              |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYSESSIONS             |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYSRTSPENT              |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYSRTSPENT             |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYUSERS                 |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYUSERS                |                                                                                                                  |                   |             |
-| WARNINGCOUNTRYWAITINGTIMEAVG        |                                                                                                                  |                   |             |
-| CRITICALCOUNTRYWAITINGTIMEAVG       |                                                                                                                  |                   |             |
+| WARNINGCOUNTRYDTTSPENT              | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYDTTSPENT             | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYERRORSPRCT            | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYERRORSPRCT           | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYFULLTIMENETWORKSPENT  | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYFULLTIMENETWORKSPENT | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYLOADINGPAGE           | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYLOADINGPAGE          | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYPAGES                 | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYPAGES                | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYPROCESSING            | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYPROCESSING           | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYREDIRECTTIMEAVG       | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYREDIRECTTIMEAVG      | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYREQUESTS              | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYREQUESTS             | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYSESSIONS              | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYSESSIONS             | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYSRTSPENT              | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYSRTSPENT             | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYUSERS                 | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYUSERS                | Thresholds                                                                                                       |                   |             |
+| WARNINGCOUNTRYWAITINGTIMEAVG        | Thresholds                                                                                                       |                   |             |
+| CRITICALCOUNTRYWAITINGTIMEAVG       | Thresholds                                                                                                       |                   |             |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-ISP" label="Watcher-Statistics-Per-ISP">
 
 | Macro                           | Description                                                                                       | Default value     | Mandatory   |
 |:--------------------------------|:--------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ISP                             | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP | .*                |             |
+| ISP                             | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify a particular ISP | .*                |             |
 | PERIOD                          |                                                                                                   | 15                |             |
-| WARNINGISPDTTSPENT              |                                                                                                   |                   |             |
-| CRITICALISPDTTSPENT             |                                                                                                   |                   |             |
-| WARNINGISPERRORSPRCT            |                                                                                                   |                   |             |
-| CRITICALISPERRORSPRCT           |                                                                                                   |                   |             |
-| WARNINGISPFULLTIMENETWORKSPENT  |                                                                                                   |                   |             |
-| CRITICALISPFULLTIMENETWORKSPENT |                                                                                                   |                   |             |
-| WARNINGISPLOADINGPAGE           |                                                                                                   |                   |             |
-| CRITICALISPLOADINGPAGE          |                                                                                                   |                   |             |
-| WARNINGISPPAGES                 |                                                                                                   |                   |             |
-| CRITICALISPPAGES                |                                                                                                   |                   |             |
-| WARNINGISPPROCESSING            |                                                                                                   |                   |             |
-| CRITICALISPPROCESSING           |                                                                                                   |                   |             |
-| WARNINGISPREDIRECTTIMEAVG       |                                                                                                   |                   |             |
-| CRITICALISPREDIRECTTIMEAVG      |                                                                                                   |                   |             |
-| WARNINGISPREQUESTS              |                                                                                                   |                   |             |
-| CRITICALISPREQUESTS             |                                                                                                   |                   |             |
-| WARNINGISPSESSIONS              |                                                                                                   |                   |             |
-| CRITICALISPSESSIONS             |                                                                                                   |                   |             |
-| WARNINGISPSRTSPENT              |                                                                                                   |                   |             |
-| CRITICALISPSRTSPENT             |                                                                                                   |                   |             |
-| WARNINGISPUSERS                 |                                                                                                   |                   |             |
-| CRITICALISPUSERS                |                                                                                                   |                   |             |
-| WARNINGISPWAITINGTIMEAVG        |                                                                                                   |                   |             |
-| CRITICALISPWAITINGTIMEAVG       |                                                                                                   |                   |             |
+| WARNINGISPDTTSPENT              | Thresholds                                                                                        |                   |             |
+| CRITICALISPDTTSPENT             | Thresholds                                                                                        |                   |             |
+| WARNINGISPERRORSPRCT            | Thresholds                                                                                        |                   |             |
+| CRITICALISPERRORSPRCT           | Thresholds                                                                                        |                   |             |
+| WARNINGISPFULLTIMENETWORKSPENT  | Thresholds                                                                                        |                   |             |
+| CRITICALISPFULLTIMENETWORKSPENT | Thresholds                                                                                        |                   |             |
+| WARNINGISPLOADINGPAGE           | Thresholds                                                                                        |                   |             |
+| CRITICALISPLOADINGPAGE          | Thresholds                                                                                        |                   |             |
+| WARNINGISPPAGES                 | Thresholds                                                                                        |                   |             |
+| CRITICALISPPAGES                | Thresholds                                                                                        |                   |             |
+| WARNINGISPPROCESSING            | Thresholds                                                                                        |                   |             |
+| CRITICALISPPROCESSING           | Thresholds                                                                                        |                   |             |
+| WARNINGISPREDIRECTTIMEAVG       | Thresholds                                                                                        |                   |             |
+| CRITICALISPREDIRECTTIMEAVG      | Thresholds                                                                                        |                   |             |
+| WARNINGISPREQUESTS              | Thresholds                                                                                        |                   |             |
+| CRITICALISPREQUESTS             | Thresholds                                                                                        |                   |             |
+| WARNINGISPSESSIONS              | Thresholds                                                                                        |                   |             |
+| CRITICALISPSESSIONS             | Thresholds                                                                                        |                   |             |
+| WARNINGISPSRTSPENT              | Thresholds                                                                                        |                   |             |
+| CRITICALISPSRTSPENT             | Thresholds                                                                                        |                   |             |
+| WARNINGISPUSERS                 | Thresholds                                                                                        |                   |             |
+| CRITICALISPUSERS                | Thresholds                                                                                        |                   |             |
+| WARNINGISPWAITINGTIMEAVG        | Thresholds                                                                                        |                   |             |
+| CRITICALISPWAITINGTIMEAVG       | Thresholds                                                                                        |                   |             |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Site-And-Gateway" label="Watcher-Statistics-Per-Site-And-Gateway">
@@ -494,76 +501,76 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 | Macro                               | Description | Default value     | Mandatory   |
 |:------------------------------------|:------------|:------------------|:-----------:|
 | PERIOD                              |             | 15                |             |
-| WARNINGCOUNTRYDTTSPENT              |             |                   |             |
-| CRITICALCOUNTRYDTTSPENT             |             |                   |             |
-| WARNINGCOUNTRYERRORSPRCT            |             |                   |             |
-| CRITICALCOUNTRYERRORSPRCT           |             |                   |             |
-| WARNINGCOUNTRYFULLTIMENETWORKSPENT  |             |                   |             |
-| CRITICALCOUNTRYFULLTIMENETWORKSPENT |             |                   |             |
-| WARNINGCOUNTRYLOADINGPAGE           |             |                   |             |
-| CRITICALCOUNTRYLOADINGPAGE          |             |                   |             |
-| WARNINGCOUNTRYPAGES                 |             |                   |             |
-| CRITICALCOUNTRYPAGES                |             |                   |             |
-| WARNINGCOUNTRYPROCESSING            |             |                   |             |
-| CRITICALCOUNTRYPROCESSING           |             |                   |             |
-| WARNINGCOUNTRYREDIRECTTIMEAVG       |             |                   |             |
-| CRITICALCOUNTRYREDIRECTTIMEAVG      |             |                   |             |
-| WARNINGCOUNTRYREQUESTS              |             |                   |             |
-| CRITICALCOUNTRYREQUESTS             |             |                   |             |
-| WARNINGCOUNTRYSESSIONS              |             |                   |             |
-| CRITICALCOUNTRYSESSIONS             |             |                   |             |
-| WARNINGCOUNTRYSRTSPENT              |             |                   |             |
-| CRITICALCOUNTRYSRTSPENT             |             |                   |             |
-| WARNINGCOUNTRYUSERS                 |             |                   |             |
-| CRITICALCOUNTRYUSERS                |             |                   |             |
-| WARNINGCOUNTRYWAITINGTIMEAVG        |             |                   |             |
-| CRITICALCOUNTRYWAITINGTIMEAVG       |             |                   |             |
-| WARNINGISPDTTSPENT                  |             |                   |             |
-| CRITICALISPDTTSPENT                 |             |                   |             |
-| WARNINGISPERRORSPRCT                |             |                   |             |
-| CRITICALISPERRORSPRCT               |             |                   |             |
-| WARNINGISPFULLTIMENETWORKSPENT      |             |                   |             |
-| CRITICALISPFULLTIMENETWORKSPENT     |             |                   |             |
-| WARNINGISPLOADINGPAGE               |             |                   |             |
-| CRITICALISPLOADINGPAGE              |             |                   |             |
-| WARNINGISPPAGES                     |             |                   |             |
-| CRITICALISPPAGES                    |             |                   |             |
-| WARNINGISPPROCESSING                |             |                   |             |
-| CRITICALISPPROCESSING               |             |                   |             |
-| WARNINGISPREDIRECTTIMEAVG           |             |                   |             |
-| CRITICALISPREDIRECTTIMEAVG          |             |                   |             |
-| WARNINGISPREQUESTS                  |             |                   |             |
-| CRITICALISPREQUESTS                 |             |                   |             |
-| WARNINGISPSESSIONS                  |             |                   |             |
-| CRITICALISPSESSIONS                 |             |                   |             |
-| WARNINGISPSRTSPENT                  |             |                   |             |
-| CRITICALISPSRTSPENT                 |             |                   |             |
-| WARNINGISPUSERS                     |             |                   |             |
-| CRITICALISPUSERS                    |             |                   |             |
-| WARNINGISPWAITINGTIMEAVG            |             |                   |             |
-| CRITICALISPWAITINGTIMEAVG           |             |                   |             |
-| WARNINGWATCHERDTTSPENT              |             |                   |             |
-| CRITICALWATCHERDTTSPENT             |             |                   |             |
-| WARNINGWATCHERERRORSPRCT            |             |                   |             |
-| CRITICALWATCHERERRORSPRCT           |             |                   |             |
+| WARNINGCOUNTRYDTTSPENT              | Thresholds  |                   |             |
+| CRITICALCOUNTRYDTTSPENT             | Thresholds  |                   |             |
+| WARNINGCOUNTRYERRORSPRCT            | Thresholds  |                   |             |
+| CRITICALCOUNTRYERRORSPRCT           | Thresholds  |                   |             |
+| WARNINGCOUNTRYFULLTIMENETWORKSPENT  | Thresholds  |                   |             |
+| CRITICALCOUNTRYFULLTIMENETWORKSPENT | Thresholds  |                   |             |
+| WARNINGCOUNTRYLOADINGPAGE           | Thresholds  |                   |             |
+| CRITICALCOUNTRYLOADINGPAGE          | Thresholds  |                   |             |
+| WARNINGCOUNTRYPAGES                 | Thresholds  |                   |             |
+| CRITICALCOUNTRYPAGES                | Thresholds  |                   |             |
+| WARNINGCOUNTRYPROCESSING            | Thresholds  |                   |             |
+| CRITICALCOUNTRYPROCESSING           | Thresholds  |                   |             |
+| WARNINGCOUNTRYREDIRECTTIMEAVG       | Thresholds  |                   |             |
+| CRITICALCOUNTRYREDIRECTTIMEAVG      | Thresholds  |                   |             |
+| WARNINGCOUNTRYREQUESTS              | Thresholds  |                   |             |
+| CRITICALCOUNTRYREQUESTS             | Thresholds  |                   |             |
+| WARNINGCOUNTRYSESSIONS              | Thresholds  |                   |             |
+| CRITICALCOUNTRYSESSIONS             | Thresholds  |                   |             |
+| WARNINGCOUNTRYSRTSPENT              | Thresholds  |                   |             |
+| CRITICALCOUNTRYSRTSPENT             | Thresholds  |                   |             |
+| WARNINGCOUNTRYUSERS                 | Thresholds  |                   |             |
+| CRITICALCOUNTRYUSERS                | Thresholds  |                   |             |
+| WARNINGCOUNTRYWAITINGTIMEAVG        | Thresholds  |                   |             |
+| CRITICALCOUNTRYWAITINGTIMEAVG       | Thresholds  |                   |             |
+| WARNINGISPDTTSPENT                  | Thresholds  |                   |             |
+| CRITICALISPDTTSPENT                 | Thresholds  |                   |             |
+| WARNINGISPERRORSPRCT                | Thresholds  |                   |             |
+| CRITICALISPERRORSPRCT               | Thresholds  |                   |             |
+| WARNINGISPFULLTIMENETWORKSPENT      | Thresholds  |                   |             |
+| CRITICALISPFULLTIMENETWORKSPENT     | Thresholds  |                   |             |
+| WARNINGISPLOADINGPAGE               | Thresholds  |                   |             |
+| CRITICALISPLOADINGPAGE              | Thresholds  |                   |             |
+| WARNINGISPPAGES                     | Thresholds  |                   |             |
+| CRITICALISPPAGES                    | Thresholds  |                   |             |
+| WARNINGISPPROCESSING                | Thresholds  |                   |             |
+| CRITICALISPPROCESSING               | Thresholds  |                   |             |
+| WARNINGISPREDIRECTTIMEAVG           | Thresholds  |                   |             |
+| CRITICALISPREDIRECTTIMEAVG          | Thresholds  |                   |             |
+| WARNINGISPREQUESTS                  | Thresholds  |                   |             |
+| CRITICALISPREQUESTS                 | Thresholds  |                   |             |
+| WARNINGISPSESSIONS                  | Thresholds  |                   |             |
+| CRITICALISPSESSIONS                 | Thresholds  |                   |             |
+| WARNINGISPSRTSPENT                  | Thresholds  |                   |             |
+| CRITICALISPSRTSPENT                 | Thresholds  |                   |             |
+| WARNINGISPUSERS                     | Thresholds  |                   |             |
+| CRITICALISPUSERS                    | Thresholds  |                   |             |
+| WARNINGISPWAITINGTIMEAVG            | Thresholds  |                   |             |
+| CRITICALISPWAITINGTIMEAVG           | Thresholds  |                   |             |
+| WARNINGWATCHERDTTSPENT              | Thresholds  |                   |             |
+| CRITICALWATCHERDTTSPENT             | Thresholds  |                   |             |
+| WARNINGWATCHERERRORSPRCT            | Thresholds  |                   |             |
+| CRITICALWATCHERERRORSPRCT           | Thresholds  |                   |             |
 | WARNINGWATCHERFULLNETWORKTIMESPENT  |             |                   |             |
 | CRITICALWATCHERFULLNETWORKTIMESPENT |             |                   |             |
-| WARNINGWATCHERLOADINGPAGE           |             |                   |             |
-| CRITICALWATCHERLOADINGPAGE          |             |                   |             |
-| WARNINGWATCHERPAGES                 |             |                   |             |
-| CRITICALWATCHERPAGES                |             |                   |             |
-| WARNINGWATCHERPROCESSING            |             |                   |             |
-| CRITICALWATCHERPROCESSING           |             |                   |             |
-| WARNINGWATCHERREDIRECTTIMEAVG       |             |                   |             |
-| CRITICALWATCHERREDIRECTTIMEAVG      |             |                   |             |
-| WARNINGWATCHERREQUESTS              |             |                   |             |
-| CRITICALWATCHERREQUESTS             |             |                   |             |
-| WARNINGWATCHERSESSIONS              |             |                   |             |
-| CRITICALWATCHERSESSIONS             |             |                   |             |
-| WARNINGWATCHERSRTSPENT              |             |                   |             |
-| CRITICALWATCHERSRTSPENT             |             |                   |             |
-| WARNINGWATCHERUSERS                 |             |                   |             |
-| CRITICALWATCHERUSERS                |             |                   |             |
+| WARNINGWATCHERLOADINGPAGE           | Thresholds  |                   |             |
+| CRITICALWATCHERLOADINGPAGE          | Thresholds  |                   |             |
+| WARNINGWATCHERPAGES                 | Thresholds  |                   |             |
+| CRITICALWATCHERPAGES                | Thresholds  |                   |             |
+| WARNINGWATCHERPROCESSING            | Thresholds  |                   |             |
+| CRITICALWATCHERPROCESSING           | Thresholds  |                   |             |
+| WARNINGWATCHERREDIRECTTIMEAVG       | Thresholds  |                   |             |
+| CRITICALWATCHERREDIRECTTIMEAVG      | Thresholds  |                   |             |
+| WARNINGWATCHERREQUESTS              | Thresholds  |                   |             |
+| CRITICALWATCHERREQUESTS             | Thresholds  |                   |             |
+| WARNINGWATCHERSESSIONS              | Thresholds  |                   |             |
+| CRITICALWATCHERSESSIONS             | Thresholds  |                   |             |
+| WARNINGWATCHERSRTSPENT              | Thresholds  |                   |             |
+| CRITICALWATCHERSRTSPENT             | Thresholds  |                   |             |
+| WARNINGWATCHERUSERS                 | Thresholds  |                   |             |
+| CRITICALWATCHERUSERS                | Thresholds  |                   |             |
 | WARNINGWATCHERWAITINGTIME           |             |                   |             |
 | CRITICALWATCHERWAITINGTIME          |             |                   |             |
 
@@ -579,7 +586,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_kadiska_restapi.pl \
 	--plugin=apps::monitoring::kadiska::plugin \
 	--mode=watcher-statistics \
 	--client-id='' \
@@ -662,8 +669,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-watcher-pages='' \
 	--critical-watcher-pages='' \
 	--warning-watcher-srt-spent='' \
-	--critical-watcher-srt-spent='' \
-	
+	--critical-watcher-srt-spent='' 
 ```
 
 The expected command output is shown below:
@@ -688,7 +694,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_kadiska_restapi.pl \
 	--plugin=apps::monitoring::kadiska::plugin \
 	--list-mode
 ```
@@ -698,7 +704,7 @@ The plugin brings the following modes:
 | Mode                                                                                                                                             | Linked service template                                                                                                                                                                                                       |
 |:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | alerts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/kadiska/mode/alerts.pm)]                            | App-Monitoring-Kadiska-Restapi-Alerts-custom                                                                                                                                                                                  |
-| list-alertrules [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/kadiska/mode/listalertrules.pm)]           | Used for service discovery                                                                                                                                                                                                    |
+| list-alert-rules [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/kadiska/mode/listalertrules.pm)]          | Used for service discovery                                                                                                                                                                                                    |
 | list-runners [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/kadiska/mode/listrunners.pm)]                 | Used for service discovery                                                                                                                                                                                                    |
 | list-targets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/kadiska/mode/listtargets.pm)]                 | Used for service discovery                                                                                                                                                                                                    |
 | list-watchers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/kadiska/mode/listwatchers.pm)]               | Used for service discovery                                                                                                                                                                                                    |
@@ -798,41 +804,41 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Country" label="Watcher-Statistics-Per-Country">
 
-| Option                | Description                                                                                                                                                                                                                                                                   |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --select-site-name    | Display statistics for watchers on a particular site.  Leave empty to get work-from-home watchers statistics: --select-site-name="" --select-watcher-name="GitHub"                                                                                                            |
-| --select-gateway-name | Display statistics for watchers attached to a particular gateway.                                                                                                                                                                                                             |
-| --select-watcher-name | Display statistics for a particular watcher.                                                                                                                                                                                                                                  |
-| --country             | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country.                                                                                                                                                             |
-| --isp                 | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP.                                                                                                                                                                            |
-| --wfa                 | Display statistics for watchers used by work-from-anywhereusers.                                                                                                                                                                                                              |
-| --warning-            | \[country\|isp\|watcher\]-* --critical-\[country\|isp\|watcher\]-*Thresholds. Can be: 'dtt-spent', 'errors-prct', 'full-time-network-spent', 'sessions', 'srt-spent', 'requests', 'redirect-time-avg', 'loading-page', 'pages', 'processing', 'users', 'waiting-time-avg'.    |
+| Option                                                                       | Description                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --select-site-name                                                           | Display statistics for watchers on a particular site.  Leave empty to get work-from-home watchers statistics: --select-site-name="" --select-watcher-name="GitHub"                                          |
+| --select-gateway-name                                                        | Display statistics for watchers attached to a particular gateway.                                                                                                                                           |
+| --select-watcher-name                                                        | Display statistics for a particular watcher.                                                                                                                                                                |
+| --country                                                                    | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country.                                                                                           |
+| --isp                                                                        | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP.                                                                                                          |
+| --wfa                                                                        | Display statistics for watchers used by work-from-anywhereusers.                                                                                                                                            |
+| --warning-\[country\|isp\|watcher\]-* --critical-\[country\|isp\|watcher\]-* | Thresholds. Can be: 'dtt-spent', 'errors-prct', 'full-time-network-spent', 'sessions', 'srt-spent', 'requests', 'redirect-time-avg', 'loading-page', 'pages', 'processing', 'users', 'waiting-time-avg'.    |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-ISP" label="Watcher-Statistics-Per-ISP">
 
-| Option                | Description                                                                                                                                                                                                                                                                   |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --select-site-name    | Display statistics for watchers on a particular site.  Leave empty to get work-from-home watchers statistics: --select-site-name="" --select-watcher-name="GitHub"                                                                                                            |
-| --select-gateway-name | Display statistics for watchers attached to a particular gateway.                                                                                                                                                                                                             |
-| --select-watcher-name | Display statistics for a particular watcher.                                                                                                                                                                                                                                  |
-| --country             | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country.                                                                                                                                                             |
-| --isp                 | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP.                                                                                                                                                                            |
-| --wfa                 | Display statistics for watchers used by work-from-anywhereusers.                                                                                                                                                                                                              |
-| --warning-            | \[country\|isp\|watcher\]-* --critical-\[country\|isp\|watcher\]-*Thresholds. Can be: 'dtt-spent', 'errors-prct', 'full-time-network-spent', 'sessions', 'srt-spent', 'requests', 'redirect-time-avg', 'loading-page', 'pages', 'processing', 'users', 'waiting-time-avg'.    |
+| Option                                                                       | Description                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --select-site-name                                                           | Display statistics for watchers on a particular site.  Leave empty to get work-from-home watchers statistics: --select-site-name="" --select-watcher-name="GitHub"                                          |
+| --select-gateway-name                                                        | Display statistics for watchers attached to a particular gateway.                                                                                                                                           |
+| --select-watcher-name                                                        | Display statistics for a particular watcher.                                                                                                                                                                |
+| --country                                                                    | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country.                                                                                           |
+| --isp                                                                        | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP.                                                                                                          |
+| --wfa                                                                        | Display statistics for watchers used by work-from-anywhereusers.                                                                                                                                            |
+| --warning-\[country\|isp\|watcher\]-* --critical-\[country\|isp\|watcher\]-* | Thresholds. Can be: 'dtt-spent', 'errors-prct', 'full-time-network-spent', 'sessions', 'srt-spent', 'requests', 'redirect-time-avg', 'loading-page', 'pages', 'processing', 'users', 'waiting-time-avg'.    |
 
 </TabItem>
 <TabItem value="Watcher-Statistics-Per-Site-And-Gateway" label="Watcher-Statistics-Per-Site-And-Gateway">
 
-| Option                | Description                                                                                                                                                                                                                                                                   |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --select-site-name    | Display statistics for watchers on a particular site.  Leave empty to get work-from-home watchers statistics: --select-site-name="" --select-watcher-name="GitHub"                                                                                                            |
-| --select-gateway-name | Display statistics for watchers attached to a particular gateway.                                                                                                                                                                                                             |
-| --select-watcher-name | Display statistics for a particular watcher.                                                                                                                                                                                                                                  |
-| --country             | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country.                                                                                                                                                             |
-| --isp                 | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP.                                                                                                                                                                            |
-| --wfa                 | Display statistics for watchers used by work-from-anywhereusers.                                                                                                                                                                                                              |
-| --warning-            | \[country\|isp\|watcher\]-* --critical-\[country\|isp\|watcher\]-*Thresholds. Can be: 'dtt-spent', 'errors-prct', 'full-time-network-spent', 'sessions', 'srt-spent', 'requests', 'redirect-time-avg', 'loading-page', 'pages', 'processing', 'users', 'waiting-time-avg'.    |
+| Option                                                                       | Description                                                                                                                                                                                                 |
+|:-----------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --select-site-name                                                           | Display statistics for watchers on a particular site.  Leave empty to get work-from-home watchers statistics: --select-site-name="" --select-watcher-name="GitHub"                                          |
+| --select-gateway-name                                                        | Display statistics for watchers attached to a particular gateway.                                                                                                                                           |
+| --select-watcher-name                                                        | Display statistics for a particular watcher.                                                                                                                                                                |
+| --country                                                                    | Display statistics per country.  Leave empty to get statistics from all countries, or specify particular country.                                                                                           |
+| --isp                                                                        | Display statistics per ISP. Leave empty to get statistics from all ISP, or specify particular ISP.                                                                                                          |
+| --wfa                                                                        | Display statistics for watchers used by work-from-anywhereusers.                                                                                                                                            |
+| --warning-\[country\|isp\|watcher\]-* --critical-\[country\|isp\|watcher\]-* | Thresholds. Can be: 'dtt-spent', 'errors-prct', 'full-time-network-spent', 'sessions', 'srt-spent', 'requests', 'redirect-time-avg', 'loading-page', 'pages', 'processing', 'users', 'waiting-time-avg'.    |
 
 </TabItem>
 </Tabs>
@@ -841,7 +847,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_monitoring_kadiska_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_kadiska_restapi.pl \
 	--plugin=apps::monitoring::kadiska::plugin \
 	--mode=watcher-statistics \
 	--help
