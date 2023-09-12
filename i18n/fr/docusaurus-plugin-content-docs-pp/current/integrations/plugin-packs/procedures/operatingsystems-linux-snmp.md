@@ -155,6 +155,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
+Pour que le mode Inodes fonctionne correctement, il est nécessaire que le service SNMP du serveur Linux soit correctement configuré. Il vous faut pour cela ajouter la directive ci-dessous dans le fichier de configuration SNMP puis redémarrer le service: 
+
+```includeAllDisks 10%```
+
 </TabItem>
 <TabItem value="Load" label="Load">
 
