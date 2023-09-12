@@ -9,7 +9,6 @@ import TabItem from '@theme/TabItem';
 
 InfluxDB est une base de données de séries chronologiques (généralement abrégé en TSDB pour time series database) sous licence MIT.
 
-
 ### Modèles
 
 Le connecteur de supervision **InfluxDB** apporte un modèle d'hôte :
@@ -115,8 +114,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ## Prérequis
 
 Pour pouvoir accéder aux données d'une base InfluxDB, il faut généralement disposer d'un login/mot de passe ou d'un token.
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
 
 ## Installer le connecteur de supervision
 
