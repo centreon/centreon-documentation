@@ -32,9 +32,37 @@ sudo yum update centreon-map-engine centreon-map-web-client
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-``` shell
-sudo apt update centreon-map-engine centreon-map-web-client
-```
+ - Si MAP seul est installé :
+ 
+ ``` shell
+ sudo apt upgrade centreon-map-engine centreon-map-web-client
+ ```
+  
+ - Si MAP et MAP Legacy sont installés sur le même serveur :
+   
+   - Faites une sauvegarde du fichier **map.cnf** :
+    
+    ```shell
+    cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
+    ```
+
+   - Mettez les paquets de **centreon-map-engine** à jour :
+   
+    ``` shell
+    sudo apt upgrade -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
+    ```
+
+   - Récupérez la sauvegarde du fichier de configuration :
+   
+    ```shell
+    cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
+    ```
+
+   - Répondez **Y**. Ensuite redémarrez MySQL :
+   
+    ```shell
+    systemctl restart mariadb
+    ```
 
 </TabItem>
 </Tabs>
