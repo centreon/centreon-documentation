@@ -151,9 +151,16 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Queries" label="Queries">
 
-| Metric name             | Unit  |
-|:------------------------|:------|
-| queries.total.persecond | /s    |
+| Metric name                | Unit  |
+|:---------------------------|:------|
+| queries.total.persecond    | /s    |
+| queries.update.persecond   | /s    |
+| queries.delete.persecond   | /s    |
+| queries.insert.persecond   | /s    |
+| queries.truncate.persecond | /s    |
+| queries.select.persecond   | /s    |
+| queries.commit.persecond   | /s    |
+| queries.begin.persecond    | /s    |
 
 </TabItem>
 <TabItem value="Slowqueries" label="Slowqueries">
@@ -531,7 +538,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Total : 83 | 'queries.total.persecond'=83/s;;;0; 
+OK: Total : 32 update : 75 delete : 52 insert : 98 truncate : 27 select : 62 commit : 12 begin : 25 | 'queries.total.persecond'=32/s;;;0;'queries.update.persecond'=75/s;;;0;'queries.delete.persecond'=52/s;;;0;'queries.insert.persecond'=98/s;;;0;'queries.truncate.persecond'=27/s;;;0;'queries.select.persecond'=62/s;;;0;'queries.commit.persecond'=12/s;;;0;'queries.begin.persecond'=25/s;;;0;
 ```
 
 ### Troubleshooting

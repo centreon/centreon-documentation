@@ -458,7 +458,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: windows pending updates: 40 | 'windows.pending.updates.count'=40;;;0; 
+OK: windows pending updates: 78 | 'windows.pending.updates.count'=78;;;0;
 ```
 
 ### Diagnostic des erreurs communes

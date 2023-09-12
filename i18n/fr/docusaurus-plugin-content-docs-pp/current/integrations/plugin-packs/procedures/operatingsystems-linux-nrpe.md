@@ -651,7 +651,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Number of current processes: 76 memory used: 46 46 cpu usage: 0 % disks read: 91 91/s disks write: 77 77/s | 'processes.total.count'=76;;;0; 'processes.memory.usage.bytes'=46B;;;0; 'processes.cpu.utilization.percentage'=0%;;;0; 'processes.disks.io.read.usage.bytespersecond'=91B/s;;;0; 'processes.disks.io.write.usage.bytespersecond'=77B/s;;;0; 
+OK: Number of current processes: 12 memory used: 99 99 cpu usage: 21 % disks read: 15 15/s disks write: 16 16/s | '*processes*#time'=69;;;;'*processes*#memory-usage'=92;;;;'*processes*#cpu-utilization'=31;;;;'*processes*#disks-read'=90;;;;'*processes*#disks-write'=92;;;;'processes.total.count'=12;;;0;'processes.memory.usage.bytes'=99B;;;0;'processes.cpu.utilization.percentage'=21%;;;0;'processes.disks.io.read.usage.bytespersecond'=15B/s;;;0;'processes.disks.io.write.usage.bytespersecond'=16B/s;;;0;
 ```
 
 ### Diagnostic des erreurs communes

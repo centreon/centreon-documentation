@@ -640,23 +640,26 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--diskpath='.*' \
+	--interface='.*' \
 	--name \
-	--regexp \
-	--warning-usage='80' \
-	--critical-usage='90' \
-	--filter-device='^(?!(tmpfs|devpts|none|proc|sysfs|sunrpc|\/\/.*)$)' \
+	--add-status \
+	--add-traffic \
+	--critical-status='' \
+	--warning-in-traffic='80' \
+	--critical-in-traffic='90' \
+	--warning-out-traffic='80' \
+	--critical-out-traffic='90' \
 	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Used: 31 % | 'storage.inodes.usage.percentage'=31%;;;0;100 
+OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitspersecond'=b/s;;;;'*int*#interface.traffic.out.bitspersecond'=b/s;;;;
 ```
 
 ### Troubleshooting
@@ -1103,6 +1106,6 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--help
 ```

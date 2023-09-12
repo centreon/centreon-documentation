@@ -643,23 +643,26 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--diskpath='.*' \
+	--interface='.*' \
 	--name \
-	--regexp \
-	--warning-usage='80' \
-	--critical-usage='90' \
-	--filter-device='^(?!(tmpfs|devpts|none|proc|sysfs|sunrpc|\/\/.*)$)' \
+	--add-status \
+	--add-traffic \
+	--critical-status='' \
+	--warning-in-traffic='80' \
+	--critical-in-traffic='90' \
+	--warning-out-traffic='80' \
+	--critical-out-traffic='90' \
 	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Used: 31 % | 'storage.inodes.usage.percentage'=31%;;;0;100 
+OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitspersecond'=b/s;;;;'*int*#interface.traffic.out.bitspersecond'=b/s;;;;
 ```
 
 ### Diagnostic des erreurs communes
@@ -1106,6 +1109,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=inodes \
+	--mode=interfaces \
 	--help
 ```

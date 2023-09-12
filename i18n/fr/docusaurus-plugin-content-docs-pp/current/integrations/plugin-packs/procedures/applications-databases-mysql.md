@@ -152,9 +152,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Queries" label="Queries">
 
-| Métrique                | Unité |
-|:------------------------|:------|
-| queries.total.persecond | /s    |
+| Métrique                   | Unité |
+|:---------------------------|:------|
+| queries.total.persecond    | /s    |
+| queries.update.persecond   | /s    |
+| queries.delete.persecond   | /s    |
+| queries.insert.persecond   | /s    |
+| queries.truncate.persecond | /s    |
+| queries.select.persecond   | /s    |
+| queries.commit.persecond   | /s    |
+| queries.begin.persecond    | /s    |
 
 </TabItem>
 <TabItem value="Slowqueries" label="Slowqueries">
@@ -532,7 +539,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Total : 83 | 'queries.total.persecond'=83/s;;;0; 
+OK: Total : 32 update : 75 delete : 52 insert : 98 truncate : 27 select : 62 commit : 12 begin : 25 | 'queries.total.persecond'=32/s;;;0;'queries.update.persecond'=75/s;;;0;'queries.delete.persecond'=52/s;;;0;'queries.insert.persecond'=98/s;;;0;'queries.truncate.persecond'=27/s;;;0;'queries.select.persecond'=62/s;;;0;'queries.commit.persecond'=12/s;;;0;'queries.begin.persecond'=25/s;;;0;
 ```
 
 ### Diagnostic des erreurs communes

@@ -294,6 +294,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK:    actions failed: 74 actions failed: 57 migration failed: 44 actions failed: 8 migration failed: 66 | 'cluster.nodes.online.count'=90;;;0; 'cluster.nodes.offline.count'=87;;;0; 'cluster.nodes.standby.count'=36;;;0; 'cluster.actions.failed.count'=74;;;0; 'resource.actions.failed.count'=57;;;0; 'resource.migration.failed.count'=44;;;0; 'clone_resource.actions.failed.count'=8;;;0; 'clone_resource.migration.failed.count'=66;;;0; 
+
 ```
 
 ### Diagnostic des erreurs communes

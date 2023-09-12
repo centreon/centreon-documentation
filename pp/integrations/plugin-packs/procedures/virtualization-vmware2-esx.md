@@ -234,12 +234,30 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Storage" label="Esx-Storage">
 
-| Metric name                      | Unit  |
-|:---------------------------------|:------|
-| *host*~status                    | N/A   |
-| *host*~*adapters*#adapter-status | N/A   |
-| *host*~*luns*#lun-status         | N/A   |
-| *host*~*paths*#path-status       | N/A   |
+| Metric name                        | Unit  |
+|:-----------------------------------|:------|
+| *host*~status                      | N/A   |
+| *host*~host.adapters.total.count   | count |
+| *host*~host.adapters.online.count  | count |
+| *host*~host.adapters.offline.count | count |
+| *host*~host.adapters.fault.count   | count |
+| *host*~host.adapters.unknown.count | count |
+| *host*~host.luns.total.count       | count |
+| *host*~host.luns.ok.count          | count |
+| *host*~host.luns.error.count       | count |
+| *host*~host.luns.off.count         | count |
+| *host*~host.luns.unknown.count     | count |
+| *host*~host.luns.quiesced.count    | count |
+| *host*~host.luns.degraded.count    | count |
+| *host*~host.paths.total.count      | count |
+| *host*~host.paths.active.count     | count |
+| *host*~host.paths.disabled.count   | count |
+| *host*~host.paths.standby.count    | count |
+| *host*~host.paths.dead.count       | count |
+| *host*~host.paths.unknown.count    | count |
+| *host*~*adapters*#adapter-status   | N/A   |
+| *host*~*luns*#lun-status           | N/A   |
+| *host*~*paths*#path-status         | N/A   |
 
 </TabItem>
 <TabItem value="Esx-Swap" label="Esx-Swap">
@@ -907,7 +925,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 84 VM(s) poweredon 72 VM(s) poweredoff 28 VM(s) suspended 98 VM(s) poweredon 48 VM(s) poweredoff 77 VM(s) suspended | 'host.vm.poweredon.current.count'=84;;;0;total 'host.vm.poweredoff.current.count'=72;;;0;total 'host.vm.suspended.current.count'=28;;;0;total 'host.vm.poweredon.current.count'=98;;;0;total 'host.vm.poweredoff.current.count'=48;;;0;total 'host.vm.suspended.current.count'=77;;;0;total 
+OK: 30 VM(s) poweredon 33 VM(s) poweredoff 76 VM(s) suspended All ESX Hosts are ok | 'host.vm.poweredon.current.count'=30;;;0;total'host.vm.poweredoff.current.count'=33;;;0;total'host.vm.suspended.current.count'=76;;;0;total'*host*#host.vm.poweredon.current.count'=;;;0;total'*host*#host.vm.poweredoff.current.count'=;;;0;total'*host*#host.vm.suspended.current.count'=;;;0;total
 ```
 
 ### Troubleshooting

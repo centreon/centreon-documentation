@@ -507,7 +507,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: windows pending updates: 60 | 'windows.pending.updates.count'=60;;;0; 
+OK: windows pending updates: 2 | 'windows.pending.updates.count'=2;;;0;
 ```
 
 ### Diagnostic des erreurs communes

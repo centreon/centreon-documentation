@@ -187,7 +187,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: Certificate for 'www.google.com' expires in '60' days [2023-10-30T12:22:43Z] - Issuer: '/C=US/O=Google Trust Services LLC/CN=GTS CA 1C3' 
+
 ```
 
 ### Diagnostic des erreurs communes

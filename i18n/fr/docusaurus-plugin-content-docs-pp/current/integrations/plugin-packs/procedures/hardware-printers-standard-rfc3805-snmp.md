@@ -300,7 +300,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: status is 0 | 
+OK: Printer is ok | '*printer*~*errors*#status'=;;;;
 ```
 
 ### Diagnostic des erreurs communes

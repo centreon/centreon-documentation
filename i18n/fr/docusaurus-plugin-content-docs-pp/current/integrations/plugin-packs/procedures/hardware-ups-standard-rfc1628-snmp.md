@@ -328,7 +328,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: load: 51 % current: 50 A voltage: 56 V power: 30 W | 'output.3phases.stdev.gauge'=69N/A;;;; 'line.output.load.percentage'=51%;;;0;100 'line.output.current.ampere'=50A;;;0; 'line.output.voltage.volt'=56V;;;; 'line.output.power.watt'=30W;;;; 
+OK: All output lines are ok | 'output.3phases.stdev.gauge'=14;;;;'*oline*#line.output.load.percentage'=%;;;0;100'*oline*#line.output.current.ampere'=A;;;0;'*oline*#line.output.voltage.volt'=V;;;;'*oline*#line.output.power.watt'=W;;;;
 ```
 
 ### Diagnostic des erreurs communes

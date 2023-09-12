@@ -796,7 +796,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Number of current processes: 79 memory used: 62 62 cpu usage: 90 % disks read: 72 72/s disks write: 56 56/s | 'processes.total.count'=79;;;0; 'processes.memory.usage.bytes'=62B;;;0; 'processes.cpu.utilization.percentage'=90%;;;0; 'processes.disks.io.read.usage.bytespersecond'=72B/s;;;0; 'processes.disks.io.write.usage.bytespersecond'=56B/s;;;0; 
+OK: Number of current processes: 16 memory used: 10 10 cpu usage: 37 % disks read: 71 71/s disks write: 53 53/s | '*processes*#time'=95;;;;'*processes*#memory-usage'=93;;;;'*processes*#cpu-utilization'=40;;;;'*processes*#disks-read'=84;;;;'*processes*#disks-write'=21;;;;'processes.total.count'=16;;;0;'processes.memory.usage.bytes'=10B;;;0;'processes.cpu.utilization.percentage'=37%;;;0;'processes.disks.io.read.usage.bytespersecond'=71B/s;;;0;'processes.disks.io.write.usage.bytespersecond'=53B/s;;;0;
 ```
 
 ### Diagnostic des erreurs communes

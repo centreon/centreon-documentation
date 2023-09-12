@@ -310,12 +310,30 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Storage-Global" label="Esx-Storage-Global">
 
-| Métrique                         | Unité |
-|:---------------------------------|:------|
-| *host*~status                    | N/A   |
-| *host*~*adapters*#adapter-status | N/A   |
-| *host*~*luns*#lun-status         | N/A   |
-| *host*~*paths*#path-status       | N/A   |
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| *host*~status                      | N/A   |
+| *host*~host.adapters.total.count   | count |
+| *host*~host.adapters.online.count  | count |
+| *host*~host.adapters.offline.count | count |
+| *host*~host.adapters.fault.count   | count |
+| *host*~host.adapters.unknown.count | count |
+| *host*~host.luns.total.count       | count |
+| *host*~host.luns.ok.count          | count |
+| *host*~host.luns.error.count       | count |
+| *host*~host.luns.off.count         | count |
+| *host*~host.luns.unknown.count     | count |
+| *host*~host.luns.quiesced.count    | count |
+| *host*~host.luns.degraded.count    | count |
+| *host*~host.paths.total.count      | count |
+| *host*~host.paths.active.count     | count |
+| *host*~host.paths.disabled.count   | count |
+| *host*~host.paths.standby.count    | count |
+| *host*~host.paths.dead.count       | count |
+| *host*~host.paths.unknown.count    | count |
+| *host*~*adapters*#adapter-status   | N/A   |
+| *host*~*luns*#lun-status           | N/A   |
+| *host*~*paths*#path-status         | N/A   |
 
 </TabItem>
 <TabItem value="Esx-Swap-Global" label="Esx-Swap-Global">
@@ -466,7 +484,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
-Coming soon
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| vm.snapshots.warning.current.count  | count |
+| vm.snapshots.critical.current.count | count |
 
 </TabItem>
 <TabItem value="Vm-Status-Global" label="Vm-Status-Global">
@@ -497,9 +518,11 @@ Coming soon
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
-| Métrique                          | Description | Unité |
-|:----------------------------------|:------------|:------|
-| vm.tools.notupdated.current.count |             |       |
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| vm.tools.notupdated.current.count   | count |
+| vm.tools.notrunning.current.count   | count |
+| vm.tools.notinstalled.current.count | count |
 
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage" label="Vsan-Cluster-Usage">
@@ -1424,7 +1447,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: read IOPS: 23 write IOPS: 72 congestions: 23 outstanding IO: 6 read throughput: 40 40/s write throughput: 1 1/s read latency: 20 ms write latency: 27 ms | 'cluster.vsan.backend.read.usage.iops'=23iops;;;0; 'cluster.vsan.backend.write.usage.iops'=72iops;;;0; 'cluster.vsan.backend.congestions.count'=23;;;0; 'cluster.vsan.backend.outstanding.io.count'=6;;;0; 'cluster.vsan.backend.throughput.read.bytespersecond'=40B/s;;;0; 'cluster.vsan.backend.throughput.write.bytespersecond'=1B/s;;;0; 'cluster.vsan.backend.latency.read.milliseconds'=20ms;;;0; 'cluster.vsan.backend.latency.write.milliseconds'=27ms;;;0; 
+OK: All clusters are ok | '*cluster*#cluster.vsan.backend.read.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.write.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.congestions.count'=;;;0;'*cluster*#cluster.vsan.backend.outstanding.io.count'=;;;0;'*cluster*#cluster.vsan.backend.throughput.read.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.throughput.write.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.latency.read.milliseconds'=ms;;;0;'*cluster*#cluster.vsan.backend.latency.write.milliseconds'=ms;;;0;
 ```
 
 ### Diagnostic des erreurs communes

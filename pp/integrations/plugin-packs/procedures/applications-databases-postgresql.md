@@ -92,9 +92,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Metric Name                                | Unit  |
-|:-------------------------------------------|:------|
-| *db_name*#database.clients.connected.count |       |
+| Metric name                      | Unit  |
+|:---------------------------------|:------|
+| database.clients.connected.count | count |
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
@@ -458,7 +458,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: space used: 75 75 | 'tablespace.space.usage.bytes'=75B;;;0; 
+OK: All tablespaces are ok | '*tablespaces*#tablespace.space.usage.bytes'=B;;;0;
 ```
 
 ### Troubleshooting

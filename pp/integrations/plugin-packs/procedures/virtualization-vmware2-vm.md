@@ -122,9 +122,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Snapshot" label="Vm-Snapshot">
 
-| Metric name                        | Description | Unit  |
-|:-----------------------------------|:------------|:------|
-| vm.snapshots.warning.current.count |             |       |
+| Metric name                         | Unit  |
+|:------------------------------------|:------|
+| vm.snapshots.warning.current.count  | count |
+| vm.snapshots.critical.current.count | count |
 
 </TabItem>
 <TabItem value="Vm-Status" label="Vm-Status">
@@ -157,9 +158,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
 
-| Metric name | Description | Unit  |
-|:------------|:------------|:------|
-| status      |             |       |
+| Metric name                         | Unit  |
+|:------------------------------------|:------|
+| vm.tools.notupdated.current.count   | count |
+| vm.tools.notrunning.current.count   | count |
+| vm.tools.notinstalled.current.count | count |
 
 </TabItem>
 </Tabs>
@@ -511,23 +514,26 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
 	--plugin=apps::vmware::connector::plugin \
-	--mode=tools-vm \
+	--mode=swap-vm \
 	--custommode=connector \
 	--connector-hostname='localhost' \
 	--connector-port='5700' \
 	--container='default'  \
 	--vm-hostname='' \
 	--filter-uuid='' \
-	--tools-notinstalled-status='critical'  \
-	--tools-notrunning-status='critical'  \
-	--tools-notup2date-status='warning' 
+	--unknown-status='%{connection_state} !~ /^connected$/i or %{power_state}  !~ /^poweredOn$/i' \
+	--warning-status='' \
+	--critical-status='' \
+	--warning-swap-in='' \
+	--critical-swap-in=''  \
+	--warning-swap-out='' \
+	--critical-swap-out='' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: VMTools are OK
-
+OK: All virtual machines are ok | '*vm*#vm.swap.in.usage.bytespersecond'=B/s;;;0;'*vm*#vm.swap.out.usage.bytespersecond'=B/s;;;0;
 ```
 
 ### Troubleshooting
@@ -858,6 +864,6 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
 	--plugin=apps::vmware::connector::plugin \
-	--mode=tools-vm \
+	--mode=swap-vm \
 	--help
 ```

@@ -191,6 +191,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: | 
+
 ```
 
 ### Diagnostic des erreurs communes

@@ -93,9 +93,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Métrique                                   | Unité |
-|:-------------------------------------------|:------|
-| *db_name*#database.clients.connected.count |       |
+| Métrique                         | Unité |
+|:---------------------------------|:------|
+| database.clients.connected.count | count |
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
@@ -459,7 +459,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: space used: 75 75 | 'tablespace.space.usage.bytes'=75B;;;0; 
+OK: All tablespaces are ok | '*tablespaces*#tablespace.space.usage.bytes'=B;;;0;
 ```
 
 ### Diagnostic des erreurs communes

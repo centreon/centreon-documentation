@@ -123,9 +123,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Snapshot" label="Vm-Snapshot">
 
-| Métrique                           | Description | Unité |
-|:-----------------------------------|:------------|:------|
-| vm.snapshots.warning.current.count |             |       |
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| vm.snapshots.warning.current.count  | count |
+| vm.snapshots.critical.current.count | count |
 
 </TabItem>
 <TabItem value="Vm-Status" label="Vm-Status">
@@ -158,9 +159,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
 
-| Métrique    | Description | Unité |
-|:------------|:------------|:------|
-| status      |             |       |
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| vm.tools.notupdated.current.count   | count |
+| vm.tools.notrunning.current.count   | count |
+| vm.tools.notinstalled.current.count | count |
 
 </TabItem>
 </Tabs>
@@ -510,23 +513,26 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
 	--plugin=apps::vmware::connector::plugin \
-	--mode=tools-vm \
+	--mode=swap-vm \
 	--custommode=connector \
 	--connector-hostname='localhost' \
 	--connector-port='5700' \
 	--container='default'  \
 	--vm-hostname='' \
 	--filter-uuid='' \
-	--tools-notinstalled-status='critical'  \
-	--tools-notrunning-status='critical'  \
-	--tools-notup2date-status='warning' 
+	--unknown-status='%{connection_state} !~ /^connected$/i or %{power_state}  !~ /^poweredOn$/i' \
+	--warning-status='' \
+	--critical-status='' \
+	--warning-swap-in='' \
+	--critical-swap-in=''  \
+	--warning-swap-out='' \
+	--critical-swap-out='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: VMTools are OK
-
+OK: All virtual machines are ok | '*vm*#vm.swap.in.usage.bytespersecond'=B/s;;;0;'*vm*#vm.swap.out.usage.bytespersecond'=B/s;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -857,6 +863,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
 	--plugin=apps::vmware::connector::plugin \
-	--mode=tools-vm \
+	--mode=swap-vm \
 	--help
 ```

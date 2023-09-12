@@ -143,7 +143,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique         | Unité |
 |:-----------------|:------|
-| swap.usage.bytes |       |
+| swap.usage.bytes | B     |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
@@ -465,18 +465,26 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
 	--plugin=os::windows::snmp::plugin \
-	--mode=cpu \
+	--mode=interfaces \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--warning-average='80' \
-	--critical-average='90' 
+	--interface='.*' \
+	--name \
+	--add-status \
+	--add-traffic \
+	--critical-status='' \
+	--warning-in-traffic='80' \
+	--critical-in-traffic='90' \
+	--warning-out-traffic='80' \
+	--critical-out-traffic='90' \
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 75 % usage : 64 % | 'cpu.utilization.percentage'=75%;;;0;100 'core.cpu.utilization.percentage'=64%;;;0;100 
+OK: All interfaces are ok | '*int*#status'=;;;;'*int*#interface.traffic.in.bitspersecond'=b/s;;;;'*int*#interface.traffic.out.bitspersecond'=b/s;;;;
 ```
 
 ### Diagnostic des erreurs communes
@@ -799,6 +807,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl \
 	--plugin=os::windows::snmp::plugin \
-	--mode=cpu \
+	--mode=interfaces \
 	--help
 ```

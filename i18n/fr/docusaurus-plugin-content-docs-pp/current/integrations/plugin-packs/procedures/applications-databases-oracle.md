@@ -932,7 +932,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Extends : 72/s Wraps : 88/s Header Contention :  16 % Block Contention :  14 % gets/waits Ratio :  16 % | 
+OK: Extends : 20/s Wraps : 14/s Header Contention :  65 % Block Contention :  88 % gets/waits Ratio :  59 % | 'extends'=20/s;;;0;'wraps'=14/s;;;0;'header-contention'=65%;;;0;100'block-contention'=88%;;;0;100'hit-ratio'=59%;;;0;100
 ```
 
 ### Diagnostic des erreurs communes

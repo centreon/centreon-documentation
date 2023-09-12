@@ -506,7 +506,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: windows pending updates: 60 | 'windows.pending.updates.count'=60;;;0; 
+OK: windows pending updates: 2 | 'windows.pending.updates.count'=2;;;0;
 ```
 
 ### Troubleshooting

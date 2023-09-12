@@ -745,7 +745,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 42 (1m) 61 (5m) 39 (15m) active calls 82 | 'calls.active.1m.average.count'=42;;;0; 'calls.active.5m.average.count'=61;;;0; 'calls.active.15m.average.count'=39;;;0; 'connection.calls.active.count'=82;;;0; 
+OK: 36 (1m) 38 (5m) 75 (15m) All connection types are ok | 'calls.active.1m.average.count'=36;;;0;'calls.active.5m.average.count'=38;;;0;'calls.active.15m.average.count'=75;;;0;'*ctype*#connection.calls.active.count'=;;;0;
 ```
 
 ### Troubleshooting
