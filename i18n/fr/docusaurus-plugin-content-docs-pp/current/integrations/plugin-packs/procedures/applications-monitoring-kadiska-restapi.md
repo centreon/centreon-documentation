@@ -360,7 +360,7 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 |:-----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KADISKAAPIPROTO        | Specify https if needed (Default: 'https')                                                            | https             |             |
 | KADISKAAPIPORT         | Port used (Default: 443)                                                                              | 443               |             |
-| KADISKAAPICLIENTID     | Set client id                                                                                         |                   | X           |
+| KADISKAAPICLIENTID     | Set client ID                                                                                         |                   | X           |
 | KADISKAAPICLIENTSECRET | Set client secret                                                                                     |                   | X           |
 | RUNNERNAME             | Filter on runner name to display net tracer targets' statistics linked to a particular runner         |                   |             |
 | TIMEOUT                | Set timeout in seconds (Default: 10)                                                                  |                   |             |
