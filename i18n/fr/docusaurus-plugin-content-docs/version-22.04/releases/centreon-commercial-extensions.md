@@ -22,6 +22,7 @@ Release date: `September 13, 2023`
 #### Bug fixes
 
 - [Packaging] Fixed a regression in centreon-map-server and centreon-map-engine packaging that caused a broken dependency situation with Java.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
 
 ### 22.04.9
 
@@ -174,6 +175,7 @@ Release date: `September 13, 2023`
 #### Bug fixes
 
 - [Packaging] Fixed a regression in centreon-map-server and centreon-map-engine packaging that caused a broken dependency situation with Java.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
 
 ### 22.04.9
 
