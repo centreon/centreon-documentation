@@ -324,7 +324,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.6
 
-Release date: `soon`
+Release date: `September 14, 2023`
 
 #### Bug fixes
 
