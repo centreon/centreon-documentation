@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 This chapter describes advanced procedures to secure your Centreon MAP and MAP (Legacy)
 platform.
 
-> If you want to use MAP and MAP (Legacy) in HTTPS, you must both secure your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
+> If you want to use MAP and MAP (Legacy) in HTTPS, you must secure both your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
 
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
@@ -169,7 +169,7 @@ Centreon MAP server is now configured to respond to requests from HTTPS:
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.md#change-centreon-map-server-port).
 
-> Remember to modify the URL on Centreon side in the **Map server address**
+> Remember to modify the URL on the Centreon side in the **Map server address**
 > field in the **Administration > Extensions > Map > Options** menu.
 ![image](../assets/graph-views/map-address-https.png)
 
@@ -182,7 +182,7 @@ procedure](advanced-configuration.md#change-centreon-map-server-port).
 An additional Broker output for Centreon Central (centreon-broker-master) has
 been created during the installation.
 
-You can check it in your Centreon web interface, from the `Configuration >
+You can check it in your Centreon web interface, from `Configuration >
 Pollers > Broker Configuration`, by editing the `centreon-broker-master`
 configuration.
 
@@ -192,7 +192,7 @@ The output configuration should look like this:
 
 ### Broker configuration
 
-You can enable TLS output and set up Broker's private key and public
+You can enable TLS output and set up the Broker's private key and public
 certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
@@ -204,15 +204,15 @@ openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
 ```
 
-And then, copy the private key and the certificate into `/etc/centreon/broker_cert/` directory:
+And then copy the private key and the certificate into the `/etc/centreon/broker_cert/` directory:
 
 ```text
 mv broker_private.key /etc/centreon/broker_cert/
 mv broker_public.crt /etc/centreon/broker_cert/
 ```
 
-> "Trusted CA's certificate" field is optional. If you activate Broker's client
-> authentication by setting this "ca\_certificate.crt", then you must setup a
+> The "Trusted CA's certificate" field is optional. If you activate the Broker's client
+> authentication by setting this "ca\_certificate.crt", then you must set up a
 > [keystore for MAP server](#configure-httpstls-on-the-web-server)
 >
 > You MUST push the new broker configuration and restart the broker after

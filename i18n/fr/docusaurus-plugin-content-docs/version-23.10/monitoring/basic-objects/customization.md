@@ -2,6 +2,8 @@
 id: customization
 title: Personnaliser l'utilisation de Centreon
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Vous pouvez optimiser votre utilisation de Centreon en profitant des fonctionnalités de personnalisation suivantes :
 

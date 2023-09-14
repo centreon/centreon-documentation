@@ -456,6 +456,7 @@ Below is the list of actions that you can grant/revoke:
 | host\_schedule\_downtime           | Permission to schedule a downtime on a host                                  |
 | host\_schedule\_forced\_check      | Permission to schedule a host forced check                                   |
 | host\_submit\_result               | Permission to submit a passive check result to a host                        |
+| manage_tokens                      | Permission to enable/disable organization’s API Token management             |
 | poller\_listing                    | Permission to see the Poller list on the monitoring console                  |
 | poller\_stats                      | Permission to see the poller statistics (on top screen)                      |
 | service\_acknowledgement           | Permission to acknowledge services                                           |

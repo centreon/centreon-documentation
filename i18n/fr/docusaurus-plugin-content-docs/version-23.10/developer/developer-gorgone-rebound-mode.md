@@ -2,6 +2,8 @@
 id: developer-gorgone-rebound-mode
 title : Configurer Gorgone en mode rebound
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Cette procédure décrit comment configurer Gorgone entre un collecteur distant et un serveur central, via un serveur de rebond.
 

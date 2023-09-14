@@ -5,8 +5,8 @@ title: Migrate the extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> If you're updating to a new major or minor version (i.e:A.B.x with A
-> or B that changes) you need to contact our Support service to retrieve
+> If you are updating to a new major or minor version (i.e: A.B.x with A
+> or B that changes), you need to contact our Support service to retrieve
 > the new repository.
 
 ## Update the package
@@ -43,4 +43,4 @@ apt update && apt upgrade centreon-bam-server
 Log on to the Centreon web interface and go to
 `Administration > Extension > Manager`.
 
-Click on the orange button to update the module, do the same for the widget.
+Click the orange button to update the module, and do the same for the widget.
