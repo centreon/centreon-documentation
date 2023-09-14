@@ -21,9 +21,9 @@ Host groups and service groups are used to group together objects by logical ent
 * Enable viewing of the status of a set of objects by selecting a group of objects in the search filters
 * Search several performance graphs quickly by browsing the object tree structure by group and then by resource
 
-Generally speaking, we try to group together hosts by functional level. e.g.: DELL and HP hosts or Linux, Windows,
+Generally speaking, we try to group together hosts by functional level. Example: DELL and HP hosts or Linux, Windows,
 etc., hosts.
-We also try to group services by application jobs. e.g.: Salary management application, ERP Application, etc.
+We also try to group services by application jobs. Example: Salary management application, ERP Application, etc.
 
 > For the hosts belonging to a host group, the retention of RRD files can be defined in the host group. This definition
 > overrides the global definition. In the event that the same host belongs to several groups, each possessing a

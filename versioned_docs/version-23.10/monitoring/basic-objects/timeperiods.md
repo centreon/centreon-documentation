@@ -31,7 +31,7 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
 
 Use the following characters to define time periods:
 
-* The character “:” separates the hours from the minutes. e.g.: HH:MM
+* The character “:” separates the hours from the minutes, e.g.: HH:MM
 * The character “-” indicates continuity between two time periods
 * The character ”,” separates two time periods
 

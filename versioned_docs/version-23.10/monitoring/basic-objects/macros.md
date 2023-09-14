@@ -74,7 +74,7 @@ To add a resource macro:
 
 ![image](../../assets/configuration/01macrosressources.png)
 
-* The **Resource Name** field defines the name of the resource macro. e.g.: $USER3$
+* The **Resource Name** field defines the name of the resource macro, e.g.: $USER3$
 * The **MACRO Expression** field defines the value of the macro.
 * The **Linked Instances** list allows us to define which monitoring poller will be able to access this macro.
 * The **Status** and **Comment** fields are used to enable / disable the macro and to comment on it.
@@ -84,7 +84,7 @@ To add a resource macro:
 Environment macros (also called “on demand”) are used to retrieve information from all
 the objects obtained from the supervision. They are used to retrieve the value of an object at any given moment.
 
-They are complementary to standard macros. e.g.:
+They are complementary to standard macros, e.g.:
 
 * The standard macro $CONTACTEMAIL$ refers to the e-mail address of the contact who uses the 
   notification command

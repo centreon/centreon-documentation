@@ -108,7 +108,7 @@ used by Centreon Broker are described.
 
 The Centreon Broker's core is a simple multiplexing engine that takes *inputs*
 (events) and sends them to various *outputs*. Inputs are typically other Centreon
-Broker instances received via TCP/IP, while outputs can be an SQL database,
+Broker events received via TCP/IP, while outputs can be an SQL database,
 other brokers, a BI/BAM engine, Centreon Map, etc.
 
 Each input or output has a *type* that describes what it does plus several
@@ -568,9 +568,10 @@ process new metric data at a reduced speed.
     MariaDB.
 
   - DB Port  
-    The type of the database being accessed.
+    The port of the database being accessed.
 
-    
+      - DB User  
+    The user account for connecting to this database.
     
 
   - DB Name  
@@ -629,7 +630,7 @@ the database occasionally. This is an optional process, as old data is marked
     MariaDB.
 
   - DB Port  
-    The type of the database being accessed.
+    The port of the database being accessed.
 
   - DB User  
     The user account for connecting to this database.
@@ -702,7 +703,7 @@ outputs.
     MariaDB.
 
   - DB Port
-    The type of the database being accessed.
+    The port of the database being accessed.
 
   - DB User
     The user account for connecting to this database.
@@ -802,7 +803,7 @@ parameters:
     MariaDB.
 
   - DB Port  
-    The type of the database being accessed.
+    The port of the database being accessed.
 
   - DB User  
     The user account for connecting to this database.

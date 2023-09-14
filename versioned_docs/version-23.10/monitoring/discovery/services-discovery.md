@@ -142,7 +142,7 @@ replaced by the attributes' values.
 ### Advanced options
 
 On the last **Advanced** tab, you can apply a regexp on the **Service display
-name**. Click the **Add a new entry** button and define the Pattern and expression
+name**. Click the **Add a new entry** button and define the pattern and expression
 result:
 
 ![image](../../assets/configuration/autodisco/create_rule_7.png)
@@ -164,14 +164,14 @@ $description = "<span style='color: red; font-weight: bold'>@SERVICENAME@</span>
 ```
 
 **Custom variables** gives you the capability to create some custom macros. Here
-Is an example to have a dynamic threshold according to disk size:
+is an example to have a dynamic threshold according to disk size:
 
 ``` perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
     $warning$ = 80;
     $critical$ = 90;
-
+} elsif ($total_gb < 500) {
     $warning$ = 90;
     $critical$ = 95;
 } else {
@@ -344,7 +344,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --header "Accept: application/json" \
   --header "Content-Type: application/json" \
   --data '{
-    "dry_run": 1.
+    "dry_run": 1
 }'
 ```
 
@@ -356,7 +356,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --header "Content-Type: application/json" \
   --data '{
     "filter_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
-    "dry_run": 1.
+    "dry_run": 1
 }'
 ```
 
@@ -368,7 +368,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --header "Content-Type: application/json" \
   --data '{
     "filter_hosts": ["centreon-server"],
-    "dry_run": 1.
+    "dry_run": 1
 }'
 ```
 
@@ -381,6 +381,6 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --data '{
     "filter_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
     "filter_hosts": ["centreon-server"],
-    "dry_run": 1.
+    "dry_run": 1
 }'
 ```

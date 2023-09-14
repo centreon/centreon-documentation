@@ -74,8 +74,10 @@ acknowledgements, etc., and configuration export.
 | ----------------------------------------------------------------- | -------------------- |
 | **Central** <-- *SSH* --\> **Remote** <-- *ZMQ* --\> **Poller** | Monitoring actions\* |
 
-> This mode does not allow retrieval of Remote's thumbprint, therefore it's
-> not possible to display Poller's Gorgone configuration from Centreon UI.
+> This mode does not allow retrieval of the remote's thumbprint, therefore it is
+
+> not possible to display the poller's Gorgone configuration from the Centreon UI.
+
 
 </TabItem>
 </Tabs>
@@ -101,7 +103,8 @@ Click **Save**.
 
 #### Display Gorgone configuration
 
-From the Poller list, click the **Display Gorgone configuration** action
+From the poller list, click the **Display Gorgone configuration** action
+
 icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
 A popin will show the configuration to copy into the **Poller terminal**.
@@ -118,7 +121,8 @@ name:  gorgoned-My Poller
 description: Configuration for poller My Poller
 gorgone:
   gorgonecore:
-    id: 2.
+    id: 2
+
     external_com_type: tcp
     external_com_path: "*:5556"
     authorized_clients:
@@ -182,7 +186,8 @@ systemctl enable gorgoned
 > If there is a Remote Server between the Central and this Poller, make sure to
 > export the configuration of the Remote Server.
 >
-> From the Poller list, select the Remote Server and click **Export
+> From the poller list, select the remote server and click **Export
+
 > configuration**.
 >
 > Then check the first three boxes and click **Export**.
@@ -210,7 +215,8 @@ Click **Save**.
 
 #### Display Gorgone configuration
 
-From the Poller list, click the **Display Gorgone configuration** action
+From the poller list, click the **Display Gorgone configuration** action
+
 icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
 A popin will show the configuration to copy into the **Remote Server
@@ -228,7 +234,8 @@ name: gorgoned-My Remote Server
 description: Configuration for remote server My Remote Server
 gorgone:
   gorgonecore:
-    id: 3.
+    id: 3
+
     external_com_type: tcp
     external_com_path: "*:5556"
     authorized_clients:
@@ -275,12 +282,14 @@ gorgone:
           timespec: "*/5 * * * *"
           action: BROKERSTATS
           parameters:
-            timeout: 10.
+            timeout: 10
+
         - id: engine_stats
           timespec: "*/5 * * * *"
           action: ENGINESTATS
           parameters:
-            timeout: 10.
+            timeout: 10
+
 
 EOF
 ```

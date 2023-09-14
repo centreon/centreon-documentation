@@ -83,7 +83,7 @@ A service or a service template can only inherit from a single service template
 
 To add a Service Template:
 
-Go into the **Configuration > Services > Templates** menu and click **Add**
+Go to **Configuration > Services > Templates** and click **Add**.
 
 > Refer to the chapter covering configuration of
 > *[services](basic-objects/services.md)* to configure a template, because the
@@ -102,12 +102,12 @@ the host's templates. There are two advantages of linking service templates to
 host templates:
 
   - The services generated automatically retain their granularity, i.e., it is
-    possible to change the Attributes of a service without affecting the other
+    possible to change the attributes of a service without affecting the other
     services obtained from this template
   - The creation of new hosts is speeded up greatly: simply define
-    the host and the host's templates associated with it
+    the host and the host's templates associated with it.
 
-e.g.: We create the srvi-web-01 host according to the template below:
+Example: We create the srvi-web-01 host according to the template below:
 
 ![image](../assets/configuration/09hostexemple.png)
 
@@ -141,7 +141,7 @@ A contact or a contact template can only inherit one contact template.
 
 To add a contact template:
 
-Go into the following menu: **Configuration > Users > Contact Templates**, and click
+Go to **Configuration > Users > Contact Templates**, and click
 **Add**
 
 > Refer to the chapter covering configuration of

@@ -17,7 +17,7 @@ Go to the **Configuration > Services > Services by host** menu and click **Add**
 
 ![image](../../assets/configuration/06servicetrapsrelation.png)
 
-* Click **Save**
+* Click **Save**.
 
 ## Applying the changes
 
@@ -126,7 +126,7 @@ Will replace **|** in the output to **-**.
 
 ### Route/Transfer SNMP traps
 
-It is possible to have an SNMP trap concentrator. e.g.: Oracle GRID.
+It is possible to have an SNMP trap concentrator. Example: Oracle GRID.
 Oracle GRID is responsible for federating information for all Oracle servers. If necessary, the Oracle GRID server sends the SNMP trap to the monitoring server.
 
 However, from an SNMP trap sent from Oracle GRID, we want to extract the IP address of the host and display the message in the service trap not belonging to Oracle Grid but to the correct host.
@@ -163,7 +163,7 @@ To do this, perform the following steps:
 | Default Status | Trap default status                  |
 | Output Message | Custom output message                |
 
-3. Associate the first definition to a service (e.g. PING) of Oracle GRID server
+3. Associate the first definition to a service (e.g. PING) of the Oracle GRID server
 4. Associate the second definition to a passive service of the host.
 5. Generate SNMP trap definitions and restart centreontrapd
 
@@ -185,4 +185,4 @@ There are three ways to configure this:
 
 * None: nothing to do; the trap is sent as normal;
 * Real-Time: with this option, a trap sent with a current downtime, the service state is not updated;
-* History: option used to not acknowledge a trap snmp concerning a past event during a downtime.
+* History: option used to not acknowledge an snmp trap concerning a past event during a downtime.

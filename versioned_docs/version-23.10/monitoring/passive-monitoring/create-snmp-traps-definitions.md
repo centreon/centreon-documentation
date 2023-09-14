@@ -7,7 +7,7 @@ title: Create SNMP Traps definitions
 
 Within centreon, the root OIDs of the SNMP traps is filed by manufacturer. To add a manufacturer:
 
-Go into the **Configuration > SNMP traps > Manufacturer** menu and click **Add**
+Go to **Configuration > SNMP traps > Manufacturer** and click **Add**
 
 ![image](../../assets/configuration/06constructors.png)
 
@@ -23,7 +23,7 @@ Go into the **Configuration > SNMP traps > MIBs** menu
 * The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB
 
-Prior to importing a certain MiB file, it may happen that a number of dependencies need to be met.
+Prior to importing a certain MIB file, it may happen that a number of dependencies need to be met.
 In order to find the dependencies of your MIB, open your MIB file using a standard text editor, and then:
 
 1. Locate the line that starts with **IMPORTS**
@@ -43,7 +43,7 @@ SNMP-FRAMEWORK-MIB.
 
 It is also possible to create definitions of SNMP traps manually:
 
-Go into the **Configuration > SNMP traps > SNMP traps** menu and click **Add**
+Go to **Configuration > SNMP traps > SNMP traps** and click **Add**
 
 ![image](../../assets/configuration/06addsnmptrap.png)
 
@@ -103,7 +103,7 @@ The **Advanced** tab is used to configure the behavior of the handling process o
 * **Route definition** is used to define the command to be used for routing.
 
 Before performing the processing of the event (translation of the **Output message**), it is possible to execute a
-command called PREEXEC. To do this, you can define **PREEXEC command (SNMPTT type)** by clicking 
+command called PREEXEC. To do this, you can define the **PREEXEC command (SNMPTT type)** by clicking 
 **Add a new entry** and then create as many rules as necessary.
 
 * **PREEXEC command** defines the command to be executed.
@@ -130,7 +130,7 @@ Example:
 
 The result will have the form:  Interface GigabitEthernet0/1 ( NAS Server ) linkUP. State: up
 
-* The **Insert trap's information into database** box, if checked, records the SNMP trap information in the database.
+* The **Insert trap's information into database** box, if checked, records the SNMP trap information in the database
   field can be used to define whether or not to classify the traps by day in the database.
 * The **Timeout** field expressed in seconds is used to define the maximum processing time of the event including the
   pre-processing commands (PREEXEC) and post-processing commands (special command).

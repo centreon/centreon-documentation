@@ -91,8 +91,8 @@ gorgone:
       package: "gorgone::modules::centreon::autodiscovery::hooks"
       enable: true
       # Host Discovery
-      check_interval: 15.
-      global_timeout: 300.
+      check_interval: 15
+      global_timeout: 300
       # Service Discovery
       mail_subject: Centreon Auto Discovery
       mail_from: centreon-autodisco

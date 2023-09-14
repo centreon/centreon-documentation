@@ -77,7 +77,7 @@ To perform a mass change:
 <TabItem value="Method 2" label="Method 2">
 
 1. Select the objects you want to change.
-2. In the **More actions** menu, click **Massive Change**.
+2. In the **More actions** menu, click **Mass Change**.
 3. The form for the type of object opens, with 2 options next to each field:
 
   * **Incremental**: means that the change will be added to the existing options
@@ -121,7 +121,7 @@ You can also use the following buttons at the end of the line:
 ## Deleting objects
 
 > Deleting an object is final. If you delete an object by accident, you will need to re-create it. In the same way,
-> deleting an object automatically deletes all the objects that are linked to it and that cannot exist without it. e.g.:
+> deleting an object automatically deletes all the objects that are linked to it and that cannot exist without it. Example:
 > Deleting a host results in all the services associated with that host being deleted too.
 
 To delete an object:

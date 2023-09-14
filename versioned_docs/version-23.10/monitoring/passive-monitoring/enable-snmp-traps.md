@@ -6,7 +6,7 @@ title: Enable SNMP Traps
 ## Description
 
 SNMP traps are information sent using the SNMP protocol from monitored resources to a poller server. This information
-contains multiple Attributes, including:
+contains multiple attributes, including:
 
 * Address of the resource sending the information.
 * The root OID (Object Identifier) corresponding to the identifier of the message received.
@@ -66,7 +66,7 @@ The processing of an SNMP trap is as follows:
 
 Successive actions by the centreontrapd process are:
 
-![image](../../assets/configuration/kcentreontrapd_schema.png)
+![image](../../assets/configuration/SNMP_Traps_management_general_view.png)
 
 ## Configuring services
 
@@ -143,7 +143,7 @@ our %centreontrapd_config = (
     mibs_environment => '',
     remove_backslash_from_quotes => 1,
     dns_enable => 0,
-    # Separator for argument substitution
+    # Separator for arguments substitution
     separator => ' ',
     strip_domain => 0,
     strip_domain_list => [],

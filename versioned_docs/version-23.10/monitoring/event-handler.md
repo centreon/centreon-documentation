@@ -75,7 +75,7 @@ which you want to enable auto remediation.
 
 In the **Check Options** tab, enable the **Event Handler Option** option:
 
-![image](../assets/configuration/enableeventhandleronpoller.png)
+![image](../assets/configuration/enableeventhnadleronpoller.png)
 
 ### Configure Event Handlers
 
@@ -86,7 +86,7 @@ configuration** menu and edit all the Centreon Engine configurations on which yo
 
 In the **Check Options** tab, select a command for the hosts and/or services event handler:
 
-![image](../assets/configuration/enableglobaleventhandleronpoller.png)
+![image](../assets/configuration/enableglobaleventhnadleronpoller.png)
 
 Click **Save**.
 
@@ -96,7 +96,7 @@ Click **Save**.
 
 Go to the **Configuration > Hosts > Hosts** menu and edit your hosts. In the **Data Processing** tab, select the command:
 
-![image](../assets/configuration/enableeventhandleronresources.png)
+![image](../assets/configuration/enableeventhnadleronresources.png)
 
 Click **Save**.
 
@@ -107,7 +107,7 @@ Click **Save**.
 Go to the **Configuration > Services > Services by host** menu and edit your services. In the **Data Processing** tab,
 select the command:
 
-![image](../assets/configuration/enableeventhandleronresources.png)
+![image](../assets/configuration/enableeventhnadleronresources.png)
 
 Click **Save**.
 
@@ -148,18 +148,18 @@ CRITICAL)
 	case "$2" in
 
 	# We're in a "soft" state, meaning that Centreon is in the middle of retrying the
-	# check before it turns into a "hard" state and contacts are notified...
+	# check before it turns into a "hard" state and contacts get notified...
 	SOFT)
 
 		# What check attempt are we on?  We don't want to restart the web server on the first
-		# check, because it might just be a fluke!
+		# check, because it may just be a fluke!
 		case "$3" in
 
 		# Wait until the check has been tried 3 times before restarting the web server.
 		# If the check fails on the 4th time (after we restart the web server), the state
 		# type will turn to "hard" and contacts will be notified of the problem.
 		# Hopefully this will restart the web server successfully, so the 4th check will
-		# result in a "soft" recovery.  If that happens, no one is notified because we
+		# result in a "soft" recovery.  If that happens no one gets notified because we
 		# fixed the problem!
 		3)
 			echo -n "Restarting HTTP service (3rd soft critical state)..."
@@ -170,7 +170,7 @@ CRITICAL)
 		;;
 
 	# The HTTP service somehow managed to turn into a hard error without getting fixed.
-	# It should have been restarted by the code above, but for some reason it wasn't.
+	# It should have been restarted by the code above, but for some reason it didn't.
 	# Let's give it one last try, shall we?  
 	# Note: Contacts have already been notified of a problem with the service at this
 	# point (unless you disabled notifications for this service)

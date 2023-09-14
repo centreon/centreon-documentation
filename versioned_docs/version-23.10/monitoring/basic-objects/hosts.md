@@ -65,7 +65,7 @@ This button is used to delete the host template ![image](../../assets/configurat
 * The list of **Linked contacts** indicates the contacts that will receive the notifications.
 * The list of **Linked contacts Groups** indicates the groups of contacts that will receive the notifications.
   
-  If the **Vertical inheritance only** option is enabled on the page **Administration > Parameters > Centreon UI**, two extra checkboxes appear:
+  If the **Vertical inheritance only** option is enabled on the  **Administration > Parameters > Centreon UI** page, two extra checkboxes appear:
 
     * If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent host template, but adds the contacts in addition to the contacts defined in the parent template.
     * If the **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent host template, but adds the contact groups in addition to the contact groups defined in the parent template.

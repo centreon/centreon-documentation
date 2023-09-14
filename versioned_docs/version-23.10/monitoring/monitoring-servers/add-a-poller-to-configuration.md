@@ -80,7 +80,7 @@ SSH protocol.
 
 2. Copy the Gorgone configuration:
 
-    From the Poller list, click the **Display Gorgone configuration** action
+    From the poller list, click the **Display Gorgone configuration** action
     icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
     A popin will show the configuration to copy into the **Poller terminal**.
@@ -97,7 +97,7 @@ SSH protocol.
     description: Configuration for poller My Poller
     gorgone:
       gorgonecore:
-        id: 2.
+        id: 2
         external_com_type: tcp
         external_com_path: "*:5556"
         authorized_clients:
@@ -231,7 +231,7 @@ This step only applies if you are attaching a poller to a remote server (not to 
 
 ## Step 4: Export the configuration of the poller
 
-1. From the Poller list, select the Poller and click **Export
+1. From the poller list, select the poller and click **Export
 configuration**.
 
 2. Then check the first four boxes, select the **Restart** method, and click
@@ -239,7 +239,7 @@ configuration**.
 
   ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-  The Poller's engine will then start and connect to the Broker service of the central server or remote server (according to which one you have attached the poller to).
+  The poller's engine will then start and connect to the Broker service of the central server or remote server (according to which one you have attached the poller to).
 
   ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 

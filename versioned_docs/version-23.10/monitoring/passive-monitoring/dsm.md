@@ -14,16 +14,14 @@ A resource has a set number of "slots" (containers) on which alerts will be  ass
 not been taken into account by a human action, it will remain visible in the Centreon interface. When the event is
 acknowledged, the slot becomes available for new events.
 
-The goal of this module is to give an overview of Centreon’s basic trap management system. The basic function runs with a
-single service and alarm crashed by successive alarms.
+The goal of this module is to give an overview of Centreon’s basic trap management system.
 
-It is an essential complement to the management of SNMP traps.
 
 ## Installation
 
-### On A central server
+### On a central server
 
-This part is to install **Centreon DSM** on a central server. Centreon DSM server and client will be installed on the
+This part is to install **Centreon DSM** on a central server. The Centreon DSM server and client will be installed on the
 main server.
 
 Run the command:

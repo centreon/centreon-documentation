@@ -18,7 +18,7 @@ Click **Save**.
 
 ## Update the Centreon Gorgone configuration
 
-From the Poller list, click the **Display Gorgone configuration** action
+From the poller list, click the **Display Gorgone configuration** action
 icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
 A popin will show the configuration to copy into the **Poller terminal**.
@@ -35,7 +35,7 @@ name:  gorgoned-My Poller
 description: Configuration for poller My Poller
 gorgone:
   gorgonecore:
-    id: 2.
+    id: 2
     external_com_type: tcp
     external_com_path: "*:5556"
     authorized_clients:

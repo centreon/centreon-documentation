@@ -65,7 +65,7 @@ Hosts, Services, Contacts, Time Periods... ) then you can export them to
 another Centreon Web platform by going to the **Configuration > Import/Export**
 menu.
 
-The default page is Export one.
+The default page is the Export one.
 
 ![imaage](../assets/configuration/awie/exportdefault.png)
 
@@ -94,7 +94,7 @@ field (one single value is accepted; this field has no list of suggested items).
 
 ![imaage](../assets/configuration/awie/hosts.png)
 
-Same principle as Poller export, but:
+Same principle as poller export, but:
 
 If you choose to export all hosts, then host configurations, linked host
 templates and linked service templates will be exported, but hosts will be
@@ -140,7 +140,7 @@ categories. There is no **Filter** field for this object.
 
 ![imaage](../assets/configuration/awie/services.png)
 
-Same principle as Poller export, but:
+Same principle as poller export, but:
 
 If you use the **Filter** field for a specific service, the Import/Export process
 will create ALL services linked to the first host linked to the filtered
@@ -218,7 +218,7 @@ file is created and downloaded.
 This is the file that you will upload in the Import Page of another Centreon Web
 platform.
 
-Go to the **Configuration > Import/Export > Import** menu:
+Go to **Configuration > Import/Export > Import**:
 
 ![imaage](../assets/configuration/awie/Import.png)
 

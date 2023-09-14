@@ -103,7 +103,7 @@ recommended) or using SSH protocol.
 
 2. Copy the Gorgone configuration:
 
-    From the Poller list, click the **Display Gorgone configuration** action
+    From the poller list, click the **Display Gorgone configuration** action
     icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
     A popin will show the configuration to copy into the **Remote Server
@@ -121,7 +121,7 @@ recommended) or using SSH protocol.
     description: Configuration for remote server My Remote Server
     gorgone:
       gorgonecore:
-        id: 3.
+        id: 3
         external_com_type: tcp
         external_com_path: "*:5556"
         authorized_clients:
@@ -168,12 +168,12 @@ recommended) or using SSH protocol.
               timespec: "*/5 * * * *"
               action: BROKERSTATS
               parameters:
-                timeout: 10.
+                timeout: 10
             - id: engine_stats
               timespec: "*/5 * * * *"
               action: ENGINESTATS
               parameters:
-                timeout: 10.
+                timeout: 10
 
     EOF
     ```
@@ -233,14 +233,14 @@ it with the following command from the **Central server**:
 > **Deprecated** 
 >
 > This mode should no longer be used because it does not allow data
-> synchronization between Central and Remote Server UI.
+> synchronization between the central and the remote server UI.
 
 </TabItem>
 </Tabs>
 
 ## Step 3: Export the configuration
 
-1. From the Poller list, select the Remote Server and click **Export
+1. From the poller list, select the remote server and click **Export
 configuration**.
 
 2. Then check the first three boxes and click **Export**:

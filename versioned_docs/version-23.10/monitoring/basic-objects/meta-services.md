@@ -9,7 +9,7 @@ A meta-service is a virtual service providing the aggregation of metrics from di
 operation. Meta-services are managed in the same way as a service, i.e. they have thresholds, a notification process,
 generate a performance graph, etc.
 
-e.g.: It is possible to determine the total consumption of WAN traffic by adding together, within a meta-service, all
+Example: It is possible to determine the total consumption of WAN traffic by adding together, within a meta-service, all
 the services supervising the WAN traffic individually.
 
 ### Types of computing
@@ -40,7 +40,7 @@ The types of data source available are as follows:
 
 To add a meta-service:
 
-Go into the following menu: **Configuration \> Services \> Meta Services** and click **Add**
+Go to **Configuration \> Services \> Meta Services** and click **Add**:
 
 ![image](../../assets/configuration/02addmetaservice.png)
 
@@ -82,7 +82,7 @@ Metric dropdown list.
 * The **Notification Period** field can be used define the notification period.
 * The **Notification Type** field defines the types of notification sent.
 
-### Additional Information
+### Additional information
 
 * The **Graphic Template** list defines the graphic model used by this meta-service.
 * The **Status** and **Comments** fields are used to enable / disable or comment on the meta-service.
