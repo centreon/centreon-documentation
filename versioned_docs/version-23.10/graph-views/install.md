@@ -59,8 +59,8 @@ The central server and Centreon MAP must be installed in the same major versions
 #### License
 
 The server requires the license to be available and valid on Centreon's central
-server. To do this, you must contact the support [Centreon support
-team](https://support.centreon.com/) to get & install your license key.
+server. To do this, you must contact the [Centreon support
+team](https://support.centreon.com/) to get and install your license key.
 
 #### Hardware
 
@@ -72,7 +72,7 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 | *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
 | *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
 
-To correctly implement the dedicated memory, you have to edit the
+To correctly implement the dedicated memory, you must edit the
 *JAVA\_OPTS* parameter in the Centreon Map configurations file
 `/etc/centreon-studio/centreon-map.conf` and restart the service:
 
@@ -88,10 +88,10 @@ Then restart the service:
 systemctl restart centreon-map
 ```
 
-The space used by Centreon MAP server is directly determined by the
+The space used by the Centreon MAP server is directly determined by the
 number of elements you add into your views. An element is any graphical
 object in Centreon MAP. Most elements (like hosts, groups, etc.) have
-children which must be included in the count.
+children, which must be included in the count.
 
 > These values are applied after optimization of Centreon MAP tables.
 
@@ -103,7 +103,7 @@ See the [software requirements](../installation/prerequisites.md#software).
 
 - Centreon Web login with admin rights.
 
-> Even with a correctly sized server, you should have in mind the best practices & recommandations when creating views so you don't face performance issues.
+> Even with a correctly sized server, you should bear in mind the best practices and recommendations when creating views so that you can avoid performance issues.
 
 > If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
@@ -112,8 +112,8 @@ See the [software requirements](../installation/prerequisites.md#software).
 #### License
 
 The web interface requires the license to be available and valid on Centreon's
-central server. To do this, you must contact the support [Centreon support
-team](https://support.centreon.com/) to get & install your license key.
+central server. To do this, you must contact the [Centreon support
+team](https://support.centreon.com/) to get and install your license key.
 
 #### Compatibility
 
@@ -124,13 +124,13 @@ The Centreon MAP Web interface is compatible with the following web browsers:
 * Apple Safari (latest version at the time of Centreon software release and above)
 * Microsoft Edge Chromium (latest version at the time of Centreon software release and above)
 
-If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
+If an update to those supported browsers were to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Although other browsers might work, Centreon will not attempt to resolve problems with browsers other than those listed above.
 
 Your screen resolution must be at least 1280 x 768.
 
 ### Centreon MAP Desktop Client
 
-- 4 GB of RAM minimum, 8 GB advised (mandatory for 10,000 or more services)
+- At least 4 GB of RAM, 8 GB recommended (mandatory for 10,000 or more services)
 - **Java 64 bits version 8**
 - Resolution must be at least 1280 x 768.
 - Debian 7,8 or 9
@@ -140,7 +140,7 @@ Your screen resolution must be at least 1280 x 768.
 > modifying Centreon-Map4.ini to add the following line `-vm
 > $path_to_java8$` BEFORE `-vmwargs`.
 
-To optimize the desktop client, you have to "give" it more memory than the
+To optimize the desktop client, you must “give" it more memory than the
 default value. Modify the following file:
 
 <Tabs groupId="sync">
@@ -169,14 +169,14 @@ And add the following lines at the end of the file, on a new line:
 
 ### Network requirements
 
-Centreon MAP Server machine must access:
+The Centreon MAP Server machine must access:
 
 - Centreon Central broker, usually on Centreon Central machine, using TCP
   port 5758
 - Centreon Database, usually on Centreon Central machine, using TCP port 3306
 - Centreon MAP database, usually on localhost, using TCP port 3306.
 
-All the ports above are default values and can be changed if needed.
+All of the above ports are default values and can be changed if needed.
 
 - Centreon Web Central, using HTTP port 80 or HTTPS port 443
 
@@ -185,7 +185,7 @@ Centreon MAP Desktop Client machines must access:
 - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
 - Internet with or without proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other
+Ports 8080 and 8443 are recommended default values, but other
 configurations are possible.
 
 ## Server installation
@@ -201,7 +201,7 @@ Provide this user with access to the Centreon Web real-time API:
 
 ![image](../assets/graph-views/reach-api.png)
 
-Exclude the user from the password expiration policy on page **Administration > Authentication**: their password will never expire.
+Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
@@ -318,7 +318,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 > If the URL doesn't work, you can manually find this package in the folder.
 
-Install the Centreon Business repository, you can find it on the
+Install the Centreon Business repository. You can find this on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then install Centreon MAP server using the following command:
@@ -352,7 +352,7 @@ When installing Centreon MAP server, it will automatically install java
 (OpenJDK 11) if needed.
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
-> it's on localhost or somewhere else.
+> it is on localhost or somewhere else.
 
 To install MariaDB, execute the following command:
 
@@ -417,9 +417,9 @@ interactive or automatic.
 - interactive *(no option/default mode)*: Several questions will be asked to
   interactively fill in the installation variables.
 - automatic *(--automatic or -a)*: The installation will be done automatically
-  from the values set in `/etc/centreon-studio/vars.sh` file
+  from the values set in the file `/etc/centreon-studio/vars.sh`
 
-If it's your first installation, we advise you to use the standard mode
+If it is your first installation, we advise you to use the standard mode
 (interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
@@ -450,7 +450,7 @@ systemctl restart centreon-map
 
 ### Central server
 
-> Before restarting Broker you must export the configuration from the Centreon
+> Before restarting Broker, you must export the configuration from the Centreon
 > Web interface.
 
 Restart Centreon Broker on the Central server:
@@ -473,7 +473,7 @@ Check your configuration:
 /etc/centreon-studio/diagnostic.sh
 ```
 
-If configuration is correct, the centreon-map service can be
+If the configuration is correct, the centreon-map service can be
 started from the Centreon MAP server:
 
 ```shell
@@ -486,14 +486,14 @@ Enable the service to start up automatically on server boot:
 systemctl enable centreon-map
 ```
 
-Centreon Map server is now started and enabled, let's install
+Centreon Map server is now started and enabled, so let's install
 the interface part of the extension.
 
 ## Web Interface installation
 
 ### Central server
 
-Install the Centreon Business repository, you can find it on the
+Install the Centreon Business repository. You can find this on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 Then execute the following command:
@@ -525,18 +525,18 @@ apt install centreon-map-web-client
 
 ### Web
 
-Go to **Centreon > Administration > Extensions** and click on the install
+Go to **Centreon > Administration > Extensions** and click the install
 button:
 
 - License Manager (*if not yet installed*)
 - Map Web Client
 
 Upload the license **map.license** given by the support team. Refresh
-the page and the banner must be green with the valid license date.
+the page, and the banner should be green with the valid license date.
 
 ![image](../assets/graph-views/install-web-step-2.png)
 
-Click on Back to return to the Extensions page. Now that the module is
+Click Back to return to the Extensions page. Now that the module is
 installed, we will configure it.
 
 ### Configuration
@@ -564,8 +564,8 @@ You can see to which IP the client is connected.
 
 By installing the Web interface, you automatically add the Centreon MAP
 Widget, but you need to perform one last task. Go to
-`Administration > Extensions` and click on the "Install" button on the
-widget. The result after installed:
+`Administration > Extensions` and click the "Install" button on the
+widget. Here is the result after installation:
 
 ![image](../assets/graph-views/install-web-step-widget.png)
 
@@ -579,8 +579,8 @@ Mac and Linux platforms (Debian and Ubuntu).
 You can find the installers in **Monitoring > Map > Desktop Client** or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=23.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
-> users maximum connected at the same time manipulating views.
+> For performance considerations, we highly recommend having fewer than 5 users, or in any case
+> a maximum of 10 connected at the same time manipulating views.
 
 ### Installation
 
@@ -598,7 +598,7 @@ version of Java from [here](https://java.com/fr/download/manual.jsp).
 > On a Mac platform, note that you must install Oracle JDK instead of
 > the usually-required JRE.
 
-To check the Java version run the command:
+To check the Java version, run the following command:
 
 ```shell
 java -version
@@ -610,12 +610,12 @@ java -version
 Execute centreon-map4-desktop-client-xxxx.exe:
 
 > You do not need to be the administrator of your computer to perform the
-> installation. All the files are will be installed in your personnal folders.
+> installation. All the files will be installed in your personal folders.
 
 The default installation folder is `C:\Users\$user$\AppData\LocalCentreon-Map4`.
 
-You can install the software at this location without administrator rights but
-can change the destination to Program files if you have the sufficient rights.
+You can install the software at this location without administrator rights, but
+you can change the destination to Program files if you have sufficient rights.
 
 Use the installer to install the software properly and integrate it into the
 Windows environment. The installer can also be used to uninstall it from the
@@ -626,7 +626,7 @@ Windows dedicated configuration page.
 </TabItem>
 <TabItem value="Debian" label="Debian">
 
-Download the provided DEB file and run the command from the root directory:
+Download the DEB file provided and run the command from the root directory:
 
 ```shell
 sudo dpkg -i centreon-map4-desktop-client*.deb
@@ -657,5 +657,5 @@ internet access.
 
 ## Secure your platform
 
-Don't forget to secure your Centreon platform following our
+Remember to secure your Centreon platform following our
 [recommendations](secure-your-map-platform.md)

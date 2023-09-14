@@ -5,7 +5,7 @@ title: Managing maps in MAP
 
 This topic provides information about how to perform actions on your maps from the Centreon MAP interface. You can create two types of map:
 
-- **Standard maps:** to visualize graphical representations of your monitored infrastructure.
+- **Standard maps:** to view graphical representations of your monitored infrastructure.
 - **Geographic views:** to display the resources of your IT environment across a defined geographical area.
 
 > Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See the [Manage access rights on MAP](map-web-access.md) topic to know more about rights and permissions.
@@ -18,7 +18,7 @@ The homepage displays the list of existing maps and you can visualize for each m
 
 ## Performing actions on a map
 
-You can perform actions on each standard map and geographic view you have access to. Use the following procedures if you need to edit the map properties, share or delete a map.
+You can perform actions on any standard map and geographic view you have access to. Use the following procedures if you need to edit map properties, share or delete a map.
 
 > The features to share and to copy a map URL are not available on a geographic view.
 

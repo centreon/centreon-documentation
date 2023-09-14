@@ -5,39 +5,39 @@ title: Configure
 
 ## Administrate users rights
 
-There is two kinds of administrators, Centreon admins and Map admins.
+There are two kinds of administrator: Centreon admins and Map admins.
 
-On fresh install, only Centreon admins exist.
+On a fresh install, only Centreon admins exist.
 
 Centreon admins may grant Map admins privileges through ACL groups defined in
 Centreon.
 
-Any user contained in that group then become a Map administrator.
+Any user contained in that group then becomes a Map administrator.
 
 ### Manage Map administrators
 
 To grant Map administrator privileges on an ACL group:
 
-Go to **Preferences > Preferences** then select *Admin* tab.
+Go to **Preferences > Preferences**, and then select the *Admin* tab.
 
 ![image](../assets/graph-views/admin_preference_page.png)
 
 ### Give access on views to other users and manage their privileges
 
-By default non-admin users have no access on views, and have no
+By default, non-admin users have no access to views, and have no
 privileges.
 
-Administrators may grant these accesses and privileges to specifics set
+Administrators can grant these accesses and privileges to specific sets
 of users through ACL groups.
 
-ACL groups may be allowed to visualize, create, modify and delete one or
+ACL groups can be allowed to view, create, modify and delete one or
 more views independently.
 
-Go into **Preferences > Preferences** and then select *Views > ACLs* tab.
+Go into **Preferences > Preferences** and then select the *Views > ACLs* tab.
 
 ![image](../assets/graph-views/acl_views_preference_page.png)
 
-Select, from the list, the ACL group you want to configure. Then, for
+From the list, select the ACL group you want to configure. Then, for
 each view, define the specific rights to attribute.
 
 **GeoViews**
@@ -45,9 +45,9 @@ each view, define the specific rights to attribute.
 Two simple rules apply on this kind of view:
 
 - Any user accessing the **Monitoring > Map** page will be able to see all the
-  created geographic views
-- Users that have "Creation" privilege (through ACL group on Centreon Map
-  desktop client) have all privileges on geographic views
+  geographic views created
+- Users that have the "Creation" privilege (through the ACL group on the Centreon Map
+  desktop client) have all privileges on geographic views.
 
 ## Load disabled resources (or not)
 
@@ -56,7 +56,7 @@ Two simple rules apply on this kind of view:
 You can decide whether to load disabled resources into Centreon Map
 desktop client. If you do (which is the default configuration), all
 disabled resources will appear in the resource list. You will also be
-able to use them into your views.
+able to use them in your views.
 
 They will have no status and appear as shown in the following screenshot:
 
@@ -79,7 +79,7 @@ systemctl restart centreon-map
 ## Define views & status computation parameters
 
 Centreon Map server gives you the possibility to customize how this
-inherited status is computed & rendered in views. You may use the
+inherited status is computed and rendered in views. You may use the
 following parameters to adapt the behavior of inherited status
 computation to your use case.
 
@@ -98,8 +98,8 @@ If you add, remove or update a parameter, make sure to restart centreon-map.
 
 **What's an inherited status ?**
 
-An inherited status is a Centreon Map custom status associated to some
-objects that is based on the worst status of its children, here are the
+An inherited status is a Centreon Map custom status associated with some
+objects that is based on the worst status of its children; here are the
 rules:
 
 - A host has two statuses: its own status (up/down/pending) and an inherited
@@ -114,21 +114,21 @@ rules:
 **Inherited status customization**
 
 Centreon Map server gives you the possibility to customize how this
-inherited status is computed & rendered in views. You may use the
+inherited status is computed and rendered in views. You may use the
 following parameters to adapt the behavior of inherited status
 computation to your use case:
 
-Specificity of **gate.useResourcesAccess**: Settings this parameter to
-"false" may highly improve Centreon Map performances, here is why:
+Specificity of **gate.useResourcesAccess**: Setting this parameter to
+"false" may highly improve Centreon Map performance. Here is why:
 
-- gate.useResourcesAccess = false: all users see the same status & same
-  resources in views, no matter the ACL ressources they have, they're ignored.
+- gate.useResourcesAccess = false: all users see the same status and same
+  resources in views, irrespective of the ACL resources they have, they are ignored.
   In that case, be careful who you're giving access to views
-- gate.useResourcesAccess = true: users see different status & views regarding
-  resources ACLs (decrease performance because you need to have one instance
-  of each view for each users)
+- gate.useResourcesAccess = true: users see different status and views regarding
+  resource ACLs (decreased performance because you need to have one instance
+  of each view for each user)
 
-To configure these parameters you need to edit the following Centreon
+To configure these parameters, you need to edit the following Centreon
 MAP server configuration file (modify or add missing parameters), then
 restart centreon-map:
 
@@ -158,7 +158,7 @@ However, if you make any changes (add/delete/update) to Centreon's
 resources and want these changes to be immediately synchronized on your
 Centreon MAP without pushing the configuration, you can force a resource
 synchronization from Centreon MAP's desktop client through the following
-menu **Action > Synchronize resources**.
+menu: **Action > Synchronize resources**.
 
 This operation may take a few seconds. A pop-up will tell you when the
 synchronization is complete.
@@ -187,18 +187,18 @@ Preferences. Go to **Status > Status size** to configure it globally.
 
 You can choose the tile service provider or even add your own provider
 in **Administration > Extension > Map | Options**. By default, Centreon Map
-geoviews comes Open Street Map & Mapbox.
+geoviews come with Open Street Map and Mapbox.
 
 Please refer to [this
-link](https://operations.osmfoundation.org/policies/tiles/) to understand Open
+link](https://operations.osmfoundation.org/policies/tiles/) to understand the Open
 Street Map Tile usage policy.
 
-To change the tile provider, select one in the list and click save.
+To change the tile provider, select one in the list and click Save.
 
 ![image](../assets/graph-views/geo_options.png)
 
 If you want to use your own Tile service provider, if for example you
-have an internal Open Street Map server, go to the
+have an internal Open Street Map server, go to 
 `Administration > Extension > Map | Options` and choose the "Custom" style.
 
 Define the parameters needed and then save.
@@ -208,14 +208,14 @@ Define the parameters needed and then save.
 ### Configure data layers
 
 You can add any external data layer to Centreon GeoView by going to
-`Administration > Extension > Map`. The layer mechanism is the same that the
-tiles provider: we're compatible with tiles map (TMS).
+`Administration > Extension > Map`. The layer mechanism is the same as that of the
+tile provider: we are compatible with tiles map (TMS).
 
-Most of the time, the data layer configuration will consist in:
+Most of the time, the data layer configuration will consist of:
 
 - Defining the URL,
 - Setting your token,
-- Adding any extra parameters in a JSON format.
+- Adding any extra parameters in JSON format.
 
 ![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
@@ -225,7 +225,7 @@ Most of the time, the data layer configuration will consist in:
 
 If you want to be able to have a geographic background on standard views
 and/or use it as a tile service provider in GeoView, you need to have a
-Mapbox account & link it to your Centreon Map.
+Mapbox account and link it to your Centreon Map.
 
 **Create an account**
 
@@ -236,9 +236,9 @@ can use Mapbox with Centreon MAP for free by:
 2. [Retrieving a private
    token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
    from your Mapbox account and add it to the configuration of the Centreon MAP
-   Server (or during the installation).
+   Server (or during installation).
 
-During the token creation, you're asked to select properties, select:
+During token creation, you are asked to select properties. Select:
 
 - Public scopes: *styles:read* and *styles:tiles*
 - Secret scopes: *styles:list*
