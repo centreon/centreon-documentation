@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes features you need to manipulate to be able to generate & manage reports.
 
-[image](../assets/reporting/installation/bi_retention.png)
+![image](../assets/reporting/first_page.png)
 
 ## Jobs
 
@@ -100,7 +100,7 @@ is done in two main steps (tabs):
 - Select the report design you want to use (see all the designs available [here](../assets/reporting/Centreon-MBI-Sample-Reports.pdf))
 - Select the perimeter on which to generate the report 
 
-Two optionals steps (tabs) can be done to:
+Two optional steps (tabs) can be done to:
 
 - Publish the report
 - Tune the job  
@@ -209,7 +209,7 @@ The "Tuning" menu contains three parameters:
     available: Maroon, Orange, Blue, Ice, Green, Multicolor-1 and
     Multicolor-2. 
 
-    > Theme color does not apply to business activity report
+    > Theme color does not apply to business activity reports
 
     The available color palettes are:
 

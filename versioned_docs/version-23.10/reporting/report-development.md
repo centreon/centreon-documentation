@@ -249,7 +249,7 @@ the BIRT version easily without affecting your project folders.
 After creating the workspace and before starting to design any report,
 you must create a BIRT project containing two main directories:
 
--   / Reporting: Contains all your reports (.rptdesign files).
+-   / reports: Contains all your reports (.rptdesign files).
 -   /Resources: Contains any files or components that will be made
     accessible to your reports through relative paths.
 
@@ -265,8 +265,8 @@ on the project displayed in the "Navigator" tab panel:
 
 ![image](../assets/reporting/dev-guide/1000000000000565000001F097833544.png)
 
-Now, copy the contents of the Reports *(/usr/share/centreon-bi/reports)*
-and Resources *(/usr/share/centreon-bi/Resources)* directories on the
+Now, copy the contents of the reports *(/usr/share/centreon-bi/reports)*
+and resources *(/usr/share/centreon-bi/Resources)* directories on the
 reporting server into the two folders you created in your project.
 
 #### The resources folder
