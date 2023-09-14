@@ -328,7 +328,7 @@ performance data.
 
 ### How is the sending and storage of my data protected?
 
-Sending data to our Cloud infrastructure is risk-free. Data is end-to-end encrypted. The
+Sending data to our Cloud infrastructure is risk-free. Data is sent using end-to-end encryption. The
 data collected only contains metrics and some Centreon identifiers (host name, service name). Our environment is protected by AWS Web
 Application Firewall and AWS Shields to prevent DDoS attacks. Our architecture has been reviewed by AWS architects
 (AWS Foundational Technical Review) and we are an AWS Qualified Partner.
