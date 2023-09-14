@@ -6,12 +6,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-For security reasons, the keys used to sign Centreon RPMs have to be rotated regularly.
+For security reasons, the keys used to sign Centreon RPMs must be rotated regularly.
 
 ## Fresh installation
 
-If you did a fresh installation after the new RPM key was published, 
-there are no additional actions to do besides accepting the new rpm key.
+If you performed a fresh installation after the new RPM key was published, 
+no additional actions are necessary, apart from accepting the new rpm key.
 
 ```shell
 Retrieving key from https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -26,8 +26,8 @@ However, you can [check that you have the correct key](#checks).
 
 ## Existing installation
 
-If you did a fresh installation of a Centreon platform 
-before the new RPM key was published, the existing key has to be replaced with the new one.
+If you performed a fresh installation of a Centreon platform 
+before the new RPM key was published, the existing key must be replaced with the new one.
 
 1. Download the following script:
 
@@ -76,11 +76,11 @@ You can then check that the new key has been correctly imported. For the [new ke
     Architecture: (none)
     Install Date: jeu. 14 oct. 2021 09:25:42 UTC
     Group       : Public Keys
-    Size        : 0
+    Size        : 0.
     License     : pubkey
     Signature   : (none)
     Source RPM  : (none)
-    Build Date  : mer. 13 oct. 2021 14:21:06 UTC
+    Build Date  : mer. 13 oct. 2021 2:21:06 PM UTC
     Build Host  : localhost
     Relocations : (not relocatable)
     Packager    : Centreon Enterprise Server Official Signing Key <admin@centreon.com>
@@ -163,11 +163,11 @@ You can then check that the new key has been correctly imported. For the [new ke
     Architecture: (none)
     Install Date: jeu. 14 oct. 2021 09:25:42 UTC
     Group       : Public Keys
-    Size        : 0
+    Size        : 0.
     License     : pubkey
     Signature   : (none)
     Source RPM  : (none)
-    Build Date  : mer. 13 oct. 2021 14:21:06 UTC
+    Build Date  : mer. 13 oct. 2021 2:21:06 PM UTC
     Build Host  : localhost
     Relocations : (not relocatable)
     Packager    : Centreon Enterprise Server Official Signing Key <admin@centreon.com>
@@ -218,7 +218,7 @@ You can then check that the new key has been correctly imported. For the [new ke
     -----END PGP PUBLIC KEY BLOCK-----
     ```
 
-* Check that the old key is not in the RPM database anymore (there should 
+* Check that the old key is no longer in the RPM database (there should 
 only be **gpg-pubkey-3fc49c1b-6166eb52**):
 
   ```shell
