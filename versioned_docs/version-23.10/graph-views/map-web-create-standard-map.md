@@ -59,7 +59,7 @@ Use **Widget** elements to display graphical data about the resources you monito
   - For a host: the number of OK, Warning, Critical, and NA states.
   - For a host group: the number of hosts in OK, Warning, Critical, and NA states.
 - **Line chart:** displays performance data related to a service, over a period of time.
-- **Gage:** describes the output of a service. You can place a gage in any direction (left to right, bottom to top, etc.).
+- **Gauge:** describes the output of a service. You can place a gauge in any direction (left to right, bottom to top, etc.).
 - **Output:** describes the output of a service. The background is in the same color as the status.
 - **Process:** allows you to trigger an action on any resources based on a command. Here is an example:
   - You have an internal website that uses Apache, and sometimes Apache crashes. Your need to investigate the core problem of why this crash occurs, however your priority is to make sure the end users can access the website.

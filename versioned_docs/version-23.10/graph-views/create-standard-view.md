@@ -55,7 +55,7 @@ like this one opened by at least one user.
 having 8 GB of RAM, 8vCPU (2.6 GHz), Google Chrome (latest version) with a
 minimum of 5 GB of memory on the computer.*
 
-> You cannot add any objects (e.g., text, gage, pie chart, graph etc.)
+> You cannot add any objects (e.g., text, gauge, pie chart, graph etc.)
 > to, or modify/copy-paste the contents of, a host, host group, service
 > group or business activity.
 
@@ -119,7 +119,7 @@ Now, double -click the view to open it. Your main panel will have a white
 background and you will be able to start adding elements to it: simply drag and
 drop resources from your resource panel to the main panel.
 
-> You cannot add any objects (e.g., a gage, pie chart or graph) to, or
+> You cannot add any objects (e.g., a gauge, pie chart or graph) to, or
 > modify/copy-paste the contents of, a host, host group, service group or
 > business activity.
 
@@ -208,15 +208,15 @@ which lines you would like to display, their color and other properties:
 
 ![image](../assets/graph-views/graph-line-wizard.png)
 
-### Gages
+### Gauges
 
-A gage displays the percentage of a metric. Create a gage by selecting a
+A gauge displays the percentage of a metric. Create a gauge by selecting a
 service and choosing the metric you want to display.
 
 ![image](../assets/graph-views/gauge-example.png)
 
-You can place a gage in any position and in any direction (left to
-right, bottom to top, etc.). By default, the color of the gage is
+You can place a gauge in any position and in any direction (left to
+right, bottom to top, etc.). By default, the color of the gauge is
 associated with the status of the service.
 
 ### Pie charts
