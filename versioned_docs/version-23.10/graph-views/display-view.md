@@ -3,19 +3,19 @@ id: display-view
 title: Display views
 ---
 
-The existing standard and geographic views are accessible from Centreon web user
+The existing standard and geographic views are accessible from the Centreon web user
 interface, if you have been given access privileges. You can display them using
 the **Monitoring > Map** menu or using the dedicated Centreon Map widget.
 
-Find below the dedicated features of Centreon Map web interface that ease use &
+Below, you will find the dedicated features of the Centreon Map web interface that facilitate its use and
 interactions with views.
 
 ## Understand tooltips
 
 On the web interface, there are information windows called tooltips. They appear
-when you are mouse hovering some types of objects in a view: links (status &
+when your mouse hovers over some types of objects in a view: links (status &
 metric), services, metaservices, hosts, host groups and service groups. This
-window is kept open as long as your cursor is hover the tooltip.
+window is kept open as long as your cursor is over the tooltip.
 
 ![image](../assets/graph-views/tooltips.gif)
 
@@ -23,7 +23,7 @@ Depending on the type of GUI object under your mouse, different information will
 be displayed. For instance, a link (status & metric, services and metaservice)
 would display:
 
-- Acknowledgement information (if present)
+- Acknowledgment information (if present)
 - Downtime information (if present)
 - Duration
 - Output.
@@ -34,8 +34,8 @@ sublevel that currently impact the host/host group or service group.
 
 The following rules apply:
 
-- If a host is down, services attached are never displayed in a tooltip.
-- For a host: Services displayed correspond to the inherited status of the
+- If a host is down, attached services are never displayed in a tooltip.
+- For a host: The services displayed correspond to the inherited status of the
   host. For example, if a host is "red", then only Critical services will be
   displayed.
 - For a service group: Services displayed correspond to the inherited status
@@ -44,18 +44,18 @@ The following rules apply:
   in a tooltip; and services (if their host is up) with the same inherited
   status as their host groups are displayed.
 
-> In the customs views widget, by default, tooltips are not displayed. It is
-> possible to activate them in the widget settings by a checkbox.
+> In the custom views widget, by default, tooltips are not displayed. It is
+> possible to activate them in the widget settings via a checkbox.
 
-## Manage links color
+## Manage link color
 
-In the previous Centreon Map version, links color were define at user level and
-each user had to configure it's own color using the desktop client. We changed
-this mechanism so that you can define a link coloration method for **all user**
-at once. To do so:
+In the previous Centreon Map version, link colors were defined at user level and
+each user had to configure their own color using the desktop client. We changed
+this mechanism so that you can define an **all user** link color scheme
+globally. To do this:
 
 1. Go to **Administration > Extension > Map | Options**
-2. In the "Link color definition" section, select the coloration method and
+2. In the "Link color definition" section, select the color scheme and
    parameter you want to apply
 
 Example: linear coloration from gray to blue

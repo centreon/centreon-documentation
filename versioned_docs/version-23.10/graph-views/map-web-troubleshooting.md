@@ -168,7 +168,7 @@ Here are the main errors that you can encounter:
   
   ```shell
   {
-    "status" : "UP"
+    "status": "UP"
   }
   ```
   
@@ -176,7 +176,7 @@ Here are the main errors that you can encounter:
 
 ## Still stuck?
 
-If you still need help, please contact the [Centreon support team](https://support.centreon.com/) with the basic information about the way Centreon MAP is installed.
+If you still need help, please contact the [Centreon support team](https://support.centreon.com/) with the basic information about how Centreon MAP is installed.
 
 Here is an example for a standard installation:
 
