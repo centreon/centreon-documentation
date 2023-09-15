@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.10
 
-Release date: `September 13, 2023`
+Release date: `September 15, 2023`
 
 #### Bug fixes
 
@@ -170,7 +170,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.10
 
-Release date: `September 13, 2023`
+Release date: `September 15, 2023`
 
 #### Bug fixes
 
