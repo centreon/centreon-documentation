@@ -56,58 +56,58 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Rittal CMC3 SNMP**](../procedures/hardware-sensors-rittal-cmc3-snmp.md) - hardware-sensors-rittal-cmc3-snmp - initial release.
-- [**SailPoint IdentityNow Rest API**](../procedures/applications-sailpoint-identitynow-restapi.md) - applications-sailpoint-identitynow-restapi - initial release.
-- [**Tosca Rest API**](../procedures/applications-tosca-restapi.md) - applications-tosca-restapi - initial release.
+- [**Rittal CMC3 SNMP**](../procedures/hardware-sensors-rittal-cmc3-snmp.md) - initial release.
+- [**SailPoint IdentityNow Rest API**](../procedures/applications-sailpoint-identitynow-restapi.md) - initial release.
+- [**Tosca Rest API**](../procedures/applications-tosca-restapi.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - hardware-ups-apc-snmp - added Time and Uptime services.
-- [**AudioCodes**](../procedures/network-audiocodes-snmp.md) - network-audiocodes-snmp - added Sbc-Calls service.
-- [**Azure App Service**](../procedures/cloud-azure-web-appservice.md) - cloud-azure-web-appservice - removed privatebytes threshold from Memory service.
-- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - cloud-azure-compute-functions - removed privatebytes threshold from Memory service.
-- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - cloud-azure-management-costs - moved to correct pack category.
-- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - applications-ipfabric-api - updated the logo.
-- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - applications-monitoring-iplabel-newtest-restapi - added the --timeframe option to scenario mode.
-- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - applications-monitoring-speedtest - now using Ookla's speedtest.
-- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - hardware-ups-standard-rfc1628-snmp - added thresholds for output-lines and alarms modes.
-- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - operatingsystems-windows-snmp - added options for Service-Generic mode.
+- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - added Time and Uptime services.
+- [**AudioCodes**](../procedures/network-audiocodes-snmp.md) - added Sbc-Calls service.
+- [**Azure App Service**](../procedures/cloud-azure-web-appservice.md) - removed privatebytes threshold from Memory service.
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - removed privatebytes threshold from Memory service.
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - moved to correct pack category.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - updated the logo.
+- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - added the --timeframe option to scenario mode.
+- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - now using Ookla's speedtest.
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - added thresholds for output-lines and alarms modes.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - added options for Service-Generic mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Teltonika SNMP**](../procedures/network-teltonika-snmp.md) - network-teltonika-snmp - renamed System service to Modem.
-- [**AWS Billing**](../procedures/cloud-aws-billing.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**AWS ELB**](../procedures/cloud-aws-elb.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon S3**](../procedures/cloud-aws-s3.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Ansible Tower**](../procedures/applications-ansible-tower.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Ansible**](../procedures/applications-ansible-cli.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Azure Event Hubs**](../procedures/cloud-azure-analytics-eventhubs.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Ericsson ENM API**](../procedures/applications-ericsson-enm-api.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Rudder**](../procedures/applications-rudder-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
-- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - hostdisco - now using "*-custom" host templates as Host Discovery default template.
+- [**Teltonika SNMP**](../procedures/network-teltonika-snmp.md) - renamed System service to Modem.
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Ansible Tower**](../procedures/applications-ansible-tower.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Ansible**](../procedures/applications-ansible-cli.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Azure Event Hubs**](../procedures/cloud-azure-analytics-eventhubs.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Ericsson ENM API**](../procedures/applications-ericsson-enm-api.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Rudder**](../procedures/applications-rudder-restapi.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - now using "*-custom" host templates as Host Discovery default template.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -124,29 +124,29 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Fortinet FortiMail SNMP**](../procedures/network-fortinet-fortimail-snmp.md) - network-fortinet-fortimail-snmp - initial release.
-- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - applications-veeam-vbem-restapi - initial release.
+- [**Fortinet FortiMail SNMP**](../procedures/network-fortinet-fortimail-snmp.md) - initial release.
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - network-aruba-cppm-snmp - added swap monitoring.
-- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - cloud-azure-database-sqldatabase - added Cpu and Memory monitoring.
-- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - network-cisco-meraki-restapi - added thresholds for Devices monitoring.
-- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - network-cisco-standard-snmp - added Interfaces monitoring.
-- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - network-cisco-wlc-snmp - added a host discovery rule.
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - applications-protocol-snmp - refreshed dependencies to make host discovery work in any case others.
-- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) -  applications-ipfabric-api - update path verification service .
-- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - network-oneaccess-snmp - added options to Cells-Radio monitoring.
-- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - network-firewalls-paloalto-standard-snmp - added Interfaces monitoring.
-- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - applications-rubrik-restapi - added jobs monitoring.
+- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - added swap monitoring.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - added Cpu and Memory monitoring.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - added thresholds for Devices monitoring.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - added Interfaces monitoring.
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - added a host discovery rule.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - refreshed dependencies to make host discovery work in any case others.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - update path verification service .
+- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - added options to Cells-Radio monitoring.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - added Interfaces monitoring.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - added jobs monitoring.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**AWS ELB**](../procedures/cloud-aws-elb.md) - cloud-aws-elb - fixed the host discovery unicity .
-- [**IP-Label Datametrie Rest API**](../procedures/applications-monitoring-iplabel-datametrie-restapi.md) - applications-monitoring-iplabel-datametrie-restapi - marked as deprecated (service end of life) .
-- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - hardware-storage-dell-powerstore-restapi - fixed bug on Memory.
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - fixed the host discovery unicity .
+- [**IP-Label Datametrie Rest API**](../procedures/applications-monitoring-iplabel-datametrie-restapi.md) - marked as deprecated (service end of life) .
+- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - fixed bug on Memory.
 
 </TabItem>
 </Tabs>
@@ -183,28 +183,28 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - cloud-aws-directconnect - initial release.
-- [**HMS Netbiter Argos RestAPI**](../procedures/hardware-devices-hms-netbiter-argos-restapi.md) - hardware-devices-hms-netbiter-argos-restapi - initial release.
-- [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - network-keysight-nvos-restapi - initial release.
-- [**Outscale**](../procedures/cloud-outscale.md) - cloud-outscale - initial release.
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - initial release.
+- [**HMS Netbiter Argos RestAPI**](../procedures/hardware-devices-hms-netbiter-argos-restapi.md) - initial release.
+- [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - initial release.
+- [**Outscale**](../procedures/cloud-outscale.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - applications-protocol-snmp - added a SNMP-based host template.
-- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - operatingsystems-linux-ssh - updated diskio command options.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - applications-databases-mysql - added a collection service.
-- [**Protocol TCP**](../procedures/applications-protocol-tcp.md) - applications-protocol-tcp - added a TCP-based host template.
-- [**Protocol UDP**](../procedures/applications-protocol-udp.md) - applications-protocol-udp - added a UDP-based host template.
-- [**Sonus SBC **](../procedures/network-sonus-sbc-snmp.md) - network-sonus-sbc-snmp - change thresholds names.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - added a SNMP-based host template.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - updated diskio command options.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - added a collection service.
+- [**Protocol TCP**](../procedures/applications-protocol-tcp.md) - added a TCP-based host template.
+- [**Protocol UDP**](../procedures/applications-protocol-udp.md) - added a UDP-based host template.
+- [**Sonus SBC **](../procedures/network-sonus-sbc-snmp.md) - change thresholds names.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - Add policy-name macro.
-- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - fix(pack) cloud-azure-policyinsights-policystates - changed command name.
-- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - applications-monitoring-centreon-poller - fix options for Broker stats.
-- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - centreon-pack-hardware-servers-xfusion-ibmc-snmp - wrong command.
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - Add policy-name macro.
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - changed command name.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - fix options for Broker stats.
+- [**xFusion iBMC SNMP**](../procedures/hardware-servers-xfusion-ibmc-snmp.md) - wrong command.
 
 </TabItem>
 </Tabs>
@@ -216,13 +216,13 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - network-aruba-cppm-snmp - initial release.
-- [**Opengear SNMP**](../procedures/network-opengear-snmp.md) - network-opengear-snmp - initial release.
+- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - initial release.
+- [**Opengear SNMP**](../procedures/network-opengear-snmp.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - applications-controlm-restapi - service jobs add option --job-name.
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - service jobs add option --job-name.
 - [**Fortinet Fortigate**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - added default value for CRITICALSTATUS macro in Traffic-Global.
 - [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - added `ip_vmanagement` and `ip_vmotion` to Host Discovery attributes.
 
@@ -239,24 +239,24 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - cloud-azure-policyinsights-policystates - initial release.
-- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - applications-controlm-restapi - initial release.
-- [**Riello UPS SNMP**](../procedures/hardware-ups-riello-snmp.md) - hardware-ups-riello-snmp - initial release.
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - initial release.
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - initial release.
+- [**Riello UPS SNMP**](../procedures/hardware-ups-riello-snmp.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - add missing packs for discovery.
-- [**CheckPoint firewall**](../procedures/network-firewalls-checkpoint-snmp.md) - network-firewalls-checkpoint-snmp - add disk service.
+- [**CheckPoint firewall**](../procedures/network-firewalls-checkpoint-snmp.md) - add disk service.
 - [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - add AP discovery.
-- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - hardware-ups-standard-rfc1628-snmp - add thresholds for alarm services.
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - add thresholds for alarm services.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - new attributes and fixed types.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - centreon-sql-metrics - fix partitioning mode.
-- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - cloud-kubernetes-api - fix node host discovery.
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - fix partitioning mode.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - fix node host discovery.
 
 </TabItem>
 </Tabs>
@@ -266,22 +266,22 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Oracle UCP JMX**](../procedures/applications-oracle-ucp-jmx.md) - applications-oracle-ucp-jmx - initial release.
-- [**WD NAS SNMP**](../procedures/hardware-storage-wd-nas-snmp.md) - hardware-storage-wd-nas-snmp - initial release.
+- [**Oracle UCP JMX**](../procedures/applications-oracle-ucp-jmx.md) - initial release.
+- [**WD NAS SNMP**](../procedures/hardware-storage-wd-nas-snmp.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - network-switchs-alcatel-omniswitch-snmp - add interfaces service.
-- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - cloud::azure::database::sqldatabase - add EXTRAOPTIONS on health template.
-- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - storage::dell::powerstore::restapi - add service memory.
-- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - cloud-kubernetes-api - add --namespace option.
-- [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - hardware-pdu-raritan-snmp - add external-sensors mode.
+- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - add interfaces service.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - add EXTRAOPTIONS on health template.
+- [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - add service memory.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - add --namespace option.
+- [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - add external-sensors mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Jenkins API**](../procedures/applications-jenkins.md) - applications-jenkins - changed service name and options.
+- [**Jenkins API**](../procedures/applications-jenkins.md) - changed service name and options.
 
 </TabItem>
 </Tabs>
@@ -291,8 +291,8 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Talend TMC API**](../procedures/cloud-talend-tmc-api.md) - cloud-talend-tmc-api - initial release.
-- [**Vectra Rest API**](../procedures/network-vectra-restapi.md) - network-vectra-restapi - initial release.
+- [**Talend TMC API**](../procedures/cloud-talend-tmc-api.md) - initial release.
+- [**Vectra Rest API**](../procedures/network-vectra-restapi.md) - initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
@@ -301,7 +301,7 @@ import TabItem from '@theme/TabItem';
 - [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - refactoring purestorage rest api.
 - [**Pure Storage FlashBlade Rest API v2**](../procedures/hardware-storage-purestorage-flashblade-v2-restapi.md) - refactoring purestorage rest api.
 - [**Pure Storage RestAPI**](../procedures/hardware-storage-purestorage-restapi.md) - refactoring purestorage rest api.
-- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - operatingsystems-linux-nrpe3 - update diskio command options.
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - update diskio command options.
 - [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - enh (cloud-aws-elasticache): Add discovery mode/rule for AWS ElastiCache.
 - [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - fix (sql-metrics): add poller delay.
 - [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - enh (cloud-aws-cloudfront): Add discovery mode/rule for AWS CloudFront.
@@ -315,7 +315,7 @@ import TabItem from '@theme/TabItem';
 - [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - fix(kadiska): fix the discovery commands and arguments .
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - fix(pp): increased release number.
 - [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters.
-- [**RabbitMQ RestAPI**](../procedures/applications-rabbitmq-restapi.md) - FIX(pack): RabbitMQ - Update MACROS values.
+- [**RabbitMQ RestAPI**](../procedures/applications-rabbitmq-restapi.md) - Update MACROS values.
 
 </TabItem>
 </Tabs>
@@ -329,30 +329,30 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value="New connectors" label="New connectors">
 
-- [**Stormshield API**](../procedures/network-stormshield-api.md) - network-stormshield-api - initial release.
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - initial release.
 - [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Add Patton Snmp Monitoring Connector.
-- [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - hardware-sensors-apc-snmp - initial release.
+- [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - initial release.
 
 </TabItem>
 
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - hardware-storage-netapp-ontap-restapi - add service quotas.
-- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - applications-thales-mistral-vs9-restapi - add service clusters.
-- [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - cloud-microsoft-office365-management - add subscriptions service.
-- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - hardware-storage-hitachi-hnas-snmp - add service virtual-volumes-quotas.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - add service quotas.
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - add service clusters.
+- [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - add subscriptions service.
+- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - add service virtual-volumes-quotas.
 
 </TabItem>
 
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Informix DB**](../procedures/applications-databases-informix.md) - multiple database packs - change sql-statement option protection.
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - multiple database packs - change sql-statement option protection.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - multiple database packs - change sql-statement option protection.
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - multiple database packs - change sql-statement option protection.
-- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - multiple database packs - change sql-statement option protection.
-- [**Sybase**](../procedures/applications-databases-sybase.md) - multiple database packs - change sql-statement option protection.
-- [**Antivirus ClamAV**](../procedures/applications-antivirus-clamav-ssh.md) - applications-antivirus-clamav-ssh - use new ssh backend.
+- [**Informix DB**](../procedures/applications-databases-informix.md) - change sql-statement option protection.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - change sql-statement option protection.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - change sql-statement option protection.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - change sql-statement option protection.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - change sql-statement option protection.
+- [**Sybase**](../procedures/applications-databases-sybase.md) - change sql-statement option protection.
+- [**Antivirus ClamAV**](../procedures/applications-antivirus-clamav-ssh.md) - use new ssh backend.
 
 </TabItem>
 
@@ -376,7 +376,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Add four new modes - Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance.
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance.
 - [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - New SNMP Host discovery for IP protocol (rfc4293).
 - [**Huawei OceanStor SNMP**](../procedures/hardware-storage-huawei-oceanstor-snmp.md) - Add new service to check luns.
 
@@ -393,7 +393,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Ontap Restapi - Adding Aggregates service template.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Adding Aggregates service template.
 - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fix PASSWORD and FILTER macros attributes.
 - [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fix erroneous mode name in Updates command.
 - [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Remove wrong options from the uptime command.
@@ -413,8 +413,8 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Base Pack**](../procedures/base-generic.md) - base-generic - add macro service EXTRAOPTIONS.
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Kadiska - Adding new STPL .
+- [**Base Pack**](../procedures/base-generic.md) - add macro service EXTRAOPTIONS.
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Adding new STPL .
 - [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - add service updates for windows pack.
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - add service updates for windows pack.
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - add service updates for windows pack.
@@ -423,7 +423,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Fujitsu Eternus DX**](../procedures/hardware-storage-fujitsu-eternus-dx-ssh.md) - hardware-storage-fujitsu-eternus-dx-ssh - use new ssh backend.
+- [**Fujitsu Eternus DX**](../procedures/hardware-storage-fujitsu-eternus-dx-ssh.md) - use new ssh backend.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -444,8 +444,8 @@ import TabItem from '@theme/TabItem';
 - [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Fix bug with assume-role option.
 - [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Fix bug with assume-role option.
 - [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Fix bug with assume-role option.
-- [**HP 3PAR SSH**](../procedures/hardware-storage-hp-3par-ssh.md) - hardware-storage-hp-3par-ssh - fix macros for service cages.
-- [**Office 365 Azure AD**](../procedures/cloud-microsoft-office365-azuread.md) - AzureAD - Fixing typo in check command.
+- [**HP 3PAR SSH**](../procedures/hardware-storage-hp-3par-ssh.md) - fix macros for service cages.
+- [**Office 365 Azure AD**](../procedures/cloud-microsoft-office365-azuread.md) - Fixing typo in check command.
 
 </TabItem>
 </Tabs>
@@ -460,7 +460,7 @@ import TabItem from '@theme/TabItem';
 - [**Cisco Umbrella**](../procedures/network-cisco-umbrella-snmp.md) - Add Cisco Umbrella Pack.
 - [**Dell VxRail Manager Rest API**](../procedures/hardware-servers-dell-vxm-restapi.md) - Add VxRail Manager Pack.
 - [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Add monitoring Pack to monitor Fortinet using Rest API.
-- [**HP Moonshot SNMP**](../procedures/network-hp-moonshot-snmp.md) - network-hp-moonshot-snmp - initial release.
+- [**HP Moonshot SNMP**](../procedures/network-hp-moonshot-snmp.md) - initial release.
 - [**IICS Rest API**](../procedures/cloud-iics-restapi.md) - Add Informatica Intelligent Cloud Services Pack.
 - [**Netgear SSeries SNMP**](../procedures/network-netgear-sseries-snmp.md) - Add Netgear sseries switches Pack.
 - [**Node Exporter Windows Metrics**](../procedures/applications-monitoring-node-exporter-windows.md) - Adding Windows node exporter Pack.
@@ -510,34 +510,34 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
- - [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics.
- - [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics.
- - [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Adding Linux Node Exporter Monitoring Pack.
+ - Add support for both Azure Storage and Classic Storage and add new metrics.
+ - Add support for both Azure Storage and Classic Storage and add new metrics.
+ - Adding Linux Node Exporter Monitoring Pack.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
- - [**AWS Billing**](../procedures/cloud-aws-billing.md) - Moving AWS service discovery to host discovery.
- - [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add Ntp command and template to Linux NRPE3 Pack.
- - [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Add discovery mode/rule for AWS Lambda.
- - [**Nortel Standard**](../procedures/network-nortel-standard-snmp.md) - network-nortel-standard-snmp - add stack service.
- - [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Migrate AWS SNS & SQS Service Disco to Host Disco.
- - [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Migrate AWS SNS & SQS Service Disco to Host Disco.
- - [**Dynatrace Rest API**](../procedures/applications-monitoring-dynatrace-restapi.md) - Enhance Dynatrace Restapi Packs with new services and new metrics.
- - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - enh(nmap-disco): add wsman ports.
+ - Moving AWS service discovery to host discovery.
+ - Add Ntp command and template to Linux NRPE3 Pack.
+ - Add discovery mode/rule for AWS Lambda.
+ - add stack service.
+ - Migrate AWS SNS & SQS Service Disco to Host Disco.
+ - Migrate AWS SNS & SQS Service Disco to Host Disco.
+ - Enhance Dynatrace Restapi Packs with new services and new metrics.
+ - enh(nmap-disco): add wsman ports.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
- - [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Add services bloat and collection to PostgreSQL.
+ - Add services bloat and collection to PostgreSQL.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
- - [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fix typos in Active Directory WSMan commands.
- - [**AWS ELB**](../procedures/cloud-aws-elb.md) - Add missing Classic and Applications ELB Discovery rules.
- - [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - cloud-azure-database-mysql - Fix typo in serverlog-usage option label.
- - [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixing macro in Ruckus ICX Memory service template.
+ - Fix typos in Active Directory WSMan commands.
+ - Add missing Classic and Applications ELB Discovery rules.
+ - Fix typo in serverlog-usage option label.
+ - Fixing macro in Ruckus ICX Memory service template.
 
 </TabItem>
 </Tabs>
