@@ -77,7 +77,6 @@ acknowledgements, etc., and configuration export.
 > This mode does not allow retrieval of the remote's thumbprint, therefore it is
 > not possible to display the poller's Gorgone configuration from the Centreon UI.
 
-
 </TabItem>
 </Tabs>
 
