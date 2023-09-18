@@ -335,6 +335,8 @@ Release date: `September 14, 2023`
 
 Release date: `August 31, 2023`
 
+#### Bug fixes
+
 - [Packaging] Fixed ETL script references in Debian packaging.
 - Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
 
