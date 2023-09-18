@@ -570,7 +570,7 @@ process new metric data at a reduced speed.
   - DB Port  
     The port of the database being accessed.
 
-    - DB User  
+  - DB User
     The user account for connecting to this database.
     
 
