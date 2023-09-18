@@ -222,7 +222,7 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
-Then set the following parameters in MAP server configuration at:
+Then, set the following parameters in the MAP server configuration at:
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
@@ -258,7 +258,7 @@ line:
 keytool -import -alias centreon-broker -file broker_public.crt -keystore truststore.jks
 ```
 
-- "broker\_public.crt" is Broker public certificate or its CA certificate
+- "broker\_public.crt" is the Broker public certificate or its CA certificate
   in PEM format,
 - "truststore.jks" is the generated trust store in JKS format,
 - a store password is required during generation.

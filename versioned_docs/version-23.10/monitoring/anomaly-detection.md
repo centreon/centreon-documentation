@@ -330,6 +330,13 @@ includes the date and time of the check, the identifier of the monitored resourc
 indicator, the name of the performance data on which the computations will be performed, and the value of the
 performance data.
 
+### How is the sending and storage of my data protected?
+
+Sending data to our Cloud infrastructure is risk-free. Data is sent using end-to-end encryption.
+Collected data consists only in metrics and some Centreon identifiers (host name, service name). Our environment is protected by AWS Web
+Application Firewall and AWS Shields to prevent DDoS attacks. Our architecture has been reviewed by AWS architects
+(AWS Foundational Technical Review) and we are an AWS Qualified Partner.
+
 ### What is the data used for?
 
 The data is used to compute behavior models. These models will generate predictions used as floating
