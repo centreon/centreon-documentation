@@ -136,7 +136,7 @@ import TabItem from '@theme/TabItem';
 - [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - added Interfaces monitoring.
 - [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - added a host discovery rule.
 - [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - refreshed dependencies to make host discovery work in any case others.
-- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - update path verification service .
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - update path verification service.
 - [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - added options to Cells-Radio monitoring.
 - [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - added Interfaces monitoring.
 - [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - added jobs monitoring.
@@ -144,8 +144,8 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**AWS ELB**](../procedures/cloud-aws-elb.md) - fixed the host discovery unicity .
-- [**IP-Label Datametrie Rest API**](../procedures/applications-monitoring-iplabel-datametrie-restapi.md) - marked as deprecated (service end of life) .
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - fixed the host discovery unicity.
+- [**IP-Label Datametrie Rest API**](../procedures/applications-monitoring-iplabel-datametrie-restapi.md) - marked as deprecated (service end of life).
 - [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - fixed bug on Memory.
 
 </TabItem>
@@ -312,7 +312,7 @@ import TabItem from '@theme/TabItem';
 - [**Amazon RDS**](../procedures/cloud-aws-rds.md) - fix typo cloud-aws-rds instance-status mode.
 - [**AWS Billing**](../procedures/cloud-aws-billing.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters.
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters.
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - fix(kadiska): fix the discovery commands and arguments .
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - fix(kadiska): fix the discovery commands and arguments.
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - fix(pp): increased release number.
 - [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters.
 - [**RabbitMQ RestAPI**](../procedures/applications-rabbitmq-restapi.md) - Update MACROS values.
@@ -413,7 +413,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Base Pack**](../procedures/base-generic.md) - add macro service EXTRAOPTIONS.
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Adding new STPL .
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Adding new STPL.
 - [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - add service updates for windows pack.
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - add service updates for windows pack.
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - add service updates for windows pack.
@@ -561,7 +561,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - New provider scanning all subscriptions for a given tenant and support for Azure KS & VMSS resources discovery.
 - [**Raisecom**](../procedures/network-raisecom-snmp.md) - Add support for all Raisecom xPON series.
-- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add new check: systemd-sc-status .
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add new check: systemd-sc-status.
 - [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Add a host discovery rule.
 - [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Add a host discovery rule for virtual machines.
 - [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results.
