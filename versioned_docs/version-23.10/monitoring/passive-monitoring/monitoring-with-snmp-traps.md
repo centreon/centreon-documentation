@@ -135,7 +135,7 @@ To do this, perform the following steps:
 
 1. Create a generic trap, with the following parameters:
 
-* In the **Main** Tab:
+* On the **Main** tab:
 
 | Attributes     | Description           |
 | -------------- | --------------------- |
