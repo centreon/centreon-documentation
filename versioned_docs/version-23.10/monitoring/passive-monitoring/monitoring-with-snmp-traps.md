@@ -67,7 +67,7 @@ Link down on interface: $2 (index: $1). Operational state: $4, Administration st
 
 #### Active checks after trap reception
 
-**Reschedule associated services** option to actively check the service after trap reception.
+The **Reschedule associated services** option allows you to actively check the service after trap reception.
 
 The active service linked in the service configuration is executed.
 
