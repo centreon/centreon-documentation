@@ -130,7 +130,7 @@ Example:
 
 The result will have the form:  Interface GigabitEthernet0/1 ( NAS Server ) linkUP. State: up
 
-* The **Insert trap's information into database** box, if checked, records the SNMP trap information in the database
+* The **Insert trap's information into database** box, if checked, records the SNMP trap information in the database. This
   field can be used to define whether or not to classify the traps by day in the database.
 * The **Timeout** field expressed in seconds is used to define the maximum processing time of the event including the
   pre-processing commands (PREEXEC) and post-processing commands (special command).
