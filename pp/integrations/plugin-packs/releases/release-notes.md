@@ -281,7 +281,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Jenkins API**](../procedures/applications-jenkins.md) - change service name and options.
+- [**Jenkins API**](../procedures/applications-jenkins.md) - changed service name and options.
 
 </TabItem>
 </Tabs>
@@ -508,34 +508,34 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics.
-- [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Add support for both Azure Storage and Classic Storage and add new metrics.
-- [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Adding Linux Node Exporter Monitoring Pack.
+- [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Added support for both Azure Storage and Classic Storage and added new metrics.
+- [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Added support for both Azure Storage and Classic Storage and added new metrics.
+- [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Added Linux Node Exporter Monitoring Pack.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Moving AWS service discovery to host discovery.
-- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Add Ntp command and template to Linux NRPE3 Pack.
-- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Add discovery mode/rule for AWS Lambda.
-- [**Nortel Standard**](../procedures/network-nortel-standard-snmp.md) - add stack service.
-- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Migrate AWS SNS & SQS Service Disco to Host Disco.
-- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Migrate AWS SNS & SQS Service Disco to Host Disco.
-- [**Dynatrace Rest API**](../procedures/applications-monitoring-dynatrace-restapi.md) - Enhance Dynatrace Restapi Packs with new services and new metrics.
-- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - enh(nmap-disco): add wsman ports.
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Moved AWS service discovery to host discovery.
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Added Ntp command and template to Linux NRPE3 Pack.
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Added discovery mode/rule for AWS Lambda.
+- [**Nortel Standard**](../procedures/network-nortel-standard-snmp.md) - Added stack service.
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Migrated AWS SNS & SQS Service Disco to Host Disco.
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Migrated AWS SNS & SQS Service Disco to Host Disco.
+- [**Dynatrace Rest API**](../procedures/applications-monitoring-dynatrace-restapi.md) - Enhanced Dynatrace Restapi Packs with new services and new metrics.
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - Added WSMAN ports to Nmap discovery.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Add services bloat and collection to PostgreSQL.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Added services bloat and collection to PostgreSQL.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fix typos in Active Directory WSMan commands.
-- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Add missing Classic and Applications ELB Discovery rules.
-- [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - Fix typo in serverlog-usage option label.
-- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixing macro in Ruckus ICX Memory service template.
+- [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fixed typos in Active Directory WSMan commands.
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Added missing Classic and Applications ELB Discovery rules.
+- [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - Fixed typo in serverlog-usage option label.
+- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixed macro in Ruckus ICX Memory service template.
 
 </TabItem>
 </Tabs>
@@ -642,26 +642,26 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Nutanix host discovery & new templates.
-- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Add new thresholds to Memory service
-- [**Huawei SNMP**](../procedures/network-huawei-snmp.md) - Add optical monitoring in interfaces check
-- [**Arista SNMP**](../procedures/network-switchs-arista-snmp.md) - Change threshold options for Memory service
-- [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add new services: Repositories and Licenses
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Add new threshold to Backup-age service
+- [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Add new thresholds to Memory service.
+- [**Huawei SNMP**](../procedures/network-huawei-snmp.md) - Add optical monitoring in interfaces check.
+- [**Arista SNMP**](../procedures/network-switchs-arista-snmp.md) - Change threshold options for Memory service.
+- [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add new services: Repositories and Licenses.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Add new threshold to Backup-age service.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Cisco Meraki RestAPI**](../procedures/network-cisco-meraki-restapi.md) - Fix host disco attributes
-- [**Digi Portserverts SNMP**](../procedures/network-digi-portserverts-snmp.md) - Rename Pack
-- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixing discovery mapper and wrong HTPL/STPL association
-- [**Aruba Standard**](../procedures/network-switchs-aruba-standard-snmp.md) - Fixing extra space in disco commands
-- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - MariaDB service name fix
-- [**Docker RestAPI**](../procedures/applications-docker-restapi.md) - Fix macro in Node-status mode
-- [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated)
-- [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated)
-- [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description
-- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Fix Systems command
-- [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options
+- [**Cisco Meraki RestAPI**](../procedures/network-cisco-meraki-restapi.md) - Fix host disco attributes.
+- [**Digi Portserverts SNMP**](../procedures/network-digi-portserverts-snmp.md) - Rename Pack.
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixing discovery mapper and wrong HTPL/STPL association.
+- [**Aruba Standard**](../procedures/network-switchs-aruba-standard-snmp.md) - Fixing extra space in disco commands.
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - MariaDB service name fix.
+- [**Docker RestAPI**](../procedures/applications-docker-restapi.md) - Fix macro in Node-status mode.
+- [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated).
+- [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated).
+- [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description.
+- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Fix Systems command.
+- [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -720,7 +720,7 @@ import TabItem from '@theme/TabItem';
 - [**Fortinet FortiSwitch SNMP**](../procedures/network-fortinet-fortiswitch-snmp.md) - Initial release.
 - [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Initial release.
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Initial release.
-- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - add Amazon FSx discovery and monitoring
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - add Amazon FSx discovery and monitoring.
 - [**Microsens G6 SNMP**](../procedures/network-microsens-g6-snmp.md) - Initial release.
 - [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Initial release.
 - [**Dynamics NSClient**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Initial release.
