@@ -79,7 +79,7 @@ With Centreontrapd, it is possible to execute a special command after the recept
 #### Use all the arguments (via OID)
 
 It is also possible to specify an argument value directly without knowing the order of the arguments ($1, $2, $3, etc.). To do this,
-use the complete OID number of needed arguments.
+use the complete OID number of the arguments you need.
 
 For example:
 
