@@ -98,7 +98,7 @@ Go to **Configuration > Services > Templates** and click **Add**.
 
 Good practice requires that service templates be associated with a host's
 template: on creation of a host, the services are generated automatically from
-the host's templates. There are two advantages of linking service templates to
+the host's templates. There are two advantages in linking service templates to
 host templates:
 
   - The services generated automatically retain their granularity, i.e., it is
