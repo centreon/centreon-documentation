@@ -128,7 +128,7 @@ interface, you should see the changed output and possibly the status of the pass
 connection failure between the monitoring engine and the broker can be the root cause of this issue. Possible problems could be:
 
 * The monitoring engine doesn't load the NEB module to connect to the remote broker.
-* The NEB module settings are wrong to connect to the remote broker.
+* The NEB module settings are not appropriate for connecting to the remote broker.
 * A firewall stops the connection.
 
 ### Detailed diagram
