@@ -1,6 +1,6 @@
 ---
-id: network-loadbalancers-netscaler-snmp
-title: Citrix Netscaler
+id: hardware-devices-camera-optelecom-snmp
+title: Optelecom camera SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,38 +9,30 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Citrix Netscaler** brings a host template:
+The Monitoring Connector **Optelecom camera SNMP** brings a host template:
 
-* **Net-Citrix-Netscaler-SNMP-custom**
+* **HW-Device-Camera-Optelecom-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Citrix-Netscaler-SNMP-custom" label="Net-Citrix-Netscaler-SNMP-custom">
+<TabItem value="HW-Device-Camera-Optelecom-SNMP-custom" label="HW-Device-Camera-Optelecom-SNMP-custom">
 
-| Service Alias  | Service Template                                | Service Description                                                                                           | Discovery  |
-|:---------------|:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|:----------:|
-| Connections    | Net-Citrix-Netscaler-Connections-SNMP-custom    | Check connections                                                                                             |            |
-| Cpu            | Net-Citrix-Netscaler-Cpu-SNMP-custom            | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPUs |            |
-| Health         | Net-Citrix-Netscaler-Health-SNMP-custom         | Check hardware environment                                                                                    |            |
-| Memory         | Net-Citrix-Netscaler-Memory-SNMP-custom         | Check machine memory usage                                                                                    |            |
-| Storage        | Net-Citrix-Netscaler-Storage-SNMP-custom        | Check the rate of utilization of storages                                                                     |            |
-| Vserver-Status | Net-Citrix-Netscaler-Vserver-Status-SNMP-custom | Check vservers status and health                                                                              | X          |
+| Service Alias | Service Template                                    | Service Description                                  |
+|:--------------|:----------------------------------------------------|:-----------------------------------------------------|
+| Alarms        | HW-Device-Camera-Optelecom-Alarms-SNMP-custom       | Check alarms                                         |
+| Networks      | HW-Device-Camera-Optelecom-Networks-SNMP-custom     | Check networks traffic                               |
+| Temperatures  | HW-Device-Camera-Optelecom-Temperatures-SNMP-custom | Check temperatures                                   |
+| Uptime        | HW-Device-Camera-Optelecom-Uptime-SNMP-custom       | Time since the server has been working and available |
 
-> The services listed above are created automatically when the **Net-Citrix-Netscaler-SNMP-custom** host template is used.
-
-> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+> The services listed above are created automatically when the **HW-Device-Camera-Optelecom-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                                      | Service Description                                                  | Discovery  |
-|:---------------------|:------------------------------------------------------|:---------------------------------------------------------------------|:----------:|
-| Certificates-Expire  | Net-Citrix-Netscaler-Certificates-Expire-SNMP-custom  | Check number of days remaining before the expiration of certificates |            |
-| Ha-State             | Net-Citrix-Netscaler-Ha-State-SNMP-custom             | Check High Availability Status                                       |            |
-| Traffic-Generic-Id   | Net-Citrix-Netscaler-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface                                |            |
-| Traffic-Generic-Name | Net-Citrix-Netscaler-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface                                |            |
-| Traffic-Global       | Net-Citrix-Netscaler-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                         | X          |
+| Service Alias | Service Template                                  | Service Description | Discovery  |
+|:--------------|:--------------------------------------------------|:--------------------|:----------:|
+| Interfaces    | HW-Device-Camera-Optelecom-Interfaces-SNMP-custom | Check interfaces    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -53,18 +45,17 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                                                                                                  |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Citrix-Netscaler-SNMP-custom** host template |
+| Rule name       | Description                                                                                                                                                                                                                                        |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) to get the discovery rule and create a template mapper for the **HW-Device-Camera-Optelecom-SNMP-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
 #### Service discovery
 
-| Rule name                              | Description                                                   |
-|:---------------------------------------|:--------------------------------------------------------------|
-| Net-Citrix-Netscaler-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
-| Net-Citrix-Netscaler-SNMP-Vserver-Name | Discover virtual servers to monitor their statuses            |
+| Rule name                                      | Description                                                   |
+|:-----------------------------------------------|:--------------------------------------------------------------|
+| HW-Device-Camera-Optelecom-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -74,92 +65,47 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Certificates-Expire" label="Certificates-Expire">
-
-| Metric name         | Unit  |
-|:--------------------|:------|
-| *certificates*#days | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Connections" label="Connections">
-
-| Metric name                          | Unit  |
-|:-------------------------------------|:------|
-| connections.server.active.count      | con   |
-| connections.server.established.count | con   |
-| connections.server.count             | con   |
-| connections.client.count             | con   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Cpu" label="Cpu">
-
-| Metric name                      | Unit  |
-|:---------------------------------|:------|
-| *cpu*#cpu.utilization.percentage | %     |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Ha-State" label="Ha-State">
-
-| Metric name | Unit  |
-|:------------|:------|
-| ha-status   | N/A   |
-| peer-status | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-No metrics.
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Metric name        | Unit  |
-|:-------------------|:------|
-| memory.usage.bytes | B     |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Metric name    | Unit  |
-|:---------------|:------|
-| *storage*#used | B     |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
-
-| Metric name                                          | Unit  |
-|:-----------------------------------------------------|:------|
-| interface status                                     | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
-
-> Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global.
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Vserver-Status" label="Vserver-Status">
+<TabItem value="Alarms" label="Alarms">
 
 | Metric name                                  | Unit  |
 |:---------------------------------------------|:------|
-| *vservers*#status                            | N/A   |
-| *vservers*#vserver.health.percentage         | %     |
-| *vservers*#vserver.traffic.in.bitspersecond  | b/s   |
-| *vservers*#vserver.traffic.out.bitspersecond | b/s   |
-| *vservers*#vserver.connections.client.count  | count |
-| *vservers*#vserver.connections.server.count  | count |
+| *device_name~alarm_type*#alarm.enabled.count |       |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
+| Metric name                                               | Unit  |
+|:----------------------------------------------------------|:------|
+| interface status                                          |       |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+
+</TabItem>
+<TabItem value="Networks" label="Networks">
+
+| Metric name                                                | Unit  |
+|:-----------------------------------------------------------|:------|
+| *device_name~ip_address*#network.traffic.in.bitspersecond  | b/s   |
+| *device_name~ip_address*#network.traffic.out.bitspersecond | b/s   |
+
+</TabItem>
+<TabItem value="Temperatures" label="Temperatures">
+
+| Metric name                                                     | Unit  |
+|:----------------------------------------------------------------|:------|
+| *device_name~probe_index*#probe.temperature.celsius             | C     |
+| *device_name~probe_index*#probe.temperature.alarm.enabled.count |       |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Metric name           | Unit  |
+|:----------------------|:------|
+| system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
@@ -190,34 +136,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-loadbalancers-netscaler-snmp
+dnf install centreon-pack-hardware-devices-camera-optelecom-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-loadbalancers-netscaler-snmp
+dnf install centreon-pack-hardware-devices-camera-optelecom-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-loadbalancers-netscaler-snmp
+apt install centreon-pack-hardware-devices-camera-optelecom-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-loadbalancers-netscaler-snmp
+yum install centreon-pack-hardware-devices-camera-optelecom-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Citrix Netscaler** connector through
+2. Whatever the license type (*online* or *offline*), install the **Optelecom camera SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
@@ -237,28 +183,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Loadbalancers-Netscaler-Snmp
+dnf install centreon-plugin-Hardware-Devices-Camera-Optelecom-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Loadbalancers-Netscaler-Snmp
+dnf install centreon-plugin-Hardware-Devices-Camera-Optelecom-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-loadbalancers-netscaler-snmp
+apt install centreon-plugin-hardware-devices-camera-optelecom-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Loadbalancers-Netscaler-Snmp
+yum install centreon-plugin-Hardware-Devices-Camera-Optelecom-Snmp
 ```
 
 </TabItem>
@@ -270,7 +216,7 @@ yum install centreon-plugin-Network-Loadbalancers-Netscaler-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **Net-Citrix-Netscaler-SNMP-custom** template to the host. 
+3. Apply the **HW-Device-Camera-Optelecom-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -287,117 +233,100 @@ yum install centreon-plugin-Network-Loadbalancers-Netscaler-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Certificates-Expire" label="Certificates-Expire">
+<TabItem value="Alarms" label="Alarms">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME   | Filter by name (can be a regexp)                                                                    |                   |             |
-| WARNINGDAYS  | Warning threshold in days                                                                           |                   |             |
-| CRITICALDAYS | Critical threshold in days                                                                          |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Connections" label="Connections">
-
-| Macro          | Description                                                                                         | Default value     | Mandatory   |
-|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGACTIVE  | Warning threshold                                                                                   |                   |             |
-| CRITICALACTIVE | Critical threshold                                                                                  |                   |             |
-| WARNINGCLIENT  | Warning threshold                                                                                   |                   |             |
-| CRITICALCLIENT | Critical threshold                                                                                  |                   |             |
-| WARNINGSERVER  | Warning threshold                                                                                   |                   |             |
-| CRITICALSERVER | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro               | Description                                                                                                                                                                 | Default value         | Mandatory   |
+|:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| FILTERDEVICENAME    | Filter devices by name (can be a regexp)                                                                                                                                    |                       |             |
+| CRITICALALARMSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{alarm}, %{alarmName}, %{deviceName} | %{alarm} eq "enabled" |             |
+| WARNINGALARMSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{alarm}, %{alarmName}, %{deviceName}                                     |                       |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                         | --verbose             |             |
 
 </TabItem>
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Interfaces" label="Interfaces">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                        | 90                |             |
-| CRITICAL     | Critical threshold in percent                                                                       | 95                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Ha-State" label="Ha-State">
-
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (Default: '.*'). Can be: 'temperature', 'voltage', 'fanspeed', 'psu'       | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                        | 80                |             |
-| CRITICAL     | Critical threshold in percent                                                                       | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Macro         | Description                                                                                         | Default value     | Mandatory   |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME    | Filter storage name (can be a regexp)                                                               |                   |             |
-| WARNINGUSAGE  | Warning threshold                                                                                   | 80                |             |
-| CRITICALUSAGE | Critical threshold                                                                                  | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
-
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
-| WARNINGIN    | Thresholds                                                                                          | 80                |             |
-| CRITICALIN   | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro                  | Description                                                                                                                                                                                                         | Default value                                         | Mandatory   |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER              | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                |             |
+| OIDDISPLAY             | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                                |             |
+| INTERFACENAME          | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                |                                                       |             |
+| WARNINGINBCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINDISCARD       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINERROR         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINMCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINTRAFFIC       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINUCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINVOLUME        | Thresholds                                                                                                                                                                                                                    |                                                       |             |
+| CRITICALINVOLUME       | Thresholds                                                                                                                                                                                                                    |                                                       |             |
+| WARNINGOUTBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTBCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTDISCARD     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTERROR       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTMCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTUCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTVOLUME       | Thresholds                                                                                                                                                                                                                    |                                                       |             |
+| CRITICALOUTVOLUME      | Thresholds                                                                                                                                                                                                                    |                                                       |             |
+| WARNINGSPEED           | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALSPEED          | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                       |             |
+| WARNINGTOTALADMINDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALADMINDOWN | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALADMINUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALADMINUP   | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALOPERDOWN   | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALOPERDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALOPERUP     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALOPERUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALPORT       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALPORT      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                 | --verbose                                             |             |
 
 </TabItem>
-<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
+<TabItem value="Networks" label="Networks">
 
-| Macro         | Description                                                                                         | Default value     | Mandatory   |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
-| WARNINGIN     | Thresholds                                                                                          | 80                |             |
-| CRITICALIN    | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Global" label="Traffic-Global">
-
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                | .*                |             |
-| WARNINGIN    | Thresholds                                                                                          | 80                |             |
-| CRITICALIN   | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                          | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| Macro              | Description                                                                                         | Default value     | Mandatory   |
+|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERDEVICENAME   | Filter devices by name (can be a regexp)                                                            |                   |             |
+| WARNINGTRAFFICIN   | Thresholds                                                                                          |                   |             |
+| CRITICALTRAFFICIN  | Thresholds                                                                                          |                   |             |
+| WARNINGTRAFFICOUT  | Thresholds                                                                                          |                   |             |
+| CRITICALTRAFFICOUT | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
-<TabItem value="Vserver-Status" label="Vserver-Status">
+<TabItem value="Temperatures" label="Temperatures">
 
-| Macro          | Description                                                                                         | Default value     | Mandatory   |
-|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME     | Filter by virtual server name (can be a regexp)                                                     | .*                |             |
-| FILTERTYPE     | Filter which type of vserver (can be a regexp)                                                      |                   |             |
-| WARNINGHEALTH  | Warning threshold                                                                                   |                   |             |
-| CRITICALHEALTH | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| Macro                    | Description                                                                                                                                                                  | Default value         | Mandatory   |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| FILTERDEVICENAME         | Filter devices by name (can be a regexp)                                                                                                                                     |                       |             |
+| CRITICALALARMSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{alarm}, %{probeIndex}, %{deviceName} | %{alarm} eq "enabled" |             |
+| WARNINGALARMSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{alarm}, %{probeIndex}, %{deviceName}                                     |                       |             |
+| WARNINGPROBETEMPERATURE  | Thresholds                                                                                                                                                                   |                       |             |
+| CRITICALPROBETEMPERATURE | Thresholds                                                                                                                                                                   |                       |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                          | --verbose             |             |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro          | Description                                                                                                                                                 | Default value     | Mandatory   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNIT           | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                 |             |
+| WARNINGUPTIME  | Warning threshold                                                                                                                                           |                   |             |
+| CRITICALUPTIME | Critical threshold                                                                                                                                          |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                         |                   |             |
 
 </TabItem>
 </Tabs>
@@ -411,23 +340,21 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_netscaler.pl \
-	--plugin=network::citrix::netscaler::snmp::plugin \
-	--mode=vserver-status \
+/usr/lib/centreon/plugins/centreon_camera_optelecom_snmp.pl  \
+	--plugin=hardware::devices::camera::optelecom::snmp::plugin \
+	--mode=temperatures \
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--filter-name='.*' \
-	--filter-type='' \
-	--warning-health='' \
-	--critical-health='' \
 	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All virtual servers are ok | '*vservers*#status'=;;;;'*vservers*#vserver.health.percentage'=%;;;0;100'*vservers*#vserver.traffic.in.bitspersecond'=b/s;;;0;'*vservers*#vserver.traffic.out.bitspersecond'=b/s;;;0;'*vservers*#vserver.connections.client.count'=;;;0;'*vservers*#vserver.connections.server.count'=;;;0;
+OK: device 'a7t1ftgon06113741vic002' temperature probe '1' temperature: 52.00 C, alarm: disabled | 'a7t1ftgon06113741vic002~1#probe.temperature.celsius'=52.00C;;;; 'a7t1ftgon06113741vic002~1#probe.temperature.alarm.count'=0;;;;
+checking device 'a7t1ftgon06113741vic002'
+    temperature probe '1' temperature: 52.00 C, alarm: disabled
 ```
 
 ### Troubleshooting
@@ -446,27 +373,21 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_netscaler.pl \
-	--plugin=network::citrix::netscaler::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_camera_optelecom_snmp.pl  \
+	--plugin=hardware::devices::camera::optelecom::snmp::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                                 | Linked service template                                                                                                                                             |
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| certificates-expire [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/certificatesexpire.pm)] | Net-Citrix-Netscaler-Certificates-Expire-SNMP-custom                                                                                                                |
-| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/connections.pm)]                | Net-Citrix-Netscaler-Connections-SNMP-custom                                                                                                                        |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/cpu.pm)]                                | Net-Citrix-Netscaler-Cpu-SNMP-custom                                                                                                                                |
-| ha-state [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/hastate.pm)]                       | Net-Citrix-Netscaler-Ha-State-SNMP-custom                                                                                                                           |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/health.pm)]                          | Net-Citrix-Netscaler-Health-SNMP-custom                                                                                                                             |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                                  | Net-Citrix-Netscaler-Traffic-Generic-Id-SNMP-custom<br />Net-Citrix-Netscaler-Traffic-Generic-Name-SNMP-custom<br />Net-Citrix-Netscaler-Traffic-Global-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                         | Used for service discovery                                                                                                                                          |
-| list-vservers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/listvservers.pm)]             | Used for service discovery                                                                                                                                          |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/memory.pm)]                          | Net-Citrix-Netscaler-Memory-SNMP-custom                                                                                                                             |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/storage.pm)]                        | Net-Citrix-Netscaler-Storage-SNMP-custom                                                                                                                            |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                                          | Not used in this Monitoring Connector                                                                                                                               |
-| vserver-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/citrix/netscaler/snmp/mode/vserverstatus.pm)]           | Net-Citrix-Netscaler-Vserver-Status-SNMP-custom                                                                                                                     |
+| Mode                                                                                                                                             | Linked service template                             |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+| alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/optelecom/snmp/mode/alarms.pm)]             | HW-Device-Camera-Optelecom-Alarms-SNMP-custom       |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/optelecom/snmp/mode/interfaces.pm)]     | HW-Device-Camera-Optelecom-Interfaces-SNMP-custom   |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                     | Used for service discovery                          |
+| networks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/optelecom/snmp/mode/networks.pm)]         | HW-Device-Camera-Optelecom-Networks-SNMP-custom     |
+| temperatures [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/optelecom/snmp/mode/temperatures.pm)] | HW-Device-Camera-Optelecom-Temperatures-SNMP-custom |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/optelecom/snmp/mode/uptime.pm)]             | HW-Device-Camera-Optelecom-Uptime-SNMP-custom       |
 
 ### Available options
 
@@ -535,76 +456,17 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Certificates-Expire" label="Certificates-Expire">
+<TabItem value="Alarms" label="Alarms">
 
-| Option          | Description                         |
-|:----------------|:------------------------------------|
-| --filter-name   | Filter by name (can be a regexp).   |
-| --warning-days  | Warning threshold in days.          |
-| --critical-days | Critical threshold in days.         |
-
-</TabItem>
-<TabItem value="Connections" label="Connections">
-
-| Option       | Description                                                                 |
-|:-------------|:----------------------------------------------------------------------------|
-| --warning-*  | Warning threshold. Can be: 'server', 'active', 'client', 'established'.     |
-| --critical-* | Critical threshold. Can be: 'server', 'active', 'client', 'established'.    |
+| Option                  | Description                                                                                                                                                                    |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-device-name    | Filter devices by name (can be a regexp).                                                                                                                                      |
+| --unknown-alarm-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{alarm}, %{alarmName}, %{deviceName}                                        |
+| --warning-alarm-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{alarm}, %{alarmName}, %{deviceName}                                        |
+| --critical-alarm-status | Define the conditions to match for the status to be CRITICAL (default: '%{alarm} eq "enabled"'). You can use the following variables: %{alarm}, %{alarmName}, %{deviceName}    |
 
 </TabItem>
-<TabItem value="Cpu" label="Cpu">
-
-| Option           | Description                       |
-|:-----------------|:----------------------------------|
-| --warning-usage  | Warning threshold in percent.     |
-| --critical-usage | Critical threshold in percent.    |
-
-</TabItem>
-<TabItem value="Ha-State" label="Ha-State">
-
-| Option                 | Description                                                                                                                                                                                                                                  |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-ha-status    | Define the conditions to match for the status to be UNKNOWN. (Default: '%{ha\_status} =~ /unknown/i'). Can use special variables like: %{ha\_status}                                                                                         |
-| --warning-ha-status    | Define the conditions to match for the status to be WARNING. (Default: ''). Can use special variables like: %{ha\_status}, %{ha\_mode}                                                                                                       |
-| --critical-ha-status   | Define the conditions to match for the status to be CRITICAL. (Default: '%{ha\_status} =~ /down\|partialFail\|monitorFail\|completeFail\|partialFailSsl\|routem onitorFail/i'). Can use special variables like: %{ha\_status}, %{ha\_mode}   |
-| --unknown-peer-status  | Define the conditions to match for the status to be UNKNOWN. (Default: '%{peer\_status} =~ /unknown/i'). Can use special variables like: %{peer\_status}, %{ha\_mode}                                                                        |
-| --warning-peer-status  | Define the conditions to match for the status to be WARNING. (Default: ''). Can use special variables like: %{peer\_status}                                                                                                                  |
-| --critical-peer-status | Define the conditions to match for the status to be CRITICAL. (Default: ''). Can use special variables like: %{peer\_status}                                                                                                                 |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Option               | Description                                                                                                                                                                                                                  |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (Default: '.*'). Can be: 'temperature', 'voltage', 'fanspeed', 'psu'.                                                                                                                               |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1                                                                                |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                   |
-| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma seperated list) Can be specific or global: --absent-problem=psu,1                                                                                 |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,^(?!(normal)$)'   |
-| --warning            | Set warning threshold for 'temperature', 'fanspeed', 'voltage' (syntax: type,regexp,threshold) Example: --warning='temperature,.,30'                                                                                         |
-| --critical           | Set critical threshold for 'temperature', 'fanspeed', 'voltage'(syntax: type,regexp,threshold) Example: --critical='temperature,.*,40'                                                                                       |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Option     | Description                       |
-|:-----------|:----------------------------------|
-| --warning  | Warning threshold in percent.     |
-| --critical | Critical threshold in percent.    |
-
-</TabItem>
-<TabItem value="Storage" label="Storage">
-
-| Option           | Description                                     |
-|:-----------------|:------------------------------------------------|
-| --filter-name    | Filter storage name (can be a regexp).          |
-| --warning-usage  | Warning threshold.                              |
-| --critical-usage | Critical threshold.                             |
-| --units          | Units of thresholds (Default: '%') ('%', 'B').  |
-| --free           | Thresholds are on free space left.              |
-
-</TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Option                                          | Description                                                                                                                                                                                                                                                                                |
 |:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -652,7 +514,26 @@ All available options for each service template are listed below:
 | --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
 
 </TabItem>
-<TabItem value="Vserver-Status" label="Vserver-Status">
+<TabItem value="Networks" label="Networks">
+
+| Option                   | Description                                         |
+|:-------------------------|:----------------------------------------------------|
+| --filter-device-name     | Filter devices by name (can be a regexp).           |
+| --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out'.    |
+
+</TabItem>
+<TabItem value="Temperatures" label="Temperatures">
+
+| Option                   | Description                                                                                                                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-device-name     | Filter devices by name (can be a regexp).                                                                                                                                      |
+| --unknown-alarm-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{alarm}, %{probeIndex}, %{deviceName}                                       |
+| --warning-alarm-status   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{alarm}, %{probeIndex}, %{deviceName}                                       |
+| --critical-alarm-status  | Define the conditions to match for the status to be CRITICAL (default: '%{alarm} eq "enabled"'). You can use the following variables: %{alarm}, %{probeIndex}, %{deviceName}   |
+| --warning-* --critical-* | Thresholds. Can be: 'probe-temperature'.                                                                                                                                       |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
 
 | Option                 | Description                                                                                                                                                                                                                                   |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -668,12 +549,13 @@ All available options for each service template are listed below:
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-*            | Warning threshold. Can be: 'in-traffic', 'out-traffic', 'health' (%), 'clients', 'servers'.                                                                                                                                                   |
-| --critical-*           | Critical threshold. Can be: 'in-traffic', 'out-traffic', 'health' (%), 'clients', 'servers'.                                                                                                                                                  |
-| --filter-name          | Filter by virtual server name (can be a regexp).                                                                                                                                                                                              |
-| --filter-type          | Filter which type of vserver (can be a regexp).                                                                                                                                                                                               |
-| --force-counters64     | Force to use 64 bits counters only. Can be used to improve performance, or to solve a missing counters bug.                                                                                                                                   |
-| --threshold-overload   | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: status,regexp). Example: --threshold-overload='CRITICAL,^(?!(green)$)'                                              |
+| --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            |
+| --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
+| --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
+| --force-oid            | Can choose your oid (numeric format only).                                                                                                                                                                                                    |
+| --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
+| --reboot-window        | To be used with check-overload option. Time in milliseconds (Default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
+| --unit                 | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                                                   |
 
 </TabItem>
 </Tabs>
@@ -682,8 +564,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_netscaler.pl \
-	--plugin=network::citrix::netscaler::snmp::plugin \
-	--mode=vserver-status \
+/usr/lib/centreon/plugins/centreon_camera_optelecom_snmp.pl  \
+	--plugin=hardware::devices::camera::optelecom::snmp::plugin \
+	--mode=temperatures \
 	--help
 ```
