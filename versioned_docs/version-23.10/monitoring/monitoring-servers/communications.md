@@ -287,7 +287,6 @@ gorgone:
           parameters:
             timeout: 10
 
-
 EOF
 ```
 
