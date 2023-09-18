@@ -183,7 +183,6 @@ systemctl enable gorgoned
 > export the configuration of the Remote Server.
 >
 > From the poller list, select the remote server and click **Export
-
 > configuration**.
 >
 > Then check the first three boxes and click **Export**.
