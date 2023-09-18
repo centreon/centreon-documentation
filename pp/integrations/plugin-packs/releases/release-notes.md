@@ -26,13 +26,13 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Replaced `directlvm-usage` mode with new `lvm` mode (breaks only if used with custom command).
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Replaced **directlvm-usage** mode with new **lvm** mode (breaks only if used with custom command).
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
 - [**Alvarion BreezeACCESS SNMP**](../procedures/network-alvarion-breezeaccess-snmp.md) - Fixed interfaces service template.
-- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Fixed `input-lines` mode.
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Fixed **input-lines** mode.
 - [**Barracuda Cloudgen SNMP**](../procedures/network-barracuda-cloudgen-snmp.md) - Fixed interfaces service template.
 - [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - Fixed the status mapping for power supplies in Health service template.
 - [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Fixed a bug causing a failure when the pool name was too long.
@@ -50,7 +50,7 @@ import TabItem from '@theme/TabItem';
 
 ### August
 
-> **Major change impacting all host discovery providers**: the default host templates used in host discovery used to be the *read-only* ones. The "-custom" *read-write* ones are now used. As an example, `generic-active-host-custom` will be used instead of `generic-active-host`. See "Breaking changes" for more information.
+> **Major change impacting all host discovery providers**: the default host templates used in host discovery used to be the *read-only* ones. The "-custom" *read-write* ones are now used. As an example, **generic-active-host-custom** will be used instead of **generic-active-host**. See "Breaking changes" for more information.
 
 
 <Tabs groupId="sync">
@@ -69,7 +69,7 @@ import TabItem from '@theme/TabItem';
 - [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - removed privatebytes threshold from Memory service.
 - [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - moved to correct pack category.
 - [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - updated the logo.
-- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - added the --timeframe option to scenario mode.
+- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - added the **--timeframe** option to scenario mode.
 - [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - now using Ookla's speedtest.
 - [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - added thresholds for output-lines and alarms modes.
 - [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - added options for Service-Generic mode.
@@ -222,9 +222,9 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - service jobs add option --job-name.
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - service jobs add option **--job-name**.
 - [**Fortinet Fortigate**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - added default value for CRITICALSTATUS macro in Traffic-Global.
-- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - added `ip_vmanagement` and `ip_vmotion` to Host Discovery attributes.
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - added **ip_vmanagement** and **ip_vmotion** to Host Discovery attributes.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -275,7 +275,7 @@ import TabItem from '@theme/TabItem';
 - [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - add interfaces service.
 - [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - add EXTRAOPTIONS on health template.
 - [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - add service memory.
-- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - add --namespace option.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - add **--namespace** option.
 - [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - add external-sensors mode.
 
 </TabItem>
@@ -591,7 +591,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### May 
+### May
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
