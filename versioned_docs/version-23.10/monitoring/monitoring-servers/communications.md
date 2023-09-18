@@ -234,7 +234,6 @@ description: Configuration for remote server My Remote Server
 gorgone:
   gorgonecore:
     id: 3
-
     external_com_type: tcp
     external_com_path: "*:5556"
     authorized_clients:
