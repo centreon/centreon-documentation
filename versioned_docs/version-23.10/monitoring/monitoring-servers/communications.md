@@ -281,7 +281,6 @@ gorgone:
           action: BROKERSTATS
           parameters:
             timeout: 10
-
         - id: engine_stats
           timespec: "*/5 * * * *"
           action: ENGINESTATS
