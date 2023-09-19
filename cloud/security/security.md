@@ -58,7 +58,6 @@ The Centreon Cloud services are all hosted and run from the European Union:
 | Service   | Hosting   | IT outsourcing |
 |---------|-----------|----------------|
 | Centreon Cloud   | AWS EU Ireland Region (eu-west-1) | France |
-| Centreon Anomaly Detection | AWS EU Ireland Region (eu-west-1) | France |
 
 More information on AWS's security and compliance practices [here](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
