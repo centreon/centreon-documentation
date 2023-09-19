@@ -1552,10 +1552,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-loadbalancers-netscaler-mpx8000-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-citrix-sdx-snmp'
         },
         {
@@ -1609,6 +1605,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp'
+        },
+                {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-digi-portserverts-snmp'
         },
         {
           type: 'doc',
@@ -1809,6 +1809,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-netgear-sseries-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-loadbalancers-netscaler-mpx8000-snmp'
         },
         {
           type: 'doc',
