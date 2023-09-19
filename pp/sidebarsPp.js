@@ -172,6 +172,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-github-restapi'
         },
         {
@@ -316,6 +320,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nrpe'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-iis-nrpe'
         },
         {
@@ -453,6 +461,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-redis-rlec-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-redis-restapi'
         },
         {
           type: 'doc',
@@ -1120,6 +1132,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-redis-cli'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-rrdtool'
         },
         {
@@ -1307,6 +1323,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp'
         },
         {
           type: 'doc',
@@ -1532,6 +1552,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-loadbalancers-netscaler-mpx8000-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-citrix-sdx-snmp'
         },
         {
@@ -1561,6 +1585,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-dell-nseries-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-dell-n4000'
         },
         {
           type: 'doc',
@@ -2346,6 +2374,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-eva-cli'
         },
         {
@@ -2371,6 +2403,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce4-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi'
         },
         {
           type: 'doc',
@@ -2442,7 +2478,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-santricity-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-restapi'
         },
         {
           type: 'doc',

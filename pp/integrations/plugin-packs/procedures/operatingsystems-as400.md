@@ -1,11 +1,6 @@
 ---
 id: operatingsystems-as400
-title: IBM AS400 (Deprecated)
+title: IBM AS400 (deprecated)
 ---
 
-## **WARNING** This Pack is deprecated
-
-There's no more maintenance on this Pack. Therefore, you should not use it anymore.
-It has been replaced by 'IBM AS400 Connector' Pack.
-
-Please refer to this [guide](operatingsystems-as400-connector.md). 
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [IBM AS400 Connector](operatingsystems-as400-connector.md) connector.
