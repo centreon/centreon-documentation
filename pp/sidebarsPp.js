@@ -1610,6 +1610,10 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp'
         },
+                {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-digi-portserverts-snmp'
+        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-portservers-snmp'
