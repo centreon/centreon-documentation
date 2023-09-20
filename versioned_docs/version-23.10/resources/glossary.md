@@ -259,7 +259,7 @@ Indicates whether a change in [status](#status) is confirmed (HARD) or not confi
 
 ## Template
 
-Skeleton of a [resource](#resource) that is reconfigured so that parameters defined on the skeleton are applied to the resource that inherits from it.
+Skeleton of a [resource](#resource) that is preconfigured so that parameters defined on the skeleton are applied to the resource that inherits from it.
 
 There are host templates, service templates and contact templates.
 
