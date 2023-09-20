@@ -3,15 +3,41 @@ id: interface
 title: Overview of the Centreon interface
 ---
 
+## Video tutorials
+
+Take a tour of the interface to get familiar with Centreon Cloud, according to your [user role](../users/users.md#user-roles).
+
+<details>
+<summary>I'm an Editor</summary>
+
+- Discover the main menu:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/piyJh7IO1OtnMvuHEh5o?embed" frameborder="0" allowfullscreen></iframe>
+
+- Discover the top banner:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/j1cCyYghLIVpGAs2wW0x?embed" frameborder="0" allowfullscreen></iframe>
+
+</details>
+
+<details>
+<summary>I'm a User</summary>
+
+- Discover the main menu:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/rlazq3RJUcApVO6Vw3V3?embed" frameborder="0" allowfullscreen></iframe>
+
+- Discover the top banner:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/I7RA2Mj8n4BNi22LVTbr?embed" frameborder="0" allowfullscreen></iframe>
+
+</details>
+
 ## Accessing the central server's interface
 
-When you first connect to Centreon Cloud, use the URL and credentials that the Centreon support team has provided to you. The connection URL looks like this: `https://<organization>.<region>.centreon.cloud`.
+When you first connect to Centreon Cloud, use the URL that the Centreon support team has provided to you. The connection URL looks like this: `https://<organization>.<region>.centreon.cloud`.
 
-Fill in your user name and associated password (defined via [Centreon CIAM](../ciam/ciam.md)) and click on the **Connect** button:
-
-![image](../assets/getting-started/aconnection.png)
-
-You are now connected to the Centreon web interface.
+You may need to log in using [Centreon CIAM](../ciam/ciam.md).
 
 ## Menus
 

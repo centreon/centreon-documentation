@@ -45,3 +45,5 @@ Your administrator has invited you to Centreon CIAM: you have received an email 
 1. In the email, click **Accept invitation**.
 2. Enter your password, then click **Continue**. The Centreon CIAM site opens.
 3. In the top right corner of the screen, click the profile icon, then click **Edit profile**. You can then fill in your details.
+
+> You can change your password using the CIAM.

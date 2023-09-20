@@ -3,13 +3,6 @@ id: concepts
 title: Centreon basics
 ---
 
-## How do I get my monitoring platform up and running?
-
-Centreon provides you with a ready-to-use [central server](architecture.md). Before you can [start monitoring resources](monitoring.md), all you have to do is to:
-
-1. [Install your pollers](../installation/deploy-poller.md) (following the [prerequisites](../installation/prerequisites.md)). They will monitor your resources.
-2. Install the [Monitoring Connectors](../monitoring/pluginpacks.md) you will need to monitor your resources.
-
 ## What does Centreon monitor?
 
 Centreon allows you to monitor resources. Resources can be hosts or services:
