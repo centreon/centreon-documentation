@@ -23,6 +23,33 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.8
+
+Release date: `September 21, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Core] Added feature flag system
+- [Configuration] Added feature flag to Vault Configuration endpoints.
+- [authentication] Removed password fields if contact is not local type.	
+- [Anomaly Detection] Added a feature flag to hide exclusion of periods.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+- [Anomaly Detection] Don't list Business Activities as service in configuration form.
+- [CLAPI] Fixed the export of severities to be able to reimport them.
+- [CLAPI] Removed the possibility to link a regular resource with a template.	
+- [Authentication] Fixed the access to Centreon UI when a default page is defined using SSO authentication (OIDC/SAML).	
+- Fixed SLQi in centreonLogAction.class.php.
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+- [Resources Status] Fixed filter on hostgroups and categories that doesn't returning hosts.
+- [Configuration] Fixed custom macro inheritance for hosts.
+
 ### 23.04.7
 
 Release date: `August 31, 2023`
