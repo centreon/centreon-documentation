@@ -167,7 +167,7 @@ You can then check that the new key has been correctly imported. For the [new ke
     License     : pubkey
     Signature   : (none)
     Source RPM  : (none)
-    Build Date  : mer. 13 oct. 2021 2:21:06 PM UTC
+    Build Date  : mer. 13 oct. 2021 14:21:06 UTC
     Build Host  : localhost
     Relocations : (not relocatable)
     Packager    : Centreon Enterprise Server Official Signing Key <admin@centreon.com>
