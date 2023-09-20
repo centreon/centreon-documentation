@@ -49,7 +49,7 @@ Centreon 20.04 and the second phase of Centreon 20.10.
 
 ### From version 21.10
 
-From version 21.10, versions have been supported for two years. The lifecycle of a version is divided into two phases of 12 months each.
+Since version 21.10, versions are supported for two years. The lifecycle of a version is divided into two phases of 12 months each.
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
     and security issues are fixed according to their priority.
