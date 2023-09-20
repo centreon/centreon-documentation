@@ -5,7 +5,7 @@ title: Chart management
 
 Centreon can be used to generate graphs from monitoring information. There are two types of graph:
 
-* Performance graphs serve to view the evolution of services intuitively. e.g.: filling level of a hard disk, network
+* Performance graphs serve to view the evolution of services intuitively. Example: filling level of a hard disk, network
   traffic, etc.
 * History graphs (or status graphs) are used to view the evolution of the statuses of a service.
 
@@ -16,7 +16,7 @@ view the status of the object:
 * <span style={{color:'green'}}>Green</span> for OK status 
 * <span style={{color:'orange'}}>Orange</span> for WARNING status
 * <span style={{color:'red'}}>Red</span> for CRITICAL status
-* <span style={{color:'grey'}}>Grey</span> for UNKNOWN status
+* <span style={{color:'grey'}}>Gray</span> for UNKNOWN status
 
 Example of performance graph:
 
