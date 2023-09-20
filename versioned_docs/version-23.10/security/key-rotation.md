@@ -163,7 +163,7 @@ You can then check that the new key has been correctly imported. For the [new ke
     Architecture: (none)
     Install Date: jeu. 14 oct. 2021 09:25:42 UTC
     Group       : Public Keys
-    Size        : 0.
+    Size        : 0
     License     : pubkey
     Signature   : (none)
     Source RPM  : (none)
