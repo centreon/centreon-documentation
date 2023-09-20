@@ -22,13 +22,13 @@ allow you easily to roll back to the previous state if necessary.
 Be sure to read the release notes for an explanation of features, fixes
 and custom procedures.
 
-**When you're upgrading to a new major or minor version (i.e:A.B.x with
-A or B that changes) you need to contact our Support service to retrieve
+**When you are upgrading to a new major or minor version (i.e: A.B.x with
+A or B that changes), you need to contact our Support service to retrieve
 the new repository**.
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
 
 ## Step 1: Centreon MAP (Legacy) server
 
@@ -72,7 +72,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
-> Install Centreon MAP (Legacy) repository, you can find it on the
+> Install the Centreon MAP (Legacy) repository. You can find it on the
 > [support portal](https://support.centreon.com/s/repositories).
 
 2. Update Centreon MAP (Legacy) server:
@@ -88,7 +88,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
-> Install the Centreon Business repository, you can find it on the
+> Install the Centreon Business repository. You can find it on the
 > [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update the Centreon MAP (Legacy) server:
@@ -105,7 +105,7 @@ echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-> Install the Centreon Business repository, you can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> Install the Centreon Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 2. Update Centreon MAP (Legacy) server:
 
@@ -116,14 +116,14 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 </TabItem>
 </Tabs>
 
-3. Enable and start **centreon-map** service:
+3. Enable and start the **centreon-map** service:
 
     ```shell
     systemctl enable centreon-map
     systemctl start centreon-map
     ```
 
-4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+4. This point only applies if you customized your **centreon-map.conf** configuration file. When upgrading your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically; the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
   * The old configuration file is renamed **centreon-map.conf.rpmsave**
   * The upgrade installs a new **centreon-map.conf** file.
@@ -164,15 +164,15 @@ apt update && apt upgrade centreon-map-web-client
 Complete the upgrade: 
 1. Go to **Administration > Extensions > Manager**.
 2. Search for **Map web client**.
-3. Click on the update button (module & widget parts).
+3. Click the update button (module & widget parts).
 
 ## Step 3: Centreon MAP (Legacy) desktop client
 
 If the user's computer has an online connection, the desktop client is
 automatically upgraded to the latest version that corresponds to the server.
 
-Alternatively, the client can be downloaded through the menu `Monitoring >
-Map` and **Desktop client** button.
+Alternatively, the client can be downloaded through the `Monitoring >
+Map` menu and the **Desktop client** button.
 
 ## Step 4: Update dialects in .properties files
 

@@ -5,21 +5,21 @@ title: Installing MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic describes how to install Centreon MAP. It is recommended to install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
+This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
 > Note to users already using the MAP (Legacy) version: the MAP module does not require the **centreon_studio** database (used for a MAP Legacy server). This database can be removed after [migrating your legacy maps to MAP](./import-into-map-web.md). Be aware that it is not possible to migrate from MAP to MAP (legacy).
 
 ## License
 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+team](https://support.centreon.com/) to obtain and install your license key.
 
 ## Architecture
 
 The diagram below summarizes the MAP architecture.
 
-- You can either install Centreon MAP on a dedicated server or on the central server.
-- Centreon MAP does not require any installation on your machine: this solution is fully available in the Centreon web interface.
+- You can install Centreon MAP either on a dedicated server or on the central server.
+- Centreon MAP does not require any installation on your machine; this solution is fully available in the Centreon web interface.
 
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
@@ -44,7 +44,7 @@ The diagram below summarizes the MAP architecture.
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+team](https://support.centreon.com/) to obtain and install your license key.
 
 #### Software
 
@@ -161,7 +161,7 @@ For very large amounts of data, contact your sales representative.
 
 - Centreon web login with administration rights.
 
-> Even with a correctly sized server, you should have in mind the best practices and recommendations when creating views so you do not face performance issues.
+> Even with a correctly sized server, you should bear in mind the best practices and recommendations when creating views so you can avoid performance issues.
 
 > If the central server is configured in HTTPS, you must apply the SSL configuration on the MAP server. Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure your MAP server.
 
@@ -171,17 +171,17 @@ For very large amounts of data, contact your sales representative.
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the [Centreon support
-team](https://support.centreon.com/) to get and install your license key.
+team](https://support.centreon.com/) to obtain and install your license key.
 
 #### Compatibility
 
-Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the web browsers compatibility [here](../installation/prerequisites.md).
+Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the compatibility of web browsers [here](../installation/prerequisites.md).
 
 ## MAP Engine server installation
 
 ### Step 1: Set authentication parameters
 
-You must provide to Centreon MAP Engine server a dedicated user
+You must provide the Centreon MAP Engine server with a dedicated user
 **who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.md). 
 Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
@@ -191,7 +191,7 @@ configuration file, you should not use a Centreon admin user account.
 
 ![image](../assets/graph-views/reach-api.png)
 
-Exclude the user from the password expiration policy on page **Administration > Authentication**: their password will never expire.
+Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
 
@@ -293,7 +293,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 
 #### Business repository installation
 
-Install the Centreon Business repository, you can find it on the
+Install the Centreon Business repository. You can find this on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 #### MAP Engine server installation
@@ -361,7 +361,7 @@ dnf install MariaDB-server
 apt update && apt install mariadb-server
 ```
 
-> MariaDB has to listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> MariaDB must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
 > 
 > ```shell
 > /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -394,7 +394,7 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-Now you can install Centreon MAP Engine.
+Now you can install the Centreon MAP Engine.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -564,13 +564,13 @@ mysql_secure_installation
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-### Step 5 : Execute the configure.sh script
+### Step 5: Execute the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script.
 
 Two modes are available:
   - Interactive (no option/default mode): several questions will be asked to interactively fill in the installation variables.
-  - Automatic (--automatic or -a): the installation will be done automatically from the values set in **/etc/centreon-map/vars.sh** file.
+  - Automatic (--automatic or -a): the installation will be done automatically from the values set in the file **/etc/centreon-map/vars.sh**.
   
 If it is your first installation, we advise you to use the standard mode (interactive) and choose **No** when asked for advanced installation mode:
    
@@ -596,6 +596,8 @@ centreon.path=/your-custom-uri
 
 #### Java memory optimization
 
+> JAVA_OPTS is a standard environment variable used to edit Java properties.
+
 To correctly implement the dedicated memory:
 
 Edit the *JAVA\_OPTS* parameter in the Centreon Map configuration file `/etc/centreon-map/centreon-map.conf` by adding -Xms and -Xmx parameters:
@@ -614,7 +616,7 @@ systemctl restart centreon-map-engine
 
 ## Step 6: Apply Centreon Broker configuration and restart MAP Engine service
 
-> Before restarting Broker you must export the configuration from the Centreon web interface.
+> Before restarting Broker, you must export the configuration from the Centreon web interface.
 
 Restart Centreon Broker on the Central server:
 
@@ -664,7 +666,7 @@ Check the MAP Engine server configuration by using this command:
 
 > In case of any error, see the **Run our diagnostic tool** section in the [Troubleshooting MAP](map-web-troubleshooting.md#run-our-diagnostic-tool) topic.
 
-If configuration is correct, the **centreon-map-engine** service can be
+If the configuration is correct, the **centreon-map-engine** service can be
 started from the Centreon MAP server:
 
 ```shell
@@ -677,14 +679,14 @@ Enable the service to start up automatically on server boot:
 systemctl enable centreon-map-engine
 ```
 
-Centreon MAP Engine server is now started and enabled, let's install
+The Centreon MAP Engine server is now started and enabled, so let's install
 the interface part of the extension.
 
 ## MAP web client installation
 
 ### Step 1: Install the business repository
 
-Install the Centreon Business repository, you can find it on the
+Install the Centreon Business repository. You can find this on the
 [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Step 2: Install the MAP module
@@ -742,7 +744,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   systemctl restart cbd
   ```
 
-8. Now the configuration is correct, you can start the server by running this command:
+8. Now that the configuration is correct, you can start the server by running this command:
 
   ```shell
   systemctl start centreon-map-engine
@@ -772,7 +774,7 @@ You can now use the MAP module by accessing the **Monitoring > Map** page.
 
 ## Secure MAP in HTTPS
 
-If you want to use MAP in HTTPS, you must both secure your Centreon platform and MAP.
+If you want to use MAP in HTTPS, you must secure both your Centreon platform and MAP.
 
 - Follow this [procedure](../administration/secure-platform.md) to secure your Centreon platform.
 - Follow this [procedure](../graph-views/secure-your-map-platform.md) to secure MAP.
