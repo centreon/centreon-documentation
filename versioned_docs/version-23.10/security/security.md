@@ -60,7 +60,7 @@ Centreon will compute the environmental score assuming the tested Centreon produ
 as defined in the online product documentation and placed behind appropriate in-depth protections.
 
 Depending on the CVSS score of the vulnerability, the Centreon security team will determine the urgency
-of remedying the vulnerability:
+of fixing the vulnerability:
 
 | CVSS score           | Remediation plan                                                                                                                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
