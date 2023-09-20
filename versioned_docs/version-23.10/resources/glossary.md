@@ -21,7 +21,7 @@ When a user acknowledges a resource in Centreon, they notify their teams that th
 
 When a resource is acknowledged, [notifications](#notification) are stopped, and the resource is highlighted yellow in monitoring screens.
 
-Acknowledging a resource does not mean that the incident is over: it will be over when the resource is back to its nominal state (**OK** or **UP**).
+Acknowledging a resource does not mean that the incident is over. It will be over when the resource is back to its nominal state (**OK** or **UP**).
 
 **See also**: [Acknowledging an alert](../alerts-notifications/acknowledge.md).
 
@@ -35,7 +35,7 @@ The term alert is used in this way in the [pre-defined filters on page **Resourc
 
 - **Simple architecture**: architecture that consists solely of a [central server](#central-server).
 
-- **Distributed architecture**: architecture that consists of a [central server](#central-server) and of n [remote server(s)](#remote-server) and [poller(s)](#poller). Remote servers and pollers allow you to distribute the monitoring load, either for security reasons, geographical or historical reasons, etc.
+- **Distributed architecture**: architecture that consists of a [central server](#central-server) and of n [remote server(s)](#remote-server) and [poller(s)](#poller). Remote servers and pollers allow you to distribute the monitoring load for security reasons, geographical or historical reasons, etc.
 
 **See also**: [Architectures](../installation/architectures.md).
 
@@ -48,13 +48,13 @@ Broker Binary Data Object: communication protocol used to transfer monitoring da
 ## Broker
 
 Centreon Broker is the software component that receives monitoring data collected by [monitoring engines](#monitoring-engine).
-Once it receives this data, by default, Centreon Broker redistributes them to the MariaDB and RRD databases.
+Once it receives this data, by default, Centreon Broker redistributes it to the MariaDB and RRD databases.
 
 **See also**: [Centreon Broker Event Mapping](../developer/developer-broker-mapping.md).
 
 ## Broker reverse mode
 
-Advanced configuration for Centreon [Broker](#broker) that reverses the direction of connection for Broker communications. It switches the "client" and "server" roles so as to adapt to particular network configurations. For example, this mode is used by Centreon MAP to subscribe to the real-time flow of Broker events.
+Advanced configuration for Centreon [Broker](#broker) that reverses the direction of connection for Broker communications. It switches the "client" and "server" roles to adapt to particular network configurations. For example, this mode is used by Centreon MAP to subscribe to the real-time flow of Broker events.
 
 ## Central server
 
@@ -72,7 +72,7 @@ Command-Line API: allows you to manage the monitoring using the command line.
 
 ## Downtime
 
-A downtime is a time period during which [notifications](#notification) are disabled for a resource. Downtimes are used during planned maintenance operations, to avoid getting unnecessary alerts.
+Downtime is a period during which [notifications](#notification) are disabled for a resource. Downtime is used during planned maintenance operations, to avoid unnecessary alerts.
 
 **See also**: [Planning a downtime](../alerts-notifications/downtimes.md).
 
@@ -82,7 +82,7 @@ See [**Monitoring engine**](#monitoring-engine).
 
 ## FQDN
 
-Fully Qualified Domain Name: hostname and domain name for a server. E.g.: demo.centreon.com (hostname: demo, domain name: centreon.com).
+Fully Qualified Domain Name: hostname and domain name for a server. Example: demo.centreon.com (hostname: demo, domain name: centreon.com).
 
 ## Gorgone
 
@@ -93,7 +93,7 @@ Among other things, Gorgone deploys the configuration to the [monitoring engines
 
 ## Graph
 
-Graphs are generated from the [metrics](#metric) that make up [services](#service), using [RRD files](#rrd-files). They show how these metrics evolve in time.
+Graphs are generated from the [metrics](#metric) that make up [services](#service), using [RRD files](#rrd-files). They show how these metrics evolve over time.
 
 **See also**: [Charts management](../metrology/chart-management.md) and the other topics in this section.
 
@@ -103,7 +103,7 @@ Principle according to which a parameter of a [template](#template) is applied t
 
 ## Host
 
-Equipment that has an IP address or a FQDN, and that you want to monitor. Examples: a Linux server, an internet router, a website, a 3D printer, an EC2 instance, a docker host, a cash register, etc. A host can have one or more associated [services](#service).
+Equipment that has an IP address or an FQDN, and that you want to monitor. Examples: a Linux server, an internet router, a website, a 3D printer, an EC2 instance, a docker host, a cash register, etc. A host can have one or more associated [services](#service).
 
 A host can have one of the following [statuses](#status): OK, DOWN and UNREACHABLE.
 
@@ -115,13 +115,13 @@ LVM (logical volume manager): Centreon recommends that you use this partitioning
 
 ## LVM snapshot
 
-Feature included in LVM that allows you to do a snapshot of a file system. Centreon uses this process to back up databases.
+Feature included in LVM that allows you to take a snapshot of a file system. Centreon uses this process to back up databases.
 
 **See also**: [Backup](../administration/backup.md).
 
 ## Metric
 
-A metric (or performance data) is part of a [service](#service). This piece of data allows you to display graphs, and to define thresholds according to which you will receive notifications. These thresholds will determine the [status](#status) of the service the metric belongs to.
+A metric (or performance data) is part of a [service](#service). This piece of data allows you to display graphs and to define thresholds according to which you will receive notifications. These thresholds will determine the [status](#status) of the service the metric belongs to.
 
 When a service has several metrics, the status of the service is the status of the worst metric.
 
@@ -133,7 +133,7 @@ Any action performed in the interface that acts on your monitoring in real time.
 
 ## Monitoring Connector
 
-The term "MOnitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
+The term "Monitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
 
 A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
 
@@ -175,7 +175,7 @@ Centreon server used in a [distributed architecture](#architecture-simple-vs-dis
 
 - A Centreon poller monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
 
-- A poller has no graphical interface: the resources it monitors are displayed in the interface of the central server and of the remote server it is attached to.
+- A poller has no graphical interface. The resources it monitors are displayed in the interface of the central server and of the remote server it is attached to.
 
 "Poller" is also used to refer to the monitoring engine that is present in a central server, a remote server and a poller.
 
@@ -187,7 +187,7 @@ Advanced configuration for Centreon [Gorgone](#gorgone) that reverses the direct
 
 ## Recurring downtime
 
-Recurring downtimes are [downtimes](#downtime) that occur regularly.
+Recurring downtime periods are [downtimes](#downtime) that occur regularly.
 
 **See also**: [Recurrent downtimes](../alerts-notifications/downtimes.md#recurrent-downtimes).
 
@@ -207,7 +207,7 @@ Object monitored by a Centreon platform ([hosts](#host), [services](#service), m
 
 ## Retention files
 
-Retention files belong to Centreon [Broker](#broker). These files store the monitoring data that could not be inserted into the database. For instance, if a communication problem occurs between Engine and Broker, the data is not lost, Broker stores them in a file (whose name includes the term "queue"). The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
+Retention files belong to Centreon [Broker](#broker). These files store the monitoring data that could not be inserted into the database. For instance, if a communication problem occurs between Engine and Broker, the data is not lost. The Broker stores it in a file (whose name includes the term "queue"). The file will then be read by Centreon Broker, then inserted into the databases so as to avoid data loss.
 
 ## Retention period
 
@@ -215,7 +215,7 @@ Time period, in days, during which you want to keep the data from your RRD and M
 
 ## RRD files
 
-An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
+An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs shows a trend rather than the exact data that was measured.
 
 ## Scheduler
 
@@ -227,7 +227,7 @@ A service is attached to a [host](#host). It is a check point on this host, that
 
 - the status of a component: is the power supply connected? Is my instance started?
 
-- the performance of a component: is my website accessible in less than 0.5s? What are the ink levels on my printer? How much of the memory is used on my server?
+- the performance of a component: is my website accessible in less than 0.5 s? What are the ink levels on my printer? How much of the memory is used on my server?
 
 A service can consist of one or several [metrics](#metric).
 
@@ -271,7 +271,7 @@ There are host templates, service templates and contact templates.
 
 ## Time period
 
-Time periods define a time interval for each day of the week. They enable the functionalities of the [monitoring engine](#monitoring-engine) over a given time slot. Use time periods to define:
+Time periods define a time interval for each day of the week. They enable the features of the [monitoring engine](#monitoring-engine) over a given time slot. Use time periods to define:
 
 - when check commands are executed, i.e. the time period during which resources are monitored,
 
