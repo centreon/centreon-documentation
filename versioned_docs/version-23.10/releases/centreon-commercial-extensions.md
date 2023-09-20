@@ -8,7 +8,7 @@ title: Commercial Extensions
 You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
 
 > It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will let you know the impact of the installation of these
+> major changes that have been made on this version. This will inform you about the impact of installing these
 > versions on the features you use or the specific developments that you have built on your platform (modules,
 > widgets, plugins).
 
@@ -29,10 +29,10 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
-- [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
-- [Configuration] Improved Business Activities configuration panel display:
-   - Display listing pagination icons while displaying the configuration panel
-   - Allow more space to display indicators' names.
+- [Configuration] Removed deprecated "Import SSV" feature from the Business Activities configuration.
+- [Configuration] Improved the Business Activities configuration panel display.
+   - Display listing pagination icons while displaying the configuration panel.
+   - Allow more space to display the names of indicators.
 
 ## Centreon MBI
 
@@ -49,7 +49,7 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
-- Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
+- Automatic plugin installation: plugins are now installed automatically on the poller where a Host Discovery job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
 - Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
 - Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
 
@@ -89,4 +89,4 @@ Release date: `April 26, 2023`
   - Change the background of the login page.
   - Change the logo on the login page.
   - Display custom text on the login page.
-  - Give a name to the platform, that will be visible on the login page and in the banner.
+  - Give the platform a name that will be visible on the login page and in the banner.

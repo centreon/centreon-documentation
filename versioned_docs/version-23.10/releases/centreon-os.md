@@ -5,10 +5,10 @@ title: Centreon Open Source
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning **Centreon Open Source**.
+In this chapter, you can find all the changelogs concerning **Centreon Open Source**.
 
 > It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will let you know the impact of the installation of these
+> major changes that have been made on this version. This will inform you about the impact of installing these
 > versions on the features you use or the specific developments that you have built on your platform (modules,
 > widgets, plugins).
 
@@ -38,7 +38,7 @@ Release date: `April 26, 2023`
 - [Resources Status] Added extended mode for Resources Status listing display.
 - [Resources Status] You can now switch between extended and compact mode in the Resources Status page.
 - [Resources Status] Both simple and forced check options are provided in Resources Status.
-- [Resources Status] Various user interface improvements in Resources Status :
+- [Resources Status] Various user interface improvements in Resources Status:
    - Aligned column contents with labels.
    - The icon that allows you to reorder columns is now displayed only on mouseover.
    - The columns displayed by default have been changed.
@@ -95,4 +95,4 @@ Release date: `April 26, 2023`
 Release date: `April 26, 2023`
 
 - Compatibility with other 23.04 components.
-- Added Schedule Check option & auto close popup capability
+- Added Schedule Check option & auto close popup capability.
