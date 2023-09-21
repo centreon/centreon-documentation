@@ -5,20 +5,20 @@ title: Rest API (v2)
 
 ## Overview
 
-Centreon Web Rest API v2 aims to replace first version.
+Centreon Web Rest API v2 aims to replace the first version.
 
 To start using it, please refer to the [dedicated
 page](https://docs-api.centreon.com/api/centreon-web/23.10/).
 
 ## Create a Postman collection from the OpenAPI definition
 
-In order to manipulate the API more efficiently or just understand how it works,
-there is nothing more handy than a [Postman](https://learning.postman.com/docs/getting-started/introduction/)
+In order to manipulate the API more efficiently, or just understand how it works,
+there is nothing handier than a [Postman](https://learning.postman.com/docs/getting-started/introduction/)
 collection.
 
 ### Import the OpenAPI definition
 
-From your workspace, click on the **Import** button.
+From your workspace, click the **Import** button.
 
 ![image](../assets/api/postman-import.png)
 
@@ -30,15 +30,15 @@ https://raw.githubusercontent.com/centreon/centreon/develop/doc/API/centreon-api
 
 ![image](../assets/api/postman-import-link.png)
 
-Click on **Continue** and tune some of the default parameters:
+Click **Continue** and adjust some of the default parameters:
 
 - Select only *Collection* as an import method,
-- Select *Example* for the *Request parameter generation* as it will bring more
+- Select *Example* for *Request parameter generation*, as it will bring more
   context on path variables or query parameters,
-- Select *Tags* for the *Folder organization* as it will arrange the collection
+- Select *Tags* for *Folder organization*, as it will arrange the collection
   as in the documentation.
 
-Then click on **Import** and wait a few seconds for the process to be done.
+Then click **Import** and wait a few seconds for the process to be done.
 
 ![image](../assets/api/postman-import-feedback.png)
 
@@ -47,15 +47,15 @@ Then click on **Import** and wait a few seconds for the process to be done.
 To be able to communicate with your platform, the collection will use
 environment variables to define access information and credentials.
 
-From your workspace, click on the **Manage Environments** icon.
+From your workspace, click the **Manage Environments** icon.
 
 ![image](../assets/api/postman-environment.png)
 
-Click on **Add** and set the variables as below with your platform information:
+Click **Add** and set the variables as below with your platform information:
 
 ![image](../assets/api/postman-environment-add.png)
 
-Then click on **Add**, and select it in the environments list.
+Then click **Add**, and select it in the environments list.
 
 > The API version is not set in the environment variables. It's more of a
 > collection variable. It can be changed directly in the collection by editing
@@ -80,17 +80,17 @@ Then click on **Add**, and select it in the environments list.
 >
 > ![image](../assets/api/postman-collection-variables.png)
 >
-> Other variables will be overload by environment variables.
+> Other variables will be overloaded by environment variables.
 
 ### Edit the Login request
 
-To make the *Login* request use the previously defined credentials, and retrieve
-the API token from the response, it needs to be edited.
+To make the *Login* request, use the previously defined credentials, and retrieve
+the API token from the response. It needs to be edited.
 
 From the collection, select the *Login* request from the *Authentication*
 folder.
 
-In the **Body** tab, change the *login* and *password* values by the environment
+In the **Body** tab, replace the *login* and *password* values with the environment
 variables `{{username}}` and `{{password}}` as below:
 
 ![image](../assets/api/postman-login-body.png)
@@ -113,7 +113,7 @@ pm.environment.set("token", responseJson.security.token);
 
 ![image](../assets/api/postman-login-test.png)
 
-Then click on **Save** or use *Ctrl+S* shortcut.
+Then click **Save** or use the shortcut *Ctrl+S*.
 
 ### Use the API token
 
@@ -121,7 +121,7 @@ Once saved, **Send** the *Login* request.
 
 ![image](../assets/api/postman-login-response.png)
 
-If successful, it will add a new *token* enviroment variable filled with the
+If successful, it will add a new *token* environment variable filled with the
 token retrieved from login.
 
 ![image](../assets/api/postman-environment-view.png)
@@ -131,19 +131,19 @@ To use it in all the requests, edit the collection.
 ![image](../assets/api/postman-collection-edit.png)
 
 In the **Authorization** tab, choose *API Key* type and fill the *Key* field
-with `X-AUTH-TOKEN` and *Value* field with `{{token}}`.
+with `X-AUTH-TOKEN` and the *Value* field with `{{token}}`.
 
 ![image](../assets/api/postman-collection-edit-authorization.png)
 
 Make sure it will be added to *Header*.
 
-Then click on **Update**.
+Then click **Update**.
 
 ### Make requests
 
 Now that a valid token is stored, you can execute requests on other endpoints.
 
-Uncheck unused query parameters or fill them with values, and click on **Send**.
+Uncheck unused query parameters or fill them with values, and click **Send**.
 
 ![image](../assets/api/postman-hosts-list-console.png)
 

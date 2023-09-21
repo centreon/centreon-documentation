@@ -13,7 +13,7 @@ BBDO stands for Broker Binary Data Object. BBDO is designed to transfer
 "data packets" from one node to another. These "data packets" spend most of
 the time monitoring information provided by the monitoring engine (e.g.
 Centreon Engine or Nagios). It uses mostly raw binary values, which
-allows it to consume very few memory.
+allows it to consume very little memory.
 
 With Broker 22.04.0, we introduced a new version of BBDO. It is based on
 [Google Protobuf 3](https://developers.google.com/protocol-buffers). The new
