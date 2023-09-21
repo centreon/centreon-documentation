@@ -16,6 +16,16 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.16
+
+Release date: `September 22, 2023`
+
+#### Bug fixes
+
+-	[Core] Updated svg-sanitize dependency.
+-	[Core] Updated symfony/http-kernel dependency.
+-	Fixed SLQi in centreonLogAction.class.php.
+
 ### 22.04.15
 
 Release date: `August 28, 2023`
