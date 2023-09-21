@@ -17,6 +17,22 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.12
+
+Release date: `September 22, 2023`
+
+#### Bug fixes
+
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+-	[Desktop] Update dependency.
+-	[Server] Update dependency.
+-	[Server] Fixed the diagnostic protocol test.
+-	[Server] Makes links anchors consistent between viewer and editor.
+
+#### Enhancements
+
+- Handled multi-lang.
+
 ### 22.10.11
 
 Release date: `September 07, 2023`
@@ -388,6 +404,12 @@ Release date: `October 26, 2022`
 - Move to Java 17
 
 ## Centreon Auto Discovery
+
+### 22.10.4
+
+Release date: `September 22, 2023`
+
+- [Discovery] Do not create new services when updating autodiscovery job on existing hosts.
 
 ### 22.10.3
 
