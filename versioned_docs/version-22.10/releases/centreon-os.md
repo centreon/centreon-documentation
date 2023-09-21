@@ -19,6 +19,19 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.13
+
+Release date: `September 22, 2023`
+
+#### Bug fixes
+
+-	[Core] Updated svg-sanitize dependency.
+-	[Configuration] Fixed custom macro inheritance for hosts.
+-	[CLAPI] Fixed addhosttemplate function that was removing other relationships.
+-	[CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+-	[Resources Status] Fixed filter on hostgroups and categories that doesn't returning hosts.
+-	Fixed SLQi in centreonLogAction.class.php.
+
 ### 22.10.12
 
 Release date: `August 29, 2023`
