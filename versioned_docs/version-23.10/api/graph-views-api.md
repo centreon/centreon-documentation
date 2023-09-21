@@ -3,10 +3,10 @@ id: graph-views-api
 title: Graphical views API (beta)
 ---
 
-If you want to automate standard views creation or maintenance, you may
+If you want to automate the creation of standard views or maintenance, you may
 use the Centreon MAP extension API.
 
-> Views created using the API are not immediately visible in the desktop client, you need to
+> Views created using the API are not immediately visible in the desktop client; you need to
 > restart it to see them.
 
 With this API, in beta version, you can create/update/delete standard
@@ -15,20 +15,20 @@ of the following privileges:
 
 -   Centreon Admin
 -   Centreon MAP admin
--   Centreon MAP view creation rights & editions rights on views you
+-   Centreon MAP view creation rights & editing rights on views you
     want to update/delete
 
-To access the API documentation, two possibilities:
+To access the API documentation, there are two possible cases:
 
--   You have Centreon MAP, go to the following URL:
+-   If you have Centreon MAP, go to the following URL:
 
      `http(s)://{map_server_url}/centreon-studio/api/beta/`
 
--   You don't have Centreon MAP, you can preview the API capabilities
+-   If you don't have Centreon MAP, you can preview the API capabilities
     here: [Online documentation](https://docs.centreon.com/api/centreon-map/)
 
 Because the Centreon Map API is not trivial to use, here is a scenario
-that authenticate, then create a map and add an host on it.
+that authenticates then creates a map and adds a host to it.
 
 **1. Authentication**
 
@@ -48,7 +48,7 @@ Body {
 }
 ```
 
-In the result, retrieve the {studio-session} (token), you'll need to
+In the result, retrieve the {studio-session} (token); you'll need to
 use it all your API calls. The headers will look like this:
 
 ```
@@ -106,7 +106,7 @@ Body: {
 }
 ```
 
-Retrieve the element id you just created : `{id}`
+Retrieve the element id you just created: `{id}`
 
 **5. Attach the element to the opened view**
 
