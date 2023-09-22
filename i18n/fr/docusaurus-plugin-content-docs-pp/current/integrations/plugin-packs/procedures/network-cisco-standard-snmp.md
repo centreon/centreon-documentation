@@ -943,7 +943,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                      |
 |:-------------------------|:---------------------------------------------------------------------------------|
 | --filter-macaddr         | Filter mac addresses (can be a regexp).                                          |
-| --filter-ipaddr          | Filter ip addresses (can be a regexp).                                           |
+| --filter-ipaddr          | Filter IP addresses (can be a regexp).                                           |
 | --warning-* --critical-* | Thresholds. Can be: 'total-entries', 'duplicate-macaddr', 'duplicate-ipaddr'.    |
 
 </TabItem>
