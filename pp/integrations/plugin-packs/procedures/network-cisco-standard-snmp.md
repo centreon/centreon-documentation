@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                           | Service Description                                                                                           |
 |:--------------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Cisco-Standard-Cpu-SNMP-custom         | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |
+| Cpu           | Net-Cisco-Standard-Cpu-SNMP-custom         | Check the rate of utilization of the CPU for the machine. This check can give the average utilization rate of the CPU |
 | Environment   | Net-Cisco-Standard-Environment-SNMP-custom | Check hardware environment                                                                                    |
 | Memory        | Net-Cisco-Standard-Memory-SNMP-custom      | Check machine memory usage                                                                                    |
 
