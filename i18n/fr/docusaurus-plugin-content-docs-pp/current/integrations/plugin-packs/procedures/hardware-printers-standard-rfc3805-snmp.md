@@ -74,7 +74,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="MarkerSupply-Usage*" label="MarkerSupply-Usage*">
 
-Coming soon
+| Métrique        | Unité |
+|:--------------- |:----- |
+| *Toner*#*color* | %     |
+| *Unit*          | %     |
 
 </TabItem>
 <TabItem value="PaperTray-Usage*" label="PaperTray-Usage*">

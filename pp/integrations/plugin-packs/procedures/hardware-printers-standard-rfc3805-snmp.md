@@ -68,12 +68,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                           | Unit  |
 |:--------------------------------------|:------|
-| lifecount_*DeviceIndex*#*MarkerIndex* | N/A   |
+| lifecount_*DeviceIndex*#*MarkerIndex* | count |
 
 </TabItem>
 <TabItem value="MarkerSupply-Usage*" label="MarkerSupply-Usage*">
 
-Coming soon
+| Metric name     | Unit |
+|:--------------- |:---- |
+| *Toner*#*color* | %    |
+| *Unit*          | %    |
 
 </TabItem>
 <TabItem value="PaperTray-Usage*" label="PaperTray-Usage*">
