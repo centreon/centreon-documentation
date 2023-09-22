@@ -15,6 +15,26 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.10
+
+Release date: `September 22, 2023`
+
+#### Security fixes
+
+- [Server] Fixed vulnarable property.
+
+#### Bug fixes
+
+-	[Desktop] Update dependency.
+-	[Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+-	[Server] Update dependency.
+-	[Server] Fixed the diagnostic protocol test.
+-	[Editor] Fixed the deletion of source object when copy paste.
+
+#### Enhancements
+
+[Server] Makes links anchors consistent between viewer and editor.
+
 ### 21.10.9
 
 Release date: `June 1, 2023`
@@ -227,6 +247,14 @@ Release date: `February 18, 2022`
 
 ## Centreon Auto Discovery
 
+### 21.10.5
+
+Release date: `September 22, 2023`
+
+#### Bug fixes
+
+- [Discovery] Do not create new services when updating autodiscovery job on existing hosts
+
 ### 21.10.4
 
 Release date: `June 1, 2023`
@@ -250,7 +278,6 @@ Release date: `March 31, 2022`
 - Changed the size of a column to allow storing host discovery providers coming from Plugin Packs with names exceeding 50 characters
 - ACLs were not updated for items discovered by Host Discovery or Service Discovery
 - Fixed an issue that caused Service Discovery scans to fail because the wrong message was caught
-
 
 ### 21.10.2
 
