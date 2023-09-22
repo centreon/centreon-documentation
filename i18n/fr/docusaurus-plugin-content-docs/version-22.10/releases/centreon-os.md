@@ -313,6 +313,17 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.5
+
+Release date: `September 22, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Index data INSERT request have been replaced by INSERT ON DUPLICATE KEY UPDATE and check_interval is always filled.
+-	Fixed an issue that could cause a crash when many pollers were sending check results to a broker.
+
 ### 22.10.4
 
 Release date: `July 26, 2023`
