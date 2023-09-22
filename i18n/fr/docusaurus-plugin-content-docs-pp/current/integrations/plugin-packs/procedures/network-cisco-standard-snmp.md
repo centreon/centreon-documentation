@@ -5,7 +5,7 @@ title: Cisco Standard
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cisco développe et fabrique des équipements de télécommunications, réseaux et logiciels. Les solutions proposées répondent à de multiples usages (mobiles, IOT, routage, etc.). 
+Cisco développe et fabrique des équipements de télécommunications, réseaux et logiciels. Les solutions proposées répondent à de multiples usages (mobiles, IOT, routage, etc.). Vous pouvez superviser tous les équipements embarquant les MIBs standard de Cisco.
 
 ## Contenu du pack
 
