@@ -23,9 +23,9 @@ Release date: `September 22, 2023`
 
 #### Bug fixes
 
--	[Core] Updated svg-sanitize dependency.
--	[Core] Updated symfony/http-kernel dependency.
--	Fixed SLQi in centreonLogAction.class.php
+- [Core] Updated svg-sanitize dependency.
+- [Core] Updated symfony/http-kernel dependency.
+- [Security] Fixed SLQi in centreonLogAction.class.php
 
 ### 21.10.15
 
