@@ -300,7 +300,7 @@ In the example above, 'public' is your snmp community. You do now want to use it
 
 ### Network flow
 
-Your centreon server must be able to reach the Cisco device over UDP/161 SNMP port.
+Your Centreon server must be able to reach the Cisco device on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
