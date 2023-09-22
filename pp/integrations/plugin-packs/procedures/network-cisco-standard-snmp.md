@@ -5,7 +5,7 @@ title: Cisco Standard
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cisco develops, manufactures and sells networking hardware, software, telecommunications equipment and other high-technology services and products
+Cisco develops, manufactures and sells networking hardware, software, telecommunications equipment and other high-technology services and products. All Cisco devices supporting standard MIBs can be monitored.
 
 ## Pack assets
 
