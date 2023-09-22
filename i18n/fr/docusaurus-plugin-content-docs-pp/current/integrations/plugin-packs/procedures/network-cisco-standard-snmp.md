@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:---------------------------------------------|:-------------------------------------------------------|:----------:|
 | Aaa-Servers   | Net-Cisco-Standard-Aaa-Servers-SNMP-custom   | Contrôle les serveurs AAA                              | X          |
 | Anycast       | Net-Cisco-Standard-Anycast-SNMP-custom       | Contrôle le type de trafic                             |            |
-| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table arp                                  |            |
+| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table ARP                                  |            |
 | Bgp           | Net-Cisco-Standard-Bgp-SNMP-custom           | Contrôle le BGP                                        |            |
 | Configuration | Net-Cisco-Standard-Configuration-SNMP-custom | Contrôle si la configuration "running" est sauvegardée |            |
 | Hsrp          | Net-Cisco-Standard-Hsrp-SNMP-custom          | Contrôle Cisco HSRP                                    |            |
