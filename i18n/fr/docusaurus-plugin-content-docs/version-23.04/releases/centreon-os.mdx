@@ -29,24 +29,24 @@ Release date: `September 22, 2023`
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Added feature flag system.
-- [Configuration] Added feature flag to vault configuration endpoints.
-- [Authentication] Removed password fields from profile page for accounts using delegated authentication.	
 - [Anomaly Detection] Added a feature flag to hide the period exclusion interface.
+- [Authentication] Removed password fields from profile page for accounts using delegated authentication.
+- [Configuration] Added feature flag to vault configuration endpoints.
+- [Core] Added feature flag system.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
 - [Anomaly Detection] Business Activities are no longer listed as services in the configuration form.
+- [Authentication] Fixed access to the Centreon UI when a default page is configured for the user and authentication uses SSO (OIDC/SAML).	
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
 - [CLAPI] Fixed the export of severities to make it possible to reimport them.
 - [CLAPI] Removed the possibility to link a regular resource with a template.	
-- [Authentication] Fixed access to the Centreon UI when a default page is configured for the user and authentication uses SSO (OIDC/SAML).	
-- [Security] Fixed SLQi in centreonLogAction.class.php.
-- [Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
 - [Configuration] Fixed custom macro inheritance for hosts.
+- [Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+- [Security] Fixed SLQi in centreonLogAction.class.php.
 
 </details>
 
