@@ -24,12 +24,12 @@ Release date: `September 22, 2023`
 
 #### Bug fixes
 
--	[Core] Updated svg-sanitize dependency.
--	[Configuration] Fixed custom macro inheritance for hosts.
--	[CLAPI] Fixed addhosttemplate function that was removing other relationships.
+-	[CLAPI] Fixed the addhosttemplate function that was removing other relationships.
 -	[CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
--	[Resources Status] Fixed filter on hostgroups and categories that doesn't returning hosts.
--	Fixed SLQi in centreonLogAction.class.php.
+-	[Configuration] Fixed custom macro inheritance for hosts.
+-	[Core] Updated svg-sanitize dependency.
+-	[Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+-	[Security] Fixed SLQi in centreonLogAction.class.php.
 
 ### 22.10.12
 
