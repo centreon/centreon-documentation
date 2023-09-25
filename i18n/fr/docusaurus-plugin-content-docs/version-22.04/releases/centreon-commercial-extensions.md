@@ -21,7 +21,6 @@ Release date: `September 25, 2023`
 
 #### Bug fixes
 
-- [Desktop] Update dependency. 
 - [Editor] Fixed an issue where copying and pasting an object deleted it.
 - [Server] Fixed the diagnostic protocol test.
 
@@ -188,7 +187,7 @@ Release date: `September 25, 2023`
 
 #### Bug fixes
 
-- [Desktop] Update dependency.
+- [Server] Updated dependencies.
 - [Server] Fixed a vulnerable property.
 
 ### 22.04.10
