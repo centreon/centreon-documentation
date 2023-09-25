@@ -315,7 +315,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.5
 
-Release date: `September 22, 2023`
+Release date: `September 25, 2023`
 
 #### Centreon Broker
 
