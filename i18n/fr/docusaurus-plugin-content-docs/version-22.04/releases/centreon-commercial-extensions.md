@@ -17,16 +17,17 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.11
 
-Release date: `September 22, 2023`
+Release date: `September 25, 2023`
 
 #### Bug fixes
 
--	[Desktop] Update dependency. 
--	[Server] Fixed the diagnostic protocol test.
+- [Desktop] Update dependency. 
+- [Editor] Fixed an issue where copying and pasting an object deleted it.
+- [Server] Fixed the diagnostic protocol test.
 
 #### Enhancements
 
-- [Server] Makes links anchors consistent between viewer and editor.
+- [Server] Make link anchors consistent between viewer and editor.
   
 ### 22.04.10
 
@@ -183,16 +184,12 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.11
 
-Release date: `September 22, 2023`
+Release date: `September 25, 2023`
 
 #### Bug fixes
 
--	[Desktop] Update dependency. 
--	[Server] Fixed the diagnostic protocol test.
-
-#### Enhancements
-
-- [Server] Makes links anchors consistent between viewer and editor.
+- [Desktop] Update dependency.
+- [Server] Fixed a vulnerable property.
 
 ### 22.04.10
 
