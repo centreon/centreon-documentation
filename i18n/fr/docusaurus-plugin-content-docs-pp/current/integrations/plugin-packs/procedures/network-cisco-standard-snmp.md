@@ -67,10 +67,10 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de service
 
-| Nom de la règle                         | Description                                                   |
-|:----------------------------------------|:--------------------------------------------------------------|
-| Net-Cisco-Standard-SNMP-Aaa-Server-Name |                                                               |
-| Net-Cisco-Standard-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization |
+| Nom de la règle                         | Description                                          |
+|:----------------------------------------|:-----------------------------------------------------|
+| Net-Cisco-Standard-SNMP-Aaa-Server-Name | Découvre les serveurs AAA et supervise l'utilisation |
+| Net-Cisco-Standard-SNMP-Interface-Name  | Découvre les interfaces et supervise l'utilisation   |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -82,31 +82,31 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Aaa-Servers" label="Aaa-Servers">
 
-| Métrique                                                         | Unité |
-|:-----------------------------------------------------------------|:------|
-| aaa_servers.total.count                                          | count |
-| *aaa*~status                                                     | N/A   |
-| *aaa*~aaa_server.authentication.requests.persecond               | /s    |
-| *aaa*~aaa_server.authentication.requests.timeout.count           | count |
-| *aaa*~aaa_server.authentication.transactions.succeeded.persecond | /s    |
-| *aaa*~aaa_server.authentication.roundtrip.time.milliseconds      | ms    |
-| *aaa*~aaa_server.accounting.requests.persecond                   | /s    |
-| *aaa*~aaa_server.accounting.requests.timeout.count               | count |
-| *aaa*~aaa_server.accounting.transactions.succeeded.persecond     | /s    |
-| *aaa*~aaa_server.accounting.roundtrip.time.milliseconds          | ms    |
+| Métrique                                                                                  | Unité |
+|:------------------------------------------------------------------------------------------|:------|
+| aaa_servers.total.count                                                                   | count |
+| aaa server status                                                                         | N/A   |
+| *address:authen_port:acc_port*#aaa_server.authentication.requests.persecond               | /s    |
+| *address:authen_port:acc_port*#aaa_server.authentication.requests.timeout.count           | count |
+| *address:authen_port:acc_port*#aaa_server.authentication.transactions.succeeded.persecond | /s    |
+| *address:authen_port:acc_port*#aaa_server.authentication.roundtrip.time.milliseconds      | ms    |
+| *address:authen_port:acc_port*#aaa_server.accounting.requests.persecond                   | /s    |
+| *address:authen_port:acc_port*#aaa_server.accounting.requests.timeout.count               | count |
+| *address:authen_port:acc_port*#aaa_server.accounting.transactions.succeeded.persecond     | /s    |
+| *address:authen_port:acc_port*#aaa_server.accounting.roundtrip.time.milliseconds          | ms    |
 
 </TabItem>
 <TabItem value="Anycast" label="Anycast">
 
-| Métrique                                         | Unité |
-|:-------------------------------------------------|:------|
-| *int*#status                                     | N/A   |
-| *int*#interface.packets.in.unicast.percentage    | %     |
-| *int*#interface.packets.in.broadcast.percentage  | %     |
-| *int*#interface.packets.in.multicast.percentage  | %     |
-| *int*#interface.packets.out.unicast.percentage   | %     |
-| *int*#interface.packets.out.broadcast.percentage | %     |
-| *int*#interface.packets.out.multicast.percentage | %     |
+| Métrique                                               | Unité |
+|:-------------------------------------------------------|:------|
+| interface status                                       | N/A   |
+| *interface_name*#interface.packets.in.unicast.count    | count |
+| *interface_name*#interface.packets.in.broadcast.count  | count |
+| *interface_name*#interface.packets.in.multicast.count  | count |
+| *interface_name*#interface.packets.out.unicast.count   | count |
+| *interface_name*#interface.packets.out.broadcast.count | count |
+| *interface_name*#interface.packets.out.multicast.count | count |
 
 </TabItem>
 <TabItem value="Arp" label="Arp">
@@ -120,19 +120,22 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Bgp" label="Bgp">
 
-| Métrique                                 | Unité |
-|:-----------------------------------------|:------|
-| bgp.peers.detected.count                 | count |
-| *peers*#status                           | N/A   |
-| *peers*#bgp.peer.update.last.seconds     | s     |
-| *peers*#bgp.peer.prefixes.accepted.count | count |
-| *peers*#bgp.peer.prefixes.denied.count   | count |
+| Métrique                                                   | Unité |
+|:-----------------------------------------------------------|:------|
+| bgp.peers.detected.count                                   | count |
+| peers status                                               | N/A   |
+| *remote_addr~remote_port*#bgp.peer.update.last.seconds     | s     |
+| *remote_addr~remote_port*#bgp.peer.prefixes.accepted.count | count |
+| *remote_addr~remote_port*#bgp.peer.prefixes.denied.count   | count |
 
 </TabItem>
 <TabItem value="Configuration" label="Configuration">
 
 | Métrique             | Unité |
 |:---------------------|:------|
+| status               | N/A   |
+| running_last_changed | s     |
+| running_last_saved   | s     |
 | startup_last_changed | s     |
 
 </TabItem>
@@ -161,20 +164,24 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <TabItem value="Hsrp" label="Hsrp">
 
 
-Pas de métrique pour ce mode.
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Métrique                                       | Unité |
-|:-----------------------------------------------|:------|
-| *int*#status                                   | N/A   |
-| *int*#interface.traffic.in.bitspersecond       | b/s   |
-| *int*#interface.traffic.out.bitspersecond      | b/s   |
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
+| Métrique                                                   | Unité |
+|:-----------------------------------------------------------|:------|
+| status                                                     | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond        |  b/s  |
+| *interface_name*#interface.traffic.in.limit.bitspersecond  |  b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond       |  b/s  |
+| *interface_name*#interface.traffic.out.limit.bitspersecond |  b/s  |
+| *interface_name*#interface.packets.in.error.percentage     |  %    |
+| *interface_name*#interface.packets.in.discard.percentage   |  %    |
+| *interface_name*#interface.packets.out.error.percentage    |  %    |
+| *interface_name*#interface.packets.out.discard.percentage  |  %    |
+| *interface_name*#interface.packets.in.crc.count            | count |
+| *interface_name*#interface.packets.in.fcserror.count       | count |
 
 </TabItem>
 <TabItem value="Ipsla" label="Ipsla">
@@ -212,24 +219,24 @@ Pas de métrique pour ce mode.
 </TabItem>
 <TabItem value="Memory-Flash" label="Memory-Flash">
 
-| Métrique                               | Unité |
-|:---------------------------------------|:------|
-| *memory*#status                        | N/A   |
-| *memory*#memory.flash.usage.bytes      | B     |
-| *memory*#memory.flash.free.bytes       | B     |
-| *memory*#memory.flash.usage.percentage | %     |
+| Métrique                                       | Unité |
+|:-----------------------------------------------|:------|
+| memory partition status                        | N/A   |
+| *partition_name*#memory.flash.usage.bytes      | B     |
+| *partition_name*#memory.flash.free.bytes       | B     |
+| *partition_name*#memory.flash.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Qos-Usage" label="Qos-Usage">
 
-| Métrique                                                          | Unité |
-|:------------------------------------------------------------------|:------|
-| qos.traffic.bitspersecond                                         | b/s   |
-| qos.drop.bitspersecond                                            | b/s   |
-| *interface_classmap*#qos.interface.classmap.traffic.bitspersecond | b/s   |
-| *interface_classmap*#qos.interface.classmap.drop.bitspersecond    | b/s   |
-| *classmap*#qos.classmap.traffic.bitspersecond                     | b/s   |
-| *classmap*#qos.classmap.drop.bitspersecond                        | b/s   |
+| Métrique                                                                    | Unité |
+|:----------------------------------------------------------------------------|:------|
+| qos.traffic.bitspersecond                                                   | b/s   |
+| qos.drop.bitspersecond                                                      | b/s   |
+| *interface_name:classmap_name*#qos.interface.classmap.traffic.bitspersecond | b/s   |
+| *interface_name:classmap_name*#qos.interface.classmap.drop.bitspersecond    | b/s   |
+| *classmap_name*#qos.classmap.traffic.bitspersecond                          | b/s   |
+| *classmap_name*#qos.classmap.drop.bitspersecond                             | b/s   |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
@@ -264,12 +271,12 @@ Pas de métrique pour ce mode.
 </TabItem>
 <TabItem value="Voice-Call" label="Voice-Call">
 
-| Métrique                              | Unité |
-|:--------------------------------------|:------|
-| calls.active.1m.average.count         | count |
-| calls.active.5m.average.count         | count |
-| calls.active.15m.average.count        | count |
-| *ctype*#connection.calls.active.count | count |
+| Métrique                                      | Unité |
+|:-----------------------------          -------|:------|
+| calls.active.1m.average.count                 | count |
+| calls.active.5m.average.count                 | count |
+| calls.active.15m.average.count                | count |
+| connection_type#connection.calls.active.count | count |
 
 </TabItem>
 </Tabs>
@@ -892,50 +899,51 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Anycast" label="Anycast">
 
-| Option                                          | Description                                                                                                                                                                                                                                                                                                                                                  |
-|:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                   |
-| --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                              |
-| --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                      |
-| --redis-db                                      | Set Redis database index.                                                                                                                                                                                                                                                                                                                                    |
-| --failback-file                                 | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                         |
-| --memexpiration                                 | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                               |
-| --statefile-dir                                 | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                       |
-| --statefile-suffix                              | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                               |
-| --statefile-concat-cwd                          | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                  |
-| --statefile-format                              | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                        |
-| --statefile-key                                 | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                 |
-| --statefile-cipher                              | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                           |
-| --add-global                                    | Check global port statistics (By default if no --add-* option is set).                                                                                                                                                                                                                                                                                       |
-| --add-status                                    | Check interface status.                                                                                                                                                                                                                                                                                                                                      |
-| --add-duplex-status                             | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                           |
-| --add-err-disable                               | Check error disable (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                           |
-| --add-traffic                                   | Check interface traffic.                                                                                                                                                                                                                                                                                                                                     |
-| --add-errors                                    | Check interface errors.                                                                                                                                                                                                                                                                                                                                      |
-| --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                                                                                        |
-| --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                                                                                       |
-| --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                                                                                        |
-| --add-qos-limit                                 | Check QoS traffic limit rate.                                                                                                                                                                                                                                                                                                                                |
-| --check-metrics                                 | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                                                                                             |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display}                                                                                                                                                                                      |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display}                                                                                                                           |
-| --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-traffic-limit', 'out-traffic-limit', 'in-crc', 'in-fcserror', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
-| --units-traffic                                 | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                                                                                        |
-| --units-errors                                  | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                            |
-| --units-cast                                    | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                        |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                                                                                                |
-| --interface                                     | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                                                                                        |
-| --name                                          | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                                                                                                 |
-| --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                   |
-| --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                                                                                            |
-| --speed-out                                     | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                            |
-| --force-counters32                              | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                                                                                     |
-| --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                                                                                  |
-| --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                                  |
-| --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                         |
-| --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                                                                                       |
-| --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Eg: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                  |
-| --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                                                                                               |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                   |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                              |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                      |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                                                                                                                                    |
+| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                                                                                         |
+| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                                                                                               |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                       |
+| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                                                                                               |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                  |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                        |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                 |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                                                                                           |
+| --add-global             | Check global port statistics (By default if no --add-* option is set).                                                                                                                                                                                                                                                                                       |
+| --add-status             | Check interface status.                                                                                                                                                                                                                                                                                                                                      |
+| --add-duplex-status      | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                           |
+| --add-err-disable        | Check error disable (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                           |
+| --add-traffic            | Check interface traffic.                                                                                                                                                                                                                                                                                                                                     |
+| --add-errors             | Check interface errors.                                                                                                                                                                                                                                                                                                                                      |
+| --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                                                                                        |
+| --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                                                                                       |
+| --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                                                                                        |
+| --add-qos-limit          | Check QoS traffic limit rate.                                                                                                                                                                                                                                                                                                                                |
+| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                                                                                             |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display}                                                                                                                                                                                      |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{errdisable}, %{display}                                                                                                                           |
+| --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-traffic-limit', 'out-traffic-limit', 'in-crc', 'in-fcserror', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
+| --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                                                                                        |
+| --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                            |
+| --units-cast             | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                        |
+| --nagvis-perfdata        | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                                                                                                |
+| --interface              | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                                                                                        |
+| --name                   | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                                                                                                 |
+| --speed                  | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                   |
+| --speed-in               | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                                                                                            |
+| --speed-out              | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                            |
+| --force-counters32       | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                                                                                     |
+| --reload-cache-time      | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                                                                                  |
+| --oid-filter             | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                                  |
+| --oid-display            | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                         |
+| --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                                                                                       |
+| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                                                                                       |
+| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                                                                                       |
+| --show-cache             | Display cache interface datas.                                                                                                                                                                                                                                                                                                                               |
 
 </TabItem>
 <TabItem value="Arp" label="Arp">
