@@ -363,7 +363,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon
+apt install -y --no-install-recommends centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -398,7 +398,7 @@ yum install -y centreon-central
 
 ```shell
 apt update
-apt install -y centreon-central
+apt install -y --no-install-recommends centreon-central
 ```
 
 </TabItem>
@@ -428,7 +428,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon-database
+apt install -y --no-install-recommends centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
