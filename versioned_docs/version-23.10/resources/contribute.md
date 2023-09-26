@@ -3,12 +3,12 @@ id: contribute
 title: Contributing to the Centreon documentation
 ---
 
-You can contribute to the Centreon documentation by submitting pull requests on [our GitHub repository](https://github.com/centreon/centreon-documentation). As an external contributor, you cannot commit directly to the repository: a fork will be created automatically when you commit changes.
+You can contribute to the Centreon documentation by submitting pull requests on [our GitHub repository](https://github.com/centreon/centreon-documentation). As an external contributor, you cannot commit directly to the repository. A fork will be created automatically when you commit changes.
 
-This page only details the procedure to request changes in the documentation:
+This page only describes the procedure to request changes in the documentation.
 * If your problem is a general question about Centreon or the documentation, ask in the [Slack](https://centreon.github.io/register-slack/) channel instead, or on our community platform [The Watch](https://thewatch.centreon.com/).
 
-* If you have an idea for a new feature please submit it in the [Ideas](https://thewatch.centreon.com/ideas) section of The Watch.
+* If you have an idea for a new feature, please submit it in the [Ideas](https://thewatch.centreon.com/ideas) section of The Watch.
 
 * If you have found a bug, file that issue in the project's code repository. You may use the contribution guide [here](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md).
 
@@ -18,7 +18,7 @@ Help us review your PRs more quickly by following these guidelines.
 
 * Try not to touch a large number of files in a single PR if possible.
 
-* Don't change whitespace or line wrapping in parts of a file you are not editing for other reasons. Make sure your text editor is not configured to automatically reformat the whole file when saving.
+* Do not change whitespace or line wrapping in parts of a file you are not editing for other reasons. Make sure your text editor is not configured to automatically reformat the whole file when saving.
 
 * If you speak French, apply your changes both to the English and French versions of the documentation. The French version is stored in the **i18n** folder.
 
@@ -50,7 +50,7 @@ Help us review your PRs more quickly by following these guidelines.
 
     ![image](../assets/resources/open_pr.png)
 
-7. The pull request is created. Note that the name of your branch appears here (format : `<name_of_the_fork>:<name_of_the_branch>`):
+7. The pull request is created. Note that the name of your branch appears here (format: `<name_of_the_fork>:<name_of_the_branch>`):
 
     ![image](../assets/resources/pr_with_branch_name.png)
 
@@ -61,7 +61,7 @@ Your PR is done! The Centreon documentation team will:
 
 ## I have created a pull request but I want to add changes, what do I do?
 
-1. To edit another file, go to your fork of our documentation repository on GitHub (**Your profile** > click on the fork) and select your branch using the dropdown list in the top left corner of the screen.
+1. To edit another file, go to your fork of our documentation repository on GitHub (**Your profile** > click the fork) and select your branch using the dropdown list in the top left corner of the screen.
 
    ![image](../assets/resources/edit_branch.png)
 
@@ -75,7 +75,7 @@ Your PR is done! The Centreon documentation team will:
 
 If you are going to make changes to quite a few files (or if you like this method better), you may want to clone the repository, create a new branch and make the changes from your disk.
 
-Your branch should be based on branch **staging**. From this branch you can make changes to docs that are already published and still supported:
+Your branch should be based on the branch called **staging**. From this branch you can make changes to docs that are already published and still supported:
 
 * for Centreon OnPrem, see [this table](../installation/prerequisites.md#operating-systems),
 * sections “Centreon Cloud” and “Monitoring Connectors”.
@@ -88,7 +88,7 @@ Your branch should be based on branch **staging**. From this branch you can make
    git clone https://github.com/centreon/centreon-documentation.git
    ```
 
-2. Go to the **centreon-documentation** directory. You are on branch **staging**.
+2. Go to the **centreon-documentation** directory. You are on the **staging** branch.
 3. Create a new branch based on **staging**: give it a meaningful name. To create a branch and checkout this branch:
 
    ```shell
@@ -100,7 +100,7 @@ Your branch should be based on branch **staging**. From this branch you can make
 4. Make your changes:
 
    * [build the documentation locally](#how-can-i-preview-my-pr) to check that everything is displayed correctly.
-   * don’t forget to `git add` all the files you need (especially images).
+   * remember to `git add` all the files you need (especially images).
 5. Commit your changes and push them.
 6. Go to [GitHub](https://github.com/centreon/centreon-documentation). You should see a message that looks like this:
    ![image](../assets/resources/compare_and_pull_request1.png)
