@@ -50,7 +50,7 @@ jobs:
 
   publish:
     needs: [build]
-    runs-on: [self-hosted, infra]
+    runs-on: ${{ github.event_name == 'pull_request' && fromJson('["self-hosted", "infra"]') || 'ubuntu-22.04' }}
 
     steps:
       - name: Checkout sources
