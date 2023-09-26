@@ -25,7 +25,7 @@ heritage may be:
 
 This is a predefinition of settings at “n” levels. The object inherits from its
 Template which can itself inherit from its Template. If the child redefines a
-setting, this setting overwrites that defined in the higher level templates.
+setting, this setting overwrites the one defined in the higher-level templates.
 Otherwise it is added to the settings.
 
 ### Associative type inheritance
@@ -33,8 +33,8 @@ Otherwise it is added to the settings.
 This consists of adding together several templates within the same object in
 order to add together all the settings available. If a host inherits from
 several host templates and if the same setting is defined on several templates,
-the host templates situated above the other templates has priority in relation
-to its ancestors.
+the host template situated above the other templates has priority over
+its ancestors.
 
 ![image](../../assets/configuration/09hostmodels.png)
 
@@ -46,7 +46,7 @@ The diagram below shows a host inheriting from multiple host templates.
 
 To add a host template:
 
-Go into the **Configuration > Hosts > Templates** menu and click on **Add**
+Go into the **Configuration > Hosts > Templates** menu and click **Add**
 
 > Refer to the chapter covering configuration of
 > [hosts](hosts-create.md) to configure a template because the form
