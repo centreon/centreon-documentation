@@ -8,7 +8,7 @@ concepts de Centreon : groupes d'hôtes, catégories d'hôtes, catégories
 de services, métriques, etc.
 
 > Vous pouvez jeter un oeil au [Reports
-> book](../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf) pour trouver le
+> book](../../../../../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf) pour trouver le
 > rapport dont vous avez besoin avant de consulter ce guide.
 
 La plupart des rapports ont été créés pour un rendu optimal sur PDF, il

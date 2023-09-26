@@ -8,7 +8,7 @@ environment based on Centreon concepts (e.g., business activities, host groups
 and categories, service categories, metrics).
 
 > You can have a look at our [Reports
-> book](../assets/reporting/Centreon-MBI-Sample-Reports.pdf) to find the
+> book](../../../assets/reporting/Centreon-MBI-Sample-Reports.pdf) to find the
 > report you need before consulting this report guide.
 
 Most of these reports have been designed to be perfectly rendered in
