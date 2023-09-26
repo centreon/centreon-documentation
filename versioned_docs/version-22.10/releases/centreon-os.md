@@ -316,13 +316,13 @@ Release date: `October 26, 2022`
 
 ### 22.10.5
 
-Release date: `September 25, 2023`
+Release date: `September 26, 2023`
 
 #### Centreon Broker
 
 ##### Bug fixes
 
-- Fixed a bug that caused RRD graphs not to display properly when the check interval was longer than 15 minutes.
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
 - Fixed an issue that could cause a crash when many pollers were sending check results to Broker.
 
 ### 22.10.4
