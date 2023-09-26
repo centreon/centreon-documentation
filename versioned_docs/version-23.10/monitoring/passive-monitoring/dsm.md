@@ -15,9 +15,7 @@ been taken into account by a human action, it will remain visible in the Centreo
 acknowledged, the slot becomes available for new events.
 
 The purpose of this module is to improve Centreon’s basic trap management system. The basic function runs with a
-single service and alarm crashed by successive alarms.
 
-It is an essential complement to the management of SNMP traps.
 
 ## Installation
 
