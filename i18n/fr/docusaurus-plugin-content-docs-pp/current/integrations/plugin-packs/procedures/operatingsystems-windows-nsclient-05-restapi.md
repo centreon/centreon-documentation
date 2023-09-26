@@ -5,6 +5,14 @@ title: Windows NSClient API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+NSClient++ Rest API fournit sa propre API Rest via le module Webserver et permet d'exploiter au maximum
+les données de monitoring des serveurs Windows à travers une connexion HTTP sécurisée.
+
+Le connecteur permet de superviser :
+* Windows Server OS à partir de la version 2003 SP2
+* Windows (postes de travail) à partir de la version XP
+
 ## Contenu du pack
 
 ### Modèles
@@ -409,7 +417,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LANGUAGE                     | Set the language used in the config file (default: 'en')                                                                                             | en                |             |
 | FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                            |                   |             |
-| CONFIG                       | command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
+| CONFIG                       | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
 | WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                       |                   |             |
 | CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                       |                   |             |
 | WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                       |                   |             |
@@ -441,7 +449,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-----------------------|:----------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                   |                             |             |
 | EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                               |                             |             |
-| FILTERMANDATORY        |                                                                                                     |                             |             |
+| FILTERMANDATORY        |  Filter only mandatory Windows updates. | false                       |             |
+
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                          |                             |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                          |                             |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --display-updates |             |

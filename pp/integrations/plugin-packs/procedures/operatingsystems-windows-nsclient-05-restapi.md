@@ -5,6 +5,15 @@ title: Windows NSClient API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+NSClient++ provides its own REST API using the webserver module.
+This REST API give the possibility to exploit monitoring data from Windows servers 
+through HTTPS connections.
+
+The connector allows you to monitor:
+* Windows Server OS from 2003 SP2 version
+* Windows Workstation from XP version
+
 ## Pack assets
 
 ### Templates
@@ -409,7 +418,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LANGUAGE                     | Set the language used in the config file (default: 'en')                                                                                             | en                |             |
 | FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                            |                   |             |
-| CONFIG                       | command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
+| CONFIG                       | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
 | WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                       |                   |             |
 | CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                       |                   |             |
 | WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                       |                   |             |
@@ -441,7 +450,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-----------------------|:----------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                   |                             |             |
 | EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                               |                             |             |
-| FILTERMANDATORY        |                                                                                                     |                             |             |
+| FILTERMANDATORY        |  Filter only mandatory Windows updates. | false                       |             |
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                          |                             |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                          |                             |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --display-updates |             |
@@ -934,7 +943,7 @@ All available options for each service template are listed below:
 | --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --config                 | command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file                                                                                              |
+| --config                 | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file                                                                                              |
 | --language               | Set the language used in config file (default: 'en').                                                                                                                                                                                         |
 | --command                | Command to get information (Default: 'qwinsta'). Can be changed if you have output in a file.                                                                                                                                                 |
 | --command-path           | Command path (Default: none).                                                                                                                                                                                                                 |
