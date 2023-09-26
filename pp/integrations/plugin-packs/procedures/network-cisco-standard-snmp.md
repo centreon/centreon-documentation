@@ -97,15 +97,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Anycast" label="Anycast">
 
-| Metric name                                      | Unit  |
-|:-------------------------------------------------|:------|
-| *int*#status                                     | N/A   |
-| *int*#interface.packets.in.unicast.percentage    | %     |
-| *int*#interface.packets.in.broadcast.percentage  | %     |
-| *int*#interface.packets.in.multicast.percentage  | %     |
-| *int*#interface.packets.out.unicast.percentage   | %     |
-| *int*#interface.packets.out.broadcast.percentage | %     |
-| *int*#interface.packets.out.multicast.percentage | %     |
+| Metric name                                            | Unit  |
+|:-------------------------------------------------------|:------|
+| interface status                                       | N/A   |
+| *interface_name*#interface.packets.in.unicast.count    | count |
+| *interface_name*#interface.packets.in.broadcast.count  | count |
+| *interface_name*#interface.packets.in.multicast.count  | count |
+| *interface_name*#interface.packets.out.unicast.count   | count |
+| *interface_name*#interface.packets.out.broadcast.count | count |
+| *interface_name*#interface.packets.out.multicast.count | count |
 
 </TabItem>
 <TabItem value="Arp" label="Arp">
@@ -119,19 +119,22 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Bgp" label="Bgp">
 
-| Metric name                              | Unit  |
-|:-----------------------------------------|:------|
-| bgp.peers.detected.count                 | count |
-| *peers*#status                           | N/A   |
-| *peers*#bgp.peer.update.last.seconds     | s     |
-| *peers*#bgp.peer.prefixes.accepted.count | count |
-| *peers*#bgp.peer.prefixes.denied.count   | count |
+| Metric name                                                | Unit  |
+|:-----------------------------------------------------------|:------|
+| bgp.peers.detected.count                                   | count |
+| peers status                                               | N/A   |
+| *remote_addr~remote_port*#bgp.peer.update.last.seconds     | s     |
+| *remote_addr~remote_port*#bgp.peer.prefixes.accepted.count | count |
+| *remote_addr~remote_port*#bgp.peer.prefixes.denied.count   | count |
 
 </TabItem>
 <TabItem value="Configuration" label="Configuration">
 
 | Metric name          | Unit  |
 |:---------------------|:------|
+| status               | N/A   |
+| running_last_changed | s     |
+| running_last_saved   | s     |
 | startup_last_changed | s     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
@@ -166,15 +169,19 @@ No metrics for this mode.
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                    | Unit  |
-|:-----------------------------------------------|:------|
-| *int*#status                                   | N/A   |
-| *int*#interface.traffic.in.bitspersecond       | b/s   |
-| *int*#interface.traffic.out.bitspersecond      | b/s   |
-| *int*#interface.packets.in.discard.percentage  | %     |
-| *int*#interface.packets.in.error.percentage    | %     |
-| *int*#interface.packets.out.discard.percentage | %     |
-| *int*#interface.packets.out.error.percentage   | %     |
+| Metric name                                                | Unit  |
+|:-----------------------------------------------------------|:------|
+| status                                                     | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond        |  b/s  |
+| *interface_name*#interface.traffic.in.limit.bitspersecond  |  b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond       |  b/s  |
+| *interface_name*#interface.traffic.out.limit.bitspersecond |  b/s  |
+| *interface_name*#interface.packets.in.error.percentage     |  %    |
+| *interface_name*#interface.packets.in.discard.percentage   |  %    |
+| *interface_name*#interface.packets.out.error.percentage    |  %    |
+| *interface_name*#interface.packets.out.discard.percentage  |  %    |
+| *interface_name*#interface.packets.in.crc.count            | count |
+| *interface_name*#interface.packets.in.fcserror.count       | count |
 
 </TabItem>
 <TabItem value="Ipsla" label="Ipsla">
@@ -212,24 +219,24 @@ No metrics for this mode.
 </TabItem>
 <TabItem value="Memory-Flash" label="Memory-Flash">
 
-| Metric name                            | Unit  |
-|:---------------------------------------|:------|
-| *memory*#status                        | N/A   |
-| *memory*#memory.flash.usage.bytes      | B     |
-| *memory*#memory.flash.free.bytes       | B     |
-| *memory*#memory.flash.usage.percentage | %     |
+| Metric name                                    | Unit  |
+|:-----------------------------------------------|:------|
+| memory partition status                        | N/A   |
+| *partition_name*#memory.flash.usage.bytes      | B     |
+| *partition_name*#memory.flash.free.bytes       | B     |
+| *partition_name*#memory.flash.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Qos-Usage" label="Qos-Usage">
 
-| Metric name                                                       | Unit  |
-|:------------------------------------------------------------------|:------|
-| qos.traffic.bitspersecond                                         | b/s   |
-| qos.drop.bitspersecond                                            | b/s   |
-| *interface_classmap*#qos.interface.classmap.traffic.bitspersecond | b/s   |
-| *interface_classmap*#qos.interface.classmap.drop.bitspersecond    | b/s   |
-| *classmap*#qos.classmap.traffic.bitspersecond                     | b/s   |
-| *classmap*#qos.classmap.drop.bitspersecond                        | b/s   |
+| Metric name                                                                 | Unit  |
+|:----------------------------------------------------------------------------|:------|
+| qos.traffic.bitspersecond                                                   | b/s   |
+| qos.drop.bitspersecond                                                      | b/s   |
+| *interface_name:classmap_name*#qos.interface.classmap.traffic.bitspersecond | b/s   |
+| *interface_name:classmap_name*#qos.interface.classmap.drop.bitspersecond    | b/s   |
+| *classmap_name*#qos.classmap.traffic.bitspersecond                          | b/s   |
+| *classmap_name*#qos.classmap.drop.bitspersecond                             | b/s   |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
@@ -264,12 +271,12 @@ No metrics for this mode.
 </TabItem>
 <TabItem value="Voice-Call" label="Voice-Call">
 
-| Metric name                           | Unit  |
-|:--------------------------------------|:------|
-| calls.active.1m.average.count         | count |
-| calls.active.5m.average.count         | count |
-| calls.active.15m.average.count        | count |
-| *ctype*#connection.calls.active.count | count |
+| Metric name                                   | Unit  |
+|:-----------------------------          -------|:------|
+| calls.active.1m.average.count                 | count |
+| calls.active.5m.average.count                 | count |
+| calls.active.15m.average.count                | count |
+| connection_type#connection.calls.active.count | count |
 
 </TabItem>
 </Tabs>
@@ -934,7 +941,8 @@ All available options for each service template are listed below:
 | --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                                  |
 | --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                         |
 | --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                                                                                       |
-| --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Eg: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                  |
+| --display-transform-src  | Regexp src to transform display value.                                                                                                                                                                                                                                                                                                                       |
+| --display-transform-dst  | Regexp dst to transform display value.                                                                                                                                                                                                                                                                                                                       |
 | --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                                                                                               |
 
 </TabItem>
@@ -1110,7 +1118,7 @@ All available options for each service template are listed below:
 | --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
 | --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
 | --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --failback-file        | Failback on a local file if redis connection fails.                                                                                                                                                                                          |
 | --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
 | --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
 | --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
