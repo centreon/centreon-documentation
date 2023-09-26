@@ -6,22 +6,24 @@ title: Dynamic Service Management
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Centreon module, Dynamic Service Management (Centreon-DSM) is an extension to manage alarms with an eventlogs system.
+The Centreon Dynamic Service Management module (Centreon-DSM) is an extension to manage alarms with an eventlogs system.
 With DSM, Centreon can receive events such as SNMP traps resulting from the detection of a problem and assign events
 dynamically to a slot defined in Centreon, like a trap event.
 
-A resource has a set number of "slots" (containers) on which alerts will be  assigned (stored). While this event has
-not been taken into account by a human action, it will remain visible in the Centreon interface. When the event is
+A resource has a set number of "slots" (containers) on which alerts will be assigned (stored). Until this event has
+been taken into account by a human action, it will remain visible in the Centreon interface. When the event is
 acknowledged, the slot becomes available for new events.
 
-The goal of this module is to give an overview of Centreon’s basic trap management system.
+The purpose of this module is to improve Centreon’s basic trap management system. The basic function runs with a
+single service and alarm crashed by successive alarms.
 
+It is an essential complement to the management of SNMP traps.
 
 ## Installation
 
 ### On a central server
 
-This part is to install **Centreon DSM** on a central server. The Centreon DSM server and client will be installed on the
+This section describes how to install **Centreon DSM** on a central server. The Centreon DSM server and client will be installed on the
 main server.
 
 Run the command:
@@ -33,10 +35,6 @@ Run the command:
 dnf install centreon-dsm-server centreon-dsm-client
 ```
 
-<<<<<<< HEAD
-After installing the rpm, you must finish installing the module through the web frontend. Go to the
-**Administration > Extensions > Manager** menu and search for **dsm**. Click **Install selection**.
-=======
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -54,9 +52,8 @@ apt install centreon-dsm-server centreon-dsm-client
 </TabItem>
 </Tabs>
 
-After installing the rpm, you have to finish the module installation through the web frontend. Go to
-**Administration > Extensions > Manager** menu and search for **dsm**. Click on **Install selection**.
->>>>>>> ace32a17fa0cc72c9c75b4b3c5d311f4c81b3ee0
+After installing the rpm, you must finish installing the module through the web frontend. Go to
+**Administration > Extensions > Manager** and search for **dsm**. Click **Install selection**.
 Your Centreon DSM Module is now installed.
 
 You can now start and enable the daemon on your server:
@@ -79,9 +76,6 @@ Run the command:
 dnf install centreon-dsm-client
 ```
 
-<<<<<<< HEAD
-You must now create an access from the poller to the DBMS server on the **centreon_storage** database.
-=======
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -99,15 +93,14 @@ apt install centreon-dsm-client
 </TabItem>
 </Tabs>
 
-You now have to create an access from the poller to the DBMS server on the **centreon_storage** database.
->>>>>>> ace32a17fa0cc72c9c75b4b3c5d311f4c81b3ee0
+You must now create an access from the poller to the DBMS server on the **centreon_storage** database.
 
 ## Architecture
 
 The event must be transmitted to the server via an SNMP trap. The SNMP trap is thus collected by the
-**snmptrapd daemon**. If reception parameters are not valid (authorized community), the event is deleted.
+**snmptrapd daemon**. If the reception parameters are not valid (authorized community), the event is deleted.
 
-Once the SNMP trap has been received, it is sent to the **centreontrapdforward** script which writes the information
+Once the SNMP trap has been received, it is sent to the **centreontrapdforward** script, which writes the information
 received in a buffer folder (by default: **/var/spool/centreontrapd/**).
 
 The **centreontrapd** service reads the information received in the buffer folder and interprets the traps received
@@ -117,20 +110,20 @@ This special command is executing binary **dsmclient.pl** with arguments. This c
 queue that the daemon reads every 5 seconds.
 
 The daemon **dsmd.pl** will search in the "centreon" database for name slots (pool service liabilities) associated with the host.
-If no slot is created, the event is deleted. Otherwise, the binary will look to see if there is at least one free slot. If at
+If no slot is created, the event is deleted. Otherwise, the process will search to find out if there is at least one free slot. If at
 least one slot is free, then it will transmit external commands to the monitoring engine to change the state of the slot.
-Otherwise, the data will be made not secret pending the release of a slot. A slot is releasable served by paying the
-liabilities.
+Otherwise, the data will wait for a slot to be released. To be releasable, a slot must be created by a
+passive service template.
 
 ## Configuration
 
 ### Configure Slots
 
-Go to the **Administration > Modules > Dynamic Services** menu and click on **Add**
+Go to **Administration > Modules > Dynamic Services** and click **Add**
 
 ![image](../../assets/configuration/dsm/form-slot.png)
 
-Please follow the table below in order to understand the role of all parameters:
+Please use the table below understand the roles of all the parameters:
 
 * **Name**: This is the name of the slot group.
 * **Description**: This is the description of the group.
@@ -151,14 +144,14 @@ An example of a passive service template is available below:
 
 > The macro **ALARM_ID** is mandatory. The default **empty** value is also necessary.
 
-When you validate the form, Centreon will create or update all slots. If you have not changed any value, you don't
+When you validate the form, Centreon will create or update all slots. If you have not changed any value, you do not
 need to perform any other action. Otherwise, you must *[deploy the configuration](../monitoring-servers/deploying-a-configuration.md)*.
 
 ### Configure traps
 
 The last step is to configure the traps that you want to redirect to your slots.
 
-Edit an SNMP trap that you want to redirect to slot systems. Go to **Configuration > SNMP traps > SNMP traps** 
+Edit an SNMP trap that you want to redirect to slot systems. Go to **Configuration > SNMP traps > SNMP traps**
 and edit an SNMP trap definition.
 
 In order to redirect alarms to slots, enable **Execute special command** in the form and add the following
@@ -172,7 +165,7 @@ Each trap receives this command in order to redirect alarms to dsmd daemon.
 
 This command takes some parameters. You can find the list and the description of each parameter in the following table:
 
-* **-H**: Host address (ip or name) in which you want to redirect the alarm. You can pass the value @HOSTADDRESS@ in
+* **-H**: Host address (ip or name) in which you want to redirect the alarm. You can enter the value @HOSTADDRESS@ in
   order to keep the same host, or you can use whatever you want in order to centralize all alarms on the same virtual
   host, for example, that hosts all alarms.
 * **-o**: This is the output that dsm will provide when the command submits the result in the correct slot. This output
@@ -182,9 +175,9 @@ This command takes some parameters. You can find the list and the description of
   create the same id during the opening and closing treatment of the alarm.
 * **-s**: This is the status that you want to enter as a parameter to the alarm. You can use @STATUS@ in order to use the
   inherited status build from the matching rule system.
-* **-t**: This is the time that you want to pass to dsm in order to keep the real trap reception time.
+* **-t**: This is the time that you want to set to dsm in order to keep the real trap reception time.
 * **-m**: This is the list of macros and its values that you want to update during the treatment of the alarm. Please
-  follow the syntax below: macro1=value1|macro2=value2|macro3=value3 This function is used to update some parameters
+  use the following syntax: macro1=value1|macro2=value2|macro3=value3 This function is used to update some parameters in
   live on the Centreon-Engine core memory without a restart.
 
 Your form should now be like this:
@@ -194,7 +187,7 @@ Your form should now be like this:
 After saving the form, please generate the
 *[SNMP traps database definition](monitoring-with-snmp-traps.md#Applying-the-changes)*.
 
-### Configure Traps links
+### Configure Trap links
 
 One thing that is different compared to the Centreon Trap system is that you cannot directly link the service template of the
 slot to the trap in order to not receive the trap x times (here, x represents the number of slots).
@@ -216,7 +209,7 @@ It is possible to overwrite the default configuration of the module by creating/
     submit_command_timeout => 5,
     # custom macro used to keep alarm ID
     macro_config => 'ALARM_ID',
-    # number of alarms retrieve from the cache for analysis
+    # number of alarms retrieved from the cache for analysis
     sql_fetch => 1000,
     # interval in seconds to clean locks
     clean_locks_time => 3600,
