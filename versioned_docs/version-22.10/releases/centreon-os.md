@@ -322,7 +322,7 @@ Release date: `September 25, 2023`
 
 ##### Bug fixes
 
-- Index data INSERT requests have been replaced by INSERT ON DUPLICATE KEY UPDATE and check_interval is always filled in.
+- Fixed a bug that caused RRD graphs not to display properly when the check interval was longer than 15 minutes.
 - Fixed an issue that could cause a crash when many pollers were sending check results to Broker.
 
 ### 22.10.4
