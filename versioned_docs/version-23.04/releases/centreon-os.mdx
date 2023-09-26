@@ -217,15 +217,15 @@ Release date: `April 26, 2023`
 
 ### 23.04.4
 
-Release date: `September 25, 2023`
+Release date: `September 26, 2023`
 
 #### Centreon Broker
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
-- Index data INSERT requests have been replaced by INSERT ON DUPLICATE KEY UPDATE and check_interval is always filled in.
-- In services and hosts tables, at cbd startup, state is filled with real_state content only if real_state is not null.
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+Fixed a bug that caused services and hosts to lose their status at cbd startup.
 
 </details>
 
