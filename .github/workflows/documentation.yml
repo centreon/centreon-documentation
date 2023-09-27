@@ -95,19 +95,21 @@ jobs:
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
 
+      - name: Compress GIFs
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          du -sh .
+          apt update
+          apt install -y gifsicle
+          #find ./ -type f -name "*.gif" -print0 | parallel -0 gifsicle -O3 --colors=16 {} -o {}
+          find . -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2 | head -50 | gifsicle -O3 --colors=16 --scale=0.5 {} -o {}
+          du -sh .
+
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
         with:
           cmd: install --frozen-lockfile
-
-      - name: Compress GIFs
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          apt update
-          apt install -y gifsicle
-          #find ./ -type f -name "*.gif" -print0 | parallel -0 gifsicle -O3 --colors=16 {} -o {}
-          find ./ -type f -name "*.gif" -print0 | gifsicle -O3 --colors=16 {} -o {}
 
       # - name: Compress Images
       #   if: ${{ github.event_name == 'pull_request' }}
