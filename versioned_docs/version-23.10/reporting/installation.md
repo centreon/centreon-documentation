@@ -334,7 +334,7 @@ Then, download the license sent by the Centreon team to start configuring the ge
 ### Configure the extension
 
 Enter the following values in the Centreon MBI general options
-MBI menu, *Reports > Monitoring Business Intelligence > General Options*:
+menu, *Reports > Monitoring Business Intelligence > General Options*:
 
 
 | Tabs                                                                                   | Option                     | Value                                                                                |
