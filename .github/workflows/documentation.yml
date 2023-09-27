@@ -80,7 +80,7 @@ jobs:
                     if (available_versions.include(result[1])) {
                       build_versions.push(result[1]);
                     }
-                  }
+                  });
                 });
                 build_versions = [...new Set(build_versions)].sort().reverse(); # remove duplicates and sort desc
               }
