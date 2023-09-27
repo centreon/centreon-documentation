@@ -3,7 +3,7 @@ id: graph-views-api
 title: Graphical views API (beta)
 ---
 
-If you want to automate the creation of standard views or maintenance, you may
+If you want to automate the creation or maintenance of standard views, you may
 use the Centreon MAP extension API.
 
 > Views created using the API are not immediately visible in the desktop client; you need to
