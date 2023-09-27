@@ -91,6 +91,10 @@ jobs:
               }
             }
 
+            console.log(`Following versions will be built: ${build_versions.join(',')}`);
+            console.log(`pp section will ${build_pp === '0' ? 'not' : ''} be built`);
+            onsole.log(`cloud section will ${build_cloud === '0' ? 'not' : ''} be built`);
+
             core.setOutput('build_versions', build_versions.join(','));
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
@@ -105,10 +109,10 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
-          NODE_ENV: development
-          PP: ${{ steps.filters.outputs.build_pp }}
-          CLOUD: ${{ steps.filters.outputs.build_cloud }}
-          VERSIONS: ${{ steps.filters.outputs.build_versions }}
+          ARCHIVED_VERSION: "23.04"
+          #PP: ${{ steps.filters.outputs.build_pp }}
+          #CLOUD: ${{ steps.filters.outputs.build_cloud }}
+          #VERSIONS: ${{ steps.filters.outputs.build_versions }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
