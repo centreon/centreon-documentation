@@ -67,7 +67,7 @@ This SQL file is executed during module installation if it is configured inside 
 your module to be available from Centreon menus, you must insert new entries into the ``topology`` table of the
 ``centreon`` database. An example is available inside the ``Dummy`` module.
 
-**[sql > install.sql]**
+**[sql > uninstall.sql]**
 
 This SQL file is executed during module uninstallation if it is configured inside the *conf.php* file. It can also
 remove your module from Centreon menus.
