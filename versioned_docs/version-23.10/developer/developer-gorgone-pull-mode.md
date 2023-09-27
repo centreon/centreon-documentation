@@ -94,5 +94,5 @@ We created the file **/etc/centreon-gorgone/nodes-register-override.yml**:
 nodes:
   - id: 6
     type: pull
-    prevail: 1.
+    prevail: 1
 ```
