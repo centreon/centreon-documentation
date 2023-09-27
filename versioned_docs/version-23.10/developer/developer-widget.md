@@ -143,7 +143,7 @@ $template = new Smarty();
 $template = initSmartyTplForPopup($path, $template, "./", $centreon_path);
 ```
 
-2.creating a php template to be use in html:
+2.creating a PHP template to be use in HTML:
 
 ```PHP
 $template->assign('widgetId', $widgetId);
