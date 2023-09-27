@@ -5,7 +5,7 @@ title : Stream connectors
 
 Centreon Broker provides a stream connector. If no suitable connector is
 found among those provided, then this stream connector is sure to fulfill your
-needs. Its principle is to expose a part of Centreon Broker API
+needs. Its principle is to expose a part of the Centreon Broker API
 through the Lua interpreter, and the user simply inputs their requirements.
 
 ## The exposed Centreon Broker
