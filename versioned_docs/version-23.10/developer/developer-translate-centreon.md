@@ -109,7 +109,7 @@ Connect to your Centreon web interface, edit your profile and select new languag
 
 ![image](../assets/getting-started/change_language_2.png)
 
-Save the form and access to another menu. Your interface will be translated.
+Save the form and access another menu. Your interface will be translated.
 
 ## Upgrade translation
 
