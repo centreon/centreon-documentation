@@ -93,7 +93,7 @@ jobs:
 
             console.log(`Following versions will be built: ${build_versions.join(',')}`);
             console.log(`pp section will ${build_pp === '0' ? 'not' : ''} be built`);
-            onsole.log(`cloud section will ${build_cloud === '0' ? 'not' : ''} be built`);
+            console.log(`cloud section will ${build_cloud === '0' ? 'not' : ''} be built`);
 
             core.setOutput('build_versions', build_versions.join(','));
             core.setOutput('build_pp', build_pp);
