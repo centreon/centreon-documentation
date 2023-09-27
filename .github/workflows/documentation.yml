@@ -65,6 +65,7 @@ jobs:
             let build_pp = '1';
             let build_cloud = '1';
 
+            //if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
             if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === true) {
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
                 build_pp = '0';
@@ -78,8 +79,9 @@ jobs:
                 const available_versions = require('./versions.json');
                 build_versions = [];
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
-                  file.matchAll(/(\d{2}\.\d{2})/).map((result) => {
+                  file.matchAll(/(\d{2}\.\d{2})/g).map((result) => {
                     if (available_versions.include(result[1])) {
+                      console.log(`Version ${result[1]} updated : ${file}`);
                       build_versions.push(result[1]);
                     }
                   });
