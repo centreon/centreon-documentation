@@ -29,6 +29,32 @@ jobs:
         with:
           node-version: 20
 
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          token: ${{ github.token }}
+          filters: |
+            has_global_changes:
+              - babel.config.js
+              - docusaurus.config.js
+              - package.json
+              - versions.json
+              - yarn.lock
+              - 'src/**'
+              - 'static/**'
+              - 'i18n/**/(code|footer|navbar).json'
+              - 'i18n/**/index.js'
+            has_cloud_changes:
+              - 'cloud/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
+            has_pp_changes:
+              - 'pp/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
+            has_versioned_changes:
+              - 'i18n/**/docusaurus-plugin-content-docs/**'
+              - 'versioned_docs/**'
+              - 'versioned_sidebars/**'
+
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4

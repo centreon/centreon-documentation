@@ -26,7 +26,9 @@ jobs:
         run: npm install -g yarn
 
       - name: Install dependencies
-        run: yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --frozen-lockfile
 
       - name: Redirect pp and cloud links to last documentation
         run: |
