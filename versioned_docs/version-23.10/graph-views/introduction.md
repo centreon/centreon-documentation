@@ -3,7 +3,7 @@ id: introduction
 title: Introduction to Centreon MAP (Legacy)
 ---
 
-The graphical view capabilities in Centreon relies on the Centreon MAP
+The graphical view capabilities in Centreon rely on the Centreon MAP
 module.
 
 Centreon MAP is a data-mapping and visualization tool designed for IT
@@ -29,7 +29,7 @@ over a city, country or world:
 
 ![image](../assets/graph-views/display_geo_view.gif)
 
-Both types of views may be displayed in the same Centreon web user interface:
+Both types of view may be displayed in the same Centreon web user interface:
 
 - Either from the Centreon MAP dedicated user interface, which also includes a search facility.
 - Or within a Custom View, using the dedicated Centreon MAP widget.
@@ -41,10 +41,10 @@ Use the following procedures to administrate and use Centreon MAP (Legacy).
 ### Administrating MAP (Legacy)
   - [Installing Centreon MAP (Legacy) extension](install.md) describes prerequisites and procedures to install the MAP (Legacy), also named Map4 desktop client.
   - [Installing on a remote server](remote-server.md) explains how to install MAP (Legacy) on a remote server.
-  - [Updating the extension](update.md) describes the update process of MAP (Legacy).
-  - [Upgrading the extension](upgrade.md) describes the update process of MAP (Legacy).
+  - [Updating the extension](update.md) describes the update process for MAP (Legacy).
+  - [Upgrading the extension](upgrade.md) describes the update process for  MAP (Legacy).
   - [Migrating the extension](migrate.md) describes how to move the MAP (Legacy) server to another server.
-  - [Configuring rights](configuration.md) explains how to administrate users rights and describes customization settings.
+  - [Configuring rights](configuration.md) explains how to administer users’ rights and describes customization settings.
   - [Advanced configuration](advanced-configuration.md) describes advanced procedures to configure MAP (Legacy).
   
 ### Using MAP (Legacy)
@@ -53,4 +53,4 @@ Use the following procedures to administrate and use Centreon MAP (Legacy).
   - [Displaying views](display-view.md) from the web interface. This topic also describes dedicated features.
   - [Sharing a view](share-view.md) allows you to share views to a limited audience.
   - [MAP (Legacy) known issues](known-issues.md) is a list of issues you may encounter using MAP (Legacy).
-  - [MAP (Legacy) troubleshooting](troubleshooter.md) helps you to solve some issues occuring in MAP (Legacy).
+  - [MAP (Legacy) troubleshooting](troubleshooter.md) helps you to solve some issues occurring in MAP (Legacy).

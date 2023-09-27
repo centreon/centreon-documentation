@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 This chapter describes advanced procedures to secure your Centreon MAP and MAP (Legacy)
 platform.
 
-> If you want to use MAP and MAP (Legacy) in HTTPS, you must both secure your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
+> If you want to use MAP and MAP (Legacy) in HTTPS, you must secure both your Centreon platform and MAP (or MAP Legacy). Follow this [procedure](../administration/secure-platform.md) if you need to secure your Centreon platform.
 
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
@@ -36,15 +36,15 @@ Create a PKCS12 file with the following command line:
 openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 ```
 
-Then, import this file into a new keystore (a Java repository of security
+Then import this file into a new keystore (a Java repository of security
 certificates):
 
 ```shell
 keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
 ```
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
-and set below parameters inside
+Put the above keystore file (studio.jks) in the folder "/etc/centreon-map/",
+and set the following parameters inside
 `/etc/centreon-map/map-config.properties`:
 
 ```text
@@ -101,8 +101,8 @@ At the end of the screen form, when the "key password" is requested, use
 the same password as the one used for the keystore itself by pressing the
 ENTER key.
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-map/",
-and set below parameters inside
+Put the above keystore file (studio.jks) in the folder "/etc/centreon-map/",
+and set the following parameters inside
 `/etc/centreon-map/map-config.properties`:
 
 ```text
@@ -118,7 +118,7 @@ centreon-map.keystore-pass=xxx
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-1. Stop Centreon MAP service:
+1. Stop the Centreon MAP service:
 
     ```shell
     systemctl stop centreon-map-engine
@@ -131,7 +131,7 @@ centreon-map.keystore-pass=xxx
     RUN_ARGS="--spring.profiles.active=prod,tls"
     ```
 
-3. Restart Centreon MAP service:
+3. Restart the Centreon MAP service:
 
     ```shell
     systemctl start centreon-map-engine
@@ -140,7 +140,7 @@ centreon-map.keystore-pass=xxx
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-1. Stop Centreon MAP service:
+1. Stop the Centreon MAP service:
 
     ```shell
     systemctl stop centreon-map
@@ -153,7 +153,7 @@ centreon-map.keystore-pass=xxx
     RUN_ARGS="--spring.profiles.active=prod,tls"
     ```
 
-3. Restart Centreon MAP service:
+3. Restart the Centreon MAP service:
 
     ```shell
     systemctl start centreon-map
@@ -169,11 +169,11 @@ Centreon MAP server is now configured to respond to requests from HTTPS:
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.md#change-centreon-map-server-port).
 
-> Don't forget to modify the URL on Centreon side in the **Map server address**
+> Remember to modify the URL on the Centreon side in the **Map server address**
 > field in the **Administration > Extensions > Map > Options** menu.
 ![image](../assets/graph-views/map-address-https.png)
 
-> Don't forget to update your connection profile in the desktop client 
+> Remember to update your connection profile in the desktop client 
 > by checking the ssl checkbox.
 ![image](../assets/graph-views/desktop-ssl-option.png)
 
@@ -182,7 +182,7 @@ procedure](advanced-configuration.md#change-centreon-map-server-port).
 An additional Broker output for Centreon Central (centreon-broker-master) has
 been created during the installation.
 
-You can check it in your Centreon web interface, from the `Configuration >
+You can check it in your Centreon web interface, from `Configuration >
 Pollers > Broker Configuration`, by editing the `centreon-broker-master`
 configuration.
 
@@ -192,7 +192,7 @@ The output configuration should look like this:
 
 ### Broker configuration
 
-You can enable TLS output and set up Broker's private key and public
+You can enable TLS output and set up the Broker's private key and public
 certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
@@ -204,15 +204,15 @@ openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
 ```
 
-And then, copy the private key and the certificate into `/etc/centreon/broker_cert/` directory:
+And then copy the private key and the certificate into the `/etc/centreon/broker_cert/` directory:
 
 ```text
 mv broker_private.key /etc/centreon/broker_cert/
 mv broker_public.crt /etc/centreon/broker_cert/
 ```
 
-> "Trusted CA's certificate" field is optional. If you activate Broker's client
-> authentication by setting this "ca\_certificate.crt", then you must setup a
+> The "Trusted CA's certificate" field is optional. If you activate the Broker's client
+> authentication by setting this "ca\_certificate.crt", then you must set up a
 > [keystore for MAP server](#configure-httpstls-on-the-web-server)
 >
 > You MUST push the new broker configuration and restart the broker after
@@ -222,7 +222,7 @@ mv broker_public.crt /etc/centreon/broker_cert/
 
 First of all, you should [activate HTTPS/TLS on the web server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
-Then, set the following parameters in MAP server configuration at:
+Then, set the following parameters in the MAP server configuration at:
 
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
@@ -248,17 +248,17 @@ To enable TLS socket connection with Broker:
 broker.tls=true
 ```
 
-#### Configuration with a self signed certificate
+#### Configuration with a self-signed certificate
 
-If the Broker public certificate is self signed, you must create a trust store
-containing given certificate or its CA certificate with the following command
+If the Broker public certificate is self-signed, you must create a trust store
+containing the given certificate or its CA certificate with the following command
 line:
 
 ```shell
 keytool -import -alias centreon-broker -file broker_public.crt -keystore truststore.jks
 ```
 
-- "broker\_public.crt" is Broker public certificate or its CA certificate
+- "broker\_public.crt" is the Broker public certificate or its CA certificate
   in PEM format,
 - "truststore.jks" is the generated trust store in JKS format,
 - a store password is required during generation.
@@ -275,7 +275,7 @@ centreon-map.truststore-pass=XXXX
 ```
 
 > Replace the trustStorePassword value "xxx" with the password you used when
-> generate the trust store.
+> generating the trust store.
 
 Meanwhile, you should activate the "tls_broker" profile of Centreon MAP
 service.
@@ -288,7 +288,7 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 ```
 
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
-> serves necessarily HTTPS.
+> necessarily serves HTTPS.
 
 Once you add a truststore, Centreon MAP will use it to validate self-signed certificates.
 This means that if you use a self-signed certificate for the central server, you must add it to the truststore. If you don't, the

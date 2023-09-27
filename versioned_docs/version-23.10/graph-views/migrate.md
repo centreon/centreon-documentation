@@ -15,7 +15,7 @@ your new Centreon MAP server.
 
 ### Synchronize the data
 
-Stop Centreon MAP service on both Centreon MAP servers:
+Stop the Centreon MAP service on both Centreon MAP servers:
 
 ```shell
 systemctl stop centreon-map
@@ -33,7 +33,7 @@ Upload centreon_studio.sql to the new Centreon MAP (in /tmp) server and import i
 mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
 ```
 
-Start Centreon Map service on the new Centreon MAP servers:
+Start the Centreon Map service on the new Centreon MAP servers:
 
 ```shell
 systemctl start centreon-map

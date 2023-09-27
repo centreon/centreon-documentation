@@ -3,7 +3,7 @@ id: deploying-a-configuration
 title: Deploying a configuration
 ---
 
-When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (neither on the central server on which you have made the change, nor on any remote server or poller linked to it). For the changes to be taken into account, you have to export the configuration.
+When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (either on the central server on which you have made the change or on any remote server or poller linked to it). For the changes to be taken into account, you must export the configuration.
 
 Any change in configuration must be done and exported from the central server's interface or API, regardless of which poller is affected by the change (central server, remote server, poller).
 
@@ -18,14 +18,14 @@ server and of all pollers and remote servers linked to it: changes are shown in 
 
 3. Click on **Export configuration**.
 
-4. Check the following boxes (see section [**Export options**](#export-options)) :
+4. Check the following boxes (see section [**Export options**](#export-options)):
 
    - **Generate Configuration Files**
    - **Run monitoring engine debug (-v)**
    - **Move Export Files**
    - **Restart Monitoring Engine**. Use the most appropriate method:
-     - **Reload** : when you have created, deleted or edited monitored objects
-     - **Restart** : when you have made changes to the way a poller and the central server communicate together, or
+     - **Reload**: when you have created, deleted or edited monitored objects
+     - **Restart**: when you have made changes to the way a poller and the central server communicate together, or
      to the configuration of the engine. Restarting takes more time than reloading.
 
 5. Click **Export**. A log of the export is displayed.
@@ -43,9 +43,9 @@ The options work in the following ways:
   configured via the web interface
 - **Run monitoring engine debug (-v)**: Performs a sanity check of the monitoring engine's configuration files
 - **Move Export Files**: Moves the configuration files from the temporary
-  directory to the monitoring engine's configuration directory
+  directory to the monitoring engine's configuration directory.
 - **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
-  configuration
+  configuration.
 - **Post generation command**: Executes the post-generation command set in the
   poller's configuration.
 

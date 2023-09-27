@@ -15,9 +15,9 @@ Install the remote server [using packages](../../installation/installation-of-a-
 As of Centreon version 18.10, a new wizard has been added for defining a new
 Remote Server on the Centreon platform.
 
-1. Go to the **Configuration > Pollers > Pollers** menu and click on **Add** to configure a new Remote Server.
+1. Go to the **Configuration > Pollers > Pollers** menu and click **Add** to configure a new Remote Server.
 
-2. Select **Add a Centreon Remote Server** and click on **Next**:
+2. Select **Add a Centreon Remote Server** and click **Next**:
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-1.png)
 
@@ -36,21 +36,21 @@ Remote Server on the Centreon platform.
       The **Database username** and **Database password** are the credentials defined
       during the installation of the Remote Server.
 
-      The **Server IP address** field is of the following form:
+      The **Server IP address** field has the following form:
       [(http|https)://]@IP[:(port)]. If your Remote Server is only available on
       HTTPS, it is mandatory to define the HTTP method and the TCP port if it is
        not the default one.
 
-      The **Do not check SSL certificate validation** option allows to connect to the
+      The **Do not check SSL certificate validation** option allows you to connect to the
       Remote Server using a self-signed SSL certificate.
 
-      The **Do not use configured proxy to connect to this server** allows to connect
+      The **Do not use configured proxy to connect to this server** allows you to connect
       to the Remote Server without using the proxy configuration of the Centreon
       Central server.
 
-4. Click on **Next**.
+4. Click **Next**.
 
-5. Select the poller(s) to be linked to this Remote Server, then click on
+5. Select the poller(s) to be linked to this Remote Server, then click
 **Apply**:
 
   ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
@@ -79,7 +79,7 @@ Remote Server on the Centreon platform.
 
 ## Step 2: Enable communication
 
-The communication between the Central server and a Remote Server  is ensured by Gorgone
+The communication between the Central server and a Remote Server is ensured by Gorgone
 and can be done using ZMQ (with a Gorgone running on the Remote Server,
 recommended) or using SSH protocol.
 
@@ -94,21 +94,21 @@ recommended) or using SSH protocol.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
-    Click on **Save**.
+    Click **Save**.
 
-    > Note that the *SSH Legacy port* is not used anymore and will be removed.
+    > Note that the *SSH Legacy port* is no longer used, and will be removed.
     >
-    > If you were using it in custom scripts, consider changing to use
+    > If you were using it in custom scripts, consider changing to the
     > Gorgone communication system.
 
 2. Copy the Gorgone configuration:
 
-    From the Pollers listing, click on the **Display Gorgone configuration** action
+    From the poller list, click the **Display Gorgone configuration** action
     icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
-    A pop-in will show the configuration to copy into the **Remote Server
+    A popin will show the configuration to copy into the **Remote Server
     terminal**.
-    Click on **Copy to clipboard**.
+    Click **Copy to clipboard**.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
 
@@ -181,7 +181,7 @@ recommended) or using SSH protocol.
     Hit the *Enter* key for the command to be applied.
 
     > You can copy the configuration in a custom file by copying the content from
-    > the pop-in.
+    > the popin.
 
 3. Restart the Gorgone daemon:
 
@@ -232,18 +232,18 @@ it with the following command from the **Central server**:
 
 > **Deprecated** 
 >
-> This mode should not be used anymore as it does not allow data
-> synchronisation between Central and Remote Server UI.
+> This mode should no longer be used because it does not allow data
+> synchronization between the central and the remote server UI.
 
 </TabItem>
 </Tabs>
 
 ## Step 3: Export the configuration
 
-1. From the Pollers listing, select the Remote Server and click on **Export
+1. From the poller list, select the remote server and click **Export
 configuration**.
 
-2. Then check the three first boxes and click on **Export**:
+2. Then check the first three boxes and click **Export**:
 
     ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
 
@@ -260,5 +260,5 @@ configuration**.
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/welcome.md)
 chapter to configure your first monitoring.

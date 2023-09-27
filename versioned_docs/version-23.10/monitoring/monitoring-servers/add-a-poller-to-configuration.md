@@ -15,9 +15,9 @@ Install the poller [using packages](../../installation/installation-of-a-poller/
 As of Centreon version 18.10, a new wizard has been added for adding a new
 poller to the Centreon platform.
 
-1. Go to the **Configuration > Pollers > Pollers** menu and click on **Add** to configure a new poller.
+1. Go to the **Configuration > Pollers > Pollers** menu and click **Add** to configure a new poller.
 
-2. Select **Add a Centreon Poller** and click on **Next**:
+2. Select **Add a Centreon Poller** and click **Next**:
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.png)
 
@@ -25,8 +25,8 @@ poller to the Centreon platform.
     - **Create new Poller** if you haven't registered the poller yet on the central or remote server
     - **Select a Poller** if you have already registered the poller on the central or remote server.
 
-4. Type in the name, the IP address of the new poller and IP address of the Central
-Server. Click on **Next**:
+4. Type in the name, the IP address of the new poller, and the IP address of the Central
+Server. Click **Next**:
 
   ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
@@ -71,20 +71,20 @@ SSH protocol.
 
     ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
 
-    Click on **Save**.
+    Click **Save**.
 
-    > Note that the *SSH Legacy port* is not used anymore and will be removed.
+    > Note that the *SSH Legacy port* is no longer used, and will be removed.
     >
-    > If you were using it in custom scripts, consider changing to use
+    > If you were using it in custom scripts, consider changing to the
     > Gorgone communication system.
 
 2. Copy the Gorgone configuration:
 
-    From the Pollers listing, click on the **Display Gorgone configuration** action
+    From the poller list, click the **Display Gorgone configuration** action
     icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
-    A pop-in will show the configuration to copy into the **Poller terminal**.
-    Click on **Copy to clipboard**.
+    A popin will show the configuration to copy into the **Poller terminal**.
+    Click **Copy to clipboard**.
 
     ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
@@ -120,7 +120,7 @@ SSH protocol.
     Hit the *Enter* key for the command to be applied.
 
     > You can copy the configuration in a custom file by copying the content from
-    > the pop-in.
+    > the popin.
 
 3. Restart the Gorgone daemon:
 
@@ -169,11 +169,11 @@ the following command from the **Central server**:
 
     ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
 
-2. Click on **Save**.
+2. Click **Save**.
 
-    > Note that the *SSH Legacy port* is not used anymore and will be removed.
+    > Note that the *SSH Legacy port* is no longer used, and will be removed.
     >
-    > If you were using it in custom scripts, consider changing to use
+    > If you were using it in custom scripts, consider changing to the
     > Gorgone communication system.
 
 3. Exchange SSH keys:
@@ -187,7 +187,7 @@ the following command from the **Central server**:
     ```
 
     > Hit enter when it prompts for a file to save the key to use the default
-    > location, or, create one in a specified directory. **Leave the passphrase
+    > location, or create one in a specified directory. **Leave the passphrase
     > blank**. You will receive a key fingerprint and a randomart image.
 
     Generate a password for the **centreon** user on the **new Poller**:
@@ -220,8 +220,8 @@ This step only applies if you are attaching a poller to a remote server (not to 
 1. On the central server, deploy the configuration of the remote server to which the poller will be attached:
 
    - Go to **Configuration > Pollers > Pollers** and select the remote server.
-   - Click on **Export configuration**.
-   - Select the first four boxes, select the **Restart** method and then click on **Export**.
+   - Click **Export configuration**.
+   - Select the first four boxes, select the **Restart** method, and then click **Export**.
 
 2. Restart gorgone on the remote server:
 
@@ -231,19 +231,19 @@ This step only applies if you are attaching a poller to a remote server (not to 
 
 ## Step 4: Export the configuration of the poller
 
-1. From the Pollers listing, select the Poller and click on **Export
+1. From the poller list, select the poller and click **Export
 configuration**.
 
-2. Then check the first four boxes, select the **Restart** method and click on
+2. Then check the first four boxes, select the **Restart** method, and click
 **Export**:
 
   ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-  The Poller's engine will then start and connect to the Broker service of the central server or of the remote server (according to which you have attached the poller to).
+  The poller's engine will then start and connect to the Broker service of the central server or remote server (according to which one you have attached the poller to).
 
   ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
 ## Getting started
 
-Go to the [Getting Started](../../getting-started/installation-first-steps.md#start-to-monitor-your-first-host)
+Go to the [Getting Started](../../getting-started/welcome.md)
 chapter to configure your first monitoring.
