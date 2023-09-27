@@ -136,7 +136,7 @@ msgmerge messages.po messages.pot -o new_messages.po
 
 Follow the chapter “Use your translation” to upgrade your translation for Centreon.
 
-## Participate in Centreon project
+## Participate in the Centreon project
 
 Once your translation is up to date, you can ask to the Centreon team to add your translation to Centreon project. This
 will allow all users of Centreon to have access to your translation on their Centreon platform.
