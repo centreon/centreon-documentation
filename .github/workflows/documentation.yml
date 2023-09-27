@@ -102,7 +102,10 @@ jobs:
           sudo apt update
           sudo apt install -y gifsicle
           #find ./ -type f -name "*.gif" -print0 | parallel -0 gifsicle -O3 --colors=16 {} -o {}
-          find . -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2 | head -50 | gifsicle -O3 --colors=16 --scale=0.5 {} -o {}
+          #find . -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2 | head -50 | gifsicle -O3 --colors=16 --scale=0.5 {} -o {}
+          for file in $(find . -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2 | head -50); do
+            gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
+          done
           du -sh .
 
       - name: Install dependencies
