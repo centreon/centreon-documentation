@@ -30,7 +30,8 @@ jobs:
           node-version: 20
           cache: yarn
 
-      - uses: dorny/paths-filter@v2
+      - name: Get changes
+        uses: dorny/paths-filter@v2
         id: changes
         with:
           token: ${{ github.token }}
@@ -59,14 +60,14 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
+        id: filters
         with:
           script: |
             let build_versions = require('./versions.json');
             let build_pp = '1';
             let build_cloud = '1';
 
-            //if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
-            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === true) {
+            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
                 build_pp = '0';
               }
@@ -79,7 +80,7 @@ jobs:
                 const available_versions = require('./versions.json');
                 build_versions = [];
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
-                  [...file.matchAll(/(\d{2}\.\d{2})/g)].map((result) => {
+                  [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
                     if (available_versions.includes(result[1])) {
                       console.log(`Version ${result[1]} updated : ${file}`);
                       build_versions.push(result[1]);
@@ -94,12 +95,6 @@ jobs:
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
 
-            console.log(build_versions);
-            console.log(build_pp);
-            console.log(build_cloud);
-
-            throw new Error('exit');
-
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
@@ -110,9 +105,9 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
-          PP: 1
-          CLOUD: 1
-          VERSIONS: ""
+          PP: ${{ steps.filters.outputs.build_pp }}
+          CLOUD: ${{ steps.filters.outputs.build_cloud }}
+          VERSIONS: ${{ steps.filters.outputs.build_versions }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
