@@ -76,7 +76,7 @@ Create the file **/etc/centreon/gorgone-targets.yml** and fill it with the follo
 
 ```shell
   nodes:
-  - id: 2.
+  - id: 2
     type: push_zmq
     address: 10.1.2.3
     port: 5556.
