@@ -300,7 +300,7 @@ performed sequentially.
     - extensions: "TLS COMPRESSION"
   - **S** sends its own **version_response** packet in reply to **C**'s
     - protocol major: 1.
-    - protocol minor: 0.
+    - protocol minor: 0
     - protocol patch: 0.
     - extensions: "TLS COMPRESSION"
   - **C** and **S** determine which extensions they have in common (here TLS
