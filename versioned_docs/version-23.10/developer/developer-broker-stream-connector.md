@@ -496,7 +496,7 @@ receives information of a successful flush, it can newly call the stream
   end
 
   function flush()
-    -- if the queue is empty, there is nothing to be done and we can tell Broker to empty its
+    -- if the queue is empty, nothing to do and we can tell Broker to empty its
     -- retention
     if #queue == 0 then
       return true
