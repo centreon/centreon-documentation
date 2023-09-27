@@ -32,7 +32,7 @@ When Centreon Broker starts, it initializes all the configured connectors.
 For the stream connector, it loads the Lua script, checks its syntax and
 verifies that the ``init()`` and ``write()`` functions exist.
 
-Centreon Broker also checks if a function ``filter(category, element)`` exists.
+Centreon Broker also checks if a ``filter(category, element)`` function exists.
 
 Let's focus on those functions. The ``init`` function is called when the
 connector is initialized. The argument provided to this function is a Lua
