@@ -101,17 +101,25 @@ jobs:
         with:
           cmd: install --frozen-lockfile
 
-      - name: Compress Images
+      - name: Compress GIFs
         if: ${{ github.event_name == 'pull_request' }}
-        uses: calibreapp/image-actions@main
-        with:
-          ignorePaths: '.docusaurus,node_modules/**,build'
-          compressOnly: true
-          jpegQuality: '50'
-          jpegProgressive: false
-          pngQuality: '50'
-          webpQuality: '50'
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          apt update
+          apt install -y gifsicle
+          #find ./ -type f -name "*.gif" -print0 | parallel -0 gifsicle -O3 --colors=16 {} -o {}
+          find ./ -type f -name "*.gif" -print0 | gifsicle -O3 --colors=16 {} -o {}
+
+      # - name: Compress Images
+      #   if: ${{ github.event_name == 'pull_request' }}
+      #   uses: calibreapp/image-actions@main
+      #   with:
+      #     ignorePaths: '.docusaurus,node_modules/**,build'
+      #     compressOnly: true
+      #     jpegQuality: '50'
+      #     jpegProgressive: false
+      #     pngQuality: '50'
+      #     webpQuality: '50'
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build documentation
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
