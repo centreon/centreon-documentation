@@ -95,5 +95,5 @@ configuration:
             timespec: "*/2 * * * *"
             action: BROKERSTATS
             parameters:
-              timeout: 10.
+              timeout: 10
 ```
