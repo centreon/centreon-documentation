@@ -455,7 +455,7 @@ detected by Centreon Broker.
 
 It takes two parameters into account: `category` and `element`. We have
 already seen both in the previous section. The category is an integer from 1 to 7,
-or the value 65535. The `element` gives details of the event, for example,
+or the value 65535. The `element` parameter gives details of the event, for example,
 for the *category NEB*, *elements* are *Acknowledgement*, *Comment*, etc.
 given as integers.
 
