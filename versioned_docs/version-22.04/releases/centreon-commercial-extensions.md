@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.12
+
+Release date: `September 27, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP to start.
+
 ### 22.04.11
 
 Release date: `September 25, 2023`
