@@ -111,6 +111,7 @@ jobs:
           jpegProgressive: false
           pngQuality: '50'
           webpQuality: '50'
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build documentation
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
