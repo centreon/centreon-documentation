@@ -164,7 +164,7 @@ $template->display('dummy.ihtml');
 ```
 
 To query the databases (**centreon** for the configuration and **centstorage** for the real time data),
-you must initialize the php object as described below (using **pearDB**):
+you must initialize the PHP object as described below (using **pearDB**):
 
 ```PHP
 try {
