@@ -720,7 +720,7 @@ It is here that we use the **http** and **ltn12** objects loaded at the beginnin
 
 ### The init() function to get parameters and create the queue
 
-In this case, the **init()** function creates the queue with parameters defined by users in the web interface or users’
+In this case, the **init()** function creates the queue with parameters defined by users in the web interface or uses
 default parameters already defined in the queue. This alternative is managed by the queue constructor.
 
 ```LUA
