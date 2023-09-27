@@ -22,6 +22,7 @@ const versions = (() => {
   }
   return availableVersions;
 })();
+console.log(versions);
 
 const pp = (() => {
   if (archivedVersion) {

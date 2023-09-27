@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install yarn
-        run: npm install -g yarn
-
       - name: Install dependencies
         uses: borales/actions-yarn@v4
         with:
