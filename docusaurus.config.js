@@ -13,7 +13,7 @@ const versions = (() => {
   if (archivedVersion) {
     return [archivedVersion];
   }
-  if (process.env.VERSIONS !== undefined) {
+  if (process.env.VERSIONS !== undefined && process.env.VERSIONS.trim() !== '') {
     let splittedVersions = process.env.VERSIONS.split(',');
     if (splittedVersions.length === 0) {
       return availableVersions.slice(0,1);
