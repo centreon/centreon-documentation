@@ -57,7 +57,7 @@ In the **/etc/centreon/confid.d/20-gorgoned.yaml** configuration file, add the f
 ```shell
 gorgone:
   gorgonecore:
-    id: 1.
+    id: 1
     privkey: /var/spool/centreon/.gorgone/privkey.pem
     pubkey: /var/spool/centreon/.gorgone/pubkey.pem
 ```
