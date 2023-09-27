@@ -33,6 +33,7 @@ jobs:
         id: changes
         with:
           token: ${{ github.token }}
+          list-files: 'json'
           filters: |
             has_global_changes:
               - babel.config.js
@@ -60,7 +61,7 @@ jobs:
         with:
           script: |
             console.log(context)
-            console.log("${{ steps.changes.outputs.has_versioned_changes }}")
+            console.log("${{ steps.changes.outputs.changes }}")
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
