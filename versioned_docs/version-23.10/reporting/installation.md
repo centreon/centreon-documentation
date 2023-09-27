@@ -263,13 +263,8 @@ vgdisplay vg_data | grep -i free*
 
 - OS: RHEL / Oracle Linux / Alma 8 or 9, Debian 11
 - SGBD: MariaDB 10.5
-<<<<<<< HEAD
 - Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
 - SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
-=======
-- Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
-- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
->>>>>>> ad69b86114ec997cd39741685b7d635e9894a5b0
 
 > Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (link to download missing).
 > The same time zone must be displayed with the `timedatectl` command.
@@ -837,7 +832,7 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-If the MariaDB service fails to start, remove the files *ib_logfile*
+If the MariaDB service fails to start, remove the *ib_logfile* files
 (MariaDB must absolutely be stopped) and then restart MariaDB again:
 
 ```shell
