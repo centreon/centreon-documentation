@@ -65,7 +65,7 @@ jobs:
             let build_pp = '1';
             let build_cloud = '1';
 
-            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
+            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === true) {
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
                 build_pp = '0';
               }
