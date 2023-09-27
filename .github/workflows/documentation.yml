@@ -80,7 +80,7 @@ jobs:
                 build_versions = [];
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
                   [...file.matchAll(/(\d{2}\.\d{2})/g)].map((result) => {
-                    if (available_versions.include(result[1])) {
+                    if (available_versions.includes(result[1])) {
                       console.log(`Version ${result[1]} updated : ${file}`);
                       build_versions.push(result[1]);
                     }
