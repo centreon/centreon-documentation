@@ -30,7 +30,7 @@ jobs:
           node-version: 20
 
       - uses: dorny/paths-filter@v2
-        id: filter
+        id: changes
         with:
           token: ${{ github.token }}
           filters: |
@@ -54,6 +54,13 @@ jobs:
               - 'i18n/**/docusaurus-plugin-content-docs/**'
               - 'versioned_docs/**'
               - 'versioned_sidebars/**'
+
+      - name: View context attributes
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log(context)
+            console.log("${{ steps.changes.outputs.has_versioned_changes }}")
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
