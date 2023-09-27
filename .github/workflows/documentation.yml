@@ -95,41 +95,17 @@ jobs:
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
 
-      - name: Compress GIFs
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          du -sh .
-          sudo apt update
-          sudo apt install -y gifsicle
-          #find ./ -type f -name "*.gif" -print0 | parallel -0 gifsicle -O3 --colors=16 {} -o {}
-          #find . -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2 | head -50 | gifsicle -O3 --colors=16 --scale=0.5 {} -o {}
-          for file in $(find . -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2 | head -200); do
-            gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
-          done
-          du -sh .
-
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
         with:
           cmd: install --frozen-lockfile
 
-      # - name: Compress Images
-      #   if: ${{ github.event_name == 'pull_request' }}
-      #   uses: calibreapp/image-actions@main
-      #   with:
-      #     ignorePaths: '.docusaurus,node_modules/**,build'
-      #     compressOnly: true
-      #     jpegQuality: '50'
-      #     jpegProgressive: false
-      #     pngQuality: '50'
-      #     webpQuality: '50'
-      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build documentation
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
+          NODE_ENV: development
           PP: ${{ steps.filters.outputs.build_pp }}
           CLOUD: ${{ steps.filters.outputs.build_cloud }}
           VERSIONS: ${{ steps.filters.outputs.build_versions }}
