@@ -54,7 +54,7 @@ To check when the ACLs were last reloaded, use the **LASTRELOAD** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACL -a lastreload
-1329833702.
+1329833702
 ```
 
 If you wish to get a human readable time format instead of a timestamp, use the following command:
