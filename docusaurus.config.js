@@ -10,18 +10,18 @@ const archivedVersions = require('./archivedVersions.json');
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
 const versions = (() => {
-  if (process.env.VERSIONS !== undefined) {
-    return process.env.VERSIONS.split(',');
-  }
   if (archivedVersion) {
     return [archivedVersion];
   }
+  if (process.env.VERSIONS !== undefined) {
+    let splittedVersions = process.env.VERSIONS.split(',');
+    if (splittedVersions.length === 0) {
+      return availableVersions.slice(0,1);
+    }
+    return splittedVersions;
+  }
   return availableVersions;
 })();
-
-if (archivedVersion && versions) {
-  throw new Error('ARCHIVED_VERSION and VERSIONS environment variables cannot be used together');
-}
 
 const pp = (() => {
   if (archivedVersion) {
