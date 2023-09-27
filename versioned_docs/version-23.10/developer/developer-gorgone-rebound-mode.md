@@ -124,7 +124,7 @@ name:  rebound-server
 description: Configuration for rebound-server
 gorgone:
   gorgonecore:
-    id: 1024.
+    id: 1024
     privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
     pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
     external_com_type: tcp
