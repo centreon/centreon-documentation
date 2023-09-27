@@ -180,7 +180,7 @@ We created the file **/etc/centreon-gorgone/nodes-register-override.yml**:
 nodes:
   - id: 1024
     type: pull
-    prevail: 1.
+    prevail: 1
     nodes:
       - id: 6.
         pathscore: 1.
