@@ -127,7 +127,7 @@ The preference window would look like this as a result:
 All languages are separated in different files, one file for each language. The file "configs.xml" calls the php file
 and the php file calls the html file, etc.
 
-We use Smarty, which is a template engine and php compiler (http://smarty.net).
+We use Smarty, which is a template engine for PHP (http://smarty.net).
 
 To use Smarty you need to proceed as follows:
 
