@@ -25,7 +25,7 @@ All actions in Centreon CLAPI will require authentication, so your commands will
 centreon -u admin -p 'centreon' [...]
 ```
 
-Obviously, the **-u** option is for the username and the **-p** option is for the password. The password can be in clear
+The **-u** option is for the username and the **-p** option is for the password. The password can be in clear
 or encrypted in the database.
 
 > ***NOTE:*** If your passwords are encoded with SHA1 in the database (MD5 by default), use the **-s** option:
@@ -42,7 +42,7 @@ Object name: **ACL**
 
 #### Reload
 
-To reload ACL, use the **RELOAD** command:
+To reload ACLs, use the **RELOAD** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACL -a reload
@@ -50,7 +50,7 @@ centreon -u admin -p 'centreon' -o ACL -a reload
 
 #### Lastreload
 
-To check when ACL was last reloaded, use the **LASTRELOAD** command:
+To check when the ACLs were last reloaded, use the **LASTRELOAD** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACL -a lastreload
@@ -81,7 +81,7 @@ Object name: **ACLGROUP**
 
 #### Show
 
-To list the available ACL Groups, use the **SHOW** action:
+To list the available access groups, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a show
@@ -101,7 +101,7 @@ The columns are as follows:
 
 #### Add
 
-To add an ACL Group, use the **ADD** action:
+To add an access group, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a add -v "ACL Group test;my alias"
@@ -116,7 +116,7 @@ The required fields are:
 
 #### Del
 
-If you want to remove an ACL Group, use the **DEL** action. The Name is used to identify the ACL Group to delete:
+If you want to remove an access group, use the **DEL** action. To identify the access group to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a del -v "ACL Group test"
@@ -309,7 +309,7 @@ Object name: **ACLACTION**
 
 #### Show
 
-To list the available ACL Actions, use the **SHOW** action:
+To list the available action ACLs, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLACTION -a show
@@ -329,7 +329,7 @@ Columns are the following:
 
 #### Add
 
-To add an ACL Action, use the **ADD** action:
+To add an action ACL, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLACTION -a add -v "ACL Action test;my description"
@@ -344,7 +344,7 @@ Required fields:
 
 #### Del
 
-If you want to remove an ACL Action, use the **DEL** action. The Name is used to identify the ACL Action to delete:
+If you want to remove an action ACL, use the **DEL** action. To identify the action ACL to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLACTION -a del -v "ACL Action test"
@@ -469,13 +469,13 @@ Below is the list of actions that you can grant/revoke:
 | service\_submit\_result            | Permission to submit a passive check result to a service                     |
 | top\_counter                       | Permission to see the quick status overview (top right corner of the screen) |
 
-### ACL Menu
+### Menu ACLs
 
 Object name: **ACLMENU**
 
 #### Show
 
-To list the available ACL Menus, use the **SHOW** action:
+To list the available menu ACLs, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a show
@@ -499,7 +499,7 @@ The columns are as follows:
 
 #### Add
 
-To add an ACL Menu, use the **ADD** action:
+To add a menu ACL, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a add -v "ACL Menu test;my alias"
@@ -514,7 +514,7 @@ The required fields are:
 
 #### Del
 
-If you want to remove an ACL Menu, use the **DEL** action. The name is used to identify the ACL Menu to delete:
+If you want to remove a menu ACL, use the **DEL** action. To identify the menu ACL to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a del -v "ACL Menu test"
@@ -522,7 +522,7 @@ centreon -u admin -p 'centreon' -o ACLMENU -a del -v "ACL Menu test"
 
 #### Setparam
 
-If you want to change a specific parameter of an ACL Menu, use the **SETPARAM** action. The name is used to identify
+If you want to change a specific parameter of an ACL menu, use the **SETPARAM** action. The name is used to identify
 the ACL Menu to update:
 
 ``` shell
