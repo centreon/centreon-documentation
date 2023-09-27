@@ -28,7 +28,7 @@ To access the API documentation, there are two possible cases:
     here: [Online documentation](https://docs.centreon.com/api/centreon-map/)
 
 Because the Centreon Map API is not trivial to use, here is a scenario
-that authenticates then creates a map and adds a host to it.
+that authenticates the user then creates a map and adds a host to it.
 
 **1. Authentication**
 
