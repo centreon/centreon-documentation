@@ -92,7 +92,7 @@ We created the file **/etc/centreon-gorgone/nodes-register-override.yml**:
 
 ```shell
 nodes:
-  - id: 6.
+  - id: 6
     type: pull
     prevail: 1.
 ```
