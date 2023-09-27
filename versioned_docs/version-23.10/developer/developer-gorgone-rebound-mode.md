@@ -183,5 +183,5 @@ nodes:
     prevail: 1
     nodes:
       - id: 6
-        pathscore: 1.
+        pathscore: 1
 ```
