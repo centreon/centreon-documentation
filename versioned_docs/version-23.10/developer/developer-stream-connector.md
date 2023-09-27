@@ -148,7 +148,7 @@ is a collection of keys/values. For example:
     "notifications": true,
     "obsess_over_hosts": false,
     "passive_host_checks": true,
-    "element": 16.
+    "element": 16
 }
 ```
 
