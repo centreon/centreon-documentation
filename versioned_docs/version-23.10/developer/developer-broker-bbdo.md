@@ -391,5 +391,5 @@ You can check in the logs which version of BBDO is active for a server:
 The following line states which version is used for each server:
 
 ```shell
-[2022-05-17T14:53:44.828+00:00] [bbdo] [info] BBDO: peer is using protocol version 2.0.0, and we are using version 2.0.0
+[2022-05-17T14:53:44.828+00:00] [bbdo] [info] BBDO: peer is using protocol version 2.0.0, we're using version 2.0.0
 ```
