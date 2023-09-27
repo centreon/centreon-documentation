@@ -157,7 +157,7 @@ $template->assign('data', $data);
 $template->display('dummy.ihtml');
 ```
 
-This line asks php to call the **dummy.ihtml** smarty template to display the results:
+This line asks PHP to call the **dummy.ihtml** smarty template to display the results:
 
 ```PHP
 $template->display('dummy.ihtml');
