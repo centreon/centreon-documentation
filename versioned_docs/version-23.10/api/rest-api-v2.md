@@ -5,7 +5,7 @@ title: Rest API (v2)
 
 ## Overview
 
-Centreon Web Rest API v2 aims to replace the first version.
+The Centreon Web Rest API v2 aims to replace the first version.
 
 To start using it, please refer to the [dedicated
 page](https://docs-api.centreon.com/api/centreon-web/23.10/).
