@@ -5,27 +5,48 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const availableVersions = require('./versions.json');
-
 const archivedVersions = require('./archivedVersions.json');
 
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
-let versions = process.env.VERSIONS ?? null;
+
+const versions = (() => {
+  if (process.env.VERSIONS !== undefined) {
+    return process.env.VERSIONS.split(',');
+  }
+  if (archivedVersion) {
+    return [archivedVersion];
+  }
+  return availableVersions;
+})();
 
 if (archivedVersion && versions) {
   throw new Error('ARCHIVED_VERSION and VERSIONS environment variables cannot be used together');
 }
 
+const pp = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.PP !== undefined && process.env.PP === '0') {
+    return false;
+  }
+  return true;
+})();
+
+const cloud = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.CLOUD !== undefined && process.env.CLOUD === '0') {
+    return false;
+  }
+  return true;
+})();
+
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
-if (archivedVersion) {
-  versions = archivedVersion;
-} else if (versions) {
-  versions = versions.split(',');
-  if (versions.length == 0) {
-    throw new Error('ARCHIVED_VERSION and VERSIONS environment variables cannot be used together');
-  }
-} else {
-  versions = availableVersions;
+if (versions.length == 0 && !pp && !cloud) {
+  throw new Error('Nothing is selected for build');
 }
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -38,8 +59,8 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: archivedVersion ? 'log' : 'throw',
-  onBrokenMarkdownLinks: archivedVersion ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion || !cloud || !pp ? 'log' : 'throw',
+  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp  ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -127,7 +148,7 @@ const config = {
     ];
 
     if (archivedVersion) {
-      return [
+      plugins = [
         ...plugins,
         [
           require.resolve("@cmfcmf/docusaurus-search-local"),
@@ -139,33 +160,43 @@ const config = {
       ];
     }
 
-    return [
-      ...plugins,
-      [
-        '@docusaurus/plugin-content-docs',
-        {
-          id: 'cloud',
-          path: 'cloud',
-          routeBasePath: 'cloud',
-          sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
-          breadcrumbs: false,
-          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-          editLocalizedFiles: true,
-        },
-      ],
-      [
-        '@docusaurus/plugin-content-docs',
-        {
-          id: 'pp',
-          path: 'pp',
-          routeBasePath: 'pp',
-          sidebarPath: require.resolve('./pp/sidebarsPp.js'),
-          breadcrumbs: false,
-          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-          editLocalizedFiles: true,
-        },
-      ],
-    ];
+    if (cloud) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'cloud',
+            path: 'cloud',
+            routeBasePath: 'cloud',
+            sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+            breadcrumbs: false,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+          },
+        ],
+      ];
+    }
+
+    if (pp) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'pp',
+            path: 'pp',
+            routeBasePath: 'pp',
+            sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+            breadcrumbs: false,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+          },
+        ],
+      ];
+    }
+
+    return plugins;
   })(),
 
   themeConfig:
@@ -234,25 +265,47 @@ const config = {
               },
             ];
           }
+
+          let items = [];
+
+          if (versions) {
+            items = [
+              ...items,
+              {
+                type: 'doc',
+                docId: 'getting-started/welcome',
+                position: 'left',
+                label: 'Centreon OnPrem',
+              },
+            ];
+          }
+
+          if (cloud) {
+            items = [
+              ...items,
+              {
+                to: '/cloud/getting-started/architecture',
+                label: 'Centreon Cloud',
+                position: 'left',
+                activeBaseRegex: '/cloud/',
+              },
+            ];
+          }
+
+          if (pp) {
+            items = [
+              ...items,
+              {
+                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                label: 'Monitoring Connectors',
+                position: 'left',
+                activeBaseRegex: '/pp/',
+              },
+            ];
+          }
+
           return [
-            {
-              type: 'doc',
-              docId: 'getting-started/welcome',
-              position: 'left',
-              label: 'Centreon OnPrem',
-            },
-            {
-              to: '/cloud/getting-started/architecture',
-              label: 'Centreon Cloud',
-              position: 'left',
-              activeBaseRegex: '/cloud/',
-            },
-            {
-              to: '/pp/integrations/plugin-packs/getting-started/introduction',
-              label: 'Monitoring Connectors',
-              position: 'left',
-              activeBaseRegex: '/pp/',
-            },
+            ...items,
             {
               type: 'search',
               position: 'right',

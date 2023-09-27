@@ -56,13 +56,13 @@ jobs:
               - 'versioned_docs/**'
               - 'versioned_sidebars/**'
 
-      - name: View context attributes
+      - name: Manage versions to build
         uses: actions/github-script@v6
         with:
           script: |
             let build_versions = require('./versions.json');
             console.log(build_versions);
-            console.log(${{ steps.changes.outputs.global_files }})
+            console.log(${{ steps.changes.outputs.global }})
             console.log(${{ steps.changes.outputs.cloud_files }})
             console.log(${{ steps.changes.outputs.pp_files }})
             console.log(${{ steps.changes.outputs.versions_files }})
@@ -77,6 +77,9 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
+          PP: 1
+          CLOUD: 1
+          VERSIONS: ""
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
