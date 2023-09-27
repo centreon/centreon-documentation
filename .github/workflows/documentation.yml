@@ -27,7 +27,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -48,20 +48,64 @@ jobs:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
 
-  publish:
+  deploy-preview:
+    if: ${{ github.event_name == 'pull_request' }}
     needs: [build]
-    runs-on: ${{ github.event_name == 'pull_request' && fromJson('["self-hosted", "infra"]') || 'ubuntu-22.04' }}
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup awscli
+      - name: Restore build from cache
+        if: ${{ github.event.action != 'closed' }}
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          fail-on-cache-miss: true
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./build
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+
+  deploy-staging:
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
+    needs: [build]
+    runs-on: [self-hosted, infra]
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Restore build from cache
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          fail-on-cache-miss: true
+
+      - name: Deploy to https://docs-staging.int.centreon.com
         run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          sudo unzip -q awscliv2.zip
-          sudo ./aws/install
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
         shell: bash
+
+  deploy-next:
+    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
+    needs: [build]
+    runs-on: [self-hosted, infra]
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
 
       - name: Restore build from cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -71,27 +115,14 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
           fail-on-cache-miss: true
 
-      - name: Deploy preview
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./build
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          action: auto
-
-      - name: Deploy to https://docs-staging.int.centreon.com
-        if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
+      - name: Setup awscli
         run: |
-          # Prepare ssh-key
-          eval `ssh-agent`
-          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
-
-          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
         shell: bash
 
       - name: Deploy to https://docs-next-int.centreon.com
-        if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
         run: |
           export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
           $(aws sts assume-role \

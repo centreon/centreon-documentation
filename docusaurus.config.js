@@ -4,25 +4,42 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const versions = require('./versions.json');
+const availableVersions = require('./versions.json');
 
 const archivedVersions = require('./archivedVersions.json');
 
-const version = process.env.VERSION ? process.env.VERSION : null;
-const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (version ? `${version}/` : '/');
+const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
+let versions = process.env.VERSIONS ?? null;
+
+if (archivedVersion && versions) {
+  throw new Error('ARCHIVED_VERSION and VERSIONS environment variables cannot be used together');
+}
+
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
+
+if (archivedVersion) {
+  versions = archivedVersion;
+} else if (versions) {
+  versions = versions.split(',');
+  if (versions.length == 0) {
+    throw new Error('ARCHIVED_VERSION and VERSIONS environment variables cannot be used together');
+  }
+} else {
+  versions = availableVersions;
+}
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   customFields: {
-    version: version ?? null,
+    version: archivedVersion ?? null,
   },
 
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: version ? 'log' : 'throw',
-  onBrokenMarkdownLinks: version ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion ? 'log' : 'throw',
+  onBrokenMarkdownLinks: archivedVersion ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -55,12 +72,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: (() => {
-            if (version) {
-              return [version];
-            }
-            return versions;
-          })(),
+          onlyIncludeVersions: versions,
           versions: {
             23.04: {
               label: '⭐ 23.04',
@@ -114,7 +126,7 @@ const config = {
       'plugin-image-zoom',
     ];
 
-    if (version) {
+    if (archivedVersion) {
       return [
         ...plugins,
         [
@@ -159,7 +171,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: version
+      algolia: archivedVersion
         ? undefined
         : {
           appId: '3WEC6XPLDB',
@@ -209,12 +221,12 @@ const config = {
           href: '/',
         },
         items: (() => {
-          if (version) {
+          if (archivedVersion) {
             return [
               {
                 type: 'html',
                 position: 'left',
-                value: `<h2 style="margin:0">Centreon OnPrem ${version}</h2>`,
+                value: `<h2 style="margin:0">Centreon OnPrem ${archivedVersion}</h2>`,
               },
               {
                 type: 'localeDropdown',
