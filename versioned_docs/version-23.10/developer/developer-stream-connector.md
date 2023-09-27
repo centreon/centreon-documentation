@@ -162,7 +162,7 @@ In this example, the *category* is 1 and the *element* is 16. So, by reading the
 is a NEB event with sub-category *instance-status*.
 
 To finish with the **write()** function, we make a loop on the **d** event parameters. For each step, *k* is a key and
-*v* is the corresponding value. And we send a string `k to the log file. " => " .. tostring(v)` that means the
+*v* is the corresponding value. And we send the following string to the log file: `k .. " => " .. tostring(v)`. That means the
 *concatenation* of *k*, *=>* and *v* converted into a string. You will see an example of the result below.
 
 Another possibility would be to use the **broker.json_encode(d)** function that converts any Lua object to a *json*
