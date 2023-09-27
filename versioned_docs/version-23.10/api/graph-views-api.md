@@ -49,7 +49,7 @@ Body {
 ```
 
 In the result, retrieve the {studio-session} (token); you'll need to
-use it all your API calls. The headers will look like this:
+use it for all your API calls. The headers will look like this:
 
 ```
 Headers {
