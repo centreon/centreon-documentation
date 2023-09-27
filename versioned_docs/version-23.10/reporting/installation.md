@@ -263,7 +263,7 @@ vgdisplay vg_data | grep -i free*
 
 - OS: RHEL / Oracle Linux / Alma 8 or 9, Debian 11
 - SGBD: MariaDB 10.5
-- Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
+- Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
 - SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
 > Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (link to download missing).
