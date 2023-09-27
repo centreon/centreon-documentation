@@ -54,7 +54,7 @@ This script is very simple. The ``init()`` function initializes logs to allow
 for all the logs to be written in the file ``/tmp/log``.
 
 The ``write()`` function, called each time an event is received, handles only two
-events: **neb::service** event (with ``category`` 1 and ``element`` 23) and
+events: the **neb::service** event (with ``category`` 1 and ``element`` 23) and
 **neb::host** event (with ``category`` 1 and ``element`` 12).
 
 For each of them, it is serialized in JSON and written to the log file.
