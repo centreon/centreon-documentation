@@ -182,6 +182,6 @@ nodes:
     type: pull
     prevail: 1
     nodes:
-      - id: 6.
+      - id: 6
         pathscore: 1.
 ```
