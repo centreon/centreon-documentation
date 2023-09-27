@@ -50,7 +50,7 @@ The content of this message is serialized as follows:
 
 | Category | element |  ID   |
 | -------- | ------- | ----- |
-|        1 |       1 | 65581 |
+|        1 |       45 | 65581 |
 
 This event is a Protobuf event, so items are not serialized as in BBDO v2
 events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
