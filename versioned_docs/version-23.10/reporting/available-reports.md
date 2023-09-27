@@ -865,7 +865,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 > - Retrieve and store certificate:
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 >   The *servername* option value must be the exact hostname defined in the
@@ -942,7 +942,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 > - Retrieve and store certificate:
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 >   The *servername* option value must be the exact hostname defined in the
@@ -1196,7 +1196,7 @@ to calculate statistics. The unit must be expressed in bytes.
 
 #### Description
 
-This report provides detailed storage statistics and the shows the evolution of the
+This report provides detailed storage statistics and shows the evolution of the
 storage space of your IT infrastructure.
 
 #### How to interpret the report
@@ -1274,9 +1274,9 @@ in order to calculate statistics. The unit must be expressed in bytes.
 > - The ETL configuration must include service categories for storage,
 >   otherwise the evolution graphics remain empty.
 > - This report is compatible with the 24x7 time period only. This time
->   period must be configured via the menu "General options | Capacity
+>   period must be configured via the "General options | Capacity
 >   statistic aggregated by month | Live services for capacity statistics
->   calculation".
+>   calculation" menu.
 
 ### Hostgroup-Storage-Capacity-List
 
@@ -1592,7 +1592,7 @@ generating read and write IOPS (input/output per second).
 ![image](../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_3.png)
 
 The second page shows average CPU consumption for all ESX clusters and
-the change from the previous period.
+the evolution from the previous period.
 
 ![image](../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_1_1.png)
 
@@ -1987,9 +1987,9 @@ traffic plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured via the menu "General options | Capacity
-> statistics aggregated by month | Live services for capacity statistics
-> calculation".
+> period must be configured via the "General options > Capacity
+> statistics aggregated by month > Live services for capacity statistics
+> calculation" menu.
 
 ### Hostgroup-Host-Details-1
 
@@ -2079,9 +2079,9 @@ traffic plugins.
 > **Warning**
 >
 > This report is compatible with the 24x7 time period only. This time
-> period must be configured via the menu "General options | Capacity
-> statistics aggregated by month | Live services for capacity statistics
-> calculation".
+> period must be configured via the **General options > Capacity
+> statistics aggregated by month > Live services for capacity statistics
+> calculation** menu.
 
 ## Inventory & Configuration
 

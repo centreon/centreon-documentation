@@ -83,7 +83,7 @@ e-mail to Centreon MBI administrators containing only the logs of the
 job that generated the report.
 
 The notification option parameters can be modified in the following menu:
-`Reporting > Business Intelligence > General Options | Notification Options`
+**Reporting > Business Intelligence > General Options | Notification Options**
 
 Description:
 

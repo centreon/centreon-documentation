@@ -161,7 +161,7 @@ help in decision-making.
 #### Description
 
 This widget provides information on the reliability (MTBF) and
-maintainability (MTRS) of your services as well as the level of your team's
+maintainability (MTRS) of your hosts as well as the level of your team's
 efficiency when managing downtime (MTTA). Data is shown as a top N
 aggregate statistic. Additional information such as current status,
 availability, number of events and last state change are also provided to
@@ -453,7 +453,7 @@ statistic.
 
 ![image](../assets/reporting/guide/mbi-ba-availability-gauge_param.png)
 
-### Business Application Availability (Gage)
+### Business Application Availability (Gauge)
 
 *This widget only works with Centreon BAM data.*
 
