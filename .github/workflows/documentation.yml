@@ -62,11 +62,39 @@ jobs:
         with:
           script: |
             let build_versions = require('./versions.json');
+            let build_pp = '1';
+            let build_cloud = '1';
+
+            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
+                build_pp = '0';
+              }
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.cloud }} === false) {
+                build_cloud = '0';
+              }
+              if (${{ steps.changes.outputs.versions }} === true) {
+                const available_versions = require('./versions.json');
+                build_versions = [];
+                ${{ steps.changes.outputs.versions_files }}.map((file) => {
+                  file.matchAll(/(\d{2}\.\d{2})/).map((result) => {
+                    if (available_versions.include(result[1])) {
+                      build_versions.push(result[1]);
+                    }
+                  }
+                });
+                build_versions = [...new Set(build_versions)].sort().reverse(); # remove duplicates and sort desc
+              }
+            }
+
+            core.setOutput('build_versions', build_versions.join(','));
+            core.setOutput('build_pp', build_pp);
+            core.setOutput('build_cloud', build_cloud);
+
             console.log(build_versions);
-            console.log(${{ steps.changes.outputs.global }})
-            console.log(${{ steps.changes.outputs.cloud_files }})
-            console.log(${{ steps.changes.outputs.pp_files }})
-            console.log(${{ steps.changes.outputs.versions_files }})
+            console.log(build_pp);
+            console.log(build_cloud);
+
+            throw new Error('exit');
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
