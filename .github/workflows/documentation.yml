@@ -35,7 +35,7 @@ jobs:
           token: ${{ github.token }}
           list-files: 'json'
           filters: |
-            has_global_changes:
+            global:
               - babel.config.js
               - docusaurus.config.js
               - package.json
@@ -45,13 +45,13 @@ jobs:
               - 'static/**'
               - 'i18n/**/(code|footer|navbar).json'
               - 'i18n/**/index.js'
-            has_cloud_changes:
+            cloud:
               - 'cloud/**'
               - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
-            has_pp_changes:
+            pp:
               - 'pp/**'
               - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
-            has_versioned_changes:
+            versions:
               - 'i18n/**/docusaurus-plugin-content-docs/**'
               - 'versioned_docs/**'
               - 'versioned_sidebars/**'
@@ -61,7 +61,10 @@ jobs:
         with:
           script: |
             console.log(context)
-            console.log("${{ steps.changes.outputs.changes }}")
+            console.log(${{ steps.changes.outputs.global_files }})
+            console.log(${{ steps.changes.outputs.cloud_files }})
+            console.log(${{ steps.changes.outputs.pp_files }})
+            console.log(${{ steps.changes.outputs.versions_files }})
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
