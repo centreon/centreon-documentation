@@ -89,7 +89,7 @@ In the **/etc/centreon/config.d/20-gorgoned.yaml** configuration file, add the f
 ```shell
 gorgone:
   gorgonecore:
-    id: 2.
+    id: 2
     external_com_type: tcp
     external_com_path: "*:5556"
     privkey: /var/spool/centreon/.gorgone/privkey.pem
