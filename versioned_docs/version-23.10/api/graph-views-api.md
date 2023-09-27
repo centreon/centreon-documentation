@@ -106,7 +106,7 @@ Body: {
 }
 ```
 
-Retrieve the element id you just created: `{id}`
+Retrieve the ID of the element you just created: `{id}`
 
 **5. Attach the element to the opened view**
 
