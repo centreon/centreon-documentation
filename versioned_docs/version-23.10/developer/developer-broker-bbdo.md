@@ -294,7 +294,7 @@ performed sequentially.
 
   - **C** initiates a TCP connection with **S** and the connection is established
   - **C** sends a *version_response* packet with the following attributes
-    - protocol major: 1.
+    - protocol major: 1
     - protocol minor: 0.
     - protocol patch: 0.
     - extensions: "TLS COMPRESSION"
