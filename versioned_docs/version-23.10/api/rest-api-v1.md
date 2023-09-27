@@ -8,7 +8,7 @@ title: Rest API (v1)
 This documentation is for developers familiar with HTTP requests and JSON. It
 explains various API operations, related requests and responses structure, and
 error codes. If you are not familiar with the JSON API, we recommend that you use
-the Centreon command line API documentation.
+the Centreon command line API.
 
 ## Permissions
 
