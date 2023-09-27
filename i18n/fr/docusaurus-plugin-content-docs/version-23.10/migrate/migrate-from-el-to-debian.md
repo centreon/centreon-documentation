@@ -154,7 +154,7 @@ Si vous n'utilisez que des plugins Centreon, réinstallez-les sur le nouveau ser
 
 1. Installez le dépôt des connecteurs de supervision (vous trouverez son adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts)).
 
-2. Exécutez les commandes suivante :
+2. Exécutez les commandes suivantes :
 
 ```shell
 apt update
@@ -162,7 +162,7 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
-Sous Debian, le répertoire des plugins Nagios (qui exécutent par exemple la commande **check_icmp**) est **/usr/lib/nagios/plugins/**. Allez à la page **Configuration > Collecteurs > Ressources** et vérifiez que le chemin de la macro **$USER1$** est bien **/usr/lib/nagios/plugins/**.
+Sous Debian, le répertoire des plugins Nagios (qui exécutent par exemple la commande **check_icmp**) est **/usr/lib/nagios/plugins/**. Allez à la page **Configuration > Collecteurs > Ressources** et vérifiez que le chemin de la macro **$USER1$** est bien **/usr/lib/nagios/plugins/**. Idem pour le champ **Répertoire des sondes** à la page **Administration > Paramètres > Supervision**.
 
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.
 

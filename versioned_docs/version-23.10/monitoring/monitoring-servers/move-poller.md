@@ -14,15 +14,15 @@ Select the Remote Server from the **Attach to Master Remote Server** field:
 
 ![image](../../assets/monitoring/monitoring-servers/move_poller_conf_1.png)
 
-Click on **Save**.
+Click **Save**.
 
 ## Update the Centreon Gorgone configuration
 
-From the Pollers listing, click on the **Display Gorgone configuration** action
+From the poller list, click the **Display Gorgone configuration** action
 icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
-A pop-in will show the configuration to copy into the **Poller terminal**.
-Click on **Copy to clipboard**.
+A popin will show the configuration to copy into the **Poller terminal**.
+Click **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
@@ -58,7 +58,7 @@ EOF
 Hit the *Enter* key for the command to be applied.
 
 > You can copy the configuration in a custom file by copying the content from
-> the pop-in.
+> the popin.
 
 Restart Centreon Gorgone:
 ```shell
@@ -73,13 +73,13 @@ In the **Output** tab, add or edit the previous **TCP - IPv4** entry to connect 
 
 ![image](../../assets/monitoring/monitoring-servers/move_poller_conf_2.png)
 
-Click on **Save**
+Click **Save**
 
 ## Deploy the new configuration
 
 Go to **Configuration > Pollers > Pollers** and deploy the configuration of the poller.
 
-On the server on which you have attached your server, restart Centreon Gorgone:
+On the server to which you have attached your server, restart Centreon Gorgone:
 ```shell
 systemctl restart gorgoned
 ```

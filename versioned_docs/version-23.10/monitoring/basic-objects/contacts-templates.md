@@ -14,9 +14,9 @@ A contact or a contact template can only inherit one contact template.
 To add a contact template:
 
 Go to **Configuration > Users > Contact Templates** and click
-on **Add**
+**Add**
 
 > Refer to the chapter covering configuration of
-> [contacts](contacts-create.md). In addition, the contacts
+> [contacts](contacts-create.md). In addition, the contact
 > templates are used for automatic import of profiles via
 > [LDAP](../../administration/parameters/ldap.md).
