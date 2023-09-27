@@ -69,9 +69,11 @@ jobs:
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
                 build_pp = '0';
               }
+
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.cloud }} === false) {
                 build_cloud = '0';
               }
+
               if (${{ steps.changes.outputs.versions }} === true) {
                 const available_versions = require('./versions.json');
                 build_versions = [];
@@ -82,7 +84,7 @@ jobs:
                     }
                   });
                 });
-                build_versions = [...new Set(build_versions)].sort().reverse(); # remove duplicates and sort desc
+                build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
               }
             }
 
