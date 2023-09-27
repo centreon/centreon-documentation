@@ -60,7 +60,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            console.log(context)
+            let build_versions = require('./versions.json');
+            console.log(build_versions);
             console.log(${{ steps.changes.outputs.global_files }})
             console.log(${{ steps.changes.outputs.cloud_files }})
             console.log(${{ steps.changes.outputs.pp_files }})
