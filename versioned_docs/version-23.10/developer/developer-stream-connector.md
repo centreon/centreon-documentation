@@ -741,7 +741,7 @@ The **write()** function is only used to insert filtered events into the queue:
   function write(e)
     broker_log:info(3, "write: Beginning write() function")
     queue:add(e)
-    broker_log:info(3, "write: end write() function\")
+    broker_log:info(3, "write: Ending write() function\n")
     return true
   end
 ```
