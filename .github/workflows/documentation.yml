@@ -29,12 +29,6 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: yarn
-
       - name: Get changes
         uses: dorny/paths-filter@v2
         id: changes
@@ -119,6 +113,15 @@ jobs:
             cloud: ${{ needs.get-versions.outputs.build_cloud }}
 
     steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: yarn
+
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
