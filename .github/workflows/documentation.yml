@@ -168,7 +168,8 @@ jobs:
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
+          || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
         shell: bash
 
   deploy-next:
