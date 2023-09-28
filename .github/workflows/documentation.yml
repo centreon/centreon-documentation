@@ -20,7 +20,9 @@ jobs:
     runs-on: ubuntu-22.04
 
     outputs:
+      build_environments: ${{ steps.filters.outputs.build_environments }}
       build_versions: ${{ steps.filters.outputs.build_versions }}
+      build_next_version: ${{ steps.filters.outputs.build_next_version }}
       build_pp: ${{ steps.filters.outputs.build_pp }}
       build_cloud: ${{ steps.filters.outputs.build_cloud }}
 
@@ -96,6 +98,7 @@ jobs:
             }
 
             console.log(`Following versions will be built: ${build_versions.join(',')}`);
+            console.log(`next version will${build_next_version === null ? ' not' : ''} be built`);
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
 
