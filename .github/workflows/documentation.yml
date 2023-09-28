@@ -208,8 +208,8 @@ jobs:
           echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
           {
             echo 'PREVIEW_URLS<<EOF'
-            for version in ${${{ needs.get-versions.outputs.build_versions }}//,/ } ; do
-              echo :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/$version/pr-${{ github.event.pull_request.number }}
+            for environment in ${${{ needs.get-versions.outputs.build_environments }}//,/ } ; do
+              echo :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/$environment/pr-${{ github.event.pull_request.number }}
             done
             echo EOF
           } >> "$GITHUB_ENV"
