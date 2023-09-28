@@ -193,6 +193,7 @@ jobs:
             echo 'PREVIEW_URLS<<EOF'
             for version in ${${{ needs.get-versions.outputs.build_versions }}//,/ } ; do
               echo :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/$version/pr-${{ github.event.pull_request.number }}
+            done
             echo EOF
           } >> "$GITHUB_ENV"
 
