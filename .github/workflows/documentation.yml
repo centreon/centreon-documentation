@@ -57,7 +57,6 @@ jobs:
               - 'versioned_docs/**'
               - 'versioned_sidebars/**'
 
-
       - name: Manage versions to build
         uses: actions/github-script@v6
         id: filters
@@ -132,10 +131,12 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
-          PP: ${{ matrix.pp }}
-          CLOUD: ${{ matrix.cloud }}
+          #PP: ${{ matrix.pp }}
+          #CLOUD: ${{ matrix.cloud }}
+          PP: 0
+          CLOUD: 0
           VERSIONS: ${{ matrix.version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.version, github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -146,7 +147,7 @@ jobs:
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
-    needs: [build]
+    needs: [get-versions, build]
     runs-on: ubuntu-22.04
 
     strategy:
