@@ -177,8 +177,33 @@ jobs:
         with:
           source-dir: ./build
           preview-branch: gh-pages
-          umbrella-dir: pr-preview/${{ matrix.version }}/
+          umbrella-dir: pr-preview/${{ matrix.version }}
           action: auto
+
+      - name: Remove previous comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          delete: true
+
+      - name: Store environment variables for comment
+        run: |
+          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
+
+      - name: Leave a comment after deployment
+        if: ${{ github.event.action != 'closed' }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview-${{ matrix.version }}
+          message: "\
+            **PR Preview**
+
+            :---:
+
+            :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${{ matrix.version }}/pr-${{ github.event.pull_request.number }}
+
+            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/${{ inputs.preview-branch }}) at ${{ env.datetime }}
+            "
 
   # deploy-staging:
   #   if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
