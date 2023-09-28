@@ -22,7 +22,6 @@ Release date: `September 29, 2023`
 #### Bug fixes
 
 - [Packaging] Fixed a Debian packaging issue preventing MAP to start.
-- [Desktop] Updated dependencies.
 
 ### 22.04.11
 
@@ -197,6 +196,7 @@ Release date: `September 29, 2023`
 #### Bug fixes
 
 - [Packaging] Fixed a Debian packaging issue preventing MAP to start.
+- [Desktop] Updated dependencies.
 
 ### 22.04.11
 
