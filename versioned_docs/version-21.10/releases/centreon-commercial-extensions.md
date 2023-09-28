@@ -16,27 +16,17 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
-## Centreon MAP
-
 ### 21.10.10
 
-Release date: `September 22, 2023`
+Release date: `September 28, 2023`
 
 #### Security fixes
 
-- [Server] Fixed vulnarable property.
+- [Server] Fixed a vulnerable property.
 
 #### Bug fixes
 
--	[Desktop] Update dependency.
--	[Server] Fixed MAP service ExecStart command to take JVM parameters into account.
--	[Server] Update dependency.
--	[Server] Fixed the diagnostic protocol test.
--	[Editor] Fixed the deletion of source object when copy paste.
-
-#### Enhancements
-
-[Server] Makes links anchors consistent between viewer and editor.
+-	[Server] Updated dependencies.
 
 ### 21.10.9
 
@@ -243,19 +233,12 @@ Release date: `February 18, 2022`
 - Fixed: Inconsistency in Top 50 in EventHostgroup-service-incident-resolution-2
 - Fixed: Issue in Test SMTP Rule
 
+
 ### 21.10.0
 
 - Compatibility with other 21.10 components.
 
 ## Centreon Auto Discovery
-
-### 21.10.5
-
-Release date: `September 22, 2023`
-
-#### Bug fixes
-
-- [Discovery] Do not create new services when updating autodiscovery job on existing hosts
 
 ### 21.10.4
 
