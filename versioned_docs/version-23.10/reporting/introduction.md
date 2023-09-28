@@ -59,7 +59,7 @@ To access the availability reports:
 
 - Go into the following menu: **Reporting > Dashboard**
 - In the left menu, click **Host**
-- Select a host from the **Host** list
+- Select a host from the **Host** list.
 
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
 
