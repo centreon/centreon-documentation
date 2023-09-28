@@ -15,6 +15,15 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.10
+
+Release date: `September 28, 2023`
+
+#### Security fixes
+
+- [Server] Fixed a vulnerable property.
+-	[Server] Updated dependencies.
+
 ### 21.10.9
 
 Release date: `June 1, 2023`
