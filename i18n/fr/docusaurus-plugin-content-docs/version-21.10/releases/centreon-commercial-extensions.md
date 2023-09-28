@@ -22,9 +22,6 @@ Release date: `September 28, 2023`
 #### Security fixes
 
 - [Server] Fixed a vulnerable property.
-
-#### Bug fixes
-
 -	[Server] Updated dependencies.
 
 ### 21.10.9
