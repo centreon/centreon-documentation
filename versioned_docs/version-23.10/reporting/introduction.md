@@ -79,7 +79,7 @@ It is also possible to view web reports:
 * The groups of hosts: Click **Host Groups** in the left menu
 * The groups of services: Click **Service Groups** in the left menu
 
-The CSV icons are used to export data into a CSV file.
+The CSV icon is used to export data to a CSV file.
 
 ![image](../assets/reporting/os-reporting/os-csv.png)
 
