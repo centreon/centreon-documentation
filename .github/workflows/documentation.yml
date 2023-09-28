@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: test ssh
         run: |
-          sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }} docs-dev.int.centreon.com" >> /etc/hosts
+          sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }} docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
           ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_PROD_IP_ADDRESS }} ls
