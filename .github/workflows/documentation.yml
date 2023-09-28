@@ -17,6 +17,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test:
+    runs-on: [self-hosted, infra]
+    steps:
+      - name: test ssh
+        run: |
+          ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} ls
+          ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_PROD_IP_ADDRESS }} ls
+          exit 1
+
   build:
     runs-on: ubuntu-22.04
 
@@ -168,7 +177,8 @@ jobs:
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
+          || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
         shell: bash
 
   deploy-next:

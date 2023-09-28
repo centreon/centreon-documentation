@@ -25,7 +25,8 @@ jobs:
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-          ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/
+          ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/ \
+          || ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} rsync -arzvh --delete /var/www/html admin@${{ secrets.DOC_PROD_IP_ADDRESS }}:/var/www/
 
           export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
           $(aws sts assume-role \
