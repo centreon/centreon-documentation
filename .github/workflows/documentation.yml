@@ -27,7 +27,77 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
+          cache: yarn
+
+      - name: Get changes
+        uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          token: ${{ github.token }}
+          list-files: 'json'
+          filters: |
+            global:
+              - babel.config.js
+              - docusaurus.config.js
+              - package.json
+              - versions.json
+              - yarn.lock
+              - 'src/**'
+              - 'static/**'
+              - 'i18n/**/(code|footer|navbar).json'
+              - 'i18n/**/index.js'
+            cloud:
+              - 'cloud/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
+            pp:
+              - 'pp/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
+            versions:
+              - 'i18n/**/docusaurus-plugin-content-docs/**'
+              - 'versioned_docs/**'
+              - 'versioned_sidebars/**'
+
+      - name: Manage versions to build
+        uses: actions/github-script@v6
+        id: filters
+        with:
+          script: |
+            let build_versions = require('./versions.json');
+            let build_pp = '1';
+            let build_cloud = '1';
+
+            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
+                build_pp = '0';
+              }
+
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.cloud }} === false) {
+                build_cloud = '0';
+              }
+
+              if (${{ steps.changes.outputs.versions }} === true) {
+                const available_versions = require('./versions.json');
+                build_versions = [];
+                ${{ steps.changes.outputs.versions_files }}.map((file) => {
+                  [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
+                    if (available_versions.includes(result[1])) {
+                      console.log(`Version ${result[1]} updated : ${file}`);
+                      build_versions.push(result[1]);
+                    }
+                  });
+                });
+                build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
+              }
+            }
+
+            console.log(`Following versions will be built: ${build_versions.join(',')}`);
+            console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
+            console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
+
+            core.setOutput('build_versions', build_versions.join(','));
+            core.setOutput('build_pp', build_pp);
+            core.setOutput('build_cloud', build_cloud);
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -39,6 +109,9 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
+          PP: ${{ steps.filters.outputs.build_pp }}
+          CLOUD: ${{ steps.filters.outputs.build_cloud }}
+          VERSIONS: ${{ steps.filters.outputs.build_versions }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
@@ -48,20 +121,64 @@ jobs:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
 
-  publish:
+  deploy-preview:
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: [build]
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Restore build from cache
+        if: ${{ github.event.action != 'closed' }}
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          fail-on-cache-miss: true
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./build
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+
+  deploy-staging:
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
     needs: [build]
     runs-on: [self-hosted, infra]
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup awscli
+      - name: Restore build from cache
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          fail-on-cache-miss: true
+
+      - name: Deploy to https://docs-staging.int.centreon.com
         run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          sudo unzip -q awscliv2.zip
-          sudo ./aws/install
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
         shell: bash
+
+  deploy-next:
+    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
+    needs: [build]
+    runs-on: [self-hosted, infra]
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
 
       - name: Restore build from cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -71,27 +188,14 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
           fail-on-cache-miss: true
 
-      - name: Deploy preview
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./build
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          action: auto
-
-      - name: Deploy to https://docs-staging.int.centreon.com
-        if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
+      - name: Setup awscli
         run: |
-          # Prepare ssh-key
-          eval `ssh-agent`
-          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
-
-          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
         shell: bash
 
       - name: Deploy to https://docs-next-int.centreon.com
-        if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
         run: |
           export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
           $(aws sts assume-role \
