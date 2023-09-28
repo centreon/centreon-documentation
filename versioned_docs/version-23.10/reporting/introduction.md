@@ -23,7 +23,7 @@ through *ITIL compliant* reporting.
 
 Generate insightful statistics using our 30+ reports designs\...
 
-[image](../assets/reporting/installation/bi_retention.png)
+![image](../assets/reporting/first_page.png)
 
 Centreon MBI provides a full package of standard reports that address:
 
