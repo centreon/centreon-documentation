@@ -25,7 +25,7 @@ All actions in Centreon CLAPI will require authentication, so your commands will
 centreon -u admin -p 'centreon' [...]
 ```
 
-The **-u** option is for the username and the **-p** option is for the password. The password can be in clear
+The **-u** option is for the username and the **-p** option is for the password. The password can be in plain text
 or encrypted in the database.
 
 > ***NOTE:*** If your passwords are encoded with SHA1 in the database (MD5 by default), use the **-s** option:
