@@ -17,12 +17,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  get-versions:
     runs-on: ubuntu-22.04
+
+    outputs:
+      build_versions: ${{ steps.filters.outputs.build_versions }}
+      build_pp: ${{ steps.filters.outputs.build_pp }}
+      build_cloud: ${{ steps.filters.outputs.build_cloud }}
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node
         uses: actions/setup-node@v3
@@ -57,6 +62,7 @@ jobs:
               - 'i18n/**/docusaurus-plugin-content-docs/**'
               - 'versioned_docs/**'
               - 'versioned_sidebars/**'
+
 
       - name: Manage versions to build
         uses: actions/github-script@v6
@@ -95,10 +101,24 @@ jobs:
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
 
-            core.setOutput('build_versions', build_versions.join(','));
+            //core.setOutput('build_versions', build_versions.join(','));
+            core.setOutput('build_versions', JSON.stringify(build_versions));
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
 
+  build:
+    runs-on: ubuntu-22.04
+    needs: [get-versions]
+
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ${{ fromJson(needs.get-versions.outputs.build_versions) }}
+        include:
+          - pp: ${{ needs.get-versions.outputs.build_pp }}
+            cloud: ${{ needs.get-versions.outputs.build_cloud }}
+
+    steps:
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
@@ -109,9 +129,9 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
-          PP: ${{ steps.filters.outputs.build_pp }}
-          CLOUD: ${{ steps.filters.outputs.build_cloud }}
-          VERSIONS: ${{ steps.filters.outputs.build_versions }}
+          PP: ${{ matrix.pp }}
+          CLOUD: ${{ matrix.cloud }}
+          VERSIONS: ${{ matrix.version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
@@ -119,12 +139,22 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.version }}"
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
     needs: [build]
     runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ${{ fromJson(needs.get-versions.outputs.build_versions) }}
+        include:
+          - pp: ${{ needs.get-versions.outputs.build_pp }}
+            cloud: ${{ needs.get-versions.outputs.build_cloud }}
+
+    name: deploy preview ${{ matrix.version }}
 
     steps:
       - name: Checkout sources
@@ -135,7 +165,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.version }}"
           fail-on-cache-miss: true
 
       - name: Deploy preview
@@ -143,69 +173,69 @@ jobs:
         with:
           source-dir: ./build
           preview-branch: gh-pages
-          umbrella-dir: pr-preview
+          umbrella-dir: pr-preview/${{ matrix.version }}/
           action: auto
 
-  deploy-staging:
-    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
-    needs: [build]
-    runs-on: [self-hosted, infra]
+  # deploy-staging:
+  #   if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
+  #   needs: [build]
+  #   runs-on: [self-hosted, infra]
 
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v4
 
-      - name: Restore build from cache
-        uses: actions/cache/restore@v3
-        with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
-          fail-on-cache-miss: true
+  #     - name: Restore build from cache
+  #       uses: actions/cache/restore@v3
+  #       with:
+  #         path: "./build"
+  #         key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+  #         fail-on-cache-miss: true
 
-      - name: Deploy to https://docs-staging.int.centreon.com
-        run: |
-          # Prepare ssh-key
-          eval `ssh-agent`
-          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+  #     - name: Deploy to https://docs-staging.int.centreon.com
+  #       run: |
+  #         # Prepare ssh-key
+  #         eval `ssh-agent`
+  #         ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
-          || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
-        shell: bash
+  #         rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
+  #         || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
+  #       shell: bash
 
-  deploy-next:
-    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
-    needs: [build]
-    runs-on: [self-hosted, infra]
+  # deploy-next:
+  #   if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
+  #   needs: [build]
+  #   runs-on: [self-hosted, infra]
 
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v4
 
-      - name: Restore build from cache
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
-        uses: actions/cache/restore@v3
-        with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
-          fail-on-cache-miss: true
+  #     - name: Restore build from cache
+  #       if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
+  #       uses: actions/cache/restore@v3
+  #       with:
+  #         path: "./build"
+  #         key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+  #         fail-on-cache-miss: true
 
-      - name: Setup awscli
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          sudo unzip -q awscliv2.zip
-          sudo ./aws/install
-        shell: bash
+  #     - name: Setup awscli
+  #       run: |
+  #         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  #         sudo unzip -q awscliv2.zip
+  #         sudo ./aws/install
+  #       shell: bash
 
-      - name: Deploy to https://docs-next-int.centreon.com
-        run: |
-          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
-          $(aws sts assume-role \
-          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
-          --role-session-name InvalidDocCache \
-          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
-          --output text))
+  #     - name: Deploy to https://docs-next-int.centreon.com
+  #       run: |
+  #         export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+  #         $(aws sts assume-role \
+  #         --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+  #         --role-session-name InvalidDocCache \
+  #         --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+  #         --output text))
 
-          aws s3 sync --delete build s3://centreon-documentation-next/
+  #         aws s3 sync --delete build s3://centreon-documentation-next/
 
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
-        shell: bash
+  #         aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
+  #       shell: bash

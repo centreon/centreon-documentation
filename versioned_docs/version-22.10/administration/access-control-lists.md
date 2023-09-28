@@ -1,5 +1,5 @@
 ---
-id: access-control-lists
+id: access-control-lists 
 title: Granting rights to Centreon users (ACL)
 ---
 
