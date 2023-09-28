@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: test ssh
         run: |
+          ssh -o StrictHostKeyChecking=noadmin@docs-dev.int.centreon.com ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_PROD_IP_ADDRESS }} ls
           exit 1
@@ -72,6 +73,7 @@ jobs:
         id: filters
         with:
           script: |
+            exit(1);
             let build_versions = require('./versions.json');
             let build_pp = '1';
             let build_cloud = '1';
