@@ -3,7 +3,7 @@ id: known-issues
 title: Known issues
 ---
 
-Below is a list of know issues and/or bugs you may encounter.
+Below is a list of known issues and/or bugs you may encounter.
 We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
@@ -15,12 +15,12 @@ issues for future releases.
 When used as indicators in [BAM](../service-mapping/introduction.md), Anomaly Detection services:
 
 1. Are not supported by [CLAPI](../api/clapi.md) or by [the v1 API](../api/rest-api-v1.md).
-2. Cannot be configured using the **Configuration > Business activities > Indicators** page. You must first create a Business activity on page **Configuration > Business activities > Business activities**, then use the Anomaly Detection service in the business activity.
+2. Cannot be configured using the **Configuration > Business activities > Indicators** page. You must first create a Business activity on the **Configuration > Business activities > Business activities** page, then use the Anomaly Detection service in the business activity.
 
 #### Workarounds
 
 1. Use the v2 API.
-2. Create the business activity first, then use the Anomaly Detection service as an indicator withing the business activity (see above).
+2. Create the business activity first, then use the Anomaly Detection service as an indicator within the business activity (see above).
 
 ### The data exclusion feature is not yet available
 
@@ -42,21 +42,21 @@ The controller for URI "/centreon/api/latest/platform/versions" is not callable:
 
 #### Workaround
 
-There is no workaround and this message does not prevent from finalizing the installation.
+There is no workaround and this message does not prevent you from finalizing the installation.
 
 ### You have reached the maximum of id into centreon_storage.index_data
 
 #### Workaround
 
-Play the following query into MariaDB :
+Play the following query into MariaDB:
 
-In your monitoring database :
+In your monitoring database:
 ```sql
 ALTER TABLE index_data MODIFY id bigint unsigned AUTO_INCREMENT;
 ALTER TABLE metrics MODIFY index_id bigint unsigned;
 ```
 
-In your configuration database :
+In your configuration database:
 ```sql
 ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;
 ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
@@ -68,7 +68,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 #### Description
 
-Autologin is currently not supported on the following pages :
+Autologin is currently not supported on the following pages:
 
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
@@ -135,7 +135,7 @@ If you have a very large infrastructure, it is possible that the `servicemetric_
     30 4 * * * root /usr/share/centreon-bi//bin/centreonBIETL -d >> /var/log/centreon-bi//centreonBIETL.log 2>&1
     ```
 
-* If the operation occured during the usual launch of the scheduled task, run the following command indicating the correct start and end dates:
+* If the operation occurred during the usual launch of the scheduled task, run the following command indicating the correct start and end dates:
 
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD

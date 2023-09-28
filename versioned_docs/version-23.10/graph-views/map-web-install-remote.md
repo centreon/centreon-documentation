@@ -5,7 +5,7 @@ title: Installing MAP on a remote server
 
 ## Centreon MAP installation for a Centreon remote server
 
-Centreon MAP installation on a Centreon remote server has to be done exactly like the installation on a central server, only configuration and uninstallation are different.
+Centreon MAP installation on a Centreon remote server is done exactly like installation on a central server, but the configuration and uninstallation are different.
 
 If your Centreon remote server has not been installed yet, please refer to the following [documentation](../installation/installation-of-a-remote-server/using-packages.md).
 
@@ -23,9 +23,9 @@ The diagram below summarizes the MAP architecture:
 
 ![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
 
-## Images synchronisation
+## Image synchronization
 
-Add access to the images synchronization page **Administration  >  Parameters  >  Images**
+Add access to the image synchronization page **Administration  >  Parameters  >  Images**
 ```shell
 [root@remote ~]# mysql centreon
 MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
@@ -48,7 +48,7 @@ server configuration by selecting **Restart**.
 
 ## Uninstalling Centreon MAP
 
-On a remote poller, you can uninstall **Centreon MAP** module the same
-way as on the Centreon central server. All Centreon Broker configuration for the Centreon remote server linked to the Centreon
-MAP module have to be manually removed. Look at the [Centreon Broker configuration](#centreon-broker-configuration) section above to
+On a remote poller, you can uninstall the **Centreon MAP** module the same
+way as on the Centreon central server. All Centreon Broker configurations for the Centreon remote server linked to the Centreon
+MAP module must be removed manually. Look at the [Centreon Broker configuration](#centreon-broker-configuration) section above to
 know what output you need to delete for your Centreon remote server(s).

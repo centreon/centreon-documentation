@@ -330,7 +330,7 @@ dnf install -y centreon-poller
 
 ```shell
 apt update
-apt install -y centreon-poller
+apt install -y --no-install-recommends centreon-poller
 ```
 
 </TabItem>

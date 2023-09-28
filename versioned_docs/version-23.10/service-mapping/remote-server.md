@@ -19,12 +19,12 @@ export your business activities to the Centreon Remote Server from the central
 server.
 
 To do so, you need to modify the Centreon Broker Master configuration of the
-Centeon Remote poller. Go to the `Configuration > Pollers > Broker
+Centreon Remote poller. Go to the `Configuration > Pollers > Broker
 configuration` menu and edit the remote poller configuration.
 
 ### Monitoring output
 
-In the Output tab, select **BAM - Monitoring engine (BAM)** and click on
+In the Output tab, select **BAM - Monitoring engine (BAM)** and click
 **Add**:
 
 ![image](../assets/service-mapping/remote-server/conf_poller_bam_monitoring.png)
@@ -51,7 +51,7 @@ Please consult the following table for the appropriate field values:
 
 ### Reporting output
 
-Select the **BAM - BI engine (BAM)** configuration type and click on **Add**:
+Select the **BAM - BI engine (BAM)** configuration type and click **Add**:
 
 ![image](../assets/service-mapping/remote-server/conf_poller_bam_reporting.png)
 

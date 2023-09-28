@@ -53,7 +53,7 @@ systemctl start centreon-map
 </TabItem>
 </Tabs>
 
-This point only applies if you customized your **centreon-map.conf** configuration file. When updating your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+This point only applies if you customized your **centreon-map.conf** configuration file. When updating your MAP (Legacy) module, the **/etc/centreon-studio/centreon-map.conf** file is not upgraded automatically; the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 * The old configuration file is renamed **centreon-map.conf.rpmsave**.
 * The upgrade installs a new **centreon-map.conf** file.
@@ -100,4 +100,4 @@ Complete the upgrade by going to **Administration > Extensions > Manager**
 If the user's computer has an online connection, the desktop client is
 automatically upgraded to the latest version that corresponds to the server.
 
-Alternatively, the client can be downloaded through the menu **Monitoring > Map** and **Desktop client** button.
+Alternatively, the client can be downloaded through the **Monitoring > Map** menu and the **Desktop client** button.

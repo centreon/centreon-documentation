@@ -3,9 +3,9 @@ id: introduction
 title: Centreon Platform 23.10
 ---
 
-You'll find in this chapter the global **Centreon Platform 23.10** release note.
+In this chapter, you will find the global **Centreon Platform 23.10** release note.
 
-To access detailed release note by component, use the following sections:
+To access detailed release notes by component, use the following sections:
 
 - [Centreon Open Source](centreon-os.md)
 - [Commercial extensions](centreon-commercial-extensions.md)

@@ -12,7 +12,7 @@ Server.
 Centreon has, however, developed a solution for initializing the flow from the
 Centreon Central Server, or from the Remote Server, to the poller.
 
-Go to the **Configuration > Pollers > Broker configuration** menu and click on
+Go to the **Configuration > Pollers > Broker configuration** menu and click
 **Centreon Broker SQL** configuration on the Central Server or Remote Server.
 
 Go to the **Input** tab panel and add a new **TCP - IPv4** entry.
@@ -23,14 +23,14 @@ configuration.
 
 ![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.png)
 
-Go to the **Configuration > Pollers > Broker configuration** menu and click on
+Go to the **Configuration > Pollers > Broker configuration** menu and click 
 the **Broker module** of your poller.
 
-On the **Output** tab panel modify the **Output 1 - IPv4** form:
+On the **Output** tab panel, modify the **Output 1 - IPv4** form:
 
 1.  Remove the entry for **Host to connect to**.
 2.  Check the **Connection port**.
-3.  Set **Yes** for **One peer retention** option.
+3.  Set **Yes** for the **One peer retention** option.
 
 ![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-2.png)
 
@@ -107,8 +107,8 @@ used by Centreon Broker are described.
 ### Overview
 
 The Centreon Broker's core is a simple multiplexing engine that takes *inputs*
-events and sends them to various *outputs*. Inputs are typically other Centreon
-Broker instances received via TCP/IP, while outputs can be an SQL database,
+(events) and sends them to various *outputs*. Inputs are typically other Centreon
+Broker events received via TCP/IP, while outputs can be an SQL database,
 other brokers, a BI/BAM engine, Centreon Map, etc.
 
 Each input or output has a *type* that describes what it does plus several
@@ -137,11 +137,11 @@ A *central*-type poller will have three Centreon Broker instances by default:
     *central-module-master*)
   - one Centreon Broker acting as a stand-alone concentrator (called a
     *central-broker-master*)
-  - one Centreon Broker specialized in generating the RRD data used by graphs
+  - one Centreon Broker that specializes in generating the RRD data used by graphs
     (called *central-rrd-master*).
 
 The best practice is to always use a separate Centreon Broker instance to
-generate RRD data. This way, an issue occuring in the RRD stack will not have
+generate RRD data. This way, an issue occurring in the RRD stack will not have
 any impact on your main monitoring.
 
 As expected, the *central-module-master* has only one output and zero inputs.
@@ -188,7 +188,7 @@ Log options:
   - Log filename	
     Name of the log file. Default is `<name of this broker configuration entry>`.log
     
-  - Maximum files size (in bytes)
+  - Maximum file size (in bytes)
     A value different from zero will cause the creation of a new numbered log
     file as soon as the maximum size is reached. Recommended value is `0`.
     
@@ -201,39 +201,39 @@ Log options:
     
   - sql
     Log level for `sql` log messages.
-    Useful to troubleshoot database queries issues.
+    Useful for troubleshooting database query issues.
     
   - processing
-    Log level for `processing` log messages. You shouldn't change it unless 
+    Log level for `processing` log messages. You should not change this unless 
     you know what you are looking for.
     
   - perfdata
     Log level for `perfdata` log messages.
-    Useful to troubleshoot performance data processing issues.
+    Useful for troubleshooting performance data processing issues.
     
   - bbdo
     Log level for `bbdo` log messages.
-    Useful to troubleshoot [broker binary data objects](../../developer/developer-broker-bbdo.md) issues.
+    Useful for troubleshooting [broker binary data objects](../../developer/developer-broker-bbdo.md) issues.
     
   - tcp
     Log level for `tcp` log messages.
-    Useful to troubleshoot network related issues.
+    Useful for troubleshooting network-related issues.
     
   - tls
     Log level for `tls` log messages.
-    Useful to troubleshoot TLS encryption issues.
+    Useful for troubleshooting TLS encryption issues.
     
   - lua
     Log level for `lua` log messages.
-    Useful to troubleshoot [Lua Stream Connectors](../../developer/developer-broker-stream-connector.md) issues.
+    Useful for troubleshooting [Lua Stream Connectors](../../developer/developer-broker-stream-connector.md) issues.
     
   - bam
     Log level for `bam` log messages.
-    Useful to troubleshoot [Business Activity Monitoring](../../service-mapping/introduction.md) issues.
+    Useful for troubleshooting [Business Activity Monitoring](../../service-mapping/introduction.md) issues.
 
-  - Write timestamp (applies to the [deprecated loggger options](#broker-logger-configuration-page-deprecated))
+  - Write timestamp (applies to the [deprecated logger options](#broker-logger-configuration-page-deprecated))
     If activated, each log entry is preceded by the timestamp of the time it was
-    written. This is useful to know when an error has occured. Best practice is
+    written. This is useful to know when an error has occurred. Best practice is
     *Yes*.
 
   - Write thread id  
@@ -325,7 +325,7 @@ parameters:
 
   - One peer retention mode  
     By default, a listening input will accept any number of incoming
-    connections. In *one peer retention* mode only one connection at a time is
+    connections. In *one peer retention* mode, only one connection at a time is
     accepted, on a first-come first-serve basis. Default is *no*.
 
 TCP *input* can either listen on a given port or can attempt to initiate a
@@ -339,7 +339,7 @@ Centreon Broker can have as many outputs as needed.
 For each output, the parameters are:
 
   - Type
-    There are several types of outputs managed by the Centreon Broker:
+    There are several types of output managed by the Centreon Broker:
 
     1.  **TCP - IPV4** and **TCP - IPV6**: This output forwards data to another
         server, another Centreon Broker or Centreon Map.
@@ -350,7 +350,7 @@ For each output, the parameters are:
     5.  **SQL**: Writes the real-time status into Centreon's database
         (deprecated).
     6.  **unified-sql**: Writes the real-time status into Centreon's database.
-        One such output replaces **Storage** and **SQL** outputs in the same
+        One such output replaces **Storage** and **SQL** outputs at the same
         time.
     7.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
         databases.
@@ -379,14 +379,14 @@ For each output, the parameters are:
   - Buffering timeout  
     When this output is in an error state, Centreon Broker will wait a specified
     time before launching the failover. This is mainly useful if Centreon Broker
-    should wait for another software to initialize before activating its
+    should wait for another program to initialize before activating its
     failover. In all other cases, this parameter should not be used. Default is
     0 seconds.
 
   - Filter category
     The categories of events accepted by this output. If left empty, no
     restriction on events accepted. If filled, only events of the given type
-    will be processed. The exact best practices are output specific:
+    will be processed. The exact best practices are output-specific:
 
     1.  *BAM Reporting* should only accept *BAM* events.
     2.  *Dump Writer* should only accept *dumper* events.
@@ -401,7 +401,7 @@ output consumes data from a storage output, a *dumper writer* output consumes
 data from a *dumper reader*, and a *BAM reporting* output consumes data from a
 *BAM monitoring* output.
 
-Centreon Web needs at least an active output *SQL* ouput to activate its
+Centreon Web needs at least an active output *SQL* output to activate its
 real-time monitoring capabilities. The storage and RRD outputs are needed to
 activate Centreon Web metric plotting. The BAM monitoring output is needed for
 real-time BAM data and the BAM reporting output for BI reports.
@@ -411,8 +411,8 @@ outputs can be located on logically or physically different instances as long as
 they are connected to each other.
 
 **Important**: Centreon Web 2.x features two databases, the configuration
-database and the real-time database. Those are respectively called *centreon*
-and *centreon-storage*. Different outputs expect may different databases in
+database and the real-time database. Those are called *centreon*
+and *centreon-storage*, respectively. Different outputs expect different databases in
 their configuration.
 
 | Output Type    | Expected database |
@@ -435,7 +435,7 @@ parameter is given. This allows for flexible network topology.
 
   - Serialization protocol  
     The protocol used to serialize the data. Can be either *BBDO* or *NDO*. NDO
-    is an legacy textual protocol with inferior performance, data density and
+    is a legacy textual protocol with inferior performance, data density and
     security. BBDO is a next-generation binary protocol that is effective and
     secure. NDO is deprecated. It should never be used for new installations.
     Best practice is *BBDO*.
@@ -470,18 +470,18 @@ parameter is given. This allows for flexible network topology.
 
   - One peer retention mode  
     By default, a listening input will accept any number of incoming
-    connections. In *one peer retention* mode only one connection at a time is
+    connections. In *one peer retention* mode, only one connection at a time is
     accepted, on a first-come first-serve basis. Default is *no*.
 
   - Compression  
     If compression should be used to serialize the data. Can be *auto*, *yes*,
-    or *no*. If left on *auto* Centreon Broker will detect if compression is
+    or *no*. If left on *auto*, Centreon Broker will detect if compression is
     supported by the endpoint during a TCP negotiation. Default is *auto* for
     TCP.
 
   - Compression Level  
     The level of compression that should be used, from 1 to 9. Default (or if
-    not filled) is 6. The higher the compression level is, the higher the
+    not filled) is 6. The higher the compression level, the higher the
     compression will be at the expense of processing power.
 
   - Compression Buffer  
@@ -512,7 +512,7 @@ file outputs will be used as failovers.
 
   - Compression Level  
     The level of compression to be used, from 1 to 9. Default (or if not filled)
-    is 6. The higher the compression level is, the higher the compression will
+    is 6. The higher the compression level, the higher the compression will
     be at the expense of processing power.
 
   - Compression Buffer  
@@ -553,7 +553,7 @@ stack will not have any impact on the main Centreon Broker instance.
 
 Perfdata storage outputs save metric data into a database and generate RRD data
 used by the RRD output. This output usually generates multiple queries and is
-very performance intensive. If Centreon Broker is slow, try adjusting the
+very performance-intensive. If Centreon Broker is slow, try adjusting the
 *maximum queries per transaction* parameter to optimize processing speed.
 
 This output can be tasked to rebuild RRD data from a database of stored metric
@@ -570,8 +570,9 @@ process new metric data at a reduced speed.
   - DB Port  
     The port of the database being accessed.
 
-  - DB User  
+  - DB User
     The user account for connecting to this database.
+    
 
   - DB Name  
     The name of the database. In Centreon terms, this is the database containing
@@ -619,7 +620,7 @@ Web.
 
 Moreover, this output has a *garbage collector* that will clean old data from
 the database occasionally. This is an optional process, as old data is marked
-*disabled*, and can actually be useful to keep for debugging purpose.
+*disabled*, and can actually be useful to keep for debugging purposes.
 
 *SQL*-type outputs have the following parameters:
 
@@ -673,7 +674,7 @@ Unified SQL outputs are the union of **Storage** outputs and **SQL** outputs.
 They save metric data into a database and generate RRD data used by the RRD
 output.
 
-This output usually generates multiple queries and is very performance intensive.
+This output usually generates multiple queries and is very performance-intensive.
 If Centreon Broker is slow, try adjusting the
 **maximum queries per transaction** parameter to optimize processing speed.
 
@@ -691,7 +692,7 @@ the database occasionally. This is an optional process, as old data is marked
 
 Since **bbdo 3**, this output is the preferred one instead of the **storage** and
 **sql** outputs. That way, you just need one output to the database,
-configurations have to be filled once and there are less conflicts between
+configurations have to be entered once, and there are fewer conflicts between
 outputs.
 
 **unified-sql**-type outputs have the following parameters:
@@ -755,7 +756,7 @@ outputs.
 
   - Connections count
     Number of connections to the database maintained by this output. This allows
-    broker to write data in parallel on several connections. This feature stays
+    the broker to write data in parallel on several connections. This feature stays
     experimental as it can lock the database writes.
 
 #### Lua outputs
