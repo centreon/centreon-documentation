@@ -58,7 +58,7 @@ can display the availability rates of hosts, a hostgroup, or a servicegroup over
 To access the availability reports:
 
 - Go into the following menu: **Reporting > Dashboard**
-- In the left menu, click **Host**
+- In the left menu, click **Host**.
 - Select a host from the **Host** list.
 
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
