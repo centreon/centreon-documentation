@@ -307,7 +307,7 @@ systemctl restart centreon-agent.service
     ```yaml
     gateway:
       enable: true
-      listen_port: 54321.
+      listen_port: 54321
       auth_token: azerty1234
     ```
 
@@ -374,16 +374,16 @@ Templates are located in the following folder:
 
 Based on your monitored Centreon component, you can simply copy/paste the corresponding template to your `/etc/centreon-agent/conf.d` folder.
 
-#### Finalize Template Configuration
+#### Finalize template configuration
 
->For a Centreon Poller, log files are prefixed with the Poller’s name, so you need to adapt the Poller template:
->Open the Poller template and replace all `POLLERNAME` placeholders in the “path” section with the actual Poller’s name.
+>For a Centreon poller, log files are prefixed with the poller’s name, so you need to adapt the poller template:
+> Open the poller template and replace all `POLLERNAME` placeholders in the “path” section with the actual poller’s name.
 
 The templates provided will work out of the box with a standard Centreon installation. In case of doubt, you can locate the actual targeted log file and compare its path to the one written in your “path” section of the template.
 
 In case of errors, you will find detailed explanations of what happened within **centreon-agent**'s own logs in `/var/log/centreon-agent/centreon-agent.log`.
 
-#### Start Log Collection
+#### Start log collection
 
 Once your log collection is properly configured, you need to restart the agent with the following command:
 
@@ -395,7 +395,7 @@ systemctl restart centreon-agent.service
 
 The Agent can contextualize data collection with your own custom tags to define the perimeter in which it operates. This is used later on to aggregate the monitoring data around your tags and create dashboards or reports in relevant contexts.
 
->We strongly advise you to define the “environment” tag before any others, so that we can establish a common baseline between all users.
+> We strongly advise you to define the “environment” tag before any others, so that we can establish a common baseline between all users.
 
 Tags can be configured in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation. Tags are case-sensitive (`production` and `Production` are seen as two different tags).
 
@@ -448,7 +448,7 @@ You then need to restart the Agent
 systemctl restart centreon-agent.service
 ```
 
-### Log Rotation
+### Log rotation
 The Agent logs all activity (nominal as well as erroneous) in the `/var/log/centreon-agent/centreon-agent.log` file.
 
 A default `/etc/logrotate.d/centreon-agent` file was created at installation and configured as follows:
