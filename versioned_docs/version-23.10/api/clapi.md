@@ -15,7 +15,7 @@ user interface in terms of configuration.
 * Test configuration files
 * Move configuration files to monitoring pollers
 * Restart monitoring pollers
-* Import and export objects
+* Import and export objects.
 
 ### Basic usage
 
@@ -75,7 +75,7 @@ You can change the date format:
 | i                | Minute      |
 | s                | Second      |
 
-### ACL Groups
+### Access Groups
 
 Object name: **ACLGROUP**
 
@@ -124,8 +124,8 @@ centreon -u admin -p 'centreon' -o ACLGROUP -a del -v "ACL Group test"
 
 #### Setparam
 
-If you want to change a specific parameter of an ACL Group, use the **SETPARAM** action. The Name is used for
-identifying the ACL Group to update:
+If you want to change a specific parameter of an access group, use the **SETPARAM** action. To identify
+the access group you want to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a setparam -v "ACL Group test;alias;my new alias"
@@ -141,15 +141,15 @@ Arguments are composed of the following columns:
 
 Parameters that you may change are:
 
-| Column   | Description                              |
-| -------- | ---------------------------------------- |
-| name     |                                          |
-| alias    |                                          |
-| activate | 1 when ACL Group is enabled, 0 otherwise |
+| Column   | Description                                     |
+| -------- | ----------------------------------------------- |
+| name     |                                                 |
+| alias    |                                                 |
+| activate | 1 when the access group is enabled, 0 otherwise |
 
 #### Getmenu
 
-If you want to retrieve the Menu Rules that are linked to a specific ACL Group, use the **GETMENU** action:
+If you want to retrieve the menu rules that are linked to a specific access group, use the **GETMENU** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a getmenu -v "ACL Group test"
@@ -162,13 +162,13 @@ id;name
 
 Arguments are composed of the following columns:
 
-| Order | Column description |
-| ----- | ------------------ |
-| 1     | Name of ACL group  |
+| Order | Column description    |
+| ----- | --------------------- |
+| 1     | Name of access group  |
 
 #### Getaction
 
-If you want to retrieve the Action Rules that are linked to a specific ACL Group, use the **GETACTION** action:
+If you want to retrieve the action rules that are linked to a specific access group, use the **GETACTION** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a getaction -v "ACL Group test"
@@ -184,7 +184,7 @@ Arguments are composed of the following columns:
 
 #### Getresource
 
-If you want to retrieve the Resource Rules that are linked to a specific ACL Group, use the **GETRESOURCE** action:
+If you want to retrieve the resource rules that are linked to a specific access group, use the **GETRESOURCE** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a getresource -v "ACL Group test"
@@ -200,7 +200,7 @@ Arguments are composed of the following columns:
 
 #### Getcontact and Getcontactgroup
 
-If you want to retrieve the Contacts that are linked to a specific ACL Group, use the **GETCONTACT** action:
+If you want to retrieve the contacts that are linked to a specific access group, use the **GETCONTACT** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a getcontact -v "ACL Group test"
@@ -208,7 +208,7 @@ id;name
 1;user1
 ```
 
-If you want to retrieve the Contact Groups that are linked to a specific ACL Group, use the **GETCONTACTGROUP** action:
+If you want to retrieve the contact groups that are linked to a specific access group, use the **GETCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a getcontactgroup -v "ACL Group test"
@@ -218,13 +218,13 @@ id;name
 
 Arguments are composed of the following columns:
 
-| Order | Column description |
-| ----- | ------------------ |
-| 1     | Name of ACL group  |
+| Order | Column description    |
+| ----- | --------------------- |
+| 1     | Name of access group  |
 
 #### Setmenu, Setaction, Setresource, Addmenu, Addaction, Addresource
 
-If you want to link rules to a specific ACL Group, use the following actions: **SETMENU**, **SETACTION**,
+If you want to link rules to a specific access group, use the following actions: **SETMENU**, **SETACTION**,
 **SETRESOURCE**, **ADDMENU**, **ADDACTION**, **ADDRESOURCE**:
 
 ``` shell
@@ -244,12 +244,12 @@ Arguments are composed of the following columns:
 
 | Order | Column description           |
 | ----- | ---------------------------- |
-| 1     | Name of ACL group            |
+| 1     | Name of access group         |
 | 2     | Name of the ACL rule to link |
 
 #### Delmenu, Delaction, Delresource
 
-If you want to remove rules from a specific ACL Group, use the following actions: **DELMENU**, **DELACTION**,
+If you want to remove rules from a specific access group, use the following actions: **DELMENU**, **DELACTION**,
 **DELRESOURCE**:
 
 ``` shell
@@ -260,12 +260,12 @@ Arguments are composed of the following columns:
 
 | Order | Column description             |
 | ----- | ------------------------------ |
-| 1     | Name of ACL group              |
+| 1     | Name of access group           |
 | 2     | Name of the ACL rule to remove |
 
 #### Setcontact, Setcontactgroup, Addcontact, Addcontactgroup
 
-If you want to link contacts or contact groups to a specific ACL Group, use the following actions: **SETCONTACT**,
+If you want to link contacts or contact groups to a specific access group, use the following actions: **SETCONTACT**,
 **SETCONTACTGROUP**, **ADDCONTACT**, **ADDCONTACTGROUP**:
 
 ``` shell
@@ -280,7 +280,7 @@ Arguments are composed of the following columns:
 
 | Order | Column description               |
 | ----- | -------------------------------- |
-| 1     | Name of ACL group                |
+| 1     | Name of access group             |
 | 2     | Contact/Contact group to add/set |
 
 | Command type | Description                                                                        |
@@ -290,7 +290,7 @@ Arguments are composed of the following columns:
 
 #### Delcontact, Delcontactgroup
 
-If you want to remove rules from a specific ACL Group, use the following actions: **DELCONTACT**, **DELCONTACTGROUP**:
+If you want to remove rules from a specific access group, use the following actions: **DELCONTACT**, **DELCONTACTGROUP**:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLGROUP -a delcontact -v "ACL Group test;user1"
@@ -298,12 +298,12 @@ centreon -u admin -p 'centreon' -o ACLGROUP -a delcontact -v "ACL Group test;use
 
 Arguments are composed of the following columns:
 
-| Order | Column description                             |
-| ----- | ---------------------------------------------- |
-| 1     | Name of ACL group                              |
-| 2     | Contact/Contact group to remove from ACL group |
+| Order | Column description                                |
+| ----- | ------------------------------------------------- |
+| 1     | Name of access group                              |
+| 2     | Contact/Contact group to remove from access group |
 
-### Action ACL
+### Action ACLs
 
 Object name: **ACLACTION**
 
@@ -320,12 +320,12 @@ id;name;description;activate
 
 Columns are the following:
 
-| Column      | Description                               |
-| ----------- | ----------------------------------------- |
-| ID          |                                           |
-| Name        |                                           |
-| Description |                                           |
-| Activate    | 1 when ACL Action is enabled, 0 otherwise |
+| Column      | Description                                   |
+| ----------- | --------------------------------------------- |
+| ID          |                                               |
+| Name        |                                               |
+| Description |                                               |
+| Activate    | 1 when the action ACL is enabled, 0 otherwise |
 
 #### Add
 
@@ -352,8 +352,7 @@ centreon -u admin -p 'centreon' -o ACLACTION -a del -v "ACL Action test"
 
 #### Setparam
 
-If you want to change a specific parameter of an ACL Action, use the **SETPARAM** action. The Name is used for
-identifying the ACL Action to update:
+If you want to change a specific parameter of an action ACL, use the **SETPARAM** action. To identify the action ACL to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLACTION -a setparam -v "ACL Action test;description;my new description"
@@ -363,27 +362,27 @@ Arguments are composed of the following columns:
 
 | Order | Column description      |
 | ----- | ----------------------- |
-| 1     | Name of ACL action rule |
+| 1     | Name of action ACL rule |
 | 2     | Parameter name          |
 | 3     | Parameter value         |
 
 Parameters that you may change are the following:
 
-| Column      | Description                               |
-| ----------- | ----------------------------------------- |
-| name        |                                           |
-| description |                                           |
-| activate    | 1 when ACL Action is enabled, 0 otherwise |
+| Column      | Description                                   |
+| ----------- | --------------------------------------------- |
+| name        |                                               |
+| description |                                               |
+| activate    | 1 when the action ACL is enabled, 0 otherwise |
 
 #### Getaclgroup
 
-If you want to retrieve the ACL Groups that are linked to a specific ACL Action, use the **GETACLGROUP** command.
+If you want to retrieve the access groups that are linked to a specific action ACL, use the **GETACLGROUP** command.
 
 Arguments are composed of the following columns:
 
 | Order | Column description      |
 | ----- | ----------------------- |
-| 1     | Name of ACL action rule |
+| 1     | Name of action ACL rule |
 
 ##### Example
 
@@ -396,7 +395,7 @@ id;name
 
 #### Grant and Revoke
 
-If you want to grant or revoke actions in an ACL Action rule definition, use the following commands: **GRANT**,
+If you want to grant or revoke actions in an action ACL rule definition, use the following commands: **GRANT**,
 **REVOKE**.
 
 Arguments are composed of the following columns:
@@ -490,13 +489,13 @@ id;name;alias;comment;activate
 
 The columns are as follows:
 
-| Column   | Description                             |
-| -------- | --------------------------------------- |
-| ID       | ID                                      |
-| Name     | Name                                    |
-| Alias    | Alias                                   |
-| Comment  | Comment                                 |
-| Activate | 1 when ACL Menu is enabled, 0 otherwise |
+| Column   | Description                                 |
+| -------- | ------------------------------------------- |
+| ID       | ID                                          |
+| Name     | Name                                        |
+| Alias    | Alias                                       |
+| Comment  | Comment                                     |
+| Activate | 1 when the menu ACL is enabled, 0 otherwise |
 
 #### Add
 
@@ -523,8 +522,7 @@ centreon -u admin -p 'centreon' -o ACLMENU -a del -v "ACL Menu test"
 
 #### Setparam
 
-If you want to change a specific parameter of an ACL menu, use the **SETPARAM** action. The name is used to identify
-the ACL Menu to update:
+If you want to change a specific parameter of a menu ACL, use the **SETPARAM** action. To identify the menu ACL to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a setparam -v "ACL Menu test;alias;my new alias"
@@ -534,22 +532,22 @@ Arguments are composed of the following columns:
 
 | Order | Column description    |
 | ----- | --------------------- |
-| 1     | Name of ACL menu rule |
+| 1     | Name of menu ACL rule |
 | 2     | Parameter name        |
 | 3     | Parameter value       |
 
 Parameters that you may change are:
 
-| Column   | Description                             |
-| -------- | --------------------------------------- |
-| name     | Name                                    |
-| alias    | Alias                                   |
-| activate | 1 when ACL Menu is enabled, 0 otherwise |
-| comment  | Comment                                 |
+| Column   | Description                                 |
+| -------- | ------------------------------------------- |
+| name     | Name                                        |
+| alias    | Alias                                       |
+| activate | 1 when the menu ACL is enabled, 0 otherwise |
+| comment  | Comment                                     |
 
 #### Getaclgroup
 
-If you want to retrieve the ACL Groups that are linked to a specific ACL Menu, use the **GETACLGROUP** action:
+If you want to retrieve the access groups that are linked to a specific menu ACL, use the **GETACLGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a getaclgroup -v "ACL Menu test"
@@ -562,14 +560,14 @@ Arguments are composed of the following columns:
 
 | Order | Column description    |
 | ----- | --------------------- |
-| 1     | Name of ACL menu rule |
+| 1     | Name of menu ACL rule |
 
 #### Grant and Revoke
 
-If you want to grant access to Read/Write, Read Only or revoke menus in an ACL Menu rule definition, use the following actions:
+If you want to grant access (Read/Write or Read Only), or revoke access to menus in a menu ACL rule definition, use the following actions:
 **GRANTRW**, **GRANTRO**, **REVOKE**
 
-Let's assume that you would like to grant full access to the \[Monitoring\] menu in your ACL Menu rule:
+Let's assume that you would like to grant full access to the \[Monitoring\] menu in your menu ACL rule:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a grantrw -v "ACL Menu test;1;Monitoring"
@@ -587,7 +585,7 @@ Then you would like to grant read-only access to the \[Configuration\] \> \[Host
 centreon -u admin -p 'centreon' -o ACLMENU -a grantro -v "ACL Menu test;1;Configuration;Hosts"
 ```
 
-Then, you decide to revoke access from \[Monitoring\] \> \[Event Logs\]:
+Then, you decide to revoke access to the \[Monitoring\] \> \[Event Logs\] menu:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a revoke -v "ACL Menu test;1;Monitoring;Event Logs"
@@ -597,18 +595,18 @@ Arguments are composed of the following columns:
 
 | Order | Column description          |
 | ----- | --------------------------- |
-| 1     | Name of ACL menu rule       |
+| 1     | Name of menu ACL rule       |
 | 2     | Grant/revoke children menus |
 | 3     | Menu name to grant/revoke   |
 | n     | Possible sub menu name      |
 
-### ACL resource
+### Resource ACLs
 
 Object name: **ACLRESOURCE**
 
 #### Show
 
-To list the available ACL resources, use the **SHOW** action:
+To list the available resource ACLs, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLRESOURCE -a show
@@ -619,17 +617,17 @@ id;name;alias;comment;activate
 
 The columns are as follows:
 
-| Column   | Description                                 |
-| -------- | ------------------------------------------- |
-| ID       | ID                                          |
-| Name     | Name                                        |
-| Alias    | Alias                                       |
-| Comment  | Comment                                     |
-| Activate | 1 when ACL Resource is enabled, 0 otherwise |
+| Column   | Description                                     |
+| -------- | ----------------------------------------------- |
+| ID       | ID                                              |
+| Name     | Name                                            |
+| Alias    | Alias                                           |
+| Comment  | Comment                                         |
+| Activate | 1 when the resource ACL is enabled, 0 otherwise |
 
 #### Add
 
-To add an ACL resource, use the **ADD** action:
+To add a resource ACL, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLRESOURCE -a add -v "ACL Resource test;my alias"
@@ -644,8 +642,8 @@ The required fields are:
 
 #### Del
 
-If you want to remove an ACL resource, use the **DEL** action. The name is used to identify the ACL resource to
-delete:
+If you want to remove a resource ACL, use the **DEL** action. To identify the resource ACL to
+delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLRESOURCE -a del -v "ACL Resource test"
@@ -653,8 +651,8 @@ centreon -u admin -p 'centreon' -o ACLRESOURCE -a del -v "ACL Resource test"
 
 #### Setparam
 
-If you want to change a specific parameter of an ACL resource, use the **SETPARAM** action. The name is used to
-identify the ACL resource to update:
+If you want to change a specific parameter of a resource ACL, use the **SETPARAM** action. To identify the resource ACL to
+update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLRESOURCE -a setparam -v "ACL Resource test;alias;my new alias"
@@ -664,21 +662,21 @@ Arguments are composed of the following columns:
 
 | Order | Column description        |
 | ----- | ------------------------- |
-| 1     | Name of ACL resource rule |
+| 1     | Name of resource ACL rule |
 | 2     | Parameter name            |
 | 3     | Parameter value           |
 
 The parameters that you may change are:
 
-| Column   | Description                                 |
-| -------- | ------------------------------------------- |
-| name     | Name                                        |
-| alias    | Alias                                       |
-| activate | 1 when ACL Resource is enabled, 0 otherwise |
+| Column   | Description                                     |
+| -------- | ----------------------------------------------- |
+| name     | Name                                            |
+| alias    | Alias                                           |
+| activate | 1 when the resource ACL is enabled, 0 otherwise |
 
 #### Getaclgroup
 
-If you want to retrieve the ACL groups that are linked to a specific ACL resource, use the **GETACLGROUP** action:
+If you want to retrieve the access groups that are linked to a specific resource ACL, use the **GETACLGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLRESOURCE -a getaclgroup -v "ACL Resource test"
@@ -689,20 +687,20 @@ id;name
 
 Arguments are composed of the following columns:
 
-| Order | Column description |
-| ----- | ------------------ |
-| 1     | Name of ACL group  |
+| Order | Column description    |
+| ----- | --------------------- |
+| 1     | Name of access group  |
 
 #### Grant and revoke
 
 Arguments are composed of the following columns:
 
-| Order | Column description |
-| ----- | ------------------ |
-| 1     | Name of ACL group  |
-| 2     | Name of resource   |
+| Order | Column description    |
+| ----- | --------------------- |
+| 1     | Name of access group  |
+| 2     | Name of resource      |
 
-If you want to grant or revoke resources in an ACL resource rule definition, use the following commands:
+If you want to grant or revoke access to resources in a resource ACL rule definition, use the following commands:
 
 | Command                    | Description                  | Example                                                                | Wildcard '\*' supported |
 | -------------------------- | ---------------------------- | ---------------------------------------------------------------------- | ----------------------- |
@@ -723,7 +721,7 @@ If you want to grant or revoke resources in an ACL resource rule definition, use
 | delfilter\_hostcategory    | Put host category name(s)    | \[...\] -a delfilter\_hostcategory -v "ACL Resource Test;Customer-1"   | Yes                     |
 | delfilter\_servicecategory | Put service category name(s) | \[...\] -a delfilter\_servicecategory -v "ACL Resource Test;System"    | Yes                     |
 
-> ***NOTE:*** Use the delimiter "|" for defining multiple resources.
+> ***NOTE:*** Use the "|" delimiter to define multiple resources.
 
 ### Centreon Broker
 
@@ -766,8 +764,8 @@ The required fields are:
 
 #### Del
 
-If you want to remove a Centreon Broker CFG, use the **DEL** action. The Name is used to identify the configuration
-to delete:
+If you want to remove a Centreon Broker CFG, use the **DEL** action. To identify the configuration
+to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o CENTBROKERCFG -a del -v "broker cfg for poller test"
@@ -775,8 +773,8 @@ centreon -u admin -p 'centreon' -o CENTBROKERCFG -a del -v "broker cfg for polle
 
 #### Setparam
 
-If you want to change a specific parameter of a Centreon Broker configuration, use the **SETPARAM** action. The
-configuration name is used to identify the configuration to update:
+If you want to change a specific parameter of a Centreon Broker configuration, use the **SETPARAM** action. To identify the configuration
+to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o CENTBROKERCFG -a setparam -v "broker cfg for poller test;name;new broker cfg name"
@@ -809,7 +807,7 @@ The parameters that you may change are:
 
 #### Listinput and Listoutput
 
-If you want to list specific input output types of Centreon Broker, use one of the following commands:
+If you want to list specific input or output types of Centreon Broker, use one of the following commands:
 
 - listinput
 - listoutput
@@ -929,7 +927,7 @@ Arguments are composed of the following columns:
 | 1     | Name of Centreon Broker CFG                                 |
 | 2     | ID of I/O object                                            |
 | 3     | Parameter name                                              |
-| 4     | Parameter value, for multiple values, use the "," delimiter |
+| 4     | Parameter value. For multiple values, use the "," delimiter |
 
 You may get help with the following CLAPI commands:
 
@@ -973,7 +971,7 @@ field id;short name;name
 
 > ***NOTE:*** Note that the "protocol" entry is followed by a star. This means that you must use one of the possible values.
 
-This is how you get the list of possible values of a given field:
+This is how you get the list of possible values for a given field:
 
 ``` shell
 centreon -u admin -p 'centreon' -o CENTBROKERCFG -a getvaluelist -v "protocol"
@@ -981,7 +979,7 @@ possible values
 ndo
 ```
 
-The following chapters describe the parameters of each object type
+The following chapters describe the parameters of each object type.
 
 ipv4:
 
@@ -1516,7 +1514,7 @@ ipv4:
 | -------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | --------------- |
 | buffering\_timeout         | Buffering timeout        | Time in seconds to wait before launching failover.                                                                   | \-              |
 | compression                | Compression (zlib)       | Enable or not data stream compression.                                                                               | \-              |
-| compression\_buffer        | Compression buffer size  | The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution. | \-              |
+| compression\_buffer        | Compression buffer size  | The higher the buffer size is, the better the compression is. This however increases data streaming latency. Use with caution. | \-              |
 | compression\_level         | Compression level        | Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)                             | \-              |
 | retry\_interval            | Retry interval           | Time in seconds to wait between each connection attempt.                                                             | \-              |
 | category                   | Filter category          | Category filter for flux in input                                                                                    | \-              |
@@ -1535,7 +1533,7 @@ ipv6:
 | -------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | --------------- |
 | buffering\_timeout         | Buffering timeout        | Time in seconds to wait before launching failover.                                                                   | \-              |
 | compression                | Compression (zlib)       | Enable or not data stream compression.                                                                               | \-              |
-| compression\_buffer        | Compression buffer size  | The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution. | \-              |
+| compression\_buffer        | Compression buffer size  | The higher the buffer size is, the better the compression is. This however increases data streaming latency. Use with caution. | \-              |
 | compression\_level         | Compression level        | Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)                             | \-              |
 | retry\_interval            | Retry interval           | Time in seconds to wait between each connection attempt.                                                             | \-              |
 | category                   | Filter category          | Category filter for flux in input                                                                                    | \-              |
@@ -1554,7 +1552,7 @@ file:
 | ------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------- | --------------- |
 | buffering\_timeout  | Buffering timeout       | Time in seconds to wait before launching failover.                                                                   | \-              |
 | compression         | Compression (zlib)      | Enable or not data stream compression.                                                                               | \-              |
-| compression\_buffer | Compression buffer size | The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution. | \-              |
+| compression\_buffer | Compression buffer size | The higher the buffer size is, the better the compression is. This however increases data streaming latency. Use with caution. | \-              |
 | compression\_level  | Compression level       | Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)                             | \-              |
 | failover            | Failover name           | Name of the output which will act as failover                                                                        | \-              |
 | retry\_interval     | Retry interval          | Time in seconds to wait between each connection attempt.                                                             | \-              |
@@ -1652,7 +1650,7 @@ rrd:
 <tr class="odd">
 <td><p>store_in_data_bin</p></td>
 <td><p>Enable store_in_data_bin</p></td>
-<td><p>Enable or not store in performance data in data_bin.</p></td>
+<td><p>Enable or not the storage of performance data in 'data_bin'</p></td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1790,7 +1788,7 @@ storage:
 <td><p>Transaction commit timeout</p>
 <p>Rebuild check interval in seconds</p></td>
 <td><p>The transaction timeout before running commit.</p>
-<p>The interval between check if some metrics must be rebuild. The default value is 300s</p></td>
+<p>The interval between checks if some metrics must be rebuilt. The default value is 300s.</p></td>
 <td><ul>
 <li></li>
 <li></li>
@@ -1799,7 +1797,7 @@ storage:
 <tr class="odd">
 <td><p>store_in_data_bin</p></td>
 <td><p>Enable store_in_data_bin</p></td>
-<td><p>Enable or not store in performance data in data_bin.</p></td>
+<td><p>Enable or not the storage of performance data in 'data_bin.</p></td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1888,7 +1886,7 @@ sql:
 <tr class="even">
 <td><p>db_port</p></td>
 <td><p>DB port</p></td>
-<td><p>Port on which the DB server listens</p></td>
+<td><p>Port on which the DB server listens.</p></td>
 <td><ul>
 <li></li>
 </ul></td>
@@ -1910,7 +1908,7 @@ sql:
 <tr class="odd">
 <td><p>queries_per_transaction</p></td>
 <td><p>Maximum queries per transaction</p></td>
-<td><p>The maximum queries per transaction before commit.</p></td>
+<td><p>The maximum queries per transaction.</p></td>
 <td><ul>
 <li></li>
 </ul></td>
@@ -1918,7 +1916,7 @@ sql:
 <tr class="even">
 <td><p>read_timeout</p></td>
 <td><p>Transaction commit timeout</p></td>
-<td><p>The transaction timeout before running commit.</p></td>
+<td><p>Timeout delay for a transaction.</p></td>
 <td><ul>
 <li></li>
 </ul></td>
@@ -1968,8 +1966,8 @@ The required fields are:
 
 #### Del
 
-If you want to remove a Centreon Engine configuration, use the **DEL** action. The name is used to identify the configuration
-to delete:
+If you want to remove a Centreon Engine configuration, use the **DEL** action. To identify the configuration
+to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ENGINECFG -a del -v "Centreon Engine cfg for poller NY"
@@ -1977,8 +1975,8 @@ centreon -u admin -p 'centreon' -o ENGINECFG -a del -v "Centreon Engine cfg for 
 
 #### Setparam
 
-If you want to change a specific parameter of a Centreon Engine configuration, use the **SETPARAM** action. The name is used to 
-identify the configuration to update:
+If you want to change a specific parameter of a Centreon Engine configuration, use the **SETPARAM** action. To 
+identify the configuration to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ENGINECFG -a setparam -v "Centreon Engine cfg for poller NY;cfg_dir;/usr/local/nagios/etc"
@@ -2000,7 +1998,7 @@ The parameters that you may change are:
 | instance         | Instance that is linked to centreon-engine.cfg                                                                                                                                                             |
 | broker\_module   | example: \[...\] -v "Engine CFG NY;broker\_module;/usr/lib64/nagios/cbmod.so /etc/centreon-broker/central-module.json", you can use a &#124; delimiter for defining multiple broker modules          |
 | nagios\_activate | *1* if activated, *0* otherwise                                                                                                                                                                            |
-| \*               | Centreon CLAPI handles pretty much all the options available in a centreon-engine configuration file. Because the list is quite long, it is best to refer to the official documentation of Centreon Engine |
+| \*               | Centreon CLAPI handles pretty much all the options available in a centreon-engine configuration file. Because the list is quite long, it is best to refer to the official documentation of Centreon Engine. |
 
 #### Addbrokermodule
 
@@ -2117,7 +2115,7 @@ The parameters that you can change are the following:
 | example      | Example of arguments (i.e: \!80\!90)    |
 | comment      | Comments regarding the command          |
 | activate     | Activate or disable the command         |
-| enable_shell | Enable / Disable shell                  |
+| enable_shell | Enable/Disable shell                    |
 
 > ***NOTE:*** You need to generate your configuration file and restart the monitoring engine in order to apply changes.
 
@@ -2153,7 +2151,7 @@ You may edit the following parameters:
 | example      | Example of arguments (i.e: \!80\!90)    |
 | comment      | Comments regarding the command          |
 | activate     | Activate or disable the command         |
-| enable_shell | Enable / Disable shell                  |
+| enable_shell | Enable/Disable shell                    |
 
 #### Getargumentdescr
 
@@ -2356,8 +2354,7 @@ The required parameters are as follows:
 
 #### Del
 
-To delete one contact, use the **DEL** action. The contact name is used to identify the contact you would
-like to delete:
+To delete one contact, use the **DEL** action. To identify the contact to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o contact -a del -v "user"
@@ -2491,8 +2488,7 @@ The required parameters are as follows:
 
 #### Del
 
-To delete a dependency, use the **DEL** action. The dependency name is used to identify the dependency you
-would like to delete:
+To delete a dependency, use the **DEL** action. To identify the dependency to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o DEP -a DEL -v "my dependency"
@@ -2577,7 +2573,7 @@ The columns are as follows:
 | ID          | Unique ID of the recurring downtime         |
 | Name        | Name                                        |
 | Description | Short description of the recurring downtime |
-| Activate    | Whether or not downtime is activated    |
+| Activate    | Whether or not downtime is activated        |
 
 To show the resources of a downtime period, use the **Show** action with parameters:
 
@@ -2609,8 +2605,8 @@ The required parameters are as follows:
 
 #### Del
 
-To delete downtime, use the **DEL** action. The downtime name is used to identify the recurring downtime
-you would like to delete:
+To delete downtime, use the **DEL** action. To identify the recurring downtime
+to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o DOWNTIME -a DEL -v "my downtime"
@@ -2647,9 +2643,9 @@ The columns are as follows:
 
 | Column       | Description                                                                                                                                                                      |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Position     | Position of the period; used to delete a period from a recurring downtime                                                                                                     |
-| Start time   | Start time of the recurring downtime                                                                                                                                             |
-| End time     | End time of the recurring downtime                                                                                                                                               |
+| Position     | Position of the period; used to delete a period from a recurring downtime period                                                                                                     |
+| Start time   | Start time of the recurring downtime period                                                                                                                                             |
+| End time     | End time of the recurring downtime period                                                                                                                                               |
 | Fixed        | Type of downtime (1 = fixed, 0 = flexible)                                                                                                                                       |
 | Duration     | Duration of downtime when in flexible mode (seconds)                                                                                                                             |
 | Day of week  | 1 - 7 (1 = monday ... 7 = sunday)                                                                                                                                                |
@@ -2668,9 +2664,9 @@ The above example will set a downtime period every Saturday and Sunday between 0
 
 | Parameter   | Description                                                         |
 | ----------- | ------------------------------------------------------------------- |
-| Name        | Name of the recurring downtime                                      |
-| Start time  | Start time of the recurring downtime                                |
-| End time    | End time of the recurring downtime                                  |
+| Name        | Name of the recurring downtime period                               |
+| Start time  | Start time of the recurring downtime period                         |
+| End time    | End time of the recurring downtime period                           |
 | Fixed       | 0 for flexible downtime, 1 for fixed                                |
 | Duration    | Duration of downtime when in flexible mode (seconds)                |
 | Day of week | Can be written with letters or numbers (1 to 7 or Monday to Sunday) |
@@ -2687,9 +2683,9 @@ The above example will set a downtime period on every 14th and 21st day for all 
 
 | Parameter       | Description                                          |
 | --------------- | ---------------------------------------------------- |
-| Name            | Name of the recurring downtime                       |
-| Start time | Start time of the recurring downtime                     |
-| End time        | End time of the recurring downtime                   |
+| Name            | Name of the recurring downtime period                |
+| Start time | Start time of the recurring downtime period               |
+| End time        | End time of the recurring downtime period            |
 | Fixed           | 0 for flexible downtime, 1 for fixed                 |
 | Duration        | Duration of downtime when in flexible mode (seconds) |
 | Day of month    | 1 to 31                                              |
@@ -2706,9 +2702,9 @@ The above example will set a downtime period on every first Wednesday for all mo
 
 | Parameter       | Description                                                         |
 | --------------- | ------------------------------------------------------------------- |
-| Name            | Name of the recurring downtime                                      |
-| Start time | Start time of the recurring downtime                                    |
-| End time        | End time of the recurring downtime                                  |
+| Name            | Name of the recurring downtime period                               |
+| Start time      | Start time of the recurring downtime period                         |
+| End time        | End time of the recurring downtime period                           |
 | Fixed           | 0 for flexible downtime, 1 for fixed                                |
 | Duration        | Duration of downtime when in flexible mode (seconds)                |
 | Day of week     | Can be written with letters or numbers (1 to 7 or Monday to Sunday) |
@@ -2797,7 +2793,7 @@ centreon -u admin -p 'centreon' -o HC -a DEL -v "Databases"
 
 #### Getmember
 
-To view the list hosts in a host category, use the **GETMEMBER** action:
+To view the list of hosts in a host category, use the **GETMEMBER** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HC -a getmember -v "Linux"
@@ -2873,7 +2869,7 @@ The required parameters are as follows:
 
 Object name: **HGSERVICE**
 
-Refer to the `SERVICE <services>` object
+Refer to the `SERVICE <services>` object.
 
 > ***NOTE:*** HGSERVICE works just like SERVICE; you only need to replace the host name with the host group name.
 
@@ -2925,8 +2921,7 @@ The required parameters are as follows:
 
 #### Del
 
-To delete one hostgroup, use the **DEL** action. The host group name is used to identify the host group you
-would like to delete:
+To delete one hostgroup, use the **DEL** action. To identify the host group to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HG -a DEL -v "SAP"
@@ -3014,10 +3009,10 @@ centreon -u admin -p 'centreon' -o HG -a setmember -v "Linux-Servers;srv-test|sr
 centreon -u admin -p 'centreon' -o HG -a addmember -v "Linux-Servers;srv-new"
 ```
 
-| Action | Description                                                                           |
-| ------ | ------------------------------------------------------------------------------------- |
-| set\*  | Overwrites previous definitions. Use the delimiter | to set multiple members          |
-| add\*  | Appends new members to the existing ones. Use the delimiter | to add multiple members |
+| Action | Description                                                                             |
+| ------ | --------------------------------------------------------------------------------------- |
+| set\*  | Overwrites previous definitions. Use the `|` delimiter to set multiple members          |
+| add\*  | Appends new members to the existing ones. Use the `|` delimiter to add multiple members |
 
 > ***NOTE:*** You need to generate your configuration file and restart the monitoring engine in order to apply changes.
 
@@ -3179,8 +3174,8 @@ You may edit the following parameters:
 | retry\_check\_interval         | Retry check interval                                                   |
 | snmp\_community                | Snmp Community                                                         |
 | snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
-| statusmap\_image               | Status map image (used by statusmap                                    |
+| stalking\_options              | Comma-separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
+| statusmap\_image               | Status map image (used by statusmap)                                   |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
 | comment                        | Comment                                                                |
@@ -3254,8 +3249,8 @@ You may edit the following parameters:
 | retry\_check\_interval         | Retry check interval                                                   |
 | snmp\_community                | Snmp Community                                                         |
 | snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
-| statusmap\_image               | Status map image (used by statusmap                                    |
+| stalking\_options              | Comma-separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
+| statusmap\_image               | Status map image (used by statusmap)                                   |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
 | comment                        | Comment                                                                |
@@ -3320,7 +3315,7 @@ centreon -u admin -p 'centreon' -o HOST -a delmacro -v "Centreon-Server;critical
 
 #### Gettemplate
 
-To view the template list of a host, use the **GETTEMPLATE** action:
+To view the template list for a host, use the **GETTEMPLATE** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HOST -a gettemplate -v "Centreon-Server"
@@ -3356,8 +3351,7 @@ centreon -u admin -p 'centreon' -o HOST -a deltemplate -v "test;srv-Linux|hardwa
 
 #### Applytpl
 
-When a template host undergoes modifications to its link-level service template, the change is not automatically reflected in hosts
-belonging to that template. For the change to take effect, it must then re-apply the template on this host. For this,
+When you add a service template to a host template, the change is not automatically reflected in hosts using that template. For the change to take effect, you must re-apply the template to this host. For this,
 use the **APPLYTPL** action:
 
 ``` shell
@@ -3380,7 +3374,7 @@ id;name
 
 #### Addparent and Setparent
 
-To add a host parent to a host, use the **ADDPARENT** or **SETPARENT** actions, where *add* will append and
+To add a parent host to a host, use the **ADDPARENT** or **SETPARENT** actions, where *add* will append and
 *set* will overwrite the previous definitions:
 
 ``` shell
@@ -3400,7 +3394,7 @@ centreon -u admin -p 'centreon' -o HOST -a delparent -v "Centreon-Server;server-
 
 #### Getcontactgroup
 
-To view the notification contact groups of a host, use the **GETCONTACTGROUP** action:
+To view the notification contact groups for a host, use the **GETCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HOST -a getcontactgroup -v "Centreon-Server"
@@ -3410,7 +3404,7 @@ id;name
 
 #### Addcontactgroup and Setcontactgroup
 
-If you want to add notification contactgroups to a host, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP** actions,
+If you want to add notification contact groups to a host, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP** actions,
 where *add* will append and *set* will overwrite previous definitions:
 
 ``` shell
@@ -3422,7 +3416,7 @@ centreon -u admin -p 'centreon' -o HOST -a setcontactgroup -v "Centreon-Server;C
 
 #### Delcontactgroup
 
-If you want to remove notification contactgroups from a host, use the **DELCONTACTGROUP** action:
+If you want to remove notification contact groups from a host, use the **DELCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HOST -a delcontactgroup -v "Centreon-Server;Contactgroup2"
@@ -3432,7 +3426,7 @@ centreon -u admin -p 'centreon' -o HOST -a delcontactgroup -v "Centreon-Server;C
 
 #### Getcontact
 
-To view the notification contacts of a host, use the **GETCONTACT** action:
+To view the notification contacts for a host, use the **GETCONTACT** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HOST -a getcontact -v "Centreon-Server"
@@ -3464,7 +3458,7 @@ centreon -u admin -p 'centreon' -o HOST -a delcontact -v "Centreon-Server;Contac
 
 #### Gethostgroup
 
-To view the hostgroups that are tied to a host, use the **GETHOSTGROUP** action:
+To view the hostgroups that are linked to a host, use the **GETHOSTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o HOST -a gethostgroup -v "Centreon-Server"
@@ -3474,7 +3468,7 @@ id;name
 
 #### Addhostgroup and Sethostgroup
 
-If you want to tie hostgroups to a host, use the **ADDHOSTGROUP** or **SETHOSTGROUP** actions, where *add* will append
+If you want to link hostgroups to a host, use the **ADDHOSTGROUP** or **SETHOSTGROUP** actions, where *add* will append
 and *set* will overwrite previous definitions:
 
 ``` shell
@@ -3547,12 +3541,12 @@ centreon -u admin -p 'centreon' -o HOST -a disable -v "test"
 
 Object name: **HTPL**
 
-Refer to the `HOST <hosts>` object
+Refer to the `HOST <hosts>` object.
 
 > ***NOTE:*** You cannot use the **APPLYTPL** and **SETINSTANCE** actions on **HTPL** objects.
 
-If you are looking for service template association to host templates, refer to the ADDHOSTTEMPLATE/SETHOSTTEMPLATE command
-from the `STPL <addhosttemplate-and-sethosttemplate>` object.
+If you want to link a service template to a host template, refer to the ADDHOSTTEMPLATE/SETHOSTTEMPLATE command
+for the `STPL <addhosttemplate-and-sethosttemplate>` object.
 
 ### Instances (Pollers)
 
@@ -3604,7 +3598,7 @@ The required fields are:
 
 #### Del
 
-If you want to remove an instance, use the **DEL** action. The Name is used to identify the instance to delete:
+If you want to remove an instance, use the **DEL** action. To identify the instance to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o INSTANCE -a del -v "Poller test"
@@ -3612,8 +3606,8 @@ centreon -u admin -p 'centreon' -o INSTANCE -a del -v "Poller test"
 
 #### Setparam
 
-If you want to change a specific parameter of an instance, use the **SETPARAM** command. The name is used to
-identify the instance to update:
+If you want to change a specific parameter of an instance, use the **SETPARAM** command. To
+identify the instance to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o INSTANCE -a setparam -v "Poller test;ns_ip_address;10.30.2.99"
@@ -3635,21 +3629,21 @@ The parameters that you may change are:
 | localhost                    | *1* if it is the main poller, *0* otherwise |
 | ns\_ip\_address              | IP address of the poller                    |
 | ns\_activate                 | *1* if poller is enabled, *0* otherwise     |
-| engine\_start\_command       | Command to start Centreon Engine process    |
-| engine\_stop\_command        | Command to stop Centreon Engine process     |
-| engine\_restart\_command     | Command to restart Centreon Engine process  |
-| engine\_reload\_command      | Command to reload Centreon Engine process   |
+| engine\_start\_command       | Command to start the Centreon Engine process    |
+| engine\_stop\_command        | Command to stop the Centreon Engine process     |
+| engine\_restart\_command     | Command to restart the Centreon Engine process  |
+| engine\_reload\_command      | Command to reload the Centreon Engine process   |
 | nagios\_bin                  | Path of the Scheduler binary                |
 | nagiostats\_bin              | Path of the Nagios Stats binary             |
 | ssh\_port                    | SSH Port                                    |
-| broker\_reload\_command      | Command to reload Centreon Broker process   |
+| broker\_reload\_command      | Command to reload the Centreon Broker process   |
 | centreonbroker\_cfg\_path    | Centreon Broker Configuration path          |
 | centreonbroker\_module\_path | Centreon Broker Module path                 |
 
 #### Gethosts
 
-If you want to list all hosts that are monitored by a poller, use the **GETHOSTS** action. The name is used to
-identify the instance to query:
+If you want to list all hosts that are monitored by a poller, use the **GETHOSTS** action. To
+identify the instance to query, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o INSTANCE -a GETHOSTS -v "Poller test"
@@ -3707,8 +3701,8 @@ The required fields are:
 
 #### Del
 
-If you want to remove an LDAP configuration, use the **DEL** action. The Configuration Name is used to identify the
-LDAP configuration to delete:
+If you want to remove an LDAP configuration, use the **DEL** action. To identify the
+LDAP configuration to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o LDAP -a del -v "my new configuration"
@@ -3716,8 +3710,7 @@ centreon -u admin -p 'centreon' -o LDAP -a del -v "my new configuration"
 
 #### Setparam
 
-If you want to change a specific parameter of an LDAP configuration, use the **SETPARAM** action. The Configuration Name
-is used to identify the LDAP configuration to update:
+If you want to change a specific parameter of an LDAP configuration, use the **SETPARAM** action. To identify the LDAP configuration to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o LDAP -a SETPARAM -v "my new configuration;description;my new desc"
@@ -3765,8 +3758,7 @@ The parameters that you may change are the following:
 
 #### Showserver
 
-To show the server list of an LDAP configuration, use the **SHOWSERVER** action. The Configuration Name is used
-to identify the LDAP configuration to query:
+To show the list of servers for an LDAP configuration, use the **SHOWSERVER** action. To identify the LDAP configuration to query, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o LDAP -a SHOWSERVER -v "openldap"
@@ -3824,13 +3816,13 @@ Parameters that you may update are the following:
 
 Object name: **RTACKNOWLEDGEMENT**
 
-#### Show host realtime acknowledgement
+#### Show acknowledgements on a host
 
-To list available realtime acknowledgements, use the **SHOW** action: You can use the value "HOST" to display
+To list the acknowledgements that have been applied to a host, use the **SHOW** action. You can use the "HOST" value to display
 all the acknowledgements:
 
 ``` shell
-centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a show -v "HOST;generic-host"
+centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a show -v "HOST;host-name"
 id;host_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
 6;generic-host;2017/09/28 14:21;admin;'generic-comment';2;0;1
 ```
@@ -3839,22 +3831,22 @@ The columns are as follows:
 
 | Column              | Description                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------- |
-| Id                  | Id of the acknowledgement                                                          |
+| Id                  | ID of the acknowledgement                                                          |
 | Host\_name          | Name of the host                                                                   |
-| Entry\_time         | Beginning of acknowledgement                                                       |
+| Entry\_time         | Beginning of the acknowledgement                                                       |
 | Author              | Name of the author                                                                 |
 | Comment\_data       | Short description of the acknowledgement                                           |
 | Sticky              | Acknowledgement will be maintained in case of a change of Not-OK status (0/2)      |
 | Notify\_contacts    | Notification send to the contacts linked to the object (0/1)                       |
 | Persistent\_comment | Acknowledgement will be maintained in the case of a restart of the scheduler (0/1) |
 
-#### Show service realtime acknowledgement
+#### Show acknowledgements on a service
 
-To list available realtime acknowledgements, use **SHOW**: You can use the value "SVC" to display
+To list the acknowledgements that have been applied to a service, use **SHOW**. You can use the "SVC" value to display
 all the acknowledgements:
 
 ``` shell
-centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a show -v "SVC;generic-host,generic-service"
+centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a show -v "SVC;host-name,service-name"
 id;host_name;service_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
 42;generic-host;generic-service;2017/09/28 14:21;admin;'generic-comment';2;0;1
 ```
@@ -3863,38 +3855,38 @@ The columns are as follows:
 
 | Column              | Description                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------- |
-| Id                  | Id of the acknowledgement                                                          |
+| Id                  | ID of the acknowledgement                                                          |
 | Host\_name          | Name of the host                                                                   |
 | Service\_name       | Name of the service                                                                |
-| Entry\_time         | Beginning of acknowledgement                                                       |
+| Entry\_time         | Beginning of the acknowledgement                                                   |
 | Author              | Name of the author                                                                 |
 | Comment\_data       | Short description of the acknowledgement                                           |
 | Sticky              | Acknowledgement will be maintained in case of a change of Not-OK status (0/2)      |
 | Notify\_contacts    | Notification send to the contacts linked to the object (0/1)                       |
 | Persistent\_comment | Acknowledgement will be maintained in the case of a restart of the scheduler (0/1) |
 
-#### Add host realtime acknowledgement
+#### Acknowledge a host
 
-If you want to associate a host to a realtime acknowledgement, use the **ADD** action:
+If you want to apply an acknowledgement to a host, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;2;0;1"
+centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a add -v "HOST;host-name;my comments;2;0;1"
 ```
 
 The required parameters are the following :
 
 | Order | Description                                                                                     |
 | ----- | ----------------------------------------------------------------------------------------------- |
-| 1     | Value you want to associate                                                                     |
-| 2     | Name of the host (Name of the service)                                                          |
+| 1     | Value you want to associate (HOST)                                                              |
+| 2     | Name of the host                                                                                |
 | 3     | Short description of the realtime acknowledgement                                               |
-| 4     | Acknowledgement maintained in case of a change of status (Sticky use 0 or 2)                    |
-| 5     | Notification send to the contacts linked to the object (Notify use 0 or 1)                      |
-| 6     | Maintained the acknowledgement in the case of a restart of the scheduler (Persistent use 0 or 1) |
+| 4     | Acknowledgement maintained in case of a change of status (sticky use 0 or 2)                    |
+| 5     | Notification send to the contacts linked to the object (notify use 0 or 1)                      |
+| 6     | Maintained the acknowledgement in the case of a restart of the scheduler (persistent use 0 or 1) |
 
-#### Add service realtime acknowledgement
+#### Acknowledge a service
 
-If you want to associate a service or service group to a realtime acknowledgement, use the **ADD** action:
+If you want to apply an acknowledgement to a service or service group, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a add -v "SVC;central,ping|central,memory;my comments;2;0;1"
@@ -3907,13 +3899,13 @@ The required parameters are the following :
 | 1     | Value you want to associate                                                                     |
 | 2     | Name of the host, name of the service                                                          |
 | 3     | Short description of the realtime acknowledgement                                               |
-| 4     | Acknowledgement maintained in case of a change of status (Sticky use 0 or 2)                    |
-| 5     | Notification send to the contacts linked to the object (Notify use 0 or 1)                      |
-| 6     | Maintained the acknowledgement in the case of a restart of the scheduler (Persistent use 0 or 1) |
+| 4     | Acknowledgement maintained in case of a change of status (sticky use 0 or 2)                    |
+| 5     | Notification send to the contacts linked to the object (notify use 0 or 1)                      |
+| 6     | Maintained the acknowledgement in the case of a restart of the scheduler (persistent use 0 or 1) |
 
-#### Cancel a realtime acknowledgement
+#### Cancel an acknowledgement
 
-To cancel a realtime acknowledgement, use the **CANCEL** action:
+To cancel an acknowledgement, use the **CANCEL** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o RTACKNOWLEDGEMENT -a cancel -v "central,ping"
@@ -3929,13 +3921,12 @@ The required parameters are the following:
 
 Object name: **RTDOWNTIME**
 
-#### Show host realtime downtime
+#### Show downtimes on hosts
 
-To list the available realtime downtimes, use the **SHOW** action: You can use the value "HOST" to display all the
-downtimes:
+To list the downtime periods that have been applied to a host, use the **SHOW** action. You can use the "HOST" value to display all the downtime periods:
 
 ``` shell
-centreon -u admin -p 'centreon' -o RTDOWNTIME -a show -v "HOST;generic-host"
+centreon -u admin -p 'centreon' -o RTDOWNTIME -a show -v "HOST;host-name"
 id;host_name;author;actual_start_time;actual_end_time;start_time;end_time;comment_data;duration;fixed
 6;generic-host;admin;2017/09/28 14:21;N/A;2017/09/26 17:00;2017/09/30 19:00;'generic-comment';3600;1
 ```
@@ -3952,16 +3943,16 @@ The columns are as follows:
 | Start\_time         | Beginning of downtime                                      |
 | End\_time           | End of downtime                                            |
 | Comment\_data       | Short description of the realtime downtime                 |
-| Duration            | Duration of Downtime                                       |
+| Duration            | Duration of downtime                                       |
 | Fixed               | Downtime starts and stops at the exact start and end times |
 
-#### Show service realtime downtime
+#### Show downtimes on services
 
-To list the available realtime downtime periods, use **SHOW**: You can use the value "SVC" to display all the
+To list the downtime periods that have been applied to a service, use **SHOW**. You can use the value "SVC" to display all the
 downtimes:
 
 ``` shell
-centreon -u admin -p 'centreon' -o RTDOWNTIME -a show -v "SVC;generic-host,generic-service"
+centreon -u admin -p 'centreon' -o RTDOWNTIME -a show -v "SVC;host-name,service-name"
 id;host_name;service_name;author;start_time;end_time;comment_data;duration;fixed
 42;generic-host;generic-service;admin;2017/09/28 14:21;N/A;2017/09/26 17:00;2017/09/30 19:00;'generic-comment';3600;1
 ```
@@ -3979,13 +3970,13 @@ The columns are as follows:
 | Start\_time         | Beginning of downtime                                      |
 | End\_time           | End of downtime                                            |
 | Comment\_data       | Short description of the realtime downtime                 |
-| Duration            | Duration of Downtime                                       |
+| Duration            | Duration of downtime                                       |
 | Fixed               | Downtime starts and stops at the exact start and end times |
 
-#### Add host and host group realtime downtime
+#### Add host or host group downtime
 
-If you want to associate a host, host group to a realtime downtime, use the **ADD** action: To set the value of the
-start/end time, use the following format: YYYY/MM/DD HH:mm:
+If you want to apply downtime to a host or a host group, use the **ADD** action. To set the value of the
+start/end time, use the following format: YYYY/MM/DD HH:mm
 
 ``` shell
 centreon -u admin -p 'centreon' -o RTDOWNTIME -a add -v "HOST;central;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments;1"
@@ -3996,8 +3987,8 @@ The required parameters are the following:
 
 | Order | Description                                      |
 | ----- | ------------------------------------------------ |
-| 1     | Value you want to associate                      |
-| 2     | Name of the host (Name of the service)           |
+| 1     | Value you want to associate (HOST or HG)         |
+| 2     | Name of the host                                 |
 | 3     | Beginning of downtime                            |
 | 4     | End of downtime                                  |
 | 5     | Type of downtime (1 = fixed, 0 = flexible)       |
@@ -4005,10 +3996,10 @@ The required parameters are the following:
 | 7     | Short description of the realtime downtime       |
 | 8     | Apply downtime on linked services (0/1)          |
 
-#### Add service and service group realtime downtime
+#### Add service or service group downtime
 
-If you want to associate a service or service group to a realtime downtime, use the **ADD** action: To set the value of
-the start/end time, use the following format: YYYY/MM/DD HH:mm:
+If you want to apply downtime to a service or service group, use the **ADD** action. To set the value of
+the start/end time, use the following format: YYYY/MM/DD HH:mm
 
 ``` shell
 centreon -u admin -p 'centreon' -o RTDOWNTIME -a add -v "SVC;central,ping|central,memory;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments"
@@ -4019,7 +4010,7 @@ The required parameters are the following:
 
 | Order | Description                                      |
 | ----- | ------------------------------------------------ |
-| 1     | Value you want to associate                      |
+| 1     | Value you want to associate (SVC or SG)          |
 | 2     | Name of the host (Name of the service)           |
 | 3     | Beginning of downtime                            |
 | 4     | End of downtime                                  |
@@ -4027,10 +4018,10 @@ The required parameters are the following:
 | 6     | Duration of downtime for flexible mode (seconds) |
 | 7     | Short description of the realtime downtime       |
 
-#### Add instance realtime downtime
+#### Add instance downtime
 
-To add a new realtime downtime for a poller, use the **ADD** action: To set the value of the start/end time, use
-the following format : YYYY/MM/DD HH:mm:
+To apply downtime to a poller, use the **ADD** action. To set the value of the start/end time, use
+the following format : YYYY/MM/DD HH:mm
 
 ``` shell
 centreon -u admin -p 'centreon' -o RTDOWNTIME -a add -v "INSTANCE;Central;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments
@@ -4040,7 +4031,7 @@ The required parameters are the following:
 
 | Order | Description                                      |
 | ----- | ------------------------------------------------ |
-| 1     | Value you want to associate                      |
+| 1     | Value you want to associate (INSTANCE)           |
 | 2     | Name of the poller                               |
 | 3     | Beginning of downtime                            |
 | 4     | End of downtime                                  |
@@ -4048,9 +4039,9 @@ The required parameters are the following:
 | 6     | Duration of downtime for flexible mode (seconds) |
 | 7     | Short description of the realtime downtime       |
 
-#### Cancel a realtime downtime
+#### Cancel downtime
 
-To cancel realtime downtime, use the **CANCEL** action: To get the value of the id, use the **SHOW** action:
+To cancel downtime, use the **CANCEL** action. To get the value of the ID, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o RTDOWNTIME -a cancel -v "6|42"
@@ -4068,7 +4059,7 @@ Object name: **RESOURCECFG**
 
 #### Show
 
-To list the available Resource variables, use the **SHOW** action:
+To list the available resource variables, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o RESOURCECFG -a show
@@ -4100,15 +4091,15 @@ The required fields are:
 
 | Column    | Description                              |
 | --------- | ---------------------------------------- |
-| Name      | Macro name; do not use the $ symbols     |
+| Name      | Macro name; do not use the $ symbol      |
 | Value     | Macro value                              |
 | Instances | Instances that are tied to $USERn$ macro |
 | Comment   | Comment                                  |
 
 #### Del
 
-If you want to remove a Resource variable, use the **DEL** action. The ID is used to identify the variable to
-delete:
+If you want to remove a resource variable, use the **DEL** action. To identify the variable to
+delete, use its ID:
 
 ``` shell
 centreon -u admin -p 'centreon' -o RESOURCECFG -a del -v "1"
@@ -4116,8 +4107,8 @@ centreon -u admin -p 'centreon' -o RESOURCECFG -a del -v "1"
 
 #### Setparam
 
-If you want to change a specific parameter of a Resource macro, use the **SETPARAM** action. The ID is used to
-identify the macro to update:
+If you want to change a specific parameter of a resource macro, use the **SETPARAM** action. To
+identify the macro to update, use its ID:
 
 ``` shell
 centreon -u admin -p 'centreon' -o RESOURCECFG -a setparam -v "1;instance;Poller test|AnotherPoller"
@@ -4135,7 +4126,7 @@ The parameters that you may change are:
 
 | Column   | Description                                               |
 | -------- | --------------------------------------------------------- |
-| name     | Macro name; do not use the $ symbols                      |
+| name     | Macro name; do not use the $ symbol                       |
 | value    | Macro value                                               |
 | activate | *1* when activated, *0* otherwise                         |
 | comment  | Comment                                                   |
@@ -4204,7 +4195,7 @@ You can change the following parameters:
 
 #### Getservice and Getservicetemplate
 
-To view the member list of a service category, use the **GETSERVICE** or **GETSERVICETEMPLATE** action:
+To view the services in a service category, use the **GETSERVICE** or **GETSERVICETEMPLATE** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SC -a getservice -v "Ping-Category"
@@ -4277,7 +4268,7 @@ Object name: **SG**
 
 #### Show
 
-To list the available servicegroups, use the **SHOW** action:
+To list all servicegroups, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SG -a show
@@ -4285,14 +4276,13 @@ id;name;alias
 11;Alfresco;Alfresco Services
 ```
 
-You can also specify the servicegroup to search:
+You can also search for a specific service group:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SG -a show -v 'Alfresco'
 id;name;alias
 11;Alfresco;Alfresco Services
 ```
-
 
 #### Add
 
@@ -4423,7 +4413,7 @@ Object name: **SERVICE**
 
 #### Show
 
-To list the available services, use the **SHOW** action:
+To list all services, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SERVICE -a show
@@ -4439,7 +4429,7 @@ host id;host name;id;description;check command;check command arg;normal check in
 14;Centreon-Server;40;dummy;check_centreon_dummy;!2!critical;;;;2;2;1
 ```
 
-You can also specify the service to search:
+You can also search for a specific service:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SERVICE -a show -v 'Disk-/'
@@ -4448,7 +4438,7 @@ host id;host name;id;description;check command;check command arg;normal check in
 15;Centreon-DB;20;Disk-/;;;;;;2;2;1
 ```
 
-Or can specify service on host to search:
+Or search for a service attached to a specific host:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SERVICE -a show -v 'Centreon-Server;Disk-/'
@@ -4655,13 +4645,13 @@ To remove the relationship between a host and a service, use the **DELHOST** act
 centreon -u admin -p 'centreon' -o SERVICE -a delhost -v "host1;ping;host2"
 ```
 
-The service ping which was originally linked to host1 and host2 is now only linked to host1.
+The service called ping which was originally linked to host1 and host2 is now only linked to host1.
 
 > ***NOTE:*** You need to generate your configuration file and restart the monitoring engine in order to apply changes.
 
 #### Getmacro
 
-To view the custom macro list of a service, use the **GETMACRO** action:
+To view the custom macro list for a service, use the **GETMACRO** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SERVICE -a getmacro -v "host1;ping"
@@ -4736,7 +4726,7 @@ Required parameters:
 
 #### Getcontact
 
-To view the contact list of a service, use the **GETCONTACT** action:
+To view the contact list for a service, use the **GETCONTACT** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o "SERVICE" -a getcontact -v "Centreon-Server;Ping"
@@ -4770,7 +4760,7 @@ centreon -u admin -p 'centreon' -o SERVICE -a delcontact -v "test;ping;User2"
 
 #### Getcontactgroup
 
-To view the contact group list of a service, use the **GETCONTACTGROUP** action:
+To view the contact group list for a service, use the **GETCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o "SERVICE" -a getcontactgroup -v "Centreon-Server;Ping"
@@ -4781,7 +4771,7 @@ id;name
 
 #### Addcontactgroup and Setcontactgroup
 
-To add a new contactgroup to the notification contactgroup list, use  **ADDCONTACTGROUP** or **SETCONTACTGROUP**,
+To add a new contact group to the notification contact group list, use  **ADDCONTACTGROUP** or **SETCONTACTGROUP**,
 where *add* will append and *set* will overwrite previous definitions:
 
 ``` shell
@@ -4793,7 +4783,7 @@ centreon -u admin -p 'centreon' -o SERVICE -a setcontactgroup -v "test;ping;Grou
 
 #### Delcontactgroup
 
-To remove a contactgroup from the notification contactgroup list, use the **DELCONTACTGROUP** action:
+To remove a contactgroup from the notification contact group list, use the **DELCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SERVICE -a delcontactgroup -v "test;ping;Group1"
@@ -4846,7 +4836,7 @@ id;name
 
 #### Addservicegroup and Setservicegroup
 
-To add a new servicegroup, use the **ADDSERVICEGROUP** or **SETSERVICEGROUP** actions, where *add* will append and *set* will overwrite
+To add a new service group, use the **ADDSERVICEGROUP** or **SETSERVICEGROUP** actions, where *add* will append and *set* will overwrite
 previous definitions:
 
 ``` shell
@@ -4858,7 +4848,7 @@ centreon -u admin -p 'centreon' -o SERVICE -a setservicegroup -v "test;ping;SG1|
 
 #### Delservicegroup
 
-To remove a servicegroup from a service, use the **DELSERVICEGROUP** command:
+To remove a service group from a service, use the **DELSERVICEGROUP** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SERVICE -a delservicegroup -v "test;ping;SG1"
@@ -4901,7 +4891,7 @@ Object name: **STPL**
 
 #### Show
 
-To list the available services, use the **SHOW** action:
+To list all service templates, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o STPL -a show
@@ -4916,7 +4906,7 @@ id;description;check command;check command arg;normal check interval;retry check
 9;SNMP-DISK-/opt;Disk-/opt;check_centreon_remote_storage;!/opt!80!90;;;;2;2
 ```
 
-You can also specify the service template to search:
+You can also search for a specific service template:
 
 ``` shell
 centreon -u admin -p 'centreon' -o STPL -a show -v 'Ping-LAN'
@@ -4929,7 +4919,7 @@ The columns are as follows:
 | Order | Description                                        |
 | ----- | -------------------------------------------------- |
 | 1     | Service ID                                         |
-| 2     | Service Description                                |
+| 2     | Service description                                |
 | 3     | Check command                                      |
 | 4     | Check command arguments                            |
 | 5     | Normal check interval                              |
@@ -4976,7 +4966,7 @@ centreon -u admin -p 'centreon' -o STPL -a setparam -v "MyTemplate;normal_check_
 centreon -u admin -p 'centreon' -o STPL -a setparam -v "MyTemplate;normal_check_interval;http://192.168.1.2/admincp"
 ```
 
-You must set the following fields as optional:
+You must set the following fields:
 
 | Order | Description                       |
 | ----- | --------------------------------- |
@@ -5190,7 +5180,7 @@ centreon -u admin -p 'centreon' -o STPL -a delcontact -v "MyTemplate;User2"
 
 #### Getcontactgroup
 
-To view the contactgroup list of a service template, use the **GETCONTACTGROUP** action:
+To view the contact group list for a service template, use the **GETCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o STPL -a getcontactgroup -v "MyTemplate"
@@ -5201,7 +5191,7 @@ id;name
 
 #### Setcontactgroup
 
-In order to add a new contactgroup to notification contactgroup list, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP**
+To add a new contact group to a notification contact group list, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP**
 actions, where *add* will append and *set* will overwrite previous definitions:
 
 ``` shell
@@ -5213,7 +5203,7 @@ centreon -u admin -p 'centreon' -o STPL -a setcontactgroup -v "MyTemplate;Group1
 
 #### Delcontactgroup
 
-To remove a contactgroup from the notification contactgroup list, use the **DELCONTACTGROUP** action:
+To remove a contact group from the notification contact group list, use the **DELCONTACTGROUP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o STPL -a delcontactgroup -v "MyTemplate"
@@ -5224,7 +5214,7 @@ centreon -u admin -p 'centreon' -o STPL -a delcontactgroup -v "MyTemplate;Group1
 
 #### Gettrap
 
-To view the trap list of a service template, use the **GETTRAP** action:
+To view the trap list for a service template, use the **GETTRAP** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o "STPL" -a gettrap -v "Ping-LAN"
@@ -5316,7 +5306,7 @@ snmptt_unknowntrap_log_file;snmptrapd.log
 
 #### Setparam
 
-If you want to change a specific parameter of a Vendor, use the **SETPARAM** action:
+If you want to change a specific parameter of a vendor, use the **SETPARAM** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o SETTINGS -a setparam -v ";"
@@ -5358,7 +5348,7 @@ Object name: **TP**
 
 #### Show
 
-To list the available time periods, use the **SHOW** action:
+To list all time periods, use the **SHOW** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TP -a show
@@ -5371,7 +5361,7 @@ id;name;alias;sunday;monday;tuesday;wednesday;thursday;friday,saturday
 
 #### Add
 
-To add a Time Period, use the **ADD** action:
+To add a time period, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TP -a add -v "Timeperiod_Test;Timeperiod_Test"
@@ -5386,7 +5376,7 @@ The required fields are:
 
 #### Del
 
-If you want to remove a Time Period, use the **DEL** action. The Name is used to identify the Time Period to delete:
+If you want to remove a time period, use the **DEL** action. To identify the time period to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TP -a del -v "Timeperiod_Test"
@@ -5394,8 +5384,7 @@ centreon -u admin -p 'centreon' -o TP -a del -v "Timeperiod_Test"
 
 #### Setparam
 
-If you want to change a specific parameter of a time period, use the **SETPARAM** action. The name is used to
-identify the Time Period to update:
+If you want to change a specific parameter for a time period, use the **SETPARAM** action. To identify the time period to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TP -a setparam -v "Timeperiod_Test;monday;00:00-24:00"
@@ -5426,7 +5415,7 @@ The parameters that you may change are:
 
 #### Getexception
 
-To view the exception list of a time period, use the **GETEXCEPTION** action:
+To view the exception list for a time period, use the **GETEXCEPTION** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TP -a getexception -v "mytimeperiod"
@@ -5455,10 +5444,10 @@ centreon -u admin -p 'centreon' -o TP -a delexception -v "mytimeperiod;january 1
 
 Arguments are composed of the following columns:
 
-| Order | Column description                  |
-| ----- | ----------------------------------- |
-| 1     | Name of timeperiod                  |
-| 2     | Exception to remove from timeperiod |
+| Order | Column description                   |
+| ----- | ------------------------------------ |
+| 1     | Name of time period                  |
+| 2     | Exception to remove from time period |
 
 ### Traps
 
@@ -5499,7 +5488,7 @@ The required fields are:
 
 #### Del
 
-If you want to remove a Trap, use the **DEL** action. The Name is used to identify the Trap to delete:
+If you want to remove a trap, use the **DEL** action. To identify the trap to delete, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TRAP -a del -v "aNewTrap"
@@ -5507,8 +5496,7 @@ centreon -u admin -p 'centreon' -o TRAP -a del -v "aNewTrap"
 
 #### Setparam
 
-If you want to change a specific parameter of a Trap, use the **SETPARAM** command. The Name is used to identify the
-Trap to update:
+If you want to change a specific parameter for a trap, use the **SETPARAM** command. To identify the trap to update, use its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TRAP -a setparam -v "aNewTrap;vendor;3com"
@@ -5589,7 +5577,7 @@ The required fields are:
 
 #### Updatematching
 
-To delete a matching rule, use the **UPDATEMATCHING** command:
+To update a matching rule, use the **UPDATEMATCHING** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -o TRAP -a updatematching -v "8;status;critical"
@@ -5635,7 +5623,7 @@ id;name;alias
 
 #### Add
 
-To add a Vendor, use the **ADD** action:
+To add a vendor, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o VENDOR -a add -v "DLink;DLink routers"
@@ -5650,7 +5638,7 @@ The required fields are:
 
 #### Del
 
-If you want to remove a Vendor, use the **DEL** action. The Name is used to identify the Vendor to delete:
+If you want to remove a vendor, use the **DEL** action. To identify the vendor to delete, use their name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o VENDOR -a del -v "DLink"
@@ -5658,8 +5646,7 @@ centreon -u admin -p 'centreon' -o VENDOR -a del -v "DLink"
 
 #### Setparam
 
-If you want to change a specific parameter of a Vendor, use the **SETPARAM** command. The name is used to identify
-the Vendor to update:
+If you want to change a specific parameter for a vendor, use the **SETPARAM** command. To identify the vendor to update, use their name:
 
 ``` shell
 centreon -u admin -p 'centreon' -o VENDOR -a setparam -v "3com;name;HP"
@@ -5695,7 +5682,7 @@ Successful translations:   10.
 Failed translations:       0.
 ```
 
-> ***NOTE:*** Make sure to put all the mib file dependencies in the /usr/share/snmp/mibs/ directory before starting the
+> ***NOTE:*** Make sure to put all the MIB file dependencies in the /usr/share/snmp/mibs/ directory before starting the
 > generation. Then, remove them when it is done.
 
 The required fields are:
@@ -5710,7 +5697,6 @@ The required fields are:
 
 The service mapping capabilities in Centreon rely on the **Centreon Business Activity Monitoring (BAM)** extension.
 
-
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To purchase one and retrieve
 the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
@@ -5720,7 +5706,7 @@ Object name: **BV**
 
 #### SHOW
 
-To list the available BVs, use the **SHOW** action:
+To list all BVs, use the **SHOW** action:
 
     ./centreon -u admin -p 'centreon' -o BV -a SHOW
     id;name;description
@@ -5772,7 +5758,7 @@ You can change the following parameters:
 
 #### SETBA
 
-To set the Business Activity (BA) to a BV, use the **SETBA** action:
+To add a Business Activity (BA) to a BV, use the **SETBA** action:
 
     ./centreon -u admin -p 'centreon' -o BV -a SETBA -v 'bv1;ba1'
 
@@ -5811,7 +5797,7 @@ The following columns are required:
 
 #### SETACLGROUP
 
-To set an ACL group to a BV, use the **SETACLGROUP** action:
+To link an access group to a BV, use the **SETACLGROUP** action:
 
     ./centreon -u admin -p 'centreon' -o BV -a SETACLGROUP -v 'bv1;ALL'
 
@@ -5820,11 +5806,11 @@ The following columns are required:
 |  Column        |         Description                                             |
 |----------------|-----------------------------------------------------------------|
 | Bv name        |  Business View name                                             |
-|  Acl group name|   Acl group name (multiple with a pipe separator)               |
+|  Acl group name|  Access group name (multiple with a pipe separator)             |
 
 #### ADDACLGROUP
 
-To add an ACL group to a BV, use the **ADDACLGROUP** action:
+To link an access group to a BV, use the **ADDACLGROUP** action:
 
     ./centreon -u admin -p 'centreon' -o BV -a ADDACLGROUP -v 'bv1;ALL'
 
@@ -5833,11 +5819,11 @@ The following columns are required:
 |  Column        |   Description
 |----------------|-----------------------------------------------------------------|
 |  Bv name       |   Business View name                                            |
-|  Acl group name|   Acl group name (multiple with a "pipe" separator)             |
+|  Acl group name|   Access group name (multiple with a "pipe" separator)          |
 
 #### DELACLGROUP
 
-To delete an ACL group from a BV, use the **DELACLGROUP** action:
+To unlink an access group from a BV, use the **DELACLGROUP** action:
 
     ./centreon -u admin -p 'centreon' -o BV -a DELACLGROUP -v 'bv1;ALL'
 
@@ -5846,7 +5832,7 @@ The following columns are required:
 |  Column        |   Description
 |----------------|-----------------------------------------------------------------|
 |  Bv name       |   Business View name                                            |
-|  Acl group name|   Acl group name (multiple with a "pipe" separator)             |
+|  Acl group name|   Access group name (multiple with a "pipe" separator)          |
 
 ### Business Activity (BA)
 
@@ -5854,7 +5840,7 @@ Object name: **BA**
 
 #### SHOW
 
-To list the available business activities, use the **SHOW** action:
+To list all business activities, use the **SHOW** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a SHOW
     id;name;description;state_source;level_w;level_c;notification_interval
@@ -5868,11 +5854,11 @@ The following columns are displayed:
   * BA ID: Business Activity id
   * BA name: Business Activity name
   * Ba description: Business Activity description
-  * Ba state_source: Business Activity Calculation Method
+  * Ba state_source: Business Activity calculation method
   * level\_w: Warning threshold (only applicable for Impact and Ratio modes)
   * level\_c: Critical threshold (only applicable for Impact and Ratio modes)
 
-Business Activity Calculation Methods (state_source):
+Business Activity calculation methods (state_source):
   * 0 - Impact Mode (requires level\_w to be > level\_c)
   * 1 - Best Status
   * 2 - Worst Status
@@ -5933,11 +5919,11 @@ The parameters that you can change are the following:
   |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |                                                                                                                                                         |
 
 > Note: Changing State Source will require updating your Level W and Level C to match the appropriate
->    Calculation Method!
+>    calculation method!
 
 #### SETBV
 
-To set a BV to a BA, use the **SETBV** action:
+To add a BV to a BA, use the **SETBV** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a SETBV -v 'ba1;bv1'
     ./centreon -u admin -p 'centreon' -o BA -a SETBV -v 'ba1;bv1|bv2'
@@ -5960,12 +5946,12 @@ The following columns are required:
 
 | Column   | Description                                                     |
 |----------|-----------------------------------------------------------------|
-|  Ba name |  Business Aiew name                                             |
+|  Ba name |  Business View name                                             |
 |  Bv name |  Business View name (multiple with a "pipe" separator)          |
 
 #### DELBV
 
-To delete a BV from a BA, use the **DELBV** action:
+To remove a BV from a BA, use the **DELBV** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a DELBV -v 'ba1;bv1'
 
@@ -5973,12 +5959,12 @@ The following columns are required:
 
 | Column   | Description                                                     |
 |----------|-----------------------------------------------------------------|
-|  Ba name |  Business Aiew name                                             |
+|  Ba name |  Business View name                                             |
 |  Bv name |  Business View name (multiple with a "pipe" separator)          |
 
 #### SETCONTACTGROUP
 
-To set contact group to a BA, use the **SETCONTACTGROUP** action:
+To link a contact group to a BA, use the **SETCONTACTGROUP** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a SETCONTACTGROUP -v 'ba1;Guest'
     ./centreon -u admin -p 'centreon' -o BA -a SETCONTACTGROUP -v 'ba1;Guest|Supervisors'
@@ -5987,12 +5973,12 @@ The following columns are required:
 
 | Column              | Description                                                     |
 |---------------------|-----------------------------------------------------------------|
-|  Ba name            |  Business Aiew name                                             |
+|  Ba name            |  Business View name                                             |
 |  Contact group name |  Contact group name (multiple with a "pipe" separator)          |
 
 #### ADDCONTACTGROUP
 
-To add contact group to a BA, use the **ADDCONTACTGROUP** action:
+To link a contact group to a BA, use the **ADDCONTACTGROUP** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a ADDCONTACTGROUP -v 'ba1;Guest'
 
@@ -6000,12 +5986,12 @@ The following columns are required:
 
 | Column              | Description                                                     |
 |---------------------|-----------------------------------------------------------------|
-|  Ba name            |  Business Aiew name                                             |
+|  Ba name            |  Business View name                                             |
 |  Contact group name |  Contact group name (multiple with a "pipe" separator)          |
 
 #### DELCONTACTGROUP
 
-To delete a contact group from a BA, use the **DELCONTACTGROUP** action:
+To unlink a contact group from a BA, use the **DELCONTACTGROUP** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a DELCONTACTGROUP -v 'ba1;Guest'
 
@@ -6013,13 +5999,12 @@ The following columns are required:
 
 | Column              | Description                                                     |
 |---------------------|-----------------------------------------------------------------|
-|  Ba name            |  Business Aiew name                                             |
+|  Ba name            |  Business View name                                             |
 |  Contact group name |  Contact group name (multiple with a "pipe" separator)          |
 
 #### SETEXTRAREPORTINGPERIOD
 
-To set extra reporting periods for Centreon MBI, use the
-**SETEXTRAREPORTINGPERIOD** action:
+To set extra reporting periods for Centreon MBI, use the **SETEXTRAREPORTINGPERIOD** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a SETEXTRAREPORTINGPERIOD -v 'ba1;workhours'
 
@@ -6027,13 +6012,12 @@ The following columns are required:
 
 | Column                   | Description                                                     |
 |--------------------------|-----------------------------------------------------------------|
-|  Ba name                 |  Business Aiew name                                             |
+|  Ba name                 |  Business View name                                             |
 |  Extra reporting period  |  Extra reporting period (multiple with a "pipe" separator)      |
 
 #### ADDEXTRAREPORTINGPERIOD
 
-To add extra reporting periods for Centreon MBI, use the
-**ADDEXTRAREPORTINGPERIOD** action:
+To add extra reporting periods for Centreon MBI, use the **ADDEXTRAREPORTINGPERIOD** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a ADDEXTRAREPORTINGPERIOD -v 'ba1;workhours'
 
@@ -6041,13 +6025,12 @@ The following columns are required:
 
 | Column                   | Description                                                     |
 |--------------------------|-----------------------------------------------------------------|
-|  Ba name                 |  Business Aiew name                                             |
+|  Ba name                 |  Business View name                                             |
 |  Extra reporting period  |  Extra reporting period (multiple with a "pipe" separator)      |
 
 #### DELEXTRAREPORTINGPERIOD
 
-To delete extra reporting periods from a BA, use the
-**DELEXTRAREPORTINGPERIOD** action:
+To delete extra reporting periods from a BA, use the **DELEXTRAREPORTINGPERIOD** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a DELEXTRAREPORTINGPERIOD -v 'ba1;workhours'
 
@@ -6055,13 +6038,12 @@ The following columns are required:
 
 | Column                   | Description                                                     |
 |--------------------------|-----------------------------------------------------------------|
-|  Ba name                 |  Business Aiew name                                             |
+|  Ba name                 |  Business View name                                             |
 |  Extra reporting period  |  Extra reporting period (multiple with a "pipe" separator)      |
 
 #### SETPOLLER
 
-To set the poller where the BA is calculated (in addition to central),
-use the **SETPOLLER** action:
+To set the poller where the BA is calculated (in addition to the central), use the **SETPOLLER** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a SETPOLLER -v 'ba1;poller1'
 
@@ -6069,12 +6051,12 @@ The following columns are required:
 
 | Column                   | Description                                                     |
 |--------------------------|-----------------------------------------------------------------|
-|  Ba name                 |  Business Aiew name                                             |
+|  Ba name                 |  Business View name                                             |
 | Poller name              |  Poller name where Business Activity can be calculated          |
 
 #### DELPOLLER
 
-To delete poller where the BA is calculated, use the **DELPOLLER**
+To delete the poller where the BA is calculated, use the **DELPOLLER**
 action:
 
     ./centreon -u admin -p 'centreon' -o BA -a DELPOLLER -v 'ba1;poller1'
@@ -6140,8 +6122,7 @@ If you want to remove a KPI, use the **DEL** action:
 
 #### SETPARAM
 
-If you want to change a specific parameter for a KPI, use the
-**SETPARAM** action:
+If you want to change a specific parameter for a KPI, use the **SETPARAM** action:
 
     ./centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'service;host1|service1;ba1;enable;0'
     ./centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'metaservice;meta1;ba1;warning_impact;50'
@@ -6158,8 +6139,7 @@ The parameters that you can change are the following:
 
 #### SETIMPACTMODE
 
-If you want to change configuration mode, use the **SETIMPACTMODE**
-action:
+If you want to change the configuration mode, use the **SETIMPACTMODE** action:
 
     ./centreon -u admin -p 'centreon' -o KPI -a SETIMPACTMODE -v 'ba;ba1;ba3;advanced'
 
@@ -6167,10 +6147,10 @@ The parameters that you can change are the following:
 
   |Parameter     |Description                                 |
   |--------------|--------------------------------------------|
-  |KPI type      |*service*, *metaservice*, *ba* or *boolean* |
-  |Object        |Object used in KPI                          |
-  |Impacted BA   |Impacted business activity                  |
-  |Impact mode   |regular or advanced                         |
+  | KPI type      | *service*, *metaservice*, *ba* or *boolean* |
+  | Object        | Object used in KPI                          |
+  | Impacted BA   | Impacted business activity                  |
+  | Impact mode   | regular or advanced                         |
 
 ### Boolean Rule
 
@@ -6188,12 +6168,12 @@ To list the available boolean rules, use the **SHOW** action:
 
 The following columns are required:
 
-  |Column           |Description                                           |
-  |-----------------|------------------------------------------------------|
-  |Rule ID          |Boolean rule id                                       |
-  |Rule name        | Boolean rule name                                    |
-  |Rule expression  |Boolean rule expression                               |
-  |Bool state       |Impact is applied when expression returns this state  |
+  | Column           | Description                                           |
+  |------------------|------------------------------------------------------|
+  | Rule ID          | Boolean rule ID                                       |
+  | Rule name        | Boolean rule name                                    |
+  | Rule expression  | Boolean rule expression                               |
+  | Bool state       | Impact is applied when expression returns this state  |
 
 #### ADD
 
@@ -6230,13 +6210,11 @@ The parameters that you can change are the following:
   |Rule expression  |Boolean rule expression                               |
   |Bool state       |Impact is applied when expression returns this state  |
 
-
-
 ## Poller management
 
-### List available pollers
+### List all pollers
 
-To list available pollers, use the **POLLERLIST** command:
+To list all pollers, use the **POLLERLIST** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLERLIST
@@ -6247,7 +6225,7 @@ poller_id;name
 
 ### Generate local configuration files for a poller
 
-To generate configuration files for poller "Local Poller" of id 1, use the **POLLERGENERATE** command:
+To generate configuration files for poller "Local Poller" with ID 1, use the **POLLERGENERATE** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLERGENERATE -v 1
@@ -6263,7 +6241,7 @@ Configuration files generated for poller 'Local Poller'
 
 ### Test monitoring engine configuration of a poller
 
-To test configuration files for poller "Remote Poller" of id 2, use the **POLLERTEST** command:
+To test configuration files for poller "Remote Poller" with ID 2, use the **POLLERTEST** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLERTEST -v 1
@@ -6326,7 +6304,7 @@ Return code end : 0.
 
 ### Move monitoring engine configuration files
 
-To move the configuration files for poller "Local Poller" of id 1 to the final engine directory, use the
+To move the configuration files for poller "Local Poller" with ID 1 to the final engine directory, use the
 **CFGMOVE** command:
 
 ``` shell
@@ -6345,7 +6323,7 @@ Return code end : 1.
 
 ### Restart monitoring engine of a poller
 
-To restart the monitoring process on poller "Local Poller" of id 1, use the  **POLLERRESTART** command:
+To restart the monitoring process on poller "Local Poller" with ID 1, use the  **POLLERRESTART** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLERRESTART -v 2
@@ -6369,7 +6347,7 @@ Use the **APPLYCFG** command in order to execute all of the above with one singl
 centreon -u admin -p 'centreon' -a APPLYCFG -v 1
 ```
 
-You can execute using the poller name:
+You can execute the command using the poller name:
 
 ``` shell
 centreon -u admin -p 'centreon' -a APPLYCFG -v "Remote Poller"
@@ -6379,7 +6357,7 @@ This will execute **POLLERGENERATE**, **POLLERTEST**, **CFGMOVE** and **POLLERRE
 
 ### Reload the monitoring engine of a poller
 
-To reload the monitoring process on poller "Remote Poller" of id 2, use the **POLLERRELOAD** command:
+To reload the monitoring process on poller "Remote Poller" with ID 2, use the **POLLERRELOAD** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLERRELOAD -v 2
@@ -6387,7 +6365,7 @@ OK: A reload signal has been sent to Remote Pollerpoller'
 Return code end : 1.
 ```
 
-You can reload poller using its name:
+You can reload a poller using its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLERRELOAD -v "Remote Poller"
@@ -6395,9 +6373,9 @@ OK: A reload signal has been sent to 'Remote Poller'
 Return code end : 1.
 ```
 
-### Execute post generation commands of a poller
+### Execute post generation commands for a poller
 
-To execute post generation commands of a poller, use the **POLLEREXECCMD** command:
+To execute post generation commands for a poller, use the **POLLEREXECCMD** command:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLEREXECCMD -v 2
@@ -6405,7 +6383,7 @@ Running configuration check...done.
 Reloading nagios configuration...done
 ```
 
-You can execute post generation commands of a poller using its name:
+You can execute post generation commands for a poller using its name:
 
 ``` shell
 centreon -u admin -p 'centreon' -a POLLEREXECCMD -v "Remote Poller"
@@ -6423,7 +6401,7 @@ synchronizing or backup purposes.
 The following items will not be exported:
 
 * Escalation
-* ACL (ACL Groups, ACL Resources, ACL actions)
+* ACL (access groups, resource ACLs, action ACLs)
 * LDAP settings
 * Global Centreon settings
 
@@ -6437,7 +6415,7 @@ This will generate CLAPI commands and redirect them to the */tmp/clapi-export.tx
 
 This file can now be read by the import command.
 
-With this, you can also build your own CLAPI command file if you know the straightforward syntax.
+With this, you can also build your own CLAPI command file if you know the syntax.
 
 For instance:
 
@@ -6453,13 +6431,13 @@ HOST;ADD;Host-Test5;Test host;127.0.0.1;generic-host;Local Poller;Linux
 
 You can choose to export only predefined hosts or services.
 
-For example, to export all services linked to the "srv-mssql-01" host, you need to execute following command:
+For example, to export all services linked to the "srv-mssql-01" host, you need to execute the following command:
 
 ``` shell
 centreon -u admin -p 'centreon' -e --select='HOST;srv-mssql-01' --filter-type='^(HOST|SERVICE)$'
 ```
 
-To export "memory" and "mssql-listener" services execute following command:
+To export "memory" and "mssql-listener" services, execute the following command:
 
 ``` shell
 centreon -e --select='SERVICE;memory' --select='SERVICE;mssql-listener' --filter-type='^SERVICE$'
@@ -6483,7 +6461,7 @@ In case you have a very large export file, it is advised to redirect the output 
 when errors occur during the import process, CLAPI will print out an error message along with the line number of the
 file, and you might need to store these output messages for troubleshooting later on.
 
-You can build your own CLAPI command file if you know the straightforward syntax. You can use the parameter described in
+You can build your own CLAPI command file if you know the syntax. You can use the parameter described in
 Object Management with the syntax you can see in export files:
 
 ``` shell
