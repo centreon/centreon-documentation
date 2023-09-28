@@ -10,7 +10,6 @@ on:
   push:
     branches:
       - staging
-      - next
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -63,6 +62,7 @@ jobs:
         with:
           script: |
             let build_versions = require('./versions.json');
+            let build_next_version = require('./nextVersion.json').version;
             let build_pp = '1';
             let build_cloud = '1';
 
@@ -77,12 +77,17 @@ jobs:
 
               if (${{ steps.changes.outputs.versions }} === true) {
                 const available_versions = require('./versions.json');
+                const next_version = require('./nextVersion.json').version;
                 build_versions = [];
+                build_next_version = null;
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
                   [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
                     if (available_versions.includes(result[1])) {
                       console.log(`Version ${result[1]} updated : ${file}`);
                       build_versions.push(result[1]);
+                    }
+                    if (next_version === result[1]) {
+                      build_next_version = next_version;
                     }
                   });
                 });
@@ -94,8 +99,19 @@ jobs:
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
 
-            //core.setOutput('build_versions', build_versions.join(','));
-            core.setOutput('build_versions', JSON.stringify(build_versions));
+            const build_environments = [];
+            if (build_versions.length) {
+              build_environments.push('staging');
+            }
+            if (build_next_version !== null) {
+              build_environments.push('next');
+            }
+
+            core.setOutput('build_environments', JSON.stringify(build_environments));
+            core.setOutput('build_versions', build_versions.join(','));
+            //core.setOutput('build_environments', JSON.stringify(build_environments));
+            //core.setOutput('build_versions', JSON.stringify(build_versions));
+            core.setOutput('build_next_version', build_next_version);
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
 
@@ -106,10 +122,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ${{ fromJson(needs.get-versions.outputs.build_versions) }}
+        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
         include:
-          - pp: ${{ needs.get-versions.outputs.build_pp }}
+          - versions: ${{ needs.get-versions.outputs.build_versions }}
+            next_version: ${{ needs.get-versions.outputs.build_next_version }}
+            pp: ${{ needs.get-versions.outputs.build_pp }}
             cloud: ${{ needs.get-versions.outputs.build_cloud }}
+
+    name: Build ${{ matrix.environment }}
 
     steps:
       - name: Checkout sources
@@ -135,15 +155,15 @@ jobs:
           #CLOUD: ${{ matrix.cloud }}
           PP: 0
           CLOUD: 0
-          VERSIONS: ${{ matrix.version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.version, github.event.pull_request.number) || '' }}
+          VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.environment, github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: actions/cache/save@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.version }}"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
@@ -153,12 +173,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ${{ fromJson(needs.get-versions.outputs.build_versions) }}
-        include:
-          - pp: ${{ needs.get-versions.outputs.build_pp }}
-            cloud: ${{ needs.get-versions.outputs.build_cloud }}
+        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
 
-    name: deploy preview ${{ matrix.version }}
+    name: deploy preview ${{ matrix.environment }}
 
     steps:
       - name: Checkout sources
@@ -169,7 +186,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.version }}"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
       - name: Deploy preview
@@ -177,7 +194,7 @@ jobs:
         with:
           source-dir: ./build
           preview-branch: gh-pages
-          umbrella-dir: pr-preview/${{ matrix.version }}
+          umbrella-dir: pr-preview/${{ matrix.environment }}
           action: auto
 
   comment-preview:
