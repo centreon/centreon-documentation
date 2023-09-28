@@ -8,18 +8,18 @@ import TabItem from '@theme/TabItem';
 
 ## Definition
 
-A command is the definition of a line of command which uses a script or an application to perform an action. It is
+A command is the definition of a command line that uses a script or an application to perform an action. It is
 possible execute this command by specifying arguments.
 
 There are four types of command:
 
-* **Verification** commands are used by the schedulers to verify the status of a host or of a service.
+* **Verification** commands are used by the schedulers to verify the status of a host or service.
 * **Notification** commands are used by the schedulers to alert the contacts (via mail, SMS, etc.).
 * **Discovery** commands are used by the schedulers to discover.
 * **Miscellaneous** commands are used by the additional modules (to perform certain actions), by the scheduler for
   data processing, etc.
 
-All the commands can be configured in the menu: **Configuration > Commands**.
+All the commands can be configured in the following menu: **Configuration > Commands**.
 
 ![image](../../assets/configuration/04commandlist.png)
 
@@ -28,7 +28,7 @@ All the commands can be configured in the menu: **Configuration > Commands**.
 ## Adding a command
 
 1. Go to the **Configuration > Commands** menu
-2. Click on **Add**
+2. Click **Add**
 
 ![image](../../assets/configuration/04command.png)
 
@@ -36,27 +36,27 @@ All the commands can be configured in the menu: **Configuration > Commands**.
 
 ## Configuration fields
 
-* The **command Name** field defined the name of the command.
+* The **Command Name** field defines the name of the command.
 * The **Command Type** field allows us to choose the type of command.
-* The **Command Line** field indicates the application or the script use with the command.
-* The **Enable shell** box allows us to enable functions that are specific to a shell such as the pipe, etc.
-* The **Argument Example** field define examples of arguments (each argument starts with a ”!”)
-* The **Describe arguments** button serves to add  a description to arguments of the “$ARGn$” type. This description
+* The **Command Line** field indicates the application or script used with the command.
+* The **Enable shell** box allows us to enable functions that are specific to a shell, such as the pipe, etc.
+* The **Argument Example** field defines examples of arguments (each argument starts with a ”!”)
+* The **Describe arguments** button is used to add a description to “$ARGn$”-type arguments. This description
   will be visible when using the command in a host or service form.
 * The **Clear arguments** button deletes the description of arguments defined
-* The **Describe macros** button serves to add  a description to all macros. This description will be visible when
+* The **Describe macros** button is used to add a description to all macros. This description will be visible when
   using the command in a host or service form.
-* The **Connectors** selectlist serves to link a Connector to the command. For more information on Connectors refer to the
-  chapter entitled *[Perl Connector](#perl-connector)* and *[SSH Connector](#ssh-connector)*.
-* The **Graph template** field serves to link the command to a graphic model.
+* The **Connectors** selectlist is used to link a Connector to the command. For more information on Connectors, refer to the
+  chapters entitled *[Perl Connector](#perl-connector)* and *[SSH Connector](#ssh-connector)*.
+* The **Graph template** field is used to link the command to a graph template.
 * The **Comment** field can be used to make a comment on the command.
 
 ## Arguments and macros
 
-In the **Command Line** field it is possible to use *[macros](macros.md)* and arguments.
+In the **Command Line** field, it is possible to use *[macros](macros.md)* and arguments.
 
-The macros are used to be able to pass various settings to the scripts called up by the commands. During execution
-of the command by the scheduler, each of the arguments and macros are replaced by their respective values.
+The macros are used to pass various settings to the scripts called up by the commands. During execution
+of the command by the scheduler, all of the arguments and macros are replaced by their respective values.
 Each macro appears in the form **$value$**:
 
 ```shell
@@ -73,12 +73,12 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 
 ### SSH connector
 
-Centreon SSH Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
-It speeds up execution checks over SSH when used along Centreon Engine.
+Centreon SSH Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
+It speeds up execution checks over SSH when used with Centreon Engine.
 
 #### Installation
 
-Centreon recommends using its official packages. Most of Centreon’ endorsed software are available as RPM packages.
+Centreon recommends using its official packages. Most of Centreon’s endorsed software is available as RPM packages.
 
 Run the following commands as a privileged user:
 
@@ -108,8 +108,8 @@ apt install centreon-connector-ssh
 
 ### Perl connector
 
-Centreon Perl Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
-It speeds up execution of Perl scripts when used along Centreon Engine.
+Centreon Perl Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
+It speeds up execution of Perl scripts when used with Centreon Engine.
 
 #### Installation
 

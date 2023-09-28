@@ -12,36 +12,36 @@ standards. Read more information throughout this page.
 
 ### Secure development
 
-Security by Design is top-of-mind throughout the Centreon development process which ensures that
+Security by Design is a primary concern throughout the Centreon development process, which ensures that
 products and services are designed from inception to meet data security needs, including access
 controls, monitoring and encryption.
 
 A continuous integration pipeline is leveraged to automate the process from pull request to
-image/package delivery. Code changes are reviewed by code quality scans as a first step then must be
-validated by 2 core developers before they are accepted, and static code analysis is run on every
+image/package delivery. Code changes are reviewed by code quality scans as a first step, and then they must be
+validated by two core developers before they are accepted, and static code analysis is run on every
 build so potential security issues can be caught as early as possible.
 
 Once deployable artifacts are available, all changes are tested by Quality Assurance engineers.
 
 Centreon external users (community or enterprise users) are also able to test and use any beta
-versions by pulling the packages from public “unstable” repositories.
+versions by pulling the packages from “unstable” public repositories.
 
 ### Opensource security
 
-Centreon distributes its core platform under GPLv2 and Apache Open Source licenses which makes it
-possible for [contributors](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) to extend.
+Centreon distributes its core platform under GPLv2 and Apache Open Source licenses, which makes it
+possible for [contributors](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) to extend it.
 Any person who wants to contribute and participate in
 developing the project must respect Centreon’s [Code of Conduct](https://github.com/centreon/.github/blob/master/CODE_OF_CONDUCT.md).
 
-Any contribution is posted as a pull request and provided with [information](https://github.com/centreon/.github/blob/master/PULL_REQUEST_TEMPLATE.md) that helps through the
-review process by Centreon. The review includes code quality, functional tests, documentation as
-well as security and determines whether the contribution is accepted or rejected.
+Any contribution is posted as a pull request and provided with [information](https://github.com/centreon/.github/blob/master/PULL_REQUEST_TEMPLATE.md) that helps with the
+review process by Centreon. The review includes code quality, functional tests, documentation and
+security, and determines whether the contribution is accepted or rejected.
 
 ### Security testing
 
-On top of security checks performed through continuous integration as release testing, manual
+On top of security checks performed through continuous integration such as release testing, manual
 penetration tests are run on a yearly basis to independently identify vulnerabilities and tune best
-practice recommendations for safe implementations.
+practice recommendations for safe implementation.
 
 ## Vulnerability response
 
@@ -60,7 +60,7 @@ Centreon will compute the environmental score assuming the tested Centreon produ
 as defined in the online product documentation and placed behind appropriate in-depth protections.
 
 Depending on the CVSS score of the vulnerability, the Centreon security team will determine the urgency
-of remediating the vulnerability:
+of fixing the vulnerability:
 
 | CVSS score           | Remediation plan                                                                                                                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

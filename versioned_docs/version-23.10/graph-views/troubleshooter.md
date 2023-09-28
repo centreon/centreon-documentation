@@ -19,7 +19,7 @@ We will continue to update this section based on your feedback.
 Their are two main ways to check if your Centreon MAP server is up and
 running.
 
-First of all, check that Centreon MAP service is running. To do so,
+First of all, check that the Centreon MAP service is running. To do this,
 connect through SSH to the server hosting Centreon MAP and run the
 following command:
 
@@ -35,7 +35,7 @@ Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: d
 Active: active (running) since ...
 ```
 
-If your Centreon MAP service is stopped the message will be:
+If your Centreon MAP service is stopped, the message will be:
 
 ```shell
 centreon-map - Centreon Studio map server
@@ -155,7 +155,7 @@ own database. On your desktop client, you should see all your files from
 Centreon Web under the Media tab panel in the "Centreon" folder. If not,
 you may want to verify the following:
 
-On your Centreon MAP server, open the file `/etc/my.cnf` and check if the line
+On your Centreon MAP server, open the file `/etc/my.cnf` and check if the 
 following line is present:
 
 ```text
@@ -174,7 +174,7 @@ client under the Media tab panel in the Centreon folder.
 
 ![image](../assets/graph-views/centreon_media_part.png)
 
-If you still cannot see the list of images check your Centreon MAP
+If you still cannot see the list of images, check your Centreon MAP
 configuration file.
 
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
@@ -193,7 +193,7 @@ Centreon Web interface:
 centreon.url=http://<CENTRAL_IP_ADDRESS>
 ```
 
-> Don't forget to replace "http" with "https" if your Centreon Web
+> Remember to replace "http" with "https" if your Centreon Web
 > interface is using HTTPS.
 
 Wait a few minutes for the Centreon MAP server to synchronize the
@@ -223,7 +223,7 @@ privileges to other "normal" Centreon users.
 
 ### Impossible to import media
 
-When you right click on the Media panel, the Import button is disabled.
+When you right-click the Media panel, the Import button is disabled.
 
 There are two facts you should know about media:
 
@@ -237,7 +237,7 @@ There are two facts you should know about media:
 
 The solution is to create a new folder (e.g., *Icons*).
 
-Then right click on this folder and select *Import*.
+Then right-click this folder and select *Import*.
 
 ### I cannot see the "MAP 3 Import menu."
 
@@ -260,7 +260,7 @@ Please check the following prerequisites:
 
 This IP is also used by your desktop client to the access MAP 3 API. If
 this IP is not reachable by your desktop client (because both your
-Centreon MAP server and Centreon Central server are on a DMZ) you must
+Centreon MAP server and Centreon Central server are on a DMZ), you must
 specify a new one to your desktop client. To do so, edit the file:
 
 <Tabs groupId="sync">
@@ -288,12 +288,12 @@ Centreon Web from your computer:
 -Dcentreon.url=<CENTRAL_IP_ADDRESS>
 ```
 
-### An error occured when I open a geographic view
+### An error occurred when I opened a geographic view
 
 If you open a geographic view or container and your background is composed of
 gray with Xs and the following pop-up message...
 
-"Error while retreiving Mapbox tiles. Please check your Mapbox configuration."
+Error while retrieving Mapbox tiles. Please check your Mapbox configuration."
 
 ![image](../assets/graph-views/mapbox-configuration-error.png)
 
@@ -302,7 +302,7 @@ then you should check the following:
 - Ensure that your Mapbox credentials are valid. To configure your
   Mapbox credentials. Your Mapbox secret key may have changed. Since
   you cannot see the previously created keys, you might want to create
-  a new one and add it in your Centreon MAP server configuration file.
+  a new one and add it to your Centreon MAP server configuration file.
 - If your computer is behind a proxy to gain internet access, please
   configure this proxy in the Centreon MAP Desktop Client.
 - The Mapbox style you used on your view might have been deleted.
@@ -311,7 +311,7 @@ Try to edit your view / container and change the Mapbox style:
 
 ![image](../assets/graph-views/mapbox-change-style.png)
 
-If you cannot select any style the issue is probably caused by one of
+If you cannot select any style, the issue is probably caused by one of
 the above (i.e., credentials, proxy or deleted style).
 
 ### Error with special characters
@@ -451,7 +451,7 @@ web interface configuration:
 
 The URL set in 'MAP server address' must include the protocol (HTTP or HTTPS)
 and the port used by your Centreon MAP server (usually 8080 for a normal
-connexion or 8443 for a secure connexion).
+connection or 8443 for a secure connection).
 
 ![image](../assets/graph-views/web_client_configuration.png)
 

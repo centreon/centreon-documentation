@@ -1,6 +1,6 @@
 ---
 id: lifecycle
-title: Products lifecycle policy
+title: Product lifecycle policy
 ---
 
 Centreon has been publishing new releases of the
@@ -27,7 +27,7 @@ including security/vulnerability fixes, bug fixes and enhancements to the softwa
 
 ### Until version 21.04
 
-Version 21.04 and prior versions have been supported for 18 months. The lifecycle of a version is divided into three phases:
+Version 21.04 and prior versions were supported for 18 months. The lifecycle of a version is divided into three phases:
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
     and security issues are fixed according to their priority.
@@ -35,7 +35,7 @@ Version 21.04 and prior versions have been supported for 18 months. The lifecycl
     fixed according to their priority.
 3.  Third phase: Blockers or security issues are fixed according to their priority.
 
-> Prioritization is made by Centreon’s Product team.
+> The prioritization is determined by Centreon’s Product team.
 
 The first phase of the lifecycle begins on the day of a version release.
 
@@ -49,14 +49,14 @@ Centreon 20.04 and the second phase of Centreon 20.10.
 
 ### From version 21.10
 
-From version 21.10, versions are supported for 2 years. The lifecycle of a version is divided into 2 phases of 12 months each.
+Since version 21.10, versions are supported for two years. The lifecycle of a version is divided into two phases of 12 months each.
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
     and security issues are fixed according to their priority.
 2.  Second phase: Major, critical bugs and blockers, or security issues are
     fixed according to their priority.
 
-> Prioritization is made by Centreon’s Product team.
+> The prioritization is determined by Centreon’s Product team.
 
 ### Version lifecycle diagram
 

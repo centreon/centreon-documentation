@@ -5,7 +5,7 @@ title: Monitoring Connectors
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
+> As of April 2023, we're changing the names of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms: Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionality and capabilities stay the same.
 
 A Monitoring Connector is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
@@ -88,7 +88,7 @@ Installing a Monitoring Connector is a 4-step process:
 
 ### Accessing the Monitoring Connectors catalog
 
-* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on page **Configuration > Monitoring Connectors Manager**.
+* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on the **Configuration > Monitoring Connectors Manager** page.
 
 * If you have an offline license:
     - install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
@@ -143,11 +143,11 @@ You now have access to the Monitoring Connectors catalog, on page **Configuratio
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
-To install a pack, hover over the icon with the mouse and click on the ``+``
+To install a pack, hover over the icon with the mouse and click the ``+``
 
 ![image](../assets/configuration/pluginpacks/install_pp.png)
 
-You can also click on the Monitoring Connector to display more details and click on the ``+``
+You can also click the Monitoring Connector to display more details and click the ``+``
 
 ![image](../assets/configuration/pluginpacks/install_pp_2.png)
 
@@ -165,14 +165,14 @@ objects and are not required to deploy the configuration templates provided by t
 Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
 
 In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in 18.10.x version:
+this one is only available for Centreon in version 18.10.x:
 
 ![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
 ### Checking the monitoring procedure
 
 Some Monitoring Connectors require extra configuration steps. Read the monitoring procedure for each installed pack
-to understand the contents of the pack and to find out about any prerequisites. Click on the ``i`` icon of each pack to access its documentation:
+to understand the contents of the pack and to find out about any prerequisites. Click the ``i`` icon of each pack to access its documentation:
 
 ![image](../assets/configuration/pluginpacks/doc.png)
 
@@ -184,7 +184,7 @@ Plugins can be installed from the command line or automatically.
 
 1. [Install the pack](#installing-the-pack).
 2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
-3. On page **Configuration > Monitoring Connectors Manager**, set **Automatic installation of plugins** to **ON**.
+3. On the **Configuration > Monitoring Connectors Manager** page, set **Automatic installation of plugins** to **ON**.
 4. Use a template provided by the pack to monitor a host or a service.
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
 
@@ -248,7 +248,7 @@ apt install centreon-plugin-cloud-aws-ec2-api
 
 ## Using Monitoring Connectors
 
-Apply a template from a Monitoring Connector to a host or service to start monitoring them:
+Apply a template from a Monitoring Connector to a host or service to start monitoring it:
 
 1. Create the host/the service, and in the **Template(s)** field, choose the template for the Monitoring Connector you want.
 
@@ -262,15 +262,15 @@ Apply a template from a Monitoring Connector to a host or service to start monit
 
 **To update one pack:**
 
-If an arrow appears on a Monitoring Connector it means that an update is available.
+If an arrow appears on a Monitoring Connector, it means that an update is available.
 
 ![image](../assets/configuration/pluginpacks/update.png)
 
-Hover over the Monitoring Connector and click on the arrow,
+Hover over the Monitoring Connector and click the arrow,
 
 ![image](../assets/configuration/pluginpacks/update2.png)
 
-or click on the Monitoring Connector to display more details, then click on the arrow. 
+or click the Monitoring Connector to display more details, and then click the arrow. 
 
 ![image](../assets/configuration/pluginpacks/update3.png)
 
@@ -284,14 +284,14 @@ Your pack is up to date. You can now [update the plugin](#updating-the-plugins).
 
 **To update all packs:**
 
-You can also update all packs in one go: when pack updates are available, an **Update all** button appears.
+You can also update all the packs at the same time: when pack updates are available, an **Update all** button appears.
 Note that you will still have to [update the plugins](#updating-the-plugins). 
 
 ![image](../assets/configuration/pluginpacks/update_all.png)
 
 ### Updating the plugins
 
-On page **Configuration > Monitoring Connectors Manager**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
+On the **Configuration > Monitoring Connectors Manager** page, if **Automatic installation of plugins** is set to **ON**, plugins will be updated automatically when you deploy the configuration for a poller that monitors a host that uses these plugins.
 
 If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
 
@@ -328,7 +328,7 @@ option must be set to **Restart**.
 
 > It is your choice whether to install all the plugins on every poller, or just the required plugins. Keep in mind that
 > you may encounter errors if you migrate a monitored host to a poller that happens to be missing the necessary plugins.
-> If you update the plugins on the Centreon central server, be sure to also update them on each poller.
+> If you update the plugins on the Centreon central server, be sure to update them on each poller also.
 
 ## Uninstalling Monitoring Connectors
 
@@ -337,7 +337,7 @@ cross:
 
 ![image](../assets/configuration/pluginpacks/uninstall.png)
 
-or by clicking first on the pack and then on the red cross:
+or by clicking first the pack and then the red cross:
 
 ![image](../assets/configuration/pluginpacks/uninstall_2.png)
 
@@ -356,7 +356,7 @@ monitored hosts and services.
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-To uninstall the pack you will need either to:
+To uninstall the pack you will need to either:
 
 * delete the hosts and services linked to the templates provided by the Monitoring Connector,
 * or unlink the hosts and services from the corresponding templates.

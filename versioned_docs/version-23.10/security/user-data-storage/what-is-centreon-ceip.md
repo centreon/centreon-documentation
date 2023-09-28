@@ -7,7 +7,7 @@ Joining the Centreon Customer Experience Improvement Program
 
 ## Customer Experience Improvement Program
 
-Centreon is continually striving to understand and anticipate our users needs in
+Centreon is continually striving to understand and anticipate our users' needs in
 order to deliver world-class products and solutions. The Customer Experience
 Improvement Program (CEIP) will deliver benefits to our users by allowing us to
 understand how you use our software, so that we can provide you with a
@@ -16,7 +16,7 @@ components:
 
   - A simple telemetry
   - Advanced statistics on the use of the Centreon software suite
-  - The use of functionalities within the user interface
+  - The use of features within the user interface
 
 Telemetry anonymously and automatically collects the following data:
 
@@ -28,25 +28,25 @@ Telemetry anonymously and automatically collects the following data:
     services, and usage of modules and widgets.
   - The timezone of the Centreon server.
 
-Advanced statistics include the use of additional components such as the use of
+Advanced statistics include the use of additional components such as 
 widgets in custom views, slot management for Centreon DSM, use of deployed
 Monitoring Connectors, and more.
 
-The use of the functionalities within the user interface includes access to the various Centreon menus, as well as the
+The use of the features within the user interface includes access to the various Centreon menus, as well as the
 actions performed by the user within the interface (button clicks, focus on a form field, etc.)
 
 ## Frequently Asked Questions
 
 ### What are the possible configuration settings of the CEIP program?
 
-Participation in the program is enabled by default. However, sending advanced statistics and functionality usage can be
+Participation in the program is enabled by default. However, the sending of advanced statistics and functionality usage can be
 configured in the web interface. The options are:
 
   - Enabled
   - Disabled
 
-Users can change the option from **Administration \> Parameters \> Centreon UI
-\> Send anonymous statistics** menu at any time.
+Users can change the option via **Administration \> Parameters \> Centreon UI
+\> Send anonymous statistics** at any time.
 
 ### What will Centreon do with the information that is collected?
 
@@ -58,7 +58,7 @@ delivering the most useful new features in a much more streamlined manner.
 
 YES\! Moreover, Centreon takes all necessary precautions to protect the security
 of the information that is collected, transmitted and stored. We only collect
-data of Centreon product(s). The program takes only those actions described on
+data concerning Centreon products. The program takes only the actions described on
 this page, and only if you decide to participate. This program cannot collect
 information without your full knowledge or consent.
 
@@ -66,13 +66,13 @@ information without your full knowledge or consent.
 
 This is an automated process that requires no effort to participate. It is
 transparent to users. Customers simply choose to participate, granting Centreon
-permission to securely receive anonymous data.
+permission to receive anonymous data securely.
 
 ### Will I receive spam if I participate in the program?
 
 You will not receive any e-mail from Centreon about this program, regardless of
-whether or not you participate. We do not collect personal information as part
-of this program that will be used to identify you or contact you.
+whether or not you participate. Any personal information collected as part
+of this program will not be used to identify you or contact you.
 
 ### Do I need an Internet connection?
 

@@ -35,7 +35,7 @@ any host- or service-specific event handler that may be run.
 
 Event handlers can be enabled or disabled on a poller.
 
-Host- and service-specific event handlers can be enabled or disabled  in your host and service definitions. Host- and
+Host- and service-specific event handlers can be enabled or disabled in your host and service definitions. Host- and
 service-specific event handlers will not be executed if the global option is disabled on your poller.
 
 ### Event Handler Execution Order
@@ -50,7 +50,7 @@ Event handlers are executed for HARD problem and recovery states immediately aft
 ### Create a command
 
 Event handler commands will likely be shell or perl scripts, but they can be any type of executable that can run from a
-command prompt. At a minimum, the scripts should take the following macros as arguments:
+command prompt. As a minimum, the scripts should take the following macros as arguments:
 
 * For Services: $SERVICESTATE$, $SERVICESTATETYPE$, $SERVICEATTEMPT$
 * For Hosts: $HOSTSTATE$, $HOSTSTATETYPE$, $HOSTATTEMPT$
@@ -59,10 +59,10 @@ The scripts should examine the values of the arguments passed to it and take any
 
 Event handler commands will normally execute with the same permissions as the user under which Centreon Engine
 (centreon-engine user) is running on your machine. This can present a problem if you want to write an event handler that
-restarts system services, as root privileges are generally required to do these sorts of tasks.
+restarts system services, as root privileges are generally required to perform tasks of that kind.
 
 Ideally you should evaluate the types of event handlers you will be implementing and grant just enough permissions to
-the Centreon Engine user for executing the necessary system commands. You might want to try using sudo to accomplish this.
+the Centreon Engine user to execute the necessary system commands. You might want to try using sudo to accomplish this.
 
 Follow [this procedure to create a command](./basic-objects/commands.md#adding-a-command).
 
@@ -70,7 +70,7 @@ Follow [this procedure to create a command](./basic-objects/commands.md#adding-a
 
 ### Enable Event Handlers on your platform
 
-Go to the **Configuration > Pollers > Engine configuration** menu and edit all your Centreon Engine configuration on
+Go to the **Configuration > Pollers > Engine configuration** menu and edit all the Centreon Engine configurations on
 which you want to enable auto remediation.
 
 In the **Check Options** tab, enable the **Event Handler Option** option:
@@ -81,14 +81,14 @@ In the **Check Options** tab, enable the **Event Handler Option** option:
 
 #### Globally
 
-To configure globally auto remediation for all resources of a poller, go to the **Configuration > Pollers > Engine
-configuration** menu and edit all your Centreon Engine configuration on which you want to enable global auto remediation.
+To configure auto remediation globally for all resources of a poller, go to the **Configuration > Pollers > Engine
+configuration** menu and edit all the Centreon Engine configurations on which you want to enable global auto remediation.
 
-In the **Check Options** tab, select a command for hosts and/or services event handler:
+In the **Check Options** tab, select a command for the hosts and/or services event handler:
 
 ![image](../assets/configuration/enableglobaleventhnadleronpoller.png)
 
-Click on **Save**.
+Click **Save**.
 
 #### On selected resources
 
@@ -98,7 +98,7 @@ Go to the **Configuration > Hosts > Hosts** menu and edit your hosts. In the **D
 
 ![image](../assets/configuration/enableeventhnadleronresources.png)
 
-Click on **Save**.
+Click **Save**.
 
 > You can configure this command on templates.
 
@@ -109,14 +109,14 @@ select the command:
 
 ![image](../assets/configuration/enableeventhnadleronresources.png)
 
-Click on **Save**.
+Click **Save**.
 
 > You can configure this command on templates.
 
 ### Example
 
 The example below assumes that you are monitoring the HTTP server on the local machine. We will assume that the Max
-Check Attempts option for the service to be a value of 4 or greater (i.e. the service is checked 4 times before it is
+Check Attempts option for the service is a value of 4 or greater (i.e., the service is checked 4 times before it is
 considered to have a real problem). An abbreviated example service definition might look like this...
 
 The event handler script (this is the /usr/lib/centreon/plugins/eventhandlers/restart-httpd script).
@@ -185,14 +185,14 @@ esac
 exit 0
 ```
 
-The sample script provided above will attempt to restart the web server on the local machine in two different instances:
+The sample script provided above will attempt to restart the web server on the local machine in two different cases:
 
 * After the service has been rechecked for the 3rd time and is in a SOFT CRITICAL state
 * After the service first goes into a HARD CRITICAL state
 
-The script should theoretically restart and web server and fix the problem before the service goes into a HARD problem
-state, but we include a fallback case in the event it doesn't work the first time. It should be noted that the event
-handler will only be executed the first time that the service falls into a HARD problem state. This prevents Centreon
+The script should theoretically restart the web server and fix the problem before the service goes into a HARD problem
+state, but we include a fallback case in the event that it doesn't work the first time. Note that the event
+handler will only be executed the first time the service falls into a HARD problem state. This prevents Centreon
 from continuously executing the script to restart the web server if the service remains in a HARD problem state. You
 don't want that.
 
@@ -202,4 +202,4 @@ Then create a command like:
 * Command Type: Misc
 * Command Line: $CENTREONPLUGINS$/eventhandlers/restart-httpd  $SERVICESTATE$ $SERVICESTATETYPE$ $SERVICEATTEMPT$
 
-Now in your service definition, select the **restart-httpd** command for your event handler definition.
+Now, in your service definition, select the **restart-httpd** command for your event handler definition.

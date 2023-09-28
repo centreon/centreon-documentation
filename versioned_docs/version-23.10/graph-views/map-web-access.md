@@ -35,7 +35,7 @@ A list of existing access groups is displayed.
 
 3. Select the access group(s) you want.
 
-4. Click on Save to confirm.
+4. Click Save to confirm.
 Users belonging to the selected access group are now able to create maps.
  
 ## Privileges on a map
@@ -53,7 +53,7 @@ Perform the following procedure to grant privileges using the sharing action.
 1. Go to **Monitoring > Map**.
 The Map homepage is displayed with the list of available maps.
 
-2. Click on the **share** button corresponding to the map you want to share.
+2. Click the **share** button corresponding to the map you want to share.
 The list of available access groups is displayed.
 
 3. For the access group you want, select the privilege to grant in the dropdown list.

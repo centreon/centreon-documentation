@@ -5,7 +5,7 @@ title: Centreon plugin for Grafana
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Centreon plugin for Grafana allows you to view in Grafana data from Centreon platforms. If you are already using Grafana to retrieve data from other monitoring platforms, you will be able to view this data side by side with data from Centreon.
+The Centreon plugin for Grafana allows you to view data from Centreon platforms in Grafana. If you are already using Grafana to retrieve data from other monitoring platforms, you will be able to view this data side by side with data from Centreon.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ To select the performance data to display, you can combine filters on various ty
 - Business Activities (if BAM is installed and you have a license for it)
 - Anomaly Detection (if the module is installed and you have a license for it)
 
-Performance data are available, but not data such as the status of hosts and services, or acknowledgements and downtimes.
+Performance data are available, but not data such as the status of hosts and services, or acknowledgments and downtimes.
 
 ## Where do I find the plugin?
 
@@ -66,7 +66,7 @@ On the **Services** tab of the tasks manager, right-click the Grafana service an
 </TabItem>
 </Tabs>
 
-The Centreon data source now appears in the list of available plugins, on page **Configuration > Plugins** of the Grafana interface.
+The Centreon data source now appears in the list of available plugins, on the **Configuration > Plugins** page of the Grafana interface.
 
 ## Comparing data within a graph
 
@@ -74,7 +74,7 @@ Using the Centreon plugin for Grafana means that all of your performance data is
 
 ![image](../assets/metrology/grafana_compare.png)
 
-You can use the ***** wildcard to filter on several hosts at once. Using [variables](https://grafana.com/docs/grafana/latest/variables/) inside filters allow you to create dynamic contexts.
+You can use the ***** wildcard to filter on several hosts at once. Using [variables](https://grafana.com/docs/grafana/latest/variables/) inside filters allows you to create dynamic contexts.
 
 ## Filtering using variables
 
