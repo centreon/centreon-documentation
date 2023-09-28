@@ -17,26 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
-    runs-on: [self-hosted, infra]
-    steps:
-      - name: test ssh
-        run: |
-          # Prepare ssh-key
-          eval `ssh-agent`
-          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
-
-          #sudo ping ${{ secrets.DOC_DEV_IP_ADDRESS }}
-          #sudo echo "dig +short docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
-          #sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }}" | sudo tee -a /etc/hosts
-          #sudo cat /etc/hosts
-          #sleep 10
-          #sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }} docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
-          #ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls
-          sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }} docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
-          ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} ls
-          ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_PROD_IP_ADDRESS }} ls
-
   build:
     runs-on: ubuntu-22.04
 
