@@ -22,10 +22,11 @@ jobs:
     steps:
       - name: test ssh
         run: |
-          sudo ping ${{ secrets.DOC_DEV_IP_ADDRESS }}
+          #sudo ping ${{ secrets.DOC_DEV_IP_ADDRESS }}
           sudo echo "dig +short docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
           sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }}" | sudo tee -a /etc/hosts
           sudo cat /etc/hosts
+          sleep 10
           #sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }} docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
           ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} ls
