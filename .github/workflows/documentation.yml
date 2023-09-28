@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: test ssh
         run: |
+          sudo ping ${{ secrets.DOC_DEV_IP_ADDRESS }}
           sudo echo "dig +short docs-dev.int.centreon.com" | sudo tee -a /etc/hosts
           sudo echo "${{ secrets.DOC_DEV_IP_ADDRESS }}" | sudo tee -a /etc/hosts
           sudo cat /etc/hosts
@@ -29,7 +30,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_DEV_IP_ADDRESS }} ls
           ssh -o StrictHostKeyChecking=no admin@${{ secrets.DOC_PROD_IP_ADDRESS }} ls
-          exit 1
 
   build:
     runs-on: ubuntu-22.04
