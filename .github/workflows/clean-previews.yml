@@ -19,21 +19,21 @@ jobs:
 
       - run: |
           du -sh pr-preview
-          du -sh pr-preview/*
+          #du -sh pr-preview/*
 
       - run: |
           sudo apt update
           sudo apt install -y gifsicle
-          for file in $(find ./pr-preview/staging -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2); do
+          for file in $(find ./pr-preview -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2); do
             gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
           done
 
-          find ./pr-preview/staging -iname \*.pdf -exec rm -f {} +
-          find ./pr-preview/staging -iname \*.xlsx -exec rm -f {} +
+          find ./pr-preview -iname \*.pdf -exec echo "" > {} +
+          find ./pr-preview -iname \*.xlsx -exec echo "" > {} +
 
           sudo npm i -g @funboxteam/optimizt
-          find ./pr-preview/staging -iname \*.png -exec optimizt {} +
-          find ./pr-preview/staging -iname \*.jpg -exec optimizt {} +
+          find ./pr-preview -iname \*.png -exec optimizt {} +
+          find ./pr-preview -iname \*.jpg -exec optimizt {} +
 
       # - name: Compress Images
       #   if: ${{ github.event_name == 'pull_request' }}
@@ -48,4 +48,4 @@ jobs:
 
       - run: |
           du -sh pr-preview
-          du -sh pr-preview/*
+          #du -sh pr-preview/*
