@@ -28,6 +28,10 @@ jobs:
             gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
           done
 
+          sudo npm i -g @funboxteam/optimizt
+          find ./pr-preview/staging -iname \*.png -exec optimizt {} +
+          find ./pr-preview/staging -iname \*.jpg -exec optimizt {} +
+
       # - name: Compress Images
       #   if: ${{ github.event_name == 'pull_request' }}
       #   uses: calibreapp/image-actions@main
