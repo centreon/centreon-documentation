@@ -129,7 +129,7 @@ jobs:
             core.exportVariable('datetime', new Date().toUTCString());
             core.exportVariable(
               'preview_urls',
-              preview_urls.join('\n')
+              preview_urls.join('\n\n')
             );
 
       - name: Leave a comment after deployment
@@ -241,10 +241,7 @@ jobs:
             })
 
             core.exportVariable('datetime', new Date().toUTCString());
-            core.exportVariable(
-              'preview_urls',
-              preview_urls.join('\n')
-            );
+            core.exportVariable('preview_urls',preview_urls.join('\n\n'));
 
       # - name: Store environment variables for comment
       #   run: |
@@ -263,13 +260,13 @@ jobs:
         with:
           header: pr-preview
           message: |
-            **PR Previews**
+            "**PR Previews**
 
             :---:
 
             ${{ env.preview_urls }}
 
-            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}"
 
   # deploy-staging:
   #   if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
