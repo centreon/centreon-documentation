@@ -1,0 +1,40 @@
+name: clean-previews
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          sparse-checkout: |
+            pr-preview
+
+      - run: |
+          du -sh pr-preview
+          du -sh pr-preview/*
+
+      - name: Compress Images
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: calibreapp/image-actions@main
+        with:
+          ignorePaths: '.docusaurus,node_modules/**,build'
+          compressOnly: true
+          jpegQuality: '50'
+          jpegProgressive: false
+          pngQuality: '50'
+          webpQuality: '50'
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: |
+          du -sh pr-preview
+          du -sh pr-preview/*
