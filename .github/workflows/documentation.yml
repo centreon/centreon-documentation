@@ -63,6 +63,7 @@ jobs:
         id: filters
         with:
           script: |
+            const available_versions = require('./versions.json');
             let build_versions = require('./versions.json');
             let build_next_version = require('./nextVersion.json').version;
             let build_pp = '1';
@@ -78,7 +79,6 @@ jobs:
               }
 
               if (${{ steps.changes.outputs.versions }} === true) {
-                const available_versions = require('./versions.json');
                 const next_version = require('./nextVersion.json').version;
                 build_versions = [];
                 build_next_version = null;
@@ -106,48 +106,15 @@ jobs:
             if (build_versions.length) {
               build_environments.push('staging');
             }
-            if (build_next_version !== null) {
+            if (build_next_version !== null && available_versions.includes(build_next_version)) {
               build_environments.push('next');
             }
 
             core.setOutput('build_environments', JSON.stringify(build_environments));
             core.setOutput('build_versions', build_versions.join(','));
-            //core.setOutput('build_environments', JSON.stringify(build_environments));
-            //core.setOutput('build_versions', JSON.stringify(build_versions));
             core.setOutput('build_next_version', build_next_version);
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
-
-      - name: build comments
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const preview_urls = ${{ steps.filters.outputs.build_environments }}.map((environment) => {
-              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
-            })
-
-            core.exportVariable('datetime', new Date().toUTCString());
-            core.exportVariable(
-              'preview_urls',
-              preview_urls.join('\n')
-            );
-
-      - name: Leave a comment after deployment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          header: pr-preview
-          message: "\
-            **PR Previews**
-
-            :---:
-
-            ${{ env.preview_urls }}
-
-            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
-
-
-            Deployment can take a few minutes before preview is available
-            "
 
   build:
     runs-on: ubuntu-22.04
@@ -185,10 +152,8 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
-          #PP: ${{ matrix.pp }}
-          #CLOUD: ${{ matrix.cloud }}
-          PP: 0
-          CLOUD: 0
+          PP: ${{ matrix.pp }}
+          CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.environment, github.event.pull_request.number) || '' }}
 
@@ -209,7 +174,7 @@ jobs:
       matrix:
         environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
 
-    name: deploy preview ${{ matrix.environment }}
+    name: Dploy preview ${{ matrix.environment }}
 
     steps:
       - name: Checkout sources
@@ -246,25 +211,14 @@ jobs:
             })
 
             core.exportVariable('datetime', new Date().toUTCString());
-            core.exportVariable('preview_urls',preview_urls.join('\n\n'));
-
-      # - name: Store environment variables for comment
-      #   run: |
-      #     echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
-      #     {
-      #       echo 'PREVIEW_URLS<<EOF'
-      #       for environment in ${${{ needs.get-versions.outputs.build_environments }}//,/ } ; do
-      #         echo :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/$environment/pr-${{ github.event.pull_request.number }}
-      #       done
-      #       echo EOF
-      #     } >> "$GITHUB_ENV"
+            core.exportVariable('preview_urls',preview_urls.join('\n'));
 
       - name: Leave a comment after deployment
         if: ${{ github.event.action != 'closed' }}
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: pr-preview
-          message: |
+          message: "\
             **PR Previews**
 
             :---:
@@ -273,66 +227,69 @@ jobs:
 
             on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
 
-  # deploy-staging:
-  #   if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
-  #   needs: [build]
-  #   runs-on: [self-hosted, infra]
 
-  #   steps:
-  #     - name: Checkout sources
-  #       uses: actions/checkout@v4
+            > **_NOTE:_**  Deployment can take a few minutes before preview is accessible
+            "
 
-  #     - name: Restore build from cache
-  #       uses: actions/cache/restore@v3
-  #       with:
-  #         path: "./build"
-  #         key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
-  #         fail-on-cache-miss: true
+  deploy-staging:
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
+    needs: [build]
+    runs-on: [self-hosted, infra]
 
-  #     - name: Deploy to https://docs-staging.int.centreon.com
-  #       run: |
-  #         # Prepare ssh-key
-  #         eval `ssh-agent`
-  #         ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
 
-  #         rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
-  #         || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
-  #       shell: bash
+      - name: Restore build from cache
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
+          fail-on-cache-miss: true
 
-  # deploy-next:
-  #   if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
-  #   needs: [build]
-  #   runs-on: [self-hosted, infra]
+      - name: Deploy to https://docs-staging.int.centreon.com
+        run: |
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
 
-  #   steps:
-  #     - name: Checkout sources
-  #       uses: actions/checkout@v4
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
+          || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
+        shell: bash
 
-  #     - name: Restore build from cache
-  #       if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
-  #       uses: actions/cache/restore@v3
-  #       with:
-  #         path: "./build"
-  #         key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
-  #         fail-on-cache-miss: true
+  deploy-next:
+    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
+    needs: [build]
+    runs-on: [self-hosted, infra]
 
-  #     - name: Setup awscli
-  #       run: |
-  #         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-  #         sudo unzip -q awscliv2.zip
-  #         sudo ./aws/install
-  #       shell: bash
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
 
-  #     - name: Deploy to https://docs-next-int.centreon.com
-  #       run: |
-  #         export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
-  #         $(aws sts assume-role \
-  #         --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
-  #         --role-session-name InvalidDocCache \
-  #         --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
-  #         --output text))
+      - name: Restore build from cache
+        uses: actions/cache/restore@v3
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"
+          fail-on-cache-miss: true
 
-  #         aws s3 sync --delete build s3://centreon-documentation-next/
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
 
-  #         aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
-  #       shell: bash
+      - name: Deploy to https://docs-next-int.centreon.com
+        run: |
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete build s3://centreon-documentation-next/
+
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
+        shell: bash
