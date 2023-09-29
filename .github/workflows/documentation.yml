@@ -63,7 +63,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        id: filters
+        if: ${{ steps.changes.outputs.global == 'false' }}
         with:
           script: |
             const available_versions = require('./versions.json');
@@ -115,11 +115,33 @@ jobs:
               build_environments.push('next');
             }
 
-            core.setOutput('build_environments', JSON.stringify(build_environments));
-            core.setOutput('build_versions', build_versions.join(','));
-            core.setOutput('build_next_version', build_next_version);
-            core.setOutput('build_pp', build_pp);
-            core.setOutput('build_cloud', build_cloud);
+            core.exportVariable('build_environments', JSON.stringify(build_environments));
+            core.exportVariable('build_versions', build_versions.join(','));
+            core.exportVariable('build_next_version', build_next_version);
+            core.exportVariable('build_pp', build_pp);
+            core.exportVariable('build_cloud', build_cloud);
+
+      - name: Manage versions to build
+        uses: actions/github-script@v6
+        if: ${{ steps.changes.outputs.global == 'true' }}
+        with:
+          script: |
+            core.exportVariable('build_environments', JSON.stringify(['staging', 'next']));
+            core.exportVariable('build_versions', require('./versions.json').join(','));
+            core.exportVariable('build_next_version', require('./nextVersion.json').version);
+            core.exportVariable('build_pp', '1');
+            core.exportVariable('build_cloud', '1');
+
+      - name: Manage versions to build
+        uses: actions/github-script@v6
+        id: filters
+        with:
+          script: |
+            core.setOutput('build_environments', '${{ env.build_environments }}');
+            core.setOutput('build_versions', '${{ env.build_versions }}');
+            core.setOutput('build_next_version', '${{ env.build_next_version }}');
+            core.setOutput('build_pp', '${{ env.build_pp }}');
+            core.setOutput('build_cloud', '${{ env.build_cloud }}');
 
   build:
     runs-on: ubuntu-22.04
@@ -192,6 +214,12 @@ jobs:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
+
+      - name: Reduce media size
+        run: |
+          find ./build -iname \*.mp4 -exec sh -c '> {}' \;
+          find ./build -iname \*.pdf -exec sh -c '> {}' \;
+          find ./build -iname \*.xlsx -exec sh -c '> {}' \;
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1

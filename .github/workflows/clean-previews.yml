@@ -1,0 +1,28 @@
+name: clean-previews
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  clean-previews:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - run: |
+          du -sm pr-preview | cut -f1
+
+          git ls-tree --name-only HEAD | while read filename; do
+            echo "$(git log -1 --format="%at | %h | %an | %ad |" -- $filename) $filename"
+          done
+          #while [ "$(du -m f|cut -f1)" -lt 32 ]; do
+          #  ./gcd-rand.py 10000 10000 > "$f"
+          #done
