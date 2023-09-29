@@ -215,6 +215,10 @@ Release date: `September 29, 2023`
 - [Server] Fixed a vulnerable property.
 - [Server] Updated dependencies.
 
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
 ### 22.10.11
 
 Release date: `September 07, 2023`
