@@ -20,9 +20,9 @@ If you have feature requests or want to report a bug, please contact support.
 
 Release date: `September 29, 2023`
 
-#### Bug fixes
+#### Security fixes
 
-- [Desktop] Updated dependencies.
+- [Server] Updated dependencies.
 
 ### 21.10.10
 
