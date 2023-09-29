@@ -16,23 +16,28 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          sparse-checkout: |
-            pr-preview
 
       - run: |
           du -sh pr-preview
           du -sh pr-preview/*
 
-      - name: Compress Images
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: calibreapp/image-actions@main
-        with:
-          compressOnly: true
-          jpegQuality: '50'
-          jpegProgressive: false
-          pngQuality: '50'
-          webpQuality: '50'
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          sudo apt update
+          sudo apt install -y gifsicle
+          for file in $(find ./pr-preview/staging -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2); do
+            gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
+          done
+
+      # - name: Compress Images
+      #   if: ${{ github.event_name == 'pull_request' }}
+      #   uses: calibreapp/image-actions@main
+      #   with:
+      #     compressOnly: true
+      #     jpegQuality: '50'
+      #     jpegProgressive: false
+      #     pngQuality: '50'
+      #     webpQuality: '50'
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
           du -sh pr-preview
