@@ -129,7 +129,7 @@ jobs:
             core.exportVariable('datetime', new Date().toUTCString());
             core.exportVariable(
               'preview_urls',
-              preview_urls.join('\n\n')
+              preview_urls.join('\n')
             );
 
       - name: Leave a comment after deployment
@@ -144,7 +144,11 @@ jobs:
             ${{ env.preview_urls }}
 
             on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+
+
+            Deployment can take a few minutes before preview is available
             "
+
   build:
     runs-on: ubuntu-22.04
     needs: [get-versions]
