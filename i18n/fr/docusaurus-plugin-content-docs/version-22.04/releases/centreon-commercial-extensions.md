@@ -27,7 +27,7 @@ Release date: `September 25, 2023`
 #### Enhancements
 
 - [Server] Make link anchors consistent between viewer and editor.
-  
+
 ### 22.04.10
 
 Release date: `September 18, 2023`

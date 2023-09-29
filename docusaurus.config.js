@@ -268,17 +268,19 @@ const config = {
 
           let items = [];
 
-          if (versions) {
-            items = [
-              ...items,
-              {
-                type: 'doc',
-                docId: 'getting-started/welcome',
-                position: 'left',
-                label: 'Centreon OnPrem',
-              },
-            ];
-          }
+          const defaultPageId = versions.sort().reverse()[0].match(/(21\.10|22\.04)/)
+            ? 'getting-started/installation-first-steps'
+            : 'getting-started/welcome';
+
+          items = [
+            ...items,
+            {
+              type: 'doc',
+              docId: defaultPageId,
+              position: 'left',
+              label: 'Centreon OnPrem',
+            },
+          ];
 
           if (cloud) {
             items = [

@@ -39,7 +39,6 @@ jobs:
           filters: |
             global:
               - babel.config.js
-              - docusaurus.config.js
               - package.json
               - versions.json
               - yarn.lock
