@@ -27,7 +27,6 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: calibreapp/image-actions@main
         with:
-          ignorePaths: '.docusaurus,node_modules/**,build'
           compressOnly: true
           jpegQuality: '50'
           jpegProgressive: false
