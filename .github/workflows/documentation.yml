@@ -63,7 +63,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        if: ${{ needs.changes.outputs.global == 'false' }}
+        if: ${{ steps.changes.outputs.global == 'false' }}
         with:
           script: |
             const available_versions = require('./versions.json');
@@ -123,7 +123,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        if: ${{ needs.changes.outputs.global == 'true' }}
+        if: ${{ steps.changes.outputs.global == 'true' }}
         with:
           script: |
             core.exportVariable('build_environments', JSON.stringify(['staging', 'next']));
