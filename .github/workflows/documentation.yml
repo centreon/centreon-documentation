@@ -136,14 +136,15 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: pr-preview
-          message: |
-            "**PR Previews**
+          message: "\
+            **PR Previews**
 
             :---:
 
             ${{ env.preview_urls }}
 
-            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}"
+            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+            "
   build:
     runs-on: ubuntu-22.04
     needs: [get-versions]
