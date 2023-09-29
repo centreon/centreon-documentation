@@ -118,6 +118,32 @@ jobs:
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
 
+      - name: build comments
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const preview_urls = ${{ steps.filters.outputs.build_environments }}.map((environment) => {
+              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
+            })
+
+            core.exportVariable('datetime', new Date().toUTCString());
+            core.exportVariable(
+              'preview_urls',
+              preview_urls.join('\n')
+            );
+
+      - name: Leave a comment after deployment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          message: |
+            **PR Previews**
+
+            :---:
+
+            ${{ env.preview_urls }}
+
+            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
   build:
     runs-on: ubuntu-22.04
     needs: [get-versions]
@@ -206,16 +232,30 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Store environment variables for comment
-        run: |
-          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
-          {
-            echo 'PREVIEW_URLS<<EOF'
-            for environment in ${${{ needs.get-versions.outputs.build_environments }}//,/ } ; do
-              echo :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/$environment/pr-${{ github.event.pull_request.number }}
-            done
-            echo EOF
-          } >> "$GITHUB_ENV"
+      - name: Manage versions to build
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
+              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
+            })
+
+            core.exportVariable('datetime', new Date().toUTCString());
+            core.exportVariable(
+              'preview_urls',
+              preview_urls.join('\n')
+            );
+
+      # - name: Store environment variables for comment
+      #   run: |
+      #     echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
+      #     {
+      #       echo 'PREVIEW_URLS<<EOF'
+      #       for environment in ${${{ needs.get-versions.outputs.build_environments }}//,/ } ; do
+      #         echo :rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/$environment/pr-${{ github.event.pull_request.number }}
+      #       done
+      #       echo EOF
+      #     } >> "$GITHUB_ENV"
 
       - name: Leave a comment after deployment
         if: ${{ github.event.action != 'closed' }}
@@ -227,7 +267,7 @@ jobs:
 
             :---:
 
-            ${{ env.PREVIEW_URLS }}
+            ${{ env.preview_urls }}
 
             on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
 
