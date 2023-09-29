@@ -10,25 +10,27 @@ on:
   push:
     branches:
       - staging
-      - next
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  get-versions:
     runs-on: ubuntu-22.04
+
+    name: Get versions
+
+    outputs:
+      build_environments: ${{ steps.filters.outputs.build_environments }}
+      build_versions: ${{ steps.filters.outputs.build_versions }}
+      build_next_version: ${{ steps.filters.outputs.build_next_version }}
+      build_pp: ${{ steps.filters.outputs.build_pp }}
+      build_cloud: ${{ steps.filters.outputs.build_cloud }}
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
-
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: yarn
+        uses: actions/checkout@v4
 
       - name: Get changes
         uses: dorny/paths-filter@v2
@@ -42,6 +44,7 @@ jobs:
               - docusaurus.config.js
               - package.json
               - versions.json
+              - nextVersion.json
               - yarn.lock
               - 'src/**'
               - 'static/**'
@@ -63,7 +66,12 @@ jobs:
         id: filters
         with:
           script: |
+            const available_versions = require('./versions.json');
+            let build_next_version = require('./nextVersion.json').version;
             let build_versions = require('./versions.json');
+            if (build_versions.includes(build_next_version)) {
+              build_versions.splice(build_versions.indexOf(build_next_version), 1);
+            }
             let build_pp = '1';
             let build_cloud = '1';
 
@@ -77,12 +85,15 @@ jobs:
               }
 
               if (${{ steps.changes.outputs.versions }} === true) {
-                const available_versions = require('./versions.json');
+                const next_version = require('./nextVersion.json').version;
                 build_versions = [];
+                build_next_version = null;
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
                   [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
-                    if (available_versions.includes(result[1])) {
-                      console.log(`Version ${result[1]} updated : ${file}`);
+                    console.log(`Version ${result[1]} updated : ${file}`);
+                    if (next_version === result[1]) {
+                      build_next_version = next_version;
+                    } else if (available_versions.includes(result[1])) {
                       build_versions.push(result[1]);
                     }
                   });
@@ -92,12 +103,49 @@ jobs:
             }
 
             console.log(`Following versions will be built: ${build_versions.join(',')}`);
+            console.log(`next version will${build_next_version === null ? ' not' : ''} be built`);
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
 
+            const build_environments = [];
+            if (build_versions.length) {
+              build_environments.push('staging');
+            }
+            if (build_next_version !== null && available_versions.includes(build_next_version)) {
+              build_environments.push('next');
+            }
+
+            core.setOutput('build_environments', JSON.stringify(build_environments));
             core.setOutput('build_versions', build_versions.join(','));
+            core.setOutput('build_next_version', build_next_version);
             core.setOutput('build_pp', build_pp);
             core.setOutput('build_cloud', build_cloud);
+
+  build:
+    runs-on: ubuntu-22.04
+    needs: [get-versions]
+
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
+        include:
+          - versions: ${{ needs.get-versions.outputs.build_versions }}
+            next_version: ${{ needs.get-versions.outputs.build_next_version }}
+            pp: ${{ needs.get-versions.outputs.build_pp }}
+            cloud: ${{ needs.get-versions.outputs.build_cloud }}
+
+    name: Build ${{ matrix.environment }}
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: yarn
 
       - name: Install dependencies
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -109,22 +157,29 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
-          PP: ${{ steps.filters.outputs.build_pp }}
-          CLOUD: ${{ steps.filters.outputs.build_cloud }}
-          VERSIONS: ${{ steps.filters.outputs.build_versions }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/pr-{0}', github.event.pull_request.number) || '' }}
+          PP: ${{ matrix.pp }}
+          CLOUD: ${{ matrix.cloud }}
+          VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.environment, github.event.pull_request.number) || '' }}
 
       - name: Store build in cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: actions/cache/save@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
-    needs: [build]
+    needs: [get-versions, build]
     runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
+
+    name: Deploy preview ${{ matrix.environment }}
 
     steps:
       - name: Checkout sources
@@ -135,7 +190,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
       - name: Deploy preview
@@ -143,13 +198,56 @@ jobs:
         with:
           source-dir: ./build
           preview-branch: gh-pages
-          umbrella-dir: pr-preview
+          umbrella-dir: pr-preview/${{ matrix.environment }}
           action: auto
 
+  comment-preview:
+    if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
+    needs: [get-versions, deploy-preview]
+    runs-on: ubuntu-22.04
+
+    name: Add comment for preview
+
+    steps:
+      - name: Prepare environment variables for comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
+              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
+            })
+
+            core.exportVariable('datetime', new Date().toUTCString());
+            core.exportVariable('preview_urls',preview_urls.join('\n'));
+
+      - name: Leave a comment after deployment
+        if: ${{ github.event.action != 'closed' }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          message: "\
+            **PR Previews**
+
+            :---:
+
+            ${{ env.preview_urls }}
+
+            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+
+
+            > **_NOTE:_**  Deployment can take a few minutes before preview is accessible
+            "
+
   deploy-staging:
-    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
-    needs: [build]
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
+    needs: [get-versions, build]
     runs-on: [self-hosted, infra]
+
+    name: Deploy to staging
+
+    environment:
+      name: staging
+      url: https://docs-staging.int.centreon.com
 
     steps:
       - name: Checkout sources
@@ -159,7 +257,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
           fail-on-cache-miss: true
 
       - name: Deploy to https://docs-staging.int.centreon.com
@@ -173,20 +271,25 @@ jobs:
         shell: bash
 
   deploy-next:
-    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
-    needs: [build]
+    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
+    needs: [get-versions, build]
     runs-on: [self-hosted, infra]
+
+    name: Deploy to next
+
+    environment:
+      name: next
+      url: https://docs-next-int.centreon.com
 
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
 
       - name: Restore build from cache
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: actions/cache/restore@v3
         with:
           path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"
           fail-on-cache-miss: true
 
       - name: Setup awscli
