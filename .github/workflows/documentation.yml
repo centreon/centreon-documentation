@@ -44,6 +44,7 @@ jobs:
               - docusaurus.config.js
               - package.json
               - versions.json
+              - nextVersion.json
               - yarn.lock
               - 'src/**'
               - 'static/**'
