@@ -174,7 +174,7 @@ jobs:
       matrix:
         environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
 
-    name: Dploy preview ${{ matrix.environment }}
+    name: Deploy preview ${{ matrix.environment }}
 
     steps:
       - name: Checkout sources
@@ -201,8 +201,10 @@ jobs:
     needs: [get-versions, deploy-preview]
     runs-on: ubuntu-22.04
 
+    name: Add comment for preview
+
     steps:
-      - name: Manage versions to build
+      - name: Prepare environment variables for comment
         uses: actions/github-script@v6
         with:
           script: |
@@ -236,6 +238,12 @@ jobs:
     needs: [build]
     runs-on: [self-hosted, infra]
 
+    name: Deploy to staging
+
+    environment:
+      name: staging
+      url: https://docs-staging.int.centreon.com
+
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -261,6 +269,12 @@ jobs:
     if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
     needs: [build]
     runs-on: [self-hosted, infra]
+
+    name: Deploy to next
+
+    environment:
+      name: next
+      url: https://docs-next-int.centreon.com
 
     steps:
       - name: Checkout sources
