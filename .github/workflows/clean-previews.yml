@@ -16,14 +16,19 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+          fetch-depth: 2
 
       - run: |
-          du -sm pr-preview | cut -f1
-
           cd pr-preview
+
           git ls-tree --name-only HEAD | while read filename; do
             echo "$(git log -1 --format="%at | %h | %an | %ad |" -- $filename) $filename"
           done
+
+          while [ "$(du -sm . | cut -f1)" -gt 4000 ]; do
+            rm -rf $(git ls-tree --name-only HEAD | head -1)
+          done
+
           #while [ "$(du -m f|cut -f1)" -lt 32 ]; do
           #  ./gcd-rand.py 10000 10000 > "$f"
           #done
