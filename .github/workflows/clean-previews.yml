@@ -28,12 +28,15 @@ jobs:
           #  gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
           #done
 
+          find ./pr-preview -iname \*.mp4 -exec sh -c '> {}' \;
           find ./pr-preview -iname \*.gif -exec sh -c '> {}' \;
           find ./pr-preview -iname \*.png -exec sh -c '> {}' \;
           find ./pr-preview -iname \*.jpg -exec sh -c '> {}' \;
 
           find ./pr-preview -iname \*.pdf -exec sh -c '> {}' \;
           find ./pr-preview -iname \*.xlsx -exec sh -c '> {}' \;
+
+          find ./pr-preview -type f -not -path 'node_modules' -printf '%s %p\n' | sort -nr | head -50
 
           #sudo npm i -g @funboxteam/optimizt
           #find ./pr-preview -iname \*.png -exec optimizt {} +
