@@ -22,25 +22,25 @@ jobs:
           #du -sh pr-preview/*
 
       - run: |
-          #sudo apt update
-          #sudo apt install -y gifsicle
-          #for file in $(find ./pr-preview -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2); do
-          #  gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
-          #done
+          sudo apt update
+          sudo apt install -y gifsicle
+          for file in $(find ./pr-preview -type f -name '*.gif' -not -path 'node_modules' -printf '%s %p\n' | sort -nr | cut -d ' ' -f 2); do
+            gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
+          done
+
+          #find ./pr-preview -iname \*.gif -exec sh -c '> {}' \;
+          #find ./pr-preview -iname \*.png -exec sh -c '> {}' \;
+          #find ./pr-preview -iname \*.jpg -exec sh -c '> {}' \;
 
           find ./pr-preview -iname \*.mp4 -exec sh -c '> {}' \;
-          find ./pr-preview -iname \*.gif -exec sh -c '> {}' \;
-          find ./pr-preview -iname \*.png -exec sh -c '> {}' \;
-          find ./pr-preview -iname \*.jpg -exec sh -c '> {}' \;
-
           find ./pr-preview -iname \*.pdf -exec sh -c '> {}' \;
           find ./pr-preview -iname \*.xlsx -exec sh -c '> {}' \;
 
-          find ./pr-preview -type f -not -path 'node_modules' -printf '%s %p\n' | sort -nr | head -50
+          sudo npm i -g @funboxteam/optimizt
+          find ./pr-preview -iname \*.png -exec optimizt {} +
+          find ./pr-preview -iname \*.jpg -exec optimizt {} +
 
-          #sudo npm i -g @funboxteam/optimizt
-          #find ./pr-preview -iname \*.png -exec optimizt {} +
-          #find ./pr-preview -iname \*.jpg -exec optimizt {} +
+          find ./pr-preview -type f -not -path 'node_modules' -printf '%s %p\n' | sort -nr | head -50
 
       # - name: Compress Images
       #   if: ${{ github.event_name == 'pull_request' }}
