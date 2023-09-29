@@ -19,19 +19,23 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.12
 
-Release date: `September 22, 2023`
-
-#### Bug fixes
-
-- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
--	[Desktop] Update dependency.
--	[Server] Update dependency.
--	[Server] Fixed the diagnostic protocol test.
--	[Server] Makes links anchors consistent between viewer and editor.
+Release date: `September 29, 2023`
 
 #### Enhancements
 
-- Handled multi-lang.
+- [Server] Make link anchors consistent between viewer and editor.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue where copying and pasting an object deleted it.
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+- [Server] Updated dependencies.
+- [Server] Fixed the diagnostic protocol test.
 
 ### 22.10.11
 
@@ -202,6 +206,19 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.10.12
+
+Release date: `September 29, 2023`
+
+#### Security fixes
+
+- [Server] Fixed a vulnerable property.
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
 
 ### 22.10.11
 
@@ -407,9 +424,9 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `September 22, 2023`
+Release date: `September 29, 2023`
 
-- [Discovery] Do not create new services when updating autodiscovery job on existing hosts.
+- Fixed an issue where new services were created when updating the discovery job on existing hosts.
 
 ### 22.10.3
 
