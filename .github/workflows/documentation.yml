@@ -19,6 +19,8 @@ jobs:
   get-versions:
     runs-on: ubuntu-22.04
 
+    name: Get versions
+
     outputs:
       build_environments: ${{ steps.filters.outputs.build_environments }}
       build_versions: ${{ steps.filters.outputs.build_versions }}
@@ -64,8 +66,11 @@ jobs:
         with:
           script: |
             const available_versions = require('./versions.json');
-            let build_versions = require('./versions.json');
             let build_next_version = require('./nextVersion.json').version;
+            let build_versions = require('./versions.json');
+            if (build_versions.includes(build_next_version)) {
+              build_versions.splice(build_versions.indexOf(build_next_version), 1);
+            }
             let build_pp = '1';
             let build_cloud = '1';
 
@@ -84,12 +89,11 @@ jobs:
                 build_next_version = null;
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
                   [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
-                    if (available_versions.includes(result[1])) {
-                      console.log(`Version ${result[1]} updated : ${file}`);
-                      build_versions.push(result[1]);
-                    }
+                    console.log(`Version ${result[1]} updated : ${file}`);
                     if (next_version === result[1]) {
                       build_next_version = next_version;
+                    } else if (available_versions.includes(result[1])) {
+                      build_versions.push(result[1]);
                     }
                   });
                 });
@@ -234,8 +238,8 @@ jobs:
             "
 
   deploy-staging:
-    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' }}
-    needs: [build]
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
+    needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
     name: Deploy to staging
@@ -266,8 +270,8 @@ jobs:
         shell: bash
 
   deploy-next:
-    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' }}
-    needs: [build]
+    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
+    needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
     name: Deploy to next
