@@ -28,6 +28,9 @@ jobs:
             gifsicle -O3 --colors=16 --scale=0.5 $file -o $file
           done
 
+          find ./pr-preview/staging -iname \*.pdf -exec rm -f {} +
+          find ./pr-preview/staging -iname \*.xlsx -exec rm -f {} +
+
           sudo npm i -g @funboxteam/optimizt
           find ./pr-preview/staging -iname \*.png -exec optimizt {} +
           find ./pr-preview/staging -iname \*.jpg -exec optimizt {} +
