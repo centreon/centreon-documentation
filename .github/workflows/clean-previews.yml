@@ -20,6 +20,7 @@ jobs:
       - run: |
           du -sm pr-preview | cut -f1
 
+          cd pr-preview
           git ls-tree --name-only HEAD | while read filename; do
             echo "$(git log -1 --format="%at | %h | %an | %ad |" -- $filename) $filename"
           done
