@@ -215,6 +215,12 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
+      - name: Reduce media size
+        run: |
+          find ./build -iname \*.mp4 -exec sh -c '> {}' \;
+          find ./build -iname \*.pdf -exec sh -c '> {}' \;
+          find ./build -iname \*.xlsx -exec sh -c '> {}' \;
+
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
