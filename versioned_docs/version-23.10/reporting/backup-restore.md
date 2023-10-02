@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Centreon MBI backup
 
-### Backup: Configurationt data on the Centreon server
+### Backup: Configuration data on the Centreon server
 
 #### Items to back up
 
@@ -48,12 +48,12 @@ To modify this value, update **RETENTION_AGE** in the backup script
 (line **67**) located here:
 **/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh**
 
-> We advise to export backups to another resource in order to secure them.
+> We advise you to export backups to another resource in order to secure them.
 
 ### Backing up the reporting server
 
 > It is important to have at least 5 GB of free space on the **Volume Group**
-> hosting the **data** storage MariaDB DBMS. To check free
+> hosting the **data** storage MariaDB DBMS. To check your free
 > space, run the following command by entering the name of the **Volume Group**
 >
 >       vgdisplay vg_data | grep -i free
@@ -93,7 +93,7 @@ Three types of backup are executed during the week:
     engine. Format: centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz
 -   Every Sunday, full ETL backup. Format:
     mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz
--   From Monday to Satursday an incremental ETL backup (all tables and
+-   From Monday to Saturday an incremental ETL backup (all tables and
     only the last partition of partitioned tables). Format:
     mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz
 
@@ -120,7 +120,7 @@ The restore process is divided into several steps:
 -   Reinstalling the centreon-bi-server module in the same version as
     the one saved
 -   Integrating generated reports
--   Integrating custom reports settings
+-   Integrating custom report settings
 -   Integrating Centreon MBI configuration data
 -   Integrating MariaDB data
 -   Deleting data extracted from the backup
@@ -235,19 +235,19 @@ Delete the extracted data from the backup:
     rm -Rf /tmp/usr
     rm -Rf /tmp/var
 
-### Resotre Centreon MBI Reporting Server settings
+### Restore Centreon MBI Reporting Server settings
 
 The restore process is divided into several steps:
 
 -   Reinstalling centreon-bi-reporting-server module in the same version
     as the one saved
 -   Integrating the CBIS configuration
--   Integrating the custom reports designs
+-   Integrating the custom report designs
 -   Restarting the CBIS engine
 -   Deleting the data from the extracted backup
 -   Reinstalling the backup.
 
-#### Reinstal the centreon-bi-reporting-server module in the same version as the one saved
+#### Reinstall the centreon-bi-reporting-server module in the same version as the one saved
 
 On the main Centreon server run the following command:
 

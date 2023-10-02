@@ -23,7 +23,7 @@ Copy data from the old reporting server to the new one:
 
     rsync -avz /var/lib/mysql/* root@IP_New_Reporting_Server:/var/lib/mysql/
 
-Execute the following command to ensure database files compatibility:
+Execute the following command to ensure compatibility of the database files:
 
     mysql_upgrade
 
@@ -52,7 +52,7 @@ Execute the following command to ensure database files compatibility:
 
 ## Move generated reports
 
-In case you also move you Centreon central server, you need to
+In case you also move your Centreon central server, you need to
 synchronize the folders containing generated reports on your new
 Centreon server to be able to have them on the interface:
 

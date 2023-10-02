@@ -37,7 +37,7 @@ Description of columns:
   Execution time  | Execution date and time of scheduled job
   Options         | Number of job duplications if the duplication option is selected in the menu "More Actions"
 
-In the "Name" column on the table, an icon is displayed according on
+In the "Name" column on the table, an icon is displayed according to
 the job state:
 
   Icon                                                  | Status 
@@ -94,13 +94,13 @@ The following table describes the different options:
 
 ### Adding / Editing a job
 
-To generate a report, you need to create a job by clicking on "Add" in the job listing page. The job configuration 
+To generate a report, you need to create a job by clicking "Add" in the job listing page. Configuring a job 
 is done in two main steps (tabs):
 
 - Select the report design you want to use (see all the designs available [here](../assets/reporting/Centreon-MBI-Sample-Reports.pdf))
 - Select the perimeter on which to generate the report 
 
-Two optionals steps (tabs) can be done to :
+Two optional steps (tabs) can be done to:
 
 - Publish the report
 - Tune the job  
@@ -114,7 +114,7 @@ The following menu is used for adding a new scheduled job:
 
 A report generation job *must* be linked to a report design ("Report design").
 
-Several report ouput formats are available:
+Several report output formats are available:
 
  - Acrobat PDF
  - Microsoft Excel
@@ -130,11 +130,11 @@ languages are:
  - US English
 
 The icon on the right of the selection menu allows you to refresh the
-list of available report languages in the case you want to add translation by yourself
+list of available report languages in the case you want to add a translation yourself
 
 #### Scheduling
 
-A job can be executed in 3 different ways: immediately, scheduled for later or in a cyclic way.
+A job can be executed in three different ways: immediately, scheduled for later, or in a cyclic way.
 
 **Immediate execution** 
 
@@ -170,7 +170,7 @@ The "Report Parameters" menu is used to set the specific parameters for the repo
 This part of the menu changes according to the report design selected
 under the "Configuration" tab of the scheduled job.
 
-There are three types of fields in this form:
+There are three types of field in this form:
 
 - Text fields
 - Radio buttons
@@ -189,7 +189,7 @@ There are three types of fields in this form:
 **Note**: A value must be specified for each field in this menu except for the multi-selection 
 parameter when metrics are excluded.
 
-By defaut, all metrics will be applied.
+By default, all metrics will be applied.
 
 </TabItem>
 <TabItem value="3. Report publication (Optional)" label="3. Report publication (Optional)">
@@ -200,7 +200,7 @@ By defaut, all metrics will be applied.
 ![image](../assets/reporting/guide/jobPublication.png)
 
 </TabItem>
-<TabItem value="4. Tunning (Optional)" label="4. Tunning (Optional)">
+<TabItem value="4. Tuning (Optional)" label="4. Tuning (Optional)">
 
 The "Tuning" menu contains three parameters:
 
@@ -209,9 +209,9 @@ The "Tuning" menu contains three parameters:
     available: Maroon, Orange, Blue, Ice, Green, Multicolor-1 and
     Multicolor-2. 
 
-    > Theme color doesn't apply to business activity report
+    > Theme color does not apply to business activity reports
 
-    Available color palettes are:
+    The available color palettes are:
 
     ![image](../assets/reporting/guide/theme.png)
 
@@ -222,7 +222,7 @@ The "Tuning" menu contains three parameters:
 -   **Multiplier coefficient of the scheduled task**: Each report design
     has a weight. A scheduled task can multiply this weight according to
     the parameters used to run the report design. The sum of the weight
-    of the running tasks can not exceed the maximum load the reporting
+    of the running tasks cannot exceed the maximum load the reporting
     engine can handle (defined in General Options).
 -   **Administrator e-mail notification**: Enable or disable
     notification when scheduled job is generated.
@@ -252,7 +252,7 @@ The following table lists the reports generated:
 
 You can search in any of these criteria:
 
--   Period: on what period was choosen to generate the report 
+-   Period: chosen period on which to generate the report 
 -   Date of generation: when was the report generated
 -   Frequency (daily, monthly, etc.)
 -   Search by job name (applies to the "Name" column)
@@ -262,7 +262,7 @@ You can search in any of these criteria:
 
 #### Action menu
 
-Use the action menu to move the reports that are no longer needed to the
+Use the action menu to move reports that are no longer needed to the
 trash:
 
 ![image](../assets/reporting/guide/moreActions.png)
@@ -270,7 +270,7 @@ trash:
 
 ## Job groups
 
-Job groups are used to manage user access to reports & mail publication
+Job groups are used to manage user access to reports and mail publication
 
 ### Job group list
 
@@ -307,11 +307,11 @@ Description of menu fields:
 
 ## Report design 
 
-The design of the reports you generate with **Centreon MBI** originate
+The design of the reports you generate with **Centreon MBI** originates
 from ".rptdesign" files, which are created with the open-source tool
 Business Intelligence Reporting Tool (BIRT).
 
-For generating a report, a report design should be configured in terms
+To generate a report, a report design should be configured in terms
 of:
 
 -   **Centreon** objects (hosts, services, host groups, service groups,
@@ -335,7 +335,7 @@ Description of the above table:
   Name          | Name of report design
   Description   |  Short description of report design
   State         | Status of report design (Enabled/Disabled)
-  Weight        | Report weight: report generation work load index.
+  Weight        | Report weight: report generation workload index.
 
 
 ### Add / edit
@@ -349,20 +349,20 @@ Description of the menu fields:
   Fields                | Description
   ----------------------|--------------------------------------------------------------
   Name                  | Name of report design
-  Report Source file    | Name of the ". rptdesign" BIRT file corresponding to the report design. This file is stored in "reports/" directory of "Centreon MBI" installation directory.
+  Report Source file    | Name of the ". rptdesign" BIRT file corresponding to the report design. This file is stored in the "reports/" directory of "Centreon MBI" installation directory.
   Description           | Short description of report design.
   XML parameters file   | Each report can have several specific parameters. This .xml file defines those parameters.
-  Weight                | Report weight: report generation work load index.
+  Weight                | Report weight: report generation workload index.
   Report design groups  | Report design group linked to report design for ACL management.
 
 
-> Only Centreon administrators are authorised to edit report designs or
+> Only Centreon administrators are authorized to edit report designs or
 > add a new one. Users without privileges only have read-only access to
 > existing report designs.
 
 #### Action menu
 
-The menu "More actions" allows you to perform certain actions on
+The "More actions" menu allows you to perform certain actions on
 report designs:
 
 ![image](../assets/reporting/guide/moreActions.png)
@@ -400,7 +400,7 @@ You can store images in the Centreon MBI configuration for reuse in
 future reports to be generated. Use the selection menu to incorporate an
 image (or logo) into the desired report design.
 
-Regardless of the size of the image (or logo) it must have an aspect
+Regardless of the size of the image (or logo), it must have an aspect
 ratio of 4:4 to fit into the required space.
 
 ### Image list
@@ -422,7 +422,7 @@ Description of columns:
 
 ### Add/Edit images
 
-To add a new image, click on "Add" then fill in the following menu
+To add a new image, click "Add" and then fill in the following menu
 fields:
 
 ![image](../assets/reporting/guide/logo_add.png)
@@ -459,7 +459,7 @@ Properties of the trash:
 -   Deleting a report design or scheduled job does not cause any linked
     PDF reports to be deleted.
 
-Items can be restored or definitively deleted through this menu:
+Items can be restored or permanently deleted through this menu:
 
 ![image](../assets/reporting/guide/TrashActions.png)
 
