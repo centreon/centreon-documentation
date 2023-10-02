@@ -17,8 +17,7 @@ jobs:
         with:
           ref: gh-pages
           fetch-depth: 0
-          sparse-checkout: |
-            pr-preview
+          filter: blob:none
 
       - run: |
           set -x
@@ -29,14 +28,10 @@ jobs:
 
           git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}'
 
-          #git ls-tree --name-only HEAD | while read filename; do
-          #  echo "$(git log -1 --format="%at | %h | %an | %ad |" -- $filename) $filename"
-          #done
-
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-          while [ "$(du -sm . | cut -f1)" -gt 2000 ]; do
+          while [ "$(du -sm . | cut -f1)" -gt 500 ]; do
             du -sh .
             BIGGEST_PREVIEW=$(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
             echo $BIGGEST_PREVIEW
