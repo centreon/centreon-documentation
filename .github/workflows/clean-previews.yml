@@ -40,12 +40,9 @@ jobs:
             echo $BIGGEST_PREVIEW
             du -sh $BIGGEST_PREVIEW
             ls -lh $BIGGEST_PREVIEW
-            rm -rf $BIGGEST_PREVIEW
-            #git rm -r $BIGGEST_PREVIEW
+            git rm -r $BIGGEST_PREVIEW
+            git commit -m "Remove preview $BIGGEST_PREVIEW"
+            git push
           done
 
           du -sh
-
-          #while [ "$(du -m f|cut -f1)" -lt 32 ]; do
-          #  ./gcd-rand.py 10000 10000 > "$f"
-          #done
