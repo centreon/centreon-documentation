@@ -61,7 +61,7 @@ const cards = [
     links: [
       {
         label: "Getting started",
-        href: "docs/getting-started/welcome"
+        href: "cloud/getting-started/architecture/"
       },{
         label: "Installing a poller",
         href: "cloud/installation/prerequisites/"

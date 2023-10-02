@@ -19,6 +19,35 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.13
+
+Release date: `September 22, 2023`
+
+#### Bug fixes
+
+-	[CLAPI] Fixed the addhosttemplate function that was removing other relationships.
+-	[CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+-	[Configuration] Fixed custom macro inheritance for hosts.
+-	[Core] Updated svg-sanitize dependency.
+-	[Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+-	[Security] Fixed SLQi in centreonLogAction.class.php.
+
+### 22.10.12
+
+Release date: `August 29, 2023`
+
+#### Enhancements
+
+- [Core] Updated the database schema for resources table.
+- [Tools] Added a script to delete duplicate entries in the host_service_relations table.
+
+#### Bug fixes
+
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+- [Graphs] Fixed the display of graphs layout when there is no data.
+- [Packaging] Added missing PHP files to Debian packaging.
+- [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.	
+
 ### 22.10.11
 
 Release date: `July 28, 2023`
@@ -296,8 +325,18 @@ Release date: `October 26, 2022`
 
 > In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
-
 ## Centreon Collect
+
+### 22.10.5
+
+Release date: `September 26, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+- Fixed an issue that could cause a crash when many pollers were sending check results to Broker.
 
 ### 22.10.4
 

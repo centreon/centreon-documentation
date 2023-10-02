@@ -22,11 +22,68 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.8
+
+Release date: `September 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Anomaly Detection] Added a feature flag to hide the period exclusion interface.
+- [Authentication] Removed password fields from profile page for accounts using delegated authentication.
+- [Configuration] Added feature flag to vault configuration endpoints.
+- [Core] Added feature flag system.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Business Activities are no longer listed as services in the configuration form.
+- [Authentication] Fixed access to the Centreon UI when a default page is configured for the user and authentication uses SSO (OIDC/SAML).	
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+- [CLAPI] Fixed the export of severities to make it possible to reimport them.
+- [CLAPI] Removed the possibility to link a regular resource with a template.	
+- [Configuration] Fixed custom macro inheritance for hosts.
+- [Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+- [Security] Fixed SLQi in centreonLogAction.class.php.
+
+</details>
+
+### 23.04.7
+
+Release date: `August 31, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Removed password fields if contact is not local type.
+- [Core] Updated the database schema for resources table.
+- [Tools] Added a script to delete duplicate entries in the host_service_relations table.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed pagination in the **Data** menu.
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+- [Authentication] Fixed groups mapping when groups roles were changed in the Identity Provider (OpenID Connect/SAML).
+- [Authentication] Fixed roles mapping when user roles were changed in the Identity Provider (OpenID Connect/SAML).
+- [Authentication] Fixed wrong error message displayed for SAML authentication.
+- [Core] Fixed an issue by removing the call to custom login page when the IT Edition module is not installed.
+- [Graphs] Fixed the display of graphs layout when there is no data.
+- [Packaging] Added missing PHP files to Debian packaging.
+- [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.
+- [Resources Status] Fixed the display of inverted curves in the graph panel.
+
+</details>
+
 ### 23.04.6
 
 Release date: `July 28, 2023`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Core] Removed unnecessary data in custom_configuration column for SAML provider.
@@ -185,13 +242,41 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.4
+
+Release date: `September 26, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+- Fixed a bug that caused services and hosts to lose their status at cbd startup.
+
+</details>
+
+### 23.04.3
+
+Release date: `September 7, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility] Fixed an issue that prevented Broker from inserting relations in table during BAM reporting calculation.
+- Fixed an issue that could cause a crash when many pollers were sending check results to a Broker instance.
+
+</details>
+
 ### 23.04.2
 
 Release date: `July 26, 2023`
 
 #### Centreon Broker
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - Boolean rules optimized to work faster.
@@ -259,6 +344,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.6
+
+Release date: `September 7, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
+
+</details>
 
 ### 23.04.5
 
@@ -395,7 +491,7 @@ Compatibility with other 23.04 components.
 
 Release date: `July 28, 2023`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - Fixed a Broker query.

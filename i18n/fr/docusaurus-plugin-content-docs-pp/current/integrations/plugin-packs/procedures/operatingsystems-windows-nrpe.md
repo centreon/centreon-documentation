@@ -1,10 +1,6 @@
 ---
 id: operatingsystems-windows-nrpe
-title: Windows NRPE
+title: Windows NRPE (déprécié)
 ---
 
-## **WARNING** This Pack has been deprecated
-
-This connecteur de supervision has been deprecated and replaced by `Windows NSClient 0.5 NRPE`. 
-
-Refer to [this procedure](operatingsystems-windows-nsclient-05-nrpe.md)
+> Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [Windows NRPE 0.5](operatingsystems-windows-nsclient-05-nrpe.md).

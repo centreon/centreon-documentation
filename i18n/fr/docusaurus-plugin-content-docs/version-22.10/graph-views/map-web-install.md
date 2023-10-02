@@ -551,6 +551,8 @@ centreon.path=/your-custom-uri
 
 #### Optimisation de la mémoire pour Java
 
+> JAVA_OPTS est une variable d'environnement standard utilisée pour modifier les propriétés Java.
+
 Pour implémenter correctement la mémoire dédiée :
 
 Modifiez le paramètre **JAVA_OPTS** dans le fichier de configuration Centreon MAP
