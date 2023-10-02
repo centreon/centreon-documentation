@@ -111,6 +111,10 @@ jobs:
             if (build_versions.length) {
               build_environments.push('staging');
             }
+            console.log(build_next_version);
+            console.log(build_next_version !== null);
+            console.log(available_versions);
+            console.log(available_versions.includes(build_next_version))
             if (build_next_version !== null && available_versions.includes(build_next_version)) {
               build_environments.push('next');
             }
