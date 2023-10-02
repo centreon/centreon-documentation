@@ -8,20 +8,20 @@ title: Database partitioning
 Some tables in the 'centreon\_storage' database are partitioned to:
 
 - Optimize the execution time of several queries,
-- Optimize the purge of data,
-- Minimize the reconstruction of the tables in error during a crash of the
+- Optimize data purges,
+- Minimize the reconstruction of the tables with an error during a crash of the
 DBMS.
 
 One partition per day is created for the following tables:
 
 - **data\_bin**: performance data
 - **logs**: event logs from the supervision engine collection.
-- **log\_archive\_host**: availability data of hosts.
-- **log\_archive\_service**: availability data of services.
+- **log\_archive\_host**: availability data concerning hosts.
+- **log\_archive\_service**: availability data concerning services.
 
 > There are some limitations:
 >
-> - Maximum number of partitions (for a MariaDB table) is 1024
+> - The maximum number of partitions (for a MariaDB table) is 1024
 > - Foreign keys are not supported
 
 More details about MariaDB partitioning
@@ -35,7 +35,7 @@ The following packages are required:
 - Pear-DB
 - MariaDB (\>= 10.1)
 
-MariaDB **open\_files\_limit** parameter must be set to 32000 in \[server\]
+The MariaDB **open\_files\_limit** parameter must be set to 32000 in the \[server\]
 section:
 
 ```text
@@ -44,7 +44,7 @@ open_files_limit = 32000
 ```
 
 > If you install Centreon on your RedHat Linux version, you will be
-> able to do it manually. Don't forget to restart the mariadb processes if you change
+> able to do it manually. Remember to restart the mariadb processes if you change
 > this value in my.cnf.
 
 If you use systemd, you need to create the
@@ -84,7 +84,7 @@ Partitioning uses XML files in the **/usr/share/centreon/config/partition.d/**
 directory to create the necessary partitions.
 
 Every day, a script launched by a cron realizes the creation of missing tables
-or those in advance:
+or those created in advance:
 
 ```text
 0 4 * * * centreon /bin/php /usr/share/centreon/cron/centreon-partitioning.php >> /var/log/centreon/centreon-partitioning.log 2>&1
@@ -114,23 +114,23 @@ CREATE TABLE IF NOT EXISTS `data_bin` (
 
 ## Migrating unpartitioned tables
 
-The command line does the following procedure:
+The command line performs the following procedure:
 
 - Rename existing table (‘xxx’ will be ‘xxx\_old’)
 - Create an empty partitioned table
-- Migrate data in partitioned table (with ‘SELECT INSERT’ statement)
+- Migrate data into the partitioned table (with ‘SELECT INSERT’ statement)
 
-You need to make some checks before:
+You need to check a few things before:
 
-- Enough space on MariaDB Server (at least twice the size of the table.
+- Enough space on the MariaDB Server (at least twice the size of the table.
 Indexes and Data)
 - No data in futures (time is used for the partitioning)
 - Enough memory on database server
 
 > The ‘SELECT INSERT’ statement will lock the table and maybe your production in
-> some points (per example table migration of ‘logs’).
+> some points (for example table migration of ‘logs’).
 
-The migration of the table is done by using the **-m** option and specifying the
+To perform table migration, use the **-m** option and specify the
 name of the table to migrate:
 
 ```shell
@@ -146,8 +146,8 @@ DROP TABLE centreon_storage.data_bin_old;
 
 ## Monitoring of partitioning operation
 
-The **Centreon Database** Monitoring Connector allows you to control that the number of
-partitions created in advance is sufficient. It is recommended to install and
+The **Centreon Database** Monitoring Connector allows you to check that the number of
+partitions created in advance is sufficient. It is recommended that you install and
 deploy this Monitoring Connector.
 
 It is also possible to view the partitioned tables and the consumption

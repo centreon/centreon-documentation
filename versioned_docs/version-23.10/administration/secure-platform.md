@@ -370,6 +370,8 @@ Execute the following commands:
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
 ```
 
 </TabItem>
@@ -531,12 +533,12 @@ Here is an example of output:
 ```shell
 Status for the jail: centreon
 |- Filter
-|  |- Currently failed:	1
-|  |- Total failed:	17
+|  |- Currently failed:	1.
+|  |- Total failed:	17.
 |  `- File list:	/var/log/centreon/login.log
 `- Actions
-   |- Currently banned:	0
-   |- Total banned:	2
+   |- Currently banned:	0.
+   |- Total banned:	2.
    `- Banned IP list:
 ```
 
@@ -644,7 +646,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
   ```
   
-  Once you have created the certificate, you will be able to use it to sign your server certificate.
+  The certificate being created will enable you to sign your server certificate.
   
 6. Create a certificate for the server:
   
@@ -1241,7 +1243,7 @@ If everything is ok, you should have:
 ```shell
 ● apache2.service - The Apache HTTP Server
     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
-     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+     Active: active (running) since Tue 8/9/2022 5:01:36 AM UTC; 3h 56min ago
        Docs: https://httpd.apache.org/docs/2.4/
    Main PID: 518 (apache2)
       Tasks: 11 (limit: 2356)
@@ -1403,7 +1405,7 @@ systemctl restart apache2
 
 ## Enabling http2
 
-It is possible to enable the http2 protocol to improve Centreon's network performance.
+It is possible to enable the http2 protocol to improve Centreon network performance.
 
 To use http2, you need to follow these steps:
 
@@ -1577,9 +1579,9 @@ and enable for **IPv4** inputs and outputs:
 
 ### Centreon Gorgone communication
 
-By default, ZMQ communications are secured, both external (with the poller) and internal (between gorgone processes).
+By default, ZMQ communications are secured; both external communications (with the poller) and internal ones (between gorgone processes).
 
-However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone but the communication is not done using SSL.
+However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone, but the communication does not take place using SSL.
 
 You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 

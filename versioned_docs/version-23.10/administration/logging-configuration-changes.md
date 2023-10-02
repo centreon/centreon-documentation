@@ -5,12 +5,12 @@ title: Logging configuration changes
 
 ## Principle
 
-By default, Centreon retains all user actions concerning changes to
-configuration in a log. To access this data, go into the menu **Administration > Logs**.
+By default, Centreon records all user actions concerning changes to the
+configuration in a log. To access this data, go into the **Administration > Logs** menu.
 
 ![image](../assets/administration/fsearchlogs.png)
 
-The grey search bar can be used to filter the information presented via filters:
+The gray search bar can be used to filter the information presented via filters:
 
 - **Object** used to filter on object name (host, service, contact, SNMP trap
 definition, group, etc.)
@@ -19,8 +19,8 @@ definition, group, etc.)
 
 ## Practice
 
-E.g.: To see all the actions effective by the user: **admin**, enter “admin” in
-the **User** field and click on **Search**.
+For example: To see all the actions performed by the user **admin**, enter “admin” in
+the **User** field and click **Search**.
 
 The table below defines the columns in the results table:
 
@@ -42,12 +42,12 @@ The table below defines the columns in the results table:
 </tr>
 <tr class="even">
 <td>Modification type</td>
-<td><p>Contains the type of action effective. There are several types of action possible:</p>
+<td><p>Contains the type of action applied. There are several possible types of action:</p>
 <ul>
 <li>Added: Indicates that the object has been added</li>
 <li>Changed: Indicates that the object has been changed</li>
 <li>Deleted: Indicates that the object has been deleted</li>
-<li>Massive Change: Indicates a massive change of configuration on objects.</li>
+<li>Mass Change: Indicates a mass change of configuration on objects.</li>
 <li>Enabled: Indicates that the object has been enabled</li>
 <li>Disabled: Indicates that the object has been disabled</li>
 </ul></td>
@@ -62,13 +62,13 @@ The table below defines the columns in the results table:
 </tr>
 <tr class="odd">
 <td>Author</td>
-<td>Indicates the user having effective this change</td>
+<td>Indicates the user having performed this change</td>
 </tr>
 </tbody>
 </table>
 
-By clicking on the name of an object, you can view the history of the changes
-effective on it.
+By clicking the name of an object, you can view the history of the changes
+applied to it.
 
 ![image](../assets/administration/fobjectmodif.png)
 
@@ -92,7 +92,7 @@ The table below defines the columns of the changes table:
 </tr>
 <tr class="even">
 <td>Contact Name</td>
-<td>Name of the person having effective the change</td>
+<td>Name of the person who performed the change</td>
 </tr>
 <tr class="odd">
 <td>Type</td>
