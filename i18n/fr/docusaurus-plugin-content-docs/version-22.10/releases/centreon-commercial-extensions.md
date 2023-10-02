@@ -208,7 +208,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.10.12
 
-Release date: `September 29, 2023`
+Release date: `October 02, 2023`
 
 #### Security fixes
 
@@ -423,7 +423,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `September 29, 2023`
+Release date: `October 02, 2023`
 
 - Fixed an issue where new services were created when updating the discovery job on existing hosts.
 
