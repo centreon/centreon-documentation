@@ -19,8 +19,8 @@ commands.
 ## Chatops
 
 A [Centreon-Chatops](https://github.com/centreon/centreon-chatops) community
-project has been developed to allow communication in a Team chat like
-Mattermost or Slack and Centreon through slash commands
+project has been developed to allow communication in a team chat like
+Mattermost or Slack and Centreon through slash commands.
 
 ## Stream connector
 

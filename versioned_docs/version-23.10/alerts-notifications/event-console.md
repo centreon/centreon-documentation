@@ -200,8 +200,8 @@ Services` menu.
         service are disabled: ![image](../assets/alerts/nonotifications.png)
     -   The following icon can be used to view the performance graph for
         this service: ![image](../assets/alerts/graphperformances.png)
-    -   The following icon allows access to a predefined URL
-        configured: ![image](../assets/alerts/url_link.png)
+    -   The following icon allows access to a configured predefined URL:
+        ![image](../assets/alerts/url_link.png)
 -   **Duration**: Displays the duration of the current status.
 -   **Hard State Duration**: Displays the duration of the validated
     non-ok status.

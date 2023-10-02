@@ -141,13 +141,13 @@ host or a service are disabled. Downtime periods are convenient during
 maintenance operations on a host or a service: they allow us to avoid
 receiving false positives.
 
-Recurrent Downtime periods are Downtime periods that recur
+Recurrent downtime periods are downtime periods that recur
 repetitively.
 
 Example: A back-up of the virtual machines is performed every day from
 8 PM to midnight. This type of back-up has a tendency to saturate the
 CPU use of all the virtual machines. It is necessary to program
-recurrent Downtime periods on the services concerned to avoid receiving
+recurrent downtime periods on the services concerned to avoid receiving
 notifications from 8 PM to midnight.
 
 > Downtime periods are taken into account in the calculation of the
