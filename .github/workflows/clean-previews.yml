@@ -35,5 +35,4 @@ jobs:
             git rm -rq $BIGGEST_PREVIEW
           done
 
-          git commit -m "Remove oldest previews"
-          git push
+          git diff --quiet && git diff --staged --quiet || $(git commit -m "Remove oldest previews" && git push)
