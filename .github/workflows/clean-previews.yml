@@ -19,7 +19,6 @@ jobs:
         with:
           ref: gh-pages
           fetch-depth: 0
-          filter: blob:none
 
       - run: |
           cd pr-preview
