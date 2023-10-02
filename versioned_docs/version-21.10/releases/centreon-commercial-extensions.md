@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.11
 
-Release date: `September 29, 2023`
+Release date: `October 02, 2023`
 
 #### Security fixes
 
