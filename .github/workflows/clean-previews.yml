@@ -21,6 +21,7 @@ jobs:
             pr-preview
 
       - run: |
+          set -x
           ls
           cd pr-preview
 
@@ -34,7 +35,10 @@ jobs:
 
           while [ "$(du -sm . | cut -f1)" -gt 4000 ]; do
             du -sh .
-            rm -rf $(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
+            BIGGEST_PREVIEW=$(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
+            echo $BIGGEST_PREVIEW
+            du -sh $BIGGEST_PREVIEW
+            rm -rf BIGGEST_PREVIEW
           done
 
           du -sh
