@@ -216,6 +216,7 @@ jobs:
           fail-on-cache-miss: true
 
       - name: Reduce media size
+        if: ${{ github.event.action != 'closed' }}
         run: |
           find ./build -iname \*.mp4 -exec sh -c '> {}' \;
           find ./build -iname \*.pdf -exec sh -c '> {}' \;
