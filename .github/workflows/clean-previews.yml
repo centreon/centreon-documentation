@@ -44,8 +44,9 @@ jobs:
             du -sh $BIGGEST_PREVIEW
             ls -lh $BIGGEST_PREVIEW
             git rm -r $BIGGEST_PREVIEW
-            git commit -m "Remove preview $BIGGEST_PREVIEW"
-            git push
           done
+
+          git commit -m "Remove oldest previews"
+          git push
 
           du -sh
