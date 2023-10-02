@@ -5,7 +5,7 @@ title: Introduction to Centreon MBI
 
 ## Complete reporting with Centreon MBI
 
-The reporting capabilities in Centreon relies on the **Centreon Monitoring Business Intelligence (MBI)** extension.
+The reporting capabilities in Centreon rely on the **Centreon Monitoring Business Intelligence (MBI)** extension.
 You also have simple reporting capabilities described below.
 
 > Centreon MBI is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
@@ -34,7 +34,7 @@ Centreon MBI provides a full package of standard reports that address:
 
 **Here are some examples of reports available in Centreon MBI**: [Reports examples](../assets/reporting/Centreon-MBI-Sample-Reports.pdf)
 
-or simply create your own reporting Dashboard using our widgets.
+or simply create your own reporting dashboard using our widgets.
 
 ![image](../assets/reporting/dashboard.png)
 
@@ -52,35 +52,35 @@ Main features:
 
 ## Simple reporting
 
-The availability reports of monitoring objects from Centreon Web interface allows
-to display the availability rate about hosts, hostgroup or servicegroup on a selected period.
+The availability reports concerning objects monitored via the Centreon Web interface 
+can display the availability rates of hosts, a hostgroup, or a servicegroup over a selected period.
 
-To access to availability reports:
+To access the availability reports:
 
-- Go into the menu: **Reporting > Dashboard**
-- In the left menu, click on **Host**
-- Select defined host in **Host** list
+- Go to **Reporting > Dashboard**.
+- In the left menu, click **Host**.
+- Select a host from the **Host** list.
 
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
 
-- The **Reporting Period** allows to select a predefined period or to define it manually using **From** to **to** fields.
-- The **Host state** table displays the availability rates of object.
+- The **Reporting Period** lets you select a predefined period or define it manually using **From** to **to** fields.
+- The **Host state** table displays the availability rates of objects.
 - The **State Breakdowns For Host Services** table displays the availability of linked objects.
-- The timeline allows you to see intuitively the status of the object in short time.
+- The timeline provides a quick and intuitive overview of the status of the object.
 
 ![image](../assets/reporting/os-reporting/os-host-timeline.png)
 
-Moreover, clicking on a day in the timeline, you get the report of the day:
+Click a day in the timeline to obtain the report for that day:
 
 ![image](../assets/reporting/os-reporting/os-host-tooltip.png)
 
 It is also possible to view web reports:
 
-* The groups of hosts: Click on **Host Groups** in the left menu
-* The groups of services: Click on **Service Groups** in the left menu
+* The groups of hosts: Click **Host Groups** in the left menu
+* The groups of services: Click **Service Groups** in the left menu
 
-The CSV icones makes it possible to export data into CSV file.
+The CSV icon is used to export data to a CSV file.
 
 ![image](../assets/reporting/os-reporting/os-csv.png)
 
-> It is also possible to access to availability of a service by clicking on the service name in the host or servicegroup report.
+> You can also see the availability of a service by clicking the service name in the host or servicegroup report.

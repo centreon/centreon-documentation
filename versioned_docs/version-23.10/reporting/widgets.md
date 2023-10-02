@@ -4,14 +4,14 @@ title: Widgets
 ---
 
 Centreon MBI widgets are used in Centreon [custom views](../getting-started/create-custom-view.md). This means you can now use dashboards to create real-time AND
-reporting statistics (e.g., for availability, applications,
+reporting statistics (e.g., for availability, applications, and
 performance).
 
 ![image](../assets/reporting/guide/dashboard.png)
 
 A list of available widgets appears below.
 
-> To update ACLs, click on "Update ACL Resources" in the "Report
+> To update ACLs, click "Update ACL Resources" in the "Report
 > Parameters" menu under the Centreon MBI general options.
 
 ## Availability & events
@@ -32,13 +32,13 @@ group, by month.
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
     host categories. Separate multiple entries by a comma.
--   Type the name of the reporting period you want to use (has to be
+-   Type the name of the reporting period you want to use (must be
     calculated by Centreon BI): Make sure the reporting period is
     preconfigured in MBI.
 -   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustement): Minimum
+-   Min value for graph (leave empty for self-adjustment): Minimum
     value for Y-axis height.
--   Max value for graph (leave empty for self-adjustement): Maximum
+-   Max value for graph (leave empty for self-adjustment): Maximum
     value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
@@ -64,14 +64,14 @@ group, by day.
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
     host categories. Separate multiple entries by a comma.
--   Type the name of the reporting period you want to use (has to be
+-   Type the name of the reporting period you want to use (must be
     calculated by Centreon MBI): Make sure the reporting period must be
     preconfigured in MBI.
 -   Select the reporting period.
 -   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustement): Minimum
+-   Min value for graph (leave empty for self-adjustment): Minimum
     value for Y-axis height.
--   Max value for graph (leave empty for self-adjustement): Maximum
+-   Max value for graph (leave empty for self-adjustment): Maximum
     value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
@@ -95,13 +95,13 @@ group, segmenting the hosts by category and by month.
 -   Select the group: Specify host group for displaying statistics.
 -   Type the name of host categories to filter on: Indicate one or more
     host categories. Separate multiple entries by a comma.
--   Type the name of the reporting period you want to use (has to be
+-   Type the name of the reporting period you want to use (must be
     calculated by Centreon BI): Make sure the reporting period is
     preconfigured in MBI.
 -   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustement): Minimum
+-   Min value for graph (leave empty for self-adjustment): Minimum
     value for Y-axis height.
--   Max value for graph (leave empty for self-adjustement): Maximum
+-   Max value for graph (leave empty for self-adjustment): Maximum
     value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
@@ -114,10 +114,10 @@ group, segmenting the hosts by category and by month.
 #### Description
 
 This widget provides information on the reliability (MTBF) and
-maintenability (MTRS) of your services as well as the level of your
+maintainability (MTRS) of your services as well as the level of your
 team's efficiency when managing downtime (MTTA). Data is shown as a top
 N aggregate statistic. Additional information such as current status,
-availability, number of events or last state change are also provided to
+availability, number of events and last state change are also provided to
 help in decision-making.
 
 -   MTBF (mean time between failures) represents the average duration
@@ -161,10 +161,10 @@ help in decision-making.
 #### Description
 
 This widget provides information on the reliability (MTBF) and
-maintenability (MTRS) of your hosts as well as the level of your team's
+maintainability (MTRS) of your hosts as well as the level of your team's
 efficiency when managing downtime (MTTA). Data is shown as a top N
 aggregate statistic. Additional information such as current status,
-availability, number of events or last state change are also provided to
+availability, number of events and last state change are also provided to
 help in decision-making.
 
 -   MTBF (mean time between failures) represents the average duration
@@ -234,9 +234,9 @@ metric.
 
 #### Description
 
-Thi widget displays storage space approaching saturation. It also shows
+This widget displays storage space approaching saturation. It also shows
 the real-time value and the evolution since the previous day. The
-calculation is made comparing J-X and J storage values. Only used
+calculation compares the storage values J-X and J. Only used
 storage space that increases is shown in this widget.
 
 ![image](../assets/reporting/guide/mbi-storage-list-near-saturation.png)
@@ -283,7 +283,7 @@ history using linear regression.
     pertaining to a service.
 -   How many historical days should we use to calculate the projection:
     This period should show the evolution of the metric.
--   Type the name the reporting period you want to use (has to be
+-   Type the name of the reporting period you want to use (must be
     calculated by Centreon BI).
 -   Base: Base for division (1000 or 1024).
 -   Chart type: Indicate type of graph for availability and performance.
@@ -309,27 +309,27 @@ categories.
 
 **Menu description**
 
--   Type name of groups (separate with ,).
--   Type the name of a host categories to filter on (separate with ,).
--   Type the name of a service categories to filter on (separate with
+-   Type the names of groups (separate with ,).
+-   Type the name of a host category to filter on (separate with ,).
+-   Type the name of a service category to filter on (separate with
     ,).
 -   Metric name (for multiple metrics, separate them with a comma).
--   Type the name the reporting period you want to use (has to be
+-   Type the name of the reporting period you want to use (must be
     calculated by Centreon MBI): Make sure the reporting period is
     preconfigured in MBI.
 -   Select the reporting period.
--   Order values by : average, minimum or maximum, ascending or
+-   Order values by: average, minimum or maximum, ascending or
     descending.
 -   Number of metrics to display: Top N to display in terms of metrics.
--   Display Current value: Display / hide the column.
+-   Display Current value: Show / hide the column.
 -   Display Average: Display / hide the column.
 -   Display Minimum: Display / hide the column.
--   Display Maximum: Display / hide the column.
--   Display warning threshold: Display / hide the column.
--   Display critical threshold: Display / hide the column.
--   Display Hostgroups: Display / hide the column.
--   Display Hostcategories: Display / hide the column.
--   Display ServiceCategories: Display / hide the column.
+-   Display Maximum: Show / hide the column.
+-   Display warning threshold: Show / hide the column.
+-   Display critical threshold: Show / hide the column.
+-   Display Hostgroups: Show / hide the column.
+-   Display Hostcategories: Show / hide the column.
+-   Display ServiceCategories: Show / hide the column.
 -   Refresh Interval in seconds: Sets automatic refresh time for
     widgets.
 
@@ -370,8 +370,8 @@ day over a defined period for groups and categories.
     value.
 -   Graph height: Graph might need to be resized to include caption.
 -   Base: Controls conversion to display G, M, K, etc.
--   Show subchart?: Display or hide the subchart for zooming in.
--   Show legend?: Display or hide the caption.
+-   Show subchart?: Show or hide the subchart for zooming in.
+-   Show legend?: Show or hide the caption.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
 **Example**
@@ -400,9 +400,9 @@ last 12 months.
 -   Select a business view from Centreon BAM.
 -   Select the reporting period.
 -   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustement): Minimum
+-   Min value for graph (leave empty for self-adjustment): Minimum
     value for Y-axis height.
--   Max value for graph (leave empty for self-adjustement): Maximum
+-   Max value for graph (leave empty for self-adjustment): Maximum
     value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
@@ -419,7 +419,7 @@ last 12 months.
 #### Description
 
 This widget provides information on the reliability (MTBF) and
-maintenability (MTRS) of your critical IT services and applications,
+maintainability (MTRS) of your critical IT services and applications,
 represented in Centreon BAM. Additional information such as current
 status, availability, number of events or last state change are also
 provided to help in decision-making. Data is shown as a top N aggregate
@@ -442,7 +442,7 @@ statistic.
 -   Number of business activities to display.
 -   Select the reporting period.
 -   Order By: Sort the result by MTBF or MTRS.
--   Type the name of the reporting period you want to use (has to be
+-   Type the name of the reporting period you want to use (must be
     calculated by Centreon MBI): Make sure the reporting period must be
     preconfigured in MBI: If this field is left empty the default
     reporting time period for each BA applies.
@@ -479,14 +479,14 @@ displayed on the graph.
 
 ![image](../assets/reporting/guide/mbi-ba-availability-gauge_param.png)
 
-### Business Application Availability,Performance and Alerts by day
+### Business Application Availability, Performance and Alerts by day
 
 *This widget only works with Centreon BAM data.*
 
 #### Description
 
 This widget presents a graph showing the availability, performance and
-alerts of one BA by day.
+alerts of one BA per day.
 
 ![image](../assets/reporting/guide/mbi-ba-availability-graph-day.png)
 
@@ -496,9 +496,9 @@ alerts of one BA by day.
 
 -   Select an application: Select a BA from Centreon BAM.
 -   Select the reporting period.
--   Min value for graph (leave empty for self-adjustement): Minimum
+-   Min value for graph (leave empty for self-adjustment): Minimum
     value for Y-axis height.
--   Max value for graph (leave empty for self-adjustement): Maximum
+-   Max value for graph (leave empty for self-adjustment): Maximum
     value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
@@ -514,7 +514,7 @@ alerts of one BA by day.
 #### Description
 
 This widget presents a graph showing the availability, performance and
-alerts of one BA by month over the last 12 months.
+alerts of one BA per month over the last 12 months.
 
 ![image](../assets/reporting/guide/mbi-ba-availability-graph-month.png)
 
@@ -524,9 +524,9 @@ alerts of one BA by month over the last 12 months.
 
 -   Select an application: Select a BA from Centreon BAM.
 -   Select the reporting period.
--   Min value for graph (leave empty for self-adjustement): Minimum
+-   Min value for graph (leave empty for self-adjustment): Minimum
     value for Y-axis height.
--   Max value for graph (leave empty for self-adjustement): Maximum
+-   Max value for graph (leave empty for self-adjustment): Maximum
     value for Y-axis height.
 -   Refresh Interval (seconds): Sets automatic refresh time for widgets.
 
