@@ -17,11 +17,11 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.12
 
-Release date: `September 29, 2023`
+Release date: `October 02, 2023`
 
 #### Bug fixes
 
-- [Packaging] Fixed a Debian packaging issue preventing MAP to start.
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
 
 ### 22.04.11
 
@@ -191,12 +191,15 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.12
 
-Release date: `September 29, 2023`
+Release date: `October 02, 2023`
+
+#### Security fixes
+
+- [Server] Updated dependencies.
 
 #### Bug fixes
 
-- [Packaging] Fixed a Debian packaging issue preventing MAP to start.
-- [Desktop] Updated dependencies.
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
 
 ### 22.04.11
 
