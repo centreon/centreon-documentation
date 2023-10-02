@@ -34,6 +34,9 @@ jobs:
           #  echo "$(git log -1 --format="%at | %h | %an | %ad |" -- $filename) $filename"
           #done
 
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
           while [ "$(du -sm . | cut -f1)" -gt 4000 ]; do
             du -sh .
             BIGGEST_PREVIEW=$(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
