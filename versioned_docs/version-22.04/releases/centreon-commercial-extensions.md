@@ -18,6 +18,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.11
 
+Release date: `October 02, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
+### 22.04.11
+
 Release date: `September 25, 2023`
 
 #### Bug fixes
@@ -179,6 +187,18 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.12
+
+Release date: `October 02, 2023`
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+  
 ### 22.04.11
 
 Release date: `September 25, 2023`
