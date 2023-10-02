@@ -11,6 +11,12 @@ jobs:
   deploy:
     runs-on: [self-hosted, infra]
 
+    name: Deploy to production
+
+    environment:
+      name: production
+      url: https://docs.centreon.com
+
     steps:
       - name: Setup awscli
         run: |
