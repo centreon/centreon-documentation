@@ -15,7 +15,6 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
-          filter: blob:none
           ref: gh-pages
           fetch-depth: 0
           sparse-checkout: |
