@@ -3,7 +3,6 @@ id: access-control-lists
 title: Granting rights to Centreon users (ACL)
 ---
 
-
 You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md):
 
 - on resources: which hosts, services, etc. users will be allowed to see
