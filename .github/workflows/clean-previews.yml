@@ -2,6 +2,9 @@ name: clean-previews
 
 on:
   pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -20,27 +23,17 @@ jobs:
           filter: blob:none
 
       - run: |
-          set -x
-          ls
           cd pr-preview
-
-          #git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0n1 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | cut -d' ' -f1
-
-          git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}'
 
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-          while [ "$(du -sm . | cut -f1)" -gt 500 ]; do
+          while [ "$(du -sm . | cut -f1)" -gt 4000 ]; do
             du -sh .
             BIGGEST_PREVIEW=$(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
-            echo $BIGGEST_PREVIEW
-            du -sh $BIGGEST_PREVIEW
-            ls -lh $BIGGEST_PREVIEW
-            git rm -r $BIGGEST_PREVIEW
+            echo "cleaning $BIGGEST_PREVIEW ..."
+            git rm -rq $BIGGEST_PREVIEW
           done
 
           git commit -m "Remove oldest previews"
           git push
-
-          du -sh
