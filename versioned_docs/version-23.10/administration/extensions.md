@@ -3,11 +3,11 @@ id: extensions
 title: Extensions
 ---
 
-The extensions can be used to add additional functionalities to Centreon. It is
+Extensions can be used to add additional features to Centreon. It is
 possible to install extensions using the package manager or using source files
 (\*.tar.gz).
 
-There are 3 kinds of extensions:
+There are three types of extension:
 
 - **Community**, under license GPL v2, developed by the Centreon community,
 - **Core**, under license GPL v2, developed by the Centreon team,
@@ -21,13 +21,13 @@ To install an extension:
 
 ![image](../assets/administration/install-imp-1.png)
 
-To install all extensions, click on **Install all**:
+To install all extensions, click **Install all**:
 
 ![image](../assets/administration/install-imp-2.png)
 
 You can also update all extensions by clicking **Update all**, or manage
 extension by extension.
 
-By clicking on the extension, you can access to the description:
+Click an extension to see its description:
 
 ![image](../assets/administration/extension-popin.png)

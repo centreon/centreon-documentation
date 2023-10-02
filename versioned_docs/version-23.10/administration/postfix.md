@@ -10,7 +10,7 @@ For your Centreon to be able to send notification emails, you need to configure 
 
 This page gives you an example of a possible configuration. Refer to the [official Postfix documentation](http://www.postfix.org/BASIC_CONFIGURATION_README) for more information.
 
-Notifications commands are executed by the poller that monitors the resource: you need to configure the mail relay on all pollers.
+Notification commands are executed by the poller that monitors the resource, so you need to configure the mail relay on all pollers.
 
 We recommend that you use a dedicated email account to send notifications.
 
@@ -29,7 +29,7 @@ dnf install mailx cyrus-sasl-plain
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
-dnf install s-nail cyrus-sasl-plain
+dnf install mailx cyrus-sasl-plain
 ```
 
 </TabItem>
@@ -97,7 +97,7 @@ apt install mailx cyrus-sasl-plain
     touch /etc/postfix/sasl_passwd
     ```
 
-2. Add the following line (replace `username:password` by the credentials of the account that will send the notification emails):
+2. Add the following line (replace `username:password` with the credentials of the account that will send the notification emails):
 
     ```
     [smtp.isp.com]:port username:password
@@ -124,7 +124,7 @@ apt install mailx cyrus-sasl-plain
     chmod 640 /etc/postfix/sasl_passwd*
     ```
 
-3. Reload Postfix so that chenges are taken into account:
+3. Reload Postfix so that changes are taken into account:
 
     ```
     systemctl reload postfix
@@ -138,9 +138,9 @@ apt install mailx cyrus-sasl-plain
     echo "Test" | mail -s "Test" user@isp.com
     ```
 
-    Replace `user@isp.com` by a real email address: the recipient should receive the test email.
+    Replace `user@isp.com` with a real email address. The recipient should receive the test email.
 
-- If the user hasn't received the message, check the following log file:
+- If the user has not received the message, check the following log file:
 
     ```
     tail -f /var/log/maillog
