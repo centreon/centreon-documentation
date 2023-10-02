@@ -17,9 +17,9 @@ jobs:
         with:
           filters: blob:none
           ref: gh-pages
-          #fetch-depth: 0
-          #sparse-checkout: |
-          #  pr-preview
+          fetch-depth: 0
+          sparse-checkout: |
+            pr-preview
 
       - run: |
           set -x
@@ -40,7 +40,8 @@ jobs:
             echo $BIGGEST_PREVIEW
             du -sh $BIGGEST_PREVIEW
             ls -lh $BIGGEST_PREVIEW
-            git rm -r $BIGGEST_PREVIEW
+            rm -rf $BIGGEST_PREVIEW
+            #git rm -r $BIGGEST_PREVIEW
           done
 
           du -sh
