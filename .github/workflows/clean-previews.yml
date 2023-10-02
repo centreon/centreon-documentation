@@ -15,10 +15,11 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
+          filters: blob:none
           ref: gh-pages
-          fetch-depth: 0
-          sparse-checkout: |
-            pr-preview
+          #fetch-depth: 0
+          #sparse-checkout: |
+          #  pr-preview
 
       - run: |
           set -x
@@ -38,8 +39,8 @@ jobs:
             BIGGEST_PREVIEW=$(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
             echo $BIGGEST_PREVIEW
             du -sh $BIGGEST_PREVIEW
-            ls -lh BIGGEST_PREVIEW
-            git rm -r BIGGEST_PREVIEW
+            ls -lh $BIGGEST_PREVIEW
+            git rm -r $BIGGEST_PREVIEW
           done
 
           du -sh
