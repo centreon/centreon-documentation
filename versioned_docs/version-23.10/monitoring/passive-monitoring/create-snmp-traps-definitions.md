@@ -7,7 +7,7 @@ title: Create SNMP Traps definitions
 
 Within centreon, the root OIDs of the SNMP traps is filed by manufacturer. To add a manufacturer:
 
-Go into the **Configuration > SNMP traps > Manufacturer** menu and click on **Add**
+Go to **Configuration > SNMP traps > Manufacturer** and click **Add**
 
 ![image](../../assets/configuration/06constructors.png)
 
@@ -23,8 +23,8 @@ Go into the **Configuration > SNMP traps > MIBs** menu
 * The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB
 
-Prior to importing a certain MiB file, it may happen that a number of dependencies need to be met.
-In order to find the dependencies of your MIB, you must open your MIB file using a standard text editor, then:
+Prior to importing a certain MIB file, it may happen that a number of dependencies need to be met.
+In order to find the dependencies of your MIB, open your MIB file using a standard text editor, and then:
 
 1. Locate the line that starts with **IMPORTS**
 2. Verify all the required dependencies to import your MIB file after the keyword **FROM**
@@ -43,45 +43,45 @@ SNMP-FRAMEWORK-MIB.
 
 It is also possible to create definitions of SNMP traps manually:
 
-Go into the **Configuration > SNMP traps > SNMP traps** menu and click on **Add**
+Go to **Configuration > SNMP traps > SNMP traps** and click **Add**
 
 ![image](../../assets/configuration/06addsnmptrap.png)
 
 * The field **Trap name** defines the name of the trap.
 * The field **Mode** defines how to check the trap **OID** received.
 * The field **OID** defines the Root OID to be received for this trap to be considered as received.
-* The field **Vendor name** defines the name of the manufacturer to which the trap to be selected in the drop-down
+* The field **Vendor name** defines the name of the manufacturer to which the trap to be selected in the dropdown
   list belongs.
-* The field **Output message** of contains the message to be displayed in the event of reception of a trap containing
+* The field **Output message** contains the message to be displayed in the event of reception of a trap containing
   the OID configured above.
 
-> By default, the MIB contains the definition of this variable (E.g.: “Link up on interface $2. State: $4.”, here $2
-> will be replaced by the 2nd argument received in the event.). In the opposite situation, the variable **$*** can be
+> By default, the MIB contains the definition of this variable (e.g.: “Link up on interface $2. State: $4.”, here $2
+> will be replaced by the 2nd argument received in the event.) In the opposite situation, the variable **$*** can be
 > used to display all the arguments contained in the trap.
 
-> It is possible to construct the output message yourself. For this, use the MIB to know the arguments that will be
+> It is possible to construct the output message yourself. To do this, use the MIB to find out the arguments that will be
 > present in the body of the event and retrieve the arguments with the variables **$n**. As each argument is identified
-> by a OID, it is possible to use this OID directly to place it in the output message without knowing its position via
+> by an OID, it is possible to use this OID directly to place it in the output message without knowing its position via
 > the variable **@{OID}**.
 
 * The **Default status** field defines the “monitoring” status of the service in case of reception of the trap.
-* If the **Submit result** box is checked the result is submitted to the Network supervisor engine.
-* The **Comments** field (last field) contains by default the comment by the manufacturer of the SNMP trap. Most of the
+* If the **Submit result** box is checked, the result is submitted to the Network supervisor engine.
+* By default, the **Comments** field (last field) contains the comment by the manufacturer of the SNMP trap. Most of the
   time, this comment indicates the list of variables contained in the SNMP trap (see the next chapter on advanced configuration).
 
 ### Advanced configuration of the traps
 
 It is possible to determine the status of a service from the value of a setting of the SNMP trap rather than from the
-Root OID. Previously the manufacturer defined an SNMP trap (Root OID) by type of event to be sent (linkUp / linkDown).
+Root OID. Previously, the manufacturer defined an SNMP trap (Root OID) by type of event to be sent (linkUp / linkDown).
 Today, the tendency is to define a Root OID by category of events and then to define the event via a set of settings.
 
-To do this, it is possible of define **Advanced Matching mode** by clicking on **Add a new entry** and by creating as
+To do this, it is possible of define **Advanced Matching mode** by clicking **Add a new entry** and by creating as
 many rules as necessary.
 For each rule, define the settings:
 
-* **String** defines the element on which the search will be applied (@OUTPUT@ defined all the **Output messages**
+* **String** defines the element on which the search will be applied (@OUTPUT@ defines all the **Output messages**
   translated).
-* **Regexp** defined the REGEXP type search to be applied.
+* **Regexp** defines the REGEXP type search to be applied.
 * **Status** defines the status of the service in the event of concordance.
 
 > The order is important in the rules of correspondence because the process will stop at the first rule of which the
@@ -95,7 +95,7 @@ correspondence is assured.
 
 ### Advanced tab
 
-The **Advanced** tab serves to configure the behavior of the handling process of the SNMP traps on its reception of the latter.
+The **Advanced** tab is used to configure the behavior of the handling process of the SNMP traps on receiving the traps.
 
 ![image](../../assets/configuration/06advancedconfiguration.png)
 
@@ -103,14 +103,14 @@ The **Advanced** tab serves to configure the behavior of the handling process of
 * **Route definition** is used to define the command to be used for routing.
 
 Before performing the processing of the event (translation of the **Output message**), it is possible to execute a
-command called PREEXEC. To do this, it is possible to define **PREEXEC command (SNMPTT type)** by clicking on
-**Add a new entry** and create as many rules as necessary.
+command called PREEXEC. To do this, you can define the **PREEXEC command (SNMPTT type)** by clicking 
+**Add a new entry** and then create as many rules as necessary.
 
 * **PREEXEC command** defines the command to be executed.
 
 Here is an example of use with the linkUP trap:
 
-For a Cisco equipment, $2 == ifDescr contains the port number of the interface (GigabitEthernet0/1 for instance).
+For a Cisco resource, $2 == ifDescr contains the port number of the interface (GigabitEthernet0/1 for instance).
 The best description of the interface is in the SNMP if Alias field.
 
 The following command can be used to retrieve this value:
@@ -130,21 +130,21 @@ Example:
 
 The result will have the form:  Interface GigabitEthernet0/1 ( NAS Server ) linkUP. State: up
 
-* The **Insert trap's information into database** box, if checked, record the SNMP trap information in the database
-  field can be used define whether or not to classify the traps by day in the database.
+* The **Insert trap's information into database** box, if checked, records the SNMP trap information in the database. This
+  field can be used to define whether or not to classify the traps by day in the database.
 * The **Timeout** field expressed in seconds is used to define the maximum processing time of the event including the
   pre-processing commands (PREEXEC) and post-processing commands (special command).
 * The **Execution interval** field expressed in seconds is used to define the maximum waiting time between two
   processing operations of an event.
 * The **Execution Type** field is used to enable the Execution interval by defining the conditions by Root OID, by the
   Root OID and host combination or, to disable this restriction, None.
-* The **Execution Method** field is used to define if on reception of multiple same events (Root OID). The execution is
+* The **Execution Method** field is used to define if, on reception of multiple same events (Root OID), the execution is
   either **Sequential** or **Parallel**.
 
 ### Custom code
 
-The field **custom code** allows custom Perl processing. To enable this feature, you must set **secure_mode** to 0 in
-**/etc/centreon/centreontrapd.pm** file as:
+The field **custom code** allows custom Perl processing. To enable this feature, you must set **secure_mode** to 0 in the
+**/etc/centreon/centreontrapd.pm** file as follows:
 
 ```perl
 our %centreontrapd_config = (
@@ -166,11 +166,11 @@ if ($self->{trap_data}->{entvar}->[3] =~ /[[:xdigit:]]+/) {
 }
 ```
 
-> Beware the argument table starts at 0 for argument 1 of the SNMP trap.
+> Beware: the argument table starts at 0 for argument 1 of the SNMP trap.
 
 ### Variables
 
-When adding a rule of correspondence or executing a special command it is possible to transmit arguments to the **String**
+When adding a rule of correspondence or executing a special command, it is possible to transmit arguments to the **String**
 or **Special command** fields. These arguments are listed in the table below:
 
 | Macro name               | Description                                                                                                               |

@@ -41,7 +41,7 @@ In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace the
 
 - Check that the user and password are correct in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file.
 
-- Check that the user specified in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file is accessing the API configuration. In Centreon interface, go to the **Configuration > Users > Contacts / Users** page. Then in the **Centreon Authentication** tab, check the **Reach API Configuration** field is set to **Yes**.
+- Check that the user specified in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file is accessing the API configuration. In the Centreon interface, go to the **Configuration > Users > Contacts / Users** page. Then, in the **Centreon Authentication** tab, check that the **Reach API Configuration** field is set to **Yes**.
 
 ## "No provider found" message appears when creating a host discovery task
 
@@ -49,6 +49,6 @@ When clicking the **ADD** button in the **Configuration > Hosts > Discovery** pa
 
 ### Checks
 
-- Check the Auto Discovery module is up to date in the **Administration > Extensions > Manager** page.
+- Check that the Auto Discovery module is up to date in the **Administration > Extensions > Manager** page.
 
 - Reinstall the corresponding Monitoring Connector using the **reinstall** button: ![image](../../assets/monitoring/discovery/reinstall-complete.png).
