@@ -20,9 +20,9 @@ Sauvegardez les éléments suivants afin d'être en mesure de complètement reco
 
 ### Basculer vers le nouveau collecteur
 
-Si votre collecteur devient hors d'usage, [installez un nouveau collecteur](../installation/installation-of-a-collecteur/using-packages.md), dans la version correspondant à votre plateforme, rattachez-le au serveur central, puis restaurez tous les éléments listés ci-dessus.
+Si votre collecteur devient hors d'usage, [installez un nouveau collecteur](../installation/installation-of-a-poller/using-packages.md), dans la version correspondant à votre plateforme, rattachez-le au serveur central, puis restaurez tous les éléments listés ci-dessus.
 
-Si vous n'aviez pas sauvegardé le fichier **/var/lib/centreon-gorgone/.keys/\***, vous devrez changer l'empreinte du collecteur dans la configuration du serveur central. Voir [l'article suivant](https://thewatch.centreon.com/troubleshooting-41/collecteur-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) sur notre plateforme communautaire The Watch.
+Si vous n'aviez pas sauvegardé le fichier **/var/lib/centreon-gorgone/.keys/\***, vous devrez changer l'empreinte du collecteur dans la configuration du serveur central. Voir [l'article suivant](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) sur notre plateforme communautaire The Watch.
 
 ## Cas n°2: Collecteur de secours
 
@@ -49,7 +49,7 @@ Installez et configurez les mêmes éléments sur votre collecteur de secours qu
    ```
 
 5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) pour le collecteur, en utilisant la méthode **Restart** (dans la liste **Redémarrer l'ordonnanceur**).
-6. Si vous n'aviez pas sauvegardé le fichier **/var/lib/centreon-gorgone/.keys/\***, vous devrez changer l'empreinte du collecteur dans la configuration du serveur central. Voir [l'article suivant](https://thewatch.centreon.com/troubleshooting-41/collecteur-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) sur notre plateforme communautaire The Watch.
+6. Si vous n'aviez pas sauvegardé le fichier **/var/lib/centreon-gorgone/.keys/\***, vous devrez changer l'empreinte du collecteur dans la configuration du serveur central. Voir [l'article suivant](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) sur notre plateforme communautaire The Watch.
 
 ## Cas n°3 : Snapshots de machines virtuelles
 
