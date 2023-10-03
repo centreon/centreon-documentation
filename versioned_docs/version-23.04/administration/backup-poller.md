@@ -36,7 +36,7 @@ Install and configure the same elements on your standby poller as on your active
 
 1. Start the standby poller if it is stopped.
 2. Change the new poller's network configuration to give it the old poller's IP address.
-3. Restart **gorgoned** on both the central and the poller.
+3. Restart **gorgoned** on the poller first, then on the central.
    ```shell
    systemctl restart gorgoned
    ```
@@ -50,4 +50,3 @@ Install and configure the same elements on your standby poller as on your active
 ## Case n°3: VM snapshots
 
 If your poller is running on a VM, take regular snapshots of your poller. In case a problem occurs, restore the snapshot as with any virtual machine.
-
