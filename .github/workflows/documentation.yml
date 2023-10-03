@@ -68,7 +68,7 @@ jobs:
           script: |
             const available_versions = require('./versions.json');
             let build_next_version = require('./nextVersion.json').version;
-            let build_versions = require('./versions.json');
+            let build_versions = [...available_versions];
             if (build_versions.includes(build_next_version)) {
               build_versions.splice(build_versions.indexOf(build_next_version), 1);
             }
@@ -216,6 +216,7 @@ jobs:
           fail-on-cache-miss: true
 
       - name: Reduce media size
+        if: ${{ github.event.action != 'closed' }}
         run: |
           find ./build -iname \*.mp4 -exec sh -c '> {}' \;
           find ./build -iname \*.pdf -exec sh -c '> {}' \;
