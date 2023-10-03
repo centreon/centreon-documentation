@@ -1,4 +1,4 @@
 ---
 id: backup-poller
-title: Sauvergarder et restaurer vos collecteurs
+title: Sauvegarder et restaurer vos collecteurs
 ---
