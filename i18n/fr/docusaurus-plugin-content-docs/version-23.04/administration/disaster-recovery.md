@@ -1,6 +1,6 @@
 ---
 id: disaster-recovery
-title: Disaster recovery
+title: Reprise après sinistre
 ---
 
 Pour que votre plateforme résiste aux pannes, assurez-vous que faire des sauvegardes, stockées sur un autre serveur. Vous pouvez :
