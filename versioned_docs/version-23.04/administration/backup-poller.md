@@ -30,9 +30,7 @@ Another way to prepare for disaster is to have a "standby" poller on which you s
 
 ### What you need to synchronize
 
-Install and configure the same elements on your standby poller as on your active poller, and synchronize the following data:
-rsync of local data files (acknowledgement and downtimes, etc)
-/var/log/centreon-engine/retention.dat keeps the acknowledgements and the downtimes
+Install and configure the same elements on your standby poller as on your active poller, and synchronize your data [as described here](#what-you-need-to-back-up-on-your-active-poller).
 
 ### How to switch to the standby poller
 
