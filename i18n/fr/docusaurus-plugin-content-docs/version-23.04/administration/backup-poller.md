@@ -10,9 +10,9 @@ title: Sauvegarder et restaurer vos collecteurs
 Sauvegardez les éléments suivants afin d'être en mesure de complètement reconstruire votre collecteur en cas de problème.
 
 - Plugins personnalisés (par exemple: plugins de la communauté, ou développements spécifiques)
-- Si vous l'utilisez, le connecteur **centreon-vmware-daemon** (installation et configuration): sauvegardez **/etc/centreon/centreon_vmware.pm**
-- Si vous l'utilisez, le connecteur **centreon-as400** (installation et configuration): sauvegardez **/etc/centreon-as400/**
-- Synchronisez les fichiers suivants régulièrement :
+- Si vous utilisez le connecteur **centreon-vmware-daemon** (installation et configuration): sauvegardez **/etc/centreon/centreon_vmware.pm**
+- Si vous utilisez le connecteur **centreon-as400** (installation et configuration): sauvegardez **/etc/centreon-as400/**
+- Synchronisez les fichiers suivants régulièrement (par exemple avec la commande **rsync**) :
    - **/var/log/centreon-engine/retention.dat** (jusqu'à toutes les 15 minutes) pour garder les acquittements, les plages de maintenance et les statuts.
    - **/var/lib/centreon/centplugins/\*** (jusqu'à toutes les 5 minutes) pour garder le cache des plugins.
    - **/etc/centreon-gorgone/config.d/\*** (une seule fois) pour garder les informations de connexion au serveur central.
@@ -48,7 +48,7 @@ Installez et configurez les mêmes éléments sur votre collecteur de secours qu
    tail -F /var/log/centreon-gorgone/gorgoned.log | grep ERROR
    ```
 
-5. [Déployez the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) pour le collecteur, en utilisant la méthode **Restart**.
+5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) pour le collecteur, en utilisant la méthode **Restart** (dans la liste **Redémarrer l'ordonnanceur**).
 6. Si vous n'aviez pas sauvegardé le fichier **/var/lib/centreon-gorgone/.keys/\***, vous devrez changer l'empreinte du collecteur dans la configuration du serveur central. Voir [l'article suivant](https://thewatch.centreon.com/troubleshooting-41/collecteur-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) sur notre plateforme communautaire The Watch.
 
 ## Cas n°3 : Snapshots de machines virtuelles

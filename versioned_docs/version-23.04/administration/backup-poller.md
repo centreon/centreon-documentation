@@ -10,9 +10,9 @@ title: Back up and restore your pollers
 You need to back up the following elements to be able to rebuild your poller from scratch in case of a problem.
 
 - Custom plugins (example: community plugins, or custom developments)
-- If you are using it, the **centreon-vmware-daemon** connector (installation and configuration): backup **/etc/centreon/centreon_vmware.pm**
-- If you are using it, the **centreon-as400** connector (installation and configuration): backup **/etc/centreon-as400/**
-- Synchronize the following files regularly:
+- If you are using the **centreon-vmware-daemon** connector (installation and configuration): backup **/etc/centreon/centreon_vmware.pm**
+- If you are using the **centreon-as400** connector (installation and configuration): backup **/etc/centreon-as400/**
+- Synchronize the following files regularly (e.g. using the **rsync** command):
    - **/var/log/centreon-engine/retention.dat** (up to every 15 minutes) to keep acknowledgements, downtimes and statuses.
    - **/var/lib/centreon/centplugins/\*** (up to every 5 minutes) to keep the plugins cache.
    - **/etc/centreon-gorgone/config.d/\*** (once) to keep the connection information to the central server.
@@ -44,7 +44,7 @@ Install and configure the same elements on your standby poller as on your active
    ```shell
    tail -F /var/log/centreon-gorgone/gorgoned.log | grep ERROR
    ```
-5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the poller using the **Restart** method.
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the poller using the **Restart** method (in the **Restart Monitoring Engine** list).
 6. If you didn't backup **/var/lib/centreon-gorgone/.keys/\***, you will need to change the poller's fingerprint in the cache of the central server. Read [the following article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) on our community platform The Watch.
 
 ## Case n°3: VM snapshots
