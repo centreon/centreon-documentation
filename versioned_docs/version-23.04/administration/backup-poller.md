@@ -13,7 +13,7 @@ You need to back up the following elements to be able to rebuild your poller fro
 - If you are using it, the **centreon-vmware-daemon** connector (installation and configuration): backup **/etc/centreon/centreon_vmware.pm**
 - If you are using it, the **centreon-as400** connector (installation and configuration): backup **/etc/centreon-as400/**
 - Synchronize the following files regularly:
-   - **/var/log/centreon-engine/retention.dat** (up to every 15 minutes) to keep acknowledgements and downtimes
+   - **/var/log/centreon-engine/retention.dat** (up to every 15 minutes) to keep acknowledgements, downtimes and statuses.
    - **/var/lib/centreon/centplugins/\*** (up to every 5 minutes) to keep the plugins cache.
    - **/var/lib/centreon-gorgone/config.d/\*** (once) to keep the connection information to the central server.
    - **/var/lib/centreon-gorgone/.keys/\*** (once) to keep the same fingerprint for ZeroMQ authentication.
