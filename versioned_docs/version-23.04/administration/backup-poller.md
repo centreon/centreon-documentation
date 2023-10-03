@@ -15,8 +15,8 @@ You need to back up the following elements to be able to rebuild your poller fro
 - Synchronize the following files regularly:
    - **/var/log/centreon-engine/retention.dat** (up to every 15 minutes) to keep acknowledgements and downtimes
    - **/var/lib/centreon/centplugins/\*** (up to every 5 minutes) to keep the plugins cache.
+   - **/var/lib/centreon-gorgone/config.d/\*** (once) to keep the connection information to the central server.
    - **/var/lib/centreon-gorgone/.keys/\*** (once) to keep the same fingerprint for ZeroMQ authentication.
-
 
 ### Switching to the new poller
 
@@ -37,10 +37,17 @@ rsync of local data files (acknowledgement and downtimes, etc)
 ### How to switch to the standby poller
 
 1. Start the standby poller if it is stopped.
-2. Restart **gorgoned** on both the central and the poller.
+2. Change the new poller's network configuration to give it the old poller's IP address.
+3. Restart **gorgoned** on both the central and the poller.
    ```shell
    systemctl restart gorgoned
-6. If you want to keep the same IP address for your new poller, you will need to change the poller's fingerprint in the configuration of the central server. Read [the following article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) on our community platform The Watch.
+   ```
+4. Make sure there are no communication errors in Gorgone's log.
+   ```shell
+   tail -F /var/log/centreon-gorgone/gorgoned.log | grep ERROR
+   ```
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the poller using the **Restart** method.
+6. If you didn't backup **/var/lib/centreon-gorgone/.keys/\***, you will need to change the poller's fingerprint in the cache of the central server. Read [the following article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177) on our community platform The Watch.
 
 ## Case n°3: VM snapshots
 
