@@ -325,8 +325,18 @@ Release date: `October 26, 2022`
 
 > In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
-
 ## Centreon Collect
+
+### 22.10.5
+
+Release date: `September 26, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+- Fixed an issue that could cause a crash when many pollers were sending check results to Broker.
 
 ### 22.10.4
 

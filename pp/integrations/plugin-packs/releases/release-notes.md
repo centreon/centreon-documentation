@@ -72,7 +72,6 @@ import TabItem from '@theme/TabItem';
 - [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - added the **--timeframe** option to scenario mode.
 - [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - now using Ookla's speedtest.
 - [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - added thresholds for output-lines and alarms modes.
-- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - added options for Service-Generic mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -108,6 +107,7 @@ import TabItem from '@theme/TabItem';
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - now using "*-custom" host templates as Host Discovery default template.
 - [**Rudder**](../procedures/applications-rudder-restapi.md) - now using "*-custom" host templates as Host Discovery default template.
 - [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - now using "*-custom" host templates as Host Discovery default template.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - added options for Service-Generic mode (may change the behaviour of existing services).
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
