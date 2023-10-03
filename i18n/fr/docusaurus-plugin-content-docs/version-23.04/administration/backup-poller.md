@@ -7,6 +7,8 @@ title: Sauvegarder et restaurer vos collecteurs
 
 ### Données à sauvegarder sur le collecteur actif
 
+> Dans cette section, nous partons du principe que [l'installation automatique des plugins Centreon](../monitoring/pluginpacks.md#installation-automatique) est activée.
+
 Sauvegardez les éléments suivants afin d'être en mesure de complètement reconstruire votre collecteur en cas de problème.
 
 - Plugins personnalisés (par exemple: plugins de la communauté, ou développements spécifiques)

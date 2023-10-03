@@ -7,6 +7,8 @@ title: Back up and restore your pollers
 
 ### What you need to back up on your active poller
 
+> In this list, we assume you have enabled the [automatic installation of the Centreon plugins](../monitoring/pluginpacks.md#automatic-installation).
+
 You need to back up the following elements to be able to rebuild your poller from scratch in case of a problem.
 
 - Custom plugins (example: community plugins, or custom developments)
