@@ -53,6 +53,3 @@ rsync of local data files (acknowledgement and downtimes, etc)
 
 If your poller is running on a VM, take regular snapshots of your poller. In case a problem occurs, restore the snapshot as with any virtual machine.
 
-
-> extra info, not sure where it fits
-/etc/centreon-gorgone  then the communication from the central server to the poller can be restored and the engine/broker configuration can be deployed. 
