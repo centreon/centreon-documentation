@@ -10,7 +10,8 @@ title: Back up and restore your pollers
 You need to back up the following elements to be able to rebuild your poller from scratch in case of a problem.
 
 - Custom plugins (example: community plugins, or custom developments)
-- If you are using it, the **centreon-vmware-daemon** connector (installation and configuration)
+- If you are using it, the **centreon-vmware-daemon** connector (installation and configuration): backup **/etc/centreon/centreon_vmware.pm**
+- If you are using it, the **centreon-as400** connector (installation and configuration): backup **/etc/centreon-as400/**
 - Synchronize the following files regularly:
    - **/var/log/centreon-engine/retention.dat** (up to every 15 minutes) to keep acknowledgements and downtimes
    - **/var/lib/centreon/centplugins/\*** (up to every 5 minutes) to keep the plugins cache.
