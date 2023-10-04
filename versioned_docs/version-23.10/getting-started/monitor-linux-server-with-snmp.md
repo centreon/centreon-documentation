@@ -17,12 +17,12 @@ Your Linux server will be monitored using the [Linux SNMP Monitoring Connector](
 ### On the Linux server you want to monitor
 
 The first step is to activate and configure an SNMP agent on your monitored host.
-Please refer to the documentation of your Linux distribution to know how to configure the SNMP agent.
+Please refer to the documentation of your Linux distribution to find out how to configure the SNMP agent.
 
 Find below a minimalist snmpd.conf/net-snmp configuration file:
 
-- replace the **agentaddress** line by the appropriate address of the interface which snmpd listens on
-- replace **my-snmp-community** by the correct value for your environment.
+- replace the **agentaddress** line with the appropriate address of the interface snmpd listens on
+- replace **my-snmp-community** with the correct value for your environment.
 - Add the line **view  centreon  included .1.3.6.1** to have access to all information in the MIB required by the plugin
 
 ```shell
@@ -56,7 +56,7 @@ access  notConfigGroup ""      any       noauth    exact  systemview none none
 
 ```
 
-The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot. Use the following commands for recent distributions:
+The SNMP server must be restarted each time the configuration is modified. Also make sure the SNMP server is configured to automatically start on boot. Use the following commands for recent distributions:
 
 ```shell
 systemctl restart snmpd
@@ -102,11 +102,11 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager** an
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts** and click **Add**:
 
    ![image](../assets/getting-started/quick_start_linux_1.gif)
 
-2. Fill in the following information:
+2. Input the following information:
 
    * The name of the server (1)
    * A description of the server (2)
@@ -114,11 +114,11 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager** an
    * The SNMP version and community (4)
    * Select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
 
-3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
+3. Click **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
 
    ![image](../assets/getting-started/quick_start_linux_2.png)
 
-4. Click on **Save** (8). Your equipment has been added to the list of hosts:
+4. Click **Save**(8). Your device has been added to the list of hosts:
 
    ![image](../assets/getting-started/quick_start_linux_3.png)
 
@@ -126,7 +126,7 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager** an
 
    ![image](../assets/getting-started/quick_start_linux_4a.png)
 
-   You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by the name of the host:
+   You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by host name:
 
    ![image](../assets/getting-started/quick_start_linux_4b.png)
 
@@ -142,4 +142,4 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager** an
 
    ![image](../assets/getting-started/quick_start_linux_7.png)
 
-   If not all services are in an OK state, check what causes the error and fix the problem.
+   If not all services are in an OK state, check what is causing the error and fix the problem.
