@@ -5,7 +5,8 @@ title: Knowledge Base
 
 ## Introduction
 
-In any Centreon Open Source suite version since 2.8.0, **Knowledge Base** allows you
+Since version 2.8.0, in the Centreon Open Source suite, the **Knowledge Base** module allows you
+
 to easily associate a wiki with Centreon Web.
 
 It creates links between hosts and services and specific procedures on Wiki.
