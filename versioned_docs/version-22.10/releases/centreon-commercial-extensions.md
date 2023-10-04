@@ -20,7 +20,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.12
 
-Release date: `October 02, 2023`
+Release date: `October 04, 2023`
 
 #### Enhancements
 
@@ -209,7 +209,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.10.12
 
-Release date: `October 02, 2023`
+Release date: `October 04, 2023`
 
 #### Security fixes
 
@@ -424,7 +424,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `October 02, 2023`
+Release date: `October 04, 2023`
 
 - Fixed an issue where new services were created when updating the discovery job on existing hosts.
 
