@@ -85,10 +85,10 @@ jobs:
                 build_cloud = '0';
               }
 
+              build_versions = [];
+              build_next_version = null;
               if (${{ steps.changes.outputs.versions }} === true) {
                 const next_version = require('./nextVersion.json').version;
-                build_versions = [];
-                build_next_version = null;
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
                   [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
                     console.log(`Version ${result[1]} updated : ${file}`);
