@@ -612,7 +612,7 @@ By running the `crm_mon` command on the second node, you will see the primary no
 Cluster Summary:
   * Stack: corosync
   * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
-  * Last updated: Tue Nov  8 5:27:28 PM 2022
+  * Last updated: Tue Nov 8 17:27:28 2022
   * Last change:  Tue Nov  8 17:23:19 2022 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
   * 2 nodes configured
   * 14 resource instances configured
