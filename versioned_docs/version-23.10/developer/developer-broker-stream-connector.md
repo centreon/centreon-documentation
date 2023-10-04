@@ -127,7 +127,7 @@ following:
 3. The next step is a call to the *write* method, which writes a string into
    the socket. The method call is finished when the entire message is sent.
 4. The *read* method gets a string as its result.
-5. When finished using the socket, the user can close the socket with the
+5. When the user has finished using the socket, they can close it with the
    *close()* method.
 
 This socket object also provides a *get_state()* method that returns a string:
