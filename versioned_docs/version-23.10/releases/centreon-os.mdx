@@ -22,7 +22,35 @@ If you have feature requests or want to report a bug, please go to our
 Release date: `October 27, 2023`
 
 <details open>
+  <summary>New features</summary>
+
+**Resources Status**:
+- In addition to the current view (**All** view), we have added 2 new views allowing to visualize only the services
+  (**By Services** view), as well as a view to visualize the hosts and all their attached services (**By Hosts** view).
+  Those two new views have been redesigned based on those coming from deprecated pages.
+- We have also completely redesigned filters management, making it easier to select resources.
+
+Deprecated pages will be removed in the next major version.
+
+</details>
+
+<details open>
   <summary>Enhancements</summary>
+
+- [Authentication] Added user attributes received from IdP in Centreon login file id debug is enabled.
+- [Authentication] Removed password fields if contact is not local type.
+- [CEIP] Added a debug option to know CEIP telemetry data sent to Centreon
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+- [Core] Implementation of a simple feature flag system.
+- [Monitoring] Improved the breadcrumb for monitoring legacy pages to explain that we will remove pages in next major version.
+- [Resources Status] Added a tooltip to understand how to use filters.
+
+</details>
+
+<details open>
+  <summary>Breaking Change</summary>
+
+We removed the “persistant” option from the modal allowing to set acknowledgement because these one need to be persistant in case of Centreon Engine restart.
 
 </details>
 
