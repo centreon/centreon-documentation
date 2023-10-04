@@ -1,6 +1,6 @@
 ---
 id: medias
-title: Medias
+title: Media
 ---
 
 Media are images used by the Centreon web interface. These images are used to
