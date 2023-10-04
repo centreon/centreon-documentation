@@ -18,7 +18,7 @@ pcs resource unmanage ms_mysql
 
 ## Update process from the WUI
 
-> Please make sure all users are logged out of the Centreon web interface
+> Make sure all users are logged out of the Centreon web interface
 > before starting the upgrade procedure.
 
 ### Centreon-Web update
@@ -64,7 +64,7 @@ In order to maintain compatibility between the [Monitoring Connectors](../monito
 
 ### Updating the pollers
 
-We recommend that you also update the pollers, **especially if `centreon-engine` and/or `centreon-broker` packages have been updated**:
+We recommend that you also update the pollers, **especially if the `centreon-engine` and/or `centreon-broker` packages have been updated**:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

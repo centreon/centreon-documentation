@@ -7,7 +7,7 @@ title: Migrate a platform with Poller Display module
 
 If the module **centreon-poller-display-central-1.6.x** is installed:
 
-1. Go to the **Administration > Extensions > Modules** menu and uninstall 
+1. Go to **Administration > Extensions > Modules** and uninstall 
 **centreon-poller-display-central**.
 
 2. Remove the associated package:
@@ -23,7 +23,7 @@ Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
 ## Migrate a Poller from Poller Display module to Remote Server
 
-1. Go to the **Administration > Extensions > Modules** menu and uninstall
+1. Go to **Administration > Extensions > Modules** and uninstall the
 **Centreon Poller Display** module.
 
 2. If you installed the module using an RPM package, remove it with the
@@ -36,7 +36,7 @@ following command:
 Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
     > If you use Centreon EMS modules, you must update the repositories. Be sure to
-    > contact Centreon support and request new licenses.
+    > contact your Centreon support team and request new licenses.
 
 4. Go to **Administration > Extensions > Modules** and install the
 **centreon-license-manager** module.
@@ -76,15 +76,15 @@ Then follow instructions by
     Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
-    1.
+    1
     ```
 
 3. Then validate the information:
 
     ``` shell
-    Summary of the information that will be sent:
+    Summary of the informations that will be send:
     
-    API connection:
+    Api connection:
     username: admin
     password: ******
     target server: 192.168.0.1
@@ -94,11 +94,11 @@ Then follow instructions by
     type: remote
     address: 192.168.0.2
     
-    Do you want to register this server with that information? (y/n)y
+    Do you want to register this server with those informations? (y/n)y
     ```
 
 4. Add additional information to enable future communication between your Remote Server and its Central.
-Please provide the required information to convert your platform to Remote:
+Provide the required information to convert your platform to a remote server:
 
   ```shell
   <CURRENT_NODE_ADDRESS>: Please enter your username:
@@ -135,7 +135,7 @@ You will receive the validation of the Centreon central server:
 ### Main error messages
 
 ``` shell
-2020-10-20T10:11:15 PM+02:00 [ERROR]: Invalid credentials
+2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
 > Your credentials are incorrect for the **<API_ACCOUNT>**.

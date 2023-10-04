@@ -33,9 +33,9 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 To perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step (inclusive)**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step (included)**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step (inclusive) only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step (included) only. Do not perform the "Finalizing the upgrade" step.**.
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
@@ -330,7 +330,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-In order to colocate the Primary Database role with the Virtual IP, define a mutual constraint:
+In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
@@ -343,7 +343,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevents Centreon Processes from running on Database nodes and vice-versa:
+Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">

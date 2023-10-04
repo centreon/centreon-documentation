@@ -33,9 +33,9 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 To perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step (inclusive)**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step (included)**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step (inclusive) only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step (included) only. Do not perform the "Finalizing the upgrade" step.**.
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
@@ -88,7 +88,7 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 
 ## Cluster upgrade
 
-Since Centreon 22.04, MariaDB Replication has been based on [GTID](https://mariadb.com/kb/en/gtid/).
+From Centreon 22.04, MariaDB Replication is based on [GTID](https://mariadb.com/kb/en/gtid/).
 It is necessary to destroy the cluster completely and then reconfigure it with the latest version of Centreon and MariaDB replication mechanisms.
 
 ### Maintenance mode and backup
@@ -206,7 +206,7 @@ It is important to make sure that MariaDB is completely shut down. Run this comm
 ps -ef | grep mariadb[d]
 ```
 
-Once the service is stopped **on the secondary node**, run the synchronization script **from the primary database node**:
+Once the service is stopped **on the secondary database node**, run the synchronization script **from the primary database node**:
 
 ```bash
 mysqladmin -p shutdown
@@ -217,7 +217,7 @@ systemctl restart mariadb
 This script's output is very verbose. To make sure it went well, focus on the last lines of its output, checking that it looks like this:
 
 ```text
-Unmount and Delete LVM snapshot
+Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 Start Replication
@@ -398,7 +398,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-In order to colocate the Primary Database role with the Virtual IP, define a mutual constraint:
+In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
@@ -411,7 +411,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevents Centreon Processes from running on Database nodes and vice-versa:
+Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">

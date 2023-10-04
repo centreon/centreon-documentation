@@ -110,8 +110,8 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
-   -  port: 80.
-   -  version: 23.04.
+   -  port: 80
+   -  version: 23.04
    -  login: Admin
    -  password: xxxxx
 

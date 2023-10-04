@@ -20,7 +20,7 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 > procedure in order to update MariaDB before you can continue with the upgrade
 > from version 20.10 to version 21.04 as described by this document.
 
-> Warning: after correcting a problem relating to the database schema, it will be necessary to stop the 
+> Warning: following the correction of a problem relating to the database schema, it will be necessary to stop the 
 > insertion of data collected in the database during the update. These will be stored in temporary files and then
 > installed at the end of the update process.
 
@@ -42,7 +42,7 @@ servers:
 
 ## Upgrade the Centreon Central server
 
-> Since 21.04, Centreon has used **MariaDB 10.5**.
+> From 21.04, Centreon uses **MariaDB 10.5**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >

@@ -67,7 +67,7 @@ cd nagiosToCentreon
 ## Usage
 
 On a fresh Centreon server,the default poller is named "Central". If you rename
-it or if you want to link this Nagios configuration to a predefined poller,you
+it or if you want to link this Nagios configuration to a predefined poller, you
 must change the poller name on line 65:
 
 ```perl

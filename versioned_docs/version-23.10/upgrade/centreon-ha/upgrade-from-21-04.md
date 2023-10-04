@@ -57,7 +57,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron jobs back in place on the Central and Database servers. Remove them to avoid concurrent executions: 
+The RPM upgrade puts cron jobs back in place on the central and database servers. Remove them to avoid concurrent executions: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
@@ -79,7 +79,7 @@ pcs resource restart ms_mysql
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permissions back in place on the **Central servers**. Change them using these commands:
+The RPM upgrade puts the permissions back in place on the **central servers**. Change them using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -93,7 +93,7 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 
 ## Cluster upgrade
 
-Since Centreon 22.04, MariaDB Replication has been based on [GTID](https://mariadb.com/kb/en/gtid/).
+From Centreon 22.04, MariaDB Replication is based on [GTID](https://mariadb.com/kb/en/gtid/).
 It is necessary to destroy the cluster completely and then reconfigure it with
 the latest version of the Centreon and MariaDB Replication mechanisms.
 
@@ -200,7 +200,7 @@ It is important to make sure that MariaDB is completely shut down. Run this comm
 ps -ef | grep mariadb[d]
 ```
 
-Once the service is stopped **on the secondary node**, run the synchronization script **from the primary database node**:
+Once the service is stopped **on the secondary database node**, run the synchronization script **from the primary database node**:
 
 ```bash
 mysqladmin -p shutdown
@@ -211,7 +211,7 @@ systemctl restart mariadb
 This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like this:
 
 ```text
-Unmount and Delete LVM snapshot
+Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
 Start Replication
@@ -392,7 +392,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-In order to colocate the Primary Database role with the Virtual IP, define a mutual constraint:
+In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -405,7 +405,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevents Centreon Processes from running on Database nodes and vice-versa:
+Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">

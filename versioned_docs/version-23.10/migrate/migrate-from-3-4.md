@@ -159,7 +159,7 @@ installation. The main directories to synchronize are:
 
 > If you still have remote Centreon Engine 1.8.1 Pollers whose
 > upgrade to 23.04 you want to postpone, be aware that Centreon Web 23.04 resource
-> $USER1$ actually points to /usr/lib64/nagios/plugins
+> $USER1$ now points to /usr/lib64/nagios/plugins
 >
 > This is how to mitigate the issue on the 1.8.1 Pollers:
 >
