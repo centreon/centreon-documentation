@@ -45,7 +45,7 @@ day).
 (0 day).
 
 > It is possible not to save performance data to the MariaDB database if you are not
-> using extraction to add on software such as Centreon MBI.
+> using extraction to add-on software such as Centreon MBI.
 
 > If you change the retention time for performance charts, this value will only be
 > used for newly added services.
