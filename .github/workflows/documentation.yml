@@ -1,6 +1,7 @@
 name: documentation
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - opened
@@ -84,10 +85,10 @@ jobs:
                 build_cloud = '0';
               }
 
+              build_versions = [];
+              build_next_version = null;
               if (${{ steps.changes.outputs.versions }} === true) {
                 const next_version = require('./nextVersion.json').version;
-                build_versions = [];
-                build_next_version = null;
                 ${{ steps.changes.outputs.versions_files }}.map((file) => {
                   [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
                     console.log(`Version ${result[1]} updated : ${file}`);
@@ -123,7 +124,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        if: ${{ steps.changes.outputs.global == 'true' }}
+        if: ${{ steps.changes.outputs.global == 'true' || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
             core.exportVariable('build_environments', JSON.stringify(['staging', 'next']));
@@ -144,6 +145,7 @@ jobs:
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
 
   build:
+    if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
     runs-on: ubuntu-22.04
     needs: [get-versions]
 
@@ -300,7 +302,7 @@ jobs:
         shell: bash
 
   deploy-next:
-    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
     needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
