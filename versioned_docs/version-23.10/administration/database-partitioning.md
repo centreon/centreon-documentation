@@ -124,7 +124,7 @@ You need to check a few things before:
 
 - Enough space on the MariaDB Server (at least twice the size of the table.
 Indexes and Data)
-- No data in futures (time is used for the partitioning)
+- No data in the future (time is used for the partitioning)
 - Enough memory on the database server
 
 > The ‘SELECT INSERT’ statement will lock the table and maybe your production in
