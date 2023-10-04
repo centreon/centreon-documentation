@@ -149,7 +149,8 @@ attached by inheritance. This is because **Linux** is the parent template.
 
 Service templates behave in the same way.
 
-> To delete a procedure link for specific host / service / template, edit the
+> To delete a procedure link for a specific host / service / template, edit the
+
 > object and empty the **URL** field on the **Extended Information** tab.
 
 >
