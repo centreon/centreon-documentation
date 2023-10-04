@@ -53,7 +53,7 @@ Backup filename format:
 
 This part covers the configuration of the backup.
 
-1.  Go into the following menu: **Administration > Parameters > Backup**
+1.  Go to **Administration > Parameters > Backup**.
 
 The following window is displayed:
 
