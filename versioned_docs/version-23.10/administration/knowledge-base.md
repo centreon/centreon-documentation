@@ -82,7 +82,8 @@ The same applies to services.
 
 ### Create / Update / Delete a procedure
 
-Navigate in Centreon front-end to the **Configuration > Knowledge Base** sub-menus
+Navigate in the **Configuration > Knowledge Base** sub-menus
+
 to:
 
   - List Hosts / Services / Host Templates / Service Templates and attached
