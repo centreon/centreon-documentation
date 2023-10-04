@@ -6,7 +6,7 @@ title: Logging configuration changes
 ## Principle
 
 By default, Centreon records all user actions concerning changes to the
-configuration in a log. To access this data, go into the **Administration > Logs** menu.
+configuration in a log. To access this data, go to **Administration > Logs**.
 
 ![image](../assets/administration/fsearchlogs.png)
 
