@@ -705,7 +705,7 @@ You must do a database synchronization from @CENTRAL_SLAVE_NAME@ to @CENTRAL_MAS
 As for the previous execution of this script, check whether the LVM Snapshot is correctly deleted and the MySQL Slave restarted:
 
 ```text
-Unmount and Delete LVM snapshot
+Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed.
 Start MySQL Slave
 OK
