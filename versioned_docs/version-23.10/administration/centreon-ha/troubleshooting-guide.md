@@ -74,7 +74,7 @@ Full List of Resources:
 </TabItem>
 </Tabs>
 
-To obtain more information regarding this failure, you should first check the service's status by running this command on the **where the service should be currently running** node:
+To obtain more information regarding this failure, you should first check the service's status by running this command on the node **where the service should be currently running**:
 
 ```bash
 systemctl status centreontrapd -l
