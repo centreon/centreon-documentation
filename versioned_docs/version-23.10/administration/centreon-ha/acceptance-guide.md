@@ -891,7 +891,7 @@ Ticket Constraints:
 
 ### Check the status of the database synchronization
 
-To verify that the database synchronization is working, execute the command:
+To verify that the database synchronization is working, execute the following command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
