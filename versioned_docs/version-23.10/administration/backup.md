@@ -101,7 +101,7 @@ cp -r * /etc/centreon/
 ### Databases restore
 
 Once the Centreon server is reinstalled (**same Centreon version**), unzip the **centreon** and the
-centreon\_storage databases backup.
+**centreon\_storage** databases backup.
 
 Start by recreating the databases with the following commands:
 
