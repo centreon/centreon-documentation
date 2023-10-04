@@ -16,7 +16,7 @@ poller:
 
 ## Engine Statistics
 
-It is also possible to display the performance of the Engines through
+It is also possible to display the performance of the engines through
 performance graphs. Go to the `Administration > Platform Status > Engine
 Statistics` menu and select the poller:
 
