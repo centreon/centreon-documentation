@@ -146,7 +146,7 @@ Ticket Constraints:
 </TabItem>
 </Tabs>
 
-We notice that the centreon group is not authorized to start on any node
+We notice that the centreon group is not authorized to start on any node.
 
 To free the resource group from its constraints, run the following command:
 
