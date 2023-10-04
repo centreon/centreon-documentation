@@ -102,7 +102,7 @@ If the following situation occurs after a failover, whether a manual one or afte
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el8_7.2-3c4c782f70) - partition with quorum
-Last updated: Thu Feb 20 2:48:12 PM 2020
+Last updated: Thu Feb 20 14:48:12 2020
 Last change: Thu Feb 20 14:47:47 2020 by root via crm_resource on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
