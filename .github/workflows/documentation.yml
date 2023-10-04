@@ -145,6 +145,7 @@ jobs:
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
 
   build:
+    if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
     runs-on: ubuntu-22.04
     needs: [get-versions]
 
