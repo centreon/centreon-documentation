@@ -7,7 +7,7 @@ Centreon comes with several APIs to manipulate or retrieve configuration and rea
 time data.
 
 According to the type of script or automation you want to perform on Centreon, you
-may use the following documents:
+may use the following pages:
 
 - [Command Line API (CLAPI)](clapi.md) to manage a configuration
 - [Rest API (v1)](rest-api-v1.md) to manage a configuration or [Rest API
