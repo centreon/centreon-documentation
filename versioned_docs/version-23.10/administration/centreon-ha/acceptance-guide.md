@@ -1342,7 +1342,7 @@ Resources on the @CENTRAL_MASTER_NAME@ should stop and should start on the @CENT
 ```text
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el8_9.1-9acf116022) - partition with quorum
-Last updated: Thu May  5 11:06:38 AM 2022
+Last updated: Thu May 5 11:06:38 2022
 Last change: Thu May  5 09:09:50 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
 
 4 nodes configured
