@@ -18,6 +18,16 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.14
+
+Release date: `October 5, 2023`
+
+#### Bug fixes
+
+-	[Monitoring] Fixed CSV export when metric name is a SQL keyword.
+-	[Configuration] Fixed the visibility of services when a user with ACLs duplicates a host.
+-	[Authentication] Fixed an LDAP connection issue due to DN case.
+
 ### 22.10.13
 
 Release date: `September 22, 2023`
