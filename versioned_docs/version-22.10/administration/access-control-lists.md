@@ -1,6 +1,6 @@
 ---
 id: access-control-lists
-title: Granting rights to Centreon users (ACL)
+title: Granting rights to Centreon users (ACL) xxx
 ---
 
 You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md):
