@@ -91,7 +91,8 @@ to:
   - Create / View / Edit / View history for a Host / Services / Host Templates /
     Service Templates
   - List Hosts / Services / Host Templates / Service Templates without defined
-    procedure
+    procedures
+
 
 ### Link from monitoring front end
 
