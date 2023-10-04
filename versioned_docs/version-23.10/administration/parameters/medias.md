@@ -40,7 +40,7 @@ To synchronize one or more images in the Centreon media:
 
 1. Copy your images in the image folder (the images may be situated in folders)
 2. Make sure the user who executes your web server has the read rights on
-these images
+these images.
 3. Go to **Administration > Parameters > Images**.
 4. Click **Synchronize Media Directory**
 
