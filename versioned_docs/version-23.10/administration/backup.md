@@ -214,7 +214,7 @@ within the Centreon UI.
 Once your monitoring platform is restored and all is doing well, you can rebuild
 RRD files in order to restore all performance graphs.
 
-To rebuild performance graphs, go to the `Administration > Parameters >
+To rebuild performance graphs, go to `Administration > Parameters >
 Data` menu. On this page, you must select all the services. Click the 
 **More actions...** drop-down menu and select the option **Rebuild RRD Database**.
 
