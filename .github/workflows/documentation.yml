@@ -1,6 +1,7 @@
 name: documentation
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - opened
@@ -123,7 +124,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        if: ${{ steps.changes.outputs.global == 'true' }}
+        if: ${{ steps.changes.outputs.global == 'true' || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
             core.exportVariable('build_environments', JSON.stringify(['staging', 'next']));
@@ -300,7 +301,7 @@ jobs:
         shell: bash
 
   deploy-next:
-    if: ${{ github.ref_name == 'next' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
     needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
