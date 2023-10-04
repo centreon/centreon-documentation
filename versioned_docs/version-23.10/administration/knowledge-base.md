@@ -154,5 +154,5 @@ Service templates behave in the same way.
 > object and empty the **URL** field on the **Extended Information** tab.
 
 >
-> If the object inherits from any template of a procedure, the empty value will
+> If the object inherits of a procedure from any template, the empty value will
 > overload and delete the procedure link.
