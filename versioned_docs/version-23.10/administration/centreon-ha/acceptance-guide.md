@@ -393,7 +393,7 @@ Cluster name: centreon_cluster
 Cluster Summary:
   * Stack: corosync
   * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
-  * Last updated: Tue Nov  8 3:19:52 PM 2022
+  * Last updated: Tue Nov 8 15:19:52 2022
   * Last change:  Tue Nov  8 14:25:58 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
   * 2 nodes configured
   * 14 resource instances configured
