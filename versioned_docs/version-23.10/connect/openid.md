@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Centreon is compatible with OAuth 2.0/OpenId Connect authentication.
 
-The use of Identity Providers (IdP) is available; these include Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdPs
+You can use Identity Providers (IdP); these include Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdPs
 that are compatible with the Authorization Code Flow.
 
 ## Configure OpenID Connect authentication
