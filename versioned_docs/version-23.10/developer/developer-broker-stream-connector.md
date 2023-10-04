@@ -89,7 +89,7 @@ Here is an example:
 ```
 
 Here, when the ``init`` function is executed, the *broker_log* object is
-parameterized with a max level 3 and an output file */tmp/test.log*.
+configured with a max level of 3 and an output file */tmp/test.log*.
 
 Then on each ``write()`` call, events received are logged as
 info. We get a result like this:
