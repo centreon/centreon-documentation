@@ -88,7 +88,7 @@ password for logging on to the LDAP server
 log in
 - **Template**: can be used to pre-configure the search filters for users
 on the LDAP directory. These filters are used to propose, by default, a search
-of the MS Active Directory, Okta, or Posix -type directories.
+on the MS Active Directory, Okta, or Posix-type directories.
 
 > Before any import, check the default settings proposed. If you have not selected
 > a Model, you will need to define the search filters manually by filling in the
