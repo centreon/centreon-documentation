@@ -1,4 +1,4 @@
-r---
+---
 id: openid
 title: Configuring connection via OpenId Connect
 ---
