@@ -9,7 +9,8 @@ Since version 2.8.0, in the Centreon Open Source suite, the **Knowledge Base** m
 
 to easily associate a wiki with Centreon Web.
 
-It creates links between hosts and services and specific procedures on Wiki.
+It creates links between hosts and services and specific procedures on the wiki.
+
 
 To make things more flexible, procedures can be associated with templates.
 
