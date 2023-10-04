@@ -111,7 +111,7 @@ Check the contents of the following directory:
 ls -lah /etc/centreon/license.d/
 ```
 
-If the directory already contains licenses with rights that are not apache/apache, delete them or change their rights so that they can be overwritten by the new licenses:
+If the directory already contains licenses with rights that are not **apache/apache**, delete them or change their rights so that they can be overwritten by the new licenses:
 
 ```shell
 chown apache:apache /etc/centreon/license.d/*
