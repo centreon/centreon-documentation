@@ -127,8 +127,13 @@ jobs:
         if: ${{ steps.changes.outputs.global == 'true' || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
+            let build_versions = require('./versions.json');
+            let build_next_version = require('./nextVersion.json').version;
+            if (build_versions.includes(build_next_version)) {
+              build_versions.splice(build_versions.indexOf(build_next_version), 1);
+            }
             core.exportVariable('build_environments', JSON.stringify(['staging', 'next']));
-            core.exportVariable('build_versions', require('./versions.json').join(','));
+            core.exportVariable('build_versions', build_versions.join(','));
             core.exportVariable('build_next_version', require('./nextVersion.json').version);
             core.exportVariable('build_pp', '1');
             core.exportVariable('build_cloud', '1');
