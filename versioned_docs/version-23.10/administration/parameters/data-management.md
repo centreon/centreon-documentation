@@ -36,7 +36,7 @@ default **31 days**.
 - **Retention duration for performance data in MySQL database**: performance
 data stored into database, by default **365 days**
 - **Retention duration for performance data in RRDTool databases**:
-performance data, by default **180 days**.
+performance data graphs, by default **180 days**.
 - **Retention duration for downtimes**: downtime data, unlimited by default
 (0 day).
 - **Retention duration for comments**: comment data, unlimited by default (0
