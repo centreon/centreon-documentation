@@ -1120,7 +1120,7 @@ Daemon Status:
 </TabItem>
 </Tabs>
 
-Then run the constraint cleanup command in case you have `Location Constraints`:
+If you have `Location Constraints`, run the constraint cleanup command:
 
 ```bash
 pcs resource clear centreon
