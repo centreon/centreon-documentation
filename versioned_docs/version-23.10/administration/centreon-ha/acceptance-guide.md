@@ -309,7 +309,7 @@ Finally, remove the constraints with the command:
 pcs resource clear centreon
 ```
 
-Also check that MySQL replication is still operational using the command:
+Also check that MySQL replication is still operational using the following command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
