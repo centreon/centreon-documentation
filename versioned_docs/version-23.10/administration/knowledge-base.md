@@ -150,7 +150,8 @@ attached by inheritance. This is because **Linux** is the parent template.
 Service templates behave in the same way.
 
 > To delete a procedure link for specific host / service / template, edit the
-> object and empty the **URL** field in the **Extended Information** tab.
+> object and empty the **URL** field on the **Extended Information** tab.
+
 >
 > If the object inherits from any template of a procedure, the empty value will
 > overload and delete the procedure link.
