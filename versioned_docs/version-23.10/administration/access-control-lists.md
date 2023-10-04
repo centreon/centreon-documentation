@@ -55,7 +55,7 @@ To create an access group:
 4. On the **Authorizations information** tab, set the rights you want on the access group
 by choosing access filters on [resources](#access-filters-on-resources), [menus](#access-filters-on-menus) and [actions](#access-filters-on-actions) (if you have already created them).
 
-5. Click **Save**.
+5. Click **Save**. 
 
 ## Creating access filters on resources, menus and actions
 
