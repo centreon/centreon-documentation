@@ -24,9 +24,9 @@ Release date: `October 5, 2023`
 
 #### Bug fixes
 
--	[Monitoring] Fixed CSV export when metric name is a SQL keyword.
--	[Configuration] Fixed the visibility of services when a user with ACLs duplicates a host.
 -	[Authentication] Fixed an LDAP connection issue due to DN case.
+-	[Configuration] Fixed the visibility of services when a user with ACLs duplicates a host.
+-	[Monitoring] Fixed CSV export when metric name is a SQL keyword.
 
 ### 22.10.13
 
