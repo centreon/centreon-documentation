@@ -27,7 +27,7 @@ description of the LDAP server
 LDAP server
 - **Store LDAP password**: can be used to store user passwords in the
 database, which is useful to authenticate users in the event of loss of connection
-with the LDAP
+with the LDAP server
 - **Auto import users**:
     - **Yes**: All users in the directory will be able to log in to Centreon. The first time they log in, they will be created in Centreon, on the **Configuration > Contacts > Contacts/Users** page, with their LDAP parameters (last name, first name, email address, etc.).
     - **No**: Users will only be able to log in to Centreon if their account has been imported manually into Centreon.
