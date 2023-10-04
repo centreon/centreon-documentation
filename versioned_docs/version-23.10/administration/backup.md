@@ -41,7 +41,7 @@ Backup filename format:
 
 #### Configuration file backup
 
-All the configuration files on the central server can be saved: MariaDB, Apache, PHP,
+All the configuration files for the central server can be saved: MariaDB, Apache, PHP,
 SNMP, centreon, centreon-broker)
 
 Backup filename format:
