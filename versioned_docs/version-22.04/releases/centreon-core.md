@@ -106,7 +106,7 @@ Release date: `February 20, 2023`
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
 - [Authentication] Fixed an issue in the mixed mode to improve Web SSO feature.
 - [CLAPI] Removed mandatory password for LDAP users creation.
-- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an issue that occurred when a mass change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed an installation error when the chrony package is already installed.
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
 - [Core] Fixed SQL queries when databases names contain dash.
@@ -380,7 +380,7 @@ Release date: `July 28, 2022`
 - [API] Fixed MBI APIs with the latest version of Centreon
 - [Administration] Fixed the display of the end date of the licenses
 - [Administration] Fixed the scrolling when reducing the screen size to access all items
-- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using mass change
 - [Configuration] Fixed empty host template from mappers (Host Discovery) by using default template form Plugin Packs discovery rule
 - [Configuration] Fixed the export when the host group is disabled
 - [Configuration] Fixed the export when the service group is disabled
