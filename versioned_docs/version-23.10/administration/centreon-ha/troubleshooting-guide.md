@@ -47,7 +47,7 @@ Failed Resource Actions:
 
 ## Resource not starting
 
-In the event of a Centreon resource (e.g. `centreontrpad`) failing to start, *failed actions* will appear at the bottom of the `crm_mon` command's output **and** the resources that are supposed to be started are listed after it. It will look like this:
+In the event of a Centreon resource (e.g. `centreontrapd`) failing to start, *failed actions* will appear at the bottom of the `crm_mon` command's output **and** the resources that are supposed to be started are listed after it. It will look like this:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
