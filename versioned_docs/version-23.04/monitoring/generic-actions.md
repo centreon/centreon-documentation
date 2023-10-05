@@ -59,7 +59,7 @@ For example, to duplicate a host:
 
 ## Mass Change
 
-A mass change allows you to apply a change to multiple objects.
+Mass change enables you to apply a change to multiple objects.
 
 Example: All the web servers previously created change SNMP communities. A mass change enables us to change this
 community without it being necessary to change each sheet of each host individually.
