@@ -534,7 +534,7 @@ Here is an example of output:
 Status for the jail: centreon
 |- Filter
 |  |- Currently failed:	1
-|  |- Total failed:	17.
+|  |- Total failed:	17
 |  `- File list:	/var/log/centreon/login.log
 `- Actions
    |- Currently banned:	0.
