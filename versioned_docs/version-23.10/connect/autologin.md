@@ -3,7 +3,7 @@ id: autologin
 title: Configuring Autologin
 ---
 
-The Autologin feature allows access to the Centreon platform through a simple URL, without the need to type a username and a password. Use Autologin, for instance, to display custom views on a large screen in your office. 
+The Autologin feature allows you to give access to the Centreon platform through a simple URL, without the need to type a username and a password. Use Autologin, for instance, to display custom views on a large screen in your office. 
 
 ## Step 1: Activate autologin
 
