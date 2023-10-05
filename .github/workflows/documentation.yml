@@ -101,6 +101,10 @@ jobs:
                 });
                 build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
               }
+
+              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1')) {
+                build_versions.push(available_versions[0]);
+              }
             }
 
             console.log(`Following versions will be built: ${build_versions.join(',')}`);
