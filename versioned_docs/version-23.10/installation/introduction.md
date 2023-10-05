@@ -72,10 +72,10 @@ dnf update
 2. Run the following command as **root**:
 
   ```Bash
-  curl -L https://raw.githubusercontent.com/centreon/centreon/23.04.x/centreon/unattended.sh | sh
+  curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh | sh
   ```
 
-  The script will install a central server using version 23.04, from the stable repository, with minimal output on your terminal.
+  The script will install a central server using version 23.10, from the stable repository, with minimal output on your terminal.
 
   In case of problems when running the script, execute it again using the following command:
 

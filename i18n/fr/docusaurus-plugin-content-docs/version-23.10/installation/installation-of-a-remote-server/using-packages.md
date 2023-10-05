@@ -349,7 +349,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -358,7 +358,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -367,7 +367,7 @@ dnf update
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -851,7 +851,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 23.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 23.10.
 
 ## Étape 6 : Étendre les droits du SGBD local
 
