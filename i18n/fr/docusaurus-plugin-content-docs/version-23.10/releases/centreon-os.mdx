@@ -79,7 +79,11 @@ Release date: `October 27, 2023`
 - [CLAPI] Fixed the export of severities to be able to reimport them.
 - [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
 </details>
-
+<details open>
+  <summary>Breaking Change</summary>
+- We removed the “persistent” option from the modal allowing to set acknowledgement because these one need to be persistant in case of Centreon Engine restart.
+- [CLAPI] Macros are now displayed identically for host, host template and service template.
+</details>
 ## Centreon Collect
 
 ### 23.10.0
