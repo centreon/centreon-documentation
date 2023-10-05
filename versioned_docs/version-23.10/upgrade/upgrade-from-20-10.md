@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 23.04.
 
-You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.04, as CentOS 7 is no longer supported: you need to [migrate your platform to a supported OS](../migrate/introduction.md).
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -20,8 +20,8 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 > procedure in order to update MariaDB before you can continue with the upgrade
 > from version 20.10 to version 21.04 as described by this document.
 
-> Warning, following the correction of a problem relating to the database schema, it will be necessary to stop the 
-> insertion of the data collected into the database during the update. These will be stored in temporary files and then
+> Warning: following the correction of a problem relating to the database schema, it will be necessary to stop the 
+> insertion of data collected in the database during the update. These will be stored in temporary files and then
 > installed at the end of the update process.
 
 ## Prerequisites
@@ -38,11 +38,11 @@ servers:
 
 ### Update the RPM signing key
 
-> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+> For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
 
 ## Upgrade the Centreon Central server
 
-> Since 21.04, Centreon uses **MariaDB 10.5**.
+> From 21.04, Centreon uses **MariaDB 10.5**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >
@@ -82,7 +82,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
 
@@ -195,7 +195,7 @@ This section only applies if you customized your Apache configuration.
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
-When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 Run a diff between the old and the new Apache configuration files:
 
@@ -203,7 +203,7 @@ Run a diff between the old and the new Apache configuration files:
 diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anything new brought by the upgrade.
 * **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
@@ -228,7 +228,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take in account the new configuration:
+Restart the Apache and PHP processes to take the new configuration into account:
 
 ```shell
 systemctl restart php-fpm httpd
@@ -267,7 +267,7 @@ If everything is ok, you should have:
 
 #### Customized Apache configuration: enable text compression
 
-In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional but it provides a better user experience.
+In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional, but it provides a better user experience.
 
 Add the following code to your Apache configuration file, in both the `<VirtualHost *:80>` and `<VirtualHost *:443>` elements:
 
@@ -282,7 +282,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 The MariaDB components can now be upgraded.
 
-> Refer to the official MariaDB documentation to know more about this process:
+> Refer to the official MariaDB documentation for more information about this process:
 >
 > https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
@@ -306,9 +306,9 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 
 #### Upgrading MariaDB
 
-You have to uninstall then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
+You must uninstall and then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
 
-1. Stop the mariadb service:
+1. Stop the MariaDB service:
 
     ```shell
     systemctl stop mariadb
@@ -320,9 +320,9 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+    > During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you should execute the uninstallation command without including the missing package.
 
-    For instance, you get the following error message:
+    For instance, if you see the following error message:
 
     ```shell
     package MariaDB-compat is not installed
@@ -342,7 +342,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
     ```
 
-4. Start the mariadb service:
+4. Start the MariaDB service:
 
     ```shell
     systemctl start mariadb
@@ -393,23 +393,23 @@ systemctl reload httpd
 
 Then log on to the Centreon web interface to continue the upgrade process:
 
-Click on **Next**:
+Click **Next**:
 
 ![image](../assets/upgrade/web_update_1.png)
 
-Click on **Next**:
+Click **Next**:
 
 ![image](../assets/upgrade/web_update_2.png)
 
-The release notes describe the main changes. Click on **Next**:
+The release notes describe the main changes. Click **Next**:
 
 ![image](../assets/upgrade/web_update_3.png)
 
-This process performs the various upgrades. Click on **Next**:
+This process performs the various upgrades. Click **Next**:
 
 ![image](../assets/upgrade/web_update_4.png)
 
-Your Centreon server is now up to date. Click on **Finish** to access the login
+Your Centreon server is now up to date. Click **Finish** to access the login
 page:
 
 ![image](../assets/upgrade/web_update_5.png)
@@ -425,7 +425,7 @@ If the Centreon BAM module is installed, refer to the
 with the following:
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
    Then you can upgrade all other commercial extensions.
@@ -442,7 +442,7 @@ with the following:
 
 This procedure is the same as for upgrading a Centreon Central server.
 
-> At the end of the update, configuration should be deployed from the Central server.
+> At the end of the update, the configuration should be deployed from the Central server.
 
 ## Upgrade the Pollers
 
