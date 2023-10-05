@@ -1,10 +1,6 @@
 ---
 id: applications-redis-cli
-title: Redis Cli (Deprecated)
+title: Redis Cli (déprécié)
 ---
 
-## **ATTENTION** Ce Pack est déprécié
-
-Ce Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le Pack 'Redis Database'.
-
-Référez vous à [cette procédure](applications-databases-redis.md)
+> Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [Redis Database](applications-databases-redis.md).

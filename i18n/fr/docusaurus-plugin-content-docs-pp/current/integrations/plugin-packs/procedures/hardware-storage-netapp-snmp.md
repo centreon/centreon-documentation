@@ -1,11 +1,7 @@
 ---
 id: hardware-storage-netapp-snmp
-title: Netapp SNMP (Deprecated)
+title: Netapp SNMP (déprécié)
 ---
 
-## **ATTENTION** Ce Pack est déprécié
-
-Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par
-le Pack 'Netapp ONTAP SNMP'.
-
-Référez vous à [cette procédure](hardware-storage-netapp-ontap-snmp.md)
+> Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par
+le connecteur [Netapp ONTAP SNMP](hardware-storage-netapp-ontap-snmp.md).
