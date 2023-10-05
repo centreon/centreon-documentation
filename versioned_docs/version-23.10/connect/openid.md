@@ -91,7 +91,7 @@ You can also configure:
 <Tabs groupId="sync">
 <TabItem value="Users automatic management" label="Automatic management">
 
-If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not automatically import all users into your infrastructure.)
+If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not automatically import all users from your infrastructure.)
 
 - **Enable auto import**: enables or disables automatic user import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
 - **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be applied to newly imported users.
