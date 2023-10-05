@@ -537,7 +537,7 @@ Status for the jail: centreon
 |  |- Total failed:	17
 |  `- File list:	/var/log/centreon/login.log
 `- Actions
-   |- Currently banned:	0.
+   |- Currently banned:	0
    |- Total banned:	2.
    `- Banned IP list:
 ```
