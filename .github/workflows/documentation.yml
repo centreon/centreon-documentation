@@ -103,7 +103,7 @@ jobs:
               }
 
               if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1')) {
-                build_versions.push(available_versions[0]]);
+                build_versions.push(available_versions[0]);
               }
             }
 
