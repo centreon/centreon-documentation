@@ -31,7 +31,7 @@ There are two kinds of database backup:
 
   - MySQLdump: the mysqldump command is used to back up databases. Warning:
     mysqldump can take a long time on large databases.
-  - LVM Snapshot  Binary copy of MariaDB files is done. You need to have a
+  - LVM Snapshot: A binary copy of MariaDB files is done. You need to have a
     specific LV for MariaDB (i.e. /var/lib/mysql) and 1 GB of space in its VG.
 
 Backup filename format:
