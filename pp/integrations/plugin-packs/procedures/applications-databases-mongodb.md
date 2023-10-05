@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------------|:--------------------------------------------|:--------------------------------------------|:----------:|
 | Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Check collection statistics, per database | X          |
 | Connection-Time       | App-DB-Mongodb-Connection-Time-custom       | Check connection time to instance           |            |
-| Connections           | App-DB-Mongodb-Connections-custom           | Check connections number                    |            |
+| Connections           | App-DB-Mongodb-Connections-custom           | Check the number of connections  |            |
 | Database-Statistics   | App-DB-Mongodb-Database-Statistics-custom   | Check database statistics                  | X          |
 | Queries               | App-DB-Mongodb-Queries-custom               | Check queries per seconds                   |            |
 
