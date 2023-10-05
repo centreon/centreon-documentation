@@ -1243,7 +1243,7 @@ If everything is ok, you should have:
 ```shell
 ● apache2.service - The Apache HTTP Server
     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
-     Active: active (running) since Tue 8/9/2022 5:01:36 AM UTC; 3h 56min ago
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
        Docs: https://httpd.apache.org/docs/2.4/
    Main PID: 518 (apache2)
       Tasks: 11 (limit: 2356)
