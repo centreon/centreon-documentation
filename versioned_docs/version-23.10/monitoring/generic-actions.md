@@ -57,7 +57,7 @@ For example, to duplicate a host:
 </TabItem>
 </Tabs>
 
-## Mass Change
+## Mass change
 
 Mass change enables you to apply a change to multiple objects.
 
