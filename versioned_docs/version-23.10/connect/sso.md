@@ -46,7 +46,7 @@ If you leave both fields blank, all IP addresses will be allowed to access the C
 
 ### Step 4: Configure the Apache web server
 
-You must configure the Apache module to allow authentication with the identity provider.
+You must configure the Apache module that allows authentication with the identity provider.
 Once this configuration is done, you must modify the Centreon configuration for Apache in order to allow access only
 to authenticated users.
 
