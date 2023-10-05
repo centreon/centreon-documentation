@@ -83,7 +83,7 @@ default **/var/cache/centreon/backup**.
 Partitioning uses XML files in the **/usr/share/centreon/config/partition.d/**
 directory to create the necessary partitions.
 
-Every day, a script launched by a cron realizes the creation of missing tables
+Every day, a script launched by a cron creates missing tables
 or those created in advance:
 
 ```text
