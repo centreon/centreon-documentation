@@ -10,7 +10,7 @@ Platform Status` menu.
 
 To display the statistics of the Centreon Broker components, go to
 `Administration > Platform Status > Broker Statistics` and select the
-poller:
+desired poller:
 
 ![image](../assets/administration/statistics-broker.png)
 
