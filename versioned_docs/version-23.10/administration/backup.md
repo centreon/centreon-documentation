@@ -39,7 +39,7 @@ Backup filename format:
   - YYYY-MM-DD-centreon.sql.gz
   - YYYY-MM-DD-centreon\_storage.sql.gz
 
-#### Configuration file backup
+#### Configuration files backup
 
 All the configuration files for the central server can be saved: MariaDB, Apache, PHP,
 SNMP, centreon, centreon-broker)
