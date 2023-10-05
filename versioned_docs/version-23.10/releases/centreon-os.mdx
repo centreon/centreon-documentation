@@ -46,7 +46,17 @@ Deprecated pages will be removed in the next major version.
 - [Resources Status] Added a tooltip to understand how to use filters.
 
 </details>
-
+<details>
+<summary>Bugs</summary>
+- [API] Fixed an issue where values for contact additive inheritance was not updated with new endpoints.
+- [API] Fixed issues on duplicate display, encoding and add_inherited_contact in host and host template endpoints.
+- [API] Fixed access to list of groups of resources regarding ACL definition.
+- [CLAPI] Fixed a bug that duplicated the host template / service template relations.
+- [CLAPI] Removed the possibility to link a regular resource with a template.
+- [CLAPI] Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)). 
+- [CLAPI] Fixed the export of severities to be able to reimport them.
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+</details>
 <details open>
   <summary>Breaking Change</summary>
 
