@@ -77,7 +77,7 @@ The following window is displayed:
   - **Remote host** Remote host for SCP export
   - **Remote directory** Remote directory for SCP export
 
-> **Temporary directory** cannot be a folder of the **Backup directory**.
+> **Temporary directory** cannot be a folder in the **Backup directory**.
 
 ## Restoring the Centreon central server
 
