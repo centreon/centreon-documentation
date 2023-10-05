@@ -47,7 +47,7 @@ The table below defines the columns in the results table:
 <li>Added: Indicates that the object has been added</li>
 <li>Changed: Indicates that the object has been changed</li>
 <li>Deleted: Indicates that the object has been deleted</li>
-<li>Massive Change: Indicates a massive change of configuration on objects.</li>
+<li>Mass Change: Indicates a mass change of configuration on objects.</li>
 <li>Enabled: Indicates that the object has been enabled</li>
 <li>Disabled: Indicates that the object has been disabled</li>
 </ul></td>

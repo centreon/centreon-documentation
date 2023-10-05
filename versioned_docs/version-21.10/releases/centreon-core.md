@@ -44,7 +44,7 @@ Release date: `March 15, 2023`
 - [API] Fixed API access when user doesn't have access to UI.
 - [Authentication] Fixed LDAP authentication issue that made LDAP users unable to authenticate in certain conditions.
 - [Configuration] Fixed an ACL issue with user modification permissions.
-- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an issue that occurred when a mass change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed possibility to disable Contact/Contactgroup additive inheritance if not yet configured.
 - [Core] Fixed blank page after login.
 - [ResourceStatus] Fixed the display of commands in the service details panel.
@@ -180,7 +180,7 @@ Release date: `August 26, 2022`
 - [CLAPI] Column names were displayed several times when listing recurrent downtimes
 - [Configuration] Extended the size of the URL, Notes and Action URL fields to avoid truncating long URLs
 - [Configuration] Fixed a regression: multiple trap definitions can use the same OID again
-- [Configuration] Fixed contact/contactgroup additive inheritance configuration using massive change
+- [Configuration] Fixed contact/contactgroup additive inheritance configuration using mass change
 - [Core] Fixed SQL queries when databases names contained a dash
 - [Core] Fixed the database partitioning for MySQL 8
 - [Monitoring] Fixed deletion of comments
