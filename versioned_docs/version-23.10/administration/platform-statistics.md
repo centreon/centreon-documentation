@@ -18,6 +18,6 @@ desired poller:
 
 It is also possible to display the performance of the engines through
 performance graphs. Go to the `Administration > Platform Status > Engine
-Statistics` menu and select the poller:
+Statistics` menu and select the desired poller:
 
 ![image](../assets/administration/statistics-engine.png)
