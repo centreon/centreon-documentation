@@ -46,7 +46,7 @@ To create an access group:
 
 3. To add users (contacts) or contact groups to the access group, use the **Linked Contacts/Linked Contact Groups** table. (Select the user(s) you want in the **Available** column, and then click **Add**. The user(s) is moved to the **Selected** column.)
 
-    > The contact group can be from the LDAP directory connected to the
+    > The contact group can come from the LDAP directory connected to the
     > Centreon interface.
     >
     > To avoid problems, groups created in the Centreon interface should not have the same name as LDAP
