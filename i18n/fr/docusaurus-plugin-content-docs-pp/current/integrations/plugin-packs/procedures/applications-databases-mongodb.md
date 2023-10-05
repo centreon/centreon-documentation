@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                 | Modèle de service                           | Description                                                     | Découverte |
 |:----------------------|:--------------------------------------------|:----------------------------------------------------------------|:----------:|
-| Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Contrôle les statistiques des collections, par bases de données | X          |
+| Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Contrôle les statistiques des collections, par base de données | X          |
 | Connection-Time       | App-DB-Mongodb-Connection-Time-custom       | Contrôle le temps de connexion à l'instance                     |            |
 | Connections           | App-DB-Mongodb-Connections-custom           | Contrôle le nombre de connexions                                |            |
 | Database-Statistics   | App-DB-Mongodb-Database-Statistics-custom   | Contrôle les statistiques des bases de données                  | X          |

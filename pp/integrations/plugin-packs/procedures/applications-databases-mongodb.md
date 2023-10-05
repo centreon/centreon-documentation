@@ -20,10 +20,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                            | Service Description                         | Discovery  |
 |:----------------------|:--------------------------------------------|:--------------------------------------------|:----------:|
-| Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Check collections statistics, per databases | X          |
+| Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Check collection statistics, per database | X          |
 | Connection-Time       | App-DB-Mongodb-Connection-Time-custom       | Check connection time to instance           |            |
 | Connections           | App-DB-Mongodb-Connections-custom           | Check connections number                    |            |
-| Database-Statistics   | App-DB-Mongodb-Database-Statistics-custom   | Check databases statistics                  | X          |
+| Database-Statistics   | App-DB-Mongodb-Database-Statistics-custom   | Check database statistics                  | X          |
 | Queries               | App-DB-Mongodb-Queries-custom               | Check queries per seconds                   |            |
 
 > The services listed above are created automatically when the **App-DB-Mongodb-custom** host template is used.
