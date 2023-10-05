@@ -7,7 +7,7 @@ title: Migrate a platform with Poller Display module
 
 If the module **centreon-poller-display-central-1.6.x** is installed:
 
-1. Go to the **Administration > Extensions > Modules** menu and uninstall the
+1. Go to **Administration > Extensions > Modules** and uninstall 
 **centreon-poller-display-central**.
 
 2. Remove the associated package:
@@ -23,7 +23,7 @@ Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
 ## Migrate a Poller from Poller Display module to Remote Server
 
-1. Go to the **Administration > Extensions > Modules** menu and uninstall the
+1. Go to **Administration > Extensions > Modules** and uninstall the
 **Centreon Poller Display** module.
 
 2. If you installed the module using an RPM package, remove it with the
@@ -36,9 +36,9 @@ following command:
 Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 
     > If you use Centreon EMS modules, you must update the repositories. Be sure to
-    > contact your Centreon support and request new licenses.
+    > contact your Centreon support team and request new licenses.
 
-4. Go to **Administration > Extensions > Modules** menu and install the
+4. Go to **Administration > Extensions > Modules** and install the
 **centreon-license-manager** module.
 
 5. ## Register the server
@@ -56,9 +56,9 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
+> Replace **<IP_TARGET_NODE>** with the IP of the Centreon server seen by the Remote Server.
 
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
 > HTTPS://<IP_TARGET_NODE>:PORT
@@ -73,7 +73,7 @@ Then follow instructions by
 2. Select the IP address if multiple network interfaces exist:
 
     ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
+    Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
     1
@@ -84,7 +84,7 @@ Then follow instructions by
     ``` shell
     Summary of the informations that will be send:
     
-    Api Connection:
+    Api connection:
     username: admin
     password: ******
     target server: 192.168.0.1
@@ -94,31 +94,31 @@ Then follow instructions by
     type: remote
     address: 192.168.0.2
     
-    Do you want to register this server with those informations ? (y/n)y
+    Do you want to register this server with those informations? (y/n)y
     ```
 
-4. Add additional information to enable future communication between your Remote Server and its Central,
-Kindly fill in the required information to convert your platform into Remote :
+4. Add additional information to enable future communication between your Remote Server and its Central.
+Provide the required information to convert your platform to a remote server:
 
   ```shell
-  <CURRENT_NODE_ADDRESS> : Please enter your username:
+  <CURRENT_NODE_ADDRESS>: Please enter your username:
   admin
-  <CURRENT_NODE_ADDRESS> : Please enter your password:
+  <CURRENT_NODE_ADDRESS>: Please enter your password:
   
-  <CURRENT_NODE_ADDRESS> : Protocol [http]:
-  <CURRENT_NODE_ADDRESS> : Port [80]:
+  <CURRENT_NODE_ADDRESS>: Protocol [http]:
+  <CURRENT_NODE_ADDRESS>: Port [80]:
   <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
   ```
 
 5. If you use a proxy, please define credentials:
 
     ```shell
-    Are you using a proxy ? (y/n)
+    Are you using a proxy? (y/n)
     y
     enter your proxy Host:
     myproxy.example.com
     enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
+    Are you using a username/password? (y/n)
     y
     enter your username:
     my_proxy_username
@@ -132,7 +132,7 @@ You will receive the validation of the Centreon central server:
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
 ```
 
-### Main errors messages
+### Main error messages
 
 ``` shell
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
@@ -147,10 +147,10 @@ You will receive the validation of the Centreon central server:
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-Failed connect to 192.168.0.1:444; Connection refused
+Failed to connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
@@ -162,9 +162,9 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 21.04.
+> Your Centreon target version is invalid. It should be greater than or equal to 21.04.
 
-6. Add rights to centreon database user to use **LOAD DATA INFILE** command:
+6. Add rights for the centreon database user to use the **LOAD DATA INFILE** command:
 
     ``` SQL
     GRANT FILE on *.* to 'centreon'@'localhost';
