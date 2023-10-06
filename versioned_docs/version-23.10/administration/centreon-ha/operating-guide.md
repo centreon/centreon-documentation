@@ -171,7 +171,7 @@ If errors are displayed on the third or fourth line, it means that the database 
 
 ### Restore MariaDB master-slave replication
 
-> This procedure should be applied in the event of a breakdown in the MariaDB database's replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
+> This procedure should be applied in the event of a breakdown in the MariaDB databases' replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
 
 Prevent the cluster from managing the MariaDB resource during the operation (to be run from any node):
 
