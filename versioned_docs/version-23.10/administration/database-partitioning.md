@@ -123,7 +123,6 @@ The command line performs the following procedure:
 You need to check a few things before:
 
 - Enough space on the MariaDB Server (at least twice the size of the data and indexes)
-Indexes and Data)
 - No data in the future (time is used for the partitioning)
 - Enough memory on the database server
 
