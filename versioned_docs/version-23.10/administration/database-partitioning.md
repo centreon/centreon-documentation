@@ -120,7 +120,7 @@ The command line performs the following procedure:
 - Create an empty partitioned table
 - Migrate data into the partitioned table (with ‘SELECT INSERT’ statement)
 
-You need to check a few things before:
+You need to check a few things before executing the command:
 
 - Enough space on the MariaDB Server (at least twice the size of the data and indexes)
 - No data in the future (time is used for the partitioning)
