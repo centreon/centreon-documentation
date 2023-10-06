@@ -52,9 +52,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                      | Description |
-|:-------------------------------|:------------|
-| App-DB-Postgres-Databases-Size |             |
+| Rule name                      | Description                                |
+|:-------------------------------|:-------------------------------------------|
+| App-DB-Postgres-Databases-Size | Discover databases to monitor their sizes. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
