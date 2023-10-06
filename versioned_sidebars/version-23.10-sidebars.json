@@ -411,6 +411,10 @@
             {
               "type": "doc",
               "id": "version-23.10/alerts-notifications/custom-views"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/alerts-notifications/dashboards"
             }
           ]
         },
