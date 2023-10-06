@@ -370,6 +370,8 @@ Execute the following commands:
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
 ```
 
 </TabItem>
@@ -644,7 +646,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
   ```
   
-  Once you have created the certificate, you will be able to use it to sign your server certificate.
+  The certificate being created will enable you to sign your server certificate.
   
 6. Create a certificate for the server:
   
@@ -1577,9 +1579,9 @@ and enable for **IPv4** inputs and outputs:
 
 ### Centreon Gorgone communication
 
-By default, ZMQ communications are secured, both external (with the poller) and internal (between gorgone processes).
+By default, ZMQ communications are secured; both external communications (with the poller) and internal ones (between gorgone processes).
 
-However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone but the communication is not done using SSL.
+However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone, but the communication does not take place using SSL.
 
 You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
