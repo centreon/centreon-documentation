@@ -39,7 +39,7 @@ servers:
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 > If you have an offline license, install the corresponding repository for the plugin packs.
@@ -201,7 +201,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 #### Upgrading MariaDB
@@ -274,7 +274,7 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm 
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm 
 ```
 
 ### Upgrade the Centreon solution

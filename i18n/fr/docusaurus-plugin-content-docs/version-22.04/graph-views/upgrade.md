@@ -64,7 +64,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
 ```
 
 > Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -79,7 +79,7 @@ dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/ce
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
 ```
 
 > Installer le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).

@@ -297,7 +297,7 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.04/el8/stable/noarch/RPMS/centreon-release-22.04-3.el8.noarch.rpm
+dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
 ```
 
 </TabItem>
@@ -311,7 +311,7 @@ yum install -y  https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/c
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.04/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-22.04-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Ensuite, importez la clé du dépôt :

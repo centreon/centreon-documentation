@@ -575,7 +575,7 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Installez le dépôt Centreon :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Installez les paquets prérequis :
