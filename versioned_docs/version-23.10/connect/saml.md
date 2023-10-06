@@ -18,7 +18,7 @@ Enable SAML authentication:
   authentication as well (**Mixed**). In mixed mode, users created manually in Centreon (and not identified via SAML)
   will also be able to log in.
 
-> When setting the parameters, it is recommended to activate the "mixed" mode. This will allow you to retain access to
+> When setting the parameters, we recommend that you activate the "mixed" mode. This will allow you to retain access to
 > the local `admin` account in the event of a misconfiguration.
 
 ### Step 2: Configure Identity Provider access credentials
@@ -32,7 +32,7 @@ Configure Identity Provider information:
   must be used to authenticate users. For example, **email**. (mandatory).
 - Logout from:
   * **Centreon UI Only**: users will only be logged out from Centreon.
-  * **Both Identity Provider and Centreon UI**:  users will be logged out both from Centreon and the identity provider.
+  * **Both Identity Provider and Centreon UI**:  users will be logged out from both Centreon and the identity provider.
     > If you select **Both Identity Provider and Centreon UI**, you need to define a **Logout URL**.
 
 ### Step 3: Configure authentication conditions
@@ -42,7 +42,7 @@ particular endpoint:
   - Activate **Enable conditions on identity provider**.
   - Define which attribute will be used to validate the conditions.
   - In **Define authorized conditions values**, define which will be the authorized values returned.
-    If you enter several values, all will have to be met for the condition to be validated. All users that try to connect
+    If you enter several values, all will have to be met for the condition to be validated. All users who try to connect
     with another value will be unable to log in.
 
 ### Step 4: Manage user creation
@@ -50,13 +50,13 @@ particular endpoint:
 <Tabs groupId="sync">
 <TabItem value="Users automatic management" label="Automatic management">
 
-If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon
-configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+If you turn on **Enable auto import**, users who log in to Centreon for the first time will be created in the Centreon
+configuration. (Turning the option on does not automatically import all users from your infrastructure.)
 
-- **Enable auto import**: enables or disables automatic users import.  If auto import is disabled, you will have to
+- **Enable auto import**: enables or disables automatic user import.  If auto import is disabled, you will have to
   [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
 - **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be
-  applied to newly imported users. This allows in particular to manage the default configuration of the
+  applied to newly imported users. In particular, this allows you to manage the default configuration of the
   [notifications](../alerts-notifications/notif-configuration.md).
 - **Email attribute path**: defines which of the variables returned by the identity provider must be used to get the
   user's email address.
@@ -66,8 +66,8 @@ configuration. (Turning the option on does not import automatically all users in
 </TabItem>
 <TabItem value="Users manual management" label="Manual management">
 
-On page **Configuration > Users > Contacts/Users**, [create the users](../monitoring/basic-objects/contacts-create.md)
-that will log on to Centreon using SAML.
+On the **Configuration > Users > Contacts/Users** page, [create the users](../monitoring/basic-objects/contacts-create.md)
+who will log on to Centreon using SAML.
 
 </TabItem>
 </Tabs>
@@ -77,7 +77,7 @@ that will log on to Centreon using SAML.
 <Tabs groupId="sync">
 <TabItem value="Role automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be automatically
+If you turn on **Enable automatic management**, users who log in to Centreon will be automatically
   [granted rights](../administration/access-control-lists.md), as they will be linked to
   [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
   
@@ -92,7 +92,7 @@ If you turn on **Enable automatic management**, users that log in to Centreon wi
 </TabItem>
 <TabItem value="Role manual management" label="Manual management">
 
-If you turn off **Enable automatic management**, you have to [grant users rights](../administration/access-control-lists.md)
+If you turn off **Enable automatic management**, you will need to [grant users rights](../administration/access-control-lists.md)
 manually by linking them to [access groups](../administration/access-control-lists.md#creating-an-access-group).
 
 </TabItem>
@@ -103,19 +103,19 @@ manually by linking them to [access groups](../administration/access-control-lis
 <Tabs groupId="sync">
 <TabItem value="Groups automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the
+If you turn on **Enable automatic management**, users who log in to Centreon will be attached to the
 [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
 
 - Define which attribute from the identity provider will be used to retrieve values to create relationships with access groups.
 - Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
 
-> Each time the user logs in, groups management is reinitialized to take into account any new information from the identity provider.
+> Each time the user logs in, group management is reinitialized to take into account any new information from the identity provider.
 
 </TabItem>
 <TabItem value="Groups manual management" label="Manual management">
 
-If you turn off **Enable automatic management**, you have to manage manually the relation between contact and
-[contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups).
+If you turn off **Enable automatic management**, you will have to manage the relationship between contact and
+[contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) manually.
 
 </TabItem>
 </Tabs>

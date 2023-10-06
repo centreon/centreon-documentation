@@ -3,7 +3,7 @@ id: data-management
 title: Data management
 ---
 
-By accessing to **Administration > Parameters > Options** menu you can define
+By accessing the **Administration > Parameters > Options** menu, you can define
 retention durations for the Centreon platform:
 
 ![image](../../assets/administration/data_retention.png)
@@ -11,11 +11,11 @@ retention durations for the Centreon platform:
 ## Performance data storage
 
 This setting is for the folders for storing performance data. Performance data
-make it possible to visualize the performance graphs of the collected metrics by
-the monitoring, to follow the evolution of the status of the services, or to
-follow certain indicators of the collection engines.
+make it possible to view the performance graphs of the metrics collected by
+the monitoring, to track the evolution of the status of the services, or to
+follow certain indicators concerning the collection engines.
 
-> These values were set during the installation process, it is not recommended to
+> These values were set during the installation process; it is not recommended to
 > change them.
 
 - **Path to RRDTool Database For Metrics**: by default
@@ -35,13 +35,13 @@ data, by default **365 days**.
 default **31 days**.
 - **Retention duration for performance data in MySQL database**: performance
 data stored into database, by default **365 days**
-- **Retention duration for performance data in RRDTool databases**: graphs
-performance data, by default **180 days**.
-- **Retention duration for downtimes**: downtimes data, unlimited by default
+- **Retention duration for performance data in RRDTool databases**:
+performance data graphs, by default **180 days**.
+- **Retention duration for downtimes**: downtime data, unlimited by default
 (0 day).
-- **Retention duration for comments**: comments data, unlimited by default (0
+- **Retention duration for comments**: comment data, unlimited by default (0
 day).
-- **Retention duration for audit logs**: audit logs data, unlimited by default
+- **Retention duration for audit logs**: audit log data, unlimited by default
 (0 day).
 
 > It is possible not to save performance data to the MariaDB database if you are not

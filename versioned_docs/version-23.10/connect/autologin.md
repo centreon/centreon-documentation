@@ -3,7 +3,7 @@ id: autologin
 title: Configuring Autologin
 ---
 
-The Autologin feature allows you to give access to the Centreon platform through a simple URL, without having to type a username and a password. Use Autologin for instance to display custom views on a large screen in your office. 
+The Autologin feature allows you to give access to the Centreon platform through a simple URL, without the need to type a username and a password. Use Autologin, for instance, to display custom views on a large screen in your office. 
 
 ## Step 1: Activate autologin
 
@@ -21,7 +21,7 @@ The Autologin feature allows you to give access to the Centreon platform through
 1. [Create a user](../monitoring/basic-objects/contacts-create.md) called **autologin** and give it [access rights](../administration/access-control-lists.md) only to the pages you will want to display.
 
 2. Edit the user. Go to the **Authentication** tab:
-    - enable option **Reach Centreon Front-end**.
+    - enable the option **Reach Centreon Front-end**.
     - to the right of the **Autologin Key** field, click **Generate**. Make a note of the generated key.
 
 3. Click **Save**.

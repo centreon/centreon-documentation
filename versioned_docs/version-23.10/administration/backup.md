@@ -16,7 +16,7 @@ The backup script is executed on a daily basis with a cron job located in
 30 3 * * * root /usr/share/centreon/cron/centreon-backup.pl >> /var/log/centreon/centreon-backup.log 2&>1
 ```
 
-Each day at 3:30 AM, backup script checks if backup is planned on current day.
+Each day at 3:30 AM, the backup script checks if a backup is planned on the current day.
 
 ### Backup types
 
@@ -29,10 +29,10 @@ Database backup will be processed on two databases: **centreon** and
 
 There are two kinds of database backup:
 
-  - MySQLdump: mysqldump command is used to backup databases. Be careful,
-    mysqldump can take long time on large databases.
-  - LVM Snapshot  Binary copy of MariaDB files is done. You need to have a
-    specific LV for MariaDB (i.e. /var/lib/mysql) and 1GB of space in its VG.
+  - MySQLdump: the mysqldump command is used to back up databases. Warning:
+    mysqldump can take a long time on large databases.
+  - LVM Snapshot: A binary copy of MariaDB files is done. You need to have a
+    specific LV for MariaDB (i.e. /var/lib/mysql) and 1 GB of space in its VG.
 
 Backup filename format:
 
@@ -41,7 +41,7 @@ Backup filename format:
 
 #### Configuration files backup
 
-All configuration files of central server can be saved : MariaDB, Apache, PHP,
+All the configuration files for the central server can be saved: MariaDB, Apache, PHP,
 SNMP, centreon, centreon-broker)
 
 Backup filename format:
@@ -53,7 +53,7 @@ Backup filename format:
 
 This part covers the configuration of the backup.
 
-1.  Go into the menu: **Administration > Parameters > Backup**
+1.  Go to **Administration > Parameters > Backup**.
 
 The following window is displayed:
 
@@ -77,19 +77,19 @@ The following window is displayed:
   - **Remote host** Remote host for SCP export
   - **Remote directory** Remote directory for SCP export
 
-> **Temporary directory** can not be a folder of **Backup directory**.
+> **Temporary directory** cannot be a folder in the **Backup directory**.
 
-## Restore of Centreon central server
+## Restoring the Centreon central server
 
-Restore process is divided in two main steps:
+The restoration process is divided into two main steps:
 
   - Re-install the Centreon platform following the installation documentation.
-    Do not forget to upgrade system.
-  - Restore Centreon-Engines configuration files and Centreon databases
+    Remember to upgrade the system.
+  - Restore Centreon-Engine configuration files and Centreon databases
 
 ### Configurations file restore
 
-Before databases restore, you have first to restore configuration files:
+Before restoring the databases, you must first restore the configuration files:
 
 ```shell
 cd /var/cache/centreon/backup/
@@ -100,10 +100,10 @@ cp -r * /etc/centreon/
 
 ### Databases restore
 
-Once Centreon server reinstalled (**same Centreon version**), unzip centreon and
-centreon\_storage databases backup.
+Once the Centreon server is reinstalled (**same Centreon version**), unzip the **centreon** and the
+**centreon\_storage** databases backup.
 
-Start by recreating databases with following commands:
+Start by recreating the databases with the following commands:
 
 ```sql
 DROP DATABASE centreon;
@@ -112,7 +112,7 @@ CREATE DATABASE centreon;
 CREATE DATABASE centreon_storage;
 ```
 
-Then unzip and load databases dumps into newly created databases:
+Then unzip and load the database dumps into newly created databases:
 
 ```shell
 cd /var/cache/centreon/backup/
@@ -124,11 +124,11 @@ mysql centreon_storage < YYYY-MM-DD-centreon_storage.sql
 
 This may take a while due to the size of "centreon\_storage" databases.
 
-> Password is stored in configuration files previously restored. For example
-> **$mysql\_passwd** field in file "/etc/centreon/conf.pm".
+> The password is stored in the previously restored configuration files. For example
+> **$mysql\_passwd** field in the file "/etc/centreon/conf.pm".
 
-> The default configuration does not define any password for mysql root user.
-> That's why we can connect to database using only command "mysql".
+> The default configuration does not define any password for the mysql root user.
+> That's why we can connect to the database using just the "mysql" command.
 
 ### SSH keys restore
 
@@ -157,7 +157,7 @@ ssh <poller_ip_address>
 Answer "Yes" to the question. This is about adding the poller SSH fingerprint
 on the central server.
 
-> You have to do this operations only if you work with a distributed environment.
+> You need to perform this operation only if you work with a distributed environment.
 
 ### Plugins restore
 
@@ -166,7 +166,7 @@ Restoration must be done manually. We must therefore initially extract this
 archive into a temporary directory and move the files one by one according to
 their location.
 
-On each poller, you have to do:
+Proceed as follows on each poller:
 
 ```shell
 cd /var/cache/centreon/backup/
@@ -191,7 +191,7 @@ cp init_d_centengine /etc/init.d/centengine
 
 ### Monitoring agent restore
 
-In case you're using NRPE or NSCA agents, you have to reinstall and then restore
+If you are using NRPE or NSCA agents, you must reinstall and then restore the
 configuration:
 
 ```shell
@@ -202,20 +202,20 @@ cp nrpe.cfg /etc/centreon-engine/
 cp nsca.cfg /etc/centreon-engine/
 ```
 
-> You have to do this only if you're using the monitoring agents.
+> You must do this only if you are using the monitoring agents.
 
 ### Generate Centreon-Engine configuration files within centreon
 
-Last step is to generate the Centreon-Engine configuration files from
-within Centreon UI.
+The last step is to generate the Centreon-Engine configuration files from
+within the Centreon UI.
 
 ### Graphs rebuild
 
 Once your monitoring platform is restored and all is doing well, you can rebuild
 RRD files in order to restore all performance graphs.
 
-To rebuild performance graphics, go to the menu `Administration > Parameters >
-Data`. On this page, you must select all the services, click the drop-down
-menu **More actions...** and select the option **Rebuild RRD Database**.
+To rebuild performance graphs, go to `Administration > Parameters >
+Data`. On this page, you must select all the services. Click the 
+**More actions...** drop-down menu and select the option **Rebuild RRD Database**.
 
 **Your server is now restored.**
