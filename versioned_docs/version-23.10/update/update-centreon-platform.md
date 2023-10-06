@@ -75,23 +75,23 @@ Now you need to finalize the update:
 <Tabs groupId="sync">
 <TabItem value="Using the wizard" label="Using the wizard">
 
-1. Log on to the Centreon web interface to continue the update process. Click on **Next**:
+1. Log on to the Centreon web interface to continue the update process. Click **Next**:
 
   ![image](../assets/upgrade/web_update_1.png)
 
-2. Click on **Next**:
+2. Click **Next**:
 
   ![image](../assets/upgrade/web_update_2.png)
 
-3. The release notes describe the main changes. Click on **Next**:
+3. The release notes describe the main changes. Click **Next**:
 
   ![image](../assets/upgrade/web_update_3.png)
 
-4. This process performs the various upgrades. Click on **Next**:
+4. This process performs the various upgrades. Click **Next**:
 
   ![image](../assets/upgrade/web_update_4.png)
 
-5. Your Centreon server is now up to date. Click on **Finish** to access the login
+5. Your Centreon server is now up to date. Click **Finish** to access the login
 page:
 
   ![image](../assets/upgrade/web_update_5.png)
@@ -131,7 +131,7 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   }'
   ```
 
-  This is how the result should look like:
+  This is how the result should look:
 
     ```shell
     {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
@@ -171,7 +171,7 @@ From **Administration > Extensions > Manager**, update all extensions, starting
 with the following:
 
 - License Manager,
-- Monitoring Connectors Manager,
+- Monitoring Connector Manager,
 - Auto Discovery.
 
 Then you can update all other commercial extensions.

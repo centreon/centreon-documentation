@@ -61,7 +61,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 cd /tmp
 curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
+sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
 rm -f ./mariadb_repo_setup
 ```
 
@@ -145,7 +145,7 @@ This section only applies if you customized your Apache configuration.
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
-When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 Run a diff between the old and the new Apache configuration files:
 
@@ -153,7 +153,7 @@ Run a diff between the old and the new Apache configuration files:
 diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by the upgrade.
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anything new brought by the upgrade.
 * **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
 
 For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
@@ -170,7 +170,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take in account the new configuration:
+Restart the Apache and PHP processes to take the new configuration into account:
 
 ```shell
 systemctl restart php-fpm httpd
@@ -209,7 +209,7 @@ If everything is ok, you should have:
 
 #### Customized Apache configuration: enable text compression
 
-In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional but it provides a better user experience.
+In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional, but it provides a better user experience.
 
 Add the following code to your Apache configuration file, in both the `<VirtualHost *:80>` and `<VirtualHost *:443>` elements:
 
@@ -236,23 +236,23 @@ systemctl reload httpd
 
 Then log on to the Centreon web interface to continue the upgrade process:
 
-Click on **Next**:
+Click **Next**:
 
 ![image](../assets/upgrade/web_update_1.png)
 
-Click on **Next**:
+Click **Next**:
 
 ![image](../assets/upgrade/web_update_2.png)
 
-The release notes describe the main changes. Click on **Next**:
+The release notes describe the main changes. Click **Next**:
 
 ![image](../assets/upgrade/web_update_3.png)
 
-This process performs the various upgrades. Click on **Next**:
+This process performs the various upgrades. Click **Next**:
 
 ![image](../assets/upgrade/web_update_4.png)
 
-Your Centreon server is now up to date. Click on **Finish** to access the login
+Your Centreon server is now up to date. Click **Finish** to access the login
 page:
 
 ![image](../assets/upgrade/web_update_5.png)
@@ -268,7 +268,7 @@ If the Centreon BAM module is installed, refer to the
 with the following:
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
    Then you can upgrade all other commercial extensions.
@@ -285,7 +285,7 @@ with the following:
 
 This procedure is the same as for upgrading a Centreon Central server.
 
-> At the end of the update, configuration should be deployed from the Central server.
+> At the end of the update, the configuration should be deployed from the Central server.
 
 ## Upgrade the Pollers
 
