@@ -83,7 +83,14 @@ your connection.
 
 ### Can I see the data that is collected before it is sent to Centreon?
 
-No, the information cannot be displayed. This program is designed to work for
+The information cannot be displayed in the interface. However, you can see what data 
+is sent by using the following commmand:
+
+```shell
+php /usr/share/centreon/cron/centreon-send-stats.php -d
+```
+
+This program is designed to work for
 thousands of users without affecting their product use, so the data is sent
 automatically. The data is also encoded and compressed so that it can be
 processed efficiently.

@@ -90,7 +90,14 @@ avec un impact minimal sur votre connexion.
 
 ### Puis-je voir les données collectées avant leur envoi à Centreon ?
 
-Non, les informations ne peuvent pas être affichées. Ce programme est conçu pour
+Les informations ne peuvent pas être affichées via l'interface. Cependant, vous pouvez afficher
+les données transmises à l'aide de la commande suivante :
+
+```shell
+php /usr/share/centreon/cron/centreon-send-stats.php -d
+```
+
+Ce programme est conçu pour
 fonctionner avec des milliers d'utilisateurs sans affecter leur utilisation du
 produit. Les données sont donc envoyées automatiquement. Les données sont
 également codées et compressées pour pouvoir être traitées efficacement.
