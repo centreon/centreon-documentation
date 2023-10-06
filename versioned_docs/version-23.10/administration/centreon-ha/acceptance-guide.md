@@ -1147,7 +1147,7 @@ The @CENTRAL_SLAVE_NAME@ will be completely excluded from the cluster. The @CENT
 
 ### Processing 
 
-To perform this test, launch the `iptables` commands on the @CENTRAL_SLAVE_NAME@. Be careful to avoid @CENTRAL_SLAVE_IPADDR@, otherwise you lose the SSH connection on this node.
+To perform this test, launch the `iptables` commands on the @CENTRAL_SLAVE_NAME@. Be careful not to create iptables rules containing @CENTRAL_SLAVE_IPADDR@, otherwise you lose the SSH connection on this node.
 
 ```bash
 iptables -A INPUT -s @CENTRAL_MASTER_IPADDR@ -j DROP
