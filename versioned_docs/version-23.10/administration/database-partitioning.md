@@ -84,7 +84,7 @@ Partitioning uses XML files in the **/usr/share/centreon/config/partition.d/**
 directory to create the necessary partitions.
 
 Every day, a script launched by a cron creates missing tables
-or those created in advance:
+or creates new tables in advance:
 
 ```text
 0 4 * * * centreon /bin/php /usr/share/centreon/cron/centreon-partitioning.php >> /var/log/centreon/centreon-partitioning.log 2>&1
