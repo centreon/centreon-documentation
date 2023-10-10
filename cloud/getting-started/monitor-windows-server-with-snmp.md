@@ -76,7 +76,7 @@ After installing SNMP, you need to configure it.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_55.png)
 
-3. In the **Agent** tab, fill in the **Contact** and **Location** parameters. Then, in the **Service** section, check the boxes for services from which you want to collect data for forwarding to the Centreon Poller that will monitor the host.
+3. On the **Agent** tab, fill in the **Contact** and **Location** parameters. Then, in the **Service** section, check the boxes for services from which you want to collect data for forwarding to the Centreon Poller that will monitor the host.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_6.png)
 
