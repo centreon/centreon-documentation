@@ -10,7 +10,7 @@ To monitor a resource in Centreon Cloud:
 3. Link the resource to the correct template provided by a [Monitoring Connector](../monitoring/pluginpacks.md).
 4. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The resource appears in the **Monitoring > Resources status** page, where you can track any changes in status.
 
-Here are a few tutorials to help you getting started with your monitoring:
+Here are a few tutorials to help you get started with your monitoring:
 
 * [Monitor your first Linux host](monitor-linux-server-with-snmp.md)
 * [Monitor your first Windows host](monitor-windows-server-with-snmp.md)

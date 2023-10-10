@@ -14,7 +14,7 @@ Your Cisco router will be monitored using the Cisco standard Monitoring Connecto
 ### On the Cisco router you want to monitor
 
 The first step is to activate and configure an SNMP service on your Cisco device.
-Please refer to the documentation of your Cisco device to know how to configure the SNMP service.
+Please refer to the documentation of your Cisco device to find out how to configure the SNMP service.
 
 ### Network flow
 
@@ -22,17 +22,17 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 
 ### On the central server
 
-In the web interface, go to **Configuration > Monitoring Connectors Manager**, search for the **Cisco standard** Monitoring Connector and install it:
+In the web interface, go to **Configuration > Monitoring Connectors Manager**, search for the **Cisco standard** Monitoring Connector; and install it:
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 
 ## Configure the host and deploy the configuration
 
-1. Go to the **Configuration > Hosts > Hosts (simplified)** menu and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts (simplified)** and click **Add**:
 
   ![image](../assets/getting-started/quick_start_cisco_1.gif)
 
-2. Fill in the following information:
+2. Input the following information:
 
   * The name of the router (1)
   * A description of the router (2)
@@ -40,11 +40,11 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager**, s
   * The SNMP version and community (4)
   * Select the poller that will monitor the device (5)
 
-3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **Net-Cisco-Standard-SNMP-custom** template (7) from the list:
+3. Click **+ Add a new entry** in the **Templates** field (6), then select the **Net-Cisco-Standard-SNMP-custom** template (7) from the list:
 
   ![image](../assets/getting-started/quick_start_cisco_2.png)
 
-4. Click on **Save** (8). Your equipment has been added to the list of hosts:
+4. Click **Save**(8). Your device has been added to the list of hosts:
 
   ![image](../assets/getting-started/quick_start_cisco_3.png)
 
@@ -52,7 +52,7 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager**, s
 
   ![image](../assets/getting-started/quick_start_cisco_4a.png)
 
-  You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services (simplified)**. The list will be filtered by the name of the host:
+  You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services (simplified)**. The list will be filtered by host name:
 
   ![image](../assets/getting-started/quick_start_cisco_4b.png)
 
@@ -68,4 +68,4 @@ In the web interface, go to **Configuration > Monitoring Connectors Manager**, s
 
    ![image](../assets/getting-started/quick_start_cisco_7.png)
 
-   If not all services are in an OK state, check what causes the error and fix the problem.
+   If not all services are in an OK state, check what is causing the error and fix the problem.
