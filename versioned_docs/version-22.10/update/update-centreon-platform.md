@@ -17,48 +17,6 @@ servers:
 
 ## Update the Centreon central server
 
-### Prerequisites
-
-If you have installed **debuginfo** packages (or **dbgsym** on Debian), remove them before updating your platform. You can reinstall them after the update.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Centos 7" label="Centos 7">
-
-```shell
-yum remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt remove 'centreon-*-dbgsym'
-```
-
-</TabItem>
-</Tabs>
-
 ### Update the Centreon solution
 
 Please make sure all users are logged out from the Centreon web interface before starting the update procedure.
@@ -205,10 +163,6 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   ```shell
   systemctl restart cbd centengine gorgoned
   ```
-
-### Reinstall **debuginfo** or **dbgsym** packages (optional)
-
-If you uninstalled **debuginfo** or **dbgsym** packages before performing the update, you can reinstall them now.
 
 ### Update extensions
 

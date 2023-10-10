@@ -205,7 +205,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 #### Installation des paquets
 
-Si vous installez votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet **centreon-release** :
+Si vous installez votre serveur Centreon MAP à partir d'une "installation vierge de l'OS", vous devez installer le paquet **centreon-release** :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -581,6 +581,8 @@ centreon.path=/your-custom-uri
 ```
 
 #### Optimisation de la mémoire pour Java
+
+> JAVA_OPTS est une variable d'environnement standard utilisée pour modifier les propriétés Java.
 
 Pour implémenter correctement la mémoire dédiée :
 

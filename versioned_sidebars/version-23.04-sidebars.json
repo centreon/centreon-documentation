@@ -876,9 +876,23 @@
           "id": "version-23.04/administration/database-partitioning"
         },
         {
+        "type": "category",
+        "label": "Disaster recovery",
+        "link": {
           "type": "doc",
-          "id": "version-23.04/administration/backup"
+          "id": "administration/disaster-recovery"
         },
+        "items": [
+          {
+           "type": "doc",
+           "id": "version-23.04/administration/backup"
+          },
+          {
+            "type": "doc",
+            "id": "version-23.04/administration/backup-poller"
+           }
+          ]
+      },
         {
           "type": "doc",
           "id": "version-23.04/administration/knowledge-base"
@@ -1179,11 +1193,10 @@
     {
       "type": "category",
       "label": "Developer resources",
+      "link": {
+      "type": "generated-index"
+      },
       "items": [
-        {
-          "type": "doc",
-          "id": "version-23.04/developer/about-developer-resources"
-        },
         {
           "type": "doc",
           "id": "version-23.04/developer/developer-module"

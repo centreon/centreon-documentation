@@ -1,9 +1,6 @@
 ---
 id: applications-monitoring-iplabel-datametrie-restapi
-title: IP-Label datametrie API
+title: IP-Label datametrie API (deprecated)
 ---
 
-## Warning
-
-> This connector is deprecated, as the Datamétrie online 
-> service is not available any more.
+> This connector is deprecated, as the Datamétrie online service is not available any more.

@@ -26,12 +26,13 @@ dnf update
 
 ### Additional configuration
 
-If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Use the following command to check which languages are installed on your system:
@@ -286,7 +287,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -363,7 +364,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon
+apt install -y --no-install-recommends centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -399,7 +400,7 @@ yum install -y centreon-central
 
 ```shell
 apt update
-apt install -y centreon-central
+apt install -y --no-install-recommends centreon-central
 ```
 
 </TabItem>
@@ -430,7 +431,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon-database
+apt install -y --no-install-recommends centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```

@@ -1,10 +1,6 @@
 ---
 id: applications-redis-cli
-title: Redis Cli (Deprecated)
+title: Redis Cli (deprecated)
 ---
 
-## **WARNING** This Pack is deprecated
-
-This Pack has been deprecated and replaced by `Redis Database`. 
-
-Refer to [this procedure](applications-databases-redis.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Redis Database](applications-databases-redis.md) connector.

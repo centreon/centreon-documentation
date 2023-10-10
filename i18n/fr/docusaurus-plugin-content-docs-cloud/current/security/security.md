@@ -62,7 +62,6 @@ Les services de Centreon Cloud sont intégralement hébergés et opérés depuis
 | Service | Hébergement | Infogérance |
 | --- | --- | --- |
 | Centreon Cloud | AWS EU Ireland Region (eu-west-1) | France |
-| Centreon Anomaly Detection | AWS EU Ireland Region (eu-west-1) | France |
 
 Plus d’informations sur les pratiques de sécurité et de conformité d’AWS sont disponibles [ici](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 

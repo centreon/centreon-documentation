@@ -26,12 +26,13 @@ dnf update
 
 ### Configuration spécifique
 
-Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
@@ -284,7 +285,7 @@ yum install -y centreon-poller
 
 ```shell
 apt update
-apt install -y centreon-poller
+apt install -y --no-install-recommends centreon-poller
 ```
 
 </TabItem>

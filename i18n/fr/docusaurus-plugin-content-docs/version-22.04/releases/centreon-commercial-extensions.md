@@ -15,6 +15,45 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.12
+
+Release date: `October 02, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
+### 22.04.11
+
+Release date: `September 25, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue where copying and pasting an object deleted it.
+- [Server] Fixed the diagnostic protocol test.
+
+#### Enhancements
+
+- [Server] Make link anchors consistent between viewer and editor.
+  
+### 22.04.10
+
+Release date: `September 18, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-map-engine packaging that caused a broken dependency situation with Java.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+
+### 22.04.9
+
+Release date: `August 31, 2023`
+
+#### Bug fixes
+
+- [Server] Fixed an issue that prevented the MAP Engine server from starting.
+- [Server] Updated dependencies.
+
 ### 22.04.8 ###
 
 Release date: `July 20, 2023`
@@ -149,6 +188,42 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.04.12
+
+Release date: `October 02, 2023`
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
+### 22.04.11
+
+Release date: `September 25, 2023`
+
+#### Bug fixes
+
+- [Server] Updated dependencies.
+- [Server] Fixed a vulnerable property.
+
+### 22.04.10
+
+Release date: `September 18, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-map-server packaging that caused a broken dependency situation with Java.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+
+### 22.04.9
+
+Release date: `August 31, 2023`
+
+- No change.
 
 ### 22.04.8 ###
 
