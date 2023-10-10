@@ -80,7 +80,7 @@ After installing SNMP, you need to configure it.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_6.png)
 
-4. In the **Security** tab, enter the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
+4. On the **Security** tab, enter the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
 Then select **Accept SNMP packets from these hosts** and add the IP address of the Centreon poller.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_8.png)
