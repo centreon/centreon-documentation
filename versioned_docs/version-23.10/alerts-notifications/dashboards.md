@@ -15,7 +15,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 
 ### Configure the ACL
 
-> - You must be logged into Centreon as an administrator.
+> - You must be logged into Centreon as an Administrator.
 - In this example, we will create a new ACL called **Dashboards users**. This ACL will contain users belonging to the **Guests** user group.
 
 1. Go to **Administration > ACL > Menus Access**.
