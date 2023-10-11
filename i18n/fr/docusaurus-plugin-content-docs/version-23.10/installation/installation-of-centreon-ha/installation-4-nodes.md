@@ -1332,7 +1332,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
