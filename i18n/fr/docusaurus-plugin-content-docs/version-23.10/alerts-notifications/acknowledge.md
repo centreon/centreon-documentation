@@ -20,7 +20,6 @@ L'acquittement d'une alerte permet de stopper le processus de
 notification (envoi de notifications), jusqu'à ce que l'hôte ou le
 service retrouve un statut nominal.
 
-
 Exemple d'utilisation :
 
 Un service est chargé de vérifier la santé des disques durs d'une baie
