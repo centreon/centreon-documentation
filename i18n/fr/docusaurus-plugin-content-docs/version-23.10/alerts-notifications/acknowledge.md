@@ -20,7 +20,6 @@ L'acquittement d'une alerte permet de stopper le processus de
 notification (envoi de notifications), jusqu'à ce que l'hôte ou le
 service retrouve un statut nominal.
 
-Un acquittement est conservé en cas de redémarrage de l'ordonnanceur.
 
 Exemple d'utilisation :
 
