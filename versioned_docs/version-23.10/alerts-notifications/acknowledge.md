@@ -19,7 +19,6 @@ The acknowledgment of an alert can be used to stop the notification
 process (sending of notifications) until the host or the service
 resumes its nominal status.
 
-
 Example of use:
 
 A service is in charge of checking the health of the hard disks in a
