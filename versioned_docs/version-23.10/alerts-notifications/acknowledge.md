@@ -19,7 +19,6 @@ The acknowledgment of an alert can be used to stop the notification
 process (sending of notifications) until the host or the service
 resumes its nominal status.
 
-Acknowledgments are maintained even if the monitoring engine is restarted. 
 
 Example of use:
 
