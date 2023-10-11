@@ -23,6 +23,14 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Vue par hôte/par service
+
+Utilisez les boutons **Afficher la vue** au-dessus de la liste des ressources pour définir la façon dont la liste sera affichée. 
+
+- **Tous**: Affiche une liste complète de tous les types de ressources dans la même vue (hôtes, services, métaservices, services de type Anomaly Detection).
+- **Afficher par hôte**: Affiche la liste de tous les hôtes. Par défaut, pour chaque hôte, un résumé des statuts de tous les services est affiché dans la colonne **Services**. Cliquez sur la flèche à gauche du résumé pour étendre la zone et afficher le détail de tous les services rattachés à l'hôte. Les métaservices ne sont pas inclus dans cette vue.
+- **Afficher par service**: Affiche la liste de tous les services, et indique l'hôte auquel ils sont rattachés dans la colonne **Hôte**. La liste inclut les métaservices et les services de type Anomaly Detection.
+
 ### Vue compacte ou étendue
 
 Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifiant la présentation visuelle des lignes dans les tableaux.
