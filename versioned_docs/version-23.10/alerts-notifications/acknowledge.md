@@ -19,6 +19,8 @@ The acknowledgment of an alert can be used to stop the notification
 process (sending of notifications) until the host or the service
 resumes its nominal status.
 
+Acknowledgments are maintained even if the monitoring engine is restarted. 
+
 Example of use:
 
 A service is in charge of checking the health of the hard disks in a
@@ -47,9 +49,7 @@ To acknowledge an alert, there are several solutions:
 
         ![image](../assets/alerts/resources-status/ack-hover.gif)
 
-    The following window appears:
-
-    ![image](../assets/alerts/resources-status/ack-popup.png)
+    A window appears:
 
     -   The **Comment** field is generally used to provide the reason for the
     acknowledgment. It is mandatory.
@@ -58,11 +58,6 @@ To acknowledge an alert, there are several solutions:
     contacts linked to the object to warn them that the incident on the
     resource has been acknowledged (if the contact
     possesses the activity acknowledgment notification filter).
-
-    -   If the **Persistent** box is checked, the acknowledgment will be
-    maintained even if the monitoring engine is restarted. Otherwise, the
-    acknowledgment disappears and the notification process is
-    reactivated.
 
     -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to
