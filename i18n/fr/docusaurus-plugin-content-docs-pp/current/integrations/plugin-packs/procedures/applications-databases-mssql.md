@@ -390,7 +390,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 | CRITICALLOGFILESSPACEUSAGEFREE  | Thresholds                                                                                          |                   |             |
 | WARNINGLOGFILESSPACEUSAGEPRCT   | Thresholds                                                                                          |                   |             |
 | CRITICALLOGFILESSPACEUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS                    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Deadlocks" label="Deadlocks">
