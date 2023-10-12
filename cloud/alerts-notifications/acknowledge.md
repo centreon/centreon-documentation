@@ -73,7 +73,7 @@ To acknowledge an alert, there are several solutions:
 
 1.  Go to **Monitoring > Status Details > Hosts** (or **Services**).
 2.  Select the object(s) that you want to acknowledge.
-3.  In the menu: **More actions** click **Hosts: Acknowledge** or
+3.  In the **More actions** menu, click **Hosts: Acknowledge** or
     **Services: Acknowledge**.
 
     The following window appears:
