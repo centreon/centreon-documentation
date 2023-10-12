@@ -338,7 +338,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 | CRITICALBLOCKEDPROCESSES | Critical threshold for total number of blocked processes                                            | 5                 |             |
 | WARNINGWAITTIME          | Warning threshold for blocked wait time                                                             |                   |             |
 | CRITICALWAITTIME         | Critical threshold for blocked wait time                                                            |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Cache-Hitratio" label="Cache-Hitratio">
