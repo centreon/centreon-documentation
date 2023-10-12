@@ -3,7 +3,7 @@ id: autodisco-aws
 title: Monitor AWS EC2 instances using autodiscovery
 ---
 
-In this tutorial, we will use the Auto Discovery module to detect AWS EC2 instances and monitor them.
+In this tutorial, we will use the Autodiscovery module to detect AWS EC2 instances and monitor them.
 
 ## Prerequisites
 
@@ -33,13 +33,13 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 4. If your infrastructure requires it, fill in the details for the proxy you want to use.
 
-5. Click on the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Access Key and AWS Secret Key fields, then click on **Confirm**. Click **Next**.
+5. Click the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Access Key and AWS Secret Key fields, then click **Confirm**. Click **Next**.
 
 6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
 7. Edit or add mappers:
     * Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
-    * In our example, we will exclude the instances whose hostname contains "test".
+    * In our example, we will exclude instances whose hostname contains "test".
 
     ![image](../assets/getting-started/tutorials/aws-mapper.png)
 
