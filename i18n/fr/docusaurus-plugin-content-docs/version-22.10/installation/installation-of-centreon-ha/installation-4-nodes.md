@@ -1484,7 +1484,7 @@ Exécuter les commandes suivantes pour indiquer au Cluster que les ressources vi
 <TabItem value="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11" label="RHEL 8 / Oracle Linux 8 / Alma Linux 8 / Debian 11">
 
 ```bash
-pcs constraint colocation add master "vip_mysql" with "ms_mysql-clone"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
@@ -1492,7 +1492,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 <TabItem value="RHEL 7 / CentOS 7" label="RHEL 7 / CentOS 7">
 
 ```bash
-pcs constraint colocation add master "vip_mysql" with "ms_mysql-master"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 ```
 

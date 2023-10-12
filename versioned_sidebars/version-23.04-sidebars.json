@@ -492,10 +492,6 @@
         },
         {
           "type": "doc",
-          "id": "version-23.04/monitoring/basic-objects/customization"
-        },
-        {
-          "type": "doc",
           "id": "version-23.04/monitoring/basic-objects/contacts-create"
         },
         {
@@ -509,6 +505,10 @@
         {
           "type": "doc",
           "id": "version-23.04/administration/access-control-lists"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/monitoring/basic-objects/customization"
         }
       ]
     },

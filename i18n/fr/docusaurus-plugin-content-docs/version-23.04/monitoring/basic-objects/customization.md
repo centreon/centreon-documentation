@@ -1,6 +1,6 @@
 ---
 id: customization
-title: Personnaliser l'utilisation de Centreon
+title: Changer les paramètres de votre compte Centreon
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -38,6 +38,8 @@ langue.
 > Rendez-vous dans le chapitre [Comment traduire Centreon](../../developer/developer-translate-centreon.md) pour plus d'informations.
 
 ## Réinitialiser le mot de passe
+
+Seuls les comptes locaux peuvent changer leur mot de passe via l'interface Centreon. Si vous vous connectez via un fournisseur d'identité, votre mot de passe est celui défini auprès du fournisseur d'identité.
 
 ### Réinitialiser votre mot de passe avant expiration
 

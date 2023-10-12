@@ -5,12 +5,12 @@ title: Cluster acceptance guide
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Please note that all commands presented in this document are respectively to be run as `root` unless otherwise stated.
+> Please note that all commands presented in this document should be run as `root` unless otherwise stated.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
-> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-hosts-names-and-addresses)
+> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-hosts-names-and-addresses)
 
 ## Requirements of the tests
 
@@ -92,7 +92,7 @@ Ticket Constraints:
 
 ### Check the status of the database synchronization
 
-To verify that the database synchronization is working, performs the command:
+To verify that the database synchronization is working, execute the following command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -107,7 +107,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization shows `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
+> If the synchronization shows `KO`, you must fix it with the help of the [operating-guide](operating-guide.md).
 
 ## Centreon resource failover
 
@@ -231,7 +231,7 @@ Also, check that MySQL replication is still operational using the command:
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-The command must return the following information:
+The command should return the following information:
 
 ```text
 Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -240,7 +240,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
+> If the synchronization is `KO`, you must fix it with the help of the [operating-guide](operating-guide.md).
 
 ### Back to the nominal situation
 
@@ -289,7 +289,7 @@ Full List of Resources:
 </TabItem>
 </Tabs>
 
-Then, run the constraint cleanup command in case you have `Location Constraints`:
+If you have `Location Constraints`, run the constraint cleanup command:
 
 ```bash
 pcs resource clear centreon
@@ -309,13 +309,13 @@ Finally, remove the constraints with the command:
 pcs resource clear centreon
 ```
 
-Also, check that MySQL replication is still operational using the command:
+Also check that MySQL replication is still operational using the following command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-The command must return the following information:
+The command should return the following information:
 
 ```text
 Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -324,7 +324,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization is `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
+> If the synchronization is `KO`, you must fix it with the help of the [operating-guide](operating-guide.md).
 
 ## Simulate the loss of the secondary node
 
@@ -340,7 +340,7 @@ iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP
 iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 ```
 
-Executing the command `pcs status` on secondary node results in stopped resources being seen on the secondary node and the primary node being seen as `offline`:
+Executing the command `pcs status` on the secondary node results in stopped resources being seen on the secondary node and the primary node being seen as `offline`:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -393,7 +393,7 @@ Cluster name: centreon_cluster
 Cluster Summary:
   * Stack: corosync
   * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
-  * Last updated: Tue Nov  8 15:19:52 2022
+  * Last updated: Tue Nov 8 15:19:52 2022
   * Last change:  Tue Nov  8 14:25:58 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
   * 2 nodes configured
   * 14 resource instances configured
@@ -423,7 +423,7 @@ To check the various iptables rules configured on the primary node, run the foll
 iptables -L
 ```
 
-The command must return the following information:
+The command should return the following information:
 
 ```text
 Chain INPUT (policy ACCEPT)
@@ -570,7 +570,7 @@ To check the various iptables rules configured on the primary node, run the foll
 iptables -L
 ```
 
-The command must return the following information:
+The command should return the following information:
 
 ```text
 Chain INPUT (policy ACCEPT)
@@ -612,7 +612,7 @@ By running the `crm_mon` command on the second node, you will see the primary no
 Cluster Summary:
   * Stack: corosync
   * Current DC: @CENTRAL_MASTER_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
-  * Last updated: Tue Nov  8 17:27:28 2022
+  * Last updated: Tue Nov 8 17:27:28 2022
   * Last change:  Tue Nov  8 17:23:19 2022 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
   * 2 nodes configured
   * 14 resource instances configured
@@ -702,7 +702,7 @@ You must do a database synchronization from @CENTRAL_SLAVE_NAME@ to @CENTRAL_MAS
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-As for the previous execution of this script, verify if LVM Snapshot is correctly deleted and the MySQL Slave restarted:
+As for the previous execution of this script, check whether the LVM Snapshot is correctly deleted and the MySQL Slave restarted:
 
 ```text
 Umount and Delete LVM snapshot
@@ -717,7 +717,7 @@ Id      User    Host    db      Command Time    State   Info    Progress
 8       system user             NULL    Slave_SQL       0       Slave has read all relay log; waiting for more updates    NULL    0.000
 ```
 
-Now, database replication should be OK, verify it.
+Database replication should now be OK. Check this.
 
 ```shell
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -744,13 +744,13 @@ Do a cleanup to clear errors and restart the ms_mysql resource on @CENTRAL_MASTE
 pcs resource cleanup
 ```
 
-The situation is stabilized, you can perform a failover by moving the **centreon** resource.
+The situation has stabilized, and you can perform a failover by moving the **centreon** resource.
 
 ```shell
 pcs resource move centreon
 ```
 
-The **centreon** resource is now relocated and the cluster is OK, verify with `crm_mon -fr` on any node.
+The **centreon** resource is now relocated and the cluster is OK. Check this with `crm_mon -fr` on any node.
 
 ```text
 Cluster Summary:
@@ -785,7 +785,7 @@ Migration Summary:
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via. [macros defined here](../../installation/installation-of-centreon-ha/installation-4-nodes.md#defining-hosts-names-and-addresses)
+> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via [macros defined here](../../installation/installation-of-centreon-ha/installation-4-nodes.md#defining-hosts-names-and-addresses)
 
 ## Requirements of the tests
 
@@ -891,7 +891,7 @@ Ticket Constraints:
 
 ### Check the status of the database synchronization
 
-To verify that the database synchronization is working, performs the command:
+To verify that the database synchronization is working, execute the following command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -906,7 +906,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization shows `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
+> If the synchronization shows `KO`, you must fix it with the help of the [operating-guide](operating-guide.md).
 
 ## Centreon resource failover
 
@@ -1044,13 +1044,13 @@ pcs resource clear centreon
 
 > This will remove the constraints established during the failover.
 
-Also, check that MySQL replication is still operational using the command:
+Also check that MySQL replication is still operational using the command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-The command must return the following information:
+The command should return the following information:
 
 ```text
 Connection MASTER Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -1059,7 +1059,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide.md).
+> If the synchronization is `KO`, you must fix it with the help of the [operating-guide](operating-guide.md).
 
 ### Back to the nominal situation
 
@@ -1120,7 +1120,7 @@ Daemon Status:
 </TabItem>
 </Tabs>
 
-Then, run the constraint cleanup command in case you have `Location Constraints`:
+If you have `Location Constraints`, run the constraint cleanup command:
 
 ```bash
 pcs resource clear centreon
@@ -1147,7 +1147,7 @@ The @CENTRAL_SLAVE_NAME@ will be completely excluded from the cluster. The @CENT
 
 ### Processing 
 
-To perform this test, launch the `iptables` commands on the @CENTRAL_SLAVE_NAME@. Be carreful avoid @CENTRAL_SLAVE_IPADDR@ otherwise you loose SSH connection on this node.
+To perform this test, launch the `iptables` commands on the @CENTRAL_SLAVE_NAME@. Be careful not to create iptables rules containing @CENTRAL_SLAVE_IPADDR@, otherwise you lose the SSH connection on this node.
 
 ```bash
 iptables -A INPUT -s @CENTRAL_MASTER_IPADDR@ -j DROP
@@ -1219,7 +1219,7 @@ To check the various iptables rules configured on the primary node, run the foll
 iptables -L
 ```
 
-The command must return the following information:
+The command should return the following information:
 
 ```text
 Chain INPUT (policy ACCEPT)
@@ -1342,7 +1342,7 @@ Resources on the @CENTRAL_MASTER_NAME@ should stop and should start on the @CENT
 ```text
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el8_9.1-9acf116022) - partition with quorum
-Last updated: Thu May  5 11:06:38 2022
+Last updated: Thu May 5 11:06:38 2022
 Last change: Thu May  5 09:09:50 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
 
 4 nodes configured
