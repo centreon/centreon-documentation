@@ -489,7 +489,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | SQLSTATEMENT | SQL statement that returns a number                                                                 |                   | X           |
 | WARNING      |                                                                                                     |                   |             |
 | CRITICAL     |                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Sql-Statement-String" label="Sql-Statement-String">
