@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias         | Modèle de service                                      | Description                                                                        |
 |:--------------|:-------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | App-Usage     | Cloud-Azure-Compute-Functions-App-Usage-Api-custom     | Contrôle l'utilisation de l'application Azure Functions                            |
-| Cpu-Time      | Cloud-Azure-Compute-Functions-Cpu-Time-Api-custom      | Contrôle le temps processeur utilisé l'application Azure Functions                 |
+| Cpu-Time      | Cloud-Azure-Compute-Functions-Cpu-Time-Api-custom      | Contrôle le temps processeur utilisé par l'application Azure Functions                 |
 | Data          | Cloud-Azure-Compute-Functions-Data-Api-custom          | Contrôle l'utilisation de la bande passante de l'application Azure Functions       |
 | Executions    | Cloud-Azure-Compute-Functions-Executions-Api-custom    | Contrôle le nombre d'exécutions de fonctions                                       |
 | File-System   | Cloud-Azure-Compute-Functions-FIle-System-Api-custom   | Contrôle l'utilisation du système de fichiers de l'application Azure Functions     |
@@ -283,14 +283,14 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               | X           |
-| AZURERESOURCE      | Set resource name or id (Required)                                                                                         |                   | X           |
-| AZURERESOURCEGROUP | Set resource group (Required if resource's name is used)                                                                   |                   | X           |
-| AZURESUBSCRIPTION  | Set Azure subscription (Required if logged to several subscriptions)                                                       |                   | X           |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   | X           |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
+| AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
 
-> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous superviser des ressources Microsoft Azure géré par 21Vianet (Azure China):
+> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous souhaitez superviser des ressources Microsoft Azure gérées par 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
@@ -299,9 +299,9 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or id (Required)                                                                                         |                   |             |
-| AZURERESOURCEGROUP | Set resource group (Required if resource's name is used)                                                                   |                   | X           |
-| AZURESUBSCRIPTION  | Set Azure subscription (Required if logged to several subscriptions)                                                       |                   | X           |
+| AZURERESOURCE      | Set resource name or id (required)                                                                                         |                   |             |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
+| AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
 
@@ -325,11 +325,11 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 
 | Macro                     | Description                                                                                                                          | Valeur par défaut | Obligatoire |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME                 | Set timeframe in seconds (i.e. 3600 to check last hour).                                                                              | 900               |             |
+| TIMEFRAME                 | Set timeframe in seconds (i.e. 3600 to check the last hour).                                                                              | 900               |             |
 | INTERVAL                  | Set interval of the metric query (Can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                       | PT5M              |             |
-| AGGREGATION               | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times               | Average           |             |
-| FILTERMETRIC              | Filter metrics (Can be: 'appconnections', 'currentassemblies', 'handles', 'threads', 'totalappdomains', 'totalappdomainsunloaded') (Can be a regexp).                                                                      |                   |             |
-| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
+| AGGREGATION               | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times.               | Average           |             |
+| FILTERMETRIC              | Filter metrics (can be: 'appconnections', 'currentassemblies', 'handles', 'threads', 'totalappdomains', 'totalappdomainsunloaded') (can be a regexp).                                                                      |                   |             |
+| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics). Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
 | WARNINGAPPDOMAINS         | Warning threshold where '*'                                                                                                          |                   |             |
 | CRITICALAPPDOMAINS        | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
 | WARNINGAPPDOMAINUNLOADED  | Warning threshold where '*'                                                                                                          |                   |             |
@@ -349,24 +349,24 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 
 | Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME       | Set timeframe in seconds (i.e. 3600 to check last hour).                                            | 900               |             |
-| INTERVAL        | Set interval of the metric query (Can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).     | PT5M              |             |
+| TIMEFRAME       | Set timeframe in seconds (i.e. 3600 to check the last hour).                                            | 900               |             |
+| INTERVAL        | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).     | PT5M              |             |
 | AGGREGATION     | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times. | Total             |             |
-| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
+| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics). Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
 | WARNINGCPUTIME  | Consumed CPU time warning threshold                                                                 |                   |             |
 | CRITICALCPUTIME | Consumed CPU time critical threshold                                                                |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Data" label="Data">
 
 | Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME       | Set timeframe in seconds (i.e. 3600 to check last hour). | 900               |             |
-| INTERVAL        | Set interval of the metric query (Can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).     | PT5M              |             |
+| TIMEFRAME       | Set timeframe in seconds (i.e. 3600 to check the last hour). | 900               |             |
+| INTERVAL        | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).     | PT5M              |             |
 | AGGREGATION     | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times. | Total             |             |
-| FILTERMETRIC    | Filter metrics (Can be: 'bytesreceived', 'bytessent') (Can be a regexp).                                     |                   |             |
-| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
+| FILTERMETRIC    | Filter metrics (can be: 'bytesreceived', 'bytessent') (can be a regexp).                                     |                   |             |
+| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics). Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
 | WARNINGDATAIN   | Warning threshold where '*'                                                                         |                   |             |
 | CRITICALDATAIN  | Critical threshold where '*' can be:. 'data-in', 'data-out'                                         |                   |             |
 | WARNINGDATAOUT  | Warning threshold where '*'                                                                         |                   |             |
@@ -738,8 +738,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                                                                                     |
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                                                                                             |
-| --resource-group | Set resource group (Required if resource's name is used).                                                                       |
+| --resource       | Set resource name or ID (required).                                                                                             |
+| --resource-group | Set resource group (required if resource's name is used).                                                                       |
 | --warning-*      | Warning threshold where '*' can be: 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'.    |
 
@@ -748,8 +748,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option              | Description                                                 |
 |:--------------------|:------------------------------------------------------------|
-| --resource          | Set resource name or id (Required).                         |
-| --resource-group    | Set resource group (Required if resource's name is used).   |
+| --resource          | Set resource name or ID (required).                         |
+| --resource-group    | Set resource group (required if resource's name is used).   |
 | --warning-cpu-time  | Consumed CPU time warning threshold.                        |
 | --critical-cpu-time | Consumed CPU time critical threshold.                       |
 
@@ -758,8 +758,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                     |
 |:-----------------|:----------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                             |
-| --resource-group | Set resource group (Required if resource's name is used).       |
+| --resource       | Set resource name or ID (required).                             |
+| --resource-group | Set resource group (required if resource's name is used).       |
 | --warning-*      | Warning threshold where '*' can be: 'data-in', 'data-out'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'data-in', 'data-out'.    |
 
@@ -768,8 +768,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                                   |
 |:-----------------|:------------------------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                                           |
-| --resource-group | Set resource group (Required if resource's name is used).                     |
+| --resource       | Set resource name or ID (required).                                           |
+| --resource-group | Set resource group (required if resource's name is used).                     |
 | --warning-*      | Warning threshold where '*' can be: 'execution-count', 'execution-unit'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'execution-count', 'execution-unit'.    |
 
@@ -778,7 +778,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                 |
 |:-----------------|:------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                         |
+| --resource       | Set resource name or ID (required).                         |
 | --resource-group | Set resource group (Required if resource's name is used).   |
 | --warning-usage  | File system usage warning threshold.                        |
 | --critical-usage | File system usage critical threshold.                       |
@@ -788,8 +788,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                               |
 |:-----------------|:--------------------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                                       |
-| --resource-group | Set resource group (Required if resource's name is used).                 |
+| --resource       | Set resource name or ID (required).                                       |
+| --resource-group | Set resource group (required if resource's name is used).                 |
 | --warning-*      | Warning threshold where '*' can be: 'gc-gen0', 'gc-gen1', 'gc-gen2'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'gc-gen0', 'gc-gen1', 'gc-gen2'.    |
 
@@ -798,8 +798,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                                                                                                                          |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --resource        | Set resource name or id (Required).                                                                                                                                  |
-| --resource-group  | Set resource group (Required if resource's name is used).                                                                                                            |
+| --resource        | Set resource name or ID (required).                                                                                                                                  |
+| --resource-group  | Set resource group (required if resource's name is used).                                                                                                            |
 | --warning-status  | Define the conditions to match for the status to be WARNING (Default: ''). Special variables that can be used: %{status}, %{summary}.                                |
 | --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /^Unavailable$/'). Special variables that can be used: %{status}, %{summary}.   |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /^Unknown$/'). Special variables that can be used: %{status}, %{summary}.        |
@@ -810,8 +810,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                                                                                                                                       |
 |:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                                                                                                                                               |
-| --resource-group | Set resource group (Required if resource's name is used).                                                                                                                         |
+| --resource       | Set resource name or ID (required).                                                                                                                                               |
+| --resource-group | Set resource group (required if resource's name is used).                                                                                                                         |
 | --warning-*      | Warning threshold where '*' can be: 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx'.    |
 
@@ -820,8 +820,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                                                                                                     |
 |:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                                                                                                             |
-| --resource-group | Set resource group (Required if resource's name is used).                                                                                       |
+| --resource       | Set resource name or ID (required).                                                                                                             |
+| --resource-group | Set resource group (required if resource's name is used).                                                                                       |
 | --warning-*      | Warning threshold where '*' can be: 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations'.    |
 
@@ -830,8 +830,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                                  |
 |:-----------------|:-----------------------------------------------------------------------------|
-| --resource       | Set resource name or id (Required).                                          |
-| --resource-group | Set resource group (Required if resource's name is used).                    |
+| --resource       | Set resource name or ID (required).                                          |
+| --resource-group | Set resource group (required if resource's name is used).                    |
 | --warning-*      | Warning threshold where '*' can be: 'app-average-memory', 'app-memory'.      |
 | --critical-*     | Critical threshold where '*' can be:. 'app-average-memory', 'app-memory'.    |
 
@@ -840,8 +840,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                 |
 |:-------------------------|:------------------------------------------------------------|
-| --resource               | Set resource name or id (Required).                         |
-| --resource-group         | Set resource group (Required if resource's name is used).   |
+| --resource               | Set resource name or ID (required).                         |
+| --resource-group         | Set resource group (required if resource's name is used).   |
 | --warning-response-time  | Response time warning threshold.                            |
 | --critical-response-time | Response time critical threshold.                           |
 
@@ -850,8 +850,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                 |
 |:------------------|:------------------------------------------------------------|
-| --resource        | Set resource name or id (Required).                         |
-| --resource-group  | Set resource group (Required if resource's name is used).   |
+| --resource        | Set resource name or ID (required).                         |
+| --resource-group  | Set resource group (required if resource's name is used).   |
 | --warning-status  | App status warning threshold.                               |
 | --critical-status | App status critical threshold.                              |
 
