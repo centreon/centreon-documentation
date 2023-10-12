@@ -29,7 +29,7 @@ There are two solutions to add a comment:
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access to the details page of the object
-2.  In the category **Host/Service Commands**, click **Add a comment
+2.  In the **Host/Service Commands** category , click **Add a comment
     for this host/this service**
 
 </TabItem>
