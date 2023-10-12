@@ -5,6 +5,9 @@ title: EES UPS SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+This connectors monitors Emerson Energy Systems/Vertiv uninterruptible power supplies.
+
 ## Pack assets
 
 ### Templates
