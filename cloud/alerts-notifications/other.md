@@ -35,7 +35,7 @@ There are two solutions to add a comment:
 </TabItem>
 <TabItem value="From the Comment menu" label="From the Comment menu">
 
-1.  Go into the **Monitoring > Downtimes > Comments** menu
+1.  Go to **Monitoring > Downtimes > Comments**
 2.  Click **Add a Service Comment** or **Add a Host Comment**
 
 </TabItem>
