@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 | Innodb-Bufferpool    | App-DB-MySQL-Innodb-Bufferpool-custom            | Contrôle permettant de vérifier le taux de succès du tampon InnoDB                                                                 |
 | Long-Queries         | App-DB-MySQL-Long-Queries-custom                 | Contrôle permettant de vérifier les requêtes courantes longues                                                                     |
 | MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          |                                                                                                                                    |
-| Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateurs                                                        |
+| Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateur                                                       |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate-custom               | Contrôle permettant de vérifier le taux d'utilisation du 'query cache'                                                             |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                        |
 | Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                    |
