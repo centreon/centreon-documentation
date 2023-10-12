@@ -5,6 +5,9 @@ title: EES UPS SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+Ce connecteur permet de superviser les onduleurs Emerson Energy Systems/Vertiv.
+
 ## Contenu du pack
 
 ### Modèles
