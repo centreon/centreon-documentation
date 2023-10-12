@@ -5,7 +5,6 @@ title: Planning downtime
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Adding downtime
 
 ### Principle
@@ -31,8 +30,6 @@ There are two types of downtime:
 There are several ways to define downtime:
 
 -   From the **Resources Status** page
--   From the detail sheets of a host or of the service
--   From the real-time monitoring interface
 -   From the **Downtime** menu
 
 <Tabs groupId="sync">
@@ -62,53 +59,6 @@ There are several ways to define downtime:
     defined.
 
 </TabItem>
-<TabItem value="Detailed sheet of an object" label="Detailed sheet of an object">
-
-1.  Access the detail page of an object
-2.  In the category: **Commands**, click **Schedule downtime for this
-    host/service**
-
-    The following window appears:
-
-    ![image](../assets/alerts/downtime.png)
-
--   The **Host Name** field defines the host concerned by downtime
--   The **Service** field defines the service concerned by downtime
--   If the **Fixed** box is checked, the downtime period is fixed. Otherwise, it
-    is flexible
--   If the downtime period is flexible, the **Duration** field defines the
-    length of the downtime
--   The **Start Time** and **End Time** fields define the beginning and
-    end date of the downtime period. Downtime cannot start or end after December 31, 2099, 11:59 pm.
--   The **Comments** field can be used to indicate why downtime is
-    defined.
-
-</TabItem>
-<TabItem value="Real time monitoring" label="Real time monitoring">
-
-1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
-    menu.
-2.  Select the object(s) on which you want to program a downtime
-    period
-3.  In the **More actions…** menu, click **Hosts: Set Downtime** or
-    **Services: Set Downtime**
-
-    The following window appears:
-
-    ![image](../assets/alerts/downtime.png)
-
-    -   The **Host Name** field defines the host concerned by downtime
-    -   The **Service** field defines the service concerned by downtime
-    -   If the **Fixed** box is checked, the downtime period is fixed. Otherwise, it
-        is flexible
-    -   If the downtime period is flexible, the **Duration** field defines the
-        length of the downtime
-    -   The **Start Time** and **End Time** fields define the beginning and
-        end date of the downtime period. Downtime cannot start or end after December 31, 2099, 11:59 pm.
-    -   The **Comments** field can be used to indicate why downtime is
-        defined.
-
-</TabItem>
 <TabItem value="Downtime menu" label="Downtime menu">
 
 1.  Go into the **Monitoring > Downtimes > Downtimes** menu
@@ -136,11 +86,6 @@ There are several ways to define downtime:
 
 ### Principle
 
-Downtime is a period during which the notifications to a
-host or a service are disabled. Downtime periods are convenient during
-maintenance operations on a host or a service: they allow us to avoid
-receiving false positives.
-
 Recurrent downtime periods are downtime periods that recur
 repetitively.
 
@@ -162,13 +107,11 @@ There are two types of downtime:
     the form) from the moment when the host or the status returns a
     Not-OK status.
 
-To add a recurrent downtime period, go into the
-**Monitoring > Downtimes > Recurrent Downtimes** menu and click
+To add a recurrent downtime period, go to
+**Monitoring > Downtimes > Recurrent Downtimes** and click
 **Add**.
 
-![image](../assets/alerts/05recurrentdowntimes.png)
-
-#### Configuration of Downtime periods
+#### Configuration of downtime periods
 
 -   The **Name** and **Description** fields are used to give a name and
     describe the recurrent downtime period.
