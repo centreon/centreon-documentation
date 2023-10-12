@@ -8,6 +8,8 @@ title: Event consoles
 > This new page aims to regroup all the experiences you can find in these
 > interfaces.
 >
+> Deprecated pages will be removed in the next major version of Centreon.
+> 
 > For new installations, deprecated pages are automatically hidden. It is
 > possible to display them by selecting the option **Use deprecated pages**
 > in the preferences specific to each user from the menu
