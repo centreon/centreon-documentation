@@ -69,11 +69,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                             | Unité |
 |:-----------------------------------------------------|:------|
-| *databases*~*tables*#table.space.usage.bytes         | B     |
-| *databases*~*tables*#table.space.free.bytes          | B     |
-| *databases*~*tables*#table.dead\_tuple.bytes         | B     |
-| *databases*~*indexes*#index.space.usage.bytes        | B     |
-| *databases*~*indexes*#index.leaf\_density.percentage | %     |
+| *db_name~table_name*#table.space.usage.bytes         | B     |
+| *db_name~table_name*#table.space.free.bytes          | B     |
+| *db_name~table_name*#table.dead\_tuple.bytes         | B     |
+| *db_name~index_name*#index.space.usage.bytes        | B     |
+| *db_name~index_name*#index.leaf\_density.percentage | %     |
 
 </TabItem>
 <TabItem value="Cache-Hitratio" label="Cache-Hitratio">
