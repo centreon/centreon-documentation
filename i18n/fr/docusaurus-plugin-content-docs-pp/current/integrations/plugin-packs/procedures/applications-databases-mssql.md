@@ -365,7 +365,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold in milliseconds                                                                   |                   |             |
 | CRITICAL     | Critical threshold in milliseconds                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Databases-Size" label="Databases-Size">
