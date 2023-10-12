@@ -8,28 +8,28 @@ import TabItem from '@theme/TabItem';
 
 ### Principle
 
-When a host or a service presents an incident and this incident is
-confirmed, the notification process is triggered, it can generate a
-notification sent to a contact. If the problem persists and depending on
+When a host or a service has an incident and this incident is
+confirmed, the notification process is triggered. This can generate a
+notification sent to a contact. If the problem persists, and depending on
 the configuration produced (resend a notification at regular time
 intervals, escalation of notification, etc.), it is possible that other notifications are sent.
 
 The acknowledgment of an alert can be used to stop the notification
 process (sending of notifications) until the host or the service
-recovers its nominal status.
+resumes its nominal status.
 
 Example of use:
 
-A service is charged with checking the health of the hard disks in a
-disc array. A hard disk goes down on a disk array, a notification is
-sent. The monitoring operator acknowledges the service specifying that a
+A service is in charge of checking the health of the hard disks in a
+disk array. A hard disk on a disk array goes down, and a notification is
+sent. The monitoring operator acknowledges the service, specifying that a
 team is in the process of dealing with the problem. Notifications are no
 longer sent. The service will return to its nominal state after a change
 of disk.
 
-> The acknowledgment of an alert signifies the taking into account of
-> the problem by a user of the monitoring - and not the correction of
-> the incident which can only be effective when the check returns to its
+> The acknowledgment of an alert means that a monitoring user
+> has taken the problem into account - not that the incident has been
+> corrected; this can only take effect when the check returns to its
 > nominal state.
 
 ### Practice
@@ -50,12 +50,12 @@ To acknowledge an alert, there are several solutions:
 
     ![image](../assets/alerts/resources-status/ack-popup.png)
 
-    -   The **Comment** field is generally used to provide the reason of the
+    -   The **Comment** field is generally used to provide the reason for the
     acknowledgment. It is mandatory.
     
     -   If the **Notify** box is checked, a notification is sent to the
-    contacts linked to the object to warn that the incident on the
-    resource has been acknowledged (in the situation the contact
+    contacts linked to the object to warn them that the incident on the
+    resource has been acknowledged (if the contact
     possesses the activity acknowledgment notification filter).
 
     -   If the **Persistent** box is checked, the acknowledgment will be
@@ -64,7 +64,7 @@ To acknowledge an alert, there are several solutions:
     reactivated.
 
     -   If the **Sticky** box is checked, the acknowledgment will be
-    maintained in case of a change of Not-OK status (E.g.: DOWN to
+    maintained in case of a change of Not-OK status (e.g.: DOWN to
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
 
@@ -73,7 +73,7 @@ To acknowledge an alert, there are several solutions:
 
 1.  Go to **Monitoring > Status Details > Hosts** (or **Services**).
 2.  Select the object(s) that you want to acknowledge.
-3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on
+3.  In the **More actions** menu, click **Hosts: Acknowledge** or
     **Services: Acknowledge**.
 
     The following window appears:
@@ -81,19 +81,19 @@ To acknowledge an alert, there are several solutions:
 ![image](../assets/alerts/acknowledged.png)
 
 -   If the **Sticky** box is checked, the acknowledgment will be
-    maintained in case of a change of Not-OK status (E.g.: DOWN to
+    maintained in case of a change of Not-OK status (e.g.: DOWN to
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
 -   If the **Notify** box is checked, a notification is sent to the
-    contacts linked to the object to warn that the incident on the
-    resource has been acknowledged (in the situation the contact
+    contacts linked to the object to warn them that the incident on the
+    resource has been acknowledged (if the contact
     possesses the activity acknowledgment notification filter).
 -   If the **Persistent** box is checked, the acknowledgment will be
     maintained in the case of a restart of the scheduler. Otherwise, the
     acknowledgment disappears and the notification process is
     reactivated.
--   The **Comment** field is generally used to provide the reason of the
-    acknowledgment, it is mandatory
+-   The **Comment** field is generally used to provide the reason for the
+    acknowledgment. It is mandatory.
 -   If the **Acknowledge services attached to hosts** box is checked,
     all the services linked to the host will be acknowledged (option
     visible only if we acknowledge a host).
@@ -103,7 +103,7 @@ To acknowledge an alert, there are several solutions:
 </TabItem>
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
-From of the detail page of an object, click on the icon |enabled| associated
+From of the detail page of an object, click the icon |enabled| associated
 with the **Acknowledged** field in the **Options** frame.
 
 The following window appears:
@@ -111,19 +111,19 @@ The following window appears:
 ![image](../assets/alerts/acknowledged.png)
 
 -   If the **Sticky** box is checked, the acknowledgment will be
-    maintained in case of a change of Not-OK status (E.g.: DOWN to
+    maintained in case of a change of Not-OK status (e.g.: DOWN to
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
 -   If the **Notify** box is checked, a notification is sent to the
-    contacts linked to the object to warn that the incident on the
-    resource has been acknowledged (in the situation the contact
+    contacts linked to the object to warn them that the incident on the
+    resource has been acknowledged (if the contact
     possesses the activity acknowledgment notification filter).
 -   If the **Persistent** box is checked, the acknowledgment will be
     maintained in the case of a restart of the scheduler. Otherwise, the
     acknowledgment disappears and the notification process is
     reactivated.
--   The **Comment** field is generally used to provide the reason of the
-    acknowledgment, it is mandatory
+-   The **Comment** field is generally used to provide the reason for the
+    acknowledgment. It is mandatory.
 -   If the **Acknowledge services attached to hosts** box is checked,
     all the services linked to the host will be acknowledged (option
     visible only if we acknowledge a host).
@@ -142,15 +142,15 @@ To delete the acknowledgment of an incident on an object:
 
 1. Go to **Monitoring > Resources Status**.
 2. Select the objects you want to disacknowledge.
-3. On the **More actions** menu, click **Disacknowledge**.
+3. In the **More actions** menu, click **Disacknowledge**.
 
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Go to **Monitoring > Status Details > Hosts** (or **Services**).
 2.  Select the objects you want to disacknowledge.
-3.  In the **More actions** menu, click on **Hosts: Disacknowledge** or
-    on **Services: Disacknowledge**
+3.  In the **More actions** menu, click **Hosts: Disacknowledge** or
+    **Services: Disacknowledge**
 
 </TabItem>
 </Tabs>

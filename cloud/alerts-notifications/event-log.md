@@ -15,7 +15,7 @@ To view the event logs, go to **Monitoring > Event logs**.
 - In the upper menu, select the hosts and/or the services you want to
 view logs for. You can also filter by servicegroup or hostgroup.
 
-- Select the options you want in sections **Message Type** and **Status** to display the corresponding events.
+- Select the options you want in the **Message Type** and **Status** sections to display the corresponding events.
 
 - Use the following fields to define the time period for which you want to display events:
     - **Log Period**: select predefined time periods
