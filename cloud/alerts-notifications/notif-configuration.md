@@ -9,7 +9,7 @@ By default, notifications are active for all hosts and services. In Centreon Clo
 
 Notifications are sent in the following cases:
 
-* when a resource has a non-ok status (**Warning** or **Critical** for a service, **Down** or **Unreachable** for a host)
+* when a resource enters a non-ok status (**Warning** or **Critical** for a service, **Down** or **Unreachable** for a host)
 * when a resource goes back to an OK status
 * when a downtime period starts.
 
