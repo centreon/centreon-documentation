@@ -345,7 +345,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold in milliseconds                                                                   |                   |             |
 | CRITICAL     | Critical threshold in milliseconds                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Connections-Number" label="Connections-Number">
@@ -356,7 +356,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | CRITICAL          | Thresholds                                                                                          |                   |             |
 | WARNINGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
 | CRITICALUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
@@ -379,7 +379,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | CRITICALTOTALFREE  | Thresholds (                                                                                        |                                                       |             |
 | WARNINGTOTALUSAGE  | Thresholds (                                                                                        |                                                       |             |
 | CRITICALTOTALUSAGE | Thresholds (                                                                                        |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose                                             |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose                                             |             |
 
 </TabItem>
 <TabItem value="Innodb-Bufferpool" label="Innodb-Bufferpool">
@@ -388,7 +388,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
@@ -400,7 +400,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | FILTERUSER    | Filter by user (can be a regexp)                                                                    |                   |             |
 | WARNING       | Warning threshold (number of long queries)                                                          |                   |             |
 | CRITICAL      | Critical threshold (number of long queries)                                                         |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="MariaDB-Replication" label="MariaDB-Replication">
@@ -425,7 +425,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | CRITICALTHREADIOSTATUS    |                                                                                                                                                                                                      |                                                   |             |
 | WARNINGTHREADSQLSTATUS    |                                                                                                                                                                                                      |                                                   |             |
 | CRITICALTHREADSQLSTATUS   |                                                                                                                                                                                                      |                                                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                  | --verbose                                         |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                  | --verbose                                         |             |
 
 </TabItem>
 <TabItem value="Myisam-Keycache" label="Myisam-Keycache">
@@ -434,7 +434,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -443,7 +443,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold in percent                                                                        |                   |             |
 | CRITICAL     | Critical threshold in percent                                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Password-Expiration" label="Password-Expiration">
@@ -452,7 +452,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{expire} ne "never" and %{expire\_time} == 0'). You can use the following variables: %{user}, %{expire}, %{expire\_time} | %{expire} ne "never" and %{expire\_time} == 0 |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{user}, %{expire}, %{expire\_time}                                                             |                                               |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                               | --verbose                                     |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                               | --verbose                                     |             |
 
 </TabItem>
 <TabItem value="Qcache-Hitrate" label="Qcache-Hitrate">
@@ -461,7 +461,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
@@ -470,7 +470,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Slowqueries" label="Slowqueries">
