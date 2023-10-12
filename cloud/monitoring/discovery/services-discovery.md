@@ -319,7 +319,7 @@ Here, four attributes are available: `name`, `total`, `status` and
 
 ## Manually test a rule
 
-You can run discovery manually using the following options:
+You can run a discovery manually using the following options:
 
 | Directive       | Type    | Description                                                                   |
 |-----------------|---------|-------------------------------------------------------------------------------|
