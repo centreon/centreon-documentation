@@ -37,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                        | Description                                                                                             |
 |:---------------------|:-----------------------------------------|:--------------------------------------------------------------------------------------------------------|
 | Backup-Age           | App-DB-MSSQL-Backup-Age-custom           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                                 |
-| Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucunes alertes par défaut |
+| Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucune alerte par défaut |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                       |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Contrôle permettant de vérifier le "Page Life Expectancy du serveur. Aucunes alertes par défaut         |
 | Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique             |
