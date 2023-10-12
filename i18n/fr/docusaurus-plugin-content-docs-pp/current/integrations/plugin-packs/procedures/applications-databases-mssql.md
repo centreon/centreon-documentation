@@ -324,7 +324,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 | CRITICALLOGLASTDURATION          | Thresholds                                                                                                                                 |                   |             |
 | WARNINGLOGLASTEXECUTION          | Thresholds                                                                                                                                 |                   |             |
 | CRITICALLOGLASTEXECUTION         | Thresholds                                                                                                                                 |                   |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                        | --verbose         |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                        | --verbose         |             |
 
 </TabItem>
 <TabItem value="Blocked-Processes" label="Blocked-Processes">
