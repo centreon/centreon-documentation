@@ -9,7 +9,7 @@ When a user acknowledges a resource in Centreon, they notify their teams that th
 
 When a resource is acknowledged, [notifications](#notification) are stopped, and the resource is highlighted yellow in monitoring screens.
 
-Acknowledging a resource does not mean that the incident is over:: It will be over when the resource is back to its nominal state (**OK** or **UP**).
+Acknowledging a resource does not mean that the incident is over. It will be over when the resource is back to its nominal state (**OK** or **UP**).
 
 **See also**: [Acknowledging an alert](../alerts-notifications/acknowledge.md).
 
