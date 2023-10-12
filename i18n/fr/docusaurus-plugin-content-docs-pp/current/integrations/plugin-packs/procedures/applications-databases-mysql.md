@@ -479,7 +479,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning number for slow queries since last check                                                    |                   |             |
 | CRITICAL     | Critical number for slow queries since last check                                                   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sql-Statement" label="Sql-Statement">
