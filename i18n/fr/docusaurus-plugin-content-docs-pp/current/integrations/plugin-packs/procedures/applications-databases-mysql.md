@@ -500,7 +500,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | VALUE        | Value column (must be one of the selected field). MANDATORY                                                                                                                               |                   |             |
 | WARNING      | Define the conditions to match for the status to be WARNING. (Can be: %{key\_field}, %{value\_field}) e.g --warning-string '%{key\_field} eq 'Central' && %{value\_field} =~ /127.0.0.1/' |                   |             |
 | CRITICAL     | Define the conditions to match for the status to be CRITICAL (Can be: %{key\_field} or %{value\_field})                                                                                   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                       |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                       |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
