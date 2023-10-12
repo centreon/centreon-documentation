@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                       |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut         |
 | Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique             |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères         |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères         |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
