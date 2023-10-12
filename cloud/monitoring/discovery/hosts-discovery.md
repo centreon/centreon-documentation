@@ -313,7 +313,7 @@ host.
 The **Source** list allows you to choose between credentials, parameters, or
 discovery result attributes.
 
-The **Destination** is a user-defined text field.
+The **Destination** list is a user-defined text field.
 
 The **Password** checkbox defines whether the macro will be created as a password
 macro or not.
