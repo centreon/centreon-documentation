@@ -287,8 +287,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 |:---------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | POSTGRESUSERNAME     | User name used to connect to the database                                                             |                   |      X      |
 | POSTGRESPASSWORD     | Password for the defined user name                                                                    |                   |      X      |
-| POSTGRESPORT         | Database Server Port                                                                                  | 5432              |             |
-| POSTGRESDATABASE     | Database Name                                                                                         | postgres          |             |
+| POSTGRESPORT         | Database server port                                                                                  | 5432              |             |
+| POSTGRESDATABASE     | Database name                                                                                         | postgres          |             |
 | POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -352,7 +352,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro          | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERDATABASE | Filter database to checks (Can use regexp)                                                          | .*                |             |
+| FILTERDATABASE | Filter database to checks (can use regexp)                                                          | .*                |             |
 | WARNINGSIZE    | Warning threshold in bytes, maximum size allowed                                                    |                   |             |
 | CRITICALSIZE   | Critical threshold in bytes, maximum size allowed                                                   |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
