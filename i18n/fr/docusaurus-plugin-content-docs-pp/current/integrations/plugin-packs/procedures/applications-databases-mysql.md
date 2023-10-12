@@ -509,7 +509,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
