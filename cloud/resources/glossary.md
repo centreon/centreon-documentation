@@ -89,9 +89,7 @@ Centreon Engine is present on [pollers](#poller) and the [central server](#centr
 
 ## Notification
 
-Message that warns a user that an incident has occurred. You can configure notifications on various [statuses](#status).
-
-**See also**: [How notifications work](../alerts-notifications/notif-concept.md) and the other topics in this section.
+Message that warns a user that an incident has occurred.
 
 ## Performance data
 
