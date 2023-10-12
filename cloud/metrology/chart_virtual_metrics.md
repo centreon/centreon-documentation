@@ -5,11 +5,11 @@ title: Virtual metrics
 
 ## Definition
 
-The virtual metrics are the display of curves resulting from the processing / aggregation of data from a set of data.
-The set of data corresponds to various values of curves on the period covered by the graph. 
+"Virtual metrics" means the display of curves resulting from the processing / aggregation of data from a set of data.
+The set of data corresponds to various values of curves in the period covered by the graph. 
 The creation of virtual metrics is based on the RPN (Reverse Polish Notation) language.
 
-Two types of sets of data are available:
+Two types of data set are available:
 
 * CDEF: this command creates a new set of points starting from one or more series of data. The aggregation is performed
   on each point (data).
@@ -18,10 +18,10 @@ Two types of sets of data are available:
 
 ### CDEF vs VDEF
 
-The CDEF type works on a set of points (data table). The result of the processing (e.g.: multiplication by 8 to convert
-bits into Bytes) will be a set of points. The VDEF type enables us to extract the maximum from a set of points.
+The CDEF type works on a set of points (data table). The result of the processing (e.g.: division by 8 to convert
+bits into bytes) will be a set of points. The VDEF type enables us to extract the maximum from a set of points.
 
-> For more information on the RPN type notation, refer to the [official RRD documentation](https://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html).
+> For more information on RPN-type notation, refer to the [official RRD documentation](https://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html).
 
 ## Configuration
 
@@ -29,8 +29,8 @@ Go to the **Monitoring \> Performances \> Virtual Metrics** menu
 
 ![image](../assets/metrology/02addvmetric.png)
 
-* The field **Metric name** defines the name of the metric.
-* The **Host/Service Data Source** list can be used to define the service from which to work the metrics.
+* The **Metric name** field defines the name of the metric.
+* The **Host/Service Data Source** list can be used to define the service from which to work on the metrics.
 * The **DEF Type** field defines the type of data set used to calculate the virtual curve.
 * The **RPN (Reverse Polish Notation) Function** field defines the formula to be used to calculate the virtual metric.
 
