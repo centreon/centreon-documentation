@@ -161,7 +161,7 @@ Centreon implements all necessary means to handle any vulnerabilities that are d
 | 4.0 - 6.9 | 96 working hours | 15 days |
 | 0.1 – 3.9 | 120 working hours | 30 days |
 
-Note: Fixing infrastructure vulnerabilities can be subject to extended time limits and can depend on providers publishing fixes (hosting provider, OS publisher). Centreon is commited to reacting as soon as possible should such a situation arise.
+Note: Fixing infrastructure vulnerabilities can be subject to extended time limits and can depend on providers publishing fixes (hosting provider, OS publisher). Centreon is committed to reacting as soon as possible should such a situation arise.
 
 ### Rewards program
 

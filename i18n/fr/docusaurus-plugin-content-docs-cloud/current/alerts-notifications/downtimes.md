@@ -13,10 +13,10 @@ import TabItem from '@theme/TabItem';
 Un temps d'arrêt est une période de temps durant laquelle les
 notifications sont désactivées pour une ressource. Les temps d'arrêts
 sont utilisés lors d'opération d'une maintenance programmée; ils
-permettent d'éviter de recevoir des alertes de type faux-positif.
+permettent d'éviter de recevoir des alertes de type faux positif.
 
 > Il est important de sélectionner l'ensemble des ressources nécessaires
-> afin d'éviter les faux-positifs comme les faux-négatifs. De plus, le
+> afin d'éviter les faux positifs comme les faux négatifs. De plus, le
 > temps passé dans cet état est pris en compte lors de la génération des
 > données de disponibilité.
 
@@ -33,8 +33,6 @@ Il existe deux types de temps d'arrêt :
 Il existe plusieurs manières de définir un temps d'arrêt :
 
 -   Depuis la page **Statut des ressources**
--   Depuis la page de détails d'un hôte ou du service
--   Depuis l'interface de supervision temps réel
 -   Depuis le menu **Downtime**
 
 <Tabs groupId="sync">
@@ -58,55 +56,6 @@ Il existe plusieurs manières de définir un temps d'arrêt :
     - Si le temps d'arrêt est flexible, le champ **Durée** définit la durée du temps d'arrêt.
 
     - Le champ **Commentaire** sert à indiquer pourquoi le temps d'arrêt est programmé
-
-</TabItem>
-<TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
-
-1.  Accédez à la page de détails d'un objet
-2.  Dans la catégorie **Commands**, cliquez sur **Schedule downtime for
-    this host/service**
-
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/downtime.png)
-
--   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
--   Le champ **Service** définit le service concerné par le temps
-    d'arrêt
--   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
-    Sinon, il est flexible
--   Si le temps d'arrêt est flexible, le champ **Duration** définit la
-    durée du temps d'arrêt
--   Les champs **Start Time** et **End Time** définissent les dates de
-    début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
--   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
-    programmé
-
-</TabItem>
-<TabItem value="Interface temps réel" label="Interface temps réel">
-
-1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    **Services**)
-2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un
-    temps d'arrêt
-3.  Dans le menu **More actions…**, cliquez sur **Hosts : Set Downtime**
-    ou **Services : Set Downtime**
-
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/downtime.png)
-
--   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
--   Le champ **Service** définit le service concerné par le temps
-    d'arrêt
--   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
-    Sinon, il est flexible
--   Si le temps d'arrêt est flexible, le champ **Duration** définit la
-    durée du temps d'arrêt
--   Les champs **Start Time** et **End Time** définissent les dates de
-    début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
--   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
-    programmé
 
 </TabItem>
 <TabItem value="Menu Downtime" label="Menu Downtime">
@@ -133,17 +82,9 @@ La fenêtre suivante s'affiche :
 </TabItem>
 </Tabs>
 
-
-
 ## Les temps d'arrêt récurrents
 
 ### Principe
-
-Un temps d'arrêt est une période de temps durant laquelle les
-notifications sont désactivées pour un hôte ou un service. Les temps
-d'arrêts sont pratiques lors d'opérations de maintenance sur un hôte ou
-un service : ils permettent d'éviter de recevoir des alertes de type
-faux-positif.
 
 Les temps d'arrêts récurrents sont des temps d'arrêts qui reviennent de
 manière répétitive.
@@ -169,9 +110,7 @@ Il existe deux types de temps d'arrêts :
     défini dans le formulaire.
 
 Pour ajouter un temps d'arrêt récurrent, rendez-vous dans le menu
-`Monitoring > Downtimes > Recurrent Downtimes` et cliquez sur **Add**.
-
-![image](../assets/alerts/05recurrentdowntimes.png)
+**Monitoring > Downtimes > Recurrent Downtimes** et cliquez sur **Add**.
 
 #### Configuration des temps d'arrêts
 
