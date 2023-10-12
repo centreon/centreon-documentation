@@ -421,7 +421,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 | CRITICALJOBSTOTAL    | Thresholds                                                                                                                         |                   |             |
 | WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{duration}  |                   |             |
 | CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{status}, %{duration} |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                | --verbose         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                | --verbose         |             |
 
 </TabItem>
 <TabItem value="Locks-Waits" label="Locks-Waits">
