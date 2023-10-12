@@ -197,7 +197,7 @@ It is possible to choose three types of period:
 
 -   The **Linked with Hosts** list can be used to choose the host(s)
     concerned by the recurrent downtime period.
--   If **Linked with Host Groups** is chosen with the list Linked with
+-   If **Linked with Host Groups** is chosen with the list linked with
     the host group, all the hosts belonging to this group are concerned
     by the recurrent downtime period.
 -   The **Linked with Services** list can be used to choose the
