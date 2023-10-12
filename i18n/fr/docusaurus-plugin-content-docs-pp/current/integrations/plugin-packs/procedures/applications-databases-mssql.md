@@ -372,7 +372,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 
 | Macro                           | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:--------------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERDATABASE                  | Filter database by name (Can be a regex)                                                            | ^(?!(tempdb))     |             |
+| FILTERDATABASE                  | Filter databases by name (can be a regex)                                                            | ^(?!(tempdb))     |             |
 | FILTERDATABASESTATE             | Filter databases by state                                                                           |                   |             |
 | DATAFILESMAXSIZE                | Overload all data files max size (in MB)                                                            |                   |             |
 | LOGSFILESMAXSIZE                | Overload all log files max size (in MB)                                                             |                   |             |
