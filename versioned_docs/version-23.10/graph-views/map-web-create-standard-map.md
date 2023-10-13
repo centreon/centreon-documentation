@@ -120,3 +120,11 @@ In edition mode, you can add several resources to your view in a single action.
 3. Then click the **Add to map** button.
 
 The resources you have selected are now added to the view!
+
+## Save the perspective of your map
+
+For an optimal user experience, you can save the perspective (zoom and position) of your map. So each time you open your map, you will find it in the position that suits you best.
+
+- **In edition mode:** the perspective is saved as soon as you click on the **Save** button.
+
+- **In view mode:** click the **Save perspective** button and a message will confirm the perspective is saved.
