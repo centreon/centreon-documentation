@@ -39,9 +39,10 @@ Access to the Dashboards feature is not managed at the user level, but through a
 1. Log into Centreon.
 2. You should see in the **Home** menu, the **Dashboards Beta** entry.
 
-## Managing dashboards
+## Create your first dashboard
 
-### Create a dashboard
+
+## Manage dashboards
 
 ### Share a dashboard
 
