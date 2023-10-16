@@ -145,8 +145,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                | Unit  |
 |:-------------------------------------------|:------|
-| database.qcache.hitrate.average.percentage |       |
-| database.qcache.hitrate.delta.percentage   |       |
+| database.qcache.hitrate.average.percentage | %     |
+| database.qcache.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
