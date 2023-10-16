@@ -123,8 +123,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                  | Unit  |
 |:---------------------------------------------|:------|
-| database.keycache.hitrate.average.percentage |       |
-| database.keycache.hitrate.delta.percentage   |       |
+| database.keycache.hitrate.average.percentage | %     |
+| database.keycache.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
