@@ -278,7 +278,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALUSEDCAPACITY | Thresholds                                                                                                                                     |                                                                                       |             |
 | WARNINGVOLTAGE       | Thresholds                                                                                                                                     |                                                                                       |             |
 | CRITICALVOLTAGE      | Thresholds                                                                                                                                     |                                                                                       |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                 |                                                                                       |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                 |                                                                                       |             |
 
 </TabItem>
 <TabItem value="Temperature" label="Temperature">
