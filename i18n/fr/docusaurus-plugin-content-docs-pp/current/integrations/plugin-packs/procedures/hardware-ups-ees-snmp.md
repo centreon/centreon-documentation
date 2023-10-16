@@ -25,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                  | Description                                               |
 |:------------|:-----------------------------------|:----------------------------------------------------------|
 | Battery     | HW-UPS-Ees-Battery-SNMP-custom     | Contrôle l'état de la batterie                            |
-| Input       | HW-UPS-Ees-Input-SNMP-custom       | Contrôle les lignes d'entrées                             |
+| Input       | HW-UPS-Ees-Input-SNMP-custom       | Contrôle les lignes d'entrée                             |
 | Rectifier   | HW-UPS-Ees-Rectifier-SNMP-custom   | Contrôle l'état du redresseur                             |
 | System      | HW-UPS-Ees-System-SNMP-custom      | Contrôle l'état du système                                |
 | Temperature | HW-UPS-Ees-Temperature-SNMP-custom | Contrôle les sondes de température                        |
