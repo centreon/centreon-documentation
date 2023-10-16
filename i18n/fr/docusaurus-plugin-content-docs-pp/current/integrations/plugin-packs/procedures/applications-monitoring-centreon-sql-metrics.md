@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                       | Description                                                                              |
 |:---------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------------|
 | Notifications-Count  | App-Monitoring-Centreon-SQL-Notifications-Count-custom  | Contrôle le nombre de nouvelles notifications                                            |
-| Poller-Delay         | App-Monitoring-Centreon-SQL-Poller-Delay-custom         | Contrôle le temps de la dernière communication entre le collecteur et le serveur central |
+| Poller-Delay         | App-Monitoring-Centreon-SQL-Poller-Delay-custom         | Contrôle le temps écoulé depuis la dernière communication entre le collecteur et le serveur central |
 | Problems-Count       | App-Monitoring-Centreon-SQL-Problems-Count-custom       | Contrôle le nombre de nouveaux problèmes                                                 |
 | Resources-Count      | App-Monitoring-Centreon-SQL-Resources-Count-custom      | Contrôle le nombre de services                                                           |
 | Storage-Partitioning | App-Monitoring-Centreon-SQL-Storage-Partitioning-custom | Contrôle l'état des partitions MySQL                                                     |
