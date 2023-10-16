@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 | Gc-Usage      | Cloud-Azure-Compute-Functions-Gc-Usage-Api-custom      | Contrôle l'utilisation du récupérateur de mémoire de l'application Azure Functions |
 | Health        | Cloud-Azure-Compute-Functions-Health-Api-custom        | Contrôle la disponibilité des ressources Azure Functions                           |
 | Http-Requests | Cloud-Azure-Compute-Functions-Http-Requests-Api-custom | Contrôle les requêtes HTTP de l'application Azure Functions                        |
-| IO-Operations | Cloud-Azure-Compute-Functions-IO-Operations-Api-custom | Contrôle les opération E                                                           |
+| IO-Operations | Cloud-Azure-Compute-Functions-IO-Operations-Api-custom | Contrôle les opération E/S de l'application Azure Functions.                                                           |
 | Memory        | Cloud-Azure-Compute-Functions-Memory-Api-custom        | Contrôle l'utilisation de la mémoire utilisée par l'application Azure Functions    |
 | Response-Time | Cloud-Azure-Compute-Functions-Response-Time-Api-custom | Contrôle le temps de réponse de l'application Azure Functions                      |
 | Status        | Cloud-Azure-Compute-Functions-Status-Api-custom        | Contrôle l'état de l'application Azure Functions                                   |
