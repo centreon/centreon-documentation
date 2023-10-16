@@ -324,7 +324,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro        | Description                                                                                         | Default value                         | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
+| FILTER       | Filter databases by name (can be a regexp).                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
 | WARNING      | Warning threshold                                                                                   |                                       |             |
 | CRITICAL     | Critical threshold                                                                                  |                                       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                             |             |
@@ -343,7 +343,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro        | Description                                                                                         | Default value                         | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
+| FILTER       | Filter databases by name (can be a regexp).                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
 | CRITICAL     | Critical threshold in percent                                                                       | 95                                    |             |
 | WARNING      | Warning threshold in percent                                                                        | 90                                    |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                             |             |
@@ -363,7 +363,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro        | Description                                                                                                                       | Default value                         | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases                                                                                                                  | ^(?!(postgres\|template1\|template0)) |             |
+| FILTER       | Filter databases by name (can be a regexp).                                                                                                                  | ^(?!(postgres\|template1\|template0)) |             |
 | CRITICAL     | Critical threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres | total=250,waiting=5,exclusive=20      |             |
 | WARNING      | Warning threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres  | total=200                             |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                               | --verbose                             |             |
@@ -373,7 +373,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro        | Description                                                                                         | Default value                         | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
+| FILTER       | Filter databases by name (can be a regexp).                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
 | FILTERUSER   | Filter users                                                                                        | postgres                              |             |
 | CRITICAL     | Critical threshold in seconds                                                                       | 60                                    |             |
 | WARNING      | Warning threshold in seconds                                                                        | 30                                    |             |
@@ -394,7 +394,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro               | Description                                                                                         | Default value                          | Mandatory   |
 |:--------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
-| FILTER              | Filter database (can be a regexp)                                                                   | ^(?!(postgres\|template1\|template0)$) |             |
+| FILTER              | Filter databases by name (can be a regexp).                                                                  | ^(?!(postgres\|template1\|template0)$) |             |
 | WARNINGTOTALCOMMIT  | Warning threshold                                                                                   |                                        |             |
 | CRITICALTOTALCOMMIT | Critical threshold                                                                                  |                                        |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                              |             |
