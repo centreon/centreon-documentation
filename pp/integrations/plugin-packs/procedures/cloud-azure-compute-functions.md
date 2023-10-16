@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 | Gc-Usage      | Cloud-Azure-Compute-Functions-Gc-Usage-Api-custom      | Check Azure Functions garbage collector usage      |
 | Health        | Cloud-Azure-Compute-Functions-Health-Api-custom        | Check Azure Functions                              |
 | Http-Requests | Cloud-Azure-Compute-Functions-Http-Requests-Api-custom | Check Azure Functions HTTP requests                |
-| IO-Operations | Cloud-Azure-Compute-Functions-IO-Operations-Api-custom | Check Azure Functions I                            |
+| IO-Operations | Cloud-Azure-Compute-Functions-IO-Operations-Api-custom | Check Azure Functions I/O operations.                            |
 | Memory        | Cloud-Azure-Compute-Functions-Memory-Api-custom        | Check Azure Functions app memory usage             |
 | Response-Time | Cloud-Azure-Compute-Functions-Response-Time-Api-custom | Check Azure Functions app response time            |
 | Status        | Cloud-Azure-Compute-Functions-Status-Api-custom        | Check Azure Functions app status                   |
