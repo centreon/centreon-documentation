@@ -530,7 +530,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--host=10.0.0.1 \
 	--username='USERNAME' \
 	--password='PASSWORD' \
-	--port=''  \
+	--port='3306'  \
 	--mode=queries \
 	--warning-total='' \
 	--critical-total='' 
