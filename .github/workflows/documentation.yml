@@ -133,7 +133,7 @@ jobs:
           script: |
             let build_versions = require('./versions.json');
             let build_next_version = require('./nextVersion.json').version;
-            let build_environments = ['staging'];
+            const build_environments = ['staging'];
             if (build_versions.includes(build_next_version)) {
               build_environments.push('next');
               build_versions.splice(build_versions.indexOf(build_next_version), 1);
