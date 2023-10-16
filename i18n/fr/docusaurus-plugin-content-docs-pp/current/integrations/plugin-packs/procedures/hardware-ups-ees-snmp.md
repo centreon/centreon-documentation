@@ -262,7 +262,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{installed}, %{communicating}, %{used\_capacity} |                                  |             |
 | WARNINGUSEDCAPACITY   | Thresholds                                                                                                                                           |                                  |             |
 | CRITICALUSEDCAPACITY  | Thresholds                                                                                                                                           |                                  |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                                  |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                                  |             |
 
 </TabItem>
 <TabItem value="System" label="System">
