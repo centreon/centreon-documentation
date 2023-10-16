@@ -495,7 +495,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin database::mssql::plugin \
 	--hostname 10.0.0.1 \
 	--port 1433 \
-	--username 'USERNAME' \
+	--username 'USERNAME@DOMAIN' \
 	--password 'PASSWORD'  \
 	--mode='transactions' \
 	--filter-database='' \
