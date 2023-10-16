@@ -290,7 +290,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALALARMSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{alarm\_status}, %{type}, %{name} | %{alarm\_status} =~ /high/i |             |
 | WARNINGTEMPERATURE  | Thresholds                                                                                                                            |                             |             |
 | CRITICALTEMPERATURE | Thresholds                                                                                                                            |                             |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)        | --verbose                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)        | --verbose                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
