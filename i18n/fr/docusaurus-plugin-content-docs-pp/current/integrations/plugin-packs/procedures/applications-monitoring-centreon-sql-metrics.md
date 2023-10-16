@@ -128,7 +128,7 @@ Les métriques sont personnalisables.
 Le collecteur exécutant le contrôle doit pouvoir se connecter au serveur de base de données Centreon via le port 
 3306/TCP grâce aux valeurs fournies par les options **--username** et **--password**. 
 
-L'utilisateur doit avoir les droits de réaliser un 'SELECT' sur les tables **index_data**, **metrics** et **instances** de la base **centreon_storage**. 
+L'utilisateur doit avoir le droit de réaliser un 'SELECT' sur les tables **index_data**, **metrics** et **instances** de la base **centreon_storage**. 
 
 Pour le service **Virtual-Service**, le fichier de configuration associé doit pouvoir être lu par l'utilisateur **centreon-engine**.
 
