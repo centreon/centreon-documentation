@@ -37,7 +37,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 | Metric name                               | Unit  |
 |:------------------------------------------|:------|
 | ping.latency.milliseconds                 | ms    |
-| ping.jitter.milliseconds                  |       |
+| ping.jitter.milliseconds                  | ms    |
 | internet.bandwidth.download.bitspersecond | b/s   |
 | internet.bandwidth.upload.bitspersecond   | b/s   |
 
