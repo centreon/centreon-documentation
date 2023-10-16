@@ -330,18 +330,18 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION               | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times.               | Average           |             |
 | FILTERMETRIC              | Filter metrics (can be: 'appconnections', 'currentassemblies', 'handles', 'threads', 'totalappdomains', 'totalappdomainsunloaded') (can be a regexp).                                                                      |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics). Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGAPPDOMAINS         | Warning threshold where '*'                                                                                                          |                   |             |
+| WARNINGAPPDOMAINS         | Thresholds                                                                                                          |                   |             |
 | CRITICALAPPDOMAINS        | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
-| WARNINGAPPDOMAINUNLOADED  | Warning threshold where '*'                                                                                                          |                   |             |
-| CRITICALAPPDOMAINUNLOADED | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
-| WARNINGASSEMBLIES         | Warning threshold where '*'                                                                                                          |                   |             |
-| CRITICALASSEMBLIES        | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
-| WARNINGCONNECTIONS        | Warning threshold where '*'                                                                                                          |                   |             |
-| CRITICALCONNECTIONS       | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
-| WARNINGHANDLE             | Warning threshold where '*'                                                                                                          |                   |             |
-| CRITICALHANDLE            | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
-| WARNINGTHREAD             | Warning threshold where '*'                                                                                                          |                   |             |
-| CRITICALTHREAD            | Critical threshold where '*' can be:. 'connections', 'assemblies', 'handle', 'thread', 'app-domains', 'app-domain-unloaded'          |                   |             |
+| WARNINGAPPDOMAINUNLOADED  | Thresholds                                                                                                                           |                   |             |
+| CRITICALAPPDOMAINUNLOADED | Thresholds                                                                                                                           |                   |             |
+| WARNINGASSEMBLIES         | Thresholds                                                                                                                           |                   |             |
+| CRITICALASSEMBLIES        | Thresholds                                                                                                                           |                   |             |
+| WARNINGCONNECTIONS        | Thresholds                                                                                                                           |                   |             |
+| CRITICALCONNECTIONS       | Thresholds                                                                                                                           |                   |             |
+| WARNINGHANDLE             | Thresholds                                                                                                                           |                   |             |
+| CRITICALHANDLE            | Thresholds                                                                                                                           |                   |             |
+| WARNINGTHREAD             | Thresholds                                                                                                                           |                   |             |
+| CRITICALTHREAD            | Thresholds                                                                                                                           |                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                  |                   |             |
 
 </TabItem>
@@ -367,10 +367,10 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION     | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times. | Total             |             |
 | FILTERMETRIC    | Filter metrics (can be: 'bytesreceived', 'bytessent') (can be a regexp).                                     |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics). Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGDATAIN   | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALDATAIN  | Critical threshold where '*' can be:. 'data-in', 'data-out'                                         |                   |             |
-| WARNINGDATAOUT  | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALDATAOUT | Critical threshold where '*' can be:. 'data-in', 'data-out'                                         |                   |             |
+| WARNINGDATAIN   | Thresholds                                                                                          |                   |             |
+| CRITICALDATAIN  | Thresholds                                                                                          |                   |             |
+| WARNINGDATAOUT  | Thresholds                                                                                          |                   |             |
+| CRITICALDATAOUT | Thresholds                                                                                          |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
@@ -383,10 +383,10 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times. | Total             |             |
 | FILTERMETRIC           | Filter metrics (Can be: 'functionexecutioncount', 'functionexecutionunits') (Can be a regexp).                            |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGEXECUTIONCOUNT  | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALEXECUTIONCOUNT | Critical threshold where '*' can be:. 'execution-count', 'execution-unit'                           |                   |             |
-| WARNINGEXECUTIONUNIT   | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALEXECUTIONUNIT  | Critical threshold where '*' can be:. 'execution-count', 'execution-unit'                           |                   |             |
+| WARNINGEXECUTIONCOUNT  | Thresholds                                                                                          |                   |             |
+| CRITICALEXECUTIONCOUNT | Thresholds                                                                                          |                   |             |
+| WARNINGEXECUTIONUNIT   | Thresholds                                                                                          |                   |             |
+| CRITICALEXECUTIONUNIT  | Thresholds                                                                                          |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
@@ -412,10 +412,10 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION     | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times. | Total             |             |
 | FILTERMETRIC    | Filter metrics (Can be: 'gen0collections', 'gen1collections', 'Gen2collections') (Can be a regexp).                            |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGGCGEN0   | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALGCGEN0  | Critical threshold where '*' can be:. 'gc-gen0', 'gc-gen1', 'gc-gen2'                               |                   |             |
-| WARNINGGCGEN2   | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALGCGEN2  | Critical threshold where '*' can be:. 'gc-gen0', 'gc-gen1', 'gc-gen2'                               |                   |             |
+| WARNINGGCGEN0   | Thresholds                                                                                          |                   |             |
+| CRITICALGCGEN0  | Thresholds                                                                                          |                   |             |
+| WARNINGGCGEN2   | Thresholds                                                                                          |                   |             |
+| CRITICALGCGEN2  | Thresholds                                                                                          |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
@@ -439,28 +439,28 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION           | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times.                                                                           | Total             |             |
 | FILTERMETRIC          | Filter metrics (Can be: 'requests', 'requestsinapplicationqueue', 'http101', 'http2xx', 'http3xx', 'http4xx', 'http401', 'http403', 'http404', 'http406', 'http5xx') (Can be a regexp).                                                                           |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGHTTP101        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP101       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP2XX        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP2XX       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP3XX        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP3XX       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP401        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP401       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP403        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP403       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP404        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP404       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP406        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP406       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP4XX        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP4XX       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGHTTP5XX        | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALHTTP5XX       | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGREQUESTS       | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALREQUESTS      | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
-| WARNINGREQUESTSQUEUE  | Warning threshold where '*'                                                                                                                                                   |                   |             |
-| CRITICALREQUESTSQUEUE | Critical threshold where '*' can be:. 'requests', 'requests-queue', 'http-101', 'http-2xx', 'http-3xx', 'http-4xx', 'http-401','http-403', 'http-404', 'http-406', 'http-5xx' |                   |             |
+| WARNINGHTTP101        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP101       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP2XX        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP2XX       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP3XX        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP3XX       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP401        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP401       | Thresholds                                                                                                                                                            |                   |             |       
+| WARNINGHTTP403        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP403       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP404        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP404       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP406        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP406       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP4XX        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP4XX       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGHTTP5XX        | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALHTTP5XX       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGREQUESTS       | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALREQUESTS      | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGREQUESTSQUEUE  | Thresholds                                                                                                                                                            |                   |             |       
+| CRITICALREQUESTSQUEUE | Thresholds                                                                                                                                                            |                   |             |       
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                           |                   |             |
 
 </TabItem>
@@ -473,18 +473,18 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION             | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times.                                         | Total             |             |
 | FILTERMETRIC            | Filter metrics (Can be: 'iootherbytespersecond', 'iootheroperationspersecond', 'ioreadbytespersecond', 'ioreadoperationspersecond', 'iowritebytespersecond', 'iowriteoperationspersecond') (Can be a regexp).                                                                    |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGOTHERBYTES       | Warning threshold where '*'                                                                                                                 |                   |             |
-| CRITICALOTHERBYTES      | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations' |                   |             |
-| WARNINGOTHEROPERATIONS  | Warning threshold where '*'                                                                                                                 |                   |             |
-| CRITICALOTHEROPERATIONS | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations' |                   |             |
-| WARNINGREADBYTES        | Warning threshold where '*'                                                                                                                 |                   |             |
-| CRITICALREADBYTES       | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations' |                   |             |
-| WARNINGREADOPERATIONS   | Warning threshold where '*'                                                                                                                 |                   |             |
-| CRITICALREADOPERATIONS  | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations' |                   |             |
-| WARNINGWRITEBYTES       | Warning threshold where '*'                                                                                                                 |                   |             |
-| CRITICALWRITEBYTES      | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations' |                   |             |
-| WARNINGWRITEOPERATIONS  | Warning threshold where '*'                                                                                                                 |                   |             |
-| CRITICALWRITEOPERATIONS | Critical threshold where '*' can be:. 'other-bytes', 'other-operations', 'read-bytes', 'read-operations', 'write-bytes', 'write-operations' |                   |             |
+| WARNINGOTHERBYTES       | Thresholds                                                                                                                          |                   |             |
+| CRITICALOTHERBYTES      | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGOTHEROPERATIONS  | Thresholds                                                                                                                          |                   |             |
+| CRITICALOTHEROPERATIONS | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGREADBYTES        | Thresholds                                                                                                                          |                   |             |
+| CRITICALREADBYTES       | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGREADOPERATIONS   | Thresholds                                                                                                                          |                   |             |
+| CRITICALREADOPERATIONS  | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGWRITEBYTES       | Thresholds                                                                                                                          |                   |             |
+| CRITICALWRITEBYTES      | Thresholds                                                                                                                                                            |                   |             |
+| WARNINGWRITEOPERATIONS  | Thresholds                                                                                                                          |                   |             |
+| CRITICALWRITEOPERATIONS | Thresholds                                                                                                                                                            |                   |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                         |                   |             |
 
 </TabItem>
@@ -497,10 +497,10 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 | AGGREGATION              | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total'. Can be called multiple times. | Average           |             |
 | FILTERMETRIC             | Filter metrics (Can be: 'averagememoryworkingset', 'memoryworkingset') (Can be a regexp).                            |                   |             |
 | FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'" |                   |             |
-| WARNINGAPPAVERAGEMEMORY  | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALAPPAVERAGEMEMORY | Critical threshold where '*' can be:. 'app-average-memory', 'app-memory'                            |                   |             |
-| WARNINGAPPMEMORY         | Warning threshold where '*'                                                                         |                   |             |
-| CRITICALAPPMEMORY        | Critical threshold where '*' can be:. 'app-average-memory', 'app-memory'                            |                   |             |
+| WARNINGAPPAVERAGEMEMORY  | Thresholds                                                                                           |                   |             |
+| CRITICALAPPAVERAGEMEMORY | Thresholds                                              |                   |             |
+| WARNINGAPPMEMORY         | Thresholds                                                                                           |                   |             |
+| CRITICALAPPMEMORY        | Thresholds                                              |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
@@ -549,10 +549,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='api' \
 	--resource='' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='xxxxxxxxx' \
+	--tenant='xxxxxxxxx' \
+	--client-id='xxxxxxxxx' \
+	--client-secret='xxxxxxxxx' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--filter-dimension='' \
