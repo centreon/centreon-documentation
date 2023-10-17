@@ -671,7 +671,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                            |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------|
-| --filter-database        | Filter database to checks (Can be a regexp).                                                                           |
+| --filter-database        | Filter by database name (can be a regexp).                                                                           |
 | --filter-table           | Filter table name (can be a regexp).                                                                                   |
 | --warning-* --critical-* | Thresholds (Can be: 'total-usage', 'total-free', 'db-usage', 'db-free', 'table-usage', 'table-free', 'table-frag').    |
 
