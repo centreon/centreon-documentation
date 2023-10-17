@@ -566,6 +566,19 @@ La commande devrait retourner un message de sortie similaire à :
 OK: Instance 'APP01' Statistic 'total' Metrics CPU Time: 0.08s | 'APP01~total#appservice.cpu.consumed.seconds'=0.08s;;;0;
 ```
 
+La commande ci-dessus vérifie le temps processeur consommé sur l'instance *Functions* nommée *APP01*
+(```--plugin=cloud::azure::compute::functions::plugin --mode=cpu-time --resource='APP01'```).
+
+Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
+sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
+
+Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```)
+avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
+
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le temps de processeur consommé pendant l'intervalle donné
+est supérieur à 1 (```--warning-cpu-time='1'```); l'alarme sera de type CRITICAL au-delà de 2
+(```--critical-cpu-time='2'```).
+
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
