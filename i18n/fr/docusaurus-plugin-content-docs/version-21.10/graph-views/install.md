@@ -215,20 +215,21 @@ une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
 ### Serveur Centreon MAP
 
-Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle installation CentOS, vous devez installer le paquet `centreon-release`.
+Si vous avez installé votre serveur Centreon MAP à partir d'une nouvelle installation CentOS, vous devez installer le dépôt Centreon.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install https://packages.centreon.com/ui/native/rpm-standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/21.10/el8/centreon-21.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/21.10/el7/centreon-21.10.repo
 ```
 
 </TabItem>

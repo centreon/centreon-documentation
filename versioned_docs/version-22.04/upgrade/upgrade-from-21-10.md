@@ -33,7 +33,7 @@ Run the following commands:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
 </TabItem>
@@ -328,7 +328,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
 </TabItem>

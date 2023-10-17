@@ -27,7 +27,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 <TabItem value="RHEL 8 and alike" label="RHEL 8 and alike">
 
 ```shell
-dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
 </TabItem>
