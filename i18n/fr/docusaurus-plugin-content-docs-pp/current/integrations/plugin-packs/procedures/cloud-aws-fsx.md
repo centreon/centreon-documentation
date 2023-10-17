@@ -239,9 +239,9 @@ yum install centreon-plugin-Cloud-Aws-Fsx-Api
 | Macro                    | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | STATISTIC                | Set the metric calculation method (Default: Average). Can be 'minimum', 'average'                    | average           |             |
-| TIMEFRAME                |                                                                                                     | 900               |             |
-| PERIOD                   |                                                                                                     | 60                |             |
-| FILTERMETRIC             |                                                                                                     |                   |             |
+| TIMEFRAME                | Set timeframe in seconds (e.g. '3600' to check last 60 minutes) | 900               |             |
+| PERIOD                   | Set period in seconds.                                                             | 60                |             |
+| FILTERMETRIC             | Name of the metrics to filter on.                                       |                   |             |
 | WARNINGSTORAGEFREEBYTES  | Warning threshold for remaining available bytes                                                     |                   |             |
 | CRITICALSTORAGEFREEBYTES | Warning threshold for remaining available bytes                                                     |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
