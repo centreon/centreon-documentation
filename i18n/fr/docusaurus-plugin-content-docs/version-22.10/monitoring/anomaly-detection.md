@@ -335,6 +335,14 @@ par l'utilisateur. Elles comprennent la date et l'heure du contrôle, l'identifi
 l'identifiant de l'indicateur associé, le nom des données de performance sur lesquelles les calculs seront effectués
 ainsi que la valeur des données de performance.
 
+### Comment l’envoi et le stockage de mes données sont-ils protégés?
+
+L’envoi de données à notre infrastructure Cloud ne comporte aucun risque.
+Les données sont chiffrées de bout en bout. Les données collectées ne contiennent que des métriques et
+quelques identifiants Centreon (nom d’hôte, nom de service). Notre environnement est protégé par AWS Web
+Application Firewall et AWS Shields pour prévenir les attaques DDoS. Notre architecture a été revue par les
+architectes AWS (AWS Foundational Technical Review) et nous sommes un partenaire qualifié d’AWS.
+
 ### Quel est l'usage des données ?
 
 Les données sont utilisées pour calculer des modèles de comportement. À partir de ces modèles seront générées des

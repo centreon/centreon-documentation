@@ -99,7 +99,7 @@ yum clean all --enablerepo=*
 Upgrade all the components with the following command:
 
 ```shell
-yum update centreon\*
+yum update centreon\*  --exclude=centreon-plugin*
 ```
 
 > Accept new GPG keys from the repositories as needed.

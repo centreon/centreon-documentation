@@ -368,7 +368,7 @@ aux bases de données du serveur de supervision. Utilisez l'option suivante :
 S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
 
 </TabItem>
-<TabItem value="Base de surpervision déportée par rapport au central" label="Base de surpervision déportée par rapport au central">
+<TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
 La base de données de supervision MariaDB est hébergée sur un serveur dédié.
 
@@ -575,7 +575,7 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Installez le dépôt Centreon :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Installez les paquets prérequis :
@@ -610,7 +610,7 @@ apt install centreon-bi-reporting-server mariadb-server mariadb-client
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 ```shell

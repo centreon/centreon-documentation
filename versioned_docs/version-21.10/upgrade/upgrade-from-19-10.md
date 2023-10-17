@@ -36,7 +36,7 @@ servers:
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -45,6 +45,10 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 > ```shell
 > yum install -y centos-release-scl-rh
 > ```
+
+> If you have an offline license, install the corresponding repository for the plugin packs.
+> If you are using a Business edition, install the correct Business repository too.
+> You can find the repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Upgrade PHP
 
@@ -315,7 +319,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm 
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm 
 ```
 
 #### Configuration
@@ -421,7 +425,7 @@ This procedure applies to a poller that is attached to a Central server.
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 ### Upgrade the Centreon solution

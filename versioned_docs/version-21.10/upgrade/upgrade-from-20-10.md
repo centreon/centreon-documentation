@@ -51,18 +51,22 @@ Run the following commands:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
+dnf install -y https://packages.centreon.com/ui/native/rpm-standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 </TabItem>
 </Tabs>
+
+> If you have an offline license, install the corresponding repository for the plugin packs.
+> If you are using a Business edition, install the correct Business repository too.
+> You can find the repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Upgrade PHP
 
@@ -425,14 +429,14 @@ Run the following command on the dedicated DBMS server:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
+dnf install -y https://packages.centreon.com/ui/native/rpm-standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -511,14 +515,14 @@ Run the following command:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
+dnf install -y https://packages.centreon.com/ui/native/rpm-standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm 
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 </TabItem>

@@ -280,6 +280,8 @@ Les modes « Clever »/« Dumb » sont configurés sur chaque sortie TCP, po
 
 La version de BBDO doit être la même pour tous les serveurs de votre architecture (serveur central, serveurs distants, collecteurs).
 
+> Si vous utilisez BBDO v2 avec cette version de Centreon, vous ne pourrez pas utiliser la page **Statut des ressources**.
+
 Si vous voulez changer de version de BBDO (passer de la v3 à la v2 ou de la v2 à la v3), procédez comme suit :
 
 1. Sur le serveur central, accédez à **Configuration > Collecteurs > Configuration de Centreon Broker**.

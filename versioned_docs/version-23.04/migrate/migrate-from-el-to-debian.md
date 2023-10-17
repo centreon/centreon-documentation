@@ -163,7 +163,7 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
-On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**.
+On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**. The path should be the same in the **Plugins directory** field on the **Administration > Parameters > Monitoring** page.
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
@@ -189,11 +189,12 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
    3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **unfied-sql** output,
    4. Edit the **/etc/centreon/config.d/10-database.yaml** file.
 
-5. If the IP address of your Centreon server has changed, edit the configuration for all
-the Centreon Broker modules of your Pollers and change the IP to connect to
+5. If the IP address of your Centreon server has changed:
+   - Edit the configuration for all the Centreon Broker modules of your Pollers and change the IP to connect to
 the Centreon Central server (output IPv4). See the [Advanced
 configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 chapter for more information.
+   - The fingerprint of your platform has changed too: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
 6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 

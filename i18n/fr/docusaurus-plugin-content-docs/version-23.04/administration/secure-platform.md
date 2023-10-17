@@ -28,7 +28,7 @@ De plus, il est important de vérifier que le compte Apache ne dispose pas de dr
 la commande suivante :
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 Vous devez avoir **/sbin/nologin** tel que :
@@ -37,7 +37,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/technical.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
@@ -256,7 +256,7 @@ Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune
 commande suivante :
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+grep -i denied /var/log/audit/audit.log
 ```
 
 Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
@@ -1017,7 +1017,7 @@ ServerTokens Prod
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la ligne suivante :
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1035,7 +1035,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la ligne suivante :
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1053,7 +1053,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la ligne suivante :
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"

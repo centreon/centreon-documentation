@@ -17,6 +17,28 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.16
+
+Release date: `September 25, 2023`
+
+#### Bug fixes
+
+-	[Core] Updated svg-sanitize dependency.
+-	[Core] Updated symfony/http-kernel dependency.
+-	[Security] Fixed SLQi in centreonLogAction.class.php.
+
+### 22.04.15
+
+Release date: `August 28, 2023`
+
+#### Enhancements
+
+- [Core] Updated the database schema for resources table.
+
+#### Bug fixes
+
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+
 ### 22.04.14
 
 Release date: `June 19, 2023`
@@ -618,6 +640,14 @@ Release date: `August 30, 2022`
 As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
+
+### 22.04.3
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Core] Fixed recurring unexpected disconnections between pollers.
 
 ### 22.04.2
 

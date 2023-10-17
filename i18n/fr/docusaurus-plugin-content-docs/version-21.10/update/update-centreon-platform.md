@@ -102,7 +102,7 @@ yum clean all --enablerepo=*
 Mettez à jour l'ensemble des composants :
 
 ```shell
-yum update centreon\*
+yum update centreon\*  --exclude=centreon-plugin*
 ```
 
 Déployez la configuration du collecteur depuis l'interface web en suivant [cette

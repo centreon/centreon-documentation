@@ -313,3 +313,9 @@ img[src*="thumbnail2"] {
   width: 36px!important;
   margin-bottom: -6px!important;
 }
+details{
+  border-width: 0px!important;
+}
+summary{
+  font-weight: bold;
+}

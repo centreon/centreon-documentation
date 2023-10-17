@@ -1,10 +1,6 @@
 ---
 id: operatingsystems-windows-nrpe
-title: Windows NRPE
+title: Windows NRPE (deprecated)
 ---
 
-## **WARNING** This Pack has been deprecated
-
-This Monitoring Connector has been deprecated and replaced by `Windows NSClient 0.5 NRPE`. 
-
-Refer to [this procedure](operatingsystems-windows-nsclient-05-nrpe.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Windows NRPE 0.5](operatingsystems-windows-nsclient-05-nrpe.md) connector.
