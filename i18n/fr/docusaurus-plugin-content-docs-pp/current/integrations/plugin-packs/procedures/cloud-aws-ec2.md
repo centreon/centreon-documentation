@@ -50,7 +50,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                    | Modèle de service                   | Description                                                                                   |
 |:-------------------------|:------------------------------------|:----------------------------------------------------------------------------------------------|
-| EC2Spot-Active-Instances | Cloud-Aws-Ec2-Spot-Instances-custom | Contrôle permettant de contrôler le nombre d'instance spot active pour une Spot Fleet Request |
+| EC2Spot-Active-Instances | Cloud-Aws-Ec2-Spot-Instances-custom | Contrôle permettant de contrôler le nombre d'instances spot active pour une Spot Fleet Request |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Ec2-Spot-Fleet-Request-custom** est utilisé.
 
@@ -61,7 +61,7 @@ Le connecteur apporte les modèles de service suivants
 |:----------------------------|:-------------------------------------------------|:----------------------------------------------------------------|
 | Ec2-Asg-Status-Global       | Cloud-Aws-Ec2-Asg-Status-Global-Api-custom       | Contrôle permettant de vérifier le statut des ASG               |
 | Ec2-Instances-Status-Global | Cloud-Aws-Ec2-Instances-Status-Global-Api-custom | Contrôle permettant de vérifier le statut des instances         |
-| Ec2-Instances-Types-Global  | Cloud-Aws-Ec2-Instances-Types-Global-Api-custom  | Contrôle permettant de remonter le nombre d'instances par types |
+| Ec2-Instances-Types-Global  | Cloud-Aws-Ec2-Instances-Types-Global-Api-custom  | Contrôle permettant de remonter le nombre d'instances par type |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -185,7 +185,7 @@ Configurez un compte de service (via une combinaison d'access et secret key) et 
 | ec2:DescribeSpotFleetRequests  | Display EC2 Spot Fleet Requests details                         |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch            |
 
-### Dépendances du Plugin
+### Dépendances du plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
 
