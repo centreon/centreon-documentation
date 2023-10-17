@@ -702,7 +702,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:----------------------|:------------------------------------------------------|
 | --warning-lockswaits  | Warning threshold number of lock-waits per second.    |
 | --critical-lockswaits | Critical threshold number of lock-waits per second.   |
-| --filter-database     | Filter database to check.                             |
+| --filter-database     | Filter by database name.                             |
 
 </TabItem>
 <TabItem value="Page-Life-Expectancy" label="Page-Life-Expectancy">
