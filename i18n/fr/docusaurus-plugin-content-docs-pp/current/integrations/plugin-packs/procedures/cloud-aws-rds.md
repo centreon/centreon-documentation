@@ -29,12 +29,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias            | Modèle de service                     | Description                                                   |
 |:-----------------|:--------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections  | Cloud-Aws-Rds-Connections-Api-custom  | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections  | Cloud-Aws-Rds-Connections-Api-custom  | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit   | Cloud-Aws-Rds-Cpu-Credit-Api-custom   | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage    | Cloud-Aws-Rds-Cpu-Usage-Api-custom    | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Network      | Cloud-Aws-Rds-Network-Api-custom      | Contrôle l'utilisation du réseau                              |
 | Rds-Queries      | Cloud-Aws-Rds-Queries-Api-custom      | Contrôle le nombre de requêtes effectuées sur l'instance      |
-| Rds-Transactions | Cloud-Aws-Rds-Transactions-Api-custom | Contrôle le nombre de transaction effectuées sur l'instance   |
+| Rds-Transactions | Cloud-Aws-Rds-Transactions-Api-custom | Contrôle le nombre de transactions effectuées sur l'instance   |
 | Rds-Volume-Iops  | Cloud-Aws-Rds-Volume-Iops-Api-custom  | Contrôle l'utilisation des écritures                          |
 | Rds-Volume-Usage | Cloud-Aws-Rds-Volume-Usage-Api-custom | Contrôle l'utilisation des volumes                            |
 
@@ -45,12 +45,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias            | Modèle de service                     | Description                                                   |
 |:-----------------|:--------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections  | Cloud-Aws-Rds-Connections-Api-custom  | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections  | Cloud-Aws-Rds-Connections-Api-custom  | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit   | Cloud-Aws-Rds-Cpu-Credit-Api-custom   | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage    | Cloud-Aws-Rds-Cpu-Usage-Api-custom    | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Network      | Cloud-Aws-Rds-Network-Api-custom      | Contrôle l'utilisation du réseau                              |
 | Rds-Queries      | Cloud-Aws-Rds-Queries-Api-custom      | Contrôle le nombre de requêtes effectuées sur l'instance      |
-| Rds-Transactions | Cloud-Aws-Rds-Transactions-Api-custom | Contrôle le nombre de transaction effectuées sur l'instance   |
+| Rds-Transactions | Cloud-Aws-Rds-Transactions-Api-custom | Contrôle le nombre de transactions effectuées sur l'instance   |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Rds-Instance-Aurora-custom** est utilisé.
 
@@ -59,7 +59,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                    | Description                                                   |
 |:----------------|:-------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit  | Cloud-Aws-Rds-Cpu-Credit-Api-custom  | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage   | Cloud-Aws-Rds-Cpu-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Network     | Cloud-Aws-Rds-Network-Api-custom     | Contrôle l'utilisation du réseau                              |
@@ -71,7 +71,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                    | Description                                                   |
 |:----------------|:-------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit  | Cloud-Aws-Rds-Cpu-Credit-Api-custom  | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage   | Cloud-Aws-Rds-Cpu-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Diskio      | Cloud-Aws-Rds-Diskio-Api-custom      | Contrôle l'utilisation des écritures                          |
@@ -84,7 +84,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                    | Description                                                   |
 |:----------------|:-------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit  | Cloud-Aws-Rds-Cpu-Credit-Api-custom  | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage   | Cloud-Aws-Rds-Cpu-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Diskio      | Cloud-Aws-Rds-Diskio-Api-custom      | Contrôle l'utilisation des écritures                          |
@@ -97,7 +97,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                    | Description                                                   |
 |:----------------|:-------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit  | Cloud-Aws-Rds-Cpu-Credit-Api-custom  | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage   | Cloud-Aws-Rds-Cpu-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Network     | Cloud-Aws-Rds-Network-Api-custom     | Contrôle l'utilisation du réseau                              |
@@ -109,7 +109,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                    | Description                                                   |
 |:----------------|:-------------------------------------|:--------------------------------------------------------------|
-| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexion à l'instance                  |
+| Rds-Connections | Cloud-Aws-Rds-Connections-Api-custom | Contrôle le nombre de connexions à l'instance                  |
 | Rds-Cpu-Credit  | Cloud-Aws-Rds-Cpu-Credit-Api-custom  | Contrôle permettant de vérifier l'utilisation des crédits CPU |
 | Rds-Cpu-Usage   | Cloud-Aws-Rds-Cpu-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation CPU             |
 | Rds-Network     | Cloud-Aws-Rds-Network-Api-custom     | Contrôle l'utilisation du réseau                              |
@@ -155,8 +155,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique         | Description                                                | Unité                   |                   
 | :--------------- | :--------------------------------------------------------- |:----------------------- |
-| CPUCreditBalance | Balance of allocated CPU credit to this type of instance.  | Credits (vCPU-minutes)  |
-| CPUCreditUsage   | Number of CPU credit consumed.                             | Credits (vCPU-minutes)  |
+| CPUCreditBalance | Balance of allocated CPU credit for this type of instance.  | Credits (vCPU-minutes)  |
+| CPUCreditUsage   | Number of CPU credits consumed.                             | Credits (vCPU-minutes)  |
 
 </TabItem>
 <TabItem value="Rds-Cpu-Usage" label="Rds-Cpu-Usage">
@@ -176,7 +176,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | WriteThroughput | The average number of bytes write to disk per second.                           | Bytes/Second |
 | ReadLatency     | The average amount of time taken per disk I/O read operation.                   | Seconds      |
 | WriteLatency    | The average amount of time taken per disk I/O write operation.                  | Seconds      |
-| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. | Count        |
+| DiskQueueDepth  | The number of outstanding I/Os (read/write requests) waiting to access the disk. | Count        |
 
 </TabItem>
 <TabItem value="Rds-Instance-Status" label="Rds-Instance-Status">
@@ -196,21 +196,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                  | Description                                                                                                                          | Unité         |
 | :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------- |:------------- |
-| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
-| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
+| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer DB traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
+| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer DB traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
 
 </TabItem>
 <TabItem value="Rds-Queries" label="Rds-Queries">
 
 | Métrique         | Description                                                                                             |
 | :--------------- | :------------------------------------------------------------------------------------------------------ |
-| Queries          | The average number of queries executed per second **(Only available on Aurora MySQL)**                  |
-| InsertThroughput | The average number of insert queries per second **(Only available on Aurora MySQL)**                    |
+| Queries          | The average number of queries executed per second. **(Only available on Aurora MySQL)**                  |
+| InsertThroughput | The average number of insert queries per second. **(Only available on Aurora MySQL)**                    |
 | SelectThroughput | The average number of select queries per second **(Only available on Aurora MySQL)**                    |
 | DeleteThroughput | The average number of delete queries per second **(Only available on Aurora MySQL)**                    |
 | UpdateThroughput | The average number of update queries per second **(Only available on Aurora MySQL)**                    |
 | DDLThroughput    | The average number of DataDefinitionLanguage requests per second **(Only available on Aurora MySQL)**   |
-| DMLThroughput    | The average number of DataModificationLanguage requests per second **(Only available on Aurora MySQL)** |
+| DMLThroughput    | The average number of DataModificationLanguage requests per second. **(Only available on Aurora MySQL)** |
 
 </TabItem>
 <TabItem value="Rds-Storage" label="Rds-Storage">
@@ -226,10 +226,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique            | Description                                                                                                                                                                                                                  |
 | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ActiveTransactions  | The average number of current transactions executing on an Aurora database instance per second. **(Only available on Aurora MySQL) Set innodb\_monitor\_enable='all' in the DB parameter group for a specific DB instance.** |
-| BlockedTransactions | The average number of transactions in the database that are blocked per second **(Only available on Aurora MySQL)**                                                                                                          |
-| CommitLatency       | The amount of latency for commit operations, in milliseconds **(Only available on Aurora MySQL and Postgres)**                                                                                                               |
-| CommitThroughput    | The average number of commit operations per second **(Only available on Aurora MySQL and Postgres)**                                                                                                                         |
+| ActiveTransactions  | The average number of current transactions executing on an Aurora database instance per second. **(Only available on Aurora MySQL.) Set innodb\_monitor\_enable='all' in the DB parameter group for a specific DB instance.** |
+| BlockedTransactions | The average number of transactions in the database that are blocked per second. **(Only available on Aurora MySQL)**                                                                                                          |
+| CommitLatency       | The amount of latency for commit operations, in milliseconds. **(Only available on Aurora MySQL and Postgres)**                                                                                                               |
+| CommitThroughput    | The average number of commit operations per second. **(Only available on Aurora MySQL and Postgres)**                                                                                                                         |
 
 </TabItem>
 <TabItem value="Rds-Volume-Iops" label="Rds-Volume-Iops">
@@ -244,7 +244,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique        | Description                                                                                                                                                    |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| VolumeBytesUsed | The amount of storage used by your Aurora DB instance, in bytes and then affecting the cost of your instance **(Only available on Aurora MySQL and Postgres)** |
+| VolumeBytesUsed | The amount of storage used by your Aurora DB instance, in bytes and then affecting the cost of your instance. **(Only available on Aurora MySQL and Postgres)** |
 
 </TabItem>
 </Tabs>
@@ -388,9 +388,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster')                                                                       | cluster           | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster')                                                                       | cluster           | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
@@ -410,9 +410,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster','instance')                                                            | instance          | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster','instance')                                                            | instance          | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
@@ -432,9 +432,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster','instance')                                                            | instance          | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster','instance')                                                            | instance          | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
@@ -454,9 +454,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster','instance')                                                            | instance          | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster','instance')                                                            | instance          | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
@@ -476,9 +476,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster','instance')                                                            | instance          | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster','instance')                                                            | instance          | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
@@ -498,9 +498,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster','instance')                                                            | instance          | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster','instance')                                                            | instance          | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
@@ -520,9 +520,9 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 | AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
 | AWSASSUMEROLE   | Set arn of the role to be assumed                                                                                          |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSINSTANCENAME | Set the instance name (Required) (can be defined multipletimes)                                                            |                   | X           |
-| AWSINSTANCETYPE | Set the instance type (Required) (Can be: 'cluster','instance')                                                            | instance          | X           |
-| AWSREGION       | Set the region name (Required)                                                                                             |                   | X           |
+| AWSINSTANCENAME | Set the instance name (required) (can be defined multiple times)                                                            |                   | X           |
+| AWSINSTANCETYPE | Set the instance type (required) (can be: 'cluster','instance')                                                            | instance          | X           |
+| AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
 | AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                      |                   |             |
