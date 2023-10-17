@@ -560,7 +560,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 The expected command output is shown below:
 
 ```bash
-OK: Health check status: 96 | 'appservice.status.count'=96;;;0;
+OK: Instance 'APP01' Statistic 'total' Metrics CPU Time: 0.08s | 'APP01~total#appservice.cpu.consumed.seconds'=0.08s;;;0;
 ```
 
 ### Troubleshooting
