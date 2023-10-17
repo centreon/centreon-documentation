@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                   | Service Description                            |
 |:--------------|:-----------------------------------|:-----------------------------------------------|
-| Fsx-DataUsage | Cloud-Aws-Fsx-Datausage-Api-custom | Check FSx filesystem related I                 |
+| Fsx-DataUsage | Cloud-Aws-Fsx-Datausage-Api-custom | Check FSx filesystem related I/O metrics.   |
 | Fsx-Freespace | Cloud-Aws-Fsx-Freespace-Api-custom | Check free space available on a FSx filesystem |
 
 > The services listed above are created automatically when the **Cloud-Aws-Fsx-custom** host template is used.
