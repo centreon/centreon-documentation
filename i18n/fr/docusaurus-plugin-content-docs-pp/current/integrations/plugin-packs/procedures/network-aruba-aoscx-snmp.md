@@ -79,11 +79,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                                   | Unité |
 |:-------------------------------------------|:------|
 | *fan_name*#hardware.fan.speed.rpm          | rpm   |
-| fan tray status                            | W     |
-| psu status                                 | C     |
-| *psu_name*#hardware.psu.power.watt         |       |
+| fan tray status                            |       |
+| psu status                                 |       |
+| *psu_name*#hardware.psu.power.watt         | W     |
 | temperature status                         |       |
-| *sensor_name*#hardware.temperature.celsius |       |
+| *sensor_name*#hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
