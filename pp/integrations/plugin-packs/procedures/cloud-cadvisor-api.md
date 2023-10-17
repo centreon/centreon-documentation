@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                            | Service Description           | Discovery  |
 |:------------------|:--------------------------------------------|:------------------------------|:----------:|
-| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Check container disk I        | X          |
+| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Check container disk I/O.    | X          |
 | Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Check container network usage | X          |
 | Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Check container usage         | X          |
 
