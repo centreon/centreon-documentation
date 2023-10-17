@@ -245,7 +245,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 #### Procedure
 
 If you installed your Centreon MAP (Legacy) server from a "fresh OS installation"
-you need to install the `centreon-release` package:
+you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -265,7 +265,7 @@ Installed:
 Complete!
 ```
 
-Now you can install the **centreon-release** package:
+Now you can install the Centreon repository:
 
 ```shell
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo

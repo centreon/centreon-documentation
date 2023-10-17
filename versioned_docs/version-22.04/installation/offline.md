@@ -10,7 +10,7 @@ To be able to install Centreon on servers with no internet access, create a loca
 
 ## Creating a local copy of the Centreon repository
 
-1. Install **centreon-release** on your mirror server.
+1. Install Centreon repository on your mirror server.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

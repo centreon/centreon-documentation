@@ -62,7 +62,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 Follow this procedure to upgrade your Centreon MAP (Legacy) server:
 
-1. Update the **centreon-release** package:
+1. Update the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

@@ -245,7 +245,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 #### Procedure
 
 If you installed your Centreon MAP server from a "fresh OS installation"
-you need to install the `centreon-release` package:
+you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
