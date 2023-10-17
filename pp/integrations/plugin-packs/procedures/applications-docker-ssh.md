@@ -1,239 +1,289 @@
 ---
-id: applications-monitoring-speedtest
-title: Speedtest
+id: applications-docker-ssh
+title: Docker SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **Speedtest** apporte un modèle d'hôte :
+The Monitoring Connector **Docker SSH** brings a host template:
 
-* **App-Monitoring-Speedtest-custom**
+* **App-Docker-SSH-custom**
 
-Le connecteur apporte le modèle de service suivant
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Monitoring-Speedtest-custom" label="App-Monitoring-Speedtest-custom">
+<TabItem value="App-Docker-SSH-custom" label="App-Docker-SSH-custom">
 
-| Alias              | Modèle de service                                  | Description                         |
-|:-------------------|:---------------------------------------------------|:------------------------------------|
-| Internet-Bandwidth | App-Monitoring-Speedtest-Internet-Bandwidth-custom | Contrôle la bande passante internet |
+| Service Alias    | Service Template                       | Service Description    | Discovery  |
+|:-----------------|:---------------------------------------|:-----------------------|:----------:|
+| Container-Status | App-Docker-Container-Status-SSH-custom | Check container status | X          |
+| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Check container usage  | X          |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Speedtest-custom** est utilisé.
+> The services listed above are created automatically when the **App-Docker-SSH-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
-### Métriques & statuts collectés
+### Discovery rules
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+#### Service discovery
+
+| Rule name                            | Description                                 |
+|:-------------------------------------|:--------------------------------------------|
+| App-Docker-SSH-Container-Status-Name | Discover containers and monitor status      |
+| App-Docker-SSH-Container-Usage-Name  | Discover containers and monitor utilization |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Internet-Bandwidth" label="Internet-Bandwidth">
+<TabItem value="Container-Status" label="Container-Status">
 
-| Métrique                                  | Unité |
-|:------------------------------------------|:------|
-| ping.latency.milliseconds                 | ms    |
-| ping.jitter.milliseconds                  | ms    |
-| internet.bandwidth.download.bitspersecond | b/s   |
-| internet.bandwidth.upload.bitspersecond   | b/s   |
+| Metric name       | Unit  |
+|:------------------|:------|
+| containers status |       |
+
+</TabItem>
+<TabItem value="Container-Usage" label="Container-Usage">
+
+| Metric name                                                     | Unit  |
+|:----------------------------------------------------------------|:------|
+| *container_name*#container.cpu.utilization.percentage           | %     |
+| *container_name*#container.memory.usage.bytes                   | B     |
+| *container_name*#container.disk.throughput.read.bytespersecond  | B/s   |
+| *container_name*#container.disk.throughput.write.bytespersecond | B/s   |
+| *container_name*#container.traffic.in.bitspersecond             | b/s   |
+| *container_name*#container.traffic.out.bitspersecond            | b/s   |
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-1. Installez la commande `speedtest` en suivant la procédure du [site](https://www.speedtest.net/apps/cli).
+### SSH configuration
 
-2. Validez la licence en exécutant la commande `speedtest` en ligne de commande.
+A user is required to query the resource using SSH. There is no need for root or sudo
+privileges. There are two possible ways to log in through SSH, either by
+copying the SSH key of the **centreon-engine** user to the target resource, or by
+setting your unique user and password directly in the host macros.
 
-3. La communication doit être possible avec `speedtest.net`.
-
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connectors Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-monitoring-speedtest
+dnf install centreon-pack-applications-docker-ssh
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-monitoring-speedtest
+dnf install centreon-pack-applications-docker-ssh
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-applications-monitoring-speedtest
+apt install centreon-pack-applications-docker-ssh
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-monitoring-speedtest
+yum install centreon-pack-applications-docker-ssh
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Speedtest**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Docker SSH** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Monitoring-Speedtest
+dnf install centreon-plugin-Applications-Docker-Ssh
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Monitoring-Speedtest
+dnf install centreon-plugin-Applications-Docker-Ssh
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-applications-monitoring-speedtest
+apt install centreon-plugin-applications-docker-ssh
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Speedtest
+yum install centreon-plugin-Applications-Docker-Ssh
 ```
 
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Monitoring-Speedtest-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **App-Docker-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:----------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SPEEDTESTEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro           | Description                                                                                                                                                         | Default value     | Mandatory   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
+| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
+| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                               |                   |             |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### Utiliser un modèle de service issu du connecteur
+### Using a service template provided by the connector
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Internet-Bandwidth" label="Internet-Bandwidth">
+<TabItem value="Container-Status" label="Container-Status">
 
-| Macro                     | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBANDWIDTHDOWNLOAD  | Thresholds                                                                                          |                   |             |
-| CRITICALBANDWIDTHDOWNLOAD | Thresholds                                                                                          |                   |             |
-| WARNINGBANDWIDTHUPLOAD    | Thresholds                                                                                          |                   |             |
-| CRITICALBANDWIDTHUPLOAD   | Thresholds                                                                                          |                   |             |
-| WARNINGPINGJITTER         | Thresholds                                                                                          |                   |             |
-| CRITICALPINGJITTER        | Thresholds                                                                                          |                   |             |
-| WARNINGPINGLATENCY        | Thresholds                                                                                          |                   |             |
-| CRITICALPINGLATENCY       | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro          | Description                                                                                                                                           | Default value      | Mandatory   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
+| FILTERID       | Filter by container ID (can be a regexp)                                                                                                              |                    |             |
+| FILTERNAME     | Filter by container name (can be a regexp)                                                                                                            |                    |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name} | %{status} !~ /up/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                  |                    |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                   | --verbose          |             |
+
+</TabItem>
+<TabItem value="Container-Usage" label="Container-Usage">
+
+| Macro                   | Description                                                                                         | Default value     | Mandatory   |
+|:------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERID                | Filter by container ID (can be a regexp)                                                            |                   |             |
+| FILTERNAME              | Filter by container name (can be a regexp)                                                          |                   |             |
+| WARNINGCPU              | Thresholds                                                                                          |                   |             |
+| CRITICALCPU             | Thresholds                                                                                          |                   |             |
+| WARNINGMEMORY           | Thresholds                                                                                          |                   |             |
+| CRITICALMEMORY          | Thresholds                                                                                          |                   |             |
+| WARNINGREADTHROUGHPUT   | Thresholds                                                                                          |                   |             |
+| CRITICALREADTHROUGHPUT  | Thresholds                                                                                          |                   |             |
+| WARNINGTRAFFICIN        | Thresholds                                                                                          |                   |             |
+| CRITICALTRAFFICIN       | Thresholds                                                                                          |                   |             |
+| WARNINGTRAFFICOUT       | Thresholds                                                                                          |                   |             |
+| CRITICALTRAFFICOUT      | Thresholds                                                                                          |                   |             |
+| WARNINGWRITETHROUGHPUT  | Thresholds                                                                                          |                   |             |
+| CRITICALWRITETHROUGHPUT | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser la ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_monitoring_speedtest.pl \
-	--plugin=apps::monitoring::speedtest::plugin \
-	--mode=internet-bandwidth
+/usr/lib/centreon/plugins/centreon_docker_ssh.pl \
+	--plugin=cloud::docker::local::plugin \
+	--mode=container-usage \
+	--hostname='10.0.0.1' \
+	--ssh-backend='libssh' \
+	--ssh-username='myuser' \
+	--ssh-password='mypass' \
+	--filter-name='mariadb' \
+	--verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
-OK: ping latency: 1.208 ms, jitter: 0.011 - download: 4.87 Gb/s, upload: 1.83 Gb/s | 'ping.latency.milliseconds'=1.208ms;;;0; 'ping.jitter.milliseconds'=0.011;;;0; 'internet.bandwidth.download.bitspersecond'=4871581536b/s;;;0; 'internet.bandwidth.upload.bitspersecond'=1834082509b/s;;;0;
+OK: Container 'mariadb' cpu usage: 0.01 %, memory total: 7.79 GB used: 13.94 MB (0.17%) free: 7.78 GB (99.83%), disk read throughput: 0.00 B/s, disk write throughput: 0.00 B/s, traffic in: 0.00 b/s, traffic out: 0.00 b/s | 'mariadb#container.cpu.utilization.percentage'=0.01%;;;0;100 'mariadb#container.memory.usage.bytes'=14617149B;;;0;8364448808 'mariadb#container.disk.throughput.read.bytespersecond'=0B/s;;;0; 'mariadb#container.disk.throughput.write.bytespersecond'=0B/s;;;0; 'mariadb#container.traffic.in.bitspersecond'=0b/s;;;0; 'mariadb#container.traffic.out.bitspersecond'=0b/s;;;0;
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_monitoring_speedtest.pl \
-	--plugin=apps::monitoring::speedtest::plugin \
+/usr/lib/centreon/plugins/centreon_docker_ssh.pl \
+	--plugin=cloud::docker::local::plugin \
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode               | Modèle de service associé                          |
-|:-------------------|:---------------------------------------------------|
-| internet-bandwidth | App-Monitoring-Speedtest-Internet-Bandwidth-custom |
+| Mode                                                                                                                                | Linked service template                |
+|:------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| container-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/local/mode/containerstatus.pm)] | App-Docker-Container-Status-SSH-custom |
+| container-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/local/mode/containerusage.pm)]   | App-Docker-Container-Usage-SSH-custom  |
+| list-containers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/local/mode/listcontainers.pm)]   | Used for service discovery             |
 
-### Options disponibles
+### Available options
 
-#### Options des modes
+#### Generic options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
-
-<Tabs groupId="sync">
-<TabItem value="Internet-Bandwidth" label="Internet-Bandwidth">
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -286,17 +336,51 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --libssh-strict-connect                    | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --warning-* --critical-*                   | Thresholds. Can be: 'ping-jitter', 'ping-latency', 'bandwidth-download', 'bandwidth-upload'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Container-Status" label="Container-Status">
+
+| Option            | Description                                                                                                                                              |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter by container name (can be a regexp).                                                                                                              |
+| --filter-id       | Filter by container ID (can be a regexp).                                                                                                                |
+| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                     |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/i'). You can use the following variables: %{status}, %{name}    |
+
+</TabItem>
+<TabItem value="Container-Usage" label="Container-Usage">
+
+| Option                   | Description                                                                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --filter-name            | Filter by container name (can be a regexp).                                                                                                                                                                                                   |
+| --filter-id              | Filter by container ID (can be a regexp).                                                                                                                                                                                                     |
+| --warning-* --critical-* | Thresholds. Can be: 'cpu' (%), 'memory' (%), 'read-throughput', 'write-throughput', 'traffic-in', 'traffic-out'.                                                                                                                              |
 
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_monitoring_speedtest.pl \
-	--plugin=apps::monitoring::speedtest::plugin \
-	--mode=internet-bandwidth  \
+/usr/lib/centreon/plugins/centreon_docker_ssh.pl \
+	--plugin=cloud::docker::local::plugin \
+	--mode=container-usage \
 	--help
 ```
