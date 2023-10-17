@@ -7,7 +7,7 @@ title: Dashboards Beta
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
 
-![image](../assets/alerts/dashboard_overview.png)
+![image](../assets/alerts/dashboard-view.png)
 
 ## Activating the Dashboards Beta feature
 
@@ -39,17 +39,20 @@ Access to the Dashboards feature is not managed at the user level, but through a
 1. Log into Centreon.
 2. You should see in the **Home** menu, the **Dashboards Beta** entry.
 
-## Create your first dashboard
+## Creating your first dashboard
 
+### Add a widget
 
-## Manage dashboards
+![image](../assets/alerts/widget-view.png)
+
+### Update a widget
+
+### Delete a widget
+
+## Managing dashboards
 
 ### Share a dashboard
 
-### Delete a dashboard
+### Update/Delete a dashboard
 
-## Adding widgets
-
-List of widgets
-
-
+## List of widgets

@@ -7,7 +7,7 @@ title: Dashboards Beta
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.
 
-![image](../assets/alerts/dashboard_overview.png)
+![image](../assets/alerts/dashboard-view.png)
 
 ## Activation de la fonctionnalité Dashboards Beta
 
@@ -39,16 +39,20 @@ L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'
 1. Connectez-vous à Centreon.
 2. Vous devriez voir dans le menu **Accueil**, l'entrée **Tableaux de bord Beta**.
 
-## Managing dashboards
+## Créer votre premier tableau de bord
 
-### Create a dashboard
+### Ajouter un widget
 
-### Share a dashboard
+![image](../assets/alerts/widget-view.png)
 
-### Delete a dashboard
+### Mettre à jour un widget
 
-## Adding widgets
+### Supprimer un widget
 
-List of widgets
+## Gérer les tableaux de bord
 
+### Partager un tableau de bord
 
+### Mettre à jour/supprimer un tableau de bord
+
+## Liste des widgets
