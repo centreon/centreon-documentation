@@ -563,6 +563,19 @@ The expected command output is shown below:
 OK: Instance 'APP01' Statistic 'total' Metrics CPU Time: 0.08s | 'APP01~total#appservice.cpu.consumed.seconds'=0.08s;;;0;
 ```
 
+
+The command above checks the *Cpu-Time* of an Azure *Functions* instance using the 'api' custom-mode
+(```--plugin=cloud::azure::compute::functions::plugin --mode=cpu-time --custommode=api```).
+This Functions instance is identified by its id (```--resource='APP01'```) and the authentication parameters
+to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
+--client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
+
+The calculated metrics are the total (```--aggregation='Total'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```)
+with one sample per 5 minutes (```--interval='PT5M'```).
+
+This command would trigger a WARNING alarm if the *Cpu-time* is reported as over 1
+(```--warning-cpu-time='1'```) and a CRITICAL alarm over 2 (```--critical-cpu-time='2'```).
+
 ### Troubleshooting
 
 Please find the troubleshooting documentation for the API-based plugins in
