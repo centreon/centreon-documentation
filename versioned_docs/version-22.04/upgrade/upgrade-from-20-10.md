@@ -59,7 +59,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 </TabItem>
@@ -414,7 +415,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 </TabItem>
@@ -576,7 +578,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 </TabItem>
