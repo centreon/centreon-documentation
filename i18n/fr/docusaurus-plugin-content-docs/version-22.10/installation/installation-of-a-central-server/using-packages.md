@@ -291,8 +291,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-t
 
 #### Dépôt Centreon
 
-Pour installer le logiciel Centreon à partir des dépôts, vous devez d'abord installer le paquet
-**centreon-release**, qui fournira le fichier du dépôt.
+Pour installer le logiciel Centreon, vous devez d'abord installer le dépôt Centreon.
 
 Installez le dépôt Centreon à l'aide de la commande suivante :
 

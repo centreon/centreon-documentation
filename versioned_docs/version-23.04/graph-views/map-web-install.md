@@ -234,7 +234,7 @@ Installed:
 Complete!
 ```
 
-Then install the **centreon-release** package:
+Then install the Centreon repository:
 
 ```shell
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
@@ -258,7 +258,7 @@ Installed:
 Complete!
 ```
 
-Then install the **centreon-release** package:
+Then install the Centreon repository:
 
 ```shell
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo

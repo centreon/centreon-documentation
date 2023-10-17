@@ -610,7 +610,8 @@ apt install centreon-bi-reporting-server mariadb-server mariadb-client
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 ```shell

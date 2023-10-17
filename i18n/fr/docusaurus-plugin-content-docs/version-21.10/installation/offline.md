@@ -9,7 +9,7 @@ Pour pouvoir installer Centreon sur des serveurs sans accès internet, créez un
 
 ## Créer une copie locale du dépôt Centreon
 
-1. Installez **le dépôt Centreon** sur votre serveur miroir.
+1. Installez le dépôt Centreon sur votre serveur miroir.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

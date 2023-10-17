@@ -180,8 +180,7 @@ yum-config-manager --enable remi-php80
 
 #### Centreon repository
 
-To install Centreon software from the repository, you should first install the
-centreon-release package, which will provide the repository file.
+To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
