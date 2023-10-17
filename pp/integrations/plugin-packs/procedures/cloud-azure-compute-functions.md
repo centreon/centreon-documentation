@@ -541,23 +541,20 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_compute_functions_api.pl \
-	--plugin=cloud::azure::compute::functions::plugin \
-	--mode=status \
-	--custommode='api' \
-	--resource='' \
-	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
-	--proxyurl=''  \
-	--filter-metric='' \
-	--filter-dimension='' \
-	--timeframe='900' \
-	--interval='PT5M' \
-	--aggregation='Average' \
-	--warning-status='' \
-	--critical-status='' 
+    --plugin=cloud::azure::compute::functions::plugin \
+    --mode=cpu-time \
+    --custommode=api \
+    --subscription='xxxxxxxxx' \
+    --tenant='xxxxxxxxx' \
+    --client-id='xxxxxxxxx' \
+    --client-secret='xxxxxxxxx' \
+    --resource='APP01' \
+    --resource-group='xxxxxxxxx' \
+    --timeframe='900' \
+    --interval='PT5M' \
+    --aggregation='Total' \
+    --warning-cpu-time='1' \
+    --critical-cpu-time='2'
 ```
 
 The expected command output is shown below:
