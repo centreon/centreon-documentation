@@ -35,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description             |
 |:----------------|:------------------------|
-| Amazon AWS FSX  | Discover Amazon AWS FSX |
+| Amazon AWS FSX  | Discover Amazon AWS FSX instances |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
