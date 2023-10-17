@@ -254,10 +254,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 Configure a service account (access/secret key combo) for which the following privileges have to be granted:
 
-| AWS Privilege                  | Description                                                     |
-| :----------------------------- | :-------------------------------------------------------------- |
-| XXXXX:XXXXXXXXXXXXXXXX         | Get XXXXX.                                                      |
-| cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch.           |
+| AWS Privilege                  | Description                                                        |
+| :----------------------------- | :----------------------------------------------------------------- |
+| rds:DescribeDBInstances        | Display RDS instances & cluster descriptions                       |
+| cloudwatch:getMetricStatistics | Get metrics from the AWS/RDS namespace on Cloudwatch               |
 
 ### Plugin dependencies
 
