@@ -5,7 +5,7 @@ title: Operating guide
 
 > Unless otherwise stated, all commands in this document must be passed as `root`.
 
-> In this document, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses and hosts names) by the [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-hosts-names-and-addresses).
+> In this document, we will refer to characteristics that are bound to change from one platform to another (such as IP addresses and host names) by the [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-hosts-names-and-addresses).
 
 ## Cluster Management
 
@@ -23,13 +23,13 @@ crm_mon
 
 ### View the status of a resource
 
-To know the status of a specific resource, run this command:
+To find out the status of a specific resource, run this command:
 
 ```bash
 pcs resource show <resource_name>
 ```
 
-For example to know the status of the **centengine** resource, run this command:
+For example, to find out the status of the **centengine** resource, run this command:
 
 ```bash
 pcs resource show centengine
@@ -61,9 +61,9 @@ To save the cluster configuration in XML format, run this command:
 cibadmin --query > /tmp/cluster_configuration.xml
 ```
 
-> The following commands perform important modifications to the cluster's configuration and might break it. Use wisely.
+> The following commands perform important modifications to the cluster's configuration and might break it. Use them wisely.
 
-After having modified the XML configuration file, reimport it:
+After modifying the XML configuration file, reimport it:
 
 ```bash
 cibadmin --replace --xml-file /tmp/cluster_configuration.xml
@@ -150,7 +150,7 @@ To change the verbosity level of the cluster logs, edit the following files:
 
 ## Management of the MariaDB resource
 
-This chapter discusses the operation procedures for the `ms_mysql` resource. The procedures are to be performed on the `@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@` servers.
+This chapter discusses the operating procedures for the `ms_mysql` resource. The procedures are to be performed on the `@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@` servers.
 
 ### Check the status of MariaDB replication
 
@@ -167,11 +167,11 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-If errors are displayed on the third or the fourth line, it means that the database replication has been broker for some reason. The procedure below explains how to manually re-enable the MariaDB replication.
+If errors are displayed on the third or fourth line, it means that the database replication has been broken for some reason. The procedure below explains how to manually re-enable MariaDB replication.
 
 ### Restore MariaDB master-slave replication
 
-> These procedure is to be performed in the event of a breakdown in the MariaDB databases replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
+> This procedure should be applied in the event of a breakdown in the MariaDB databases' replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
 
 Prevent the cluster from managing the MariaDB resource during the operation (to be run from any node):
 
@@ -179,7 +179,7 @@ Prevent the cluster from managing the MariaDB resource during the operation (to 
 pcs resource unmanage ms_mysql
 ```
 
-Connect to the MariaDB slave server ans shutdown the MariaDB service:
+Connect to the MariaDB slave server and shut down the MariaDB service:
 
 ```bash
 mysqladmin -p shutdown
@@ -197,7 +197,7 @@ Re-enable the cluster to manage the MariaDB resource:
 pcs resource manage ms_mysql
 ```
 
-Run the following command on one of the database servers to make sure that the replication has successfully been restored:
+Run the following command on one of the database servers to make sure that the replication has been successfully restored:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -214,7 +214,7 @@ Position Status [OK]
 
 > Before performing this operation, it is mandatory to make sure that the MariaDB replication thread [is running well](operating-guide.md#check-the-status-of-mariadb-replication).
 
-> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will move the `centreon` resource group as well, because it **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** Following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will move the `centreon` resource group as well, because it **must** run on the node that has the `ms_mysql-master` meta attribute.
 
 To make the resource move from one node to the other, run this command:
 
@@ -222,7 +222,7 @@ To make the resource move from one node to the other, run this command:
 pcs resource move ms_mysql-master
 ```
 
-This command sets a "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. 
+This command sets an "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. 
 
 Wait until all the resources have switched to the other node and then clear the constraint:
 
@@ -230,11 +230,11 @@ Wait until all the resources have switched to the other node and then clear the 
 pcs resource clear ms_mysql-master
 ```
 
-## Management of the Centreon resource group
+## Managing the Centreon resource group
 
-### Toggle the resource group `centreon`
+### Toggle the `centreon` resource group
 
-> **Warning:** As in [this chapter](operating-guide.md#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a 2-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will switch the MariaDB master as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** As in [this chapter](operating-guide.md#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will switch the MariaDB master as well, because it **must** run on the node that has the `ms_mysql-master` meta attribute.
 
 Move the resource group to the other node:
 
@@ -242,7 +242,7 @@ Move the resource group to the other node:
 pcs resource move centreon
 ```
 
-This command sets a "-Inf" constraint on the node hosting the resource. As a result, the resource group switches to another node. Following this manipulation, it is necessary to clear the constraint:
+This command sets an "-Inf" constraint on the node hosting the resource. As a result, the resource group switches to another node. Following this manipulation, it is necessary to clear the constraint:
 
 ```bash
 pcs resource clear centreon
@@ -292,7 +292,7 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
     * NTP synchronization with the reference time server
 * Processes
     * System processes `crond`, `ntpd`, `rsyslogd`
-    * Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `php-fpm`
+    * Centreon processes `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `php-fpm`
 
 ### Application monitoring
 
@@ -300,15 +300,15 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
 * MariaDB, using the [MySQL/MariaDB Database Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-databases-mysql)
     * MariaDB Server Connection Control
     * MariaDB / InnoDB buffers and caches
-    * Indexes usage
+    * Index usage
     * MariaDB replication
 
 ### Cluster monitoring
 
 The cluster-specific health checks can be monitored using the [Pacemaker Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-pacemaker-ssh):
 
-* Resources constraints: only for `ms_mysql` and  `centreon` resources
+* Resource constraints: only for `ms_mysql` and  `centreon` resources
 * Failed actions
 
-> Note: a Monitoring Connector dedicated to Centreon-HA might be release in the future to make this easier.
+> Note: a Monitoring Connector dedicated to Centreon-HA might be released in the future to make this easier.
 

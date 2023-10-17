@@ -168,15 +168,15 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - added swap monitoring.
-- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - added Cpu and Memory monitoring.
-- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - added thresholds for Devices monitoring.
-- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - added Interfaces monitoring.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - added CPU and Memory monitoring.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - added thresholds for devices monitoring.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - added interfaces monitoring.
 - [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - added a host discovery rule.
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - refreshed dependencies to make host discovery work in any case others.
-- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - update path verification service.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - added dependencies to avoid errors when using host discovery.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - updated path verification service.
 - [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - added options to Cells-Radio monitoring.
-- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - added Interfaces monitoring.
-- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - added jobs monitoring.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - added interfaces monitoring.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - added job monitoring.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">

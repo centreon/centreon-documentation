@@ -3,10 +3,10 @@ id: loginpwd
 title: Configuring a local authentication
 ---
 
-## Authorise users to access Centreon
+## Authorize users to access Centreon
 
 1. To authorize a [user](../monitoring/basic-objects/contacts.md) to access the Centreon web interface, go to
-**Configuration > Users > Contacts/Users** and click on the user you want.
+**Configuration > Users > Contacts/Users** and click the user you want.
 
 2. On the **Centreon Authentication** tab, set **Reach Centreon Front-end** to **Yes**.
 
@@ -14,7 +14,7 @@ title: Configuring a local authentication
 **Confirm Password** fields: the password must comply with the [password security policy](#configure-a-local-password-security-policy) that has been defined. You can use the **Generate** button to generate a random string based on this
 local password security policy.
 
-Users can change their password by clicking on the profile icon in the top right corner of the page and then clicking **Edit profile**.
+Users can change their password by clicking the profile icon in the top right corner of the page and then clicking **Edit profile**.
 On this screen, the password expiration time is displayed:
 
 ![image](../assets/administration/password_expiration.png)
@@ -46,6 +46,6 @@ Configure when passwords will expire:
 
 ### Password blocking policy
 
-To block brute force type attacks, use the following fields:
+To block brute force attacks, use the following fields:
 - **Number of attempts before user is blocked** 
-- **Time that must pass before new connection is allowed**: when a user is blocked, they will have to wait that amount of time before they can try connecting again.
+- **Time that must pass before new connection is allowed**: when a user is blocked, they will have to wait this amount of time before they can try connecting again.

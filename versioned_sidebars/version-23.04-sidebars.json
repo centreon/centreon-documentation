@@ -492,10 +492,6 @@
         },
         {
           "type": "doc",
-          "id": "version-23.04/monitoring/basic-objects/customization"
-        },
-        {
-          "type": "doc",
           "id": "version-23.04/monitoring/basic-objects/contacts-create"
         },
         {
@@ -509,6 +505,10 @@
         {
           "type": "doc",
           "id": "version-23.04/administration/access-control-lists"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/monitoring/basic-objects/customization"
         }
       ]
     },
@@ -656,6 +656,10 @@
                 {
                   "type": "doc",
                   "id": "version-23.04/graph-views/map-web-troubleshooting"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "version-23.04/api/map-api"
                   }
               ]
             }
@@ -720,6 +724,10 @@
             {
               "type": "doc",
               "id": "version-23.04/graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/api/graph-views-api"
             }
           ]
         }
@@ -1272,6 +1280,10 @@
             {
               "type": "doc",
               "id": "version-23.04/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/api/map-api"
             },
             {
               "type": "doc",
