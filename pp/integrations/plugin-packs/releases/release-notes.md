@@ -13,8 +13,8 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Docker SSH**](../procedures/applications-docker-ssh.md) - New connector.
-- [**EES UPS SNMP**](../procedures/hardware-ups-ees-snmp.md) - New connector.
+- [**Docker SSH**](../procedures/applications-docker-ssh.md) - Initial release.
+- [**EES UPS SNMP**](../procedures/hardware-ups-ees-snmp.md) - Initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
