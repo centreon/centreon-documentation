@@ -266,7 +266,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token=''  \
+	--access-token='xxxxxx'  \
 	--filter-vdom='' \
 	--warning-cpu-utilization='' \
 	--critical-cpu-utilization='' \
