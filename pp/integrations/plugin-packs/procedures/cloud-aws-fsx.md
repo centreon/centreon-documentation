@@ -224,14 +224,14 @@ yum install centreon-plugin-Cloud-Aws-Fsx-Api
 | TIMEFRAME                | Set timeframe in seconds                                                                                                       | 900               |             |
 | PERIOD                   | Set period in seconds                                                                                                          | 60                |             |
 | FILTERMETRIC             | Filter on a specific metric. Can be: DataReadBytes, DataWriteBytes, DataReadOperations, DataWriteOperations, MetaDataOperations |                   |             |
-| WARNINGDATAREADBYTES     |                                                                                                                                |                   |             |
-| CRITICALDATAREADBYTES    |                                                                                                                                |                   |             |
-| WARNINGDATAREADOPS       |                                                                                                                                |                   |             |
-| CRITICALDATAREADOPS      |                                                                                                                                |                   |             |
-| WARNINGDATAWRITEOPS      |                                                                                                                                |                   |             |
-| CRITICALDATAWRITEOPS     |                                                                                                                                |                   |             |
-| WARNINGMETADATAOPSBYTES  |                                                                                                                                |                   |             |
-| CRITICALMETADATAOPSBYTES |                                                                                                                                |                   |             |
+| WARNINGDATAREADBYTES     | Thresholds                                                                                                                     |                   |             |         
+| CRITICALDATAREADBYTES    | Thresholds                                                                                                                     |                   |             |
+| WARNINGDATAREADOPS       | Thresholds                                                                                                                     |                   |             |
+| CRITICALDATAREADOPS      | Thresholds                                                                                                                     |                   |             |
+| WARNINGDATAWRITEOPS      | Thresholds                                                                                                                     |                   |             |
+| CRITICALDATAWRITEOPS     | Thresholds                                                                                                                     |                   |             |
+| WARNINGMETADATAOPSBYTES  | Thresholds                                                                                                                     |                   |             |
+| CRITICALMETADATAOPSBYTES | Thresholds                                                                                                                     |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                            | --verbose         |             |
 
 </TabItem>
