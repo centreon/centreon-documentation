@@ -306,7 +306,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 | Macro                            | Description                                                                                                                                | Valeur par défaut | Obligatoire |
 |:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME                       | Filter databases by name                                                                                                                   | ^(?!(tempdb))     |             |
-| UNIT                             | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days | d                 |             |
+| UNIT                             | Select the time unit for thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days | d                 |             |
 | FILTERDATABASESTATE              | Filter databases by state                                                                                                                  |                   |             |
 | WARNINGFULLLASTDURATION          | Thresholds                                                                                                                                 |                   |             |
 | CRITICALFULLLASTDURATION         | Thresholds                                                                                                                                 |                   |             |
