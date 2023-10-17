@@ -21,8 +21,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                  | Description                                                |
 |:--------------|:-----------------------------------|:-----------------------------------------------------------|
-| Fsx-DataUsage | Cloud-Aws-Fsx-Datausage-Api-custom | Contrôle les métriques liées au système de fichier FSx     |
-| Fsx-Freespace | Cloud-Aws-Fsx-Freespace-Api-custom | Contrôle l'espace disponible sur un système de fichier FSx |
+| Fsx-DataUsage | Cloud-Aws-Fsx-Datausage-Api-custom | Contrôle les métriques liées au système de fichiers FSx     |
+| Fsx-Freespace | Cloud-Aws-Fsx-Freespace-Api-custom | Contrôle l'espace disponible sur un système de fichiers FSx |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Fsx-custom** est utilisé.
 
@@ -222,7 +222,7 @@ yum install centreon-plugin-Cloud-Aws-Fsx-Api
 | STATISTIC                | Set the metric calculation method (Only Sum is relevant)                                                                       | sum               |             |
 | TIMEFRAME                | Set timeframe in seconds                                                                                                       | 900               |             |
 | PERIOD                   | Set period in seconds                                                                                                          | 60                |             |
-| FILTERMETRIC             | Filter on a specific metric Can be: DataReadBytes, DataWriteBytes, DataReadOperations, DataWriteOperations, MetaDataOperations |                   |             |
+| FILTERMETRIC             | Filter on a specific metric. Can be: DataReadBytes, DataWriteBytes, DataReadOperations, DataWriteOperations, MetaDataOperations |                   |             |
 | WARNINGDATAREADBYTES     |                                                                                                                                |                   |             |
 | CRITICALDATAREADBYTES    |                                                                                                                                |                   |             |
 | WARNINGDATAREADOPS       |                                                                                                                                |                   |             |
@@ -238,12 +238,12 @@ yum install centreon-plugin-Cloud-Aws-Fsx-Api
 
 | Macro                    | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| STATISTIC                | Set the metric calculation method (Default: Average) Can be 'minimum', 'average'                    | average           |             |
+| STATISTIC                | Set the metric calculation method (Default: Average). Can be 'minimum', 'average'                    | average           |             |
 | TIMEFRAME                |                                                                                                     | 900               |             |
 | PERIOD                   |                                                                                                     | 60                |             |
 | FILTERMETRIC             |                                                                                                     |                   |             |
-| WARNINGSTORAGEFREEBYTES  | Thresholds warning on remaining available bytes                                                     |                   |             |
-| CRITICALSTORAGEFREEBYTES | Thresholds warning on remaining available bytes                                                     |                   |             |
+| WARNINGSTORAGEFREEBYTES  | Warning threshold for remaining available bytes                                                     |                   |             |
+| CRITICALSTORAGEFREEBYTES | Warning threshold for remaining available bytes                                                     |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
@@ -435,8 +435,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option              | Description                                                                                                                             |
 |:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| --name              | Set the instance name (Required) (can be defined multipletimes).                                                                        |
-| --filter-metric     | Filter on a specific metric Can be: DataReadBytes, DataWriteBytes, DataReadOperations, DataWriteOperations, MetaDataOperations          |
+| --name              | Set the instance name (required) (can be defined multiple times).                                                                        |
+| --filter-metric     | Filter on a specific metric. Can be: DataReadBytes, DataWriteBytes, DataReadOperations, DataWriteOperations, MetaDataOperations          |
 | --warning-$metric$  | Thresholds warning ($metric$ can be: 'data-write-ops', 'data-write-ops', 'data-read-ops', 'data-read-bytes', 'metadata-ops-bytes').     |
 | --critical-$metric$ | Thresholds critical ($metric$ can be: 'data-write-ops', 'data-write-ops', 'data-read-ops', 'data-read-bytes', 'metadata-ops-bytes').    |
 
@@ -445,9 +445,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                        | Description                                                        |
 |:------------------------------|:-------------------------------------------------------------------|
-| --name                        | Set the instance name (Required) (can be defined multipletimes).   |
-| --warning-storage-free-bytes  | Thresholds warning on remaining available bytes.                   |
-| --critical-storage-free-bytes | Thresholds warning on remaining available bytes.                   |
+| --name                        | Set the instance name (required) (can be defined multiple times).   |
+| --warning-storage-free-bytes  | Warning threshold for remaining available bytes.                   |
+| --critical-storage-free-bytes | Warning threshold for remaining available bytes.                   |
 
 </TabItem>
 </Tabs>
