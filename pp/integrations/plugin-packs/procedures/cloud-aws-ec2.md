@@ -135,6 +135,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 | ec2.ebs.ops.read.count     | ops   |
 | ec2.ebs.ops.write.count    | ops   |
 
+> These metrics are most of the time irrelevant or null when applied to an AutoscalingGroup
+
+
 </TabItem>
 <TabItem value="Ec2-Instances-Status-Global" label="Ec2-Instances-Status-Global">
 
