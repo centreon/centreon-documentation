@@ -6,9 +6,9 @@ title : Configuring Gorgone in rebound mode
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This procedure describes how to configure Gorgone between a distant poller and a central server, via a rebound server.
+This procedure describes how to configure Gorgone between a remote poller and a central server, via a rebound server.
 
-> Note: In our case, we have the configuration described below (you have to adapt the procedure to your configuration).
+> Note: In our case, we have the configuration described below (you must adapt the procedure to your configuration).
 
 Central server:
 - address: 10.30.2.203
@@ -18,16 +18,16 @@ Rebound server:
 - address: 10.30.2.67
 - rsa public key thumbprint: NmnPME43IoWpkQoam6CLnrI5hjmdq6Kq8QMUCCg-F4g
 
-Distant Poller:
+Remote Poller:
 - id: 6 (configured in Centreon interface as zmq. You can get this id from the Centreon interface)
 - address: 10.30.2.179
 - rsa public key thumbprint: nJSH9nZN2ugQeksHif7Jtv19RQA58yjxfX-Cpnhx09s
 
-## On the distant poller side
+## On the remote poller side
 
 ### Installation requirements
 
-Ensure the distant poller and Gorgone are already installed.
+Ensure the remote poller and Gorgone are already installed.
 
 ### Configuration
 
@@ -106,7 +106,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 apt update
 ```
 
-Then install gorgone:
+Then install Gorgone:
 
 ```shell
 apt install centreon-gorgone

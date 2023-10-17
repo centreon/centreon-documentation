@@ -1,6 +1,6 @@
 ---
 id: backup
-title: Backup
+title: Back up and restore your central server
 ---
 
 ## How it works

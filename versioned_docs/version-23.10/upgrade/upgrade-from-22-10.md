@@ -140,7 +140,7 @@ This section only applies if you customized your Apache configuration.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
 
 Run a diff between the old and the new Apache configuration files:
 
@@ -165,7 +165,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take in account the new configuration:
+Restart the Apache and PHP processes to take the new configuration into account:
 
 ```shell
 systemctl restart php-fpm httpd
@@ -203,7 +203,7 @@ If everything is ok, you should have:
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Use the backup file you have created at the previous step to copy your customizations to file **/etc/apache2/sites-available/centreon.conf**.
+Use the backup file you created in the previous step to copy your customizations to the file **/etc/apache2/sites-available/centreon.conf**.
 
 Check that Apache is configured properly by running the following command:
 
@@ -217,7 +217,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take in account the new configuration:
+Restart the Apache and PHP processes to take the new configuration into account:
 
 ```shell
 systemctl restart php8.0-fpm apache2
@@ -229,7 +229,7 @@ Then check its status:
 systemctl status apache2
 ```
 
-If everything is ok, you must have:
+If everything is ok, you should have:
 
 ```shell
 ● apache2.service - The Apache HTTP Server
@@ -259,7 +259,7 @@ If everything is ok, you must have:
 
 #### Customized Apache configuration: enable text compression
 
-In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional but it provides a better user experience.
+In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional, but it provides a better user experience.
 
 Add the following code to your Apache configuration file, in both the `<VirtualHost *:80>` and `<VirtualHost *:443>` elements:
 
@@ -302,23 +302,23 @@ Then you need to finalize the upgrade process:
   <Tabs groupId="sync">
   <TabItem value="Using the wizard" label="Using the wizard">
 
-1. Log on to the Centreon web interface to continue the update process. Click on **Next**:
+1. Log on to the Centreon web interface to continue the update process. Click **Next**:
 
   ![image](../assets/upgrade/web_update_1.png)
 
-2. Click on **Next**:
+2. Click **Next**:
 
   ![image](../assets/upgrade/web_update_2.png)
 
-3. The release notes describe the main changes. Click on **Next**:
+3. The release notes describe the main changes. Click **Next**:
 
   ![image](../assets/upgrade/web_update_3.png)
 
-4. This process performs the various upgrades. Click on **Next**:
+4. This process performs the various upgrades. Click **Next**:
 
   ![image](../assets/upgrade/web_update_4.png)
 
-5. Your Centreon server is now up to date. Click on **Finish** to access the login
+5. Your Centreon server is now up to date. Click **Finish** to access the login
 page:
 
   ![image](../assets/upgrade/web_update_5.png)
@@ -358,7 +358,7 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   }'
   ```
 
-  This is how the result should look like:
+  This is how the result should look:
 
     ```shell
     {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
@@ -392,7 +392,7 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   systemctl restart cbd centengine gorgoned
   ```
 
-Update permissions on centreon-broker configuration files.
+Update the permissions on the centreon-broker configuration files.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -422,7 +422,7 @@ If the Centreon BAM module is installed, refer to the
 with the following:
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
    Then you can upgrade all other commercial extensions.
@@ -439,7 +439,7 @@ with the following:
 
 This procedure is the same as for upgrading a Centreon Central server.
 
-> At the end of the update, configuration should be deployed from the Central server.
+> At the end of the update, the configuration should be deployed from the Central server.
 
 ## Upgrade the Pollers
 
