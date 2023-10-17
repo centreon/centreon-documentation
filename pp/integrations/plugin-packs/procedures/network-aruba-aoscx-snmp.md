@@ -355,15 +355,14 @@ is able to monitor a resource using a command like this one (replace the sample 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
-	--mode=memory \
-	--hostname='10.0.0.1' \
-	--snmp-version='2c' \
-	--snmp-community='my-snmp-community'  \
-	--filter-module-name='' \
-	--warning-memory-usage-prct='' \
-	--critical-memory-usage-prct='' \
-	--verbose
+    --plugin=network::aruba::aoscx::snmp::plugin \
+    --mode=vsf \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='aruba_ro' \
+    --warning-cpu-utilization='90' \
+    --critical-cpu-utilization='95' \
+    --verbose
 ```
 
 The expected command output is shown below:
