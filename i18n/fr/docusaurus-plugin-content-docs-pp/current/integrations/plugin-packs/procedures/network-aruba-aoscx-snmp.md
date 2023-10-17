@@ -356,15 +356,14 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
-	--mode=memory \
-	--hostname='10.0.0.1' \
-	--snmp-version='2c' \
-	--snmp-community='my-snmp-community'  \
-	--filter-module-name='' \
-	--warning-memory-usage-prct='' \
-	--critical-memory-usage-prct='' \
-	--verbose
+    --plugin=network::aruba::aoscx::snmp::plugin \
+    --mode=vsf \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='aruba_ro' \
+    --warning-cpu-utilization='90' \
+    --critical-cpu-utilization='95' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
