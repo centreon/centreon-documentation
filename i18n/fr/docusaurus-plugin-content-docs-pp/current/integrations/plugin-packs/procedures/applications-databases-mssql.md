@@ -681,7 +681,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:---------------------|:------------------------------------------------------|
 | --warning-deadlocks  | Warning threshold number of dead locks per second.    |
 | --critical-deadlocks | Critical threshold number of dead locks per second.   |
-| --filter-database    | Filter database to check.                             |
+| --filter-database    | Filter by database name.                             |
 
 </TabItem>
 <TabItem value="Failed-Jobs" label="Failed-Jobs">
