@@ -82,7 +82,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 To control your Fortinet Fortigate, the Rest API must be configured.
-E.g: https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator
+See: https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator
 
 ## Installing the monitoring connector
 
@@ -227,7 +227,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 | Macro           | Description                                                                                                                                                | Default value           | Mandatory   |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
 | FILTERNAME      | Filter licenses by name (can be a regexp)                                                                                                                  |                         |             |
-| UNIT            | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds              |                         |             |
+| UNIT            | Select the time unit for thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds              |                         |             |
 | WARNINGEXPIRES  | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALEXPIRES | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /expired/i'). You can use the following variables: %{name}, %{status} | %{status} =~ /expired/i |             |

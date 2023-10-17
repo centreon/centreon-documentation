@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                              | Description                              |
 |:---------|:-----------------------------------------------|:-----------------------------------------|
-| Health   | Net-Fortinet-Fortigate-Health-Restapi-custom   | Contrôle l'état des santé du firewall    |
+| Health   | Net-Fortinet-Fortigate-Health-Restapi-custom   | Contrôle l'état de santé du firewall    |
 | Licenses | Net-Fortinet-Fortigate-Licenses-Restapi-custom | Contrôle le statut des licences          |
 | System   | Net-Fortinet-Fortigate-System-Restapi-custom   | Contrôle l'utilisation système des VDOM  |
 
@@ -32,7 +32,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service                        | Description                                            |
 |:------|:-----------------------------------------|:-------------------------------------------------------|
-| Ha    | Net-Fortinet-Fortigate-Ha-Restapi-custom | Contrôle l'utilisation système des members du cluster  |
+| Ha    | Net-Fortinet-Fortigate-Ha-Restapi-custom | Contrôle l'utilisation système des membres du cluster  |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -225,7 +225,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 | Macro           | Description                                                                                                                                                | Valeur par défaut       | Obligatoire |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
 | FILTERNAME      | Filter licenses by name (can be a regexp)                                                                                                                  |                         |             |
-| UNIT            | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds              |                         |             |
+| UNIT            | Select the time unit for thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds              |                         |             |
 | WARNINGEXPIRES  | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALEXPIRES | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /expired/i'). You can use the following variables: %{name}, %{status} | %{status} =~ /expired/i |             |
