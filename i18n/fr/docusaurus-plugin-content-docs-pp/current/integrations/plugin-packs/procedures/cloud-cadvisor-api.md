@@ -35,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias             | Modèle de service                           | Description                                                            | Découverte |
 |:------------------|:--------------------------------------------|:-----------------------------------------------------------------------|:----------:|
-| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Contrôle permettant de vérifier les I                                  | X          |
+| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Contrôle permettant de vérifier les I/O disques des containers. | X          |
 | Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Contrôle permettant de vérifier l'utilisation du réseau des containers | X          |
 | Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation des containers           | X          |
 
