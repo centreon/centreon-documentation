@@ -428,7 +428,7 @@ yum install centreon-plugin-Applications-Databases-Mssql
 
 | Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Filter database to check                                                                            |                   |             |
+| FILTER       | Filter by database name                                                                            |                   |             |
 | WARNING      | Warning threshold for the number of lock-waits per second                                                   |                   |             |
 | CRITICAL     | Critical threshold for the number of lock-waits per second                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
