@@ -368,7 +368,23 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All memory usages are ok | '*modules*#memory.usage.percentage'=%;;;0;100
+OK: vsf operational status: no_split - All stack members are ok | '1#member.cpu.utilization.percentage'=16.00%;0:90;0:95;0;100 '1#member.memory.usage.percentage'=24.00%;;;0;100 '2#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '2#member.memory.usage.percentage'=14.00%;;;0;100 '3#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '3#member.memory.usage.percentage'=8.00%;;;0;100 '4#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '4#member.memory.usage.percentage'=8.00%;;;0;100
+checking stack member '1'
+    role: master [status: ready]
+    cpu usage: 16.00%
+    memory used: 24.00 %
+checking stack member '2'
+    role: standby [status: ready]
+    cpu usage: 4.00%
+    memory used: 14.00 %
+checking stack member '3'
+    role: member [status: ready]
+    cpu usage: 4.00%
+    memory used: 8.00 %
+checking stack member '4'
+    role: member [status: ready]
+    cpu usage: 4.00%
+    memory used: 8.00 %
 ```
 
 ### Troubleshooting
