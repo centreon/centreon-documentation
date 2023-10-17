@@ -38,7 +38,7 @@ The connector brings the following service templates (sorted by the host templat
 | Backup               | App-DB-MySQL-Backup-custom                       | Check backups                                                                                      |
 | Innodb-Bufferpool    | App-DB-MySQL-Innodb-Bufferpool-custom            | Check the hit rate of the InnoDB buffer                                                            |
 | Long-Queries         | App-DB-MySQL-Long-Queries-custom                 | Check current number of long queries                                                               |
-| MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          |                                                                                                    |
+| MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          | Check the state of the replication between two databases                                              |
 | Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Check user password expiration                                                                     |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate-custom               | Check query cache hitrate                                                                          |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Check allowing to execute a custom SQL request with a digital answer                               |
