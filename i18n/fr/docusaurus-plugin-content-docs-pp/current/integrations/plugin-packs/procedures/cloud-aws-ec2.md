@@ -136,6 +136,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | ec2.ebs.ops.read.count     | ops   |
 | ec2.ebs.ops.write.count    | ops   |
 
+> **Remarque** Ces métriques sont généralement nulles lorsque collectées sur un groupe d'AutoScaling.
+
 </TabItem>
 <TabItem value="Ec2-Instances-Status-Global" label="Ec2-Instances-Status-Global">
 
