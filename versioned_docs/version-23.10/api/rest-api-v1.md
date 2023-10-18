@@ -6,31 +6,31 @@ title: Rest API (v1)
 ## Overview
 
 This documentation is for developers familiar with HTTP requests and JSON. It
-explains various API operations, related requests and responses structure, and
-error codes. If you are not familiar with the JSON API, we recommend you to use
-the Centreon command line API documentation.
+explains various API operations, related request and response structures, and
+error codes. If you are not familiar with the JSON API, we recommend that you use
+the Centreon command line API.
 
 ## Permissions
 
-To perform API calls using a specific Centreon user, you need permissions to do
-so.
+To perform API calls using a specific Centreon user, 
+you need permissions.
 
 There are two types of permission:
 
-You can give access to the configuration for a specific Centreon user. To do so
-you have to edit user settings on the menu **Configuration \> Users \>
-Contacts/Users**, edit user and on second tab check box **Reach API
+You can give access to the configuration for a specific Centreon user. To do this,
+you must edit the user settings in **Configuration \> Users \>
+Contacts/Users**, edit user, and on the second tab check the box **Reach API
 Configuration**.
 
-You can give access to the realtime for a specific Centreon user. To do so you
-have to edit user settings on the menu **Configuration \> Users \>
-Contacts/Users**, edit user and on second tab check box **Reach API Realtime**.
+You can give access to the realtime for a specific Centreon user. To do this, you
+must edit the user settings in **Configuration \> Users \>
+Contacts/Users**, edit user, and on the second tab check the box **Reach API Realtime**.
 
-If you want both then check **both** checkboxes
+If you want both, then check **both** checkboxes
 
 ## Authentication
 
-Using POST method and the URL below:
+Using the POST method and the URL below:
 
     api.domain.tld/centreon/api/index.php?action=authenticate
 
@@ -49,7 +49,7 @@ The response is a json flow getting back the authentication token :
 }
 ```
 
-This token will be used later on the other API actions.
+This token will be used later on for the other API actions.
 
 ## Error codes
 
@@ -66,12 +66,12 @@ This token will be used later on the other API actions.
 
 ### Getting started
 
-Most of the actions available (about 95%) in the command line API is available
-in the rest API.
+Most of the actions available (about 95%) in the command line API are available
+in the REST API.
 
-Here is an example for listing hosts using rest API.
+Here is an example of listing hosts using REST API.
 
-Using POST method and the URL below:
+Using the POST method and the URL below:
 
     api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 
@@ -91,9 +91,9 @@ Using POST method and the URL below:
 }
 ```
 
-  - The key **action** corresponds to the option **-a** in Centreon CLAPI, the
+  - The key **action** corresponds to the option **-a** in Centreon CLAPI. The
     value **show** corresponds to the **-a** option value.
-  - The key **object** corresponds to the option **-o** in Centreon CLAPI, the
+  - The key **object** corresponds to the option **-o** in Centreon CLAPI. The
     value **HOST** corresponds to the **-o** option value.
 
 The equivalent action using Centreon CLAPI is:
@@ -102,7 +102,7 @@ The equivalent action using Centreon CLAPI is:
 centreon -u admin -p centreon -o HOST -a show
 ```
 
-**Response:** The response is a json flow listing all hosts and formated as
+**Response:** The response is a json flow listing all hosts and formatted as
 below:
 
 ``` json
@@ -134,15 +134,15 @@ below:
 ```
 
 > Some actions need the values key (the option **-v** in Centreon CLAPI).
-Depending on the called action, the body can contain **values** key. We will see
+Depending on the action called, the body can contain a **values** key. We will see
 that in detail later.
 
 ### API Calls
 
 All API calls you can do on objects are described below. Note that you need to
-be authenticate before each call.
+be authenticated before each call.
 
-API calls on the Host object are fully-detailed below. For the next objects,
+API calls on the Host object are fully detailed below. For the next objects,
 only the actions available are listed, so just follow the same approach as for
 the host object for an API call.
 
@@ -394,7 +394,7 @@ Available parameters
 | flap\_detection\_options       | Flap detection options                                                 |
 | icon\_image                    | Icon image                                                             |
 | icon\_image\_alt               | Icon image text                                                        |
-| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared              |
+| max\_check\_attempts           | Maximum number of attempts befores a HARD state is declared              |
 | name                           | Host name                                                              |
 | notes                          | Notes                                                                  |
 | notes\_url                     | Notes URL                                                              |
@@ -497,14 +497,14 @@ Available parameters
         },
         {
             "macro name": "ALIVEWARNING",
-            "macro value": "3000,80",
+            "macro value": "3000.80",
             "is_password": "",
             "description": "",
             "source": "generic-host-bench"
         },
         {
             "macro name": "ALIVECRITICAL",
-            "macro value": "5000,100",
+            "macro value": "5000.100",
             "is_password": "",
             "description": "",
             "source": "generic-host-bench"
@@ -537,7 +537,7 @@ Available parameters
 ```
 
 To edit an existing custom macro, The MacroName used on the body should be
-defined on the Custom Marco of the chosen host. If the marco doesn't exist, it
+defined on the Custom Macro of the chosen host. If the macro doesn't exist, it
 will be created.
 
 **Response**
@@ -572,7 +572,7 @@ will be created.
 ```
 
 The MacroName used on the body is the macro to delete. It should be defined on
-the Custom Marco of the chosen host.
+the Custom Macro of the chosen host.
 
 **Response**
 
@@ -826,11 +826,11 @@ The MyHostTemplate used on the body should exist as a host template.
 }
 ```
 
-To add more than one parent to a host, use the character '|'. Ex:
+To add more than one parent to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
-The add action add the parent without overwriting he previous configuration.
+The add action adds the parent without overwriting he previous configuration.
 
 #### Set parent
 
@@ -863,11 +863,11 @@ The add action add the parent without overwriting he previous configuration.
 }
 ```
 
-To set more than one parent to a host, use the character '|'. Ex:
+To set more than one parent to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
-The set action overwrite the previous configuration before setting the new
+The set action overwrites the previous configuration before setting the new
 parent.
 
 #### Delete parent
@@ -901,7 +901,7 @@ parent.
 }
 ```
 
-To delete more than one parent, use the character '|'. Ex:
+To delete more than one parent, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
@@ -972,11 +972,11 @@ To delete more than one parent, use the character '|'. Ex:
  }
 ```
 
-To add more than one child to a host, use the character '|'. Ex:
+To add more than one child to a host, use the character '|'. Example:
 
     "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
-The add action add the child without overwriting the previous configuration.
+The add action adds the child without overwriting the previous configuration.
 
 ### Set child
 
@@ -1010,11 +1010,11 @@ The add action add the child without overwriting the previous configuration.
  }
 ```
 
-To set more than one child to a host, use the character '|'. Ex:
+To set more than one child to a host, use the character '|'. Example:
 
     "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
-The set action overwrite the previous configuration before setting the new child.
+The set action overwrites the previous configuration before setting the new child.
 
 ### Delete child
 
@@ -1047,7 +1047,7 @@ The set action overwrite the previous configuration before setting the new child
  }
 ```
 
-To delete more than one child, use the character '|'. Ex:
+To delete more than one child, use the character '|'. Example:
 
     "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
@@ -1118,11 +1118,11 @@ To delete more than one child, use the character '|'. Ex:
 }
 ```
 
-To add more than one contactgroup to a host, use the character '|'. Ex:
+To add more than one contactgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Supervisors|Guest"
 
-The add action add the contact without overwriting he previous configuration.
+The add action adds the contact without overwriting he previous configuration.
 
 #### Set contact group
 
@@ -1155,11 +1155,11 @@ The add action add the contact without overwriting he previous configuration.
 }
 ```
 
-To set more than one contactgroup to a host, use the character '|'. Ex:
+To set more than one contactgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Supervisors|Guest"
 
-The set action overwrite the previous configuration before setting the new
+The set action overwrites the previous configuration before setting the new
 contactgroup.
 
 #### Delete contact group
@@ -1193,7 +1193,7 @@ contactgroup.
 }
 ```
 
-To delete more than one contactgroup, use the character '|'. Ex:
+To delete more than one contactgroup, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Guest|Supervisors"
 
@@ -1264,11 +1264,11 @@ To delete more than one contactgroup, use the character '|'. Ex:
 }
 ```
 
-To add more than one contact to a host, use the character '|'. Ex:
+To add more than one contact to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;admin|SuperAdmin"
 
-The add action add the contact without overwriting he previous configuration.
+The add action adds the contact without overwriting he previous configuration.
 
 #### Set contact
 
@@ -1301,11 +1301,11 @@ The add action add the contact without overwriting he previous configuration.
 }
 ```
 
-To set more than one contact to a host, use the character '|'. Ex:
+To set more than one contact to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;admin|SuperAdmin"
 
-The set action overwrite the previous configuration before setting the new
+The set action overwrites the previous configuration before setting the new
 contact.
 
 #### Delete contact
@@ -1339,7 +1339,7 @@ contact.
 }
 ```
 
-To delete more than one contact, use the character '|'. Ex:
+To delete more than one contact, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;admin|SuperAdmin"
 
@@ -1414,11 +1414,11 @@ To delete more than one contact, use the character '|'. Ex:
 }
 ```
 
-To add more than one hostgroup to a host, use the character '|'. Ex:
+To add more than one hostgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"
 
-The add action add the hostgroup without overwriting he previous configuration.
+The add action adds the hostgroup without overwriting he previous configuration.
 
 #### Set hostgroup
 
@@ -1451,11 +1451,11 @@ The add action add the hostgroup without overwriting he previous configuration.
 }
 ```
 
-To set more than one hostgroup to a host, use the character '|'. Ex:
+To set more than one hostgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
 
-The set action overwrite the previous configuration before setting the new
+The set action overwrites the previous configuration before setting the new
 hostgroup.
 
 #### Delete hostgroup
@@ -1489,7 +1489,7 @@ hostgroup.
 }
 ```
 
-To delete more than one hostgroup, use the character '|'. Ex:
+To delete more than one hostgroup, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
 
@@ -2039,7 +2039,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 **Response**
 
-The response is a JSON flow listing all hosts, formated as follows: :
+The response is a JSON flow listing all hosts, formatted as follows: :
 
 ``` json
 {
@@ -2062,10 +2062,10 @@ The response is a JSON flow listing all hosts, formated as follows: :
 
 ### Host Status
 
-All monitoring information regarding hosts are available in throw the Centreon
+All monitoring information regarding hosts is available through the Centreon
 API.
 
-Using GET method and the URL below:
+Using the GET method and the URL below:
 
     api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list
 
@@ -2125,18 +2125,18 @@ Field list :
 | scheduled\_downtime\_depth | scheduled\_downtime\_depth               |
 | flapping                   | is the host flapping ?                   |
 
-Using GET method and the URL below:
+Using the GET method and the URL below:
 
     api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list&limit=60&viewType=all&sortType=name&order=desc&fields=id,name,alias,address,state,output,next_check
 
 ### Service Status
 
-All monitoring information regarding services are available in throw the
-Centreon API. With this call, you can also get host informations in the same
-time that service information. This web service provide the same possibility
-that the service monitoring view.
+All monitoring information regarding services is available through the
+Centreon API. With this call, you can also get host information at the same
+time as service information. This web service provides the same possibility
+as the service monitoring view.
 
-Using GET method and the URL below:
+Using the GET method and the URL below:
 
     api.domain.tld/centreon/api/index.php?object=centreon_realtime_services&action=list
 
@@ -2216,7 +2216,7 @@ Field list :
 
 Example:
 
-Using GET method and the URL below:
+Using the GET method and the URL below:
 
     api.domain.tld/centreon/api/index.php?action=list&object=centreon_realtime_services&limit=60&viewType=all&sortType=name&order=desc&fields=id,description,host_id,host_name,state,output
 
@@ -2224,9 +2224,9 @@ Using GET method and the URL below:
 
 You can use the centreon API to submit information to the monitoring engine. All
 information that you submit will be forwarded to the centreon engine poller that
-host the configuration.
+hosts the configuration.
 
-To provide information, Centreon need to have specific and mandatory
+To provide information, Centreon needs to have specific and mandatory
 information.
 
 The user must be admin or have access to "Reach API Configuration".
@@ -2308,7 +2308,7 @@ return code and a message for each submit
 
 ### Business activity
 
-All monitoring information on Business Activites are available through
+All monitoring information on Business Activities is available through
 the Centreon API. The BA list is sorted by *impact*.
 
 Use the GET method and URL below: :
@@ -2381,7 +2381,7 @@ Use the GET method and URL below: :
 ]
 ```
 
-Additionnal information:
+Additional information:
 
   - current_status: 0 = OK, 1 = warning, 2 = Critical, 3 = Unknown
   - current_impact: impact on linked BA in %
@@ -2494,7 +2494,7 @@ Use the GET method and URL below: :
 ]
 ```
 
-Additionnal information:
+Additional information:
 
 -   kpi\_type: 0 = service, 1 = metaservice, 2 = BA, 3 = boolean rule
 -   kpi\_name: name of the kpi (<host\> / <service\> or

@@ -47,7 +47,7 @@ Failed Resource Actions:
 
 ## Resource not starting
 
-In the event of a Centreon resource (eg. `centreontrpad`) failing to start, *failed actions* will appear at the bottom of the `crm_mon` command's output **and** the resources that are supposed to be started after it. It will look like this:
+In the event of a Centreon resource (e.g. `centreontrapd`) failing to start, *failed actions* will appear at the bottom of the `crm_mon` command's output **and** the resources that are supposed to be started are listed after it. It will look like this:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -74,13 +74,13 @@ Full List of Resources:
 </TabItem>
 </Tabs>
 
-In order to get more information regarding this failure, you should first check the service's status by running this command on the node **where the service should be currently running**:
+To obtain more information regarding this failure, you should first check the service's status by running this command on the node **where the service should be currently running**:
 
 ```bash
 systemctl status centreontrapd -l
 ```
 
-If it does not provide enough information, you can try forcing it to start and check for error messages:
+If this does not provide enough information, you can try forcing the service to start and check for error messages:
 
 ```bash
 pcs resource debug-start centreontrapd
@@ -92,9 +92,9 @@ Once the root cause has been identified, run the following command for the clust
 pcs resource cleanup centreontrapd
 ```
 
-## One resource or resources group doesn't start on any node
+## One resource or resource group does not start on any node
 
-If after a failover, could it be a manual one or after a server shutdown, the following situation happens:
+If the following situation occurs after a failover, whether a manual one or after a server shutdown:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -123,7 +123,7 @@ Active resources:
 </TabItem>
 </Tabs>
 
-No error is displayed but the centreon group doesn't show up anymore and none of its resources is started. This mostly happens when there were multiples failover (`pcs resource move ....`) without deleting the constraint. To check that:
+No error is displayed, but the centreon group no longer shows up and none of its resources is started. This mostly happens when there were multiple failovers (`pcs resource move ....`) without deleting the constraint. To check that:
 
 ```bash
 pcs constraint show
@@ -146,7 +146,7 @@ Ticket Constraints:
 </TabItem>
 </Tabs>
 
-We notice that the centreon group isn't authorized to start on any node
+We notice that the centreon group is not authorized to start on any node.
 
 To free the resource group from its constraints, run the following command:
 

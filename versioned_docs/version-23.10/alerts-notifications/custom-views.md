@@ -47,7 +47,7 @@ To edit a widget, click the wrench icon in the top right corner of the widget: !
 
 ### Rearranging widgets
 
-To move a widget, click the title bar of the widget and drag it to the place you want.
+To move a widget, click the title bar of the widget and drag it to the desired location.
 
 ## Sharing custom views
 
@@ -102,7 +102,7 @@ You can choose which view to display when you access the **Home > Custom Views**
 | Engine status            | Display the statistics for a poller. (Select a poller in the settings.)                                                                                                                                                                                                                                         |
 | Global health            |  Displays a pie chart showing the status of hosts.                                                                                                                                                                                                                                                                                              |
 | Graph monitoring         | Displays the RRD graph for a service. You must select a service that uses performance data. You can define the timeperiod and the refresh time for the graph in the settings.                                                                                 |
-| Grid-map                 | Display services as coloured squares. To configure this widget, select a hostgroup and fill in the "Name services" field, using commas between services (do not use special characters, e.g. slashes, in this widget). |
+| Grid-map                 | Display services as colored squares. To configure this widget, select a hostgroup and fill in the "Name services" field, using commas between services (do not use special characters, e.g. slashes, in this widget). |
 | Host monitoring          | Displays the list of hosts as well as their status and related information. You can filter the list using the criteria you want.                                                                                                                                                                                                                                                                                   |
 | Hostgroup monitoring     | Displays host groups. It can show a detailed view of services.                                                                                                                                                                                                                    |
 | HTTP loader              | Displays a web page.                                                                                                                                                                                                                                                                                                               |

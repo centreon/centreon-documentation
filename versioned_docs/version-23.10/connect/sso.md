@@ -3,9 +3,9 @@ id: sso
 title: Configuring a Web SSO connection
 ---
 
-Web SSO authentication relies on the Apache web server. It is Apache which, depending on its configuration, is
+Web SSO authentication relies on the Apache web server. According to its configuration, Apache is
 responsible for authenticating the user before allowing access to the Centreon web interface.
-Many Apache modules allow authentication via OIDC, SAMLv2, TLS, Kerberos, etc. protocols.
+Many Apache modules allow authentication via OIDC, SAMLv2, TLS, Kerberos, and other protocols.
 
 > Users must be present in the Centreon configuration to access the interface.
 
@@ -20,15 +20,15 @@ Go to **Administration > Authentication > Web SSO Configuration**:
 Enable authentication:
 
 - **Enable Web SSO authentication**: enables/disables Web SSO authentication.
-- **Authentication mode**: indicates if the authentication should be done using only Web SSO or using local
+- **Authentication mode**: indicates whether authentication should take place using only Web SSO or using local
   authentication as well (**Mixed**).
 
-> When setting the parameters, it is recommended to activate the "mixed" mode. This will allow you to retain access to
+> When setting the parameters, we recommend that you activate the "mixed" mode. This will allow you to retain access to
 > the local `admin` account in the event of a misconfiguration.
 
 ### Step 2: Configure your identity provider's access credentials
 
-Configure Identity Provider information:
+Configure identity provider information:
 
 - **Login header attribute name**: which variable from the headers should be used to retrieve the user's login.
   For example `REMOTE_USER`.
@@ -39,14 +39,14 @@ Configure Identity Provider information:
 
 ### Step 3: Configure client addresses
 
-If you leave both fields blank, all IP adresses will be allowed to access the Centreon interface.
+If you leave both fields blank, all IP addresses will be allowed to access the Centreon interface.
 
 - **Trusted client addresses**: If you enter IP addresses in this field, only these IP addresses will be allowed to access the Centreon interface. All other IP addresses will be blocked. IP addresses must be separated by commas.
-- **Blacklist client addresses**: These IP adresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
+- **Blacklist client addresses**: These IP addresses will be blocked. All other IP addresses will be allowed to access the Centreon interface.
 
 ### Step 4: Configure the Apache web server
 
-You must configure the Apache module allowing authentication with the identity provider.
+You must configure the Apache module that allows authentication with the identity provider.
 Once this configuration is done, you must modify the Centreon configuration for Apache in order to allow access only
 to authenticated users.
 
@@ -62,7 +62,7 @@ to authenticated users.
       Alias ${base_uri} ${install_dir}/www/
   ```
 
-2. Replace it by:
+2. Replace it with:
 
   ```apache
       Header set X-Frame-Options: "sameorigin"
@@ -104,11 +104,11 @@ to authenticated users.
 ### Step 5: Configure your Identity Provider (IdP)
 
 Configure your IdP to add the Centreon application to use your protocol to authenticate your users,
-And to authorize the following `redirect URI` to forward your connecter users to Centreon:
+and to authorize the following `redirect URI` to forward your connected users to Centreon:
 
 ```shell
 {protocol}://{server}:{port}/centreon/websso
 ```
 
-> Replace `{protocol}`, `{server}` and `{port}` by the URI to access to your Centreon server.
+> Replace `{protocol}`, `{server}` and `{port}` with the URI to access to your Centreon server.
 > For example: `https://centreon.domain.net/centreon/centreon/websso`

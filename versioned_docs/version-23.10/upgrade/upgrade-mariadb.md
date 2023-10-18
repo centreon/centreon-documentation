@@ -15,7 +15,7 @@ When you upgrade from one major version of Centreon to another, you must:
 1. Upgrade Centreon (packages, web installation, deploying the configuration).
 2. Upgrade MariaDB.
 
-> Refer to the official MariaDB documentation to know more about this process:
+> Refer to the official MariaDB documentation for more information about this process:
 > https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
 ## Version of Maria DB for each version of Centreon
@@ -33,7 +33,7 @@ When you upgrade from one major version of Centreon to another, you must:
 
 ## Knowing your version of MariaDB
 
-To know which version of MariaDB is installed on your machine, enter the following command:
+To find out which version of MariaDB is installed on your machine, enter the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -95,9 +95,9 @@ ii  mysql-common                           1:10.5.17+maria~deb11      all       
 
 ## Upgrading between major MariaDB versions
 
-You have to uninstall then reinstall MariaDB to upgrade between major versions (for example to switch from version 10.4 to version 10.5).
+You must uninstall then reinstall MariaDB to upgrade between major versions (for example to switch from version 10.4 to version 10.5).
 
-1. Stop the mariadb service:
+1. Stop the MariaDB service:
 
     ```shell
     systemctl stop mariadb
@@ -129,7 +129,7 @@ dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-co
 </TabItem>
 </Tabs>
 
-> During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you have to execute the uninstallation command without including the missing package.
+> During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you should execute the uninstallation command without including the missing package.
 >
 > For instance, you get the following error message:
 >
@@ -167,7 +167,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 </Tabs>
 
-4. Start the mariadb service:
+4. Start the MariaDB service:
 
     ```shell
     systemctl start mariadb
@@ -233,9 +233,9 @@ max_allowed_packet = 8M
 
 ## Upgrading between minor versions of MariaDB
 
-Follow these steps to upgrade between minor versions of MariaDB (for example, to switch from version 10.3.2 to version 10.3.5) :
+Follow these steps to upgrade between minor versions of MariaDB (for example, to switch from version 10.3.2 to version 10.3.5):
 
-1. Update MariaDB :
+1. Update MariaDB:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -261,7 +261,7 @@ apt update MariaDB-*
 </TabItem>
 </Tabs>
 
-2. Restart MariaDB :
+2. Restart MariaDB:
 
     ```shell
     restart mariadb
