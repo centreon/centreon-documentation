@@ -57,11 +57,11 @@ For example, to duplicate a host:
 </TabItem>
 </Tabs>
 
-## Mass Change
+## Mass change
 
 Mass change enables you to apply a change to multiple objects.
 
-Example: All the web servers previously created change SNMP communities. A massive change enables us to change this
+Example: All the web servers previously created change SNMP communities. A mass change enables us to change this
 community without it being necessary to change each sheet of each host individually.
 
 To perform a mass change:
@@ -70,7 +70,7 @@ To perform a mass change:
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects that you want to change.
-2. Click the **Massive change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
+2. Click the **Mass change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
 3. Confirm the changes.
 
 </TabItem>
