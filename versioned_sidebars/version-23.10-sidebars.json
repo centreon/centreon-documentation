@@ -660,6 +660,10 @@
                 {
                   "type": "doc",
                   "id": "version-23.10/graph-views/map-web-troubleshooting"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "version-23.10/api/map-api"
                   }
               ]
             }
@@ -724,6 +728,10 @@
             {
               "type": "doc",
               "id": "version-23.10/graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/api/graph-views-api"
             }
           ]
         }
@@ -1262,6 +1270,10 @@
             {
               "type": "doc",
               "id": "version-23.10/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/api/map-api"
             },
             {
               "type": "doc",

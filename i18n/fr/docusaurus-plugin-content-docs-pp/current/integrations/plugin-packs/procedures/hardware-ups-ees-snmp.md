@@ -1,133 +1,99 @@
 ---
-id: network-aruba-aoscx-snmp
-title: ArubaOS-CX SNMP
+id: hardware-ups-ees-snmp
+title: EES UPS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+
+Ce connecteur permet de superviser les onduleurs Emerson Energy Systems/Vertiv.
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **ArubaOS-CX SNMP** apporte un modèle d'hôte :
+Le connecteur de supervision **EES UPS SNMP** apporte un modèle d'hôte :
 
-* **Net-Aruba-Aoscx-SNMP-custom**
+* **HW-UPS-Ees-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Aruba-Aoscx-SNMP-custom" label="Net-Aruba-Aoscx-SNMP-custom">
+<TabItem value="HW-UPS-Ees-SNMP-custom" label="HW-UPS-Ees-SNMP-custom">
 
-| Alias    | Modèle de service                    | Description                               |
-|:---------|:-------------------------------------|:------------------------------------------|
-| Cpu      | Net-Aruba-Aoscx-Cpu-SNMP-custom      | Contrôle l'utilisation processeur         |
-| Hardware | Net-Aruba-Aoscx-Hardware-SNMP-custom | Contrôle le matériel                      |
-| Memory   | Net-Aruba-Aoscx-Memory-SNMP-custom   | Contrôle l'utilisation mémoire            |
-| Vsf      | Net-Aruba-Aoscx-Vsf-SNMP-custom      | Contrôle le 'Virtual Switching Fabric'    |
-| Vsx      | Net-Aruba-Aoscx-Vsx-SNMP-custom      | Contrôle le 'virtual switching extension' |
+| Alias       | Modèle de service                  | Description                                               |
+|:------------|:-----------------------------------|:----------------------------------------------------------|
+| Battery     | HW-UPS-Ees-Battery-SNMP-custom     | Contrôle l'état de la batterie                            |
+| Input       | HW-UPS-Ees-Input-SNMP-custom       | Contrôle les lignes d'entrée                             |
+| Rectifier   | HW-UPS-Ees-Rectifier-SNMP-custom   | Contrôle l'état du redresseur                             |
+| System      | HW-UPS-Ees-System-SNMP-custom      | Contrôle l'état du système                                |
+| Temperature | HW-UPS-Ees-Temperature-SNMP-custom | Contrôle les sondes de température                        |
+| Uptime      | HW-UPS-Ees-Uptime-SNMP-custom      | Durée depuis laquelle le serveur tourne sans interruption |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Aruba-Aoscx-SNMP-custom** est utilisé.
-
-</TabItem>
-<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
-
-| Alias      | Modèle de service                      | Description             | Découverte |
-|:-----------|:---------------------------------------|:------------------------|:----------:|
-| Interfaces | Net-Aruba-Aoscx-Interfaces-SNMP-custom | Contrôle les interfaces | X          |
-
-> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
-
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-UPS-Ees-SNMP-custom** est utilisé.
 
 </TabItem>
 </Tabs>
-
-### Règles de découverte
-
-#### Découverte d'hôtes
-
-| Nom de la règle | Description                                                                                                                                                                                                                             |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Aruba-Aoscx-SNMP-custom** host template |
-
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
-
-#### Découverte de service
-
-| Nom de la règle                     | Description                                                   |
-|:------------------------------------|:--------------------------------------------------------------|
-| Net-Aruba-Aoscx-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
-
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Battery" label="Battery">
 
-| Métrique                                 | Unité |
-|:-----------------------------------------|:------|
-| *module_name*#cpu.utilization.percentage | %     |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-| Métrique                                   | Unité |
-|:-------------------------------------------|:------|
-| *fan_name*#hardware.fan.speed.rpm          | rpm   |
-| fan tray status                            |       |
-| psu status                                 |       |
-| *psu_name*#hardware.psu.power.watt         | W     |
-| temperature status                         |       |
-| *sensor_name*#hardware.temperature.celsius | C     |
+| Métrique                            | Unité |
+|:------------------------------------|:------|
+| battery.voltage.volt                | V     |
+| battery.current.ampere              | A     |
+| battery.capacity.percentage         | %     |
+| battery.nominal.capacity.amperehour | Ah    |
+| battery mode status                 |       |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<TabItem value="Input" label="Input">
 
-| Métrique                                                  | Unité |
-|:----------------------------------------------------------|:------|
-| *interface_name*#status                                   | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
+| Métrique                 | Unité |
+|:-------------------------|:------|
+| lineA.input.voltage.volt | V     |
+| lineB.input.voltage.volt | V     |
+| lineC.input.voltage.volt | V     |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Rectifier" label="Rectifier">
 
-| Métrique                              | Unité |
-|:--------------------------------------|:------|
-| *module_name*#memory.usage.percentage | %     |
-
-</TabItem>
-<TabItem value="Vsf" label="Vsf">
-
-| Métrique                                      | Unité |
-|:----------------------------------------------|:------|
-| status                                        | N/A   |
-| stack.members.total.count                     | count |
-| *member_id*~member-status                     | N/A   |
-| *member_id*~member.cpu.utilization.percentage | %     |
-| *member_id*~member.memory.usage.percentage    | %     |
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| rectifier status                   |       |
+| rectifier.capacity.used.percentage | %     |
+| rectifier.installed.count          |       |
+| rectifier.communicating.count      |       |
 
 </TabItem>
-<TabItem value="Vsx" label="Vsx">
+<TabItem value="System" label="System">
 
-| Métrique                              | Unité |
-|:--------------------------------------|:------|
-| *vsx*~device-status                   | N/A   |
-| *vsx*~isl-status                      | N/A   |
-| *vsx*~vsx.isl.packets.in.count        | count |
-| *vsx*~vsx.isl.packets.out.count       | count |
-| *vsx*~keepalive-status                | N/A   |
-| *vsx*~vsx.keepalive.packets.in.count  | count |
-| *vsx*~vsx.keepalive.packets.out.count | count |
+| Métrique                        | Unité |
+|:--------------------------------|:------|
+| system status                   |       |
+| system.voltage.volt             | V     |
+| system.current.ampere           | A     |
+| system.used.capacity.percentage | %     |
+
+</TabItem>
+<TabItem value="Temperature" label="Temperature">
+
+| Métrique                               | Unité |
+|:---------------------------------------|:------|
+| probe temperature alarm status         |       |
+| *probe_name*#probe.temperature.celsius | %     |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Métrique              | Unité |
+|:----------------------|:------|
+| system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
@@ -136,12 +102,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
+Afin de superviser votre ressource en SNMP, il est nécessaire de configurer l'agent SNMP
+sur la ressource comme indiqué dans la documentation officielle du constructeur.
 
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers l'équipement supervisé.
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
@@ -157,34 +124,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-aruba-aoscx-snmp
+dnf install centreon-pack-hardware-ups-ees-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-aruba-aoscx-snmp
+dnf install centreon-pack-hardware-ups-ees-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-aruba-aoscx-snmp
+apt install centreon-pack-hardware-ups-ees-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-aruba-aoscx-snmp
+yum install centreon-pack-hardware-ups-ees-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **ArubaOS-CX SNMP**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EES UPS SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -202,28 +169,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Aruba-Aoscx-Snmp
+dnf install centreon-plugin-Hardware-Ups-Ees-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Aruba-Aoscx-Snmp
+dnf install centreon-plugin-Hardware-Ups-Ees-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-aruba-aoscx-snmp
+apt install centreon-plugin-hardware-ups-ees-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
+yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 ```
 
 </TabItem>
@@ -235,14 +202,14 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Net-Aruba-Aoscx-SNMP-custom**.
+3. Appliquez le modèle d'hôte **HW-UPS-Ees-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -252,94 +219,87 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Battery" label="Battery">
 
-| Macro                  | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMODULENAME       | Filter modules by name (can be a regexp)                                                            |                   |             |
-| WARNINGCPUUTILIZATION  | Thresholds                                                                                          |                   |             |
-| CRITICALCPUUTILIZATION | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantry'             |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
-
-| Macro              | Description                                                                                                                                                                                                         | Valeur par défaut                                     | Obligatoire |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                                |             |
-| INTERFACENAME      | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                                                                                                                                |                                                       |             |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINERROR     | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINTRAFFIC   | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINTRAFFIC  | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 | --verbose --no-skipped-counters                       |             |
+| Macro                   | Description                                                                                                                                                                   | Valeur par défaut                            | Obligatoire |
+|:------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| UNKNOWNBATTERYMODE      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{battery\_mode}                                                            | %{battery\_mode} =~ /unknown/i               |             |
+| UNKNOWNBATTERYMODE      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{battery\_mode}                                                            | %{battery_mode} =~ /ShortTest\|BoostChargingForTest\|ManualTesting\|PlanTesting\|ManualBoostCharging\|AutoBoostCharging\|CyclicBoostCharging\|MasterBoostCharging\|MasterBateryTesting/i               |             |
+| CRITICALBATTERYMODE     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{battery\_mode}                                                           | %{battery\_mode} =~ /ACFailTesting\|ACFail/i |             |
+| WARNINGCAPACITY         | Thresholds                                                                                                                                                                    |                                              |             |
+| CRITICALCAPACITY        | Thresholds                                                                                                                                                                    |                                              |             |
+| WARNINGCURRENT          | Thresholds                                                                                                                                                                    |                                              |             |
+| CRITICALCURRENT         | Thresholds                                                                                                                                                                    |                                              |             |
+| WARNINGNOMINALCAPACITY  | Thresholds                                                                                                                                                                    |                                              |             |
+| CRITICALNOMINALCAPACITY | Thresholds                                                                                                                                                                    |                                              |             |
+| WARNINGVOLTAGE          | Thresholds                                                                                                                                                                    |                                              |             |
+| CRITICALVOLTAGE         | Thresholds                                                                                                                                                                    |                                              |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                      |                                              |             |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Input" label="Input">
 
-| Macro                   | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMODULENAME        | Filter modules by name (can be a regexp)                                                            |                   |             |
-| WARNINGMEMORYUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALMEMORYUSAGEPRCT | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
-
-</TabItem>
-<TabItem value="Vsf" label="Vsf">
-
-| Macro                   | Description                                                                                                                                                                                                       | Valeur par défaut                                          | Obligatoire |
-|:------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
-| WARNINGCPUUTILIZATION   | Thresholds                                                                                                                                                                                                        |                                                            |             |
-| CRITICALCPUUTILIZATION  | Thresholds                                                                                                                                                                                                        |                                                            |             |
-| CRITICALMEMBERSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: '%{role} ne %{roleLast} \|\| %{status} !~ /ready\|booting/i'). You can use the following variables: %{status}, %{role}, %{roleLast}, %{id} | %{role} ne %{roleLast} \|\| %{status} !~ /ready\|booting/i |             |
-| WARNINGMEMBERSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{role}, %{roleLast}, %{id}                                                                          |                                                            |             |
-| WARNINGMEMBERSTOTAL     | Thresholds                                                                                                                                                                                                        |                                                            |             |
-| CRITICALMEMBERSTOTAL    | Thresholds                                                                                                                                                                                                        |                                                            |             |
-| WARNINGMEMORYUSAGEPRCT  | Thresholds                                                                                                                                                                                                        |                                                            |             |
-| CRITICALMEMORYUSAGEPRCT | Thresholds                                                                                                                                                                                                        |                                                            |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /no\_split/i'). You can use the following variables: %{status}                                                               | %{status} !~ /no\_split/i                                  |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                                                                                       |                                                            |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                               | --verbose                                                  |             |
+| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLINEA  | Thresholds                                                                                          |                   |             |
+| CRITICALLINEA | Thresholds                                                                                          |                   |             |
+| WARNINGLINEB  | Thresholds                                                                                          |                   |             |
+| CRITICALLINEB | Thresholds                                                                                          |                   |             |
+| WARNINGLINEC  | Thresholds                                                                                          |                   |             |
+| CRITICALLINEC | Thresholds                                                                                          |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
-<TabItem value="Vsx" label="Vsx">
+<TabItem value="Rectifier" label="Rectifier">
 
-| Macro                       | Description                                                                                                                                                                                 | Valeur par défaut                                      | Obligatoire |
-|:----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-----------:|
-| WARNINGDEVICESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{role}, %{config\_sync}                                                                  |                                                        |             |
-| CRITICALDEVICESTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{role}, %{config\_sync}                                                                 |                                                        |             |
-| WARNINGISLPACKETSIN         | Thresholds                                                                                                                                                                                  |                                                        |             |
-| CRITICALISLPACKETSIN        | Thresholds                                                                                                                                                                                  |                                                        |             |
-| WARNINGISLPACKETSOUT        | Thresholds                                                                                                                                                                                  |                                                        |             |
-| CRITICALISLPACKETSOUT       | Thresholds                                                                                                                                                                                  |                                                        |             |
-| CRITICALISLSTATUS           | Define the conditions to match for the status to be CRITICAL (Default: '%{isl\_status} =~ /outSync/'). You can use the following variables: %{isl\_status}                                  | %{isl\_status} =~ /outSync/                            |             |
-| WARNINGISLSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %{isl\_status}                                                                            |                                                        |             |
-| WARNINGKEEPALIVEPACKETSIN   | Thresholds                                                                                                                                                                                  |                                                        |             |
-| CRITICALKEEPALIVEPACKETSIN  | Thresholds                                                                                                                                                                                  |                                                        |             |
-| WARNINGKEEPALIVEPACKETSOUT  | Thresholds                                                                                                                                                                                  |                                                        |             |
-| CRITICALKEEPALIVEPACKETSOUT | Thresholds                                                                                                                                                                                  |                                                        |             |
-| CRITICALKEEPALIVESTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{keepalive\_status} =~ /outofSyncEstablished\|failed/'). You can use the following variables: %{keepalive\_status} | %{keepalive\_status} =~ /outofSyncEstablished\|failed/ |             |
-| WARNINGKEEPALIVESTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{keepalive\_status}                                                                      |                                                        |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                         | --verbose                                              |             |
+| Macro                 | Description                                                                                                                                          | Valeur par défaut                | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| WARNINGCOMMUNICATING  | Thresholds                                                                                                                                           |                                  |             |
+| CRITICALCOMMUNICATING | Thresholds                                                                                                                                           |                                  |             |
+| WARNINGINSTALLED      | Thresholds                                                                                                                                           |                                  |             |
+| CRITICALINSTALLED     | Thresholds                                                                                                                                           |                                  |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{installed}, %{communicating}, %{used\_capacity}  | %{installed} != %{communicating} |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{installed}, %{communicating}, %{used\_capacity} |                                  |             |
+| WARNINGUSEDCAPACITY   | Thresholds                                                                                                                                           |                                  |             |
+| CRITICALUSEDCAPACITY  | Thresholds                                                                                                                                           |                                  |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                                  |             |
+
+</TabItem>
+<TabItem value="System" label="System">
+
+| Macro                | Description                                                                                                                                                      | Valeur par défaut                                                                     | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------|:-----------:|
+| UNKNOWNSTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{system\_status}, %{communication\_status}  | %{system\_status} =~ /unknown\|unma\_status} =~ /unknown/i                            |             |
+| WARNINGCURRENT       | Thresholds                                                                                                                                     |                                                                                       |             |
+| CRITICALCURRENT      | Thresholds                                                                                                                                     |                                                                                       |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{system\_status}, %{communication\_status}  | %{system\_status} =~ /warning\|minor/i                                                |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{system\_status}, %{communication\_status} | %{system\_status} =~ /major\|critical/i \|\| %{communication\_status} =~ /interrupt/i |             |
+| WARNINGUSEDCAPACITY  | Thresholds                                                                                                                                     |                                                                                       |             |
+| CRITICALUSEDCAPACITY | Thresholds                                                                                                                                     |                                                                                       |             |
+| WARNINGVOLTAGE       | Thresholds                                                                                                                                     |                                                                                       |             |
+| CRITICALVOLTAGE      | Thresholds                                                                                                                                     |                                                                                       |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                 |                                                                                       |             |
+
+</TabItem>
+<TabItem value="Temperature" label="Temperature">
+
+| Macro               | Description                                                                                                                                                                    | Valeur par défaut           | Obligatoire |
+|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| UNKNOWNALARMSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{alarm\_status}, %{type}, %{name}  | %{alarm\_status} =~ /fail/i |             |
+| WARNINGALARMSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{alarm\_status}, %{type}, %{name}  | %{alarm\_status} =~ /low/i  |             |
+| CRITICALALARMSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{alarm\_status}, %{type}, %{name} | %{alarm\_status} =~ /high/i |             |
+| WARNINGTEMPERATURE  | Thresholds                                                                                                                            |                             |             |
+| CRITICALTEMPERATURE | Thresholds                                                                                                                            |                             |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)        | --verbose                   |             |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro          | Description                                                                                         | Valeur par défaut | Obligatoire |
+|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUPTIME  | Warning threshold                                                                                   |                   |             |
+| CRITICALUPTIME | Critical threshold                                                                                  |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
@@ -351,41 +311,22 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
+que le connecteur arrive bien à superviser la ressource en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-    --plugin=network::aruba::aoscx::snmp::plugin \
-    --mode=vsf \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='aruba_ro' \
-    --warning-cpu-utilization='90' \
-    --critical-cpu-utilization='95' \
-    --verbose
+/usr/lib/centreon/plugins/centreon_ups_ees_snmp.pl \
+	--plugin=hardware::ups::ees::snmp::plugin \
+	--mode=battery \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: vsf operational status: no_split - All stack members are ok | '1#member.cpu.utilization.percentage'=16.00%;0:90;0:95;0;100 '1#member.memory.usage.percentage'=24.00%;;;0;100 '2#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '2#member.memory.usage.percentage'=14.00%;;;0;100 '3#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '3#member.memory.usage.percentage'=8.00%;;;0;100 '4#member.cpu.utilization.percentage'=4.00%;0:90;0:95;0;100 '4#member.memory.usage.percentage'=8.00%;;;0;100
-checking stack member '1'
-    role: master [status: ready]
-    cpu usage: 16.00%
-    memory used: 24.00 %
-checking stack member '2'
-    role: standby [status: ready]
-    cpu usage: 4.00%
-    memory used: 14.00 %
-checking stack member '3'
-    role: member [status: ready]
-    cpu usage: 4.00%
-    memory used: 8.00 %
-checking stack member '4'
-    role: member [status: ready]
-    cpu usage: 4.00%
-    memory used: 8.00 %
+OK: voltage: 54.24V, current: 0.00A, capacity: 100.00%, used capacity: 300.00Ah, Battery mode: 'FloatCharging' | 'battery.voltage.volt'=54.24V;;;; 'battery.current.ampere'=0.00A;;;; 'battery.capacity.percent'=100.00%;;;0;100 'battery.nominal.capacity.amperehour'=300.00Ah;;;;
 ```
 
 ### Diagnostic des erreurs communes
@@ -404,22 +345,21 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_ups_ees_snmp.pl \
+	--plugin=hardware::ups::ees::snmp::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                         | Modèle de service associé              |
-|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/cpu.pm)]             | Net-Aruba-Aoscx-Cpu-SNMP-custom        |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/hardware.pm)]   | Net-Aruba-Aoscx-Hardware-SNMP-custom   |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]          | Net-Aruba-Aoscx-Interfaces-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)] | Used for service discovery             |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/memory.pm)]       | Net-Aruba-Aoscx-Memory-SNMP-custom     |
-| vsf [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/vsf.pm)]             | Net-Aruba-Aoscx-Vsf-SNMP-custom        |
-| vsx [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/vsx.pm)]             | Net-Aruba-Aoscx-Vsx-SNMP-custom        |
+| Mode        | Modèle de service associé          |
+|:------------|:-----------------------------------|
+| battery     | HW-UPS-Ees-Battery-SNMP-custom     |
+| input       | HW-UPS-Ees-Input-SNMP-custom       |
+| rectifier   | HW-UPS-Ees-Rectifier-SNMP-custom   |
+| system      | HW-UPS-Ees-System-SNMP-custom      |
+| temperature | HW-UPS-Ees-Temperature-SNMP-custom |
+| uptime      | HW-UPS-Ees-Uptime-SNMP-custom      |
 
 ### Options disponibles
 
@@ -488,133 +428,76 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Battery" label="Battery">
 
-| Option                   | Description                                   |
-|:-------------------------|:----------------------------------------------|
-| --filter-module-name     | Filter modules by name (can be a regexp).     |
-| --warning-* --critical-* | Thresholds. Can be: 'cpu-utilization' (%).    |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-| Option               | Description                                                                                                                                                                                            |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantry'.                                                                                                               |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1.1                                                        |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                             |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,status,regexp). Example: --threshold-overload='fan,WARNING,string'   |
-| --warning            | Set warning threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --warning='temperature,.*,30' --warning='fan.speed,.*,1000'                    |
-| --critical           | Set critical threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --critical='temperature,.*,40'                                                |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-* --critical-* | Thresholds: voltage (V), current (A), capacity (%), nominal-capacity (Ah)                                                                                                                                                                                                                                                     |
+| --unknown-battery-mode   | Define the conditions to match for the status to be UNKNOWN (default: '%{battery\_mode} =~ /unknown/i'). You can use the following variables: %{battery\_mode}                                                                                                                                                                |
+| --warning-battery-mode   | Define the conditions to match for the status to be WARNING (default: '%{battery\_mode} =~ /ShortTest\|BoostChargingForTest\|ManualTesting\|PlanTesting\|Manual BoostCharging\|AutoBoostCharging\|CyclicBoostCharging\|MasterBoostC harging\|MasterBateryTesting/i'). You can use the following variables: %{battery\_mode}   |
+| --critical-battery-mode  | Define the conditions to match for the status to be CRITICAL (default: '%{battery\_mode} =~ /ACFailTesting\|ACFail/i'). You can use the following variables: %{battery\_mode}                                                                                                                                                 |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
+<TabItem value="Input" label="Input">
 
-| Option                                          | Description                                                                                                                                                                                                                                                                                |
-|:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                                                                 |
-| --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                            |
-| --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                    |
-| --redis-db                                      | Set Redis database index.                                                                                                                                                                                                                                                                  |
-| --failback-file                                 | Failback on a local file if redis connection failed.                                                                                                                                                                                                                                       |
-| --memexpiration                                 | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                                                             |
-| --statefile-dir                                 | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                     |
-| --statefile-suffix                              | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                                                             |
-| --statefile-concat-cwd                          | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                |
-| --statefile-format                              | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                      |
-| --statefile-key                                 | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                               |
-| --statefile-cipher                              | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                                                                         |
-| --add-global                                    | Check global port statistics (By default if no --add-* option is set).                                                                                                                                                                                                                     |
-| --add-status                                    | Check interface status.                                                                                                                                                                                                                                                                    |
-| --add-duplex-status                             | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                         |
-| --add-traffic                                   | Check interface traffic.                                                                                                                                                                                                                                                                   |
-| --add-errors                                    | Check interface errors.                                                                                                                                                                                                                                                                    |
-| --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                      |
-| --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                     |
-| --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
-| --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
-| --units-traffic                                 | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
-| --units-errors                                  | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
-| --units-cast                                    | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
-| --interface                                     | Set the interface (number expected), e.g.: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                      |
-| --name                                          | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
-| --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 |
-| --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          |
-| --speed-out                                     | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                          |
-| --map-speed-dsl                                 | Get interface speed configuration for interface type 'adsl' and 'vdsl2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                            |
-| --force-counters64                              | Force to use 64 bits counters only. Can be used to improve performance.                                                                                                                                                                                                                    |
-| --force-counters32                              | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                   |
-| --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
-| --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
-| --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
-| --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                     |
-| --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Eg: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                                |
-| --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
+| Option                   | Description                                                   |
+|:-------------------------|:--------------------------------------------------------------|
+| --warning-* --critical-* | Input thresholds in V  Thresholds: line-a, line-c, line-c.    |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Rectifier" label="Rectifier">
 
-| Option                   | Description                                     |
-|:-------------------------|:------------------------------------------------|
-| --filter-module-name     | Filter modules by name (can be a regexp).       |
-| --warning-* --critical-* | Thresholds. Can be: 'memory-usage-prct' (%).    |
-
-</TabItem>
-<TabItem value="Vsf" label="Vsf">
-
-| Option                   | Description                                                                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                                                                                                                                   |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                                                                                                                   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /no\_split/i'). You can use the following variables: %{status}                                                                                           |
-| --unknown-member-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{role}, %{roleLast}, %{id}                                                                                                      |
-| --warning-member-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{role}, %{roleLast}, %{id}                                                                                                      |
-| --critical-member-status | Define the conditions to match for the status to be CRITICAL (Default: '%{role} ne %{roleLast} \|\| %{status} !~ /ready\|booting/i'). You can use the following variables: %{status}, %{role}, %{roleLast}, %{id}                             |
-| --warning-* --critical-* | Thresholds. Can be: 'members-total', 'memory-usage-prct', 'cpu-utilization'.                                                                                                                                                                  |
+| Option                   | Description                                                                                                                                                                                         |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{installed}, %{communicating}, %{used\_capacity}                                                 |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{installed} != %{communicating}'). You can use the following variables: %{installed}, %{communicating}, %{used\_capacity}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{installed}, %{communicating}, %{used\_capacity}                                                |
+| --warning-* --critical-* | Thresholds. Can be: 'used-capacity', 'installed', 'communicating'                                                                                                                                   |
 
 </TabItem>
-<TabItem value="Vsx" label="Vsx">
+<TabItem value="System" label="System">
 
-| Option                      | Description                                                                                                                                                                                                                                   |
-|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached                 | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server              | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute           | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db                  | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file             | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration             | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir             | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix          | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd      | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format          | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key             | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher          | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --unknown-device-status     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{role}, %{config\_sync}                                                                                                                    |
-| --warning-device-status     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{role}, %{config\_sync}                                                                                                                    |
-| --critical-device-status    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{role}, %{config\_sync}                                                                                                                   |
-| --unknown-isl-status        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{isl\_status}                                                                                                                              |
-| --warning-isl-status        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{isl\_status}                                                                                                                              |
-| --critical-isl-status       | Define the conditions to match for the status to be CRITICAL (Default: '%{isl\_status} =~ /outSync/'). You can use the following variables: %{isl\_status}                                                                                    |
-| --unknown-keepalive-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{keepalive\_status}                                                                                                                        |
-| --warning-keepalive-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{keepalive\_status}                                                                                                                        |
-| --critical-keepalive-status | Define the conditions to match for the status to be CRITICAL (Default: '%{keepalive\_status} =~ /outofSyncEstablished\|failed/'). You can use the following variables: %{keepalive\_status}                                                   |
-| --warning-* --critical-*    | Thresholds. Can be: 'isl-packets-in', 'isl-packets-out', 'keepalive-packets-in', 'keepalive-packets-out'.                                                                                                                                     |
+| Option                   | Description                                                                                                                                                                                                                                                                        |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{system\_status} =~ /unknown\|unmanaged\|restricted\|testing\|disabled/i \|\| %{communication\_status} =~ /unknown/i'). You can use the following variables: %{system\_status}, %{communication\_status}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{system\_status} =~ /warning\|minor/i'). You can use the following variables: %{system\_status}, %{communication\_status}                                                                                  |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{system\_status} =~ /major\|critical/i \|\| %{communication\_status} =~ /interrupt/i'). You can use the following variables: %{system\_status}, %{communication\_status}                                  |
+| --warning-* --critical-* | Thresholds: voltage (V), current (A), used-capacity (%)                                                                                                                                                                                                                            |
+
+</TabItem>
+<TabItem value="Temperature" label="Temperature">
+
+| Option                                       | Description                                                                                                                                                                      |
+|:---------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-alarm-status                       | Define the conditions to match for the status to be UNKNOWN (default: '%{alarm\_status} =~ /fail/i'). You can use the following variables: %{alarm\_status}, %{type}, %{name}    |
+| --warning-alarm-status                       | Define the conditions to match for the status to be WARNING (default: '%{alarm\_status} =~ /low/i'). You can use the following variables: %{alarm\_status}, %{type}, %{name}     |
+| --critical-alarm-status                      | Define the conditions to match for the status to be CRITICAL (default: '%{alarm\_status} =~ /high/i'). You can use the following variables: %{alarm\_status}, %{type}, %{name}   |
+| --warning-temperature --critical-temperature | Thresholds: temperature (C)                                                                                                                                                      |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            |
+| --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
+| --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
+| --force-oid            | Can choose your OID (numeric format only).                                                                                                                                                                                                    |
+| --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
+| --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
+| --unit                 | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                                                   |
 
 </TabItem>
 </Tabs>
@@ -623,8 +506,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
-	--mode=memory \
+/usr/lib/centreon/plugins//centreon_ups_ees_snmp.pl \
+	--plugin=hardware::ups::ees::snmp::plugin \
+	--mode=battery \
 	--help
 ```
