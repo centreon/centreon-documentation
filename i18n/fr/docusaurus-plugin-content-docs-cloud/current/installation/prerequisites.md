@@ -45,7 +45,6 @@ Procédez au partitionnement en suivant les recommandations suivantes :
 
 | Description | Direction | Protocole  | IP           | Port   |
 | ----------- | --------- | ---------- | ------------ | ------ |
-| VPN         | Sortante  | UDP        | VPN IP (TBA) | 1194   |
 | INTERNET    | Sortante  | HTTP/HTTPS | *            | 80/443 |
 | NTP         | Sortante  | UDP        | TBA          | 123    |
 

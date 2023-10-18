@@ -45,7 +45,6 @@ Perform the partitioning following these recommendations:
 
 | Description | Direction | Protocol   | IP           | Port   |
 | ----------- | --------- | ---------- | ------------ | ------ |
-| VPN         | Outbound  | UDP        | VPN IP (TBA) | 1194   |
 | INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
 | NTP         | Outbound  | UDP        | TBA          | 123    |
 
