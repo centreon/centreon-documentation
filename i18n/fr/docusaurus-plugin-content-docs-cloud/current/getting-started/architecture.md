@@ -18,6 +18,5 @@ Votre plateforme Centreon Cloud est constituée d'un serveur central fourni par 
   * Les collecteurs n'ont pas d'interface utilisateur (l'activité des pollers est visible sur l'interface du serveur central).
   * Les collecteurs sont situés dans votre infrastructure, ce qui veut dire une meilleure sécurité, latence et bande passante.
   * Vous [installez vos collecteurs](../installation/deploy-poller.md) à l'aide d'un simple script.
-  * Un VPN connecte vos collecteurs et le serveur central.
 
 ![image](../assets/getting-started/infra3.png)
