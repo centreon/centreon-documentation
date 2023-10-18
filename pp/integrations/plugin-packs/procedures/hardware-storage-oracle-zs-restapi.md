@@ -58,7 +58,7 @@ E.g: https://docs.oracle.com/cd/E79446_01/html/E79460/index
 yum install centreon-plugin-Hardware-Storage-Oracle-Zs-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle ZS Rest API* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Oracle ZS Rest API* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -75,7 +75,7 @@ yum install centreon-plugin-Hardware-Storage-Oracle-Zs-Restapi
 yum install centreon-pack-hardware-storage-oracle-zs-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle ZS Rest API* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Oracle ZS Rest API* Pack
 
 </TabItem>
 </Tabs>

@@ -66,7 +66,7 @@ HTTPS protocol.
 yum install centreon-plugin-Applications-Smartermail-Api
 ```
 
-2. On the Centreon Web interface, install the Centreon Monitoring Connector *Smartermail Server* from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Smartermail Server* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,7 +83,7 @@ yum install centreon-plugin-Applications-Smartermail-Api
 yum install centreon-pack-smartermail-api
 ```
 
-3. On the Centreon Web interface, install the Centreon Monitoring Connector *Smartermail Server* from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Smartermail Server* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>
