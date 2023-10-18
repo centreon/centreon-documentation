@@ -14,6 +14,8 @@ Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
 Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
 notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
+<ExpandCollapseAll />
+
 ## Centreon Web
 
 ### 23.10.0
@@ -22,36 +24,42 @@ Release date: `October 27, 2023`
 
 <details open>
 <summary>New features</summary>
-- Dashboards Beta: with Dashboards, effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more.
-</details>
-**Resources Status**:
-- In addition to the current view (**All** view), we have added 2 new views allowing to visualize only the services
-  (**By Services** view), as well as a view to visualize the hosts and all their attached services (**By Hosts** view).
-  Those two new views have been redesigned based on those coming from deprecated pages.
-- We have also completely redesigned filters management, making it easier to select resources.
 
-Deprecated pages will be removed in the next major version.
+- **Dashboards Beta**: with Dashboards, effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more.
+- **Resources Status**:
+   - In addition to the current view (**All** view), we have added 2 new views allowing users to see only the services
+  (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
+  These two new views have been designed based on what was done in deprecated pages.
+   - We have also completely redesigned filters, making it easier to select resources.
+
+   > Deprecated pages will be removed in the next major version.
+
+</details>
+
 <details open>
   <summary>Enhancements</summary>
-- [API] Added a route to create a host.
-- [API] Added a route to delete a host.
-- [API] Added a route to create a service.
-- [API] Added a route to delete a service.
-- [API] Added a route to list services.
+
+- [Authentication] Added user attributes received from IdP in Centreon login file id debug is enabled.
+- [Authentication] Removed password fields if contact is not local type.
+- [CEIP] Added a debug option to display CEIP telemetry data sent to Centreon.
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+- [Core] Implemented a simple feature flag system.
+- [Monitoring] The breadcrumb for monitoring legacy pages now states that we will remove these pages in the next major version.
+- [Resources Status] Added a tooltip to understand how to use filters.
+- [API] Added routes to create and delete hosts.
+- [API] Added routes to create, delete and list services.
 - [API] Added a route to create a service template.
 - [API] Added a route to delete a service template.
 - [API] Added a route to list service templates.
 - [API] Added a route to create a host template.
 - [API] Added a route to delete a host template.
 - [API] Added a route to list commands.
-- [API] Handle API restrictions (ro/rw) while deleting a host or a service using API.
+- [API] API restrictions (ro/rw) are now applied while deleting a host or a service using the API.
 - [API] Added telemetry & statistics to the token management API.
-- [API] Added a route to create a token.
-- [API] Added a route to delete a token.
-- [API] Added a route to list API tokens.
+- [API] Added routes to create, delete and list tokens.
 - [ACL] Added action & menu access to manage the API tokens.
 - [API] The field "notify" has been added to the monitoring/services GET route.
-- [API] Removed is_activated field from host templates and service templates routes.
+- [API] Removed is_activated field from host template and service template routes.
 - [API] Updated the service template creation route to handle relations with service groups.
 - [API] Updated the service template partial update route to handle relations with service groups.
 - [API] CLAPI now ignores empty lines and lines starting with the `#` character.
@@ -63,10 +71,10 @@ Deprecated pages will be removed in the next major version.
 - [API] Updated the host template create route to handle all properties.
 - [API] Added a route to handle templates of a host template (PATCH).
 - [API] Updated the service template partial update route to link a service template to host templates.
-- [API] Added a route to update a host categories of a host template (PATCH).
+- [API] Added a route to update a host category of a host template (PATCH).
 - [API] Added a route to link a service template to host templates (PATCH).
-- [API] Updated the AddHostTemplate route to handle macros (POST)
-- [API] Added a route to update a host categories of a host template (POST).
+- [API] Updated the AddHostTemplate route to handle macros (POST).
+- [API] Added a route to update a host category of a host template (POST).
 - [API] Added a route to update macros of a host template (PATCH).
 - [API] Added a route to handle templates of a host template (POST).
 - [API] Updated the host create API route to handle host groups.
@@ -77,11 +85,13 @@ Deprecated pages will be removed in the next major version.
 - [API] Added a route to update one host group (PUT).
 - [API] Added a route to retrieve one host group (PUT).
 - [API] Added service search in hostGroups / serviceGroups endpoints.
+
 </details>
 
 <details>
-<summary>Bug fixes</summary>
-- [API] Fixed an issue where values for contact additive inheritance was not updated with new endpoints.
+<summary>Bugs</summary>
+
+- [API] Fixed an issue where values for contact additive inheritance were not updated with new endpoints.
 - [API] Fixed issues on duplicate display, encoding and add_inherited_contact in host and host template endpoints.
 - [API] Fixed access to list of groups of resources regarding ACL definition.
 - [CLAPI] Fixed a bug that duplicated the host template / service template relations.
@@ -89,12 +99,17 @@ Deprecated pages will be removed in the next major version.
 - [CLAPI] Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)). 
 - [CLAPI] Fixed the export of severities to be able to reimport them.
 - [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+
 </details>
+
 <details open>
   <summary>Breaking Change</summary>
-- We removed the “persistent” option from the modal allowing to set acknowledgement because these one need to be persistant in case of Centreon Engine restart.
-- [CLAPI] Macros are now displayed identically for host, host template and service template.
+
+- All acknowledgements are not persistent. We removed the **Persistent** option from the acknowledgement window so that it cannot be unchecked. This is because an acknowledgement must persist even when Centreon engine is restarted.
+- [CLAPI] Macros are now displayed identically for hosts, host templates and service templates.
+
 </details>
+
 ## Centreon Collect
 
 ### 23.10.0
@@ -109,30 +124,19 @@ Release date: `October 27, 2023`
 - Compatibility with other 23.10 components.
 
 </details>
-<details open>
-  <summary>Enhancements</summary>
-
-- The default value of **notification\_interval** is now 0. This will prevent users from receiving repeated notifications as well as warnings in the configuration export menu.
-
-</details>
-
 
 #### Centreon Broker
-<details>
-  <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
-
-</details>
 <details open>
-<summary>New features</summary>
+  <summary>New features</summary>
 
 - An **experimental** output type has been added to send internal performance data to OpenTelemetry receivers. This cannot be used from the WUI at the moment.
 - An **experimental** output type has been added to send the monitored metrics to VictoriaMetrics time-series databases. This cannot be used from the WUI at the moment.
 
 </details>
+
 <details open>
-<summary>Enhancements</summary>
+  <summary>Enhancements</summary>
 
 - Broker management of SQL database connections has been improved. It now uses auto-commited bulk inserts in tables where insert is safe while using transactions for all other write operations, keeping the latter bound to the same connection. This secures the utilization of up to 3 connections to the database, improving the performance in updating the real time data.
 - The RRD files used to store status history are now rebuilt at the same time as metric files.
@@ -140,6 +144,14 @@ Release date: `October 27, 2023`
 - New performance counters have been added to the gRPC API in order to track the longest queries and statements.
 
 </details>
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
 ## Centreon Gorgone
 
 ### 23.10.0
