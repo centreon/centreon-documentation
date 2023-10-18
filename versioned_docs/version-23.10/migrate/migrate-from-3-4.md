@@ -2,8 +2,6 @@
 id: migrate-from-3-4
 title: Migrate from a Centreon 3.4 platform
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
@@ -77,7 +75,7 @@ rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
 ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** with the IP of the new Centreon server.
 
 ### Retrieve databases
 
@@ -141,13 +139,13 @@ create them again:
     mysql_upgrade -u root -p
     ```
 
-7. Start the mariadb process on the new server:
+7. Start the MariaDB process on the new server:
 
     ```shell
     systemctl start mariadb
     ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** with the IP of the new Centreon server.
 
 ### Synchronize the plugins
 
@@ -159,11 +157,11 @@ installation. The main directories to synchronize are:
 
 > To run the plugins, you must first install the required dependencies.
 
-> If you still have distant Centreon Engine 1.8.1 Pollers that you want to
-> postpone the upgrade to 23.04, be aware that Centreon Web 23.04 resource
-> $USER1$ actually points to /usr/lib64/nagios/plugins
+> If you still have remote Centreon Engine 1.8.1 Pollers whose
+> upgrade to 23.04 you want to postpone, be aware that Centreon Web 23.04 resource
+> $USER1$ now points to /usr/lib64/nagios/plugins
 >
-> On the 1.8.1 Pollers to mitigate the issue:
+> This is how to mitigate the issue on the 1.8.1 Pollers:
 >
 > ```shell
 > mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
@@ -171,7 +169,7 @@ installation. The main directories to synchronize are:
 > ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
 > ```
 >
-> You now have a symbolic link as:
+> You now have a symbolic link like this:
 >
 > ```shell
 > $ ls -alt /usr/lib64/nagios/
@@ -179,7 +177,7 @@ installation. The main directories to synchronize are:
 > -rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 > ```
 
-You can now push poller configuration from Centreon 23.04 whether the distant
+You can now push poller configuration from Centreon 23.04 whether the remote
 Poller is Centreon Engine 23.04 or 1.8.1.
 
 ### Upgrade Centreon
@@ -193,12 +191,12 @@ cd /var/lib/centreon/installs/
 mv install-23.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
-> If you use the same IP address or same DNS name between old Centreon webserver
+> If you use the same IP address or same DNS name for the old Centreon webserver
 > and the new one, do a full cache cleanup of your browser to avoid JS issues
 
 Go to `http://<IP_NEW_CENTREON>/centreon` URL and perform the upgrade.
 
-> If you changed the *centreon* password during the installation process you must
+> If you changed the *centreon* password during the installation process, you must
 > follow these steps:
 >
 > 1. Edit the /etc/centreon/centreon.conf.php file,
@@ -206,7 +204,7 @@ Go to `http://<IP_NEW_CENTREON>/centreon` URL and perform the upgrade.
 > 3. Edit the Centreon Broker central configuration using Centreon web interface
 > and change the password for the **Perfdata generator** and **Broker SQL
 > database** output,
-> 4. Edit the /etc/centreon/config.d/10-database.yaml file.
+> 4. Edit the file /etc/centreon/config.d/10-database.yaml.
 
 If the IP of your Centreon server has changed, edit the configuration for all
 the Centreon Broker modules of your Pollers and change the IP to connect to

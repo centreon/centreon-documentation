@@ -28,6 +28,9 @@ You will require:
 - A key file, referred to as *key.key*.
 - A certificate file, referred to as *certificate.crt*.
 
+<Tabs groupId="sync">
+<TabItem value="MAP" label="MAP">
+
 Access the Centreon MAP server through SSH.
 
 Create a PKCS12 file with the following command line:
@@ -36,19 +39,19 @@ Create a PKCS12 file with the following command line:
 openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 ```
 
-Then import this file into a new keystore (a Java repository of security
+Then, import this file into a new keystore (a Java repository of security
 certificates):
 
 ```shell
-keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore map.jks
 ```
 
-Put the above keystore file (studio.jks) in the folder "/etc/centreon-map/",
-and set the following parameters inside
+Put above keystore file (map.jks) to the folder "/etc/centreon-map/",
+and set below parameters inside
 `/etc/centreon-map/map-config.properties`:
 
 ```text
-centreon-map.keystore=/etc/centreon-map/studio.jks
+centreon-map.keystore=/etc/centreon-map/map.jks
 centreon-map.keystore-pass=xxx
 ```
 
@@ -64,12 +67,88 @@ centreon-map.keystore-pass=xxx
 >
 > Users will have to open the URL:
 >
-> - MAP:
 > ```shell
 >https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
 > ```
 >
-> - MAP (Legacy):
+> *The solution we recommend is to use a recognized key method, as explained
+> above.*
+
+On the Centreon MAP server, create a keystore.
+
+Go to the folder where Java is installed:
+
+```shell
+cd $JAVA_HOME/bin
+```
+
+Then generate a keystore file with the following command:
+
+```shell
+keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
+```
+
+The alias value "map" and the keystore file path
+`/etc/centreon-map/map.jks` may be changed, but unless there is a
+specific reason, we advise keeping the default values.
+
+Provide the needed information when creating the keystore.
+
+At the end of the screen form, when the "key password" is requested, use
+the same password as the one used for the keystore itself by pressing the
+ENTER key.
+
+Put above keystore file (map.jks) to the folder "/etc/centreon-map/",
+and set below parameters inside
+`/etc/centreon-map/map-config.properties`:
+
+```text
+centreon-map.keystore=/etc/centreon-map/map.jks
+centreon-map.keystore-pass=xxx
+```
+
+> Replace the keystore-pass value "xxx" with the password you used for
+> the keystore and adapt the path (if it was changed to the keystore).
+
+</TabItem>
+<TabItem value="MAP (Legacy)" label="MAP (Legacy)">
+
+Access the Centreon MAP Legacy server through SSH.
+
+Create a PKCS12 file with the following command line:
+
+```shell
+openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
+```
+
+Then, import this file into a new keystore (a Java repository of security
+certificates):
+
+```shell
+keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+```
+
+Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/",
+and set below parameters inside
+`/etc/centreon-studio/map-config.properties`:
+
+```text
+centreon-map.keystore=/etc/centreon-studio/studio.jks
+centreon-map.keystore-pass=xxx
+```
+
+> Replace the keystore-pass value "xxx" with the password you used for
+> the keystore and adapt the path (if it was changed) to the keystore.
+
+### HTTPS/TLS configuration with an auto-signed key
+
+> Enabling the TLS mode with an auto-signed key will force every user to add an
+> exception for the certificate before using the web interface.
+>
+> Enable it only if your Centreon also uses this protocol.
+>
+> Users will have to open the URL:
+> 
 > ```shell
 > https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 > ```
@@ -77,7 +156,7 @@ centreon-map.keystore-pass=xxx
 > *The solution we recommend is to use a recognized key method, as explained
 > above.*
 
-On the Centreon MAP server, create a keystore.
+On the Centreon MAP Legacy server, create a keystore.
 
 Go to the folder where Java is installed:
 
@@ -101,17 +180,20 @@ At the end of the screen form, when the "key password" is requested, use
 the same password as the one used for the keystore itself by pressing the
 ENTER key.
 
-Put the above keystore file (studio.jks) in the folder "/etc/centreon-map/",
-and set the following parameters inside
-`/etc/centreon-map/map-config.properties`:
+Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/",
+and set below parameters inside
+`/etc/centreon-studio/map-config.properties`:
 
 ```text
-centreon-map.keystore=/etc/centreon-map/studio.jks
+centreon-map.keystore=/etc/centreon-studio/studio.jks
 centreon-map.keystore-pass=xxx
 ```
 
 > Replace the keystore-pass value "xxx" with the password you used for
 > the keystore and adapt the path (if it was changed to the keystore).
+
+</TabItem>
+</Tabs>
 
 ### Activate TLS profile of Centreon MAP service
 

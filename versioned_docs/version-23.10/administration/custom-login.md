@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 You can customize some elements of your Centreon platform:
 
 - the login page: you can change the background and the logo, and add a text.
-- you can define a name for your platform (e.g. **Test**, **Production**...), that will be displayed in the banner once you are logged in.
+- you can define a name for your platform (e.g. **Test**, **Production**, etc.), which will be displayed in the banner once you are logged in.
 
 To be able to customize your Centreon platform, you need to install the **Centreon IT Edition Extensions** extension.
 
@@ -46,16 +46,16 @@ apt update && apt install centreon-it-edition-extensions
 </TabItem>
 </Tabs>
 
-3. Go to **Administration > Extensions > Manager** and click on the install button for the following modules:
+3. Go to **Administration > Extensions > Manager** and click the install button for the following modules:
 
    - **License Manager** (if not yet installed)
    - **IT Edition Extensions**
 
 ## Configuration
 
-Go to **Administration > Customize Centreon**. The different options are:
+Go to **Administration > Customize Centreon**. The options are:
 
-- **Platform name**: define a name for your platform, e.g. **Test**, **Production**... This name will be visible both on the login page (next to the logo), and in the banner once you are logged in.
+- **Platform name**: define a name for your platform, e.g. **Test**, **Production**, etc. This name will be visible both on the login page (next to the logo), and in the banner once you are logged in.
 - **Select a logo**: replace the Centreon logo on the login page (but not in the top left corner once you are logged in). Before you can select a logo in this field, you need to add the file to your platform's [media](./parameters/medias.md).
 - **Select a background**: replace the default background. Before you can select a background in this field, you need to add the file to your platform's [media](./parameters/medias.md).
 - **Insert your presentation text**: enter a text to be displayed in the login area.

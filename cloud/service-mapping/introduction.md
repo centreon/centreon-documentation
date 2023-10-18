@@ -3,7 +3,7 @@ id: introduction
 title: Introduction to Centreon BAM
 ---
 
-The service mapping capabilities in Centreon relies on the **Centreon Business
+The service mapping capabilities in Centreon rely on the **Centreon Business
 Activity Monitoring (BAM)** extension.
 
 **Centreon Business Activity Monitoring (BAM)** helps ITSM and business
@@ -11,7 +11,7 @@ operation teams gain a common perspective to align IT with business. Based on
 ITIL practices, it measures real-time IT operating vitals from
 Centreon-monitored data to show crucial correlations to service performance.
 Prioritizing and proactively managing IT operations and service delivery for
-required SLA becomes easier. Centreon BAM contributes to show that IT counts for
+the required SLA becomes easier. Centreon BAM contributes to showing that IT counts for
 business operations.
 
 ![image](../assets/service-mapping/first_page.gif)
@@ -22,10 +22,10 @@ based on Key Performance Indicators.
 The graphical representation of the data appears in real time on a console that
 is dedicated to monitoring IT activities.
 
-This documentation is meant to assist you in rolling out business activities and
-making best use of the real-time and reporting data in **Centreon BAM**.
+This documentation is intended to assist you in rolling out business activities and
+making the best use of the real-time and reporting data in **Centreon BAM**.
 
-Definitions :
+Definitions:
 
   - **BA**: Business Activity
   - **BV**: Business View: the displayed business activity

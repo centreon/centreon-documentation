@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from a CentOS 7 to a Debian 11.
+- You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from CentOS 7 to Debian 11.
 - Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
 
 > If your Centreon platform includes a Centreon redundancy system, please
@@ -33,7 +33,7 @@ complete the installation process by connecting to the Centreon web interface.
    apt update && apt upgrade
    ```
 
-### Step 2 : Synchronize the data
+### Step 2: Synchronize the data
 
 1. Connect to your old Centreon server.
 
@@ -43,7 +43,7 @@ complete the installation process by connecting to the Centreon web interface.
    ssh-keygen -t rsa
    ```
 
-   By defaut, the generated key pair will be saved to **/root/.ssh/id_rsa.pub** and **/root/.ssh/id_rsa**.
+   By default, the key pair generated will be saved to **/root/.ssh/id_rsa.pub** and **/root/.ssh/id_rsa**.
 
 3. Copy **root**'s public key (**/root/.ssh/id_rsa.pub**) into the **/root/.ssh/authorized_keys** file of the new server. If you are not using **root** for the synchronization, make sure that the user you use has writing rights on the target directory.
 
@@ -57,7 +57,7 @@ complete the installation process by connecting to the Centreon web interface.
    rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
    ```
 
-   If you have given a custom name to your private key file, use the following format (just replace **id_rsa_custom** by your file name, and `<command>` by the commands above):
+   If you have given a custom name to your private key file, use the following format (just replace **id_rsa_custom** with your file name, and `<command>` with the commands above):
 
    ```shell
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
@@ -116,7 +116,7 @@ create them again::
    exit
    ```
 
-5. On the new database server, import the previously transfered dumps into the database:
+5. On the new database server, import the previously transferred dumps into the database:
 
    ```shell
    mysql -u root centreon -p </tmp/centreon.sql
@@ -141,7 +141,7 @@ create them again::
    mysql_upgrade -u root -p
    ```
 
-7. Start the mariadb process on the new server:
+7. Start the MariaDB process on the new server:
 
    ```shell
    systemctl start mariadb
@@ -163,7 +163,7 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
-On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**. The path should be the same in the **Plugins directory** field on the **Administration > Parameters > Monitoring** page.
+On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**.
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
@@ -178,7 +178,7 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
    mv install-22.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
-2. If you use the same IP address or same DNS name between the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.
+2. If you use the same IP address or same DNS name on the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.
 
 3. Go to `http://<IP_NEW_CENTREON>/centreon` and perform the upgrade.
 
@@ -237,4 +237,4 @@ To migrate a poller:
 1. Follow steps 1 and 4 of the procedure to migrate a central server (i.e. [install the new server](#step-1-install-the-new-server) and [synchronize the plugins](#step-4-synchronize-the-plugins)).
 2. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-4. If your poller doesn't work after migrating it (e.g. you cannot deploy the configuration, or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
+4. If your poller does not work after migrating it (e.g. you cannot deploy the configuration or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
