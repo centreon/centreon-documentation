@@ -43,10 +43,10 @@ Perform the partitioning following these recommendations:
 
 ## Network
 
-| Description | Direction | Protocol   | IP           | Port   |
-| ----------- | --------- | ---------- | ------------ | ------ |
-| INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
-| NTP         | Outbound  | UDP        | TBA          | 123    |
+| Description    | Direction | Protocol   | IP           | Port   |
+| -------------- | --------- | ---------- | ------------ | ------ |
+| INTERNET       | Outbound  | HTTP/HTTPS | *            | 80/443 |
+| NTP (optional) | Outbound  | UDP        | TBA          | 123    |
 
 | Source            | Destination         | Port/Protocol      | Monitoring protocol   |
 | ----------------- | ------------------- | ------------------ | --------------------- |
