@@ -12,42 +12,17 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 ## Step 1: Running the script
 
-1. Use SSH to connect to the server that will become a poller.
+1. [On your central server](../getting-started/interface.md#accessing-the-central-servers-interface), click the arrow next to **Pollers** at the left of the header bar.
 
-2. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this (according to your region):
+2. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
 
-<Tabs groupId="sync">
-<TabItem value="US East Region" label="US East Region">
+3. Use SSH to connect to the server that will become your poller.
 
-> This applies to customers located in the USA, Canada and South America.
+4. In your terminal, paste the install command and execute it (this should take about 10 minutes)
 
-```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: your_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/your_organization_code/site/centreon/poller -s)"
-```
-
-> Make sure you replace **your_token** and **your_organization_code** with the correct values.
-
-</TabItem>
-<TabItem value="Europe West Region" label="Europe West Region">
-
-> This applies to customers located in Europe, Africa, Asia and Oceania.
-
-```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: your_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/your_organization_code/site/centreon/poller -s)"
-```
-
-> Make sure you replace **your_token** and **your_organization_code** with the correct values.
-
-</TabItem>
-</Tabs>
-  
-3. The script is executed (this should take about 10 minutes):
-
-   ![image](../assets/installation/script2.png)
-
-4. When this is finished, [log in to your central server](../getting-started/interface.md#accessing-the-central-servers-interface) and go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
+5. When this is finished, on your central server, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * By default, the name of the poller is its hostname (this may be shortened). Click the name to rename it.
-   * The address in the **IP Address** column is that of the poller as seen by the central server. During the installation process, a VPN is installed, so this IP address is that of the poller inside the VPN.
+   * The address in the **IP Address** column is that of the poller as seen by the central server.
    * The poller is not running yet (**No** in the **Is running?** column).
 
 ## Step 2: Exporting the configuration and restarting the poller
