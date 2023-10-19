@@ -45,7 +45,7 @@ Procédez au partitionnement en suivant les recommandations suivantes :
 
 | Description     | Direction | Protocole  | IP           | Port   |
 | --------------- | --------- | ---------- | ------------ | ------ |
-| INTERNET        | Sortante  | HTTP/HTTPS | *            | 80/443 |
+| INTERNET        | Sortante  | HTTPS      | *            | 443    |
 | NTP (optionnel) | Sortante  | UDP        | TBA          | 123    |
 
 | Source             | Destination                  | Port/Protocole     | Protocole de supervision   |

@@ -45,7 +45,7 @@ Perform the partitioning following these recommendations:
 
 | Description    | Direction | Protocol   | IP           | Port   |
 | -------------- | --------- | ---------- | ------------ | ------ |
-| INTERNET       | Outbound  | HTTP/HTTPS | *            | 80/443 |
+| INTERNET       | Outbound  | HTTPS      | *            | 443    |
 | NTP (optional) | Outbound  | UDP        | TBA          | 123    |
 
 | Source            | Destination         | Port/Protocol      | Monitoring protocol   |
