@@ -18,5 +18,6 @@ Your Centreon Cloud platform consists of a central server provided by Centreon a
   * Pollers do not have a user interface (you see the pollers' activity on the central server's interface).
   * Pollers are part of your infrastructure, which means better security, latency and bandwidth.
   * You [install your pollers](../installation/deploy-poller.md) using a simple script.
+  * The communication between the central and the pollers uses HTTPS.
 
 ![image](../assets/getting-started/infra3.png)
