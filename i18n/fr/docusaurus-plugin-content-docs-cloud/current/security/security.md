@@ -98,7 +98,7 @@ Centreon utilise des protocoles, certificats, algorithmes et logiciels à jour p
 | Protocole de communication | TLS 1.2/TLS 1.3 |
 | Certificats | RSA 2048 bits |
 | Algorithmes | PKCS #1 SHA-256 avec chiffrement RSA |
-| Logiciels | OpenSSL v1.1.x, OpenVPN 2.4.x |
+| Logiciels | OpenSSL v1.1.x |
 
 ## Sécurité du produit
 
