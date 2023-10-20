@@ -13,8 +13,13 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 ## Step 1: Running the script
 
 1. Use SSH to connect to the server that will become a poller.
+2. Disable SELinux (this is recommended to obtain a seamless installation. Advanced users can enable it depending on their SELinux expertise or security constraints, but should be attentive to the side-effects of this setup.)
 
-2. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this (according to your region):
+   1. Edit the configuration file **/etc/sysconfig/selinux**.
+   2. Set the value of SELINUX to disabled (**SELINUX=disabled**).
+   3. Save the file and reboot the system to apply the change.
+
+3. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this (according to your region):
 
 <Tabs groupId="sync">
 <TabItem value="US East Region" label="US East Region">
