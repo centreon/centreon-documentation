@@ -13,7 +13,7 @@ L’objectif est de soulager la base de données temps-réel (**centreon_storage
 
 Le cas d’usage minimal consiste à mettre en place une réplication des bases de données. Pour assurer correctement ce routage, nous installerons entre la plateforme Centreon et les bases de données un serveur **ProxySQL**.
 
-![image](../assets/administration/sql-proxy.png)
+![image](../assets/administration/sql_proxy.png)
 
 > Dans le cas d'une utilisation avec un cluster de bases de données, il faudra bien veiller à reconfigurer le serveur ProxySQL lorsque le serveur SQL Master et/ou Slave change d'adresse IP, ou en cas de défaillance de l'un des serveurs SQL.
 > En cas de défaillance, ProxySQL ne pourra pas gérer le basculement de base de données automatiquement et votre site ne sera plus fonctionnel, c'est donc à vous de mettre en place une stratégie de tolérance aux pannes.

@@ -13,7 +13,7 @@ The aim is to relieve the real-time database (**centreon_storage**) and avoid Br
 
 The minimal use case consists in setting up database replication. To ensure proper routing, we will install an SQLproxy server between the Centreon platform and the databases.
 
-![image](../assets/administration/sql-proxy.png)
+![image](../assets/administration/sql_proxy.png)
 
 > When using a database cluster, you must ensure that the ProxySQL server is reconfigured whenever the Master and/or Slave SQL server changes IP address, or in the event of failure of one of the SQL servers.
 > In the event of failure, ProxySQL will not be able to handle database failover automatically, and your site will no longer be functional, so it is up to you to set up a fault-tolerance strategy.
