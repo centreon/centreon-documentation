@@ -21,7 +21,7 @@ Associate users with resources and the statuses for which users will be notified
 
 * **Dashboards Beta**:
 
-   With Dashboards, effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more.
+   With Dashboards, effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
 
 ### Centreon Business Edition
 
