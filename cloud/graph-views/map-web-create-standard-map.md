@@ -110,3 +110,5 @@ The **Format** panel allows you to apply formatting options depending on the typ
 - **Style tab:** to customize shapes, links and text.
 - **Text tab:** to format all text elements.
 - **Arrange tab:** to organize elements on the drawing canvas (size, position, alignment) and place them according to different layers.
+
+> You are able to add an element and save the map even if this element is not tied to any resource. It will then be displayed in yellow when you switch to view mode.
