@@ -13,8 +13,13 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 ## Étape 1 : Exécuter le script
 
 1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
+2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effects secondaires de ce paramétrage.)
+   
+   1. Éditez le fichier de configuration **/etc/sysconfig/selinux**.
+   2. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).
+   3. Sauvegardez le fichier et redémarrez le système pour appliquer les changements.
 
-2. Exécutez la commande qui déploiera le collecteur automatiquement. Cette commande vous a été fournie par notre équipe support. Le format est le suivant (selon votre région) :
+4. Exécutez la commande qui déploiera le collecteur automatiquement. Cette commande vous a été fournie par notre équipe support. Le format est le suivant (selon votre région) :
 
 <Tabs groupId="sync">
 <TabItem value="US East Region" label="US East Region">
