@@ -12,15 +12,21 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 
 ## Étape 1 : Exécuter le script
 
-1. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
+1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
+2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effects secondaires de ce paramétrage.)
+   
+   1. Éditez le fichier de configuration **/etc/sysconfig/selinux**.
+   2. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).
+   3. Sauvegardez le fichier et redémarrez le système pour appliquer les changements.
 
-2. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
+3. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
-3. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
+4. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
-4. Dans le terminal, copiez la commande d'installation et exécutez-là (cela devrait prendre environ 10 minutes).
+5. Sur le serveur qui deviendra un collecteur, dans le terminal, copiez la commande d'installation et exécutez-la (cela devrait prendre environ 10 minutes).
 
-5. Une fois le script exécuté, sur le serveur central, allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
+6. Une fois le script exécuté, sur le serveur central, allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
+
    * Par défaut, le nom du collecteur est son hostname (celui-ci peut avoir été abrégé). Cliquez sur le nom du collecteur pour le renommer.
    * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central. En effet, pendant le processus d'installation, un VPN est installé : l'adresse IP est celle du collecteur à l'intérieur du VPN.
    * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).
