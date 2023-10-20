@@ -111,3 +111,5 @@ Le panneau **Format** vous permet d'appliquer des options de formatage en foncti
 - Onglet **Style** : pour personnaliser les formes, les liens et le texte.
 - Onglet **Text** : pour mettre en forme tous les éléments de texte.
 - Onglet **Arrange** : pour organiser les éléments dans l'espace de travail (taille, position, alignement) et les placer sur différents calques.
+
+> Vous pouvez ajouter un élément et enregistrer la carte même si cet élément n'est lié à aucune ressource. Il sera alors affiché en jaune lorsque vous passez en mode vue.
