@@ -111,3 +111,23 @@ Le panneau **Format** vous permet d'appliquer des options de formatage en foncti
 - Onglet **Style** : pour personnaliser les formes, les liens et le texte.
 - Onglet **Text** : pour mettre en forme tous les éléments de texte.
 - Onglet **Arrange** : pour organiser les éléments dans l'espace de travail (taille, position, alignement) et les placer sur différents calques.
+
+### Ajouter plusieurs ressources en utilisant le mode groupé
+
+En mode édition, vous pouvez ajouter plusieurs ressources à votre vue en une seule action.
+
+1. Cliquez dans la barre **Rechercher une ressource** au-dessus de la vue.
+2. Dans la liste déroulante, sélectionnez les ressources que vous souhaitez dans **Groupes d'hôtes, Hôtes, Groupes de services, Services, Méta-services et Activités métier**.
+3. Cliquez ensuite sur le bouton **Ajouter à la carte**.
+
+Les ressources que vous avez sélectionnées sont maintenant ajoutées à la vue !
+
+## Sauvegarder la perspective de votre carte
+
+Pour une expérience utilisateur optimale, vous pouvez enregistrer la perspective (zoom et position) de votre carte. Ainsi, à chaque fois que vous ouvrez votre carte, vous la retrouvez dans la position qui vous convient le mieux.
+
+- **En mode édition :** la perspective est sauvegardée dès que vous cliquez sur le bouton **Enregistrer**.
+
+- **En mode vue :** cliquez sur le bouton **Sauvegarder la perspective** et un message vous confirmera que la perspective est sauvegardée.
+
+> Vous pouvez ajouter un élément et enregistrer la carte même si cet élément n'est lié à aucune ressource. Il sera alors affiché en jaune lorsque vous passez en mode vue.

@@ -253,7 +253,8 @@ yum install -y https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarc
 To install the Centreon repository, execute following command line:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Then import the repository key:
