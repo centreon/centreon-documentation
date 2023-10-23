@@ -14,14 +14,13 @@ Associate users with resources and the statuses for which users will be notified
 
 * **Resources Status**:
 
-   - In addition to the current view (**All** view), we have added 2 new views allowing users to see only the services
-  (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
+   - In addition to the current view (**All** view), you can now access to two new views to see only the services (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
   These two new views have been designed based on what was done in deprecated pages.
    - We have also completely redesigned filters, making it easier to select resources.
 
 * **Dashboards Beta**:
 
-   With Dashboards, effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
+   With Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
 
 ### Centreon Business Edition
 
@@ -31,14 +30,14 @@ The output message for business activities has been modified to give more unders
 
 #### Centreon MAP
 
+- [Editor] Improved the layout of the output widget edition window.
+- [Editor] You can now add Centreon resources to a map by searching their names.
 - [UI] You can now use the MAP module in French.
-- [UI] Added button to save zoom and position in editor and viewer.
-- [UI] Added the possibility to hide the label of a resource.
+- [UI] You can now use a button to save zoom and position in editor and viewer.
+- [UI] You can now hide the label of a resource.
 - [UI] Made the labels in the metric link window more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 - [UX] You can now duplicate maps.
-- [Editor] Improved the layout of the output widget edition window.
-- [Editor] Users can now add Centreon resources to a map by searching their names.
 - [Server] Made link anchors consistent between viewer and editor.
-- [Server] Users can now save maps that contain elements not associated with a Centreon resource.
+- [Server] You can now save maps that contain elements not associated with a Centreon resource.
 - [Viewer] Made resource status unique for hosts (include host status in inherited status computation).
 - [Viewer] You can now define a label for a URL shape.
