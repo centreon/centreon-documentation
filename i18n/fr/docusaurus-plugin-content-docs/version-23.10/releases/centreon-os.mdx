@@ -25,10 +25,9 @@ Release date: `October 27, 2023`
 <details open>
 <summary>New features</summary>
 
-- **Dashboards Beta**: with Dashboards, effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more.
+- **Dashboards Beta**: with Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more.
 - **Resources Status**:
-   - In addition to the current view (**All** view), we have added 2 new views allowing users to see only the services
-  (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
+   - In addition to the current view (**All** view), you can now access to two new views to see only the services (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
   These two new views have been designed based on what was done in deprecated pages.
    - We have also completely redesigned filters, making it easier to select resources.
 
@@ -39,6 +38,45 @@ Release date: `October 27, 2023`
 <details open>
   <summary>Enhancements</summary>
 
+- [ACL] You can now manage API tokens with an action & menu access.
+- [API] API restrictions (ro/rw) are now applied while deleting a host or a service using the API.
+- [API] CLAPI now ignores empty lines and lines starting with the `#` character.
+- [API] The field "notify" has been added to the monitoring/services GET route.
+- [API] The field "is_activated" has been removed from host template and service template routes.
+- [API] Added service search in hostGroups/serviceGroups endpoints.
+- [API] Added telemetry and statistics to the token management API.
+- [API] Added a route to create a service template.
+- [API] Added a route to delete a service template.
+- [API] Added a route to list service templates.
+- [API] Added a route to create a host template.
+- [API] Added a route to delete a host template.
+- [API] Added a route to list commands.
+- [API] Added a route to handle templates of a host template (PATCH).
+- [API] Added a route to update a host category of a host template (PATCH).
+- [API] Added a route to link a service template to host templates (PATCH).
+- [API] Added a route to update a host category of a host template (POST).
+- [API] Added a route to update macros of a host template (PATCH).
+- [API] Added a route to handle templates of a host template (POST).
+- [API] Added a route to list host templates.
+- [API] Added a route to update/find host severity.
+- [API] Added a route to get a host category.
+- [API] Added a route to update a host category.
+- [API] Added a route to update one host group (PUT).
+- [API] Added a route to retrieve one host group (PUT).
+- [API] Added routes to create and delete hosts.
+- [API] Added routes to create, delete and list services.
+- [API] Added routes to create, delete and list tokens.
+- [API] Updated the service template creation route to handle relations with service groups.
+- [API] Updated the service template partial update route to handle relations with service groups.
+- [API] Updated the service template create route to handle macros.
+- [API] Updated the service template partial update route to handle macros.
+- [API] Updated the service template partial update route to handle all properties.
+- [API] Updated the service template create route to handle all properties.
+- [API] Updated the service template partial update route to link a service template to service categories.
+- [API] Updated the host template create route to handle all properties.
+- [API] Updated the service template partial update route to link a service template to host templates.
+- [API] Updated the AddHostTemplate route to handle macros (POST).
+- [API] Updated the host create API route to handle host groups.
 - [Authentication] Added user attributes received from IdP in Centreon login file if debug is enabled.
 - [Authentication] Removed password fields if contact is not local type.
 - [CEIP] Added a debug option to display CEIP telemetry data sent to Centreon.
@@ -46,45 +84,6 @@ Release date: `October 27, 2023`
 - [Core] Implemented a simple feature flag system.
 - [Monitoring] The breadcrumb for monitoring legacy pages now states that we will remove these pages in the next major version.
 - [Resources Status] Added a tooltip to understand how to use filters.
-- [API] Added routes to create and delete hosts.
-- [API] Added routes to create, delete and list services.
-- [API] Added a route to create a service template.
-- [API] Added a route to delete a service template.
-- [API] Added a route to list service templates.
-- [API] Added a route to create a host template.
-- [API] Added a route to delete a host template.
-- [API] Added a route to list commands.
-- [API] API restrictions (ro/rw) are now applied while deleting a host or a service using the API.
-- [API] Added telemetry & statistics to the token management API.
-- [API] Added routes to create, delete and list tokens.
-- [ACL] Added action & menu access to manage the API tokens.
-- [API] The field "notify" has been added to the monitoring/services GET route.
-- [API] Removed is_activated field from host template and service template routes.
-- [API] Updated the service template creation route to handle relations with service groups.
-- [API] Updated the service template partial update route to handle relations with service groups.
-- [API] CLAPI now ignores empty lines and lines starting with the `#` character.
-- [API] Updated the service template create route to handle macros.
-- [API] Updated the service template partial update route to handle macros.
-- [API] Updated the service template partial update route to handle all properties.
-- [API] Updated the service template create route to handle all properties.
-- [API] Updated the service template partial update route to link a service template to service categories.
-- [API] Updated the host template create route to handle all properties.
-- [API] Added a route to handle templates of a host template (PATCH).
-- [API] Updated the service template partial update route to link a service template to host templates.
-- [API] Added a route to update a host category of a host template (PATCH).
-- [API] Added a route to link a service template to host templates (PATCH).
-- [API] Updated the AddHostTemplate route to handle macros (POST).
-- [API] Added a route to update a host category of a host template (POST).
-- [API] Added a route to update macros of a host template (PATCH).
-- [API] Added a route to handle templates of a host template (POST).
-- [API] Updated the host create API route to handle host groups.
-- [API] Added a route to list host templates.
-- [API] Added a route to update/find host severity.
-- [API] Added a route to get a host category.
-- [API] Added a route to update a host category.
-- [API] Added a route to update one host group (PUT).
-- [API] Added a route to retrieve one host group (PUT).
-- [API] Added service search in hostGroups / serviceGroups endpoints.
 
 </details>
 
