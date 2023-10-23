@@ -46,6 +46,8 @@ de l'URL a été mise en place. Exemple: `https://yourcentreon.int.com:PORT/cent
 
 ![image](../assets/mobile/mobile-login.png)
 
+L'authentification déléguée est également supportée.
+
 Si vous rencontrez des problèmes de connexion:
 
 - Assurez-vous que votre téléphone a bien accès en direct à votre plateforme Centreon (en vous rendant directement sur l'URL par exemple)
