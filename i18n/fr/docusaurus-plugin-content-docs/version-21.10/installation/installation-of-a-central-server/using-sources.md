@@ -33,6 +33,7 @@ Exécutez les commandes suivantes :
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/21.10/el8/centreon-21.10.repo
 ```
 
@@ -162,6 +163,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/21.10/el8/centreon-21.10.repo
 ```
 
@@ -291,6 +293,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/21.10/el8/centreon-21.10.repo
 ```
 

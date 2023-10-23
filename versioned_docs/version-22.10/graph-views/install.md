@@ -268,6 +268,7 @@ Complete!
 Now you can install the Centreon repository:
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 

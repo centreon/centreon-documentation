@@ -24,6 +24,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
@@ -154,6 +155,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
