@@ -19,7 +19,7 @@ If you want to define the same new monitoring server for several hosts:
 
 1. On page **Configuration > Hosts**, select all the hosts you want to change.
 
-2. In the **More actions** menu, select **Massive change**.
+2. In the **More actions** menu, select **Mass change**.
 
 3. On tab **Host configuration**, in section **Host basic information**, update the **Monitoring server** field.
 

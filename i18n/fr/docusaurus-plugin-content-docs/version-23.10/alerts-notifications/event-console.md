@@ -7,6 +7,8 @@ title: Consoles d'évènements
 > [Statut des ressources](resources-status.md). Cette nouvelle page a pour but de regrouper les expériences que vous
 > pouvez retrouver dans ces interfaces.
 >
+> Les pages dépréciées seront supprimées dans la prochaine version majeure de Centreon.
+> 
 > Pour les nouvelles installations, les pages dépréciées sont automatiquement
 > masquées. Il est possible de les afficher en sélectionnant l'option
 > **Utiliser les pages dépréciées** dans les préférences propres à chaque

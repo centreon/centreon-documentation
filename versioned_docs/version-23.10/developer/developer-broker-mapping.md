@@ -13,8 +13,8 @@ exchanged. This page lists properties available for each event type.
 ### Acknowledgement
 
 The acknowledgement of an incident means that the problem has been taken into
-account by a user of the monitoring. When the user acknowledges the problem,
-Centreon Engine emits an **acknowledgement** event. This event is different in BBDO v2 and in BBDO v3.
+account by a user of the monitoring service. When the user acknowledges the problem,
+Centreon Engine emits an **acknowledgement** event. This event is different in BBDO v2 and BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -31,7 +31,7 @@ The content of this message is serialized as follows:
 | -------------------------------------------- | ---------------- | ------------------------------------------------------------------------ |
 | acknowledgement\_type                        | short integer    | 0 for a host acknowledgement, 1 for a service acknowledgement.           |
 | author                                       | string           | Acknowledgement author.                                                  |
-| comment                                      | string           | Comment associated to the acknowledgement.                               |
+| comment                                      | string           | Comment associated with the acknowledgement.                               |
 | deletion\_time                               | time             | Time at which the acknowledgement was deleted. If 0, it was not deleted. |
 | entry\_time                                  | time             | Time at which the acknowledgement was created.                           |
 | host\_id                                     | unsigned integer | Host ID.                                                                 |
@@ -52,9 +52,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 45      | 65581 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
+This event is a Protobuf event, so items are not serialized as in BBDO v2
 events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Acknowledgement** events should be sent, instead you should see **NEB::PbAcknowledgement** events.
+used, no more **NEB::Acknowledgement** events should be sent. Instead, you should see **NEB::PbAcknowledgement** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
@@ -69,7 +69,7 @@ message Acknowledgement {
   }
   ResourceType type = 4;             // Type of the resource.
   string author = 5;                 // Acknowledgement author.
-  string comment_data = 6;           // Comment associated to the acknowledgement.
+  string comment_data = 6;           // Comment associated with the acknowledgement.
   bool sticky = 7;                   // Sticky flag.
   bool notify_contacts = 8;          // Notification flag.
   uint64 entry_time = 9;             // Time at which the acknowledgement was created.
@@ -84,8 +84,8 @@ message Acknowledgement {
 
 ### Comment
 
-In several situations, the user has to enter a comment in the Centreon
-interface. When they validate it, Centreon Engine emits a **comment** event. This event is different in BBDO v2 and in BBDO v3.
+In several situations, the user must enter a comment in the Centreon
+interface. When they validate it, Centreon Engine emits a **comment** event. This event is different in BBDO v2 and BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -124,9 +124,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 35      | 65571 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Comment** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Comment** events should be sent. Instead, you
 should see **NEB::PbComment** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -184,7 +184,7 @@ message Comment {
 A **custom variable** is essentially a variable with a **name** and a **value**. It
 often comes from Centreon Engine macros. For Centreon to work correctly, these
 custom variables must be sent to Centreon Broker. Each one is sent thanks to
-a **custom variable** event. This event is different in BBDO v2 and in BBDO v3.
+a **custom variable** event. This event is different in BBDO v2 and BBDO v3.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -218,9 +218,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 37      | 65573 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::CustomVariable** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::CustomVariable** events should be sent. Instead, you
 should see **NEB::PbCustomVariable** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -341,7 +341,7 @@ The content of this message is serialized as follows:
 | actual\_end\_time   | time             | Actual time at which the downtime ended.                   |
 | actual\_start\_time | time             | Actual time at which the downtime started.                 |
 | author              | string           | Downtime creator.                                          |
-| downtime\_type      | short integer    | 1 for a service downtime, 2 for a host downtime.           |
+| downtime\_type      | short integer    | 1 for service downtime, 2 for host downtime.           |
 | deletion\_time      | time             | Time at which the downtime was deleted.                    |
 | duration            | time             | Downtime duration.                                         |
 | end\_time           | time             | Scheduled downtime end time.                               |
@@ -350,14 +350,14 @@ The content of this message is serialized as follows:
 | host\_id            | unsigned integer | Host ID.                                                   |
 | instance\_id        | unsigned integer | Instance ID.                                               |
 | internal\_id        | unsigned integer | Internal monitoring engine ID.                             |
-| service\_id         | unsigned integer | Service ID. 0 if this is a host downtime.                  |
+| service\_id         | unsigned integer | Service ID. 0 if this is host downtime.                  |
 | start\_time         | time             | Scheduled downtime start time.                             |
 | triggered\_by       | unsigned integer | Internal ID of the downtime that triggered this downtime.  |
-| was\_cancelled      | boolean          | True if the downtime was cancelled.                        |
+| was\_cancelled      | boolean          | True if the downtime was canceled.                        |
 | was\_started        | boolean          | True if the downtime has been started.                     |
 | comment             | string           | Downtime comment.                                          |
 | is\_recurring       | boolean          | True if this downtime is recurring.                        |
-| recurring\_tp       | string           | The recurring timepriod of the recurring downtime.         |
+| recurring\_tp       | string           | The recurring time period of the recurring downtime.         |
 | come\_from          | short            | Id of the parent recurring downtime for spawned downtimes. |
 
 </TabItem>
@@ -369,9 +369,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 36      | 65572 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Downtime** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Downtime** events should be sent. Instead, you
 should see **NEB::PbDowntime** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -388,7 +388,7 @@ message Downtime {
   uint64 id = 1;                  // Internal monitoring engine ID.
   uint64 instance_id = 2;         // Instance ID.
   uint64 host_id = 3;             // Host ID.
-  uint64 service_id = 4;          // Service ID or 0 if this is a host downtime.
+  uint64 service_id = 4;          // Service ID or 0 if this is host downtime.
   string author = 5;              // Downtime author.
   string comment_data = 6;        // Downtime comment.
   DowntimeType type = 7;          // One value from the previous enum.
@@ -401,7 +401,7 @@ message Downtime {
   uint64 deletion_time = 14;      // Time at which the downtime was deleted.
   uint64 end_time = 15;           // Scheduled downtime end time.
   bool started = 16;              // True if the downtime has been started.
-  bool cancelled = 17;            // True if the downtime was cancelled.
+  bool cancelled = 17;            // True if the downtime was canceled.
   bool fixed = 18;                // True if the downtime is fixed, false if it is flexible.
 }
 ```
@@ -456,14 +456,14 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Flapping status
 
-When the status of a resource is unstable, Centreon Engine tags it as **flapping**. In the past, a **flapping status** event was emitted in such cases - it is no longer the case. The **flapping status** event **does not exist anymore**.
+When the status of a resource is unstable, Centreon Engine tags it as **flapping**. In the past, a **flapping status** event was emitted in such cases. This no longer occurs. The **flapping status** event **does not exist anymore**.
 
 ### Tag
 
 The **tag** is a new configuration event currently used for categories and groups.
 
-At the moment, it is used in parallel with **group** events and other things but
-in a near future should be more global.
+At the moment, it is used in parallel with **group** events and other things, but
+in the near future it should be more global.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -480,9 +480,9 @@ There are no **tag** events in BBDO v2.
 | -------- | ------- | ----- |
 | 1        | 34      | 65570 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Tag** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Tag** events should be sent. Instead, you
 should see **NEB::PbTag** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -589,15 +589,15 @@ The content of this message is serialized as follows:
 | notification\_number              | short integer    | number of notifications sent since the start of the problem                   |
 | notification\_period              | string           | time period during which notifications are allowed                            |
 | notifications\_enabled            | boolean          | notifications allowed                                                         |
-| notify\_on\_down                  | boolean          | users are notified if host becomes down                                       |
-| notify\_on\_downtime              | boolean          | users are notified if host enters in downtime                                 |
-| notify\_on\_flapping              | boolean          | users are notified if host is flapping                                        |
-| notify\_on\_recovery              | boolean          | users are notified if host becomes up                                         |
-| notify\_on\_unreachable           | boolean          | users are notified if host becomes down and parents are down                  |
-| obsess\_over                      | boolean          | true if ocsp command if executed after check or notification command          |
+| notify\_on\_down                  | boolean          | users are notified if the host becomes down                                       |
+| notify\_on\_downtime              | boolean          | users are notified if the host enters in downtime                                 |
+| notify\_on\_flapping              | boolean          | users are notified if the host is flapping                                        |
+| notify\_on\_recovery              | boolean          | users are notified if the host becomes up                                         |
+| notify\_on\_unreachable           | boolean          | users are notified if the host becomes down and parents are down                  |
+| obsess\_over                      | boolean          | true if ocsp command is executed after check or notification command          |
 | passive\_checks\_enabled          | boolean          | passive check                                                                 |
 | percent\_state\_change            | real             | used by flapping and compared with high and low flap thresholds               |
-| retry\_interval                   | real             | interval between two check when host isn't in up state and state type is soft |
+| retry\_interval                   | real             | interval between two checks when host isn't in up state and state type is soft |
 | should\_be\_scheduled             | boolean          | no next check should be scheduled                                             |
 | stalk\_on\_down                   | boolean          | logs check output event changes if state is down                              |
 | stalk\_on\_unreachable            | boolean          | logs check output event if state is unreachable                               |
@@ -620,9 +620,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 30      | 65566 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Host** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Host** events should be sent.  Instead, you
 should see **NEB::PbHost** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -650,7 +650,7 @@ message Host {
   bool enabled = 5;                       // True if this host is enabled.
   int32 scheduled_downtime_depth = 6;     // Number of active downtimes.
   string check_command = 7;               // Check command.
-  int32 check_interval = 8;               // Interval in units (usually 60s) between 2 checks.
+  int32 check_interval = 8;               // Interval in units (usually 60 s) between 2 checks.
   string check_period = 9;                // Time period when checks are authorized
 
   enum CheckType {
@@ -682,7 +682,7 @@ message Host {
   int64 last_time_up = 27;                // Timestamp of the last successful check.
   int64 last_update = 28;                 // Timestamp of the last message creation.
   double latency = 29;                    // Delay between scheduled check time and real check time.
-  int32 max_check_attempts = 30;          // Number of failed check after which host state becomes a hard fail state.
+  int32 max_check_attempts = 30;          // Number of failed checks after which host state becomes a hard fail state.
   int64 next_check = 31;                  // Next scheduled check timestamp.
   int64 next_host_notification = 32;      // Next renotification timestamp.
   bool no_more_notifications = 33;        // If true, no other notification will be sent.
@@ -696,7 +696,7 @@ message Host {
   bool obsess_over_host = 41;             // True if OCSP command is executed after check or notification command.
 
   enum StateType {
-    SOFT = 0;                             // State not still confirmed.
+    SOFT = 0;                             // State still not confirmed.
     HARD = 1;                             // State confirmed.
   }
 
@@ -708,7 +708,7 @@ message Host {
   bool default_active_checks = 47;        // Same as active_checks but the default value.
   bool default_event_handler_enabled = 48;// Same as event_handler but the default value.
   bool default_flap_detection = 49;       // Same as flap_detection but the default value.
-  bool default_notify = 50;               // Same as notify byt the default value.
+  bool default_notify = 50;               // Same as notify but the default value.
   bool default_passive_checks = 51;       // Same as passive checks but the default value.
   string display_name = 52;               // Name displayed in the WUI
   double first_notification_delay = 53;   // Delay before notify in units (usually 60s).
@@ -726,11 +726,11 @@ message Host {
   string notes_url = 65;                  // clickable url in resources status page.
   double notification_interval = 66;      // Interval between two notifications.
   string notification_period = 67;        // Time period during which notifications are allowed.
-  bool notify_on_down = 68;               // Users are notified if host becomes down.
-  bool notify_on_downtime = 69;           // Users are notified if host enters in downtime.
-  bool notify_on_flapping = 70;           // Users are notified if host is flapping.
-  bool notify_on_recovery = 71;           // Users are notified if host becomes up.
-  bool notify_on_unreachable = 72;        // Users are notified if host becomes unreachable.
+  bool notify_on_down = 68;               // Users are notified if the host becomes down.
+  bool notify_on_downtime = 69;           // Users are notified if the host enters downtime.
+  bool notify_on_flapping = 70;           // Users are notified if the host is flapping.
+  bool notify_on_recovery = 71;           // Users are notified if the host becomes up.
+  bool notify_on_unreachable = 72;        // Users are notified if the host becomes unreachable.
   bool stalk_on_down = 73;                // Logs check output changes if state is down.
   bool stalk_on_unreachable = 74;         // Logs check output changes if state is unreachable.
   bool stalk_on_up = 75;                  // Logs check output changes if state is up.
@@ -781,9 +781,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 39      | 65575 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::HostCheck** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::HostCheck** events should be sent. Instead, you
 should see **NEB::PbHostCheck** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -835,7 +835,7 @@ The content of this message is serialized as follows:
 | dependent\_host\_id            | unsigned integer | Host ID of the resource this host is dependent on                       |
 | enabled                        | boolean          | True if the dependency is enabled.                                      |
 | execution\_failure\_options    | string           | Some values among "up", "down", "unreachable", "pending", "none", "all" |
-| inherits\_parent               | boolean          | True if the dependency is inherited from parent                         |
+| inherits\_parent               | boolean          | True if the dependency is inherited from a parent                         |
 | host\_id                       | unsigned integer | Host ID.                                                                |
 | notification\_failure\_options | string           | Same values as for execution\_failure\_options                          |
 
@@ -900,7 +900,7 @@ The content of this message is serialized as follows:
 | group           | string           | Group name.                                                       |
 | instance\_id    | unsigned integer | Instance ID.                                                      |
 | host\_id        | unsigned integer | Host ID.                                                          |
-| source\_id      | unsigned integer | The id of the source instance this event.                         |
+| source\_id      | unsigned integer | The id of the source instance of this event.                         |
 | destination\_id | unsigned integer | The id of the destination instance of this event.                 |
 
 </TabItem>
@@ -943,7 +943,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Host status
 
-This is an event emitted by Centreon Engine when a host has real time modifications (status, output, metrics...).
+This is an event emitted by Centreon Engine when a host has real time modifications (status, output, metrics, etc.).
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -961,7 +961,7 @@ The content of this message is serialized as follows:
 | acknowledged              | boolean          | problem has been acknowledged                                                 |
 | acknowledgement\_type     | short integer    | 0 none, 1 normal, 2 sticky                                                    |
 | active\_checks\_enabled   | boolean          | True if active checks are enabled on the host.                                |
-| check\_interval           | real             | interval in units (usually 60s) between 2 checks                              |
+| check\_interval           | real             | interval in units (usually 60 s) between 2 checks                              |
 | check\_period             | string           | time period when checks are authorized                                        |
 | check\_type               | short integer    | 0 active, 1 passive                                                           |
 | current\_check\_attempt   | short integer    | number of failed checks                                                       |
@@ -983,18 +983,18 @@ The content of this message is serialized as follows:
 | last\_time\_down          | time             | time of the last failed check                                                 |
 | last\_time\_unreachable   | time             | time of the last failed check with all parent hosts down                      |
 | last\_time\_up            | time             | time of the last successful check                                             |
-| last\_update              | time             | time of message create                                                        |
+| last\_update              | time             | time of message creation                                                        |
 | latency                   | real             | delay between scheduled check time and real check time                        |
-| max\_check\_attempts      | short integer    | number of failed check after which host state become a hard fail state        |
+| max\_check\_attempts      | short integer    | number of failed checks after which host state becomes a hard fail state        |
 | next\_check               | time             | Time at which the next check is scheduled.                                    |
 | next\_host\_notification  | time             | next renotification time                                                      |
 | no\_more\_notifications   | boolean          | no other notification will be sent                                            |
 | notification\_number      | short integer    | number of notifications sent since the start of the problem                   |
 | notifications\_enabled    | boolean          | notifications allowed                                                         |
-| obsess\_over              | boolean          | true if ocsp command if executed after check or notification command          |
+| obsess\_over              | boolean          | true if ocsp command is executed after check or notification command          |
 | passive\_checks\_enabled  | boolean          | passive check                                                                 |
 | percent\_state\_change    | real             | used by flapping and compared with high and low flap thresholds               |
-| retry\_interval           | real             | interval between two check when host isn't in up state and state type is soft |
+| retry\_interval           | real             | interval between two checks when host isn't in up state and state type is soft |
 | should\_be\_scheduled     | boolean          | next check should be scheduled                                                |
 | state\_type               | StateType        | SOFT HARD                                                                     |
 | check\_command            | string           | command executed                                                              |
@@ -1010,9 +1010,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 32      | 65538 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::HostStatus** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::HostStatus** events should be sent. Instead, you
 should see **NEB::PbHostStatus** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1113,9 +1113,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 44      | 65580 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Instance** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Instance** events should be sent. Instead, you
 should see **NEB::PbInstance** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1162,8 +1162,8 @@ The content of this message is serialized as follows:
 | --------------------------------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | active\_host\_checks\_enabled     | boolean          | Whether or not active host checks are globally enabled.           |         |
 | active\_service\_checks\_enabled  | boolean          | Whether or not active service checks are globally enabled.        |         |
-| check\_hosts\_freshness           | boolean          | Whether or not hosts freshness checking is globally enabled.      |         |
-| check\_services\_freshness        | boolean          | Whether or not services freshness checking is globally enabled.   |         |
+| check\_hosts\_freshness           | boolean          | Whether or not host freshness checking is globally enabled.      |         |
+| check\_services\_freshness        | boolean          | Whether or not service freshness checking is globally enabled.   |         |
 | event\_handler\_enabled           | boolean          | Whether or not event handlers are globally enabled.               |         |
 | flap\_detection\_enabled          | boolean          | Whether or not flap detection is globally enabled.                |         |
 | id                                | unsigned integer | Instance ID.                                                      |         |
@@ -1186,9 +1186,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 42      | 65578 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::InstanceStatus** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::InstanceStatus** events should be sent. Instead, you
 should see **NEB::PbInstanceStatus** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1226,7 +1226,7 @@ message InstanceStatus {
 ### Log entry
 
 Centreon Engine generates many logs. Some of them are sent to Centreon Broker
-to be stored into the database. These logs are sent using **log entry** events.
+to be stored in the database. These logs are sent using **log entry** events.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1264,9 +1264,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 41      | 65577 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::LogEntry** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::LogEntry** events should be sent. Instead, you
 should see **NEB::PbLogEntry** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1315,11 +1315,11 @@ message LogEntry {
 
 ### Module
 
-**Module** events are generated when Centreon Engine modules get loaded
-or unloaded. This message is not very useful since the only modules available
+**Module** events are generated when Centreon Engine modules are loaded
+or unloaded. This message is not very useful, since the only modules available
 in Engine are **external command** and **cbmod**, which are mandatory.
 
-So, it should be removed in a near future.
+That is why it will be removed in the near future.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1351,7 +1351,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Service
 
-This is a configuration event. It is emitted by Centreon Engine when a change is made to the configuration of a service, and the configuration is deployed.
+This is a configuration event. It is emitted by Centreon Engine when a change is made to the configuration of a service and the configuration is deployed.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -1387,7 +1387,7 @@ The content of this message is serialized as follows:
 | event\_handler                    | string           | command executed when state changes                                              |
 | event\_handler\_enabled           | boolean          | event\_handler enabled                                                           |
 | execution\_time                   | real             | duration of last check                                                           |
-| first\_notification\_delay        | real             | delay before notify in units (usually 60s)                                       |
+| first\_notification\_delay        | real             | delay before notification in units (usually 60 s)                                       |
 | flap\_detection\_enabled          | boolean          | flap detection enabled                                                           |
 | flap\_detection\_on\_critical     | boolean          | critical state is taken into account for flap detection                          |
 | flap\_detection\_on\_ok           | boolean          | ok state is taken into account for flap detection                                |
@@ -1426,7 +1426,7 @@ The content of this message is serialized as follows:
 | notification\_period              | string           | time period during which notifications are allowed                               |
 | notifications\_enabled            | boolean          | notifications enabled                                                            |
 | notify\_on\_critical              | boolean          | users are notified if service state becomes critical                             |
-| notify\_on\_downtime              | boolean          | users are notified if service enters in downtime                                 |
+| notify\_on\_downtime              | boolean          | users are notified if service enters downtime                                 |
 | notify\_on\_flapping              | boolean          | users are notified if service is flapping                                        |
 | notify\_on\_recovery              | boolean          | users are notified if service becomes ok                                         |
 | notify\_on\_unknown               | boolean          | users are notified if service state becomes unknown                              |
@@ -1434,8 +1434,8 @@ The content of this message is serialized as follows:
 | obsess\_over                      | boolean          | true if ocsp command if executed after check or notification command             |
 | passive\_checks\_enabled          | boolean          | passive check                                                                    |
 | percent\_state\_change            | real             | used by flapping and compared with high and low flap thresholds                  |
-| retry\_interval                   | real             | interval between two check when service isn't in up state and state type is soft |
-| scheduled\_downtime\_depth        | short integer    | number of active downtimes                                                       |
+| retry\_interval                   | real             | interval between two checks when service is not in up state and state type is soft |
+| scheduled\_downtime\_depth        | short integer    | number of active downtime periods                                                       |
 | service\_description              | string           | name of the service                                                              |
 | should\_be\_scheduled             | boolean          | no next check should be scheduled                                                |
 | stalk\_on\_critical               | boolean          | logs check output event change if state is critical                              |
@@ -1458,9 +1458,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 27      | 65563 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Service** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Service** events should be sent. Instead, you
 should see **NEB::PbService** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1630,9 +1630,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 40      | 65576 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::ServiceCheck** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::ServiceCheck** events should be sent. Instead, you
 should see **NEB::PbServiceCheck** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1749,7 +1749,7 @@ The content of this message is serialized as follows:
 | id          | unsigned integer |                                                             |
 | host\_id    | unsigned integer |                                                             |
 | service\_id | unsigned integer |                                                             |
-| enabled     | enabled          | True if the group is enable, false if it is not (deletion). |
+| enabled     | enabled          | True if the group is enabled, false if it is not (deletion). |
 | group\_name | string           | Group name.                                                 |
 | poller\_id  | unsigned integer |                                                             |
 
@@ -1781,7 +1781,7 @@ The content of this message is serialized as follows:
 | acknowledged              | boolean          | true if the problem has been acknowledged                                        |
 | acknowledgement\_type     | short integer    | 0 none, 1 normal, 2 sticky                                                       |
 | active\_checks\_enabled   | boolean          | active check                                                                     |
-| check\_interval           | real             | interval in units (usually 60s) between 2 checks                                 |
+| check\_interval           | real             | interval in units (usually 60 s) between 2 checks                                 |
 | check\_period             | string           | time period when checks are authorized                                           |
 | check\_type               | short integer    | 0 active, 1 passive                                                              |
 | current\_check\_attempt   | short integer    | number of failed checks                                                          |
@@ -1807,16 +1807,16 @@ The content of this message is serialized as follows:
 | last\_time\_warning       | time             | time of the last check warning return code                                       |
 | last\_update              | time             | time of message create                                                           |
 | latency                   | real             | delay between scheduled check time and real check time                           |
-| max\_check\_attempts      | short integer    | number of failed check after which service state become a hard fail state        |
+| max\_check\_attempts      | short integer    | number of failed checks after which service state become a hard fail state        |
 | next\_check               | time             | next scheduled check time                                                        |
 | next\_notification        | time             | next renotification time                                                         |
 | no\_more\_notifications   | boolean          | no other notification will be sent                                               |
 | notification\_number      | short integer    | number of notifications sent since the start of the problem                      |
 | notifications\_enabled    | boolean          | notifications enabled                                                            |
-| obsess\_over              | boolean          | true if ocsp command if executed after check or notification command             |
+| obsess\_over              | boolean          | true if ocsp command is executed after check or notification command             |
 | passive\_checks\_enabled  | boolean          | passive check                                                                    |
 | percent\_state\_change    | real             | used by flapping and compared with high and low flap thresholds                  |
-| retry\_interval           | real             | interval between two check when service isn't in up state and state type is soft |
+| retry\_interval           | real             | interval between two checks when service is not in up state and state type is soft |
 | service\_description      | string           | name of the service                                                              |
 | service\_id               | unsigned integer | id of the service                                                                |
 | should\_be\_scheduled     | boolean          | no next check should be scheduled                                                |
@@ -1834,9 +1834,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 29      | 65565 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::ServiceStatus** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::ServiceStatus** events should be sent. Instead , you
 should see **NEB::PbServiceStatus**.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -1925,7 +1925,7 @@ The content of this message is serialized as follows:
 | Property   | Type             | Description                                                              | Version |
 | ---------- | ---------------- | ------------------------------------------------------------------------ | ------- |
 | loaded     | boolean          | True if the instance loaded successfully.                                |         |
-| poller\_id | unsigned integer | ID of the poller which received a configuration update request (reload). |         |
+| poller\_id | unsigned integer | ID of the poller that received a configuration update request (reload). |         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1964,9 +1964,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ----- |
 | 1        | 46      | 65582 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::ResponsiveInstance** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::ResponsiveInstance** events should be sent. Instead, you
 should see **NEB::PbResponsiveInstance** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -2007,9 +2007,9 @@ No **Adaptive service** available in BBDO v2.
 | -------- | ------- | ----- |
 | 1        | 41      | 65577 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::AdaptiveService** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::AdaptiveService** events should be sent. Instead, you
 should see **NEB::PbAdaptiveService** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2061,9 +2061,9 @@ No **Adaptive host** available in BBDO v2.
 | -------- | ------- | ----- |
 | 1        | 31      | 65567 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::AdaptiveHost** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::AdaptiveHost** events should be sent. Instead, you
 should see **NEB::PbAdaptiveHost** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2146,7 +2146,7 @@ message Severity {
 
 ### Metric
 
-This event is generated by a Storage endpoint to notify that a RRD metric
+This event is generated by a Storage endpoint to notify that an RRD metric
 graph should be updated.
 
 <Tabs groupId="sync">
@@ -2169,7 +2169,7 @@ The content of this message is serialized as follows:
 | rrd\_len         | integer          | RRD retention length in seconds.                                            |         |
 | value            | real             | Metric value.                                                               |         |
 | value\_type      | short integer    | Metric type (1 =3D counter, 2 =3D derive, 3 =3D absolute, other =3D gauge). |         |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event).          |         |
+| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuilt (see the rebuild event).          |         |
 | host\_id         | unsigned integer | The id of the host this metric is attached to.                              |         |
 | service\_id      | unsigned integer | The id of the service this metric is attached to.                           |         |
 
@@ -2183,8 +2183,8 @@ The content of this message is serialized as follows:
 | 3        | 9       | 196617 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **Storage::Metric** events should be sent, instead you
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **Storage::Metric** events should be sent. Instead, you
 should see **Storage::PbMetric** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -2310,7 +2310,7 @@ The content of this message is serialized as follows:
 | interval         | unsigned integer | Normal service check interval in seconds.                          |
 | rrd\_len         | time             | RRD retention in seconds.                                          |
 | state            | short integer    | Service state.                                                     |
-| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event). |
+| is\_for\_rebuild | boolean          | Set to true when a graph is being rebuilt (see the rebuild event). |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2321,9 +2321,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 3        | 10      | 196618 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **Storage::Status** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **Storage::Status** events should be sent. Instead, you
 should see **Storage::PbStatus** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -2373,8 +2373,8 @@ The content of this message is serialized as follows:
 | 3        | 12      | 196620 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **Storage::MetricMapping** events should be sent, instead you
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **Storage::MetricMapping** events should be sent. Instead, you
 should see **Storage::PbIndexMapping** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -2422,8 +2422,8 @@ The content of this message is serialized as follows:
 | 3        | 11      | 196619 |
 
 This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **Storage::IndexMapping** events should be sent, instead you
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **Storage::IndexMapping** events should be sent. Instead, you
 should see **Storage::PbIndexMapping** events.
 
 Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
@@ -2463,7 +2463,7 @@ See [Storage::Rebuild](#storagerebuild)
 
 There are three states for this message:
 
-* START: here is the first state, this message initializes which metrics have
+* START: here is the first state. This message initializes which metrics have
 to be rebuilt.
 * DATA: once the START state has been sent, one or more messages with DATA state
 may be sent to the RRD broker.
@@ -2544,9 +2544,9 @@ message RemoveGraphMessage {
 
 ### Version response
 
-This is the negociation message used until BBDO v3.0.0. Each time a BBDO
+This is the negotiation message used until BBDO v3.0.0. Each time a BBDO
 connection is established, this message is sent by the connector and by the
-acceptor to negociate options.
+acceptor to negotiate options.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -2605,9 +2605,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 2        | 8       | 131080 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **NEB::Ack** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **NEB::Ack** events should be sent. Instead, you
 should see **NEB::PbAck** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2648,9 +2648,9 @@ The content of this message is empty.
 | -------- | ------- | ------ |
 | 2        | 9       | 131081 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BBDO::Stop** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BBDO::Stop** events should be sent. Instead, you
 should see **BBDO::PbStop** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2700,9 +2700,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 19      | 393235 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::BaStatus** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::BaStatus** events should be sent. Instead, you
 should see **BAM::PbBaStatus** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2760,7 +2760,7 @@ The content of this message is serialized as follows:
 | state\_soft                  | short integer    | The soft state of the KPI.                    |
 | last\_state\_change          | time             | The time of the last state change of the KPI. |
 | last\_impact                 | real             | The last impact of the KPI.                   |
-| valid                        | bool             | True if the KPi is valid.                     |
+| valid                        | bool             | True if the KPI is valid.                     |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2771,9 +2771,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 27      | 393243 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::KpiStatus** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::KpiStatus** events should be sent. Instead, you
 should see **BAM::PbKpiStatus** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2800,7 +2800,7 @@ message KpiStatus {
     State state_soft = 10;                  // Soft state of the KPI.
     int64 last_state_change = 11;           // Timestamp of the last state change of the KPI.
     double last_impact = 12;                // Last impact of the KPI.
-    bool valid = 13;                        // True if the KPi is valid.
+    bool valid = 13;                        // True if the KPI is valid.
 }
 ```
 
@@ -2872,9 +2872,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 20      | 393236 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::BaEvent** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::BaEvent** events should be sent. Instead, you
 should see **BAM::PbBaEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2936,9 +2936,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 21      | 393237 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::KpiEvent** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::KpiEvent** events should be sent. Instead, you
 should see **BAM::PbKpiEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -2987,11 +2987,11 @@ The content of this message is serialized as follows:
 | ----------------------- | ---------------- | ------------------------------------------------------ |
 | ba\_id                  | unsigned integer | The id of the BA.                                      |
 | real\_start\_time       | time             | The first level of the BA event.                       |
-| end\_time               | time             | The end\_time of the event, in the given timeperiod.   |
-| start\_time             | time             | The start\_time of the event, in the given timeperiod. |
+| end\_time               | time             | The end\_time of the event, in the given time period.   |
+| start\_time             | time             | The start\_time of the event, in the given time period. |
 | duration                | unsigned integer | end\_time - start\_time.                               |
-| sla\_duration           | unsigned integer | The duration of the event in the given timperiod.      |
-| timeperiod\_is\_default | boolean          | True if the timeperiod if the default for this BA.     |
+| sla\_duration           | unsigned integer | The duration of the event in the given time period.      |
+| timeperiod\_is\_default | boolean          | True if the time period is the default for this BA.     |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -3002,9 +3002,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 28      | 393244 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::BaDurationEvent** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::BaDurationEvent** events should be sent. Instead, you
 should see **BAM::PbBaDurationEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3027,7 +3027,7 @@ message BaDurationEvent {
 
 ### Dimension BA
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 <Tabs groupId="sync">
@@ -3060,9 +3060,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 25      | 393241 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionBaEvent** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBaEvent** events should be sent. Instead, you
 should see **BAM::PbDimensionBaEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3084,7 +3084,7 @@ message DimensionBaEvent {
 
 ### Dimension KPI
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 <Tabs groupId="sync">
@@ -3115,7 +3115,7 @@ The content of this message is serialized as follows:
 | boolean\_name        | string           | The name of the boolean expression associated with this KPI for boolean KPI. |
 | impact\_warning      | real             | The impact of a warning state for this KPI.                                  |
 | impact\_critical     | real             | The impact of a critical state for this KPI.                                 |
-| impact\_unknown      | real             | The impact of a unknown state for this KPI.                                  |
+| impact\_unknown      | real             | The impact of an unknown state for this KPI.                                  |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -3126,9 +3126,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 26      | 393242 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionKpiEvent** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionKpiEvent** events should be sent. Instead, you
 should see **BAM::PbDimensionKpiEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3160,7 +3160,7 @@ message DimensionKpiEvent {
 
 ### Dimension BA BV relation
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 <Tabs groupId="sync">
@@ -3188,9 +3188,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 23      | 393239 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionBaBvRelationEvent** events should be sent, instead
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBaBvRelationEvent** events should be sent. Instead,
 you should see **BAM::PbDimensionBaBvRelationEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3207,7 +3207,7 @@ message DimensionBaBvRelationEvent {
 
 ### Dimension BV
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 <Tabs groupId="sync">
@@ -3236,9 +3236,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 22      | 393238 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionBvEvent** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBvEvent** events should be sent. Instead, you
 should see **BAM::PbDimensionBvEvent** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3257,7 +3257,7 @@ message DimensionBvEvent {
 
 ### Dimension Truncate Table Signal
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 This signal is sent before the dump of all the dimensions, and again at
@@ -3287,9 +3287,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 30      | 393246 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionTruncateTableSignal** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionTruncateTableSignal** events should be sent. Instead, you
 should see **BAM::PbDimensionTruncateTableSignal** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3307,7 +3307,7 @@ message DimensionTruncateTableSignal {
 ### Rebuild signal
 
 This event is sent when a rebuild of event durations and availabilities
-is asked to the BAM broker endpoint.
+is received by the BAM broker endpoint.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">
@@ -3334,7 +3334,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 ### Dimension timeperiod
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 <Tabs groupId="sync">
@@ -3350,15 +3350,15 @@ The content of this message is serialized as follows:
 
 | Property  | Type             | Description                       |
 | --------- | ---------------- | --------------------------------- |
-| tp\_id    | unsigned integer | The ID of the timeperiod.         |
-| name      | string           | The name of the timeperiod.       |
-| monday    | string           | The timeperiod rule for this day. |
-| tuesday   | string           | The timeperiod rule for this day. |
-| wednesday | string           | The timeperiod rule for this day. |
-| thursday  | string           | The timeperiod rule for this day. |
-| friday    | string           | The timeperiod rule for this day. |
-| saturday  | string           | The timeperiod rule for this day. |
-| sunday    | string           | The timeperiod rule for this day. |
+| tp\_id    | unsigned integer | The ID of the time period.         |
+| name      | string           | The name of the time period.       |
+| monday    | string           | The time period rule for this day. |
+| tuesday   | string           | The time period rule for this day. |
+| wednesday | string           | The time period rule for this day. |
+| thursday  | string           | The time period rule for this day. |
+| friday    | string           | The time period rule for this day. |
+| saturday  | string           | The time period rule for this day. |
+| sunday    | string           | The time period rule for this day. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -3369,9 +3369,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 24      | 393240 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionTimeperiod** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionTimeperiod** events should be sent. Instead, you
 should see **BAM::PbDimensionTimeperiod** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3396,7 +3396,7 @@ message DimensionTimeperiod {
 
 ### Dimension BA timeperiod relation
 
-This event is part of the dimension (i.e configuration) dump occuring at
+This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
 <Tabs groupId="sync">
@@ -3413,8 +3413,8 @@ The content of this message is serialized as follows:
 | Property       | Type             | Description                                            |
 | -------------- | ---------------- | ------------------------------------------------------ |
 | ba\_id         | unsigned integer | The ID of the BA.                                      |
-| timeperiod\_id | unsigned integer | The ID of the timeperiod.                              |
-| is\_default    | boolean          | True if the timeperiod is the default one for this BA. |
+| timeperiod\_id | unsigned integer | The ID of the time period.                              |
+| is\_default    | boolean          | True if the time period is the default one for this BA. |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -3425,9 +3425,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 29      | 393245 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::DimensionBaTimeperiodRelation** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::DimensionBaTimeperiodRelation** events should be sent. Instead, you
 should see **BAM::PbDimensionBaTimeperiodRelation** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
@@ -3470,9 +3470,9 @@ The content of this message is serialized as follows:
 | -------- | ------- | ------ |
 | 6        | 18      | 393234 |
 
-This event is a Protobuf event so items are not serialized as in BBDO v2
-events but using the Protobuf 3 serialization mechanism. When BBDO v3 is
-used, no more **BAM::InheritedDowntime** events should be sent, instead you
+This event is a Protobuf event, so items are not serialized as in BBDO v2
+events, but using the Protobuf 3 serialization mechanism. When BBDO v3 is
+used, no more **BAM::InheritedDowntime** events should be sent. Instead, you
 should see **BAM::PbInheritedDowntime** events.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)

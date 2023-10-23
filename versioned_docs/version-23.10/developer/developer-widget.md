@@ -3,7 +3,7 @@ id: developer-widget
 title : How to write a widget
 ---
 
-Centreon offers a custom view system which allows user to view one or different widgets in the same page:
+Centreon offers a custom view system which allows the user to view one or more widgets on the same page:
 **Home > Custom views**.
 
 You may have specific needs that are not yet covered by our widget catalog and this tutorial will explain to you how to
@@ -12,13 +12,13 @@ write your first widget for Centreon.
 ## Should I make a widget or a module?
 
 If you are wondering if you should be making a module or a widget, then ask yourself if your project is meant to contain
-many menus or is it rather a plain page which is going to display little information? 
+many menus, or is it rather a plain page that is going to display little information? 
 
 Of course, you could make a widget that would only work with a certain module.
 
 ## Directory structure
 
-Widgets work pretty much like Modules. They have to be placed in the following directory:
+Widgets work pretty much like Modules. They must be placed in the following directory:
 ```Shell
 centreon/www/widgets/name-of-your-widget/
 ```
@@ -73,7 +73,7 @@ Now, let's see what these tags refer to.
 | version*     | Version of your widget. Increment this number whenever you publish a new version.
 | keywords     | A few key words that describe your widget
 | screenshot   | Screenshot that shows the best side of your widget. Screenshot should be placed within your widget directory.
-| thumbnail    | Logo of your project. Best size is 100px x 25px. Thumbnail shoud be placed within your widget directory.
+| thumbnail    | Logo of your project. Best size is 100px x 25px. Thumbnail should be placed within your widget directory.
 | url*         | Path of the main page of your widget
 | autorefresh  |This parameter is not implemented yet
 
@@ -89,7 +89,7 @@ Now, let's see what these tags refer to.
 | requirePermission | Value can be "1" or "0". When set to 1, this parameter will not be shown to unauthorized users.
 | type*             | Parameter type, must be one of the following: text,boolean,date,list,range,compare,host,hostgroup, hostTemplate,servicegroup,serviceTemplate
 | min*              | For range type only. It refers to the minimum value of the range parameter
-| max*              | FFor range type only. It refers to the maximum value of the range parameter
+| max*              | For range type only. It refers to the maximum value of the range parameter
 | step*             | For range type only. It refers to the step value of the range parameter
 
 Parameter type
@@ -99,8 +99,8 @@ Parameter type
 |---------------|-------------------
 | text          | Renders a text input element
 | boolean       | Renders a checkbox
-| date          | Renders two text input elements. One for the date of start, the other one for the date of end.
-| list          | Renders a selectbox. The selectbox will be populated with the option tags which have to be defined within the preference tag.
+| date          | Renders two text input elements. One for the start date, the other one for the end date.
+| list          | Renders a selectbox. The selectbox will be populated with the option tags, which must be defined within the preference tag.
 | range         | Renders a selectbox which will be populated with values depending on the min, max and step definitions.
 | compare       | Renders a selectbox and a text input. Selectbox will contain SQL operands such as:
 |               | > : greater than
@@ -124,12 +124,12 @@ The preference window would look like this as a result:
 
 ### Code
 
-All languages are separated in differents files, one file for each language. The file "configs.xml" call the php's file
-and the php's file call html's file etc...
+All languages are separated in different files, one file for each language. The file "configs.xml" calls the PHP file
+and the PHP file calls the HTML file, etc.
 
-We use Smarty, it's an engine and template'php compiler (http://smarty.net).
+We use Smarty, which is a template engine for PHP (http://smarty.net).
 
-To use Smarty you need to:
+To use Smarty you need to proceed as follows:
 
 ```PHP
 require_once $centreon_path . 'GPL_LIB/Smarty/libs/Smarty.class.php';
@@ -143,7 +143,7 @@ $template = new Smarty();
 $template = initSmartyTplForPopup($path, $template, "./", $centreon_path);
 ```
 
-2.creating php template to be use in html:
+2.creating a PHP template to be use in HTML:
 
 ```PHP
 $template->assign('widgetId', $widgetId);

@@ -33,9 +33,9 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 To perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step (included)**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step (included) only. Do not perform the "Finalizing the upgrade" step.**.
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
@@ -52,7 +52,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron jobs back in place on the central and databases servers. Remove them to avoid concurrent executions on central and database nodes: 
+The RPM upgrade puts cron jobs back in place on the central and database servers. Remove them to avoid concurrent executions on central and database nodes: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
@@ -86,10 +86,10 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
-## Cluster ugprade
+## Cluster upgrade
 
-Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
-It's necessary to destroy the cluster completely and configure it back again with the latest version of Centreon and MariaDB replication mechanisms.
+Since Centreon 22.04, MariaDB Replication has been based on [GTID](https://mariadb.com/kb/en/gtid/).
+It is necessary to destroy the cluster completely and then reconfigure it with the latest version of Centreon and MariaDB replication mechanisms.
 
 ### Maintenance mode and backup
 
@@ -106,7 +106,7 @@ pcs resource config --output-format=cmd | sed -e :a -e '/\\$/N; s/\\\n//; ta' | 
 </TabItem>
 </Tabs>
 
-Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
+Check that the file `centreon_cluster.tar.bz2` exists before continuing this procedure.
 
 ```bash
 ls -l centreon_cluster.tar.bz2
@@ -118,7 +118,7 @@ You should have a result like this:
 -rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
 ```
 
-Then check the file centreon_pcs_command.sh, the export command may display some Warning lines but it's not blocking.
+Then check the file centreon_pcs_command.sh. The export command may display some warning lines, but this is not blocking.
 
 ```bash
 cat centreon_pcs_command.sh
@@ -144,11 +144,11 @@ pcs resource group add centreon   vip http gorgone centreon_central_sync cbd_cen
 </TabItem>
 </Tabs>
 
-This file will be necessary to recreate all the ressources of your cluster.
+This file will be necessary to recreate all the resources of your cluster.
 
 ### Delete the resources
 
-These command should run only the active central node:
+These commands should run only on the active central node:
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -190,9 +190,9 @@ systemctl restart cbd
 
 ### Clean broker memory files
 
-> **WARNING:** perform this command only the **passive central node**.
+> **WARNING:** perform this command only on the **passive central node**.
 
-Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
+Before resuming cluster resource management, to avoid broker issues, clean up all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
 ```bash
 rm -rf /var/lib/centreon-broker/central-broker-master.memory*
@@ -262,7 +262,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-VIP Address of databases servers
+VIP Address of database servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -330,7 +330,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
@@ -343,7 +343,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
+Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
@@ -360,7 +360,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-## Resuming the cluster resources management
+## Resuming cluster resource management
 
 Now that the update is finished, the resources can be managed again:
 
@@ -369,10 +369,10 @@ pcs property set maintenance-mode=false
 pcs resource cleanup
 ```
 
-## Check cluster's health
+## Check the health of the cluster
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
-> **INFO:** The `-fr` option allows you to display all resources even if they are disable.
+> **INFO:** The `-fr` option allows you to display all resources even if they are disabled.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -447,7 +447,7 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 ### Disabled resources
 
-When you do a `crm_mon -fr` and you have a resource that is disable :
+When you do a `crm_mon -fr` and you have a resource that is disabled:
 
 ```text
 ...
@@ -459,23 +459,23 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ...
 ```
 
-You must enable the resource with the following command :
+You must enable the resource with the following command:
 
 ```bash
 pcs resource enable @RESSOURCE_NAME@
 ```
 
-In our case :
+In our case:
 
 ```bash
 pcs resource enable vip_mysql
 ```
 
-## Verifying the platform stability
+## Verifying platform stability
 
-You should now check that eveything works fine:
+You should now check that everything works fine:
 
 * Access to the web UI menus.
 * Poller configuration generation + reload and restart method.
-* Schedule immediate checks (Central + Pollers) , acknowledgements, downtimes, etc.
-* Move resources or reboot active server and check again that everything is fine.
+* Schedule immediate checks (Central + Pollers) , acknowledgements, downtime, etc.
+* Move resources or reboot the active server and check again that everything is fine.

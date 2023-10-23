@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Centreon is compatible with OAuth 2.0/OpenId Connect authentication.
 
-Usage of Identity Providers (IdP) is available, such as Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdP
-which are compatible with the Authorization Code Flow.
+You can use Identity Providers (IdP); these include Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdPs
+that are compatible with the Authorization Code Flow.
 
 ## Configure OpenID Connect authentication
 
@@ -22,7 +22,7 @@ Enable OpenID Connect authentication:
 - **Authentication mode**: indicates if the authentication should be done using only OpenId Connect or using local
   authentication as well (**Mixed**). In mixed mode, users created manually in Centreon (and not identified via Open ID) will also be able to log in.
 
-> When setting the parameters, it is recommended to activate the "mixed" mode. This will allow you to retain access to
+> When setting the parameters, we recommend that you activate the "mixed" mode. This will allow you to retain access to
 > the local `admin` account in the event of a misconfiguration.
 
 ### Step 2: Configure Identity Provider access credentials
@@ -35,7 +35,7 @@ Configure Identity Provider information:
 - **Client ID**: defines the Client ID (mandatory).
 - **Client Secret**: defines the Client secret (mandatory).
 - **Scopes**: defines the scopes of the identity provider, for example `openid`. Separate scopes by spaces.
-  > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
+  > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim that will
   > identify users. This is indicated in the provider's configuration documentation.
 - **Login attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to authenticate users. For example `sub` or `email`.
@@ -91,11 +91,11 @@ You can also configure:
 <Tabs groupId="sync">
 <TabItem value="Users automatic management" label="Automatic management">
 
-If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not import automatically all users in your infrastructure.)
+If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not automatically import all users from your infrastructure.)
 
-- **Enable auto import**: enables or disables automatic users import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
+- **Enable auto import**: enables or disables automatic user import.  If auto import is disabled, you will have to [create each user manually](../monitoring/basic-objects/contacts-create.md) before they can log in.
 - **Contact template**: select a [contact template](../monitoring/basic-objects/contacts-templates.md) that will be applied to newly imported users.
-  This allows in particular to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
+  In particular, this allows you to manage the default configuration of the [notifications](../alerts-notifications/notif-configuration.md).
 - **Email attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
   must be used to get the user's email address.
 - **Fullname attribute path**: defines which of the variables returned by **Introspection Token Endpoint** or **User Information Endpoint**
@@ -114,7 +114,7 @@ On page **Configuration > Users > Contacts/Users**, [create the users](../monito
 <Tabs groupId="sync">
 <TabItem value="Role automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be automatically [granted rights](../administration/access-control-lists.md), as they will be linked to [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
+If you turn on **Enable automatic management**, users who log in to Centreon will be automatically [granted rights](../administration/access-control-lists.md), as they will be linked to [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
 
 - Define which attribute from which endpoint will be used to retrieve values for enforcing relationships with access groups.
 - **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then only the first role will be applied. If the option is turned off, all roles will be applied.
@@ -154,7 +154,7 @@ If you turn off **Enable automatic management**, you have to [grant users rights
 <Tabs groupId="sync">
 <TabItem value="Groups automatic management" label="Automatic management">
 
-If you turn on **Enable automatic management**, users that log in to Centreon will be attached to the [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
+If you turn on **Enable automatic management**, users who log in to Centreon will be attached to the [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
 
 - Define which attribute from which endpoint will be used to retrieve values to create relationships with access groups.
 - Match the attributes retrieved from the identity provider with the contact groups you want the user to belong to.
@@ -175,12 +175,12 @@ between the value **Windows** and a defined contact group in Centreon, then betw
 > retrieved from the selected entry point, giving priority to the JWT attributes. Thus, if an attribute is available in
 > the JWT and in the selected entry point, then the selected attribute will be the one coming from the JWT.
 
-> Each time the user logs in, groups management is reinitialized to take into account any new information from the identity provider.
+> Each time the user logs in, group management is reinitialized to take into account any new information from the identity provider.
 
 </TabItem>
 <TabItem value="Groups manual management" label="Manual management">
 
-If you turn off **Enable automatic management**, you have to manage manually relation between contact and [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups).
+If you turn off **Enable automatic management**, you have to manage the relationship between contact and [contact groups] manually (../monitoring/basic-objects/contacts-groups.md#contact-groups).
 
 </TabItem>
 </Tabs>
@@ -194,7 +194,7 @@ and to authorize the following `redirect URI` to forward your connected users to
 {protocol}://{server}:{port}/centreon/authentication/providers/configurations/openid
 ```
 
-> Replace `{protocol}`, `{server}` and `{port}` by the URI to access to your Centreon server.
+> Replace `{protocol}`, `{server}` and `{port}` with the URI to access to your Centreon server.
 > For example: `https://centreon.domain.net/centreon/authentication/providers/configurations/openid`
 
 ## Examples of configuration

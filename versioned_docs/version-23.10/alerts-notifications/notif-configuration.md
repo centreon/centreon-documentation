@@ -9,7 +9,7 @@ title: Configuring notifications
 
 1. Go to **Configuration > Pollers > Engine configuration**.
 
-2. Click on the poller you want.
+2. Click the poller you want.
 
 3. On the **Check Options** tab, in the **Misc options** section, select **Yes** for the **Notification Option**
 option. 
@@ -18,7 +18,7 @@ option.
 
 **Step 2**:  Check that your Centreon can send notifications, [e.g. emails](../administration/postfix.md).
 
-> Notification commands are executed by the poller that monitors the resource: you will need to configure the ability to send notifications on all pollers.
+> Notification commands are executed by the poller that monitors the resource. You will need to configure the ability to send notifications on all pollers.
 
 ## Configuring notifications
 
@@ -64,7 +64,7 @@ option.
         - If nothing is defined on the host/service or on any of its parent templates, the default value is 30 minutes. 
 
     - **Notification period**: Specify the [time period](../monitoring/basic-objects/timeperiods.md) during which notifications of events for this host or service can be sent out to contacts.
-        - If a state change occurs during a time which is not covered by the time period, no notifications will be sent out.
+        - If a state change occurs during a time that is not covered by the time period, no notifications will be sent out.
         - If no value is defined on the host/service or any of its parent templates, the default value is 24x7.
 
     - **First notification delay**: Define the number of “time units” to wait before sending out the first problem notification when the host enters a HARD non-UP state/when the service enters a HARD non-OK state. The host or service enters a HARD state after the **Max check attempts** has been reached (defined on the **General Information** tab)
@@ -74,7 +74,7 @@ option.
 
     - **Recovery notification delay**: Define the number of “time units” to wait before sending out the recovery notification when this host enters an UP state/when this service enters an OK state. 
         - With the default time unit of 60s, this number will mean multiples of 1 minute. 
-        - If you set this value to 0, monitoring engine will start sending out notifications immediately. 
+        - If you set this value to 0, the monitoring engine will start sending out notifications immediately. 
         - If nothing is defined on the host/service or on any of its parent templates, the default value is 0.
 
 4. [Deploy](../monitoring/monitoring-servers/deploying-a-configuration.md) the configuration.
@@ -88,12 +88,12 @@ option.
 
 1. Go to **Configuration > Users > Contacts/Users** and then click on the contact you want to be notified.
 
-2. On the **General Information** tab, in section **Notification**, check that **Enable notifications** is set to **Yes**. 
+2. On the **General Information** tab, in the **Notification** section, check that **Enable notifications** is set to **Yes**. 
     
     If the option is set to **Default**, Centreon will use the value defined on the closest parent template. If no value is defined on any parent template, **Default** means **No** unless the contact has been configured to be notified on a host.
 
-3. In sections **Host** and **Service**, check that the [options](#reference) are consistent with what you have defined at host/service level:
-    - For instance, if you have set the **Host Notification Options** to **None** on the contact, the contact will receive no notifications for the host, even if you have enabled all types of notifications for the host. If you have enabled all types of notifications on the contact but only **Critical** notifications on a service, the contact will only receive **Critical** notifications for this service.
+3. In the **Host** and **Service** sections, check that the [options](#reference) are consistent with what you have defined at host/service level:
+    - For instance, if you have set the **Host Notification Options** to **None** on the contact, the contact will receive no notifications for the host, even if you have enabled all types of notification for the host. If you have enabled all types of notification on the contact but only **Critical** notifications on a service, the contact will only receive **Critical** notifications for this service.
     - If you have defined no rule on the contact, the rules defined in the closest contact template are applied.
     - If you have defined rules on the contact, these will take precedence over rules defined on the contact template.
 
@@ -105,7 +105,7 @@ option.
 
 ![image](../assets/alerts/notif_contact_config.png)
 
-- **Host/Service Notification Options**: define in which cases the contact must receive a notification. If you select **None**, the contact will receive no notifications of any kind for hosts or services. 
+- **Host/Service Notification Options**: define in which cases the contact should receive a notification. If you select **None**, the contact will receive no notifications of any kind for hosts or services. 
 
 - **Host/Service notification Period**: define during which [time period](../monitoring/basic-objects/timeperiods.md) the contact will receive notifications. If a state change occurs during a time which is not covered by the time period, no notifications will be sent out (even if the time period matches that defined for the host or service). Bear in mind that this time period will match the timezone defined in the user's profile (i.e. if the time period is 9 to 5 pm, the user will receive notifications between 9 and 5 pm in his timezone, which is not necessarily the same as yours).
 
@@ -115,21 +115,21 @@ option.
 You can quickly check whether the configuration is well applied in the [Resources Status](../alerts-notifications/resources-status.md) page.
 1. Go to **Monitoring > Resources Status**.
 
-2. Click on the resource that you have configured notifications for.
+2. Click the resource that you have configured notifications for.
 A detail panel opens on the right side.
 
-3. Click on the **Notification** tab.
+3. Click the **Notification** tab.
 
 This tab shows whether notifications are enabled for this resource, and lists the contacts and contact groups that will be notified.
 
 ## Template inheritance rules
 
-For hosts and services, section **Scheduling Options/Service Scheduling Options** of the **General information** tab, and section **Notification Options** of the **Notifications** tab, work in the same way.
+For hosts and services, the **Scheduling Options/Service Scheduling Options** section of the **General information** tab and the **Notification Options** section of the **Notifications** tab work in the same way.
 
 - If you fill in the options on the host or service, the values will override any value set in the templates for the host or service. 
 - If no values are defined here, what will be applied are the values defined in the host's or service's template, or in their parent template, or in the parent of the parent template, etc. What takes precedence is always what is defined on the object itself or closest to it.
 
-Example :
+Example:
 
 A service called **Memory** has the following parent templates:  Memory < OS-Linux-Memory-SNMP-custom < OS-Linux-Memory-SNMP < generic-active-service-custom < generic-active-service.
 
@@ -146,9 +146,9 @@ and groups of contacts that will be notified are available. These are defined on
 **Administration > Parameters > Centreon UI**:
 
 -   **Vertical Inheritance Only**: get contacts and contactgroups of
-    resources and linked templates, using additive inheritance enabled
+    resources and linked templates using the additive inheritance enabled
     option (Legacy method, keep for upgrade)
--   **Closest Value**: get most closed contacts and contactgroups of
+-   **Closest Value**: get the closest contacts and contactgroups of
     resources including templates
 -   **Cumulative inheritance**: Cumulate all contacts and contactgroups
     of resources and linked templates (method used for new installation)
@@ -178,10 +178,10 @@ Check the following points:
 
 Check that the value you have defined in **Notification Interval** (on the 2nd tab) is a multiple of the value defined in **Normal Check Interval** (on the 1st tab).
 
-Indeed, a notification can only be sent if a check has occurred. If you decide that checks happen every hour but notifications are to be sent out every 10 minutes, the notifications will actually be sent every hour because checks only happen every hour and not every 10 minutes. 
+This is because a notification can only be sent if a check has occurred. If you decide that checks happen every hour but notifications are to be sent out every 10 minutes, the notifications will actually be sent every hour because checks only happen every hour and not every 10 minutes. 
 
 ### Notifications have been sent outside the user's time period
 
 Check the user's timezone: 
-1. Go to **Configuration > Users > Contacts/Users** and then click on the contact you want to be notified.
+1. Go to **Configuration > Users > Contacts/Users** and then click the contact you want to be notified.
 2. Check the **Timezone/Location** field. The time period during which notifications will be sent to a user is the time period in his timezone.

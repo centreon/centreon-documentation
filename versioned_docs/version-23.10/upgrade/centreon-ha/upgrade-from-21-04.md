@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 This chapter describes how to upgrade your Centreon HA platform from version 21.04
 to version 23.04.
 
-You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 23.04, as CentOS 7 is no longer supported: you need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. You can also contact Centreon to order a migration service.
+You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 23.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. You can also contact Centreon to order a migration service.
 
 ## Prerequisites
 
@@ -34,9 +34,9 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Upgrade process
 
-To perform the upgrade, please [follow the official documentation](../../upgrade/upgrade-from-21-04.md) Only on the **active central node** and **active database node if needed**.
+To perform the upgrade, please [follow the official documentation](../../upgrade/upgrade-from-21-04.md) only on the **active central node** and **active database node if needed**.
 
-Then perform below commands only on the Central Servers:
+Then perform the following commands only on the Central Servers:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -57,7 +57,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron jobs back in place on the Central and Databases servers. Remove them to avoid concurrent executions: 
+The RPM upgrade puts cron jobs back in place on the central and database servers. Remove them to avoid concurrent executions: 
 
 ```bash
 rm -rf /etc/cron.d/centreon
@@ -79,7 +79,7 @@ pcs resource restart ms_mysql
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permissions back in place on the **Central servers**. Change it using these commands:
+The RPM upgrade puts the permissions back in place on the **central servers**. Change them using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -91,11 +91,11 @@ find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
 find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
-## Cluster ugprade
+## Cluster upgrade
 
-Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
-It's necessary to destroy completely the cluster and configure back again with
-the latest version of Centreon and MariaDB Replication mechanismes.
+From Centreon 22.04, MariaDB Replication is based on [GTID](https://mariadb.com/kb/en/gtid/).
+It is necessary to destroy the cluster completely and then reconfigure it with
+the latest version of the Centreon and MariaDB Replication mechanisms.
 
 ### Maintenance mode and backup
 
@@ -106,7 +106,7 @@ pcs config backup centreon_cluster
 pcs config export pcs-commands | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
 ```
 
-Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
+Check that the file `centreon_cluster.tar.bz2` exists before continuing this procedure.
 
 ```bash
 ls -l centreon_cluster.tar.bz2
@@ -118,7 +118,7 @@ You should have a result like this:
 -rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
 ```
 
-Then check the file centreon_pcs_command.sh, the export command may display some Warning lines but it's not blocking.
+Then check the file centreon_pcs_command.sh. The export command may display some warning lines, but this is not blocking.
 
 ```bash
 cat centreon_pcs_command.sh
@@ -138,11 +138,11 @@ pcs resource create snmptrapd systemd:snmptrapd op monitor interval=5s timeout=2
 pcs resource group add centreon vip http gorgone centreon_central_sync cbd_central_broker centengine centreontrapd snmptrapd
 ```
 
-This file will be necessary to recreate all the ressources of your cluster.
+This file will be necessary to recreate all the resources of your cluster.
 
 ### Delete the resources
 
-These command should run only the active central node:
+These commands should run only on the active central node:
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -170,7 +170,7 @@ pcs resource delete centreon --force
 
 ### Reconfigure MariaDB
 
-It's necessary to modify the mysql configuration by editing the file `/etc/my.cnf.d/server.cnf`:
+It is necessary to modify the mysql configuration by editing the file `/etc/my.cnf.d/server.cnf`:
 
 > On the 2 Central servers in HA 2 nodes
 > On the 2 Database servers in HA 4 nodes.
@@ -194,13 +194,13 @@ Run this command **on the secondary database node**:
 mysqladmin -p shutdown
 ```
 
-It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
+It is important to make sure that MariaDB is completely shut down. Run this command and check that it returns no output:
 
 ```bash
 ps -ef | grep mariadb[d]
 ```
 
-Once the service is stopped **on the secondary database node**, you will run the synchronization script **from the primary database node**:
+Once the service is stopped **on the secondary database node**, run the synchronization script **from the primary database node**:
 
 ```bash
 mysqladmin -p shutdown
@@ -208,7 +208,7 @@ systemctl restart mariadb
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like:
+This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like this:
 
 ```text
 Umount and Delete LVM snapshot
@@ -219,7 +219,7 @@ Id	User	Host	db	Command	Time	State	Info	Progress
 [variable number of lines]
 ```
 
-The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and that no errors follow it.
+The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and are not followed by any errors.
 
 In addition, the output of this command must display only `OK` results:
 
@@ -252,9 +252,9 @@ systemctl restart cbd
 
 ### Clean broker memory files
 
-> **WARNING:** perform this command only the **passive central node**.
+> **WARNING:** perform this command only on the **passive central node**.
 
-Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
+Before resuming cluster resource management, to avoid broker issues, clean up all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
 ```bash
 rm -rf /var/lib/centreon-broker/central-broker-master.memory*
@@ -324,7 +324,7 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-VIP Address of databases servers
+VIP Address of database servers
 
 ```bash
 pcs resource create vip_mysql \
@@ -392,7 +392,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 
-In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -405,7 +405,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
+Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -422,7 +422,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-## Resuming the cluster resources management
+## Resuming cluster resource management
 
 Now that the update is finished, the resources can be managed again:
 
@@ -431,10 +431,10 @@ pcs property set maintenance-mode=false
 pcs resource cleanup
 ```
 
-## Check cluster's health
+## Check the health of the cluster
 
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
-> **INFO:** The `-fr` option allows you to display all resources even if they are disable.
+> **INFO:** The `-fr` option allows you to display all resources even if they are disabled.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
@@ -509,7 +509,7 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 ### Disabled resources
 
-When you do a `crm_mon -fr` and you have a resource that is disable :
+When you do a `crm_mon -fr` and you have a resource that is disabled:
 
 ```text
 ...
@@ -521,23 +521,23 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ...
 ```
 
-You must enable the resource with the following command :
+You must enable the resource with the following command:
 
 ```bash
 pcs resource enable @RESSOURCE_NAME@
 ```
 
-In our case :
+In our case:
 
 ```bash
 pcs resource enable vip_mysql
 ```
 
-## Verifying the platform stability
+## Verifying platform stability
 
-You should now check that eveything works fine:
+You should now check that everything works fine:
 
 * Access to the web UI menus.
 * Poller configuration generation + reload and restart method.
-* Schedule immediate checks (Central + Pollers) , acknowledgements, downtimes, etc.
-* Move resources or reboot active server and check again that everything is fine.
+* Schedule immediate checks (Central + Pollers) , acknowledgements, downtime, etc.
+* Move resources or reboot the active server and check again that everything is fine.

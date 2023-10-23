@@ -6486,6 +6486,8 @@ In case you have a very large export file, it is advised to redirect the output 
 when errors occur during the import process, CLAPI will print out an error message along with the line number of the
 file, you might need to store those output message for troubleshooting later on.
 
+Empty or commented lines (beginning with `#`) will be ignored.
+
 You can build your own CLAPI command file if you know the straight forward syntax. You can use parameter described in
 Object Management with the syntax you can see in export files :
 
