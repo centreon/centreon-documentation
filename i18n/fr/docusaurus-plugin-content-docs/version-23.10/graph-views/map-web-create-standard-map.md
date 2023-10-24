@@ -129,3 +129,5 @@ Pour une expérience utilisateur optimale, vous pouvez enregistrer la perspectiv
 - **En mode édition :** la perspective est sauvegardée dès que vous cliquez sur le bouton **Enregistrer**.
 
 - **En mode vue :** cliquez sur le bouton **Sauvegarder la perspective** et un message vous confirmera que la perspective est sauvegardée.
+
+> Vous pouvez ajouter un élément et enregistrer la carte même si cet élément n'est lié à aucune ressource. Il sera alors affiché en jaune lorsque vous passez en mode vue.
