@@ -355,12 +355,12 @@ the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+Since Centreon 22.04, you can benefit from the 'automatic plugin installation' feature.
 When this feature is enabled, you can skip the installation part below.
 
 You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet.
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
@@ -543,7 +543,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro        | Description                                                                                                                                      | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. Ifrole is 'secondary', an error if HSRPs are 'active' states. (Default: 'primary') | primary           | X           |
+| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states. (Default: 'primary') | primary           | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                              | --verbose         |             |
 
 </TabItem>
