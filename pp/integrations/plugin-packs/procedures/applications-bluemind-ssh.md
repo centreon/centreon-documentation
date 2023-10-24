@@ -150,7 +150,7 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 yum install centreon-plugin-Applications-Bluemind-Ssh
 ```
 
-2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -167,7 +167,7 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 yum install centreon-pack-applications-bluemind-ssh
 ```
 
-3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

@@ -53,7 +53,7 @@ Release date: `April 26, 2023`
 - Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
 - Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
 
-## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+## Centreon Monitoring Connector Manager (formerly Plugin Packs Manager)
 
 ### 23.04.0
 

@@ -149,7 +149,7 @@ systemctl restart snmpd
 yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HP Proliant** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **HP Proliant** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -166,7 +166,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 yum install centreon-pack-hardware-servers-hp-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HP Proliant** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **HP Proliant** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

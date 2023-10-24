@@ -63,7 +63,7 @@ https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserG
 yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Monitoring Connector *CyberPower Systems PDU SNMP* depuis la page **Configuration > Monitoring Connectors Manager**
+2. Sur l'interface Web de Centreon, installer le Monitoring Connector *CyberPower Systems PDU SNMP* depuis la page **Configuration > Monitoring Connector Manager**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,7 +80,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 yum install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Monitoring Connector *CyberPower Systems PDU SNMP* depuis la page **Configuration > Monitoring Connectors Manager**
+2. Sur l'interface Web de Centreon, installer le Monitoring Connector *CyberPower Systems PDU SNMP* depuis la page **Configuration > Monitoring Connector Manager**
 
 </TabItem>
 </Tabs>

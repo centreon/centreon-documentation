@@ -86,7 +86,7 @@ More information on VerneMQ HTTP API on : https://docs.vernemq.com/administratio
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *VerneMQ RestAPI* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *VerneMQ RestAPI* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,7 +103,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 yum install centreon-pack-applications-vernemq-restapi.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *VerneMQ RestAPI* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *VerneMQ RestAPI* Monitoring Connector
 
 </TabItem>
 </Tabs>

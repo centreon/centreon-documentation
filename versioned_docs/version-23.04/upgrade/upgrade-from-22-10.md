@@ -422,7 +422,7 @@ If the Centreon BAM module is installed, refer to the
 with the following:
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
    Then you can upgrade all other commercial extensions.

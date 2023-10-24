@@ -22,7 +22,7 @@ On the Central server, install the required Packs with the following commands:
 yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
 ```
 
-From the Monitoring Connectors Manager, install the Packs.
+From the Monitoring Connector Manager, install the Packs.
 
 ### Install the Plugins
 

@@ -53,7 +53,7 @@ This mode is meant to be used on a server with the DNS role.
 yum install centreon-plugin-Applications-Protocol-Dns
 ```
 
-2. On the Centreon Web interface, install the Centreon Monitoring Connector *DNS Service* from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *DNS Service* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,7 +70,7 @@ yum install centreon-plugin-Applications-Protocol-Dns
 yum install centreon-pack-applications-protocol-dns
 ```
 
-3. On the Centreon Web interface, install the Centreon Monitoring Connector *DNS Service* from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *DNS Service* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

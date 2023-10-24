@@ -129,7 +129,7 @@ The target equipment must be reachable from the Centreon poller on the TCP/8443 
 yum install centreon-plugin-Applications-Protocol-Nrpe
 ```
 
-2. On the Centreon web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -147,7 +147,7 @@ yum install centreon-plugin-Applications-Protocol-Nrpe
 yum install centreon-pack-virtualization-hyperv-nscp-restapi
 ```
 
-3. On the Centreon web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Hyper-V NSCP API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

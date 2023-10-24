@@ -171,7 +171,7 @@ From **Administration > Extensions > Manager**, update all extensions, starting
 with the following:
 
 - License Manager,
-- Monitoring Connectors Manager,
+- Monitoring Connector Manager,
 - Auto Discovery.
 
 Then you can update all other commercial extensions.

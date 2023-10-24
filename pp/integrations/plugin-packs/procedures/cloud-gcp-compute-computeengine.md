@@ -99,7 +99,7 @@ How to create a service account key: https://developers.google.com/identity/prot
 yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Compute Engine* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google Compute Engine* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -116,7 +116,7 @@ yum install centreon-plugin-Cloud-Gcp-Compute-ComputeEngine-Api
 yum install centreon-pack-cloud-gcp-compute-computeengine
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Compute Engine* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google Compute Engine* Monitoring Connector
 
 </TabItem>
 </Tabs>

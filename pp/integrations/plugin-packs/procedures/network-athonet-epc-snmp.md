@@ -154,7 +154,7 @@ To control your Athonet ePC equipments, the SNMP must be configured.
 yum install centreon-plugin-Network-Athonet-Epc-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Athonet ePC SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Athonet ePC SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -171,7 +171,7 @@ yum install centreon-plugin-Network-Athonet-Epc-Snmp
 yum install centreon-pack-network-athonet-epc-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Athonet ePC SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Athonet ePC SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

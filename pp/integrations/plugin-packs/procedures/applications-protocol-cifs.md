@@ -83,7 +83,7 @@ To monitor your CIFS server, you can use username authentication.
 yum install centreon-plugin-Applications-Protocol-Cifs
 ```
 
-2. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -101,7 +101,7 @@ yum install centreon-plugin-Applications-Protocol-Cifs
 yum install centreon-pack-applications-protocol-cifs
 ```
 
-3. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Protocol CIFS** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>
