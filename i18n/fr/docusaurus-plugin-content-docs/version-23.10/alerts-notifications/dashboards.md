@@ -16,6 +16,7 @@ L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'
 ### Configurer l'ACL
 
 > Vous devez être connecté à Centreon en tant qu'administrateur.
+
 - Dans cet exemple, nous allons créer une nouvelle ACL appelée **Utilisateurs des tableaux de bord**. Cette ACL contiendra les utilisateurs appartenant au groupe **Guests**.
 
 1. Allez dans **Administration > ACL > Gestion des accès aux menus**.
