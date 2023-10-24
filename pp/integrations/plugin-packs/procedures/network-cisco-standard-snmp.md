@@ -410,7 +410,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro            | Description                                                                                           | Default value     | Mandatory   |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -424,7 +424,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro                            | Description                                                                                                                                             | Default value        | Mandatory   |
 |:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERNAME                       | Filter AAA server by name (E.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\])                                                |                      |             |
+| FILTERNAME                       | Filter AAA server by name (e.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\])                                                |                      |             |
 | WARNINGACCREQUESTS               | Thresholds                                                                                                                                              |                      |             |
 | CRITICALACCREQUESTS              | Thresholds                                                                                                                                              |                      |             |
 | WARNINGACCREQUESTSTIMEOUT        | Thresholds                                                                                                                                              |                      |             |
@@ -445,7 +445,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                    |                      |             |
 | WARNINGTOTAL                     | Thresholds                                                                                                                                              |                      |             |
 | CRITICALTOTAL                    | Thresholds                                                                                                                                              |                      |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                     | --verbose            |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                     | --verbose            |             |
 
 </TabItem>
 <TabItem value="Anycast" label="Anycast">
@@ -471,7 +471,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALDUPLICATEMACADDR | Thresholds                                                                                          |                   |             |
 | WARNINGTOTALENTRIES      | Thresholds                                                                                          |                   |             |
 | CRITICALTOTALENTRIES     | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Bgp" label="Bgp">
@@ -495,7 +495,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{running\_last\_changed} \> %{running\_last\_saved}'). You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %{startup\_last\_changed} | %{running\_last\_changed} \> %{running\_last\_saved} |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %{startup\_last\_changed}                                                      |                                                      |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                |                                                      |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                |                                                      |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -514,7 +514,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALCORE5M    | Thresholds                                                                                          | 95                |             |
 | WARNINGCORE5S     | Thresholds                                                                                          |                   |             |
 | CRITICALCORE5S    | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
@@ -536,7 +536,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALCOUNTTEMPERATURE |                                                                                                                          |                                                                      |             |
 | WARNINGCOUNTVOLTAGE      |                                                                                                                          |                                                                      |             |
 | CRITICALCOUNTVOLTAGE     |                                                                                                                          |                                                                      |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                      | --verbose  --filter-perfdata='^(sensor\.(celsius\_\|rpm\_)\|temp\_)' |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                      | --verbose  --filter-perfdata='^(sensor\.(celsius\_\|rpm\_)\|temp\_)' |             |
 
 </TabItem>
 <TabItem value="Hsrp" label="Hsrp">
@@ -607,7 +607,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALTOTALOPERUP     | Thresholds                                                                                                                                                                                                                         |                                                       |             |
 | WARNINGTOTALPORT        | Thresholds                                                                                                                                                                                                                         |                                                       |             |
 | CRITICALTOTALPORT       | Thresholds                                                                                                                                                                                                                         |                                                       |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                | --verbose --use-new-perfdata                          |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                | --verbose --use-new-perfdata                          |             |
 
 </TabItem>
 <TabItem value="Ipsla" label="Ipsla">
@@ -615,7 +615,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | Macro        | Description                                                                                         | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERTAG    | Filter tag (Default: '.*')                                                                          | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -625,7 +625,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | FILTERPOOL   | Filter pool to check (can use regexp)                                                               |                   |             |
 | CRITICAL     | Critical threshold in percent                                                                       | 90                |             |
 | WARNING      | Warning threshold in percent                                                                        | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory-Flash" label="Memory-Flash">
@@ -641,7 +641,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALUSAGEFREE | Thresholds                                                                                                                             |                   |             |
 | WARNINGUSAGEPRCT  | Thresholds                                                                                                                             |                   |             |
 | CRITICALUSAGEPRCT | Thresholds                                                                                                                             |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                    |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                    |                   |             |
 
 </TabItem>
 <TabItem value="Qos-Usage" label="Qos-Usage">
@@ -662,7 +662,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALTOTALDROP      | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGTOTALTRAFFIC    | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALTOTALTRAFFIC   | Critical threshold                                                                                                                                   |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
@@ -672,7 +672,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | FILTERPORT     | Filter on port description (can be a regexp)                                                                                                                                                                                         | .*                             |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{op\_status} =~ /up/ && %{state} =~ /blocking\|broken/'). You can use the following variables: %{state}, %{op\_status}, %{admin\_status}, %{port}, %{index} | %{state} =~ /blocking\|broken/ |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{op\_status}, %{admin\_status}, %{port}, %{index}                                                                       |                                |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                  | --verbose                      |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                  | --verbose                      |             |
 
 </TabItem>
 <TabItem value="Stack" label="Stack">
@@ -705,7 +705,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALVERSIONMISMATCH | Set thresholds on members count for each states. (                                                                                                                                                                                                                                                                                                                                                 |                                                  |             |
 | WARNINGWAITING          | Set thresholds on members count for each states. (                                                                                                                                                                                                                                                                                                                                                 |                                                  |             |
 | CRITICALWAITING         | Set thresholds on members count for each states. (                                                                                                                                                                                                                                                                                                                                                 |                                                  |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                                | --verbose                                        |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                                | --verbose                                        |             |
 
 </TabItem>
 <TabItem value="Voice-Call" label="Voice-Call">
@@ -720,7 +720,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALACTIVE5MAVERAGE       | Thresholds                                                                                          |                   |             |
 | WARNINGCONNECTIONCALLSACTIVE  | Thresholds                                                                                          |                   |             |
 | CRITICALCONNECTIONCALLSACTIVE | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS                  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| EXTRAOPTIONS                  | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -890,7 +890,7 @@ All available options for each service template are listed below:
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='auth'                                                                                                                                                            |
-| --filter-name            | Filter AAA server by name (E.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\]).                                                                                                                                     |
+| --filter-name            | Filter AAA server by name (e.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\]).                                                                                                                                     |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                                                                                                          |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                                                                                                          |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /dead/i'). You can use the following variables: %{status}, %{name}                                                                                       |
