@@ -86,7 +86,7 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Monitoring Connector 
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -104,7 +104,7 @@ yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 ```
 
 3. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Monitoring Connector 
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

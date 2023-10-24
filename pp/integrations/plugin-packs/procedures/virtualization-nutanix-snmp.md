@@ -160,7 +160,7 @@ The network flows should be allowed from the Centreon poller to the Nutanix appl
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Nutanix** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Nutanix** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -177,7 +177,7 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 yum install centreon-pack-virtualization-nutanix-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Nutanix** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Nutanix** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

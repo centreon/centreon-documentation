@@ -94,7 +94,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Vpn-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS VPN** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AWS VPN** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -111,7 +111,7 @@ yum install centreon-plugin-Cloud-Aws-Vpn-Api
 yum install centreon-pack-cloud-aws-vpn
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS VPN** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AWS VPN** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

@@ -119,7 +119,7 @@ In order to be able to communicate with the Elasticsearch node's API, the Centre
 yum install centreon-plugin-Applications-Databases-Elasticsearch
 ```
 
-2. Install the Monitoring Connector 'Elasticsearch' in the **Configuration > Monitoring Connectors Manager**  page of the Web Centreon interface
+2. Install the Monitoring Connector 'Elasticsearch' in the **Configuration > Monitoring Connector Manager**  page of the Web Centreon interface
 
 </TabItem>
 <TabItem value="Offline Licenses" label="Offline Licenses">
@@ -136,7 +136,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 yum install centreon-pack-applications-databases-elasticsearch
 ```
 
-3. In the **Configuration > Monitoring Connectors Manager**  page of the Web Centreon interface, install the Monitoring Connector 'Elasticsearch'
+3. In the **Configuration > Monitoring Connector Manager**  page of the Web Centreon interface, install the Monitoring Connector 'Elasticsearch'
 
 </TabItem>
 </Tabs>
