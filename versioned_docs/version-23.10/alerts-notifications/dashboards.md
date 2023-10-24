@@ -92,6 +92,7 @@ Click the **three vertical dots** menu at the top right of the widget to edit it
 
 ### Edit a dashboard
 
+
 #### Update properties
 
 Click the **gear** button at the bottom right of the dashboard to update its name and description.
