@@ -41,18 +41,90 @@ Access to the Dashboards feature is not managed at the user level, but through a
 
 ## Creating your first dashboard
 
-### Add a widget
+> You must be logged into Centreon with administrator or creator rights.
+
+1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+2. Name the dashboard and enter a description if needed.
+3. Click **Create** to confirm the creation.
+
+Your dashboard is now added! You can directly start adding widgets.
+
+### Add widgets
+
+> Your dashboard must be open in edition mode. 
+
+- If this is your very first widget, click the **Add a widget** area.
+- If not, click the **+ Add a widget** on the right of the interface.
 
 ![image](../assets/alerts/widget-view.png)
 
-### Update a widget
+#### Step 1: Select the type of widget
 
-### Delete a widget
+ > Widget parameters depend on the widget you select.
+
+1. Fill the **Widget properties** (title and description).
+2. Fill the **Value settings**: depending on the widget you have selected, these are mainly data visualization options.
+
+#### Step 2: Select resources
+
+1. Select a **resource type**.
+2. Then select a **resource**.
+
+#### Step 3: Select metrics
+
+1. Select the **service name**.
+2. Then select a **metric**.
+3. Click **+ Add resource** if you need to add more resources.
+4. Save your changes.
+
+### More actions
+
+Click the **three vertical dots** menu at the top right of the widget to edit it or to access more actions:
+- Refresh
+- Duplicate
+- Delete widget
+
+> In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
 
 ## Managing dashboards
 
+> You must be in the **Dashboard library** page to get an overview of your dashboards.
+
+### Edit a dashboard
+
+#### Update properties
+
+Click the **gear** button at the bottom right of the dashboard to update its name and description.
+
+#### Edit dashboard widgets 
+
+1. Click the dashboard to open it in view mode.
+2. Click **Edit dashboard** to access and manage widgets in edition mode.
+
+### Delete a dashboard
+
+Click the **trash** button at the bottom left of the dashboard to delete it. Then confirm the deletion.
+
 ### Share a dashboard
 
-### Update/Delete a dashboard
+> You can share dashboards using the **Manage access rights** interface.
 
-## List of widgets
+#### About access rights
+
+You are using the Dashboards feature with a **viewer** or an **editor** profile:
+
+- **Viewers:** can only view dashboards you share with them.
+- **Editors:** can view and edit dashboards you share with them.
+
+#### Manage access rights
+
+1. Click the **share** button at the bottom right of the dashboard.
+2. In the **Add contact** dropdown list, select the user to add.
+3. Select either **Viewer** or **Editor** profile.
+4. Click the **+** button to add it.
+5. Repeat the action for each user you want to add.
+6. Click the **Update** button to save your changes.
+
+The users you have just added now have access to your dashboard sharing, according to the profile you have set for them.
+
+> Use the **Copy link** feature to share the dashboard URL directly with users who have access to your platform.
