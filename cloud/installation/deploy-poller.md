@@ -27,10 +27,10 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 > This applies to customers located in the USA, Canada and South America.
 
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/your_organization_code/site/your_site/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/organization_name/site/your_site/poller -s)"
 ```
 
-> Make sure you replace **organization_token**, **your_organization_code** and **your_site** with the correct values.
+> Make sure you replace **organization_token**, **organization_name** and **your_site** with the correct values. You can find them in the [CIAM](../ciam/ciam.md).
 
 </TabItem>
 <TabItem value="Europe West Region" label="Europe West Region">
@@ -38,10 +38,10 @@ bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization
 > This applies to customers located in Europe, Africa, Asia and Oceania.
 
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/your_organization_code/site/your_site/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/organization_name/site/your_site/poller -s)"
 ```
 
-> Make sure you replace ***organization_token**, **your_organization_code** and **your_site** with the correct values.
+> Make sure you replace ***organization_token**, **organization_name** and **your_site** with the correct values. You can find them in the [CIAM](../ciam/ciam.md).
 
 </TabItem>
 </Tabs>
