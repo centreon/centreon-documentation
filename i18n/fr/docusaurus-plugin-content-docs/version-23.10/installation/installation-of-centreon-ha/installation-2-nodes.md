@@ -1232,7 +1232,7 @@ Après cette étape, toutes les ressources doivent être actives au même endroi
 
 #### Activer les ressources
 
-```bash
+```bash 
 pcs resource enable php-clone
 pcs resource enable cbd_rrd-clone
 pcs resource meta vip target-role="started"
