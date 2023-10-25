@@ -354,3 +354,33 @@ jobs:
 
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
         shell: bash
+
+  deploy-preview:
+    runs-on: [self-hosted, infra]
+
+    name: Deploy to preview
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
+
+      - name: Deploy to https://docs-preview-int.centreon.com
+        run: |
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete static s3://centreon-documentation-preview-pr/previews/
+
+          #aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
+        shell: bash
