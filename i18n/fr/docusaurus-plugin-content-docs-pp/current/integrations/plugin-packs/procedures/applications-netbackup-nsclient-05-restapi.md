@@ -61,7 +61,7 @@ Using `|` character in your Centreon Macro definitions is not supported.
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -78,7 +78,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-infrastructure-netbackup-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the *Symantec Netbackup* Pack on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Symantec Netbackup* Pack on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

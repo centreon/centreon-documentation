@@ -53,7 +53,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *NVIDIA GPU SMI SSH* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *NVIDIA GPU SMI SSH* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,7 +70,7 @@ yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
 yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *NVIDIA GPU SMI SSH* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *NVIDIA GPU SMI SSH* Pack
 
 </TabItem>
 </Tabs>

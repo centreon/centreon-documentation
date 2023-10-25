@@ -41,7 +41,7 @@ yum install centreon-nrpe-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Microsoft Cluster servers* 
-from the **Configuration > Monitoring Connectors Manager** page
+from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -59,7 +59,7 @@ yum install centreon-pack-applications-mscs-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Exchange NRPE* 
-from the **Configuration > Monitoring Connectors Manager** page
+from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

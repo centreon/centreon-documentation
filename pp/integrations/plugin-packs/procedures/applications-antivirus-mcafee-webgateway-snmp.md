@@ -128,7 +128,7 @@ UDP/161 SNMP port.
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 ```
 
-2. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -145,7 +145,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 ```
 
-3. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *McAfee Web Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

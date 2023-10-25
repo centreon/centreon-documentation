@@ -47,7 +47,7 @@ To monitor your domains, the system command `whois` must be operational.
 yum install centreon-plugin-Applications-Protocol-Whois
 ```
 
-2. On the Centreon web interface, install the **Protocol WHOIS** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Protocol WHOIS** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-Protocol-Whois
 yum install centreon-pack-applications-protocol-whois
 ```
 
-3. On the Centreon web interface, install the **Protocol WHOIS** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Protocol WHOIS** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

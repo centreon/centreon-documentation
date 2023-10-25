@@ -91,7 +91,7 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 ### On the central server
 
-In the web interface, go to **Configuration > Monitoring Connectors Manager** and install the **Windows SNMP** Monitoring Connector:
+In the web interface, go to **Configuration > Monitoring Connector Manager** and install the **Windows SNMP** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_windows_snmp_10.gif)
 

@@ -1,12 +1,12 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 23.04
+title: Mise à jour d'une plateforme Centreon 23.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-23.04 (c'est-à-dire le passage de 23.04.x à 23.04.y).
+23.10 (c'est-à-dire le passage de 23.10.x à 23.10.y).
 
 ## Sauvegarde
 
@@ -116,14 +116,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 23.04
+   - version : 23.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.04/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{

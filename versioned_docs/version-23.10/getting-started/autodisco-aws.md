@@ -51,7 +51,7 @@ apt install centreon-pack-*
 
 </Tabs>
 
-4. To install the Amazon EC2 Monitoring Connector, go to **Configuration > Monitoring Connectors Manager**.
+4. To install the Amazon EC2 Monitoring Connector, go to **Configuration > Monitoring Connector Manager**.
 
 5. In the **Keyword** field, type **Amazon EC2** and then click **Search**.
 

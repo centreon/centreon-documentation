@@ -52,7 +52,7 @@ The diagram below summarizes the architecture:
 
 ### Centreon
 
-The central server and Centreon MAP must be installed in the same major versions (i.e. both in 23.04.x).
+The central server and Centreon MAP must be installed in the same major versions (i.e. both in 23.10.x).
 
 ### Centreon MAP Server
 
@@ -242,7 +242,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 #### Procedure
 
 If you installed your Centreon MAP server from a "fresh installation"
-you need to install the `centreon-release` package:
+you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -262,10 +262,11 @@ Installed:
 Complete!
 ```
 
-Then install the `centreon-release` package:
+Then install the Centreon repository:
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
 
 </TabItem>
@@ -286,10 +287,11 @@ Installed:
 Complete!
 ```
 
-Then install the `centreon-release` package:
+Then install the Centreon repository:
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
 ```
 
 </TabItem>
@@ -304,7 +306,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -577,7 +579,7 @@ The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
 You can find the installers in **Monitoring > Map > Desktop Client** or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=23.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=23.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommend having fewer than 5 users, or in any case
 > a maximum of 10 connected at the same time manipulating views.
