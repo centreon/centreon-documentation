@@ -1,6 +1,6 @@
 ---
 id: unattended-install-remote
-title: Installation "unattended" d'un serveur distant
+title: Installation silencieuse d'un serveur distant
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
