@@ -1,6 +1,6 @@
 ---
 id: unattended-install-central
-title: Installation "Unattended" d'un serveur central
+title: Installation "unattended" d'un serveur central
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

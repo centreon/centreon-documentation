@@ -1,6 +1,6 @@
 ---
 id: unattended-install-poller
-title: Installation "Unattended" d'un collecteur
+title: Installation "unattended" d'un collecteur
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
