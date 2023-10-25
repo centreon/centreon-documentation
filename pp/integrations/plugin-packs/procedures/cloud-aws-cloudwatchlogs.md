@@ -83,7 +83,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -100,7 +100,7 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 yum install centreon-pack-cloud-aws-cloudwatchlogs.noarch
 ```
 
-3. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

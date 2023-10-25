@@ -72,7 +72,7 @@ The Centreon Poller should be able to reach the UDP/161 SNMP port of the Dell Xs
 yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
-2. Install the *Dell Xseries* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+2. Install the *Dell Xseries* Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -89,7 +89,7 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 yum install centreon-pack-network-switch-dell-xseries-snmp
 ```
 
-3. Install the *Dell Xseries* Centreon Pack from the **Configuration > Monitoring Connectors Manager** page
+3. Install the *Dell Xseries* Centreon Pack from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

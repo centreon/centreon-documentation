@@ -184,7 +184,7 @@ You will then have to set the check to be performed remotely. To do so, after ap
 yum install centreon-plugin-Applications-Monitoring-Centreon-Central centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Centreon Central** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Centreon Central** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -202,7 +202,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central centreon-pl
 yum install centreon-pack-applications-monitoring-centreon-central
 ```
 
-3. On the Centreon Web interface, install the **Centreon Central** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Centreon Central** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 

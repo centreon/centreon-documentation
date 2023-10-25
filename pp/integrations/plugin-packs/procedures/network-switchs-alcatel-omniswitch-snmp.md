@@ -119,7 +119,7 @@ SNMP port.
 yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -136,7 +136,7 @@ yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel Omniswitch** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

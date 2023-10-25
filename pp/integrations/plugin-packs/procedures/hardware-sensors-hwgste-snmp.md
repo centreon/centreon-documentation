@@ -54,7 +54,7 @@ SNMP port.
 yum install centreon-plugin-Hardware-Sensors-Hwgste-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HWg-STE Sensor** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **HWg-STE Sensor** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -71,7 +71,7 @@ yum install centreon-plugin-Hardware-Sensors-Hwgste-Snmp
 yum install centreon-pack-hardware-sensors-hwgste-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HWg-STE Sensor** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **HWg-STE Sensor** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>
