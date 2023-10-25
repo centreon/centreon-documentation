@@ -19,7 +19,7 @@ Les fonctionnalités principales de ce site sont:
 - Accéder aux informations détaillées des ressources
 - Accéder à l'historique d'une métrique via un graphique
 
-<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
+<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../../../../../assets/fr/mobile/mobile-demo.mov').default} type="video/mov"/></video>
 
 ## Pre-requis
 
