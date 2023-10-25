@@ -25,7 +25,7 @@ From your workspace, click the **Import** button.
 Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/develop/doc/API/centreon-api-v23.04.yaml
+https://raw.githubusercontent.com/centreon/centreon/develop/doc/API/centreon-api-v23.10.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)
@@ -72,7 +72,7 @@ Then click **Add**, and select it in the environments list.
 > Here is an exemple of output for this command:
 >
 > {
->   "version": "23.04.6",
+>   "version": "23.10.6",
 >   "major": "23",
 >   "minor": "04",
 >   "fix": "6"
