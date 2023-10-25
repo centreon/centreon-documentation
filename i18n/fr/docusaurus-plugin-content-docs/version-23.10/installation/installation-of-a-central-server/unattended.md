@@ -50,13 +50,19 @@ dnf update
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
+apt update && apt upgrade
 ```
 
 </TabItem>
 </Tabs>
 
-2. Exécutez la commande suivante en **root** :
+2. Téléchargez le script à l'aide de la commande suivante :
+
+```shell
+curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh | bash
+```
+
+3. Exécutez la commande suivante en **root** :
 
 * Pour spécifier le mot de passe du compte **admin** par défaut :
 

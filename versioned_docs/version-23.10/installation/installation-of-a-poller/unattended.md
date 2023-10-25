@@ -27,7 +27,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
-dnf update
+apt update && apt upgrade
 ```
 
 </TabItem>
@@ -56,10 +56,16 @@ apt update
 </TabItem>
 </Tabs>
 
-2. Run the following command as **root**:
+2. Download the script using the following command:
 
 ```shell
-bash unattended.sh install -t poller -v 23.10 -r stable -s -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh | bash
+```
+
+3. Run the following command as **root**:
+
+```shell
+bash unattended.sh install -t poller -v 23.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
   You will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
