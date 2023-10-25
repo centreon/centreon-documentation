@@ -355,7 +355,7 @@ jobs:
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
         shell: bash
 
-  deploy-preview:
+  deploy-preview-s3:
     runs-on: [self-hosted, infra]
 
     name: Deploy to preview
