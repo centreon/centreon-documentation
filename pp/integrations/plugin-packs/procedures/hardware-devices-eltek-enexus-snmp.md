@@ -87,7 +87,7 @@ The Centreon Poller must be able to reach the SNMP port (UDP/161) of the Eltek e
 yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 ```
 
-2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -104,7 +104,7 @@ yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 yum install hardware-devices-eltek-enexus-snmp
 ```
 
-3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

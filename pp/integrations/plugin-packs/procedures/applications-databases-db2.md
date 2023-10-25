@@ -166,7 +166,7 @@ Eventually, this user must have the authority `SYSMON`.
 yum install centreon-plugin-Applications-Databases-Db2
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DB2 Database* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *DB2 Database* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -183,7 +183,7 @@ yum install centreon-plugin-Applications-Databases-Db2
 yum install centreon-pack-applications-databases-db2
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DB2 Database* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *DB2 Database* Pack
 
 </TabItem>
 </Tabs>

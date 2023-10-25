@@ -82,7 +82,7 @@ to specify a proxy when it is required.
 yum install centreon-plugin-Applications-Protocol-Http
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HTTP Server** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **HTTP Server** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,7 +99,7 @@ yum install centreon-plugin-Applications-Protocol-Http
 yum install centreon-pack-applications-protocol-http
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HTTP Server** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **HTTP Server** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

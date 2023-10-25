@@ -94,7 +94,7 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
 2. On the Centreon Web interface, install the *Versa Director Restapi* Monitoring Connector 
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,7 +113,7 @@ yum install centreon-pack-network-versa-director-restapi
 ```
 
 3. On the Centreon Web interface, install the *Versa Director Restapi* Monitoring Connector 
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

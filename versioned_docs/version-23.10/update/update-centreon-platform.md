@@ -1,11 +1,11 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 23.04 platform
+title: Update a Centreon 23.10 platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to update your Centreon 23.04 platform (i.e. switch from version 23.04.x to version 23.04.y).
+This chapter describes how to update your Centreon 23.10 platform (i.e. switch from version 23.10.x to version 23.10.y).
 
 ## Perform a backup
 
@@ -111,14 +111,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 23.04
+   -  version: 23.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.04/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{

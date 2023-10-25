@@ -46,7 +46,7 @@ E.g: https://www.barco.com/en/support/knowledge-base/kb11350
 yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Barco ClickShare Rest API* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Barco ClickShare Rest API* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -63,7 +63,7 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 yum install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Barco ClickShare Rest API* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Barco ClickShare Rest API* Pack
 
 </TabItem>
 </Tabs>

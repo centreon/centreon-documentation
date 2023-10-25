@@ -86,7 +86,7 @@ E.g: https://docs.oracle.com/en/virtualization/oracle-vm/3.4/developer/vmapi-pre
 yum install centreon-plugin-Applications-Oracle-Ovm-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle VM Manager API* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Oracle VM Manager API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -103,7 +103,7 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 yum install centreon-pack-applications-oracle-ovm-api
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle VM Manager API* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Oracle VM Manager API* Monitoring Connector
 
 </TabItem>
 </Tabs>

@@ -230,7 +230,7 @@ can use it.
 yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Event Hubs* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Azure Event Hubs* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -247,7 +247,7 @@ yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 yum install centreon-pack-cloud-azure-analytics-eventhubs.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Event Hubs* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Azure Event Hubs* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

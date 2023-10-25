@@ -74,7 +74,7 @@ The Poller should be able to perform requests against the Mobotix device over SN
 yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mobotix Camera* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Mobotix Camera* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -91,7 +91,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mobotix Camera* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Mobotix Camera* Monitoring Connector
 
 </TabItem>
 </Tabs>
