@@ -70,7 +70,7 @@ bash unattended.sh install -t poller -v 23.10 -r stable -l DEBUG  2>&1 |tee -a /
 
   You will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
 
-3. Once the script has run, carry out [steps 3 to 5 of the standard installation procedure for a poller](./using-packages.md#step-3-register-the-server).
+4. Once the script has run, carry out [steps 3 to 5 of the standard installation procedure for a poller](./using-packages.md#step-3-register-the-server).
 
 ## Help
 
