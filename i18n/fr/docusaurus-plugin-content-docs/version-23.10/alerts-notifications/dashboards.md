@@ -9,7 +9,7 @@ Commencez par créer des tableaux de bord et ajoutez des widgets spécialement c
 
 ![image](../assets/alerts/dashboard-view.png)
 
-## Activer la fonctionnalité Tableaux de bord Beta
+## Activer la fonctionnalité Tableaux de bord
 
 L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'utilisateur, mais via des groupes d'accès ou des listes de contrôle d'accès (ACL). Vous autorisez les utilisateurs à accéder à la fonctionnalité en accordant des droits à l'ACL à laquelle ils appartiennent (en savoir plus [sur les ACL](../administration/access-control-lists.md)).
 

@@ -9,7 +9,7 @@ Get started with creating dashboards and adding widgets specially designed to op
 
 ![image](../assets/alerts/dashboard-view.png)
 
-## Activating the Dashboards Beta feature
+## Activating the Dashboards feature
 
 Access to the Dashboards feature is not managed at the user level, but through access groups or ACLs (Access Control Lists). You allow users to access the feature by granting rights to the ACL to which they belong (read more [about ACLs](../administration/access-control-lists.md)).
 
