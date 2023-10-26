@@ -60,7 +60,7 @@ Your dashboard is now added! You can directly start adding widgets.
 
 Most of the widgets usually follow these steps: 
 
-- **Step 1:** Select the type of widget. Widget parameters then depend on the widget you select.
+- **Step 1:** Select the type of widget. The widget parameters then depend on the widget you select.
 - **Step 2:** Select resources.
 - **Step 3:** Select metrics.
 
