@@ -205,7 +205,7 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
 
   deploy-preview:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' || github.event.action != 'closed' }}
     needs: [get-versions, build]
     runs-on: ubuntu-22.04
 
@@ -228,57 +228,98 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
-      - name: Reduce media size
-        if: ${{ github.event.action != 'closed' }}
+    - name: Reduce media size
+      if: ${{ github.event.action != 'closed' }}
+      run: |
+        find ./build -iname \*.mp4 -exec sh -c '> {}' \;
+        find ./build -iname \*.pdf -exec sh -c '> {}' \;
+        find ./build -iname \*.xlsx -exec sh -c '> {}' \;
+
+        - name: Setup awscli
         run: |
-          find ./build -iname \*.mp4 -exec sh -c '> {}' \;
-          find ./build -iname \*.pdf -exec sh -c '> {}' \;
-          find ./build -iname \*.xlsx -exec sh -c '> {}' \;
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./build
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview/${{ matrix.environment }}
-          action: auto
+      - name: Deploy to https://docs-preview-int.centreon.com
+        run: |
+          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
 
-  comment-preview:
-    if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
-    needs: [get-versions, deploy-preview]
-    runs-on: ubuntu-22.04
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
 
-    name: Add comment for preview
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
 
-    steps:
-      - name: Prepare environment variables for comment
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
-              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
-            })
-
-            core.exportVariable('datetime', new Date().toUTCString());
-            core.exportVariable('preview_urls',preview_urls.join('\n'));
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/*"
+        shell: bash
 
       - name: Leave a comment after deployment
         if: ${{ github.event.action != 'closed' }}
         uses: marocchino/sticky-pull-request-comment@v2
         with:
-          header: pr-preview
+          header: pr-preview-${{ matrix.environment }}
           message: "\
-            **PR Previews**
+            **PR Preview ${{ matrix.environment }}**
 
             :---:
 
-            ${{ env.preview_urls }}
+            :rocket: Deployed preview to https://docs-preview-int.centreon.com//previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
 
-            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+            at ${{ env.datetime }}
 
 
             > **_NOTE:_**  Deployment can take a few minutes before preview is accessible
             "
+
+  #     - name: Deploy preview
+  #       uses: rossjrw/pr-preview-action@v1
+  #       with:
+  #         source-dir: ./build
+  #         preview-branch: gh-pages
+  #         umbrella-dir: pr-preview/${{ matrix.environment }}
+  #         action: auto
+
+  # comment-preview:
+  #   if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
+  #   needs: [get-versions, deploy-preview]
+  #   runs-on: ubuntu-22.04
+
+  #   name: Add comment for preview
+
+  #   steps:
+  #     - name: Prepare environment variables for comment
+  #       uses: actions/github-script@v6
+  #       with:
+  #         script: |
+  #           const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
+  #             return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
+  #           })
+
+  #           core.exportVariable('datetime', new Date().toUTCString());
+  #           core.exportVariable('preview_urls',preview_urls.join('\n'));
+
+  #     - name: Leave a comment after deployment
+  #       if: ${{ github.event.action != 'closed' }}
+  #       uses: marocchino/sticky-pull-request-comment@v2
+  #       with:
+  #         header: pr-preview
+  #         message: "\
+  #           **PR Previews**
+
+  #           :---:
+
+  #           ${{ env.preview_urls }}
+
+  #           on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+
+
+  #           > **_NOTE:_**  Deployment can take a few minutes before preview is accessible
+  #           "
 
   deploy-staging:
     if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
