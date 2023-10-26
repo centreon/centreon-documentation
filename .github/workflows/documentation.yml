@@ -228,19 +228,19 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
-    - name: Reduce media size
-      if: ${{ github.event.action != 'closed' }}
-      run: |
-        find ./build -iname \*.mp4 -exec sh -c '> {}' \;
-        find ./build -iname \*.pdf -exec sh -c '> {}' \;
-        find ./build -iname \*.xlsx -exec sh -c '> {}' \;
-
-        - name: Setup awscli
+      - name: Reduce media size
+        if: ${{ github.event.action != 'closed' }}
         run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          sudo unzip -q awscliv2.zip
-          sudo ./aws/install
-        shell: bash
+          find ./build -iname \*.mp4 -exec sh -c '> {}' \;
+          find ./build -iname \*.pdf -exec sh -c '> {}' \;
+          find ./build -iname \*.xlsx -exec sh -c '> {}' \;
+
+          - name: Setup awscli
+          run: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo unzip -q awscliv2.zip
+            sudo ./aws/install
+          shell: bash
 
       - name: Deploy to https://docs-preview-int.centreon.com
         run: |
