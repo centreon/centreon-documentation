@@ -59,24 +59,13 @@ Votre tableau de bord est maintenant ajouté ! Vous pouvez directement commencer
 
 ![image](../assets/alerts/widget-view.png)
 
-#### Étape 1 : sélectionner le type de widget
+La majorité des widgets fonctionnent généralement selon les étapes suivantes : 
 
- > Les paramètres du widget dépendent du widget sélectionné.
+- **Étape 1 :** sélectionnez le type de widget. Les paramètres du widget dépendent ensuite du widget sélectionné.
+- **Étape 2 :** sélectionnez les ressources.
+- **Étape 3 :** sélectionnez les métriques.
 
-1. Renseignez les **Propriétés du widget** (titre et description).
-2. Renseignez les **Paramètres de valeur** : selon le widget que vous avez sélectionné, il s'agit principalement d'options de visualisation des données.
-
-#### Étape 2 : sélectionner les ressources
-
-1. Sélectionnez un **type de ressource**.
-2. Sélectionnez ensuite une **ressource**.
-
-#### Étape 3 : sélectionner les métriques
-
-1. Sélectionnez le **nom du service**.
-2. Sélectionnez ensuite une **métrique**.
-3. Cliquez sur **+ Ajouter une ressource** si vous avez besoin d'ajouter d'autres ressources.
-4. Enregistrez vos modifications.
+> Assurez-vous de sauvegarder vos modifications. Si vous quittez sans sauvegarder votre tableau de bord, les modifications seront définitivement perdues.
 
 ### Autres actions
 

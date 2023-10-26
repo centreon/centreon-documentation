@@ -58,24 +58,13 @@ Your dashboard is now added! You can directly start adding widgets.
 
 ![image](../assets/alerts/widget-view.png)
 
-#### Step 1: Select the type of widget
+Most of the widgets usually follow these steps: 
 
- > Widget parameters depend on the widget you select.
+- **Step 1:** Select the type of widget. Widget parameters then depend on the widget you select.
+- **Step 2:** Select resources.
+- **Step 3:** Select metrics.
 
-1. Fill the **Widget properties** (title and description).
-2. Fill the **Value settings**: depending on the widget you have selected, these are mainly data visualization options.
-
-#### Step 2: Select resources
-
-1. Select a **resource type**.
-2. Then select a **resource**.
-
-#### Step 3: Select metrics
-
-1. Select the **service name**.
-2. Then select a **metric**.
-3. Click **+ Add resource** if you need to add more resources.
-4. Save your changes.
+ > Make sure to save your changes. If you leave without saving your dashboard, changes will be permanently lost.
 
 ### More actions
 
