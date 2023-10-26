@@ -79,7 +79,7 @@ environnements.
 > {
 >   "version": "23.10.6",
 >   "major": "23",
->   "minor": "04",
+>   "minor": "10",
 >   "fix": "6"
 > }
 >
