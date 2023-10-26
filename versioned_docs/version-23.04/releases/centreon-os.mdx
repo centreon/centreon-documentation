@@ -23,6 +23,57 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.9
+
+Release date: `October 05, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Install] Improved the unattended.sh file to manage updates, Debian 11 OS and language packages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an LDAP connection issue due to DN case.
+- [Configuration] Fixed the visibility of services when a user with ACLs duplicates a host.
+- [Monitoring] Fixed CSV export when metric name is a SQL keyword.
+- [Resources Status] Fixed the list of pollers filter by removing deleted pollers.
+- [Resource Status] Fixed the inline check action that was sending a simple check instead of a forced check.
+- [UI] Renamed "massive change" to "mass change" in the "more actions" selection box.
+
+</details>
+
+### 23.04.8
+
+Release date: `September 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Anomaly Detection] Added a feature flag to hide the period exclusion interface.
+- [Authentication] Removed password fields from profile page for accounts using delegated authentication.
+- [Configuration] Added feature flag to vault configuration endpoints.
+- [Core] Added feature flag system.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Business Activities are no longer listed as services in the configuration form.
+- [Authentication] Fixed access to the Centreon UI when a default page is configured for the user and authentication uses SSO (OIDC/SAML).	
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+- [CLAPI] Fixed the export of severities to make it possible to reimport them.
+- [CLAPI] Removed the possibility to link a regular resource with a template.	
+- [Configuration] Fixed custom macro inheritance for hosts.
+- [Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+- [Security] Fixed SLQi in centreonLogAction.class.php.
+
+</details>
+
 ### 23.04.7
 
 Release date: `August 31, 2023`
@@ -36,7 +87,7 @@ Release date: `August 31, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Administration] Fixed pagination in the **Data** menu.
@@ -56,7 +107,7 @@ Release date: `August 31, 2023`
 
 Release date: `July 28, 2023`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Core] Removed unnecessary data in custom_configuration column for SAML provider.
@@ -215,13 +266,27 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.4
+
+Release date: `September 26, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+- Fixed a bug that caused services and hosts to lose their status at cbd startup.
+
+</details>
+
 ### 23.04.3
 
 Release date: `September 7, 2023`
 
 #### Centreon Broker
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Compatibility] Fixed an issue that prevented Broker from inserting relations in table during BAM reporting calculation.
@@ -235,7 +300,7 @@ Release date: `July 26, 2023`
 
 #### Centreon Broker
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - Boolean rules optimized to work faster.
@@ -450,7 +515,7 @@ Compatibility with other 23.04 components.
 
 Release date: `July 28, 2023`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - Fixed a Broker query.

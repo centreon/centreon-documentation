@@ -1,6 +1,6 @@
 ---
 id: graph-views-api
-title: Graphical views API (beta)
+title: MAP Legacy API (beta)
 ---
 
 > Cette documentation n'est disponible qu'en anglais.

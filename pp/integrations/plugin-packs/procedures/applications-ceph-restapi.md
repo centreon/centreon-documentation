@@ -76,7 +76,7 @@ To monitor your Ceph, a user with read privileges is required. Please refer to t
 yum install centreon-plugin-Applications-Ceph-Restapi
 ```
 
-2. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -94,7 +94,7 @@ yum install centreon-plugin-Applications-Ceph-Restapi
 yum install centreon-pack-applications-ceph-restapi
 ```
 
-3. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Ceph RestAPI** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

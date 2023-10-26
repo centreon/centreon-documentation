@@ -57,7 +57,7 @@ E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html
 yum install centreon-plugin-Applications-Proxmox-Mg-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Proxmox Mail Gateway* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Proxmox Mail Gateway* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -74,7 +74,7 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 yum install centreon-pack-applications-proxmox-mg-api
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Proxmox Mail Gateway* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Proxmox Mail Gateway* Monitoring Connector
 
 </TabItem>
 </Tabs>

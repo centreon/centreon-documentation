@@ -98,7 +98,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Amazon SNS** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Amazon SNS** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -115,7 +115,7 @@ yum install centreon-plugin-Cloud-Aws-Sns-Api
 yum install centreon-pack-cloud-aws-sns
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Amazon SNS** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Amazon SNS** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

@@ -85,7 +85,7 @@ More information on the offcial Dynatrace documentation: https://www.dynatrace.c
 yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Dynatrace Rest API** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Dynatrace Rest API** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -102,7 +102,7 @@ yum install centreon-plugin-Applications-Monitoring-Dynatrace-Restapi
 yum install centreon-pack-applications-monitoring-dynatrace-restapi
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Dynatrace Rest API** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Dynatrace Rest API** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

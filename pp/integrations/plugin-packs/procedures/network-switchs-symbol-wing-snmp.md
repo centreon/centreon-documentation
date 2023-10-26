@@ -80,7 +80,7 @@ port.
 yum install centreon-plugin-Network-Symbol-Wing-Snmp
 ```
 
-2. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Network-Symbol-Wing-Snmp
 yum install centreon-pack-network-switchs-symbol-wing-snmp
 ```
 
-3. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Symbol WiNG switch SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

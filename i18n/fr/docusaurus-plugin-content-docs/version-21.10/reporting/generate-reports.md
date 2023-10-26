@@ -107,7 +107,7 @@ Le tableau suivant décrit les différentes actions possibles:
 Pour générer un rapport, il faut créer une tâche planifiée en cliquant sur "Ajouter". La configuration d'une
 tâche planifiée se fait en deux principales étapes:
 
-- Sélection du modèle de rapport à utiliser ([voir tous les modèles disponibles](../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf))
+- Sélection du modèle de rapport à utiliser ([voir tous les modèles disponibles](../../../../../assets/fr/reporting/Centreon-MBI-Exemples-de-rapports.pdf))
 - Selectionner le périmètre sur lequel générer le rapport
 
 et deux étapes optionnelles:

@@ -127,7 +127,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Polycom RPRM SNMP* Monitoring Connector 
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -146,7 +146,7 @@ yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 ```
 
 3. On the Centreon Web interface, install the *Polycom RPRM SNMP* Monitoring Connector 
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

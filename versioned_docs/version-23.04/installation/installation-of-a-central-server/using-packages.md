@@ -341,7 +341,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -349,8 +349,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 #### Centreon repository
 
-To install Centreon software from the repository, you should first install the
-centreon-release package, which will provide the repository file.
+To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
@@ -358,6 +357,7 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -367,6 +367,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -424,7 +425,7 @@ systemctl restart mariadb
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install -y centreon
+apt install -y --no-install-recommends centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -458,7 +459,7 @@ dnf install -y centreon-central
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install -y centreon-central
+apt install -y --no-install-recommends centreon-central
 ```
 
 </TabItem>
@@ -489,7 +490,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon-database
+apt install -y --no-install-recommends centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```

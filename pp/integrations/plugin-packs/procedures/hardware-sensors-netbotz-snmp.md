@@ -54,7 +54,7 @@ SNMP port.
 yum install centreon-plugin-Hardware-Sensors-Netbotz-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Netbotz Sensor** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Netbotz Sensor** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -71,7 +71,7 @@ yum install centreon-plugin-Hardware-Sensors-Netbotz-Snmp
 yum install centreon-pack-hardware-sensors-netbotz-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Netbotz Sensor** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Netbotz Sensor** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

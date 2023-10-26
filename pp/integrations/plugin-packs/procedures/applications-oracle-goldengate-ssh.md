@@ -41,7 +41,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle GoldenGate SSH* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Oracle GoldenGate SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -58,7 +58,7 @@ yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
 yum install centreon-pack-applications-oracle-goldengate-ssh
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Oracle GoldenGate SSH* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Oracle GoldenGate SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

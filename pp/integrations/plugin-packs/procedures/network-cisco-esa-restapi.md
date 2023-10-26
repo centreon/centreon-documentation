@@ -47,7 +47,7 @@ E.g: https://www.cisco.com/c/en/us/support/security/email-security-appliance/pro
 yum install centreon-plugin-Network-Cisco-Esa-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco ESA Rest API* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco ESA Rest API* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -64,7 +64,7 @@ yum install centreon-plugin-Network-Cisco-Esa-Restapi
 yum install centreon-pack-network-cisco-esa-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco ESA Rest API* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco ESA Rest API* Pack
 
 </TabItem>
 </Tabs>

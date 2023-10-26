@@ -88,7 +88,7 @@ Installing a Monitoring Connector is a 4-step process:
 
 ### Accessing the Monitoring Connectors catalog
 
-* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on page **Configuration > Monitoring Connectors Manager**.
+* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on page **Configuration > Monitoring Connector Manager**.
 
 * If you have an offline license:
     - install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
@@ -139,7 +139,7 @@ apt upgrade centreon-pack-\*
 
 ### Installing the pack
 
-You now have access to the Monitoring Connectors catalog, on page **Configuration > Monitoring Connectors Manager**:
+You now have access to the Monitoring Connectors catalog, on page **Configuration > Monitoring Connector Manager**:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -184,7 +184,7 @@ Plugins can be installed from the command line or automatically.
 
 1. [Install the pack](#installing-the-pack).
 2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
-3. On page **Configuration > Monitoring Connectors Manager**, set **Automatic installation of plugins** to **ON**.
+3. On page **Configuration > Monitoring Connector Manager**, set **Automatic installation of plugins** to **ON**.
 4. Use a template provided by the pack to monitor a host or a service.
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
 
@@ -291,7 +291,7 @@ Note that you will still have to [update the plugins](#updating-the-plugins).
 
 ### Updating the plugins
 
-On page **Configuration > Monitoring Connectors Manager**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
+On page **Configuration > Monitoring Connector Manager**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
 
 If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
 

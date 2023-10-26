@@ -17,6 +17,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.16
+
+Release date: `September 26, 2023`
+
+#### Bug fixes
+
+- [Core] Updated svg-sanitize dependency.
+- [Core] Updated symfony/http-kernel dependency.
+- [Security] Fixed SLQi in centreonLogAction.class.php
+
 ### 21.10.15
 
 Release date: `June 19, 2023`

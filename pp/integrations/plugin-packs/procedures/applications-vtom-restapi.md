@@ -70,7 +70,7 @@ For previous VTOM version, please use **legacy** Plugin mode.
 yum install centreon-plugin-Applications-Vtom-Restapi
 ```
 
-2. On the Centreon Web interface, install the **VTOM Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **VTOM Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -88,7 +88,7 @@ yum install centreon-plugin-Applications-Vtom-Restapi
 yum install centreon-pack-applications-vtom-restapi
 ```
 
-3. On the Centreon Web interface, install the **VTOM Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **VTOM Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

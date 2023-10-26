@@ -140,7 +140,7 @@ https://learn.netdata.cloud/docs/agent/packaging/installer
 yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 ```
 
-2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -157,7 +157,7 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

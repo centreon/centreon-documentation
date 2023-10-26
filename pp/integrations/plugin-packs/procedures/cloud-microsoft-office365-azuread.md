@@ -60,7 +60,7 @@ Check out the endpoint documentation [here](https://docs.microsoft.com/en-us/gra
 yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Office 365 Azure AD** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Office 365 Azure AD** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -77,7 +77,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 yum install centreon-pack-cloud-microsoft-office365-azuread
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Office 365 Azure AD** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Office 365 Azure AD** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>
