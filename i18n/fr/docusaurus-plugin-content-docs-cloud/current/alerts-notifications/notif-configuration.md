@@ -9,7 +9,7 @@ Par défaut, les notifications sont actives pour tous les hôtes et tous les ser
 
 Des notifications sont envoyées dans les cas suivants :
 
-* quand une ressource est dans un état non-ok (**Alerte** ou **Critique** pour un service, **Indisponible** ou **Injoignable** pour un hôte)
+* quand une ressource passe dans un état non-ok (**Alerte** ou **Critique** pour un service, **Indisponible** ou **Injoignable** pour un hôte)
 * quand une ressource revient dans un état OK
 * quand une plage de maintenance commence.
 

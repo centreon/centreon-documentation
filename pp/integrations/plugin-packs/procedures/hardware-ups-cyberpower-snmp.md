@@ -67,7 +67,7 @@ The Poller should be able to perform SNMP requests toward the CyberPower device 
 yum install centreon-plugin-Hardware-Ups-Cyberpower-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *CyberPower Systems UPS SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *CyberPower Systems UPS SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -84,7 +84,7 @@ yum install centreon-plugin-Hardware-Ups-Cyberpower-Snmp
 yum install centreon-pack-hardware-ups-cyberpower-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *CyberPower Systems UPS SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *CyberPower Systems UPS SNMP* Pack
 
 </TabItem>
 </Tabs>

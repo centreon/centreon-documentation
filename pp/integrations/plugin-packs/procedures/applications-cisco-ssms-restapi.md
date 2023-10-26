@@ -61,7 +61,7 @@ More information is available in the official Cisco SSMS API : https://www.cisco
 yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco SSMS* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco SSMS* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -78,7 +78,7 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco SSMS* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco SSMS* Monitoring Connector
 
 </TabItem>
 </Tabs>

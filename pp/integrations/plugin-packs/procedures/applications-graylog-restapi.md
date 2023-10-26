@@ -64,7 +64,7 @@ https://go2docs.graylog.org/5-1/setting_up_graylog/rest_api.html.
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 yum install centreon-pack-applications-graylog-restapi
 ```
 
-3. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

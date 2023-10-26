@@ -3,9 +3,9 @@ id: hosts-create
 title: Monitoring a host
 ---
 
-A host is any entity that has an IP address corresponding to a resource of the information system. E.g.: A server, network printer, a NAS server, a temperature sensor, an IP camera, etc.
+A host is any entity that has an IP address corresponding to a resource of the information system. Example: A server, network printer, NAS server, temperature sensor, IP camera, etc.
 
-The list of hosts is shown on page **Configuration > Hosts > Hosts (simplified)**.
+The list of hosts is shown on the **Configuration > Hosts > Hosts (simplified)** page.
 
 You can:
 - [create hosts manually](hosts.md), using [host templates](hosts-templates.md)
@@ -13,9 +13,9 @@ You can:
 
 ## Monitoring a host
 
-The easiest way to monitor a host is to assign it a [template](hosts-templates.md) from a [Monitoring Connector](../pluginpacks.md) : 
+The easiest way to monitor a host is to assign it a [template](hosts-templates.md) from a [Monitoring Connector](../pluginpacks.md): 
 
-1. To know the name of the template for a specific Monitoring Connector, go to **Configuration > Monitoring Connectors Manager**. Search for the Monitoring Connector you want, then click on the "i" icon at the bottom left of the pack.
+1. To find out the name of the template for a specific Monitoring Connector, go to **Configuration > Monitoring Connector Manager**. Search for the Monitoring Connector you want, and then click the "i" icon at the bottom left of the pack.
 
     ![image](../../assets/configuration/pluginpacks/doc.png)
 

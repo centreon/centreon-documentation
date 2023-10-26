@@ -106,7 +106,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. On Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the "Amazon EFS" Monitoring Connector
+2. On Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the "Amazon EFS" Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -123,7 +123,7 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 yum install centreon-pack-cloud-aws-efs.noarch
 ```
 
-3. On Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the "Amazon EFS" Monitoring Connector:
+3. On Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the "Amazon EFS" Monitoring Connector:
 
 </TabItem>
 </Tabs>

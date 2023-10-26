@@ -492,10 +492,6 @@
         },
         {
           "type": "doc",
-          "id": "version-23.04/monitoring/basic-objects/customization"
-        },
-        {
-          "type": "doc",
           "id": "version-23.04/monitoring/basic-objects/contacts-create"
         },
         {
@@ -509,6 +505,10 @@
         {
           "type": "doc",
           "id": "version-23.04/administration/access-control-lists"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/monitoring/basic-objects/customization"
         }
       ]
     },
@@ -656,6 +656,10 @@
                 {
                   "type": "doc",
                   "id": "version-23.04/graph-views/map-web-troubleshooting"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "version-23.04/api/map-api"
                   }
               ]
             }
@@ -720,6 +724,10 @@
             {
               "type": "doc",
               "id": "version-23.04/graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/api/graph-views-api"
             }
           ]
         }
@@ -876,9 +884,23 @@
           "id": "version-23.04/administration/database-partitioning"
         },
         {
+        "type": "category",
+        "label": "Disaster recovery",
+        "link": {
           "type": "doc",
-          "id": "version-23.04/administration/backup"
+          "id": "administration/disaster-recovery"
         },
+        "items": [
+          {
+           "type": "doc",
+           "id": "version-23.04/administration/backup"
+          },
+          {
+            "type": "doc",
+            "id": "version-23.04/administration/backup-poller"
+           }
+          ]
+      },
         {
           "type": "doc",
           "id": "version-23.04/administration/knowledge-base"
@@ -1258,6 +1280,10 @@
             {
               "type": "doc",
               "id": "version-23.04/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/api/map-api"
             },
             {
               "type": "doc",
