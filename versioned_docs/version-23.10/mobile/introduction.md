@@ -41,6 +41,8 @@ When logging in for the first time, you need to input the following parameters:
 
 ![image](../assets/mobile/mobile-login.png)
 
+Delegated authentication is also supported.
+
 If you have problems connecting:
 
 - Make sure your Centreon platform is accessible from your device

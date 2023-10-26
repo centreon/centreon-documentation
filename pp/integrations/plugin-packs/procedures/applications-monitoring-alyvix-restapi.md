@@ -80,7 +80,7 @@ https://www.alyvix.com/learn/.
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 yum install centreon-pack-applications-monitoring-alyvix-restapi
 ```
 
-3. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

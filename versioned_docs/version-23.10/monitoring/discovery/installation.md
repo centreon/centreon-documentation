@@ -36,7 +36,7 @@ apt update && apt install centreon-auto-discovery-server
 2. Connect to the Centreon web interface using an account allowed to install
 products and go to the **Administration > Extensions > Manager** menu.
 
-3. Make sure the **License Manager** and **Monitoring Connectors Manager** modules are
+3. Make sure the **License Manager** and **Monitoring Connector Manager** modules are
  up to date before installing the **Auto Discovery** module.
 
 4. Click the Installation icon corresponding to the **Auto Discovery** module.

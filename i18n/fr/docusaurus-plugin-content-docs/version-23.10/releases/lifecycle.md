@@ -75,7 +75,7 @@ Le schéma suivant présente le cycle de vie des produits Centreon :
 
 | Produit        | Sortie       | Date de fin de support    | État                |
 |----------------|--------------|---------------------------|---------------------|
-| Centreon 23.10 | 10/2023      | 10/2025                   | Supported           |
+| Centreon 23.10 | 10/2023      | 10/2025                   | Supportée           |
 | Centreon 23.04 | 04/2023      | 04/2025                   | Supportée           |
 | Centreon 22.10 | 10/2022      | 10/2024                   | Supportée           |
 | Centreon 22.04 | 05/2022      | 05/2024                   | Supportée           |

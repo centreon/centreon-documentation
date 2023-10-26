@@ -96,7 +96,7 @@ Ask to your admin to deploy it and give you the URL.
 yum install centreon-plugin-Applications-Jvm-Actuator
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *JVM Actuator* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *JVM Actuator* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,7 +113,7 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 yum install centreon-pack-applications-jvm-actuator
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *JVM Actuator* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *JVM Actuator* Pack
 
 </TabItem>
 </Tabs>
