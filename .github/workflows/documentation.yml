@@ -195,7 +195,7 @@ jobs:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.environment, github.event.pull_request.number) || '' }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{1}/{0}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Store build in cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
@@ -265,7 +265,7 @@ jobs:
 
             :---:
 
-            :rocket: Deployed preview to https://docs-preview-int.centreon.com//previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
+            :rocket: Deployed preview to https://docs-preview-int.centreon.com/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
 
             at ${{ env.datetime }}
 
