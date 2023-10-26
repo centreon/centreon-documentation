@@ -205,7 +205,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 #### Installation des paquets
 
-Si vous installez votre serveur Centreon MAP à partir d'une "installation vierge de l'OS", vous devez installer le paquet **centreon-release** :
+Si vous installez votre serveur Centreon MAP à partir d'une "installation vierge de l'OS", vous devez installer le dépôt Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -225,9 +225,10 @@ Installed:
 Complete!
 ```
 
-Ensuite installez le paquet **centreon-release** :
+Ensuite installez le dépôt Centreon :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -249,9 +250,10 @@ Installed:
 Complete!
 ```
 
-Ensuite installez le paquet **centreon-release** :
+Ensuite installez le dépôt Centreon :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
