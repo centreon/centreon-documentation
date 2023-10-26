@@ -214,6 +214,10 @@ module.exports = {
               {
                 "type": "doc",
                 "id": "alerts-notifications/custom-views"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/dashboards"
               }
             ]
           },
