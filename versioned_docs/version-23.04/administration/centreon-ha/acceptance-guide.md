@@ -5,6 +5,7 @@ title: Cluster acceptance guide
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 > Please note that all commands presented in this document are respectively to be run as `root` unless otherwise stated.
 
 <Tabs groupId="sync">
