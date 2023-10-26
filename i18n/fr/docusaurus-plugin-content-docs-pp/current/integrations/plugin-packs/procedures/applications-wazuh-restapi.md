@@ -164,7 +164,7 @@ yum install centreon-plugin-Applications-Wazuh-Restapi
 | WAZUHAPIPASSWORD     | Wazuh password                                                                                        |                   | X           |
 | WAZUHAPIPROTO        | Set protocol (default: 'https')                                                                       | https             |             |
 | WAZUHAPIPORT         | Set HTTP port (default: 55000)                                                                        | 55000             |             |
-| WAZUHAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| WAZUHAPIEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 

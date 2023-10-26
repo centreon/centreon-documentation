@@ -165,7 +165,7 @@ yum install centreon-plugin-Applications-Wazuh-Restapi
 | WAZUHAPIPASSWORD     | Wazuh password                                                                                        |                   | X           |
 | WAZUHAPIPROTO        | Set protocol (default: 'https')                                                                       | https             |             |
 | WAZUHAPIPORT         | Set HTTP port (default: 55000)                                                                        | 55000             |             |
-| WAZUHAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| WAZUHAPIEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -190,7 +190,7 @@ yum install centreon-plugin-Applications-Wazuh-Restapi
 | CRITICALPENDING        | Thresholds                                                                                                                                            |                   |             |
 | WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %{node\_name}, %{display}  |                   |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %{node\_name}, %{display} |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                   | --verbose         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                   | --verbose         |             |
 
 </TabItem>
 <TabItem value="Manager" label="Manager">
@@ -211,7 +211,7 @@ yum install centreon-plugin-Applications-Wazuh-Restapi
 | CRITICALPROCESSESSTOPPED | Thresholds                                                                                                                             |                   |             |
 | WARNINGPROCESSSTATUS     | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %{display}  |                   |             |
 | CRITICALPROCESSSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %{display} |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                    | --verbose         |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                    | --verbose         |             |
 
 </TabItem>
 </Tabs>
