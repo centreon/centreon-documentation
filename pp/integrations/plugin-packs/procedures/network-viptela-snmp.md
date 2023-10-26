@@ -157,7 +157,7 @@ port.
 yum install centreon-plugin-Network-Viptela-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Viptela SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Viptela SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -175,7 +175,7 @@ yum install centreon-plugin-Network-Viptela-Snmp
 yum install centreon-pack-network-viptela-snmp
 ```
 
-3. On the Centreon Web interface, install the **Viptela SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Viptela SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

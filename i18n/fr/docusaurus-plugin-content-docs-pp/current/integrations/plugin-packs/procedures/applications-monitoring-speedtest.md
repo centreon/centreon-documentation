@@ -38,7 +38,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                                  | Unité |
 |:------------------------------------------|:------|
 | ping.latency.milliseconds                 | ms    |
-| ping.jitter.milliseconds                  |       |
+| ping.jitter.milliseconds                  | ms    |
 | internet.bandwidth.download.bitspersecond | b/s   |
 | internet.bandwidth.upload.bitspersecond   | b/s   |
 

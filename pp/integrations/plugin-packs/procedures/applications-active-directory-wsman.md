@@ -47,7 +47,7 @@ To monitor Active Directory, please follow our [official documentation](../getti
 yum install centreon-plugin-Applications-ActiveDirectory-Wsman
 ```
 
-2. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-ActiveDirectory-Wsman
 yum install centreon-pack-applications-active-directory-wsman
 ```
 
-3. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Active Directory WSMAN** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

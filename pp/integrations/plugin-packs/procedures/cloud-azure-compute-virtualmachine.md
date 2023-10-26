@@ -114,7 +114,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Virtual Machine** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Azure Virtual Machine** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -131,7 +131,7 @@ yum install centreon-plugin-Cloud-Azure-Compute-VirtualMachine-Api
 yum install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Virtual Machine** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Azure Virtual Machine** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

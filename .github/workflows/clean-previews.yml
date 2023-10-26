@@ -1,0 +1,38 @@
+name: clean-previews
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  clean-previews:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+          filter: blob:none
+
+      - run: |
+          cd pr-preview
+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          while [ "$(du -sm . | cut -f1)" -gt 3000 ]; do
+            du -sh .
+            OLDEST_PREVIEW=$(git ls-tree --name-only HEAD -z staging/ next/ | TZ=UTC xargs -0 -I_ git --no-pager log -1 --date=iso-local --format="%ad _" -- _ | sort | head -n 1 | awk '{print $NF}')
+            echo "cleaning $OLDEST_PREVIEW ..."
+            git rm -rq $OLDEST_PREVIEW
+            git commit -m "Remove preview $OLDEST_PREVIEW"
+          done
+
+          git push

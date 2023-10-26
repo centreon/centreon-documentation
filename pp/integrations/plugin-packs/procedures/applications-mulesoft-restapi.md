@@ -104,7 +104,7 @@ This account has to own the privileges to manage Applications, Servers, Clusters
 yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mulesoft Anypoint* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Mulesoft Anypoint* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -121,7 +121,7 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 yum install centreon-pack-applications-mulesoft-restapi.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Mulesoft Anypoint* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Mulesoft Anypoint* Monitoring Connector
 
 </TabItem>
 </Tabs>

@@ -486,6 +486,7 @@ processus d'installation :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -495,6 +496,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -590,7 +592,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -619,7 +621,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -648,7 +650,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -677,7 +679,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -706,7 +708,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -735,7 +737,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>

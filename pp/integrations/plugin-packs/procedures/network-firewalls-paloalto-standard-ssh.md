@@ -95,7 +95,7 @@ The remote user must have enough privileges to execute system commands.
 yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Palo Alto firewall SSH* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Palo Alto firewall SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -112,7 +112,7 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Palo Alto firewall SSH* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Palo Alto firewall SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

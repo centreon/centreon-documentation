@@ -99,7 +99,7 @@ E.g: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-pro
 yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Firepower SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco Firepower SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -116,7 +116,7 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
 yum install centreon-pack-network-cisco-firepower-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Firepower SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco Firepower SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

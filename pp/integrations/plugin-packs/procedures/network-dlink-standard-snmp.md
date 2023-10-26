@@ -93,7 +93,7 @@ To control your D-Link equipment, the SNMP v2 must be configured.
 yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *D-Link Network* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *D-Link Network* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -110,7 +110,7 @@ yum install centreon-plugin-Network-Dlink-Standard-Snmp.noarch
 yum install network-dlink-standard-snmp.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *D-Link Network* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *D-Link Network* Monitoring Connector
 
 </TabItem>
 </Tabs>

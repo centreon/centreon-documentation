@@ -63,7 +63,7 @@ Ask your admin to deploy it and give you the URL.
 yum install centreon-plugin-Applications-Awa-Jmx
 ```
 
-2. On the Centreon Web interface, install the **Awa JMX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Awa JMX** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Awa-Jmx
 yum install centreon-pack-applications-awa-jmx
 ```
 
-3. On the Centreon Web interface, install the **Awa JMX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Awa JMX** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -232,10 +232,6 @@ module.exports = {
               {
                 "type": "doc",
                 "id": "alerts-notifications/submit"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/other"
               }
             ]
           },
