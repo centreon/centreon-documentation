@@ -195,7 +195,7 @@ jobs:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{1}/{0}', github.event.pull_request.number, matrix.environment) || '' }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Store build in cache
         if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
