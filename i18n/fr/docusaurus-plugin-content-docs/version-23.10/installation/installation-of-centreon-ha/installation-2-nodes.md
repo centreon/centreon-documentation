@@ -1204,7 +1204,7 @@ pcs resource create "ms_mysql" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
     binary="/usr/bin/mysqld_safe" \
-    node_list="ip-172-16-5-134 ip-172-16-5-135" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="centreon-repl" \
     replication_passwd='centreon-repl' \
     test_user="centreon-repl" \
