@@ -870,7 +870,7 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mariadb
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
 ```
 
