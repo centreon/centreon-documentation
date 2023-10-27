@@ -1208,7 +1208,7 @@ pcs resource create "ms_mysql" \
     replication_user="centreon-repl" \
     replication_passwd='centreon-repl' \
     test_user="centreon-repl" \
-    test_passwd="centreon-repl" \
+    test_passwd='centreon-repl' \
     test_table='centreon.host'
 ```
 

@@ -426,7 +426,7 @@ join_buffer_size=4M
 thread_cache_size=64
 read_buffer_size=512K
 read_rnd_buffer_size=256K
-max_allowed_packet=64M
+max_allowed_packet=128M
 # Uncomment for 4 Go Ram
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
@@ -869,8 +869,8 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mariadb
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mariadb
 ```
 
 </TabItem>
@@ -1203,11 +1203,11 @@ pcs resource create "ms_mysql" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
     binary="/usr/bin/mysqld_safe" \
-    node_list="ip-172-16-5-134 ip-172-16-5-135" \
+    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
     replication_user="centreon-repl" \
     replication_passwd='centreon-repl' \
     test_user="centreon-repl" \
-    test_passwd="centreon-repl" \
+    test_passwd='centreon-repl' \
     test_table='centreon.host'
 ```
 
