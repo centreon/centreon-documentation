@@ -427,7 +427,7 @@ join_buffer_size=4M
 thread_cache_size=64
 read_buffer_size=512K
 read_rnd_buffer_size=256K
-max_allowed_packet=64M
+max_allowed_packet=128M
 # Uncomment for 4 Go Ram
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
