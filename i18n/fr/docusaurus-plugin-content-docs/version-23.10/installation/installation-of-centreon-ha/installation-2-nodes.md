@@ -396,7 +396,7 @@ max_allowed_packet=64M
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/mariadb-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
+Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/mariadb-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doivent être collées les lignes suivantes :
 
 ```ini
 [server]
