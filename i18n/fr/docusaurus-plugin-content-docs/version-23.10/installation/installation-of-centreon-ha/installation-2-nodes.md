@@ -641,7 +641,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Maintenant, que tout est bien configuré, il faut activer le mode `read_only` sur les deux serveurs en décommentant (*ie.* retirer le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/mariadb-server.cnf` :
+Maintenant que tout est bien configuré, activez le mode `read_only` sur les deux serveurs en décommentant (c'est-à-dire en retirant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/mariadb-server.cnf` :
 
 * Nœud principal
 
@@ -661,7 +661,7 @@ read_only
 log-bin=mysql-bin
 ```
 
-Appliquer ensuite ce changement par un redémarrage de MariaDB sur les deux nœuds :
+Appliquez ensuite ce changement par un redémarrage de MariaDB sur les deux nœuds :
 
 ```bash
 systemctl restart mariadb
