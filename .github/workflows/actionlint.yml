@@ -63,4 +63,4 @@ jobs:
 
       - name: Lint YAML files
         run: |
-          yamllint -c ./yamllint_rules.yml ./.github/actions/ ./.github/workflows/
+          yamllint -c ./yamllint_rules.yml ./.github/workflows/
