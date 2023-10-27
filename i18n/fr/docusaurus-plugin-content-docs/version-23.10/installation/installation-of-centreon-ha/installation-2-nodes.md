@@ -871,7 +871,7 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mariadb
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mariadb
 ```
 
 </TabItem>
