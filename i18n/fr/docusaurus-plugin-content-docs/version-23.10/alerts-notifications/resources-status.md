@@ -132,7 +132,7 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
     - **Collecteurs**
      - **État :** y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée).
 
-2. Cliquez sur **Mode avancé** pour afficher plus d'options :
+2. Cliquez sur **Plus de filtres** pour afficher plus d'options :
     
     - [**Catégorie d'hôte**](../monitoring/categories.md)
     - [**Criticité d'hôte**](../monitoring/categories.md)
