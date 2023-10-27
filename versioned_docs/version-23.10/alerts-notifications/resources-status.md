@@ -130,7 +130,7 @@ You can filter the list of resources according to a number of predefined criteri
     - **Pollers**
     - **State**: whether the problem is simply unhandled, already acknowledged, or in a planned downtime.
 
-2. Click **Advanced mode** to display more options:
+2. Click **Open more filters** to display more options:
 
     - [**Host category**](../monitoring/categories.md)
     - [**Host severity**](../monitoring/categories.md)
