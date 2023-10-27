@@ -1511,22 +1511,6 @@ Après cette étape, toutes les ressources doivent être actives au même endroi
 
 ### Lancement du Cluster et contrôle de l'état des ressources
 
-#### Activer les ressources
-
-```bash 
-pcs resource enable php-clone
-pcs resource enable cbd_rrd-clone
-pcs resource meta vip target-role="started"
-pcs resource meta ms_mysql target-role="started"
-pcs resource meta centreontrapd target-role="started"
-pcs resource meta snmptrapd target-role="started"
-pcs resource meta centengine target-role="started"
-pcs resource meta cbd_central_broker target-role="started"
-pcs resource meta gorgone target-role="started"
-pcs resource meta centreon_central_sync target-role="started"
-pcs resource meta http target-role="started"
-```
-
 ### Contrôle de l'état du cluster
 
 #### Contrôle de l'état des ressources
