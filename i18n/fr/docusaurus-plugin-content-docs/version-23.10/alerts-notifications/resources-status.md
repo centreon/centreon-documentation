@@ -138,7 +138,6 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
     - [**Criticité d'hôte**](../monitoring/categories.md)
     - [**Catégorie de service**](../monitoring/categories.md)
     - [**Criticité du service**](../monitoring/categories.md)
-    - **Métaservice**
     - Vous pouvez ajouter un commentaire dans le champ **Informations**.
     - [**Type de statut**](concepts.md#types-de-statuts) : **Hard** ou **Soft**.
 
