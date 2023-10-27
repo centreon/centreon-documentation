@@ -152,6 +152,23 @@ systemctl restart NetworkManager
 ```
 
 </TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+cat >> /etc/sysctl.conf <<EOF
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv4.tcp_retries2 = 3
+net.ipv4.tcp_keepalive_time = 200
+net.ipv4.tcp_keepalive_probes = 2
+net.ipv4.tcp_keepalive_intvl = 2
+EOF
+systemctl restart NetworkManager
+```
+
+</TabItem>
+
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -210,6 +227,31 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 
 ```bash
 dnf config-manager --enable ol8_addons
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
+<TabItem value="Alma 9" label="Alma 9">
+
+```bash
+dnf config-manager --enable highavailability
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+```bash
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+subscription-manager repos --enable rhel-9-for-x86_64-highavailability-rpms
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+```bash
+dnf config-manager --enable ol9_addons
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
@@ -348,6 +390,57 @@ max_allowed_packet=128M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/my.cnf.d/mariadb-server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
+
+```ini
+[server]
+server-id=1 # SET TO 1 FOR MASTER AND 2 FOR SLAVE
+#read_only
+log-bin=mysql-bin
+binlog-do-db=centreon
+binlog-do-db=centreon_storage
+innodb_flush_log_at_trx_commit=1
+sync_binlog=1
+binlog_format=MIXED
+slave_compressed_protocol=1
+slave_parallel_mode=conservative
+datadir=/var/lib/mysql
+pid-file=/var/lib/mysql/mysql.pid
+skip-slave-start
+log-slave-updates
+gtid_strict_mode=ON
+expire_logs_days=7
+ignore-db-dir=lost+found
+
+# Tuning standard Centreon
+innodb_file_per_table=1
+open_files_limit=32000
+key_buffer_size=256M
+sort_buffer_size=32M
+join_buffer_size=4M
+thread_cache_size=64
+read_buffer_size=512K
+read_rnd_buffer_size=256K
+max_allowed_packet=64M
+# Uncomment for 4 Go Ram
+#innodb_buffer_pool_size=512M
+# Uncomment for 8 Go Ram
+#innodb_buffer_pool_size=1G
+```
+
+In addition, replace the [mysqld] section with :
+
+```
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/var/lib/mysql/mysql.pid
 ```
 
 </TabItem>
@@ -545,6 +638,35 @@ systemctl restart mariadb
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/mariadb-server.cnf` file:
+
+* Primary node:
+
+```ini
+[server]
+server-id=1
+read_only
+log-bin=mysql-bin
+```
+
+* Secondary node:
+
+```ini
+[server]
+server-id=2
+read_only
+log-bin=mysql-bin
+```
+
+Then apply this change by restarting MariaDB on both nodes:
+
+```bash
+systemctl restart mariadb
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file:
@@ -711,6 +833,15 @@ chmod 775 /tmp/centreon-autodisco/
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+mkdir /tmp/centreon-autodisco/
+chown apache: /tmp/centreon-autodisco/
+chmod 775 /tmp/centreon-autodisco/
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -735,6 +866,14 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm 
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+```
+
+</TabItem>
 <TabItem value="Debian 11 " label="Debian 11">
 
 ```bash
@@ -749,6 +888,13 @@ systemctl disable centengine snmptrapd centreontrapd gorgoned cbd apache2 php8.1
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 By default, the `mysql` service is enabled in both systemd and system V perspectives, so you should make sure it is disabled:
+
+```bash
+chkconfig mysql off
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 chkconfig mysql off
@@ -818,6 +964,43 @@ pcs qdevice status net --full
 ```
 
 </TabItem>
+<TabItem value="Alma Linux 9" label="Alma Linux 9">
+
+```bash
+dnf config-manager --enable ha
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+```bash
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+```bash
+dnf config-manager --enable ol9_addons
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -835,6 +1018,14 @@ pcs qdevice status net --full
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening to the connections on Ipv4 only.
+
+```bash
+COROSYNC_QNETD_OPTIONS="-4"
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 COROSYNC_QNETD_OPTIONS="-4"
@@ -875,6 +1066,18 @@ pcs host auth \
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@'
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 On Debian, the cluster is autoconfigured with default values. In order to install our cluster, we need to destroy this setup using the following command:
@@ -903,6 +1106,17 @@ The following command creates the cluster. It must be run **only on one of the c
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    --force
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 pcs cluster setup \
@@ -979,6 +1193,25 @@ pcs resource create "ms_mysql" \
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mariadb-centreon \
+    config="/etc/my.cnf.d/mariadb-server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    binary="/usr/bin/mysqld_safe" \
+    node_list="ip-172-16-5-134 ip-172-16-5-135" \
+    replication_user="centreon-repl" \
+    replication_passwd='centreon-repl' \
+    test_user="centreon-repl" \
+    test_passwd="centreon-repl" \
+    test_table='centreon.host'
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -1015,6 +1248,18 @@ pcs resource promotable ms_mysql \
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -1039,6 +1284,19 @@ Some resources must be running on only one node at a time (`centengine`, `gorgon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+pcs resource create "php" \
+    systemd:php-fpm \
+    meta target-role="started" \
+    op start interval="0s" timeout="30s" \
+    stop interval="0s" timeout="30s" \
+    monitor interval="5s" timeout="30s" \
+    clone
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 pcs resource create "php" \
@@ -1101,6 +1359,20 @@ pcs resource create vip \
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+pcs resource create http \
+    systemd:httpd \
+    meta target-role="started" \
+    op start interval="0s" timeout="40s" \
+    stop interval="0s" timeout="40s" \
+    monitor interval="5s" timeout="20s" \
+    --group centreon \
+    --force
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 pcs resource create http \
@@ -1216,6 +1488,14 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
@@ -1236,6 +1516,38 @@ You can monitor the cluster's resources in real time using the `crm_mon -f` comm
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 15 16:35:47 2021
+  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 2 nodes configured
+  * 14 resource instances configured
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @CENTRAL_MASTER_NAME@ ]
+    * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 Cluster Summary:
@@ -1315,7 +1627,7 @@ When you do a `crm_mon -fr` and you have a resource that is disabled:
      Masters: [ @DATABASE_MASTER_NAME@ ]
      Slaves: [ @DATABASE_SLAVE_NAME@ ]
      Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
+ms_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
 ...
 ```
 
@@ -1328,7 +1640,7 @@ pcs resource enable @RESSOURCE_NAME@
 In our case:
 
 ```bash
-pcs resource enable vip_mysql
+pcs resource enable ms_mysql
 ```
 
 #### Checking the database replication thread
@@ -1358,6 +1670,13 @@ pcs resource restart ms_mysql-clone
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+pcs resource restart ms_mysql-clone
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash 
@@ -1373,6 +1692,18 @@ Normally, the two colocation constraints created during the setup should be the 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 Location Constraints:
