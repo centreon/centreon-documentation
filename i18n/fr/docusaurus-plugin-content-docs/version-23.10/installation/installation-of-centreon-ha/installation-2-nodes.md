@@ -981,7 +981,7 @@ pcs qdevice status net --full
 
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
+subscription-manager repos --enable rhel-9-for-x86_64-highavailability-rpms
 dnf install pcs corosync-qnetd
 systemctl start pcsd.service
 systemctl enable pcsd.service
@@ -1509,7 +1509,6 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
-### Lancement du Cluster et contrôle de l'état des ressources
 
 ### Contrôle de l'état du cluster
 
