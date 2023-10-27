@@ -956,6 +956,10 @@
         {
           "type": "doc",
           "id": "version-22.10/administration/postfix"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.10/administration/sql-proxy"
         }
       ]
     },
