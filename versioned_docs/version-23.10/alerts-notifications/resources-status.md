@@ -136,7 +136,6 @@ You can filter the list of resources according to a number of predefined criteri
     - [**Host severity**](../monitoring/categories.md)
     - [**Service category**](../monitoring/categories.md)
     - [**Service severity**](../monitoring/categories.md)
-    - **Metaservice**
     - You can add a comment in the **Information** field.
     - [**Status type**](concepts.md#status-types): **Hard** or **Soft**.
 
