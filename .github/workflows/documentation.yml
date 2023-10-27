@@ -3,11 +3,6 @@ name: documentation
 on:
   workflow_dispatch:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
   push:
     branches:
       - staging
@@ -183,22 +178,19 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
         with:
           cmd: install --frozen-lockfile
 
       - name: Build documentation
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.environment, github.event.pull_request.number) || '' }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Store build in cache
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: actions/cache/save@v3
         with:
           path: "./build"
@@ -207,7 +199,7 @@ jobs:
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
     needs: [get-versions, build]
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, infra]
 
     strategy:
       fail-fast: false
@@ -221,7 +213,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Restore build from cache
-        if: ${{ github.event.action != 'closed' }}
         uses: actions/cache/restore@v3
         with:
           path: "./build"
@@ -229,22 +220,35 @@ jobs:
           fail-on-cache-miss: true
 
       - name: Reduce media size
-        if: ${{ github.event.action != 'closed' }}
         run: |
           find ./build -iname \*.mp4 -exec sh -c '> {}' \;
           find ./build -iname \*.pdf -exec sh -c '> {}' \;
           find ./build -iname \*.xlsx -exec sh -c '> {}' \;
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./build
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview/${{ matrix.environment }}
-          action: auto
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
+
+      - name: Deploy to https://docs-preview-int.centreon.com
+        run: |
+          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
+
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
+
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/*"
+        shell: bash
 
   comment-preview:
-    if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
     needs: [get-versions, deploy-preview]
     runs-on: ubuntu-22.04
 
@@ -256,14 +260,13 @@ jobs:
         with:
           script: |
             const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
-              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
+              return `:rocket: Deployed preview to https://docs-preview-int.centreon.com/previews/pr-${{ github.event.pull_request.number }}/${environment}/`;
             })
 
             core.exportVariable('datetime', new Date().toUTCString());
             core.exportVariable('preview_urls',preview_urls.join('\n'));
 
       - name: Leave a comment after deployment
-        if: ${{ github.event.action != 'closed' }}
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: pr-preview
@@ -274,10 +277,10 @@ jobs:
 
             ${{ env.preview_urls }}
 
-            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+            at ${{ env.datetime }}
 
 
-            > **_NOTE:_**  Deployment can take a few minutes before preview is accessible
+            > **_NOTE:_**  Previews are deleted after 30 days of inactivity
             "
 
   deploy-staging:

@@ -69,12 +69,12 @@ Then click **Add**, and select it in the environments list.
 > You can obtain your "major.minor" version number using the following command:
 > `curl -s http://127.0.0.1:80/centreon/api/latest/platform/versions | jq '.web '`
 >
-> Here is an exemple of output for this command:
+> Here is an example of output for this command:
 >
 > {
 >   "version": "23.10.6",
 >   "major": "23",
->   "minor": "04",
+>   "minor": "10",
 >   "fix": "6"
 > }
 >
