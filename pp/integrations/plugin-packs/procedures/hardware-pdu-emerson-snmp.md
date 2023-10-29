@@ -81,7 +81,7 @@ SNMP port.
 yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Emerson PDU** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Emerson PDU** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -98,7 +98,7 @@ yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 yum install centreon-pack-hardware-pdu-emerson-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Emerson PDU** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Emerson PDU** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

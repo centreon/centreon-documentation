@@ -110,7 +110,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Centreon Poller** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Centreon Poller** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -127,7 +127,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller centreon-plu
 yum install centreon-pack-applications-monitoring-centreon-poller
  ```
 
-3. On the Centreon Web interface, install the **Centreon Poller** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Centreon Poller** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

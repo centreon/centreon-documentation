@@ -58,7 +58,7 @@ apt install centreon-plugin-network-cisco-standard-snmp
 
 ### On the central server
 
-In the web interface, go to **Configuration > Monitoring Connectors Manager**, search for the **Cisco standard** Monitoring Connector; and install it:
+In the web interface, go to **Configuration > Monitoring Connector Manager**, search for the **Cisco standard** Monitoring Connector; and install it:
 
 ![image](../assets/getting-started/quick_start_cisco_0.gif)
 

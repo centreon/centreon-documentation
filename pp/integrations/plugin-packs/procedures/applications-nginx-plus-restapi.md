@@ -75,7 +75,7 @@ More infomation is avaible in official Nginx documentation : https://docs.nginx.
 yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Nginx Plus* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Nginx Plus* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -92,7 +92,7 @@ yum install centreon-plugin-Applications-Nginx-Plus-Restapi.noarch
 yum install centreon-pack-applications-nginx-plus-restapi.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Nginx Plus* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Nginx Plus* Monitoring Connector
 
 </TabItem>
 </Tabs>

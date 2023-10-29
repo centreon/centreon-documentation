@@ -65,7 +65,7 @@ The Poller should be able to perform SNMP requests toward the Phoenixtec device 
 yum install centreon-plugin-Hardware-Ups-Phoenixtec-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Phoenixtec UPS SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Phoenixtec UPS SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -82,7 +82,7 @@ yum install centreon-plugin-Hardware-Ups-Phoenixtec-Snmp
 yum install centreon-pack-hardware-ups-phoenixtec-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Phoenixtec UPS SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Phoenixtec UPS SNMP* Pack
 
 </TabItem>
 </Tabs>

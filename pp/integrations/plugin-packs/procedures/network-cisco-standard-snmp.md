@@ -148,7 +148,7 @@ Your centreon server must be able to reach the Cisco device over UDP/161 SNMP po
 yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
-2. Install The 'Cisco-Standard-Snmp' Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+2. Install The 'Cisco-Standard-Snmp' Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -165,7 +165,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 yum install centreon-pack-network-cisco-standard-snmp
 ```
 
-3. Install The 'Cisco-Standard-Snmp' Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+3. Install The 'Cisco-Standard-Snmp' Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

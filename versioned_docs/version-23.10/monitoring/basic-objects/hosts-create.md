@@ -15,7 +15,7 @@ You can:
 
 The easiest way to monitor a host is to assign it a [template](hosts-templates.md) from a [Monitoring Connector](../pluginpacks.md): 
 
-1. To find out the name of the template for a specific Monitoring Connector, go to **Configuration > Monitoring Connectors Manager**. Search for the Monitoring Connector you want, and then click the "i" icon at the bottom left of the pack.
+1. To find out the name of the template for a specific Monitoring Connector, go to **Configuration > Monitoring Connector Manager**. Search for the Monitoring Connector you want, and then click the "i" icon at the bottom left of the pack.
 
     ![image](../../assets/configuration/pluginpacks/doc.png)
 

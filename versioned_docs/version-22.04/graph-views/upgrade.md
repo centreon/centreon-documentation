@@ -65,13 +65,14 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 Follow this procedure to upgrade your Centreon MAP server:
 
-1. Update the **centreon-release** package:
+1. Update the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
 2. Install Centreon Business repository, you can find it on the
@@ -87,7 +88,8 @@ dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 2. Install Centreon Business repository, you can find it on the
