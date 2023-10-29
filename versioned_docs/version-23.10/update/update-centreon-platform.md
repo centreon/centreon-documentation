@@ -245,3 +245,33 @@ and choose the **Restart** method for the Engine process.
   ```shell
   systemctl restart centengine gorgoned
   ```
+
+## Unattended update
+
+You can perform an unattended update of your platform using the **unattended.sh** script.
+
+1. Download the script using the following command:
+
+```shell
+curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+```
+
+2. Run the script:
+
+* For a central server:
+
+```shell
+bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+* For a remote server:
+
+```shell
+bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+* For a poller:
+
+```shell
+bash unattended.sh update -t poller -v 23.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```

@@ -250,3 +250,33 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   ```shell
   systemctl restart centengine gorgoned
   ```
+
+## Mise à jour silencieuse
+
+Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilisant le script **unattended.sh**.
+
+1. Téléchargez le script avec la commande suivante :
+
+```shell
+curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+```
+
+2. Lancez le script :
+
+* Pour un serveur central :
+
+```shell
+bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+* Pour un serveur distant :
+
+```shell
+bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+* Pour un collecteur :
+
+```shell
+bash unattended.sh update -t poller -v 23.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
