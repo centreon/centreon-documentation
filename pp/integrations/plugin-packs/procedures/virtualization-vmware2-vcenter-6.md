@@ -132,7 +132,7 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware vCenter v6' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page 
+2. Install the 'Vmware vCenter v6' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -149,7 +149,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-pack-virtualization-vmware2-vcenter-6.noarch
 ```
 
-3. Install the 'Vmware  vCenter v6' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page 
+3. Install the 'Vmware  vCenter v6' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page 
 
 </TabItem>
 </Tabs>

@@ -62,7 +62,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure App Configuration* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Azure App Configuration* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,7 +79,7 @@ yum install centreon-plugin-Cloud-Azure-DevTools-AppConfiguration-Api
 yum install centreon-pack-cloud-azure-devtools-appconfiguration.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure App Configuration* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Azure App Configuration* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

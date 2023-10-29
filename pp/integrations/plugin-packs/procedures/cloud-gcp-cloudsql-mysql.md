@@ -120,7 +120,7 @@ should be readable by centreon-engine poller.
 yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google CloudSQL MySQL* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google CloudSQL MySQL* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -137,7 +137,7 @@ yum install centreon-plugin-Cloud-Gcp-CloudSQL-MySQL-Api
 yum install centreon-pack-cloud-gcp-cloudsql-mysql
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google CloudSQL MySQL* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google CloudSQL MySQL* Monitoring Connector
 
 </TabItem>
 </Tabs>

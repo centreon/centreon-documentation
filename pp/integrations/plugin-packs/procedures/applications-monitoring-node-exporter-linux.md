@@ -103,7 +103,7 @@ To install Node exporter on your Linux server please refer to this documentation
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Linux Metrics** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Node Exporter Linux Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -120,7 +120,7 @@ yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 yum install centreon-pack-applications-monitoring-node-exporter-linux
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Linux Metrics** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Node Exporter Linux Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

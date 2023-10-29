@@ -46,7 +46,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -66,7 +66,7 @@ to make all the dependencies available:
 yum install centreon-pack-cloud-azure\*
 ```
 
-3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
