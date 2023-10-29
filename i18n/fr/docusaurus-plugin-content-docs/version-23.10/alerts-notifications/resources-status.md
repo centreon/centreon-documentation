@@ -23,6 +23,14 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Vue par hôte/par service
+
+Utilisez les boutons **Afficher la vue** au-dessus de la liste des ressources pour définir la façon dont la liste sera affichée. 
+
+- **Tous**: Affiche une liste complète de tous les types de ressources dans la même vue (hôtes, services, métaservices, services de type Anomaly Detection).
+- **Afficher par hôte**: Affiche la liste de tous les hôtes. Par défaut, pour chaque hôte, un résumé des statuts de tous les services est affiché dans la colonne **Services**. Cliquez sur la flèche à gauche du résumé pour étendre la zone et afficher le détail de tous les services rattachés à l'hôte. Les métaservices ne sont pas inclus dans cette vue.
+- **Afficher par service**: Affiche la liste de tous les services, et indique l'hôte auquel ils sont rattachés dans la colonne **Hôte**. La liste inclut les métaservices et les services de type Anomaly Detection.
+
 ### Vue compacte ou étendue
 
 Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifiant la présentation visuelle des lignes dans les tableaux.
@@ -113,30 +121,31 @@ Signification des filtres :
 
 Vous pouvez filtrer la liste des ressources selon un certain nombre de critères prédéfinis.
 
-1. Cliquez sur l'icône **Options de recherche** :![image](../assets/alerts/resources-status/search-options-icon.png)
+1. Cliquez sur l'icône **Options de filtre** :![image](../assets/alerts/resources-status/search-options-icon.png)
 
     Une pop-in apparaît, listant les critères suivants :
 
-    - **Type** : afficher uniquement les hôtes, les services, ou les métaservices. Vous pouvez également filtrer sur les services de type [Anomaly Detection](../monitoring/anomaly-detection.md) si le module est installé.
-    - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
-    - [**Statut**](concepts.md) : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
-    - [**Type de statut**](concepts.md#types-de-statuts): SOFT ou HARD
+    - **Hôte :** sélectionnez un hôte dans la liste déroulante et les statuts à afficher (**Disponible**, **Indisponible**, **Injoignable**, **En attente**).
     - **Groupes d'hôtes**
+    - **Service :** sélectionnez un service dans la liste déroulante et les statuts à afficher (**OK**, **Alerte**, **Critique**, **Inconnu**, **En attente**).
     - **Groupe de services**
-    - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
+    - **Collecteurs**
+     - **État :** y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée).
+
+2. Cliquez sur **Plus de filtres** pour afficher plus d'options :
+    
     - [**Catégorie d'hôte**](../monitoring/categories.md)
+    - [**Criticité d'hôte**](../monitoring/categories.md)
     - [**Catégorie de service**](../monitoring/categories.md)
-    - [**Criticité d'hôte**](../monitoring/categories.md): nom de la criticité de l'hôte
-    - **Niveau de criticité d'hôte**
-    - [**Criticité du service**](../monitoring/categories.md): nom de la criticité du service
-    - **Niveau de criticité du service**
-  
-2. Cliquez sur un critère de recherche : une liste de toutes les valeurs possibles s'affiche.
+    - [**Criticité du service**](../monitoring/categories.md)
+    - Vous pouvez ajouter un commentaire dans le champ **Informations**.
+    - [**Type de statut**](concepts.md#types-de-statuts) : **Hard** ou **Soft**.
 
-3. Sélectionnez les valeurs désirées. La barre de recherche affiche le texte correspondant au filtre appliqué, et un chiffre indique à gauche du critère le nombre de valeurs sélectionnées.
-Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
-
-4. Cliquez sur **Rechercher**, ou cliquez en dehors de la pop-up. La liste des ressources est filtrée.
+3. Vous pouvez cliquer directement sur le bouton **Recherche** ou enregistrer votre filtre :
+   - Cliquez sur **Save as new** pour nommer et enregistrer votre filtre. Vous pourrez alors y accéder dans la liste **Mes filtres**.
+   - Cliquez sur **Save as** si vous êtes déjà en train de modifier un filtre existant.
+   
+   La liste des ressources est maintenant filtrée.
 
 ### Barre de recherche
 

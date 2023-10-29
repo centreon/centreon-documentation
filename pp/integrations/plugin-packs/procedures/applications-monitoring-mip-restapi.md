@@ -54,7 +54,7 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 yum install -y centreon-pack-applications-monitoring-mip-restapi`
 ```
 
-3. Install the Monitoring Connector through the **Configuration \> Monitoring Connectors Manager** menu:
+3. Install the Monitoring Connector through the **Configuration \> Monitoring Connector Manager** menu:
 
 ![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 

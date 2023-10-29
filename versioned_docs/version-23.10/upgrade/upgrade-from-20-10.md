@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 23.04.
+to version 23.10.
 
-You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -64,7 +64,8 @@ servers:
 3. Install the new repository:
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
 
 </TabItem>
@@ -88,7 +89,7 @@ rm -f ./mariadb_repo_setup
 
 ### Upgrade PHP
 
-Centreon 23.04 uses PHP in version 8.1.
+Centreon 23.10 uses PHP in version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -143,7 +144,7 @@ dnf module install php:remi-8.1
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 23.04.
+If you have installed Business extensions, update the Business repository to version 23.10.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -298,7 +299,8 @@ Run the following command on the dedicated DBMS server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
 
 </TabItem>
@@ -454,7 +456,8 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
 
 </TabItem>

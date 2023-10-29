@@ -76,7 +76,7 @@ Please refer to their official documentation: https://developer.dell.com/apis/55
 yum install centreon-plugin-Hardware-Servers-Dell-Vxm-Restapi
 ```
 
-2. On the Centreon web interface, install the **Dell VxRail Manager Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Dell VxRail Manager Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -94,7 +94,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Vxm-Restapi
 yum install centreon-pack-hardware-servers-dell-vxm-restapi
 ```
 
-3. On the Centreon web interface, install the **Dell VxRail Manager Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Dell VxRail Manager Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

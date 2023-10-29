@@ -141,7 +141,7 @@ usermod -a -G haclient centreon-engine
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -158,7 +158,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

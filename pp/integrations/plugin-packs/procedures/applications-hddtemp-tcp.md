@@ -48,7 +48,7 @@ distributions make it available as a standard package.
 yum install centreon-plugin-Applications-Hddtemp
 ```
 
-2. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-Hddtemp
 yum install centreon-pack-applications-hddtemp-tcp
 ```
 
-3. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

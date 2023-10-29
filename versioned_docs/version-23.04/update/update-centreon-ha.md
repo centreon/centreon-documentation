@@ -73,7 +73,7 @@ The Centreon extensions are also to be updated *via* the WUI, from the "Administ
 
 ### Updating the Monitoring Connectors
 
-In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated by the `yum update` command on the central server), the Monitoring Connectors must be updated in the WUI too from the **Configuration > Monitoring Connectors Manager** menu.
+In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated by the `yum update` command on the central server), the Monitoring Connectors must be updated in the WUI too from the **Configuration > Monitoring Connector Manager** menu.
 
 ### Updating the pollers
 
