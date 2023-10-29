@@ -759,9 +759,11 @@ outputs.
     its hosts and services marked as *unknown*. Default is 300 seconds.
 
   - Connections count
-    Number of connections to the database maintained by this output. This allows
-    broker to write data in parallel on several connections. This feature stays
-    experimental as it can lock the database writes.
+    Number of connections to the database maintained by this output. This allows broker to write data in parallel using up to 3 connections:
+
+    * 1: all the database traffic goes through only one connection. It is fine for small platforms.
+    * 2: one connection is dedicated to the traffic (BULK INSERT statements) towards the **data_bin** and **logs** tables and the second one handles the rest.
+    * 3: two connections are dedicated to the traffic (BULK INSERT statements) towards the **data_bin** and **logs** tables and the third one handles the rest. We recommend this setting for large platforms.
 
 #### Lua outputs
 

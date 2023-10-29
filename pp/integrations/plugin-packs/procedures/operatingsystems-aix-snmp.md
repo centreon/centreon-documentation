@@ -151,7 +151,7 @@ SNMP port.
 yum install centreon-plugin-Operatingsystems-Aix-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AIX SNMP** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AIX SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -168,7 +168,7 @@ yum install centreon-plugin-Operatingsystems-Aix-Snmp
 yum install centreon-pack-operatingsystems-aix-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AIX SNMP** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AIX SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

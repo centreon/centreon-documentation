@@ -70,7 +70,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -87,7 +87,7 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
-3. On the centreon Web interface, install the *Nimble SNMP* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the centreon Web interface, install the *Nimble SNMP* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

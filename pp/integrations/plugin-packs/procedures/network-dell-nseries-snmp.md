@@ -119,7 +119,7 @@ port.
 yum install centreon-plugin-Network-Dell-Nseries-Snmp
 ```
 
-2. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -137,7 +137,7 @@ yum install centreon-plugin-Network-Dell-Nseries-Snmp
 yum install centreon-pack-network-dell-nseries-snmp
 ```
 
-3. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Dell N-series SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

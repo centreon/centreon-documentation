@@ -12,21 +12,7 @@ the Centreon command line API.
 
 ## Permissions
 
-To perform API calls using a specific Centreon user, 
-you need permissions.
-
-There are two types of permission:
-
-You can give access to the configuration for a specific Centreon user. To do this,
-you must edit the user settings in **Configuration \> Users \>
-Contacts/Users**, edit user, and on the second tab check the box **Reach API
-Configuration**.
-
-You can give access to the realtime for a specific Centreon user. To do this, you
-must edit the user settings in **Configuration \> Users \>
-Contacts/Users**, edit user, and on the second tab check the box **Reach API Realtime**.
-
-If you want both, then check **both** checkboxes
+To perform API calls, you must be an administrator.
 
 ## Authentication
 

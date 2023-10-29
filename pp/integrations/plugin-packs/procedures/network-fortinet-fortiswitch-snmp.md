@@ -112,7 +112,7 @@ port.
 yum install centreon-plugin-Network-Fortinet-Fortiswitch-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Fortinet FortiSwitch SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Fortinet FortiSwitch SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -129,7 +129,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiswitch-Snmp
 yum install centreon-pack-network-fortinet-fortiswitch-snmp
 ```
 
-3. On the Centreon Web interface, install the **Fortinet FortiSwitch SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Fortinet FortiSwitch SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

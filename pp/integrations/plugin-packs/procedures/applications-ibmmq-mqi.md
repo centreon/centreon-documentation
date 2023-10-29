@@ -70,7 +70,7 @@ official IBM documentation:
 yum install centreon-plugin-Applications-Ibmmq-Mqi
 ```
 
-2. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -87,7 +87,7 @@ yum install centreon-plugin-Applications-Ibmmq-Mqi
 yum install centreon-pack-applications-ibmmq-mqi
 ```
 
-3. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **IBM MQ MQI** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

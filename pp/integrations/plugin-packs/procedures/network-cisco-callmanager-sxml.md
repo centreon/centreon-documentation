@@ -45,7 +45,7 @@ https://www.cisco.com/c/en/us/support/docs/unified-communications/unified-commun
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Callmanager SXML* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco Callmanager SXML* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -62,7 +62,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 yum install centreon-pack-network-cisco-callmanager-sxml.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Callmanager SXML* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco Callmanager SXML* Monitoring Connector
 
 </TabItem>
 </Tabs>

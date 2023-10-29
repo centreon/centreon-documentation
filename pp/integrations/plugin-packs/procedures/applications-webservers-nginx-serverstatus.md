@@ -92,7 +92,7 @@ You can now check the result by accessing the URL
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -109,7 +109,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 
-3. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

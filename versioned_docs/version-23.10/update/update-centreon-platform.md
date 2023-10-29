@@ -1,11 +1,11 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 23.04 platform
+title: Update a Centreon 23.10 platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to update your Centreon 23.04 platform (i.e. switch from version 23.04.x to version 23.04.y).
+This chapter describes how to update your Centreon 23.10 platform (i.e. switch from version 23.10.x to version 23.10.y).
 
 ## Perform a backup
 
@@ -111,14 +111,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 23.04
+   -  version: 23.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.04/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -245,3 +245,33 @@ and choose the **Restart** method for the Engine process.
   ```shell
   systemctl restart centengine gorgoned
   ```
+
+## Unattended update
+
+You can perform an unattended update of your platform using the **unattended.sh** script.
+
+1. Download the script using the following command:
+
+```shell
+curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+```
+
+2. Run the script:
+
+* For a central server:
+
+```shell
+bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+* For a remote server:
+
+```shell
+bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
+
+* For a poller:
+
+```shell
+bash unattended.sh update -t poller -v 23.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+```
