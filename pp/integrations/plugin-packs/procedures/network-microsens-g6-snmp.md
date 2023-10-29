@@ -138,7 +138,7 @@ port.
 yum install centreon-plugin-Network-Microsens-G6-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Microsens G6 SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Microsens G6 SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -155,7 +155,7 @@ yum install centreon-plugin-Network-Microsens-G6-Snmp
 yum install centreon-pack-network-microsens-g6-snmp
 ```
 
-3. On the Centreon Web interface, install the **Microsens G6 SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Microsens G6 SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

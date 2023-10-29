@@ -146,7 +146,7 @@ The Poller should be able to perform SNMP requests toward the Ubiquiti device ov
 yum install centreon-plugin-Network-Ubiquiti-Unifi-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ubiquiti UniFi SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Ubiquiti UniFi SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -163,7 +163,7 @@ yum install centreon-plugin-Network-Ubiquiti-Unifi-Snmp
 yum install centreon-pack-network-ubiquiti-unifi-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ubiquiti UniFi SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Ubiquiti UniFi SNMP* Pack
 
 </TabItem>
 </Tabs>

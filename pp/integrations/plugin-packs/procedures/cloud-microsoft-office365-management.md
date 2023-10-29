@@ -136,7 +136,7 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -154,7 +154,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
-3. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

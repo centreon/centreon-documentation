@@ -48,6 +48,7 @@ servers:
 3. Install the new repository:
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -314,7 +315,7 @@ If the Centreon BAM module is installed, refer to the
 with the following:
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
    Then you can upgrade all other commercial extensions.
@@ -343,6 +344,7 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 

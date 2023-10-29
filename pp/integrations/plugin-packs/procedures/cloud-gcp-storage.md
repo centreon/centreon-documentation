@@ -73,7 +73,7 @@ should be readable by centreon-engine poller.
 yum install centreon-plugin-Cloud-Gcp-Storage-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Storage* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google Storage* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -90,7 +90,7 @@ yum install centreon-plugin-Cloud-Gcp-Storage-Api
 yum install centreon-pack-cloud-gcp-storage
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Storage* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google Storage* Monitoring Connector
 
 </TabItem>
 </Tabs>

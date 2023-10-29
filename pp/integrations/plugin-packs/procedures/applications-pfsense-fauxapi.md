@@ -85,7 +85,7 @@ More infomation is avaible in official Pfsense Fauxpi documentation : https://gi
 yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pfsense Fauxapi* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Pfsense Fauxapi* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -102,7 +102,7 @@ yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 yum install centreon-pack-applications-pfsense-fauxapi.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pfsense Fauxapi* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Pfsense Fauxapi* Monitoring Connector
 
 </TabItem>
 </Tabs>

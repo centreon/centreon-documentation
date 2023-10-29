@@ -9,12 +9,13 @@ Pour pouvoir installer Centreon sur des serveurs sans accès internet, créez un
 
 ## Créer une copie locale du dépôt Centreon
 
-1. Installez **centreon-release** sur votre serveur miroir.
+1. Installez le dépôt Centreon sur votre serveur miroir.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -30,6 +31,7 @@ rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update

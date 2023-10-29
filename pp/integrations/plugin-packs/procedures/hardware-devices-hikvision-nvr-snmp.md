@@ -75,7 +75,7 @@ port.
 yum install centreon-plugin-Hardware-Devices-Hikvision-Nvr-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Hikvision NVR SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Hikvision NVR SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -92,7 +92,7 @@ yum install centreon-plugin-Hardware-Devices-Hikvision-Nvr-Snmp
 yum install centreon-pack-hardware-devices-hikvision-nvr-snmp
 ```
 
-3. On the Centreon Web interface, install the **Hikvision NVR SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Hikvision NVR SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>
