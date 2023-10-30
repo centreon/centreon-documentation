@@ -7,5 +7,5 @@ In this chapter, you will find the global **Centreon Platform 23.10** release no
 
 To access detailed release notes by component, use the following sections:
 
-- [Centreon Open Source](centreon-os.md)
-- [Commercial extensions](centreon-commercial-extensions.md)
+- [Centreon Open Source](centreon-os.mdx)
+- [Commercial extensions](centreon-commercial-extensions.mdx)
