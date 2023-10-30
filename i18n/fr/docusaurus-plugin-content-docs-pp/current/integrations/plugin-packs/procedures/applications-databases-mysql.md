@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | Connection-Time    | App-DB-MySQL-Connection-Time-custom    | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                                |
 | Connections-Number | App-DB-MySQL-Connections-Number-custom | Contrôle permettant de vérifier le nombre de connexions ouvertes                                                                |
-| Database-Size      | App-DB-MySQL-Database-Size-custom      | Contrôle permettant de vérifier la taille des bases de données. Aucune alerte par défaut                                      |
+| Database-Size      | App-DB-MySQL-Database-Size-custom      | Contrôle permettant de vérifier la taille des bases de données. Aucunes alertes par défaut                                      |
 | Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache-custom    | Contrôle permettant de vérifier le taux de succès des tables MyISAM                                                             |
 | Open-Files         | App-DB-MySQL-Open-Files-custom         | Contrôle permettant de vérifier le nombre de fichiers ouverts                                                                   |
 | Queries            | App-DB-MySQL-Queries-custom            | Contrôle permettant de vérifier le nombre moyen de requêtes exécutées par seconde                                               |
@@ -39,11 +39,11 @@ Le connecteur apporte les modèles de service suivants
 | Backup               | App-DB-MySQL-Backup-custom                       | Contrôle permettant de vérifier les sauvegardes                                                                                    |
 | Innodb-Bufferpool    | App-DB-MySQL-Innodb-Bufferpool-custom            | Contrôle permettant de vérifier le taux de succès du tampon InnoDB                                                                 |
 | Long-Queries         | App-DB-MySQL-Long-Queries-custom                 | Contrôle permettant de vérifier les requêtes courantes longues                                                                     |
-| MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          | Contrôle permettant de vérifier l'état de la réplication entre deux bases de données                                                                                                                                   |
-| Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateur                                                       |
+| MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          |                                                                                                                                    |
+| Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateurs                                                        |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate-custom               | Contrôle permettant de vérifier le taux d'utilisation du 'query cache'                                                             |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                        |
-| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères                                    |
+| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                    |
 | Uptime               | App-DB-MySQL-Uptime-custom                       | Contrôle permettant d'indiquer le temps de fonctionnement du serveur depuis son dernier démarrage. Ce temps est exprimé en minutes |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -363,8 +363,8 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro              | Description                                                                                         | Valeur par défaut                                     | Obligatoire |
 |:-------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTERDATABASE     | Filter by database name (can be a regexp)                                                         | ^(?!(information\_schema\|performance\_schema\|test)) |             |
-| FILTERPERFDATA     | Filter by metric name                                                                    | database                                              |             |
+| FILTERDATABASE     | Filter database to checks (Can be a regexp)                                                         | ^(?!(information\_schema\|performance\_schema\|test)) |             |
+| FILTERPERFDATA     |                                                                                                     | database                                              |             |
 | WARNINGDBFREE      | Thresholds (                                                                                        |                                                       |             |
 | CRITICALDBFREE     | Thresholds (                                                                                        |                                                       |             |
 | WARNINGDBUSAGE     | Thresholds (                                                                                        |                                                       |             |
@@ -421,10 +421,10 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | CRITICALSLAVELATENCY      | Thresholds                                                                                                                                                                                           |                                                   |             |
 | CRITICALSLAVESRUNNING     | Thresholds                                                                                                                                                                                           | 1:1                                               |             |
 | WARNINGSLAVESRUNNING      | Thresholds                                                                                                                                                                                           |                                                   |             |
-| WARNINGTHREADIOSTATUS     | Thresholds                                                                                                                                                                                           |                                                   |             |
-| CRITICALTHREADIOSTATUS    | Thresholds                                                                                                                                                                                           |                                                   |             |
-| WARNINGTHREADSQLSTATUS    | Thresholds                                                                                                                                                                                           |                                                   |             |
-| CRITICALTHREADSQLSTATUS   | Thresholds                                                                                                                                                                                           |                                                   |             |
+| WARNINGTHREADIOSTATUS     |                                                                                                                                                                                                      |                                                   |             |
+| CRITICALTHREADIOSTATUS    |                                                                                                                                                                                                      |                                                   |             |
+| WARNINGTHREADSQLSTATUS    |                                                                                                                                                                                                      |                                                   |             |
+| CRITICALTHREADSQLSTATUS   |                                                                                                                                                                                                      |                                                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                  | --verbose                                         |             |
 
 </TabItem>
@@ -530,7 +530,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--host=10.0.0.1 \
 	--username='USERNAME' \
 	--password='PASSWORD' \
-	--port='3306'  \
+	--port=''  \
 	--mode=queries \
 	--warning-total='' \
 	--critical-total='' 
@@ -671,7 +671,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                            |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------|
-| --filter-database        | Filter by database name (can be a regexp).                                                                           |
+| --filter-database        | Filter database to checks (Can be a regexp).                                                                           |
 | --filter-table           | Filter table name (can be a regexp).                                                                                   |
 | --warning-* --critical-* | Thresholds (Can be: 'total-usage', 'total-free', 'db-usage', 'db-free', 'table-usage', 'table-free', 'table-frag').    |
 
