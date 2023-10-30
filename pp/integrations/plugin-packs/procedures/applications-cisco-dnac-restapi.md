@@ -59,7 +59,7 @@ E.g: ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-
 yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco DNA Center Rest API* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco DNA Center Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -76,7 +76,7 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 yum install centreon-pack-applications-cisco-dnac-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco DNA Center Rest API* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco DNA Center Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>

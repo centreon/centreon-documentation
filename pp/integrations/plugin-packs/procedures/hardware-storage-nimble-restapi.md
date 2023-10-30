@@ -88,7 +88,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -105,7 +105,7 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Restapi.noarch
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

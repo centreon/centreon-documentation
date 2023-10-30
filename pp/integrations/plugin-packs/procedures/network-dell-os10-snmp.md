@@ -128,7 +128,7 @@ https://www.dell.com/support/manuals/fr/fr/frbsdt1/networking-z9100/os10-enterpr
 yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Dell OS10 SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Dell OS10 SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -145,7 +145,7 @@ yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
 yum install centreon-pack-network-dell-os10-snmp.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Dell OS10 SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Dell OS10 SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

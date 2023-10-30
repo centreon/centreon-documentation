@@ -117,7 +117,7 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
     Une pop-in apparaît, listant les critères suivants :
 
-    - **Type** : afficher uniquement les hôtes, les services, ou les métaservices. Vous pouvez également filtrer sur les services de type [Anomaly Detection](../monitoring/anomaly-detection.md) si le module est installé.
+    - **Type** : afficher uniquement les hôtes, les services, ou les métaservices.
     - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
     - [**Statut**](concepts.md) : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
     - [**Type de statut**](concepts.md#types-de-statuts): SOFT ou HARD

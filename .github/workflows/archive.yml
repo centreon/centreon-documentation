@@ -20,13 +20,12 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-
-      - name: Install yarn
-        run: npm install -g yarn
+          node-version: 20
 
       - name: Install dependencies
-        run: yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --frozen-lockfile
 
       - name: Redirect pp and cloud links to last documentation
         run: |
@@ -35,7 +34,7 @@ jobs:
         shell: bash
 
       - name: Build documentation for ${{ github.event.inputs.version }}
-        run: VERSION="${{ github.event.inputs.version }}" yarn build
+        run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Store build archived doc in cache
         uses: actions/cache/save@v3

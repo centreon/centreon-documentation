@@ -86,7 +86,7 @@ To monitor your HP StoreOnce, a user with read privileges is required. Please re
 yum install centreon-plugin-Hardware-Storage-Hp-Storeonce4-Restapi
 ```
 
-2. On the Centreon web interface, install the **HP StoreOnce 4.x Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **HP StoreOnce 4.x Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-Storeonce4-Restapi
 yum install centreon-pack-hardware-storage-hp-storeonce4-restapi
 ```
 
-3. On the Centreon web interface, install the **HP StoreOnce 4.x Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **HP StoreOnce 4.x Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

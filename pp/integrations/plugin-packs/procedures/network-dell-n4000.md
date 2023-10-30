@@ -1,10 +1,6 @@
 ---
 id: network-dell-n4000
-title: Dell N4000 (Deprecated)
+title: Dell N4000 (deprecated)
 ---
 
-## **WARNING** This Pack is deprecated
-
-This Pack has been deprecated and replaced by `Dell N-series SNMP`. 
-
-Refer to [this procedure](network-dell-nseries-snmp.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Dell N-series SNMP](network-dell-nseries-snmp.md) connector.

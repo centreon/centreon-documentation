@@ -1,7 +1,9 @@
 ---
 id: customization
-title: Customizing the use of Centreon
+title: Changing your Centreon account's settings
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 You can optimize the use of Centreon by using the following customization features:
 
@@ -36,6 +38,8 @@ Then click on **Save**. Your interface is now translated.
 > the web interface. For more details go to  [How to translate Centreon](../../developer/developer-translate-centreon.md).
 
 ## Reset your password
+
+Only local accounts can change their password via the Centreon interface. If you connect using an identity provider, your password is the one you defined with your identity provider.
 
 ### Reset your password before expiration
 
