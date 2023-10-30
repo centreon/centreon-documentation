@@ -2,8 +2,8 @@ name: Create Dependabot Ticket on Jira
 
 on:
   pull_request:
-    types: [ opened, reopened ]
-    branches: [ master ]
+    types: [opened, reopened]
+    branches: [master]
 
 env:
   JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
