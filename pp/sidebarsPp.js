@@ -1124,10 +1124,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-mysql'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-oracle'
         },
         {
