@@ -97,8 +97,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                       | Unité |
 |:-----------------------------------------------|:------|
-| database.bufferpool.hitrate.average.percentage |       |
-| database.bufferpool.hitrate.delta.percentage   |       |
+| database.bufferpool.hitrate.average.percentage | %     |
+| database.bufferpool.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
@@ -124,8 +124,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                     | Unité |
 |:---------------------------------------------|:------|
-| database.keycache.hitrate.average.percentage |       |
-| database.keycache.hitrate.delta.percentage   |       |
+| database.keycache.hitrate.average.percentage | %     |
+| database.keycache.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -146,8 +146,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                   | Unité |
 |:-------------------------------------------|:------|
-| database.qcache.hitrate.average.percentage |       |
-| database.qcache.hitrate.delta.percentage   |       |
+| database.qcache.hitrate.average.percentage | %     |
+| database.qcache.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
@@ -533,7 +533,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--port=''  \
 	--mode=queries \
 	--warning-total='' \
-	--critical-total='' 
+	--critical-total=''
 ```
 
 La commande devrait retourner un message de sortie similaire à :
@@ -549,7 +549,7 @@ pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
 du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
 implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
 modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.

@@ -96,8 +96,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                    | Unit  |
 |:-----------------------------------------------|:------|
-| database.bufferpool.hitrate.average.percentage |       |
-| database.bufferpool.hitrate.delta.percentage   |       |
+| database.bufferpool.hitrate.average.percentage | %     |
+| database.bufferpool.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
@@ -123,8 +123,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                  | Unit  |
 |:---------------------------------------------|:------|
-| database.keycache.hitrate.average.percentage |       |
-| database.keycache.hitrate.delta.percentage   |       |
+| database.keycache.hitrate.average.percentage | %     |
+| database.keycache.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -145,8 +145,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                | Unit  |
 |:-------------------------------------------|:------|
-| database.qcache.hitrate.average.percentage |       |
-| database.qcache.hitrate.delta.percentage   |       |
+| database.qcache.hitrate.average.percentage | %     |
+| database.qcache.hitrate.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
@@ -520,7 +520,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
@@ -532,7 +532,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--port=''  \
 	--mode=queries \
 	--warning-total='' \
-	--critical-total='' 
+	--critical-total=''
 ```
 
 The expected command output is shown below:
@@ -550,7 +550,7 @@ for Centreon Plugins typical issues.
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
