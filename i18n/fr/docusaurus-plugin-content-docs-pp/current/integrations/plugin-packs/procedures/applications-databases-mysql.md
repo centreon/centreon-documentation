@@ -98,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                                       | Unité |
 |:-----------------------------------------------|:------|
 | database.bufferpool.hitrate.average.percentage | %      |
-| database.bufferpool.hitrate.delta.percentage   | %       |
+| database.bufferpool.hitrate.delta.percentage   | %      |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
