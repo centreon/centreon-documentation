@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from '/src/pages/index.module.css';
 
-const basePathImg = '/fr/img/homepage/';
+const basePathImg = './fr/img/homepage/';
 
 const links = {
   social: [
@@ -32,45 +32,45 @@ const links = {
 const cards = [
   {
     title: "Centreon OnPrem",
-    href: "/fr/docs/getting-started/welcome/",
+    href: "fr/docs/getting-started/welcome/",
     links: [
       {
         label: "Getting started",
-        href: "/fr/docs/getting-started/welcome"
+        href: "fr/docs/getting-started/welcome"
       },{
         label: "Installation",
-        href: "/fr/docs/installation/introduction"
+        href: "fr/docs/installation/introduction"
       },{
         label: "Mettre des ressources en supervision",
-        href: "/fr/docs/category/setting-up-the-monitoring/"
+        href: "fr/docs/category/setting-up-the-monitoring/"
       },{
         label: "Service mapping",
-        href: "/fr/docs/service-mapping/introduction/"
+        href: "fr/docs/service-mapping/introduction/"
       },{
         label: "Vues graphiques",
-        href: "/fr/docs/graph-views/introduction-map/"
+        href: "fr/docs/graph-views/introduction-map/"
       },{
         label: "Reporting",
-        href: "/fr/docs/reporting/introduction/"
+        href: "fr/docs/reporting/introduction/"
       },
     ]
   },
   {
     title: "Centreon Cloud",
-    href: "/fr/cloud/getting-started/architecture/",
+    href: "fr/cloud/getting-started/architecture/",
     links: [
       {
         label: "Getting started",
-        href: "/fr/docs/getting-started/welcome"
+        href: "fr/docs/getting-started/welcome"
       },{
         label: "Installer un collecteur",
-        href: "/fr/cloud/installation/prerequisites/"
+        href: "fr/cloud/installation/prerequisites/"
       },{
         label: "Service mapping",
-        href: "/fr/cloud/service-mapping/introduction/"
+        href: "fr/cloud/service-mapping/introduction/"
       },{
         label: "Vues graphiques",
-        href: "/fr/cloud/graph-views/introduction-map/"
+        href: "fr/cloud/graph-views/introduction-map/"
       },
     ]
   }
@@ -220,7 +220,7 @@ function SocialBlock() {
 
 export default function Home() {
   const { versions } = usePluginData('docusaurus-plugin-content-docs');
-  const defaultPath = versions?.[0]?.path ?? '/fr/docs';
+  const defaultPath = versions?.[0]?.path ?? 'fr/docs';
   const defaultPage = versions?.[0]?.mainDocId ?? 'getting-started/installation-first-steps';
   const defaultRoute = `${defaultPath}/${defaultPage}`;
 
