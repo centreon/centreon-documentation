@@ -97,8 +97,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                       | Unité |
 |:-----------------------------------------------|:------|
-| database.bufferpool.hitrate.average.percentage |       |
-| database.bufferpool.hitrate.delta.percentage   |       |
+| database.bufferpool.hitrate.average.percentage | %      |
+| database.bufferpool.hitrate.delta.percentage   | %       |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
@@ -124,8 +124,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                     | Unité |
 |:---------------------------------------------|:------|
-| database.keycache.hitrate.average.percentage |       |
-| database.keycache.hitrate.delta.percentage   |       |
+| database.keycache.hitrate.average.percentage | %      |
+| database.keycache.hitrate.delta.percentage   | %      |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -146,8 +146,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                   | Unité |
 |:-------------------------------------------|:------|
-| database.qcache.hitrate.average.percentage |       |
-| database.qcache.hitrate.delta.percentage   |       |
+| database.qcache.hitrate.average.percentage | %      |
+| database.qcache.hitrate.delta.percentage   | %      |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
