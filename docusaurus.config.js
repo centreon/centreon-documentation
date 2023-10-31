@@ -95,8 +95,12 @@ const config = {
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: {
+            '23.10': {
+              label: '⭐ 23.10',
+              banner:'none',
+            },
             23.04: {
-              label: '⭐ 23.04',
+              label: '23.04',
               banner:'none',
             },
             '22.10': {
