@@ -70,7 +70,7 @@ To control your Socomec, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Socomec Net Vision UPS SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Socomec Net Vision UPS SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -87,7 +87,7 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Socomec Net Vision UPS SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Socomec Net Vision UPS SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

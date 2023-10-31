@@ -63,7 +63,7 @@ E.g: https://docs.informatica.com/integration-cloud/cloud-platform/current-versi
 yum install centreon-plugin-Cloud-Iics-Restapi
 ```
 
-2. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,7 +80,7 @@ yum install centreon-plugin-Cloud-Iics-Restapi
 yum install centreon-pack-cloud-iics-restapi
 ```
 
-3. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **IICS Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

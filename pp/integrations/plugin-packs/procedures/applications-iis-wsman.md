@@ -64,7 +64,7 @@ On your Windows server, please install IIS WMI provider by installing the IIS Ma
 yum install centreon-plugin-Applications-Iis-Wsman
 ```
 
-2. On the Centreon web interface, install the **Microsoft IIS Server WSMAN** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Microsoft IIS Server WSMAN** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -82,7 +82,7 @@ yum install centreon-plugin-Applications-Iis-Wsman
 yum install centreon-pack-applications-iis-wsman
 ```
 
-3. On the Centreon web interface, install the **Microsoft IIS Server WSMAN** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Microsoft IIS Server WSMAN** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -46,7 +46,7 @@ on the target Server.
 yum install centreon-nrpe-plugin
 ```
 
-2. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NRPE* from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NRPE* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -63,7 +63,7 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-applications-exchange-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NRPE* from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NRPE* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

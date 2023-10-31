@@ -60,7 +60,7 @@ When using the **Virtual-Curve** service, the configuration file must be readabl
 yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
-2. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -77,7 +77,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 ```
 
-3. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Centreon SQL Metrics** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

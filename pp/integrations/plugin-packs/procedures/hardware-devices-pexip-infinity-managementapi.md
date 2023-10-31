@@ -64,7 +64,7 @@ More information is available on the official documentation of Pexip Infinity Ma
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pexip Infinity ManagementAPI* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Pexip Infinity ManagementAPI* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Pexip Infinity ManagementAPI* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Pexip Infinity ManagementAPI* Monitoring Connector
 
 </TabItem>
 </Tabs>

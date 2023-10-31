@@ -59,7 +59,7 @@ should be readable by centreon-engine poller.
 yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Stackdriver* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google Stackdriver* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -76,7 +76,7 @@ yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 yum install centreon-pack-cloud-gcp-management-stackdriver
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Google Stackdriver* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Google Stackdriver* Monitoring Connector
 
 </TabItem>
 </Tabs>

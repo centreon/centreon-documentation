@@ -101,7 +101,7 @@ Please refer to their official documentation: https://pve.proxmox.com/wiki/Proxm
 yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 ```
 
-2. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -119,7 +119,7 @@ yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 yum install centreon-pack-virtualization-proxmox-ve-restapi
 ```
 
-3. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Proxmox VE** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

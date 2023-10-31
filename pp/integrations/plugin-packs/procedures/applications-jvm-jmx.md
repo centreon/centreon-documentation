@@ -106,7 +106,7 @@ Please install jolokia agent on your JVM [Jolokia download page](https://jolokia
 yum install centreon-plugin-Applications-Jvm-Jmx
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *JVM JMX* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *JVM JMX* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -123,7 +123,7 @@ yum install centreon-plugin-Applications-Jvm-Jmx
 yum install centreon-pack-applications-jvm-jmx
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *JVM JMX* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *JVM JMX* Pack
 
 </TabItem>
 </Tabs>

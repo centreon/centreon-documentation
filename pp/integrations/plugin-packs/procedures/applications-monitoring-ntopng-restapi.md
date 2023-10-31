@@ -86,7 +86,7 @@ E.g: https://www.ntop.org/guides/ntopng/api/
 yum install centreon-plugin-Applications-Monitoring-Ntopng-Restapi
 ```
 
-2. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Applications-Monitoring-Ntopng-Restapi
 yum install centreon-pack-applications-monitoring-ntopng-restapi
 ```
 
-3. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **NtopNG RestAPI** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

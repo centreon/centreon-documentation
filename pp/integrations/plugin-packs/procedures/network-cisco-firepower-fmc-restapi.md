@@ -47,7 +47,7 @@ E.g: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firep
 yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Firepower FMC Rest API* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco Firepower FMC Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -64,7 +64,7 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 yum install centreon-pack-network-cisco-firepower-fmc-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Cisco Firepower FMC Rest API* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Cisco Firepower FMC Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>

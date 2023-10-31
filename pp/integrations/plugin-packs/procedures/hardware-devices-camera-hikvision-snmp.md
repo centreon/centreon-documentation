@@ -70,7 +70,7 @@ The Poller should be able to perform requests against the Hikvision device over 
 yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Hikvision camera SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Hikvision camera SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -87,7 +87,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Hikvision camera SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Hikvision camera SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>
