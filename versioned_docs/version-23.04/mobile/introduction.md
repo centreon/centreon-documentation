@@ -17,7 +17,7 @@ The main capabilities of Centreon mobile are :
 - See detail information of host or service
 - Access metrics history via charts
 
-<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../../../assets/en/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
+<video width="675" height="712" controls={true} allowFullScreen={true} poster={require('../assets/mobile/mobile-login.png').default}><source src={require('../assets/mobile/mobile-demo.mp4').default} type="video/mp4"/></video>
 
 ## Pre-requisites
 

@@ -27,10 +27,10 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 > Cette région concerne les clients situés aux USA, au Canada et en Amérique du Sud.
 
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: votre_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/votre_code_organisation/site/votre_site/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/organization_name/site/your_site/poller -s)"
 ```
 
-> Remplacez **votre_token**, **votre_code_organisation** et **votre_site** par les valeurs appropriées.
+> Remplacez **organization_token**, **organization_name** et **your_site** par les valeurs appropriées. Vous pouvez trouver celles-ci dans le [CIAM](../ciam/ciam.md).
 
 </TabItem>
 <TabItem value="Europe West Region" label="Europe West Region">
@@ -38,10 +38,10 @@ bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: votre_token"
 > Cette région concerne les clients situés en Europe, Afrique, Asie et Océanie.
 
 ```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: votre_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/votre_code_organisation/site/votre_site/poller -s)"
+bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/organisation_name/site/your_site/poller -s)"
 ```
 
-> Remplacez **votre_token**, **votre_code_organisation** et **votre_site** par les valeurs appropriées.
+> Remplacez **organization_token**, **organization_name** et **your_site** par les valeurs appropriées. Vous pouvez trouver celles-ci dans le [CIAM](../ciam/ciam.md).
 
 </TabItem>
 </Tabs>
