@@ -96,8 +96,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                    | Unit  |
 |:-----------------------------------------------|:------|
-| database.bufferpool.hitrate.average.percentage |       |
-| database.bufferpool.hitrate.delta.percentage   |       |
+| database.bufferpool.hitrate.average.percentage | %      |
+| database.bufferpool.hitrate.delta.percentage   | %      |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
@@ -123,8 +123,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                  | Unit  |
 |:---------------------------------------------|:------|
-| database.keycache.hitrate.average.percentage |       |
-| database.keycache.hitrate.delta.percentage   |       |
+| database.keycache.hitrate.average.percentage | %      |
+| database.keycache.hitrate.delta.percentage   | %      |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -145,8 +145,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                | Unit  |
 |:-------------------------------------------|:------|
-| database.qcache.hitrate.average.percentage |       |
-| database.qcache.hitrate.delta.percentage   |       |
+| database.qcache.hitrate.average.percentage | %      |
+| database.qcache.hitrate.delta.percentage   | %      |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
