@@ -51,7 +51,7 @@ specified port in the *PHPFPMWEBPORT* Host Macro. More information in the
 yum install centreon-plugin-Applications-Php-Fpm-Web
 ```
 
-2. On the Centreon Web interface, install the *PHP FPM* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *PHP FPM* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,7 +68,7 @@ yum install centreon-plugin-Applications-Php-Fpm-Web
 yum install centreon-pack-applications-php-fpm-web
 ```
 
-3. On the Centreon Web interface, install the *PHP FPM* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *PHP FPM* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

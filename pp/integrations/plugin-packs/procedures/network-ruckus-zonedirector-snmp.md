@@ -82,7 +82,7 @@ Your Centreon Poller must be able to reach the Ruckus device over UDP/161 SNMP p
 yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 ```
 
-2. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,7 +99,7 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

@@ -120,6 +120,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.10/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/installation/installation-of-a-central-server/using-virtual-machines"
             },
             {
@@ -139,6 +143,10 @@
             {
               "type": "doc",
               "id": "version-23.10/installation/installation-of-a-poller/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/installation/installation-of-a-poller/unattended-install-poller"
             }
           ]
         },
@@ -149,6 +157,10 @@
             {
               "type": "doc",
               "id": "version-23.10/installation/installation-of-a-remote-server/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/installation/installation-of-a-remote-server/unattended-install-remote"
             }
           ]
         },
@@ -411,6 +423,10 @@
             {
               "type": "doc",
               "id": "version-23.10/alerts-notifications/custom-views"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/alerts-notifications/dashboards"
             }
           ]
         },
@@ -660,6 +676,10 @@
                 {
                   "type": "doc",
                   "id": "version-23.10/graph-views/map-web-troubleshooting"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "version-23.10/api/map-api"
                   }
               ]
             }
@@ -724,6 +744,10 @@
             {
               "type": "doc",
               "id": "version-23.10/graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/api/graph-views-api"
             }
           ]
         }
@@ -880,8 +904,22 @@
           "id": "version-23.10/administration/database-partitioning"
         },
         {
-          "type": "doc",
-          "id": "version-23.10/administration/backup"
+          "type": "category",
+          "label": "Disaster recovery",
+          "link": {
+            "type": "doc",
+            "id": "administration/disaster-recovery"
+          },
+          "items": [
+            {
+             "type": "doc",
+             "id": "version-23.10/administration/backup"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/administration/backup-poller"
+             }
+            ]
         },
         {
           "type": "doc",
@@ -898,6 +936,10 @@
         {
           "type": "doc",
           "id": "version-23.10/administration/postfix"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.10/administration/sql-proxy"
         }
       ]
     },
@@ -922,6 +964,10 @@
             {
               "type": "doc",
               "id": "version-23.10/upgrade/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/upgrade/upgrade-from-23-04"
             },
             {
               "type": "doc",
@@ -1262,6 +1308,10 @@
             {
               "type": "doc",
               "id": "version-23.10/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/api/map-api"
             },
             {
               "type": "doc",

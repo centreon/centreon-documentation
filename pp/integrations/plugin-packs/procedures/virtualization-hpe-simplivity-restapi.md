@@ -89,7 +89,7 @@ To control your HPE Simplivity, the Rest API must be configured:
 yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 ```
 
-2. On the Centreon Web interface, install the **HPE Simplivity Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **HPE Simplivity Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -106,7 +106,7 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 yum install centreon-pack-virtualization-hpe-simplivity-restapi
 ```
 
-3. On the Centreon Web interface, install the **HPE Simplivity Rest API** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **HPE Simplivity Rest API** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

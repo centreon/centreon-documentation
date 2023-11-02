@@ -172,10 +172,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-github-restapi'
         },
         {
@@ -316,11 +312,15 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nrpe'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nrpe'
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
         },
         {
           type: 'doc',
@@ -986,6 +986,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-ssh'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
         },
         {
@@ -1128,11 +1132,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-redis'
+          id: 'integrations/plugin-packs/procedures/applications-redis-cli'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-redis-cli'
+          id: 'integrations/plugin-packs/procedures/applications-databases-redis'
         },
         {
           type: 'doc',
@@ -1322,11 +1326,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp'
         },
         {
           type: 'doc',
@@ -1606,7 +1610,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp'
         },
-                {
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-portserverts-snmp'
         },
@@ -2182,10 +2186,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-tcp'
         },
         {
@@ -2374,11 +2374,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-ssh'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-ssh'
         },
         {
           type: 'doc',
@@ -2402,15 +2402,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce3-restapi'
         },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce4-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi'
         },
         {
           type: 'doc',
@@ -2482,7 +2482,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-snmp'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-restapi'
         },
         {
           type: 'doc',
@@ -2490,7 +2490,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-restapi'
+          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-snmp'
         },
         {
           type: 'doc',
@@ -2663,6 +2663,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-ees-snmp'
         },
         {
           type: 'doc',
