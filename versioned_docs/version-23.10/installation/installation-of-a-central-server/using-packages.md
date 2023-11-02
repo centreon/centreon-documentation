@@ -299,7 +299,7 @@ dnf module install php:8.1
 Install the following dependencies:
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl monitoring-plugins-basic
 ```
 
 #### Add Sury APT repository for PHP 8.1
