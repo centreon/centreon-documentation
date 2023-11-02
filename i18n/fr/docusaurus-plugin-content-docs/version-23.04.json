@@ -290,5 +290,9 @@
   "sidebar.docs.category.Upgrading Centreon HA": {
     "message": "Monter de version Centreon HA",
     "description": "The label for category Upgrading Centreon HA in sidebar docs"
+  },
+  "sidebar.docs.category.Disaster recovery": {
+    "message": "Reprise après sinistre",
+    "description": "The label for category Disaster recovery in sidebar docs"
   }
 }

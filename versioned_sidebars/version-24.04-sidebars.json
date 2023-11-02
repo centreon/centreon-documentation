@@ -900,8 +900,22 @@
           "id": "version-24.04/administration/database-partitioning"
         },
         {
-          "type": "doc",
-          "id": "version-24.04/administration/backup"
+          "type": "category",
+          "label": "Disaster recovery",
+          "link": {
+            "type": "doc",
+            "id": "administration/disaster-recovery"
+          },
+          "items": [
+            {
+             "type": "doc",
+             "id": "version-24.04/administration/backup"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/administration/backup-poller"
+             }
+            ]
         },
         {
           "type": "doc",
