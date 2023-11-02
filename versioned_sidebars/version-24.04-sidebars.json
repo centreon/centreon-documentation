@@ -667,6 +667,10 @@
               },
               {
                 "type": "doc",
+                "id": "version-24.04/graph-views/map-web-advanced"
+              },
+              {
+                "type": "doc",
                 "id": "version-24.04/graph-views/map-web-known-issues"
                 },
                 {

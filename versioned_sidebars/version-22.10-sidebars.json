@@ -691,6 +691,10 @@
               },
               {
                 "type": "doc",
+                "id": "version-22.10/graph-views/map-web-advanced"
+              },
+              {
+                "type": "doc",
                 "id": "version-22.10/graph-views/map-web-known-issues"
                 },
                 {
