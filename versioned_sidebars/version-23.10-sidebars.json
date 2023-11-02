@@ -949,6 +949,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.10/upgrade/upgrade-from-23-04"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/upgrade/upgrade-from-22-10"
             },
             {
