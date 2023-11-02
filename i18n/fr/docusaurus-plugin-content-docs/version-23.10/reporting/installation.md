@@ -592,7 +592,7 @@ clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
