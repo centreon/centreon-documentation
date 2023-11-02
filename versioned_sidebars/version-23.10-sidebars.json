@@ -633,7 +633,7 @@
           "type": "doc",
           "id": "version-23.10/graph-views/import-into-map-web"
           },
-          {
+                    {
             "type": "doc",
             "id": "version-23.10/graph-views/map-web-access"
             },
@@ -648,6 +648,10 @@
               {
                 "type": "doc",
                 "id": "version-23.10/graph-views/map-web-create-geoview"
+              },
+              {
+                "type": "doc",
+                "id": "version-23.10/graph-views/map-web-advanced"
               },
               {
                 "type": "doc",

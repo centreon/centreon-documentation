@@ -635,6 +635,10 @@
           },
           {
             "type": "doc",
+            "id": "version-23.04/graph-views/map-web-configure"
+          },
+          {
+            "type": "doc",
             "id": "version-23.04/graph-views/map-web-access"
             },
                             {
