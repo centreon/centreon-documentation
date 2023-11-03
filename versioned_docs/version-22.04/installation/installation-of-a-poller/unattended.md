@@ -59,13 +59,13 @@ apt update
 2. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/22.04.x/centreon/unattended.sh -O /tmp/unattended
+curl -L https://raw.githubusercontent.com/centreon/centreon/22.04.x/centreon/unattended.sh --output /tmp/unattended
 ```
 
 3. Run the following command as **root**:
 
 ```shell
-bash unattended.sh install -t poller -v 22.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh install -t poller -v 22.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
   You will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
