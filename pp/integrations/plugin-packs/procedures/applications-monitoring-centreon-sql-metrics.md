@@ -5,6 +5,9 @@ title: Centreon SQL Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+This Pack ships metrics collected from the Centreon SQL real-time database. Get a complete
+overview of its virtual curves capabilities [here](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
+
 ## Pack assets
 
 ### Templates
@@ -117,7 +120,7 @@ No metrics.
 </TabItem>
 <TabItem value="Virtual-Service" label="Virtual-Service">
 
-Custom metrics. It depends of the service configuration.
+Metrics depend on the service configuration. Check our [The Watch blog post](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
 
 </TabItem>
 </Tabs>

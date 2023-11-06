@@ -5,6 +5,8 @@ title: Centreon SQL Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Ce connecteur de supervision construit des métriques sur la base d'informations récupérées dans la base de données temps-réel de Centreon. Un article sur la plateforme the Watch vous offre une vue d'ensemble de ses capacités autour des [courbes virtuelles](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
+
 ## Contenu du pack
 
 ### Modèles
@@ -118,7 +120,7 @@ Pas de métriques.
 </TabItem>
 <TabItem value="Virtual-Service" label="Virtual-Service">
 
-Les métriques sont personnalisables.
+Les métriques dépendent de la configuration du service. Voir l'article sur [The Watch](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
 
 </TabItem>
 </Tabs>
