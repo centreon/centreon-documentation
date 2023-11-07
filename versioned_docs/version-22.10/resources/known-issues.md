@@ -96,6 +96,8 @@ This issue is due to the missing link to the CA certificates file.
 
 - Run the following commands as a root user:
 
+> Note that the path to the Java **cacerts** file depends on the version installed.
+
 ```shell
 rm /usr/java/jdk-17/lib/security/cacerts
 ln -s /etc/pki/ca-trust/extracted/java/cacerts /usr/java/jdk-17/lib/security/cacerts

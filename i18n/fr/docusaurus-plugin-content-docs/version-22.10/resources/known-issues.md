@@ -95,6 +95,8 @@ Cet incident est dû au lien manquant vers le fichier des certificats CA.
 
 - Exécutez les commandes suivantes en tant qu'utilisateur root :
 
+> Notez que le chemin vers le fichier **cacerts** de Java peut varier en fonction de la version installée.
+
 ```shell
 rm /usr/java/jdk-17/lib/security/cacerts
 ln -s /etc/pki/ca-trust/extracted/java/cacerts /usr/java/jdk-17/lib/security/cacerts
