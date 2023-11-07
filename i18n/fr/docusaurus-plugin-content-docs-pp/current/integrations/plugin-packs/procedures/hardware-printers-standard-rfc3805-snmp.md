@@ -21,17 +21,17 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                                          | Description                                                                                        |
 |:-------------------|:-----------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| Cover-Status       | HW-Printer-Standard-Rfc3805-CoverStatus-SNMP-custom        | ContrÃ                                                                                             |
+| Cover-Status       | HW-Printer-Standard-Rfc3805-CoverStatus-SNMP-custom        | Contrôle les états des éléments recensés dans la table "cover" de la MIB définie dans la rfc3805.                                                                                             |
 | Cover-Status       | HW-Printer-CoverStatus-Hardware-standard-SNMP-custom       | Contrôle les états des éléments recensés dans la table "cover" de la MIB définie dans la rfc3805   |
-| Impressions        | HW-Printer-Standard-Rfc3805-Impressions-SNMP-custom        | ContrÃ                                                                                             |
+| Impressions        | HW-Printer-Standard-Rfc3805-Impressions-SNMP-custom        | Contrôle le nombre d'impressions entre deux contrôles.                                                                                             |
 | Impressions        | HW-Printer-Impressions-Usage-standard-SNMP-custom          | Contrôle le nombre d'impressions entre deux contrôles                                              |
-| MarkerSupply-Usage | HW-Printer-Standard-Rfc3805-Markersupply-Usage-SNMP-custom | ContrÃ                                                                                             |
+| MarkerSupply-Usage | HW-Printer-Standard-Rfc3805-Markersupply-Usage-SNMP-custom | Contrôle le niveau d'encre des cartouches.                                                                                             |
 | MarkerSupply-Usage | HW-Printer-Markersupply-Usage-standard-SNMP-custom         | Contrôle le niveau d'encre des cartouches                                                          |
-| PaperTray-Usage    | HW-Printer-Standard-Rfc3805-PaperTray-Usage-SNMP-custom    | ContrÃ                                                                                             |
+| PaperTray-Usage    | HW-Printer-Standard-Rfc3805-PaperTray-Usage-SNMP-custom    | Contrôle le taux de remplissage des différents bacs à papier.                                                                                             |
 | PaperTray-Usage    | HW-Printer-PaperTray-Usage-standard-SNMP-custom            | Contrôle le taux de remplissage des différents bacs à papier                                       |
-| Printer-Errors     | HW-Printer-Standard-Rfc3805-Errors-SNMP-custom             | ContrÃ                                                                                             |
+| Printer-Errors     | HW-Printer-Standard-Rfc3805-Errors-SNMP-custom             | Contrôle des erreurs imprimante liées au papier (bourrages, etc).                                                                                             |
 | Printer-Errors     | HW-Printer-Errors-standard-SNMP-custom                     | Contrôle des erreurs imprimante liées au papier                                                   |
-| Printer-Hardware   | HW-Printer-Standard-Rfc3805-Hardware-SNMP-custom           | Controle diffÃ                                                                                     |
+| Printer-Hardware   | HW-Printer-Standard-Rfc3805-Hardware-SNMP-custom           | Contrôle différents indicateurs matériels sur une imprimante.                                                                                     |
 | Printer-Hardware   | HW-Printer-Hardware-standard-SNMP-custom                   | Contrôle différents indicateurs matériels sur une imprimante                                       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Printer-standard-rfc3805-custom** est utilisé.
