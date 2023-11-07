@@ -44,7 +44,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                                                                                                                    |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) to get the discovery rule and create a template mapper for the **HW-Printer-standard-rfc3805-custom** host template |
+| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Printer-standard-rfc3805-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -99,7 +99,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Printer-Hardware*" label="Printer-Hardware*">
 
-No metrics ofr this mode.
+No metrics for this service.
 
 </TabItem>
 </Tabs>
@@ -108,7 +108,7 @@ No metrics ofr this mode.
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
+To use this pack, the SNMP service must be properly configured on your resource.
 Please refer to the official documentation from the constructor.
 
 ### Network flow

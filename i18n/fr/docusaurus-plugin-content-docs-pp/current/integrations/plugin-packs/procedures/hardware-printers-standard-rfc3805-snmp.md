@@ -30,9 +30,9 @@ Le connecteur apporte les modèles de service suivants
 | PaperTray-Usage    | HW-Printer-Standard-Rfc3805-PaperTray-Usage-SNMP-custom    | ContrÃ                                                                                             |
 | PaperTray-Usage    | HW-Printer-PaperTray-Usage-standard-SNMP-custom            | Contrôle le taux de remplissage des différents bacs à papier                                       |
 | Printer-Errors     | HW-Printer-Standard-Rfc3805-Errors-SNMP-custom             | ContrÃ                                                                                             |
-| Printer-Errors     | HW-Printer-Errors-standard-SNMP-custom                     | Contrôle des erreurs imprimantes liées au papier                                                   |
+| Printer-Errors     | HW-Printer-Errors-standard-SNMP-custom                     | Contrôle des erreurs imprimante liées au papier                                                   |
 | Printer-Hardware   | HW-Printer-Standard-Rfc3805-Hardware-SNMP-custom           | Controle diffÃ                                                                                     |
-| Printer-Hardware   | HW-Printer-Hardware-standard-SNMP-custom                   | Controle différents indicateurs matériels sur une imprimante                                       |
+| Printer-Hardware   | HW-Printer-Hardware-standard-SNMP-custom                   | Contrôle différents indicateurs matériels sur une imprimante                                       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Printer-standard-rfc3805-custom** est utilisé.
 
@@ -45,7 +45,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                    |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) to get the discovery rule and create a template mapper for the **HW-Printer-standard-rfc3805-custom** host template |
+| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Printer-standard-rfc3805-custom** host template |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -100,7 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Printer-Hardware*" label="Printer-Hardware*">
 
-Pas de métrique pour ce mode.
+Pas de métrique pour ce service.
 
 </TabItem>
 </Tabs>
@@ -110,7 +110,7 @@ Pas de métrique pour ce mode.
 ### Configuration SNMP
 
 Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+sur la ressource comme indiqué dans la documentation officielle du constructeur.
 
 ### Flux réseau
 
