@@ -81,6 +81,26 @@ There is currently no workaround.
 
 ## Centreon MBI
 
+### Reports which contain graphs are empty
+
+> This issue only affects **MBI 22.10** on **EL7**.
+
+Your central server is in HTTPS and the following graphs cannot be displayed when generating reports:
+
+- Host-Graph-v2
+- Hostgroup-Graph-v2
+
+This issue is due to the missing link to the CA certificates file.
+
+#### Workaround
+
+- Run the following commands as a root user:
+
+```shell
+rm /usr/java/jdk-17/lib/security/cacerts
+ln -s /etc/pki/ca-trust/extracted/java/cacerts /usr/java/jdk-17/lib/security/cacerts
+```
+
 ### Error during the ETL script execution
 
 This issue is due to package changes and returns an error similar to the following one:
