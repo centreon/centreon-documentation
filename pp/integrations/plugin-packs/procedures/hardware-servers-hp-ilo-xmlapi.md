@@ -41,7 +41,7 @@ The list of metrics can vary from one model to another.
 
 ## Prerequisites
 
-To be able to query this API, you must create a login/password. You are adviced to check the constructor's documentation to find how this is done.
+To be able to query this API, you must create a read-only access account on the iLO card. Check the constructor's documentation to find out how this is done.
 
 ## Installing the monitoring connector
 
