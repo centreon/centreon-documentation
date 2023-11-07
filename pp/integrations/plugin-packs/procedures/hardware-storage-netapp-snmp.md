@@ -1,10 +1,6 @@
 ---
 id: hardware-storage-netapp-snmp
-title: Netapp SNMP (Deprecated)
+title: Netapp SNMP (deprecated)
 ---
 
-## **WARNING** This Pack is deprecated
-
-This Monitoring Connector has been deprecated and replaced by `Netapp ONTAP SNMP`. 
-
-Refer to [this procedure](hardware-storage-netapp-ontap-snmp.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Netapp ONTAP SNMP](hardware-storage-netapp-ontap-snmp.md) connector.

@@ -288,7 +288,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
 ```
 
 </TabItem>
@@ -305,14 +305,14 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y https://packages.centreon.com/rpm-standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
 ```
 
 </TabItem>
@@ -321,7 +321,7 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 Then import the repository key:
@@ -366,7 +366,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon
+apt install -y --no-install-recommends centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -401,7 +401,7 @@ yum install -y centreon-central
 
 ```shell
 apt update
-apt install -y centreon-central
+apt install -y --no-install-recommends centreon-central
 ```
 
 </TabItem>
@@ -432,7 +432,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y centreon-database
+apt install -y --no-install-recommends centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```

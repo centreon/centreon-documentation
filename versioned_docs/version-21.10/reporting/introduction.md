@@ -32,7 +32,7 @@ Centreon MBI provides a full package of standard reports that address:
 -   SLA (Service Level Agreement) management
 -   Performance management.
 
-**Here are some examples of reports available in Centreon MBI**: [Reports examples](../assets/reporting/Centreon-MBI-Sample-Reports.pdf)
+**Here are some examples of reports available in Centreon MBI**: [Reports examples](../../../assets/en/reporting/Centreon-MBI-Sample-Reports.pdf)
 
 or simply create your own reporting Dashboard using our widgets.
 

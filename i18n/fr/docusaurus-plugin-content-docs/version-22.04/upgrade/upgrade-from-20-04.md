@@ -45,7 +45,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
 ```
 
 > Si vous avez une licence offline, installez le dépôt des plugin packs correspondant à la version.
@@ -168,7 +168,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
 ```
 
 #### Mettre à jour MariaDB
@@ -300,7 +300,7 @@ Central.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.04/el7/stable/noarch/RPMS/centreon-release-22.04-3.el7.centos.noarch.rpm
+yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon

@@ -17,6 +17,25 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.12
+
+Release date: `October 04, 2023`
+
+#### Enhancements
+
+- [Server] Make link anchors consistent between viewer and editor.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue where copying and pasting an object deleted it.
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+- [Server] Fixed the diagnostic protocol test.
+
 ### 22.10.11
 
 Release date: `September 07, 2023`
@@ -187,6 +206,19 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.12
+
+Release date: `October 04, 2023`
+
+#### Security fixes
+
+- [Server] Fixed a vulnerable property.
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
 ### 22.10.11
 
 Release date: `September 07, 2023`
@@ -322,9 +354,19 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.6
+
+Release date: `September 14, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-bi-engine packaging that caused a broken dependency situation with Java
+
 ### 22.10.5
 
 Release date: `August 31, 2023`
+
+#### Bug fixes
 
 - [Packaging] Fixed ETL script references in Debian packaging.
 - Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
@@ -378,6 +420,12 @@ Release date: `October 26, 2022`
 - Move to Java 17
 
 ## Centreon Auto Discovery
+
+### 22.10.4
+
+Release date: `October 04, 2023`
+
+- Fixed an issue where new services were created when updating the discovery job on existing hosts.
 
 ### 22.10.3
 

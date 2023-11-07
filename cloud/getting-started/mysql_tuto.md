@@ -9,7 +9,7 @@ The objective of this tutorial is to monitor a Mysql/MariaDB database.
 
 ### On the database you want to monitor
 
-In order to be able to collect the necessary information from the database, a database user with specific privileges is required. If the database you want to monitor is a Centreon database, a dedicated user already exists and is called **centreon**. Otherwise, start by creating a new user: log in to your database, then run the following command:
+To be able to collect the necessary information from the database, a database user with specific privileges is required. If the database you want to monitor is a Centreon database, a dedicated user already exists and is called **centreon**. Otherwise, start by creating a new user: log in to your database, then run the following command:
 
 ```shell
 CREATE USER 'username'@'IP_POLLER' IDENTIFIED BY 'password';
@@ -21,7 +21,7 @@ Then, whether your database is a Centreon database or not, run the following com
 GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ```
 
-> Replace the username, the IP address of the poller and the password by the values you want.
+> Replace the username, the IP address of the poller and the password with the values you want.
 
 ### On the central server
 
@@ -32,18 +32,18 @@ Go to **Configuration > Monitoring Connectors Manager** and install the **MySQL/
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts (simplified)** and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts (simplified)** and click **Add**:
 
   ![image](../assets/getting-started/quick_start_mysql_1a.gif)
 
-2. Fill in the following information:
+2. Input the following information:
 
   * The name of your server
   * A description of your server
   * Its IP address
   * Select the poller that will monitor the database
 
-3. Click on the **+ Add New Entry** button for the **Templates** field and select the **App-DB-MySQL-custom** template:
+3. Click the **+ Add New Entry** button for the **Templates** field and select the **App-DB-MySQL-custom** template:
 
   ![image](../assets/getting-started/quick_start_mysql_1a.png)
 
@@ -57,7 +57,7 @@ Go to **Configuration > Monitoring Connectors Manager** and install the **MySQL/
   * **MySQLPASSWORD**: the password associated with this user.
   * **MySQLPORT**: the listening port of the database, by default 3306.
 
-5. Click on **Save**. Your equipment has been added to the list of hosts:
+5. Click **Save**. Your device has been added to the list of hosts:
 
   ![image](../assets/getting-started/quick_start_mysql_2.png)
 

@@ -1,10 +1,6 @@
 ---
 id: operatingsystems-as400
-title: IBM AS400 (Déprécié)
+title: IBM AS400 (déprécié)
 ---
 
-## **ATTENTION** Ce Pack est déprécié
-
-Ce Pack a été déprécié au profit du Pack "IBM AS400 Connector".
-
-Référez vous à [cette procedure](operatingsystems-as400-connector.md).
+> Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [IBM AS400 Connector](operatingsystems-as400-connector.md).

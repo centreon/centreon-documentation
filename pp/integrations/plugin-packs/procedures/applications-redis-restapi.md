@@ -1,10 +1,6 @@
 ---
 id: applications-redis-restapi
-title: Redis Restapi (Deprecated)
+title: Redis Restapi (deprecated)
 ---
 
-## **WARNING** This Pack is deprecated
-
-This Pack has been deprecated and replaced by `Redis Labs Enterprise Cluster Rest API`. 
-
-Refer to [this procedure](applications-redis-rlec-restapi.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Redis Labs Enterprise Cluster Rest API](applications-redis-rlec-restapi.md) connector.
