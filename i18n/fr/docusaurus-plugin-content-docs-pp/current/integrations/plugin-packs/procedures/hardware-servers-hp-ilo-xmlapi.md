@@ -42,7 +42,7 @@ La liste des métriques varie d'un modèle à l'autre.
 
 ## Prérequis
 
-Pour pouvoir interroger cette API, il faut préalablement créer un compte et un mot de passe. Reportez-vous à la documentation du fabricant pour effectuer cette étape.
+Pour pouvoir interroger cette API, il faut préalablement créer un compte en lecture seule sur la carte iLO. Vous êtes invités à vous reporter à la documentation du fabricant pour effectuer cette étape.
 
 ## Installer le connecteur de supervision
 
