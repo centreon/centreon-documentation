@@ -388,21 +388,21 @@ All available options for each service template are listed below:
 
 | Option              | Description                                                                                                                          |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| --resource          | Set resource name or id (Required).                                                                                                  |
+| --resource          | Set resource name or ID (Required).                                                                                                  |
 | --resource-group    | Set resource group (Required if resource's name is used).                                                                            |
 | --warning-$metric$  | Thresholds warning ($metric$ can be: 'factory-percentage-usage', 'resource-percentage-usage', 'factory-size', 'resource-count').     |
-| --critical-$metric$ | Thresholds critical ($metric$ can be: 'factory-percentage-usage', 'resource-percentage-usage', 'factory-size', 'resource-count').    |
+| --critical-$metric$ | Critical threshold ($metric$ can be: 'factory-percentage-usage', 'resource-percentage-usage', 'factory-size', 'resource-count').    |
 
 </TabItem>
 <TabItem value="Integration-Runtime" label="Integration-Runtime">
 
 | Option              | Description                                                                                                                                                                                                                                |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --resource          | Set resource name or id (Required).                                                                                                                                                                                                        |
+| --resource          | Set resource name or ID (Required).                                                                                                                                                                                                        |
 | --resource-group    | Set resource group (Required if resource's name is used).                                                                                                                                                                                  |
 | --filter-metric     | Filter metrics (Can be: 'IntegrationRuntimeAvailableMemory', 'IntegrationRuntimeAvailableNodeNumber', 'IntegrationRuntimeAverageTaskPickupDelay', 'IntegrationRuntimeCpuPercentage', 'IntegrationRuntimeQueueLength') (Can be a regexp).   |
-| --warning-$metric$  | Thresholds warning ($metric$ can be: 'available-memory', 'available-node-number', 'average-task-pickup-delay', 'cpu-percentage', 'queue-length').                                                                                          |
-| --critical-$metric$ | Thresholds critical ($metric$ can be: 'available-memory', 'available-node-number', 'average-task-pickup-delay', 'cpu-percentage', 'queue-length').                                                                                         |
+| --warning-$metric$  | Warning threshold ($metric$ can be: 'available-memory', 'available-node-number', 'average-task-pickup-delay', 'cpu-percentage', 'queue-length').                                                                                          |
+| --critical-$metric$ | Critical threshold ($metric$ can be: 'available-memory', 'available-node-number', 'average-task-pickup-delay', 'cpu-percentage', 'queue-length').                                                                                         |
 
 </TabItem>
 </Tabs>
