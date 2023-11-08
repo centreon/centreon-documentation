@@ -900,8 +900,22 @@
           "id": "version-23.10/administration/database-partitioning"
         },
         {
-          "type": "doc",
-          "id": "version-23.10/administration/backup"
+          "type": "category",
+          "label": "Disaster recovery",
+          "link": {
+            "type": "doc",
+            "id": "administration/disaster-recovery"
+          },
+          "items": [
+            {
+             "type": "doc",
+             "id": "version-23.10/administration/backup"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/administration/backup-poller"
+             }
+            ]
         },
         {
           "type": "doc",
@@ -946,6 +960,10 @@
             {
               "type": "doc",
               "id": "version-23.10/upgrade/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/upgrade/upgrade-from-23-04"
             },
             {
               "type": "doc",
