@@ -21,17 +21,7 @@ This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by i
 
 You need first to install Centreon MAP. Go to this [page](map-web-install.md) to perform the installation and switch to the MAP Engine server.
 
-### Step 2: Migrate images
-
-If you have imported images into your desktop client (to custom folders outside the Centreon folder), and used them in your maps, you need first to migrate them to your central server.
-
-1. In the MAP (Legacy) desktop client, in the **Media** panel, select all images you want to migrate from your custom folders, then right-click them and select **Export**.
-
-2. Save the images to your computer.
-
-3. In the central server, go to **Administration > Parameters > Images**, then upload all the images from your computer to the **centreon-map** folder. Be careful not to change the name of your images during this process.
-
-### Step 3: Update MAP (Legacy)
+### Step 2: Update MAP (Legacy)
 
 For the icons to be displayed properly after you migrate your maps, you need to update your MAP (legacy) by running the following commands:
 
@@ -42,7 +32,7 @@ systemctl daemon-reload
 systemctl start centreon-map
 ```
 
-### Step 4: Migrate maps
+### Step 3: Migrate maps
 
 1. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
 
@@ -55,3 +45,21 @@ systemctl start centreon-map
 3. When the migration has succeeded, you can close the window.
 
   Your legacy maps are now displayed on the **Map** page. 
+
+## About images
+
+If you had imported images into your MAP (Legacy) desktop client in the **Medias** panel, note that the migration process has also migrated them automatically to Centreon MAP.
+
+The following example explains how the name of the image file is set after the migration:
+
+- In MAP Legacy, your image was located in the **Medias** panel as follows:
+  
+  ```shell
+  countries > france > hardware > hardware_green.png
+  ```
+
+- After the migration, this image will be located in Centreon in **Administration > Parameters > Images**, as follows:
+ 
+  ```shell
+  countries_france_hardware > hardware_green.png
+  ```

@@ -21,17 +21,7 @@ Cette page décrit comment passer de Centreon MAP (Legacy) à Centreon MAP en im
 
 Vous devez d'abord installer Centreon MAP. Allez à cette [page](map-web-install.md) pour procéder à l'installation et basculer sur le serveur MAP Engine.
 
-### Étape 2 : migrer les images
-
-Si vous avez importé des images dans le client lourd (dans des dossiers personnalisés en dehors du dossier Centreon), et que vous les avez utilisées dans vos cartes, vous devez d'abord les migrer vers votre serveur central.
-
-1. Dans le client lourd MAP (Legacy), dans le panneau **Media**, sélectionnez toutes les images que vous souhaitez migrer depuis vos dossiers personnalisés, faites un clic-droit et sélectionnez **Exporter**.
-
-2. Sauvegardez les images sur votre machine.
-
-3. Sur le serveur central, allez dans **Administration > Paramètres > Images**, puis téléchargez toutes les images de votre ordinateur dans le répertoire **centreon-map**. Veillez à ne pas changer le nom de vos images au cours de ce processus.
-
-### Étape 3 : mettre à jour MAP (Legacy)
+### Étape 2 : mettre à jour MAP (Legacy)
 
 Pour que les icônes s'affichent correctement après avoir migré vos cartes, vous devez mettre à jour votre MAP (legacy) en exécutant les commandes suivantes :
 
@@ -42,7 +32,7 @@ systemctl daemon-reload
 systemctl start centreon-map
 ```
 
-### Étape 4 : migrer les cartes
+### Étape 3 : migrer les cartes
 
 1. Pour importer vos anciennes cartes dans MAP, allez à la page **Supervision > Map**, puis cliquez sur le bouton **Migrer**. La fenêtre suivante apparaît :
 
@@ -55,3 +45,21 @@ systemctl start centreon-map
 3. Lorsque la migration a réussi, vous pouvez fermer la fenêtre.
 
 Vos anciennes cartes sont maintenant affichées dans la page **Map**. 
+
+## À propos des images
+
+Si vous avez importé des images dans votre client MAP (Legacy) dans le panneau **Médias**, notez que le processus de migration les a également migrées automatiquement vers Centreon MAP.
+
+L'exemple suivant explique comment le nom du fichier image est défini après la migration :
+
+- Dans MAP Legacy, votre image était placée dans le panneau **Médias** dans le format suivant :
+  
+  ```shell
+  pays > france > hardware > hardware_green.png
+  ```
+
+- Après la migration, cette image sera placée dans Centreon dans **Administration > Paramètres > Images**, dans le format suivant :
+  
+  ```shell
+  pays_france_hardware > hardware_green.png
+  ```
