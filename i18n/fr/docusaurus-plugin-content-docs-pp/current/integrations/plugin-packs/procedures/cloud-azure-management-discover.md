@@ -20,8 +20,11 @@ afin de modéliser une infrastructure Azure dans Centreon
 
 ### Règles de découverte
 
-Le connecteur de supervision Centreon *Azure Discover* fournit un *provider* de découverte d'Hôtes nommé **Microsoft Azure Management Discover**
-Celui-ci permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée:
+Le connecteur de supervision Centreon *Azure Discover* fournit deux *providers* de découverte d'Hôtes :
+- **Microsoft Azure Management Discover** qui permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée.
+- **Azure Tenant Discovery** qui permet de découvrir l'ensemble des ressources Microsoft Azure de chaque *souscription* rattachée au locataire donné.
+
+> Ces règles de découverte sont uniquement compatibles avec le *custom-mode* 'api'.
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
@@ -71,7 +74,7 @@ yum install centreon-pack-cloud-azure\*
 
 ### Paramètres d'accès
 
-Après avoir sélectionné le provider **Azure Management Discover**, renseignez les paramètres d'authentification ainsi que les options 
+Après avoir sélectionné le provider **Microsoft Azure Management Discover** ou **Azure Tenant Discovery**, renseignez les paramètres d'authentification ainsi que les options 
 d'accès à l'API comme ci-après:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
@@ -83,7 +86,18 @@ d'accès à l'API comme ci-après:
 Dans le cadre d'une première utilisation, vous pouvez créer un nouveau profil d'accès à Azure en cliquant sur '+'. Renseignez ensuite
 les informations demandées comme ci-après:
 
+<Tabs groupId="provider">
+<TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
+
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
+
+</TabItem>
+<TabItem value="Azure Tenant Discovery" label="Azure Tenant Discovery">
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials-tenant.png)
+
+</TabItem>
+</Tabs>
 
 > Tous les champs du formulaire *credentials* doivent être renseignés
 
@@ -93,16 +107,26 @@ Cliquez sur *confirm* puis sur *next* pour afficher la page des paramètres de l
 
 Renseignez si besoin les information ci-après:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
+<Tabs groupId="provider">
+<TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
 
-> Tous les champs de ce formulaire sont facultatifs
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
 
 - Azure Location/Resource Group: permet de restreindre la découverte à une *location* ou un *resource group* donné
 - Filter on namespace/type: permet de restreindre la découverte à un Service Azure spécifique, par exemple:
-    - *Resource namepsace*: 'Microsoft.Compute'
+    - *Resource namespace*: 'Microsoft.Compute'
     - *Resource type*: 'virtualMachines'
-> ** Attention** : pour l'utilisation de ce filtre,
-> les champs *Resource namepsace* et *Resource type* doivent dans ce cas être **tous les deux** renseignés
+    > ** Attention** : pour l'utilisation de ce filtre, les champs *Resource namepsace* et *Resource type* doivent dans ce cas être **tous les deux** renseignés
+
+</TabItem>
+<TabItem value="Azure Tenant Discovery" label="Azure Tenant Discovery">
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters-tenant.png)
+
+</TabItem>
+</Tabs>
+
+> Tous les champs de ce formulaire sont facultatifs
 
 ### Lancement de la découverte et affichage des résultats
 
